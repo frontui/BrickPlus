@@ -1,0 +1,54 @@
+node_modules/
+dist/
+html/
+output/
+
+node_modules
+
+bower_components
+bower_components/
+
+build/node_modules/
+output/
+www
+www/
+
+
+tags
+
+.idea
+.idea/
+.idea/*
+thirdPart/css/
+thirdPart/css
+_thirdPart/
+_thirdPart
+static/css
+static/css/
+
+*.exe
+svn.json
+
+.c9*
+.settings
+
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac crap
+.DS_Store
+
+.svn
+
+*.swo
+*.swp
+
+.vscode

@@ -1,0 +1,39 @@
+{% extends "_layout/layout.html" %}
+
+{# 加载组件 #}
+{# import "_components/modal.html" as modal #}
+
+{# 更多api请参考http://mozilla.github.io/nunjucks/cn/templating.html #}
+
+{# 页面css文件 #}
+{% block css %}
+	<!-- <link rel="stylesheet" href="../css/index.css"> -->
+{% endblock %}
+
+{# 页面内联css文件 #}
+{% block pageCss %}
+	<!--<style>
+		.demo{}
+	</style>-->
+{% endblock %}
+
+{# body内容 #}
+{% block body %}
+	body内容写在这里aaabbbccc
+
+	{% import "_components/navigator.html" as navigator %}
+	{{ navigator.current('detail') }}
+
+{% endblock %}
+
+{# 页面js文件 #}
+{% block js %}
+	<!-- <script src="../js/index.js"></script> -->
+{% endblock %}
+
+{# 页面内联js #}
+{% block pageJs %}
+	<!--<script>
+		.demo{}
+	</script>-->
+{% endblock %}
