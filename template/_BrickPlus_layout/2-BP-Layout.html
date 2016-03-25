@@ -33,7 +33,7 @@
 
 {# 引用公共 javascript 文件 #}
 {% block globalJs %}
-    <script src="{{ static }}/js/jquery.min.js"></script>
-    <script src="{{ static }}/js/common.js"></script>
-    <script src="{{ static }}/js/framework.js"></script>
+    <script src="{{ bower_components }}/jquery/dist/jquery.min.js?v={{ version }}"></script>
+    <script src="{{ static }}/js/common.js?v={{ version }}"></script>
+    <script src="{{ static }}/js/framework.js?v={{ version }}"></script>
 {% endblock %}
