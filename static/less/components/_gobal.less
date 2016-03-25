@@ -1,0 +1,108 @@
+﻿@charset "utf-8";
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    .font-hei();
+    //height: 100%;
+    //width: 100%;
+}
+
+body {
+    font-size: @fontSize-smaller;
+    color: @fontColor-default;
+    background-color: @bgColor-primary;
+    line-height: @line-height-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga","kern";
+
+    * {
+        .border-box();
+    }
+}
+
+//取消移动端浏览器下渲染以下元素点击区域的默认有色遮罩
+a,button,input,textarea,label {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.fontcolor-vice {
+    color: @fontColor-viceText;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    font-weight: 500;
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: @fontColor-heading;
+}
+
+h1 {
+    font-size: @fontSize-largest;
+}
+
+h2 {
+    font-size: @fontSize-larger;
+}
+
+h3 {
+    font-size: @fontSize-large;
+}
+
+h4 {
+    font-size: @fontSize-small;
+}
+
+h5 {
+    font-size: @fontSize-smaller
+}
+
+h6 {
+    font-size: @fontSize-smallest;
+}
+
+.link-standard {
+    .link-standard();
+}
+
+.actgotop {
+    display: none;
+    position: fixed;
+    _position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: @bgColor-actgotop;
+    font-size: @fontSize-large;
+    text-align: center;
+    line-height: @size-actgotop;
+    .square(@size-actgotop);
+    .rounded(@borderRadius-actgotop);
+    .link-custom(lighten(@bgColor-actgotop,30%),lighten(@bgColor-actgotop,30%),none);
+
+    > i {
+        .form-notice-icon-font-family();
+
+        &:before {
+            content: "\e603";
+        }
+    }
+}
+
+.pull-left{
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+
+
+

@@ -1,0 +1,171 @@
+//标签页
+.tabs-wrap {
+    .clearfix();
+    position: relative;
+
+    .tabs {
+        .reset-list(none,0,0);
+        text-align: center;
+
+        > li {
+
+            > .tabs-btn {
+                display: block;
+            }
+        }
+    }
+
+    /*.tab-search-wrap {
+        position: absolute;
+        top: 7px;
+        right: 10px;
+
+        .tab-search-control-width {
+            width: 232px;
+            position: relative;
+            .inline-block();
+            vertical-align: top;
+        }
+
+        > .btn {
+            margin-left: 10px;
+            vertical-align: top;
+        }
+    }*/
+
+    /*&.type1 {
+        background-color: @bgColor1-TabPrototype;
+        border: 1px solid @borderColor1-TabPrototype;
+        border-bottom-width: 2px;
+
+        .tabs {
+            padding: 0 10px;
+            text-align: left;
+            margin-top: -1px;
+
+            > li {
+                float: left;
+                margin-bottom: -2px;
+
+                > .tabs-btn {
+                    .link-custom(@fontColor-default,@fontColor-link,none);
+                    height: 46px;
+                    line-height: 40px;
+                    padding: 0 20px;
+                    background-color: transparent;
+                    font-size: @fontSize-small;
+                    border-top: 3px solid transparent;
+                }
+
+                &.active {
+
+                    > .tabs-btn {
+                        color: @fontColor-heading;
+                        background-color: @domColor7;
+                        border-top-color: @borderColor2-TabPrototype;
+                    }
+                }
+            }
+        }
+    }*/
+
+    /*&.type2 {
+        background-color: @bgColor2-TabPrototype;
+        border: 1px solid @borderColor1-TabPrototype;
+        border-bottom: none;
+
+        .tabs {
+
+            > li {
+                width: 33.33%;
+
+                > .tabs-btn {
+                    border-left: 1px solid @borderColor1-TabPrototype;
+                    border-bottom: 1px solid @borderColor1-TabPrototype;
+                    .link-custom(@fontColor-default,@fontColor-link,none);
+                    padding: 14px 20px 0 20px;
+
+                    > h5, h2 {
+                        color: @fontColor-default;
+                        line-height: @line-height-base;
+                    }
+
+                    > h5 {
+                        text-align: left;
+                    }
+
+                    > h2 {
+                        text-align: right;
+                    }
+                }
+
+                &:first-child {
+
+                    > .tabs-btn {
+                        border-left: none;
+                    }
+                }
+
+                &.active {
+
+                    > .tabs-btn {
+                        border-bottom: 1px solid transparent;
+
+                        > h2 {
+                            color: orange;
+                        }
+                    }
+                }
+            }
+        }
+    }*/
+
+    &.prototype {
+
+        .tabs {
+            padding: 0;
+            text-align: left;
+
+            > li {
+                float: left;
+
+                > .tabs-btn {
+                    .link-standard(@fontColor-default);
+                    .transition(all,0.3s,ease,0);
+                    height: @height-TabPrototype;
+                    line-height: @height-TabPrototype - 2px;
+                    padding: 0 20px;
+                    background-color: @bgColor1-TabPrototype;
+                    font-size: @fontSize-smaller;
+                    border-top: 2px solid transparent;
+                    margin-right: 5px;
+
+                    &:hover {
+                        border-top-color: @borderColor1-TabPrototype;
+                    }
+                }
+
+                &.active {
+
+                    > .tabs-btn {
+                        color: @fontColor-default;
+                        background-color: @bgColor2-TabPrototype;
+                        border-top-color: @borderColor2-TabPrototype;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tabs-content {
+    display: block;
+}
+
+.tabs-panel {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}

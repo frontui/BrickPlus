@@ -1,0 +1,462 @@
+﻿@charset "utf-8";
+
+
+//
+// -------- 全局样式参数 --------
+//
+
+
+//全局参数命名规范：“属性名称 - 作用域”，如：@fontColor-default 尽量吧！！！语死早
+
+
+//图片所在目录
+@images-url:   "../images/";
+
+
+//字体图标所在目录
+@iconfont-url: "../iconfont/";
+
+
+//色调
+@domColor1: #4492d4;
+@domColor2: #5dd396;
+@domColor3: #f17c6b;
+@domColor4: #e091ed;
+@domColor5: #fb6a01;
+@domColor6: #262f3b;
+@domColor7: #ffffff;
+
+
+//基础字符行高
+@line-height-base: 1.428571429;
+
+
+//基础字体尺寸
+@fontSize-base: 14px;
+    //大字体尺寸
+    @fontSize-largest: floor( ( @fontSize-base * 2.45 ) );  // ~34px
+    @fontSize-larger: ceil( ( @fontSize-base * 1.7 ) );     // ~24px
+    @fontSize-large: floor( ( @fontSize-base * 1.3 ) );     // ~18px
+    //小字体尺寸
+    @fontSize-small: ceil( ( @fontSize-base * 1.14 ) );     // ~16px
+    @fontSize-smaller: @fontSize-base;                      // ~14px
+    @fontSize-smallest: floor( ( @fontSize-base * 0.87 ) ); // ~12px
+
+
+//基础文本色调
+@fontColor-base: #999;
+    //标题色调
+    @fontColor-heading: #333;
+
+    @fontColor-text:#666;
+
+    //默认文本色调
+    @fontColor-default: #666;
+    //副文本色调
+    @fontColor-viceText: @fontColor-base;
+    //链接文本色调
+    @fontColor-link: @OW_domColor1;
+    //错误文本色调
+    @fontColor-error: darken(@domColor3,25%);
+    //成功文本色调
+    @fontColor-success: darken(@domColor2,20%);
+    //警告文本色调
+    @fontColor-warning: lighten(@domColor5,10%);
+    //信息文本色调
+    @fontColor-tips: @fontColor-viceText;
+
+
+//基础边框色调
+@borderColor-base: darken(@domColor7,11.5%);                        //#e2e2e2
+    //默认边框色调
+    @borderColor-default: @borderColor-base;                        //#e2e2e2
+    @borderColor-primary: darken(@domColor7,8.2%);                  //#eaeaea
+    
+
+
+//基础背景色
+@bgColor-base: #fff;
+    //主要背景色
+    @bgColor-primary: @bgColor-base;
+    //次要背景色
+    @bgColor-secondary: darken(@domColor7,3%);                      //#f7f7f7
+    //背景色-成功
+    @bgColor-success: lighten(@domColor2,35%);
+    //背景色-信息
+    @bgColor-info: lighten(@domColor1,41%);
+    //背景色-警示
+    @bgColor-warning: lighten(@domColor5,47%);
+    //背景色-危险
+    @bgColor-danger: lighten(@domColor3,27%);
+
+
+//
+// -------- 组件样式参数 --------
+//
+
+
+//组件参数命名规范：“属性名称 - 作用域 - 组件名称”，如：@bgColor-warning-alert  尽量吧！！！语死早
+
+
+//各组件的 Z 轴排序
+    //表单组件
+    @zIndex-dropDownModalDate-btn-formControl: 1;
+    @zIndex-dropDownMenu-formControl: 2;
+    //模态窗组件
+    @zIndex-backGround-modal: 9999;
+    //Bricks 系统框架
+    @zIndex-head-Bricks: 2;
+    @zIndex-screen1024-head-Bricks: 3;
+    @zIndex-searcherBtn-Bricks: 2;
+    @zIndex-UserIcon-Bricks: 2;
+    @zIndex-aside-Bricks: 2;
+    @zIndex-UserMenuGet-Bricks: 1;
+    //下拉菜单组件
+    @zIndex-dropDown-Menu: 1000;
+    //按钮
+    @zIndex-btn-btnGroupBox: 2;
+
+
+//bricks body 背景
+@bgColor-body-Bricks: lighten(@domColor6,76%);
+
+
+//bricks logo
+@color1-BricksLogo: @domColor7;
+@color2-BricksLogo: @domColor5;
+@color3-BricksLogo: @domColor1;
+@duration-BricksLogo: 2.6s;        //bricks logo动画持续时间
+@delay-BricksLogo: 0.6s;           //bricks logo动画延迟运行时间
+@delay-addup-BricksLogo: 0.1s;     //bricks logo动画字母启动时间
+
+
+//bricks主导航
+@height-BricksNav: 62px;
+@bgColor-BricksNav: @domColor7;
+@navColor-BricksNav: @domColor6;
+@borderColor-BricksNav: lighten(@domColor6,70%);
+@borderWidth-BricksHeader: 1px;
+
+
+//bricks导航搜索框
+@size-BricksSearcher: @height-BricksNav;
+@fontSize-BricksSearcher: @fontSize-smaller;
+@bgColor-BricksSearcher: @domColor7;
+@focusWidth-BricksSearcher: @size-BricksSearcher + 200px;
+
+
+//bricks用户icon
+@size-BricksUserIcon: @height-BricksNav - 15px;
+@borderColor-BricksUserIcon: @domColor2;
+
+
+//bricks用户下拉菜单
+@fontColor-linkHover-BricksUserMenu: @domColor2;
+@bgColor-linkHover-BricksUserMenu: lighten(@domColor2,35%);
+@bgColor1-BricksUserMenu: @borderColor-BricksNav;
+@borderColor-BricksUserMenu: @borderColor-BricksNav;
+@bgColor-BricksUserMenu: @bgColor-BricksNav;
+@width-BricksUserMenuOptionGroup: 200px;
+
+
+//bricks侧导航
+@width-BricksAside: 260px;
+@bgColor-BricksAside: @domColor6;
+@fontColor-link-BricksAside: @domColor1;
+@fontColor-linkHover-BricksAside: lighten(@domColor1,20%);
+@currFontColor-btn-BricksAside: @domColor7;
+@hoverBgColor-btn-BricksAside: lighten(@domColor6,4%);
+@currBgColor-btn-BricksAside: linear-gradient(to right,@domColor3, @domColor1);
+@currBorderColor-BricksAside: @domColor2;
+@currBorderWidth-BricksAside: 3px;
+@paddingTB-btn-BricksAside: 8px;
+@paddingLR-btn-BricksAside: 20px;
+@content-btn-i-BricksAside: '\e601';
+@size-btn-b-BricksAside: 28px;
+    //bricks侧导航响应式参数
+    @width-screen1024-BricksAside: 203px;
+    @paddingTB-screen1024-btn-BricksAside: 8px;
+    @paddingLR-screen1024-btn-BricksAside: 20px;
+    @size-screen1024-btn-b-BricksAside: 22px;
+
+
+//bricks色卡展示
+    //bricks色卡颜色
+    @color1-BricksColorExample: @domColor1;
+    @color2-BricksColorExample: @domColor2;
+    @color3-BricksColorExample: @domColor3;
+    @color4-BricksColorExample: @domColor4;
+    @color5-BricksColorExample: @domColor5;
+    @color6-BricksColorExample: @domColor6;
+    @color7-BricksColorExample: @domColor7;
+    //bricks色卡尺寸
+    @size-BricksColorExample: 50px;
+
+
+//tabs-prototype
+@borderColor1-TabPrototype: darken(@domColor7,20%);
+@borderColor2-TabPrototype: @domColor1;
+@bgColor1-TabPrototype: darken(@domColor7,10%);
+@bgColor2-TabPrototype: @domColor7;
+@height-TabPrototype: 36px;
+    //tabs-type1
+    @borderColor1-TabType1: transparent;
+    @borderColor2-TabType1: @domColor1;
+    @bgColor1-TabType1: transparent;
+    @bgColor2-TabType1: #f3f3f3;
+
+
+//按钮
+    //按钮色调
+    @bgColor-default-btn: @domColor7;
+    @bgColor-primary-btn: @OW_domColor1;
+    @bgColor-secondary-btn: @domColor2;
+    @bgColor-thirdly-btn: @domColor3;
+    @bgColor-disabled-btn: #f5f5f5;
+    //按钮尺寸
+    @padding-large-btn: 12px 20px;
+    @height-large-btn: 46px;
+    @padding-default-btn: 8px 16px;
+    @height-default-btn: 38px;
+    @padding-small-btn: 4px 12px;
+    @height-small-btn: 30px;
+    @padding-smaller-btn: 0 8px;
+    @height-smaller-btn: 22px;
+    @padding-dropDownMenu-btn: 8px;
+    @paddingSize-btngb-inForm: 5px;
+    //@padding-large-dropDownMenu-btn: 12px 8px;
+    //@padding-small-dropDownMenu-btn: 4px 8px;
+    //@padding-smaller-dropDownMenu-btn: 0 8px;
+    //按钮外形
+    @borderRadius-btn: 3px;
+
+
+//表单
+    //表单色调
+    @bgColor-default-form: @domColor7;
+    @bgColor-readonly-form: darken(@domColor7,3.5%);
+    @bgColor-disabled-form: @bgColor-readonly-form;
+    @bgColor-tips-form: @bgColor-readonly-form;
+    @bgColor-addon-form: darken(@domColor7,5%);
+    @bgColor-correct-formControl: lighten(@borderColor-correct-formControl,36%);
+    @bgColor-error-formControl: lighten(@borderColor-error-formControl,29%);
+    @bgColor-warning-formControl: lighten(@borderColor-warning-formControl,12%);
+    @bgColor-formControlModaOps: @fontColor-link;
+    @bgColor-formControlModaOps-icon: lighten(@fontColor-link,15%);
+    @borderColor-primary-formControl: lighten(@borderColor-default,20%);
+    @borderColor-focus-formControl: @domColor1;
+    @borderColor-correct-formControl: @domColor2;
+    @borderColor-error-formControl: @domColor3;
+    @borderColor-warning-formControl: lighten(@domColor5,35%);
+    @fontColor-label-formControl: @fontColor-default;
+    @fontColor-value-formControl: @fontColor-default;
+    @fontColor-disabled-formControl: lighten(@fontColor-viceText,20%);
+    @fontColor-formControlModaOps: #fff;
+    @fontColor-formControlModaOps-icon: lighten(@fontColor-link,35%);
+    @fontColor-formControlModaOps-iconHover: lighten(@fontColor-link,100%);
+    //表单图标
+    @content-icon-formControlDropdown: '\e600';
+    @content-icon-formControlModal: '\e607';
+    @content-icon-formControlDate: '\e608';
+    @content-icon-formControlModaOps: '\e070';
+    @content-icon-hasCorrect: '\e281';
+    @content-icon-hasError: '\e205';
+    @content-icon-hasWarning: '\e000';
+    //默认表单尺寸
+    @width-label-formControl: 170px;
+    @width-label-grid-formControl: 94px;
+    @width-grpFix-formControl: 10px; //处理 .form-control-label 和 .form-control-wrap / modal / date / select 之间的间隔
+    @height-formControl: 38px;
+    @borderRadius-formControl: @borderRadius-btn;
+    @fontSize-formControl: @fontSize-smaller;
+    @lineHeight-formControl: @fontSize-formControl + 4px;
+    @borderWidth-formControl: 1px;
+    @paddingLR-default-fromControl: 15px;
+    @paddingTB-default-fromControl: ( @height-formControl - @lineHeight-formControl ) / 2 - @borderWidth-formControl;
+    @size-noticeArrow-formControl: 6px;
+    @marginR-default-formControlModaOps: 10px;
+    @marginR-default-formControlModaOps: 10px;
+    @pa-ma-width-grid-gutter-formControl: 5px;
+    @paddingBottom-default-formTitle: 6px;
+    @fontSize-sub-content-formTitle: 70%;
+
+        //表单尺寸（large）
+        @width-label-large-formControl: @width-label-formControl;
+        @height-large-formControl: 46px;
+        @fontSize-large-formControl: @fontSize-small;
+        @lineHeight-large-formControl: @fontSize-large-formControl + 4px;
+        @paddingLR-large-fromControl: @paddingLR-default-fromControl;
+        @paddingTB-large-fromControl: ( @height-large-formControl - @lineHeight-large-formControl ) / 2 - @borderWidth-formControl;
+        //表单尺寸（small）
+        @width-label-small-formControl: @width-label-formControl;
+        @height-small-formControl: 30px;
+        @fontSize-small-formControl: @fontSize-smaller;
+        @lineHeight-small-formControl: @fontSize-small-formControl + 4px;
+        @paddingLR-small-fromControl: @paddingLR-default-fromControl - 6px;
+        @paddingTB-small-fromControl: ( @height-small-formControl - @lineHeight-small-formControl ) / 2 - @borderWidth-formControl;
+        @marginR-small-formControlModaOps: 6px;
+        //表单尺寸（small）
+        @width-label-smaller-formControl: @width-label-formControl;
+        @height-smaller-formControl: 22px;
+        @fontSize-smaller-formControl: @fontSize-smallest;
+        @lineHeight-smaller-formControl: @fontSize-smaller-formControl + 4px;
+        @paddingLR-smaller-fromControl: @paddingLR-default-fromControl - 8px;
+        @paddingTB-smaller-fromControl: ( @height-smaller-formControl - @lineHeight-smaller-formControl ) / 2 - @borderWidth-formControl;
+        @marginR-smaller-formControlModaOps: 4px;
+
+
+//模态窗口
+    //模态窗口尺寸
+    @btnSize-close-modal: 38px;
+    @lineHeight-head-modal: @btnSize-close-modal;
+    @borderRadius-wrap-modal: 5px;
+    @padding-head-modal: 20px @padding-body-modal 0 @padding-body-modal;
+    @padding-body-modal: 30px;
+    @width-wrap-modal: 40%;
+    @minWidth-wrap-modal: 650px;
+    //模态窗口图标
+    @content-icon-close-modal: '\e070';
+    //模态窗口色调
+    @bgColor-body-modal: @bgColor-primary;
+    @bgColor-head-modal: @bgColor-body-modal;
+
+
+//caret 箭头
+@sizeX-default-caret: 4px;
+@sizeY-default-caret: @sizeX-default-caret;
+
+
+//下拉菜单
+    //下拉菜单尺寸
+    @borderRadius-dorpDown-menu: @borderRadius-btn;
+    @minWidth-dorpDown-menu: 160px;
+    //下拉菜单色调
+    @bgColorHover-btn-dorpDown-menu: darken(@domColor7,3%);
+    @borderColor-dorpDown-menu: darken(@domColor7,25%);
+
+
+//表格
+    //表格图标
+    @content-icon-take-amount: '\e07f';
+    @content-icon-add-amount: '\e069';
+    //表格尺寸
+    @paddingSize-default-th-table: 8px;
+    @paddingSize-default-td-table: 8px;
+    @borderWidth-1-table: 1px;
+    //表格色调
+    @borderColor-1-table: @domColor1;
+    @borderColor-2-table: lighten(@domColor6,70%);
+    @bgColor-trHover-table: darken(@domColor7,2%);
+    @bgColor-trInverse-table: lighten(@domColor1,43.5%);
+    @bgColor-tr-active-table: @bgColor-trHover-table;
+    @bgColor-tr-success-table: @bgColor-success;
+    @bgColor-tr-info-table: @bgColor-info;
+    @bgColor-tr-warning-table: @bgColor-warning;
+    @bgColor-tr-danger-table: @bgColor-danger;
+    @bgColor-1-th-table: darken(@domColor7,2%);
+    
+
+//路径导航
+    //路径导航图标
+    @content-icon-default-breadcrumb: '\e602';
+    @content-icon-type2-breadcrumb: '/';
+    //路径导航尺寸
+    @fontSize-icon-default-breadcrumb: @fontSize-smallest;
+    @fontSize-icon-type2-breadcrumb: @fontSize-smallest;
+    @fontSize-default-breadcrumb: @fontSize-smaller;
+    //路径导航色调
+    @fontColor-icon-breadcrumb: @fontColor-viceText;
+    @fontColor-default-breadcrumb: @fontColor-default;
+
+
+//分页尺寸
+
+
+//步骤图尺寸
+
+
+//初始设计页面框架宽度
+
+
+//回顶部组件
+@size-actgotop: 50px;
+@lineHeight-actgotop: @size-actgotop;
+@borderRadius-actgotop: 3px;
+@bgColor-actgotop: @domColor3;
+
+
+//栅格系统
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+// Deprecated `@screen-xs` as of v3.0.1
+@screen-xs:                  480px;
+// Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              @screen-xs;
+// Deprecated `@screen-phone` as of v3.0.1
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+// Deprecated `@screen-sm` as of v3.0.1
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+// Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+// Deprecated `@screen-md` as of v3.0.1
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+// Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+// Deprecated `@screen-lg` as of v3.0.1
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+// Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+// Number of columns in the grid.
+@grid-columns:              12;
+// Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:         30px;
+// Navbar collapse
+// Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @screen-sm-min;
+// Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+@container-tablet:             (720px + @grid-gutter-width);
+// For `@screen-sm-min` and up.
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            (940px + @grid-gutter-width);
+// For `@screen-md-min` and up.
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      (1140px + @grid-gutter-width);
+// For `@screen-lg-min` and up.
+@container-lg:                 @container-large-desktop;
+
+@import "_ow_config.less";     //官网变量

@@ -1,0 +1,278 @@
+﻿@charset "utf-8";
+
+// ******************
+// 表格基础样式
+// ******************
+.table-wrap {
+    position: relative;
+    background-color: transparent;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    font-size: @fontSize-smaller;
+    table-layout: fixed;
+
+    tr {
+        cursor: default;
+        .transition(all,0.3s,ease,0);
+    }
+
+    caption {
+        display: none;
+    }
+
+    .t-active {
+        background-color: @bgColor-tr-active-table;
+
+        &:hover {
+            background-color: darken(@bgColor-tr-active-table,3%);
+        }
+    }
+
+    .t-success {
+        background-color: @bgColor-tr-success-table;
+
+        &:hover {
+            background-color: darken(@bgColor-tr-success-table,2.5%);
+        }
+    }
+
+    .t-info {
+        background-color: @bgColor-tr-info-table;
+
+        &:hover {
+            background-color: darken(@bgColor-tr-info-table,2.5%);
+        }
+    }
+
+    .t-warning {
+        background-color: @bgColor-tr-warning-table;
+
+        &:hover {
+            background-color: darken(@bgColor-tr-warning-table,2.5%);
+        }
+    }
+
+    .t-danger {
+        background-color: @bgColor-tr-danger-table;
+
+        &:hover {
+            background-color: darken(@bgColor-tr-danger-table,2.2%);
+        }
+    }
+
+    > tbody > tr,
+    > tfoot > tr {
+        border-bottom: @borderWidth-1-table solid @borderColor-2-table;
+
+        &:hover {
+            background-color: @bgColor-trHover-table;
+        }
+
+        > td {
+            text-align: left;
+            color: @fontColor-default;
+            padding: @paddingSize-default-td-table;
+            .word-wrap();
+
+            > input[type="checkbox"] {
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
+    }
+
+    > thead > tr,
+    > tbody > tr {
+
+        > th {
+            text-align: left;
+            padding: @paddingSize-default-th-table;
+            color: @fontColor-heading;
+            border-bottom: @borderWidth-1-table * 2 solid @borderColor-1-table;
+            background-color: @bgColor-primary;
+            font-weight: 500;
+
+            > input[type="checkbox"] {
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &.table-inverse {
+
+        > tbody > tr:nth-of-type(even) {
+            background-color: @bgColor-trInverse-table;
+
+            &:hover {
+                background-color: @bgColor-trHover-table;
+            }
+        }
+    }
+
+    &.table-bordered-type1 {
+        border: @borderWidth-1-table solid @borderColor-2-table;
+
+        > tbody,
+        > tfoot {
+
+            > tr {
+
+                > td {
+                    border: @borderWidth-1-table solid @borderColor-2-table;
+                }
+            }
+        }
+    }
+
+    &.table-bordered-type2 {
+        border: @borderWidth-1-table solid @borderColor-2-table;
+
+
+        tr {
+
+            > th {
+                background-color: @bgColor-1-th-table;
+            }
+        }
+
+        > thead {
+
+            > tr > th {
+                border: @borderWidth-1-table solid @borderColor-2-table;
+            }
+        }
+
+        > tbody > tr,
+        > tfoot > tr {
+
+            > th {
+                text-align: right;
+                border-bottom-width: @borderWidth-1-table;
+                border-bottom-color: @borderColor-2-table;
+            }
+
+            > td {
+                border: @borderWidth-1-table solid @borderColor-2-table;
+            }
+        }
+    }
+
+    &.table-bordered-type3 {
+        border: @borderWidth-1-table solid @borderColor-2-table;
+
+        > thead,
+        > tbody,
+        > tfoot {
+
+            > tr {
+
+                > th,
+                > td {
+                    border: @borderWidth-1-table solid @borderColor-2-table;
+                }
+            }
+        }
+    }
+}
+
+
+
+// ******************
+// 全选
+// ******************
+.table-checked-all {
+    position: relative;
+    display: block;
+    padding-left: 20px;
+    text-align: left;
+    cursor: pointer;
+
+    > input[type="checkbox"] {
+        position: absolute;
+        top: 4px;
+        left: 0;
+    }
+}
+
+/*.table-ctrls {
+    position: relative;
+    color: @fontColor-link;
+    cursor: pointer;
+
+    .caret-down {
+        border-top-color: @fontColor-link;
+        margin-left: 5px;
+    }
+
+    > .ctrls {
+        display: none;
+        position: absolute;
+        top: -5px;
+        left: -13px;
+        background-color: #fff;
+        border: 1px solid @borderColor-default;
+        width: 100%;
+
+        > a {
+            display: block;
+            height: 24px;
+            line-height: 24px;
+            .link-custom( @fontColor-link,#fff,none );
+            text-align: center;
+
+            &:hover {
+                background-color: @bgColor-primary;
+            }
+        }
+    }
+
+    &:hover > .ctrls {
+        display: block;
+    }
+}*/
+
+// ******************
+// 数值
+// ******************
+.amount {
+    position: relative;
+
+    > b {
+        display: none;
+    }
+
+    &.add,
+    &.take {
+        padding-left: 18px;
+        position: relative;
+
+        &:before {
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            .form-notice-icon-font-family();
+            font-size: @fontSize-small;
+        }
+    }
+
+    &.add {
+        color: @fontColor-success;
+
+        &:before {
+            content: @content-icon-add-amount;
+        }
+    }
+
+    &.take {
+        color: @fontColor-error;
+
+        &:before {
+            content: @content-icon-take-amount;
+        }
+    }
+}

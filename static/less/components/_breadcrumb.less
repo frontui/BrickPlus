@@ -1,0 +1,34 @@
+﻿@charset "utf-8";
+
+// ******************
+// 路径导航基础样式
+// ******************
+.breadcrumb {
+    .reset-list(left,@fontSize-default-breadcrumb,@line-height-base);
+    .clearfix();
+    display: block;
+
+    > li {
+        color: @fontColor-default-breadcrumb;
+        position: relative;
+
+        > a {
+            .link-standard();
+            display: block;
+        }
+
+        & + li {
+            padding-left: 28px;
+
+            &:before {
+                .form-notice-icon-font-family();
+                content: @content-icon-default-breadcrumb;
+                color: @fontColor-icon-breadcrumb;
+                font-size: @fontSize-icon-default-breadcrumb;
+                position: absolute;
+                left: 8px;
+                top: 4px;
+            }
+        }
+    }
+}

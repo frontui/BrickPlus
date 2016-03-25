@@ -1,0 +1,39 @@
+{% extends "1-BP-Base.html" %}
+
+
+{# 引用公共样式表 #}
+{% block globalCss %}
+	<link rel="stylesheet" href="{{ static }}/css/BrickPlus.css?v={{ version }}">
+{% endblock %}
+
+
+{# 加载主导航 #}
+{% import "_components/navigator.html" as navigator %}
+
+{# 加载侧导航导航 #}
+{% import "_components/asideNav.html" as asideNav %}
+
+{# 加载页脚 #}
+{% import "_components/footer.html" as footer %}
+
+
+{# 公共Dom树 #}
+{% block body %}
+    <div class="main">
+        {{ navigator.theNav() }}
+
+        {# 加载页面内容 #}
+        {% block content %}
+        {% endblock %}
+
+        {{ footer.theFooter() }}
+    </div>
+{% endblock %}
+
+
+{# 引用公共 javascript 文件 #}
+{% block globalJs %}
+    <script src="{{ static }}/js/jquery.min.js"></script>
+    <script src="{{ static }}/js/common.js"></script>
+    <script src="{{ static }}/js/framework.js"></script>
+{% endblock %}
