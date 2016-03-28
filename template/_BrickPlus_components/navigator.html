@@ -1,8 +1,8 @@
-{% macro theNav(main,cur='') %}
+{% macro theNav(mainNav,cur='') %}
     <nav class="bricks-header">
         <div class="bricks-nav">
             <ul>
-                {% for item in main %}
+                {% for item in mainNav %}
                 <li {% if loop.index == cur %}class="current"{% endif %}>
                     <a href="{{ item.url }}">
                         {{ item.text }}
