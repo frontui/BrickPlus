@@ -1,33 +1,15 @@
-{% macro theNav(cur='') %}
-    <div class="bricks-header">
+{% macro theNav(main,cur='') %}
+    <nav class="bricks-header">
         <div class="bricks-nav">
             <ul>
-                <li>
-                    <a href="#">
-                        起步
+                {% for item in main %}
+                <li {% if loop.index == cur %}class="current"{% endif %}>
+                    <a href="{{ item.url }}">
+                        {{ item.text }}
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        全局样式
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        组件
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        JavaScript 插件
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        GitHub
-                    </a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
-    </div>
+    </nav>
 {% endmacro %}

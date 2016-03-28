@@ -1,4 +1,4 @@
-{% extends "1-BP-Base.html" %}
+{% extends "_BrickPlus_layout/1-BP-Base.html" %}
 
 
 {# 引用公共样式表 #}
@@ -8,19 +8,29 @@
 
 
 {# 加载主导航 #}
-{% import "_components/navigator.html" as navigator %}
+{% import "_BrickPlus_components/navigator.html" as navigator %}
 
 {# 加载侧导航导航 #}
-{% import "_components/asideNav.html" as asideNav %}
+{% import "_BrickPlus_components/asideNav.html" as asideNav %}
 
 {# 加载页脚 #}
-{% import "_components/footer.html" as footer %}
+{% import "_BrickPlus_components/footer.html" as footer %}
 
 
 {# 公共Dom树 #}
 {% block body %}
     <div class="main">
-        {{ navigator.theNav() }}
+
+        {# 设置主导航 #}
+        {%
+            set main = [
+            {text: '起步', url: 'BP-Start-Download.html'},
+            {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
+            {text: '组件', url: 'BP-ComponentsStyle-BreadCrumb.html'},
+            {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-CheckAll.html'},
+            {text: 'GitHub', url: 'javascript:;void(0)'}
+            ]
+        %}
 
         {# 加载页面内容 #}
         {% block content %}

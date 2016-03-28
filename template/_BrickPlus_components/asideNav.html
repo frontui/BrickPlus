@@ -1,2 +1,26 @@
-{% macro render(cur='') %}
+{% macro theAsideNav(mainAsideNav,cur='') %}
+<aside class="bricks-aside">
+    <div class="bricks-logo move">
+        <span>B</span>
+        <span>r</span>
+        <span>i</span>
+        <span>c</span>
+        <span>k</span>
+        <span>&nbsp;+</span>
+        <a href="BP-Start-Download.html"></a>
+    </div>
+    <div class="bricks-aside-ul-wrap">
+        <ul>
+            {% for item in mainAsideNav %}
+            <li {% if loop.index == cur %}class="animation-icon current"{% endif %}>
+                <a href="{{ item.url }}">
+                    <i></i>
+                    <b></b>
+                    {{ item.text }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>
 {% endmacro %}
