@@ -1,7 +1,7 @@
 {% macro theAsideNav(mainAsideNav,cur='') %}
 <aside class="bricks-aside">
-    <div class="bricks-logo move">
-        <span>B</span>
+    <div class="bricks-logo" id="BrickPlusLogo">
+        <span>b</span>
         <span>r</span>
         <span>i</span>
         <span>c</span>
@@ -12,7 +12,7 @@
     <div class="bricks-aside-ul-wrap">
         <ul>
             {% for item in mainAsideNav %}
-            <li {% if loop.index == cur %}class="animation-icon current"{% endif %}>
+            <li {% if loop.index == cur %}class="current"{% endif %}>
                 <a href="{{ item.url }}">
                     <i></i>
                     <b></b>
