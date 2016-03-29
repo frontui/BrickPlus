@@ -2,7 +2,7 @@
 
 ## 简介
 
-BrickPlus 是部分基于 Bootstarp 框架的FrontUI前端团队的项目开发框架
+BrickPlus 是部分基于 Bootstarp 框架的FrontUI项目UI
 
 ## 快速开始
 
