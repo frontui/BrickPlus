@@ -18,6 +18,19 @@ body {
     background-color: @bgColor-body-Bricks;
 }
 
+//appSim css
+.brick-app-sim-wrap {
+    position: fixed;
+    background-color: @bgColor-primary;
+    top: @paddingSize-appSim-bricks;
+    bottom: @paddingSize-appSim-bricks;
+    left: @paddingSize-appSim-bricks;
+    right: @paddingSize-appSim-bricks;
+    .outer-shadow(0,0,7px,0.15);
+    .rounded(@borderRadius-appSim-bricks);
+    padding-left: @width-BricksAside;
+}
+
 //bricks logo
 & {
     .keyframes( bricks );
@@ -111,11 +124,11 @@ body {
 //bricks 主导航
 .bricks-header {
     z-index: @zIndex-head-Bricks;
-    position: fixed;
+    position: static;
     top: 0;
     left: @width-BricksAside;
     right: 0;
-    background-color: @bgColor-BricksNav;
+    //background-color: @bgColor-BricksNav;
     border-bottom: @borderWidth-BricksHeader solid @borderColor-BricksNav;
     .clearfix();
 
@@ -405,13 +418,14 @@ body {
 //bricks 侧导航
 .bricks-aside {
     z-index: @zIndex-aside-Bricks;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    background-color: @bgColor-BricksAside;
+    //background-color: @bgColor-BricksAside;
     width: @width-BricksAside;
     overflow: hidden;
+    border-right: 1px solid @borderColor-default;
 }
 
 .bricks-aside-ul-wrap {
@@ -473,7 +487,7 @@ body {
                 }
 
                 &:hover {
-                    background-color: @hoverBgColor-btn-BricksAside;
+                    //background-color: @hoverBgColor-btn-BricksAside;
 
                     > i {
                         left: 232px;
@@ -487,7 +501,7 @@ body {
                 > a {
                     color: @currFontColor-btn-BricksAside;
                     background: @currBgColor-btn-BricksAside;
-                    .outer-shadow(0,0,8px,0.4);
+                    //.outer-shadow(0,0,8px,0.4);
 
                     > i {
                         left: 232px;

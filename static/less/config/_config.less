@@ -118,11 +118,14 @@
 
 
 //bricks body 背景
-@bgColor-body-Bricks: @bgColor-primary; //lighten(@domColor6,76%);
+@bgColor-body-Bricks: lighten(@domColor6,76%);
 
+//bricks app 框体
+@borderRadius-appSim-bricks: 5px;
+@paddingSize-appSim-bricks: 15px;
 
 //bricks logo
-@color1-BricksLogo: @domColor7;
+@color1-BricksLogo: @domColor6;
 @color2-BricksLogo: @domColor5;
 @color3-BricksLogo: @domColor1;
 @duration-BricksLogo: 2.6s;        //bricks logo动画持续时间
@@ -161,11 +164,11 @@
 
 //bricks侧导航
 @width-BricksAside: 260px;
-@bgColor-BricksAside: @bgColor-primary;
-@fontColor-link-BricksAside: @domColor1;
-@fontColor-linkHover-BricksAside: lighten(@domColor1,20%);
+@bgColor-BricksAside: darken(@domColor7,2%);
+@fontColor-link-BricksAside: @navColor-BricksNav;
+@fontColor-linkHover-BricksAside: @fontColor-link; //lighten(@domColor1,20%);
 @currFontColor-btn-BricksAside: @domColor7;
-@hoverBgColor-btn-BricksAside: lighten(@domColor6,4%);
+@hoverBgColor-btn-BricksAside: darken(@domColor7,2%);
 @currBgColor-btn-BricksAside: linear-gradient(to right,@domColor3, @domColor1);
 @currBorderColor-BricksAside: @domColor2;
 @currBorderWidth-BricksAside: 3px;
