@@ -17,15 +17,65 @@
 {% endblock %}
 
 
-{# 加载页面内容 #}
-{% block content %}
-
+{# 渲染页面导航 #}
+{% block nav %}
     {# 渲染主导航 #}
     {{ navigator.theNav(mainNav,cur='2') }}
-
     {# 渲染侧导航 #}
     {{ asideNav.theAsideNav(mainAsideNav,cur='5') }}
+{% endblock %}
 
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-wrap type-two">
+    <ul class="tabs">
+        <li class="active">
+            <a class="tabs-btn" href="#...">
+                可作按钮的标签或元素
+            </a>
+        </li>
+        <li>
+            <a class="tabs-btn" href="#...">
+                预定义样式
+            </a>
+        </li>
+        <li>
+            <a class="tabs-btn" href="#...">
+                尺寸
+            </a>
+        </li>
+        <li>
+            <a class="tabs-btn" href="#...">
+                排版
+            </a>
+        </li>
+        <li>
+            <a class="tabs-btn" href="#...">
+                按钮组
+            </a>
+        </li>
+    </ul>
+</div>
+<!--<div class="">
+    <div class="btn-group-box">
+        <a href="" class="btn default">可作按钮的标签或元素</a>
+        <a href="" class="btn default">预定义样式</a>
+        <a href="" class="btn default">尺寸</a>
+        <a href="" class="btn default">排版</a>
+        <a href="" class="btn default">按钮组</a>
+    </div>
+</div>-->
+
+<div class="tabs-content">
+    <div class="tabs-panel active" id="...">
+        <div class="example-wrap">
+            <p class="example-description">
+                为 <code>&lt;a&gt;</code> 、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮的类，即可使用。
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 

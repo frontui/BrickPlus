@@ -1,12 +1,5 @@
 ﻿@charset "utf-8";
 
-/*
-* @project    : BrickPlus
-* @author     : FrontUI
-* @created    : 2016-03-25
-* @description: BrickPlus 是部分基于 Bootstarp 框架的FrontUI前端团队的项目开发框架
-*/
-
 @import "_share"; //项目共用样式库
 
 /*
@@ -18,19 +11,6 @@ body {
     background-color: @bgColor-body-Bricks;
 }
 
-//appSim css
-.brick-app-sim-wrap {
-    position: fixed;
-    background-color: @bgColor-primary;
-    top: @paddingSize-appSim-bricks;
-    bottom: @paddingSize-appSim-bricks;
-    left: @paddingSize-appSim-bricks;
-    right: @paddingSize-appSim-bricks;
-    .outer-shadow(0,0,7px,0.15);
-    .rounded(@borderRadius-appSim-bricks);
-    padding-left: @width-BricksAside;
-}
-
 //bricks logo
 & {
     .keyframes( bricks );
@@ -38,7 +18,7 @@ body {
     .-frames(@-...) {
         0% {
             @{-}opacity: 0;
-            @{-}transform: rotateY(180deg);
+        @{-}transform: rotateY(180deg);
         }
         30% {
             @{-}opacity: 1;
@@ -48,11 +28,11 @@ body {
         }
         60% {
             @{-}transform: scale(1.8);
-            @{-}opacity: 0;
+        @{-}opacity: 0;
         }
         90% {
             @{-}color:@bgColor-BricksAside;
-            @{-}transform: scale(1.5);
+        @{-}transform: scale(1.5);
         }
         95% {
             @{-}color: @color2-BricksLogo;
@@ -60,7 +40,7 @@ body {
 
         100% {
             @{-}color: @color1-BricksLogo;
-            @{-}transform: scale(1);
+        @{-}transform: scale(1);
         }
     }
 }
@@ -69,8 +49,8 @@ body {
     font-size: 0;
     line-height: 0;
     position: relative;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
 
     > a {
         position: absolute;
@@ -123,12 +103,12 @@ body {
 
 //bricks 主导航
 .bricks-header {
-    z-index: @zIndex-head-Bricks;
-    position: static;
-    top: 0;
-    left: @width-BricksAside;
-    right: 0;
-    //background-color: @bgColor-BricksNav;
+    //z-index: @zIndex-head-Bricks;
+    //position: fixed;
+    //top: 0;
+    //left: @width-BricksAside;
+    //right: 0;
+    background-color: @bgColor-BricksNav;
     border-bottom: @borderWidth-BricksHeader solid @borderColor-BricksNav;
     .clearfix();
 
@@ -373,7 +353,7 @@ body {
 
 .bum {
     display: block;
-    .link-custom(@fontColor-link-BricksAside,@fontColor-linkHover-BricksUserMenu,none);
+    .link-custom(@fontColor-link,@fontColor-linkHover-BricksUserMenu,none);
     .transition(all,0.15s,linear,0);
     padding: 5px 10px;
     font-size: @fontSize-smaller;
@@ -409,7 +389,7 @@ body {
     }
 
     .bum {
-        background-color: lighten(@fontColor-link-BricksAside,40%);
+        background-color: lighten(@fontColor-link,42%);
         margin: 0 5px 10px 5px;
         padding: 10px 10px;
     }
@@ -418,14 +398,14 @@ body {
 //bricks 侧导航
 .bricks-aside {
     z-index: @zIndex-aside-Bricks;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    //background-color: @bgColor-BricksAside;
+    background-color: @bgColor-BricksAside;
     width: @width-BricksAside;
     overflow: hidden;
-    border-right: 1px solid @borderColor-default;
+    border-right: 1px solid @orderColor-BricksAside;
 }
 
 .bricks-aside-ul-wrap {
@@ -434,6 +414,7 @@ body {
         .reset-list( none,@fontSize-smaller,@line-height-base );
 
         > li {
+            padding: 0 10px;
 
             > a {
                 position: relative;
@@ -441,13 +422,14 @@ body {
                 padding: @paddingTB-btn-BricksAside @paddingLR-btn-BricksAside+20px @paddingTB-btn-BricksAside @paddingLR-btn-BricksAside;
                 .link-custom(@fontColor-link-BricksAside,@fontColor-linkHover-BricksAside,none);
                 .transition(all,0.3s,ease,0);
+                .rounded(@borderRadius-btn-BricksAside);
 
                 > i {
                     .form-notice-icon-font-family();
                     position: absolute;
-                    left: -@paddingLR-btn-BricksAside;
+                    right: -@paddingLR-btn-BricksAside;
                     top: 11px;
-                    .transition(all,0.18s,ease,0);
+                    .transition(all,0.3s,ease,0);
                     .opacity-custom(0);
 
                     &:before {
@@ -458,7 +440,7 @@ body {
                 > b {
                     display: none;
                     position: absolute;
-                    left: 225px;
+                    right: 7px;
                     top: 4px;
                     .rounded(50%);
                     .square(@size-btn-b-BricksAside);
@@ -487,10 +469,10 @@ body {
                 }
 
                 &:hover {
-                    //background-color: @hoverBgColor-btn-BricksAside;
+                    background-color: @hoverBgColor-btn-BricksAside;
 
                     > i {
-                        left: 232px;
+                        right: 14px;
                         .opacity-custom(1);
                     }
                 }
@@ -504,7 +486,7 @@ body {
                     //.outer-shadow(0,0,8px,0.4);
 
                     > i {
-                        left: 232px;
+                        right: 14px;
                         .opacity-custom(1);
                     }
 
@@ -530,6 +512,7 @@ body {
                             border-width: 1px;
                             .scale(0.7);
                             .opacity-custom(0.25);
+
                         }
                     }
                 }
@@ -555,7 +538,7 @@ body {
                     padding: @paddingTB-screen1024-btn-BricksAside @paddingLR-screen1024-btn-BricksAside+10px @paddingTB-screen1024-btn-BricksAside @paddingLR-screen1024-btn-BricksAside;
 
                     > b {
-                        left: 172px;
+                        right: 7px;
                         top: 5px;
                         .square(@size-screen1024-btn-b-BricksAside);
                     }
@@ -563,7 +546,7 @@ body {
                     &:hover {
 
                         > i {
-                            left: 176px;
+                            right: 12px;
                         }
                     }
                 }
@@ -573,7 +556,7 @@ body {
                     > a {
 
                         > i {
-                            left: 176px;
+                            right: 12px;
                         }
                     }
                 }
@@ -595,8 +578,8 @@ body {
     }
 }
 
-.bricks-contant-wrap {
-    margin: (@height-BricksNav + @borderWidth-BricksHeader + 15px) 15px 15px 15px;
+.bricks-content-wrap {
+    margin: 0px; //(@height-BricksNav + @borderWidth-BricksHeader + 15px) 15px 15px 15px;
     display: none;
 }
 
@@ -607,7 +590,7 @@ body {
     .-frames(@-...) {
         0% {
             @{-}opacity: 0;
-            @{-}transform: translateX(150px);
+            @{-}transform: translateY(150px);
         }
 
         80% {
@@ -616,7 +599,7 @@ body {
 
         100% {
             @{-}opacity: 1;
-            @{-}transform: translateX(0);
+            @{-}transform: translateY(0);
         }
     }
 }
@@ -683,7 +666,7 @@ body {
     background-color: @bgColor-primary;
     border: 1px solid @borderColor-primary;
     line-height: @line-height-base;
-    
+
     &.typeone {
         border-left: 3px solid @domColor3;
     }
@@ -740,7 +723,7 @@ body {
             display: block;
 
             span {
-                
+
                 &.tg {
                     color: @fontColor-viceText;
                 }
@@ -769,7 +752,7 @@ body {
         outline: none;
         border: none;
         .rounded(@borderRadius-wrap-modal);
-        
+
     }
 
     > .modal-background {

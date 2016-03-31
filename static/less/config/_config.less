@@ -118,11 +118,8 @@
 
 
 //bricks body 背景
-@bgColor-body-Bricks: lighten(@domColor6,76%);
+@bgColor-body-Bricks: @bgColor-primary; //lighten(@domColor6,76%);
 
-//bricks app 框体
-@borderRadius-appSim-bricks: 5px;
-@paddingSize-appSim-bricks: 15px;
 
 //bricks logo
 @color1-BricksLogo: @domColor6;
@@ -164,22 +161,24 @@
 
 //bricks侧导航
 @width-BricksAside: 260px;
-@bgColor-BricksAside: darken(@domColor7,2%);
-@fontColor-link-BricksAside: @navColor-BricksNav;
-@fontColor-linkHover-BricksAside: @fontColor-link; //lighten(@domColor1,20%);
-@currFontColor-btn-BricksAside: @domColor7;
-@hoverBgColor-btn-BricksAside: darken(@domColor7,2%);
-@currBgColor-btn-BricksAside: linear-gradient(to right,@domColor3, @domColor1);
-@currBorderColor-BricksAside: @domColor2;
 @currBorderWidth-BricksAside: 3px;
+@borderRadius-btn-BricksAside: 3px;
 @paddingTB-btn-BricksAside: 8px;
-@paddingLR-btn-BricksAside: 20px;
+@paddingLR-btn-BricksAside: 15px;
 @content-btn-i-BricksAside: '\e601';
 @size-btn-b-BricksAside: 28px;
+    //bricks侧导航颜色
+    @bgColor-BricksAside: @bgColor-primary;
+    @fontColor-link-BricksAside: @domColor6;
+    @fontColor-linkHover-BricksAside: @fontColor-link;
+    @currFontColor-btn-BricksAside: @domColor7;
+    @hoverBgColor-btn-BricksAside: darken(@domColor7,2%);
+    @currBgColor-btn-BricksAside: linear-gradient(to right,@domColor3, @domColor1);
+    @orderColor-BricksAside:  @borderColor-BricksNav;
     //bricks侧导航响应式参数
     @width-screen1024-BricksAside: 203px;
     @paddingTB-screen1024-btn-BricksAside: 8px;
-    @paddingLR-screen1024-btn-BricksAside: 20px;
+    @paddingLR-screen1024-btn-BricksAside: 15px;
     @size-screen1024-btn-b-BricksAside: 22px;
 
 
@@ -207,6 +206,9 @@
     @borderColor2-TabType1: @domColor1;
     @bgColor1-TabType1: transparent;
     @bgColor2-TabType1: #f3f3f3;
+    //type-two
+    @bgColor1-TabType2: darken(@domColor7,3%);
+    @bgColor2-TabType2: #f3f3f3;
 
 
 //按钮

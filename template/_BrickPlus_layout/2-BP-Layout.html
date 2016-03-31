@@ -9,6 +9,16 @@
 
 {# 加载主导航 #}
 {% import "_BrickPlus_components/navigator.html" as navigator %}
+{# 设置主导航 #}
+{%
+    set mainNav = [
+        {text: '起步', url: 'BP-Start-Download.html'},
+        {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
+        {text: '组件', url: 'BP-ComponentsStyle-BreadCrumb.html'},
+        {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-CheckAll.html'},
+        {text: 'GitHub', url: 'javascript:;void(0)'}
+    ]
+%}
 
 {# 加载侧导航导航 #}
 {% import "_BrickPlus_components/asideNav.html" as asideNav %}
@@ -16,30 +26,25 @@
 {# 加载页脚 #}
 {% import "_BrickPlus_components/footer.html" as footer %}
 
-
 {# 公共Dom树 #}
 {% block body %}
     <div class="main">
-        <div class="brick-app-sim-wrap">
+        <div class="bricks-main-wrap">
 
-            {# 设置主导航 #}
-            {%
-                set mainNav = [
-                    {text: '起步', url: 'BP-Start-Download.html'},
-                    {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
-                    {text: '组件', url: 'BP-ComponentsStyle-BreadCrumb.html'},
-                    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-CheckAll.html'},
-                    {text: 'GitHub', url: 'javascript:;void(0)'}
-                ]
-            %}
-
-            {# 加载页面内容 #}
-            {% block content %}
+            {# 渲染页面导航 #}
+            {% block nav %}
             {% endblock %}
 
-            {{ footer.theFooter() }}
+            <div class="bricks-content-wrap">
+                {# 加载页面内容 #}
+                {% block content %}
+                {% endblock %}
+            </div>
 
         </div>
+
+        {{ footer.theFooter() }}
+
     </div>
 {% endblock %}
 

@@ -156,6 +156,46 @@
             }
         }
     }
+
+    &.type-two {
+
+        .tabs {
+            padding: 10px 10px 0px 10px;
+            text-align: left;
+            .clearfix();
+            background-color: @bgColor1-TabType2;
+            border-bottom: 1px solid @borderColor-default;
+
+            > li {
+                float: left;
+
+                > .tabs-btn {
+                    .link-standard(@fontColor-link);
+                    .transition(all,0.3s,ease,0);
+                    height: @height-TabPrototype;
+                    line-height: @height-TabPrototype;
+                    padding: 0 20px;
+                    font-size: @fontSize-smaller;
+                    margin-right: 5px;
+                    margin-bottom: -1px;
+
+                    &:hover {
+                        border-top-color: @borderColor1-TabPrototype;
+                    }
+                }
+
+                &.active {
+
+                    > .tabs-btn {
+                        color: @fontColor-default;
+                        background-color: @bgColor2-TabPrototype;
+                        border: 1px solid @borderColor-default;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .tabs-content {

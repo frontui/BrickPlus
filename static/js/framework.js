@@ -5,6 +5,9 @@ $(function (){
     //BrickPlus 侧导航状态动画
     $('.bricks-aside-ul-wrap ul li.current').addClass('animation-icon');
 
+    //BrickPlus 内容框(bricks-content-wrap)动画
+    $('.bricks-content-wrap').addClass('tab-panel-animated-bricks');
+
     //关闭自动填表
     function noautoform() {
         var autoform = document.getElementsByTagName("form");
