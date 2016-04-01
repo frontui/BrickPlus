@@ -160,7 +160,7 @@
     &.type-two {
 
         .tabs {
-            padding: 10px 10px 0px 10px;
+            padding: 5px 5px 0px 5px;
             text-align: left;
             .clearfix();
             background-color: @bgColor1-TabType2;
@@ -173,11 +173,12 @@
                     .link-standard(@fontColor-link);
                     .transition(all,0.3s,ease,0);
                     height: @height-TabPrototype;
-                    line-height: @height-TabPrototype;
+                    line-height: @height-TabPrototype + 2px;
                     padding: 0 20px;
                     font-size: @fontSize-smaller;
                     margin-right: 5px;
                     margin-bottom: -1px;
+                    .border-radius(@borderRadius-btn,@borderRadius-btn,0,0);
 
                     &:hover {
                         border-top-color: @borderColor1-TabPrototype;
@@ -191,6 +192,7 @@
                         background-color: @bgColor2-TabPrototype;
                         border: 1px solid @borderColor-default;
                         border-bottom: none;
+                        line-height: @height-TabPrototype;
                     }
                 }
             }
