@@ -195,17 +195,24 @@
     @size-BricksColorExample: 50px;
 
 
-//tabs-prototype
-@borderColor1-TabPrototype: darken(@domColor7,20%);
-@borderColor2-TabPrototype: @domColor1;
+//选项卡（标签页）
+@borderColor1-Prototype: darken(@domColor7,20%);
+@borderColor2-Prototype: @domColor1;
 @bgColor1-TabPrototype: darken(@domColor7,10%);
 @bgColor2-TabPrototype: @domColor7;
-@height-TabPrototype: 36px;
-    //tabs-type1
-    @borderColor1-TabType1: transparent;
-    @borderColor2-TabType1: @domColor1;
-    @bgColor1-TabType1: transparent;
-    @bgColor2-TabType1: #f3f3f3;
+
+    //prototype
+        //尺寸
+        @height-Prototype: 36px;
+        @line-height-Prototype: @height-Prototype - 2px;
+        @borderColor1-TabType1: transparent;
+        @borderColor2-TabType1: @domColor1;
+        @bgColor1-TabType1: transparent;
+        @bgColor2-TabType1: #f3f3f3;
+        //色调
+        @borderColor1-Prototype: @borderColor-default;
+
+
     //tabs-type2
     @bgColor1-TabType2: @domColor7;
     @bgColor2-TabType2: #f3f3f3;

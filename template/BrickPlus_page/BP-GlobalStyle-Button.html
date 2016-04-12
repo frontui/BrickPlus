@@ -28,69 +28,86 @@
 
 {# 加载页面内容 #}
 {% block content %}
-<div class="tabs-wrap type-two">
+<div class="tabs-wrap prototype">
     <ul class="tabs">
         <li class="active">
-            <a class="tabs-btn" href="#..." data-toggle="tab">
+            <a class="tabs-btn" href="#tp1">
                 可作按钮的标签或元素
             </a>
         </li>
         <li>
-            <a class="tabs-btn" href="#..." data-toggle="tab">
+            <a class="tabs-btn" href="#tp2">
                 预定义样式
             </a>
         </li>
         <li>
-            <a class="tabs-btn" href="#..." data-toggle="tab">
+            <a class="tabs-btn" href="#tp3">
                 尺寸
             </a>
         </li>
         <li>
-            <a class="tabs-btn" href="#..." data-toggle="tab">
+            <a class="tabs-btn" href="#tp4">
                 排版
             </a>
         </li>
         <li>
-            <a class="tabs-btn" href="#..." data-toggle="tab">
+            <a class="tabs-btn" href="#tp5">
                 按钮组
             </a>
         </li>
     </ul>
 </div>
-<!--<div class="">
-    <div class="btn-group-box">
-        <a href="" class="btn default">可作按钮的标签或元素</a>
-        <a href="" class="btn default">预定义样式</a>
-        <a href="" class="btn default">尺寸</a>
-        <a href="" class="btn default">排版</a>
-        <a href="" class="btn default">按钮组</a>
-    </div>
-</div>-->
-
 <div class="tabs-content">
     <div class="tabs-panel active" id="tp1">
         <div class="example-wrap">
-            <p class="example-description">
-                为 <code>&lt;a&gt;</code> 、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮的类，即可使用。
+            <p class="example-description fn-mb-20">
+                目前仅支持了 3 种 dom 使用<code>.btn</code>系列样式，为 <code>&lt;a&gt;</code> 、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮的类，即可使用。
+            </p>
+            <p class="example-notice typeone fn-mb-20">
+                <code>class="btn links"</code> 的用法仅支持 <code>&lt;a&gt;</code> 标签
+            </p>
+            <p class="example-notice typetwo fn-mb-20">
+                如果 <code>&lt;a&gt;</code> 元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 <code>role="button"</code> 属性
             </p>
         </div>
+        <section class="example">
+            <div class="example-tag">实例</div>
+            <div class="example-box">
+                <div class="plural-btns">
+                    <a href="###" class="btn default" role="button">a</a>
+                    <button type="button" class="btn default">button</button>
+                    <input type="button" class="btn default" value="input button">
+                    <input type="submit" class="btn default" value="input submit">
+                </div>
+            </div>
+            <div class="example-code">
+                <pre>
+                    <code>
+&lt;a <span class="va">href="<span class="cl">###</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">role="<span class="cl">button</span>"</span>&gt;<span class="tg">...</span>&lt;/a&gt;
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+&lt;input <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
+&lt;input <span class="va">type="<span class="cl">submit</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
+                     </code>
+                </pre>
+            </div>
+        </section>
     </div>
-    <div class="tabs-panel active" id="tp2">
+    <div class="tabs-panel" id="tp2">
         <div class="example-wrap">
 
         </div>
     </div>
-    <div class="tabs-panel active" id="tp3">
+    <div class="tabs-panel" id="tp3">
         <div class="example-wrap">
 
         </div>
     </div>
-    <div class="tabs-panel active" id="tp4">
+    <div class="tabs-panel" id="tp4">
         <div class="example-wrap">
 
         </div>
     </div>
-    <div class="tabs-panel active" id="tp5">
+    <div class="tabs-panel" id="tp5">
         <div class="example-wrap">
 
         </div>

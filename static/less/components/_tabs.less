@@ -123,66 +123,26 @@
     &.prototype {
 
         .tabs {
-            padding: 0;
-            text-align: left;
-
-            > li {
-                float: left;
-
-                > .tabs-btn {
-                    .link-standard(@fontColor-default);
-                    .transition(all,0.3s,ease,0);
-                    height: @height-TabPrototype;
-                    line-height: @height-TabPrototype - 2px;
-                    padding: 0 20px;
-                    background-color: @bgColor1-TabPrototype;
-                    font-size: @fontSize-smaller;
-                    border-top: 2px solid transparent;
-                    margin-right: 5px;
-
-                    &:hover {
-                        border-top-color: @borderColor1-TabPrototype;
-                    }
-                }
-
-                &.active {
-
-                    > .tabs-btn {
-                        color: @fontColor-default;
-                        background-color: @bgColor2-TabPrototype;
-                        border-top-color: @borderColor2-TabPrototype;
-                    }
-                }
-            }
-        }
-    }
-
-    &.type-two {
-
-        .tabs {
             padding: 5px 5px 0px 5px;
             text-align: left;
+            background-color: transparent;
+            border-bottom: 1px solid @borderColor1-Prototype;
             .clearfix();
-            background-color: @bgColor1-TabType2;
-            border-bottom: 1px solid @borderColor-default;
 
             > li {
                 float: left;
 
                 > .tabs-btn {
                     .link-standard(@fontColor-link);
-                    .transition(all,0.3s,ease,0);
-                    height: @height-TabPrototype;
-                    line-height: @height-TabPrototype + 2px;
+                    height: @height-Prototype;
+                    line-height: @line-height-Prototype;
                     padding: 0 20px;
                     font-size: @fontSize-smaller;
                     margin-right: 5px;
                     margin-bottom: -1px;
                     .border-radius(@borderRadius-btn,@borderRadius-btn,0,0);
-
-                    &:hover {
-                        border-top-color: @borderColor1-TabPrototype;
-                    }
+                    border: 1px solid transparent;
+                    .transition(all,0.3s,ease,0);
                 }
 
                 &.active {
@@ -191,8 +151,7 @@
                         color: @fontColor-default;
                         background-color: @bgColor2-TabPrototype;
                         border: 1px solid @borderColor-default;
-                        border-bottom: none;
-                        line-height: @height-TabPrototype;
+                        border-bottom-color: transparent;
                     }
                 }
             }
