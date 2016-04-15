@@ -15,117 +15,10 @@
         }
     }
 
-    /*.tab-search-wrap {
-        position: absolute;
-        top: 7px;
-        right: 10px;
-
-        .tab-search-control-width {
-            width: 232px;
-            position: relative;
-            .inline-block();
-            vertical-align: top;
-        }
-
-        > .btn {
-            margin-left: 10px;
-            vertical-align: top;
-        }
-    }*/
-
-    /*&.type1 {
-        background-color: @bgColor1-TabPrototype;
-        border: 1px solid @borderColor1-TabPrototype;
-        border-bottom-width: 2px;
-
-        .tabs {
-            padding: 0 10px;
-            text-align: left;
-            margin-top: -1px;
-
-            > li {
-                float: left;
-                margin-bottom: -2px;
-
-                > .tabs-btn {
-                    .link-custom(@fontColor-default,@fontColor-link,none);
-                    height: 46px;
-                    line-height: 40px;
-                    padding: 0 20px;
-                    background-color: transparent;
-                    font-size: @fontSize-small;
-                    border-top: 3px solid transparent;
-                }
-
-                &.active {
-
-                    > .tabs-btn {
-                        color: @fontColor-heading;
-                        background-color: @domColor7;
-                        border-top-color: @borderColor2-TabPrototype;
-                    }
-                }
-            }
-        }
-    }*/
-
-    /*&.type2 {
-        background-color: @bgColor2-TabPrototype;
-        border: 1px solid @borderColor1-TabPrototype;
-        border-bottom: none;
-
-        .tabs {
-
-            > li {
-                width: 33.33%;
-
-                > .tabs-btn {
-                    border-left: 1px solid @borderColor1-TabPrototype;
-                    border-bottom: 1px solid @borderColor1-TabPrototype;
-                    .link-custom(@fontColor-default,@fontColor-link,none);
-                    padding: 14px 20px 0 20px;
-
-                    > h5, h2 {
-                        color: @fontColor-default;
-                        line-height: @line-height-base;
-                    }
-
-                    > h5 {
-                        text-align: left;
-                    }
-
-                    > h2 {
-                        text-align: right;
-                    }
-                }
-
-                &:first-child {
-
-                    > .tabs-btn {
-                        border-left: none;
-                    }
-                }
-
-                &.active {
-
-                    > .tabs-btn {
-                        border-bottom: 1px solid transparent;
-
-                        > h2 {
-                            color: orange;
-                        }
-                    }
-                }
-            }
-        }
-    }*/
-
     &.prototype {
 
         .tabs {
-            padding: 5px 5px 0px 5px;
-            text-align: left;
-            background-color: transparent;
+            padding: @padding-body-Prototype;
             border-bottom: 1px solid @borderColor1-Prototype;
             .clearfix();
 
@@ -135,22 +28,23 @@
                 > .tabs-btn {
                     .link-standard(@fontColor-link);
                     height: @height-Prototype;
-                    line-height: @line-height-Prototype;
-                    padding: 0 20px;
+                    line-height: @height-Prototype;
+                    padding: @padding-btn-Prototype;
                     font-size: @fontSize-smaller;
-                    margin-right: 5px;
+                    margin-right: @gapSize-btn-Prototype;
                     margin-bottom: -1px;
                     .border-radius(@borderRadius-btn,@borderRadius-btn,0,0);
                     border: 1px solid transparent;
                     .transition(all,0.3s,ease,0);
+                    background-color: transparent;
                 }
 
                 &.active {
 
                     > .tabs-btn {
                         color: @fontColor-default;
-                        background-color: @bgColor2-TabPrototype;
-                        border: 1px solid @borderColor-default;
+                        background-color: @bgColor1-Prototype;
+                        border: 1px solid @borderColor1-Prototype;
                         border-bottom-color: transparent;
                     }
                 }
