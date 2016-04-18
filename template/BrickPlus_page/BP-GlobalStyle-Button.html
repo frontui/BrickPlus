@@ -40,13 +40,13 @@
     ]
 %}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='1') }}
+{{ tab.prototype(tabs,cur='5') }}
 
 <div class="tabs-content">
-    <div class="tabs-panel active" id="tp1">
-        <div class="example-wrap">
+    <div class="tabs-panel" id="tp1">
+        <section class="example-wrap">
             <p class="example-description fn-mb-20">
-                目前仅支持了 3 种 dom 使用<code>.btn</code>系列样式，为 <code>&lt;a&gt;</code> 、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮的类，即可使用。
+                目前仅支持了 3 种 dom 使用 <code>.btn</code> 系列样式，为 <code>&lt;a&gt;</code> 、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮的类，即可使用。
             </p>
             <p class="example-notice typeone fn-mb-20">
                 <code>class="btn links"</code> 的用法仅支持 <code>&lt;a&gt;</code> 标签
@@ -54,18 +54,17 @@
             <p class="example-notice typetwo fn-mb-20">
                 如果 <code>&lt;a&gt;</code> 元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 <code>role="button"</code> 属性
             </p>
-        </div>
-        <section class="example">
-            <div class="example-tag">实例</div>
-            <div class="example-box">
-                <div class="plural-btns">
-                    <a href="###" class="btn default" role="button">a</a>
-                    <button type="button" class="btn default">button</button>
-                    <input type="button" class="btn default" value="input button">
-                    <input type="submit" class="btn default" value="input submit">
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <div class="plural-btns">
+                        <a href="###" class="btn default" role="button">a</a>
+                        <button type="button" class="btn default">button</button>
+                        <input type="button" class="btn default" value="input button">
+                        <input type="submit" class="btn default" value="input submit">
+                    </div>
                 </div>
-            </div>
-            <div class="example-code">
+                <div class="example-code">
                 <pre>
                     <code>
 &lt;a <span class="va">href="<span class="cl">###</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">role="<span class="cl">button</span>"</span>&gt;<span class="tg">...</span>&lt;/a&gt;
@@ -74,28 +73,227 @@
 &lt;input <span class="va">type="<span class="cl">submit</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
                      </code>
                 </pre>
+                </div>
             </div>
         </section>
     </div>
     <div class="tabs-panel" id="tp2">
-        <div class="example-wrap">
-
-        </div>
+        <section class="example-wrap">
+            <p class="example-description fn-mb-20">
+                使用前缀类 <code>.btn</code> 和叠加类 <code>.default / primary  / secondary / thirdly / disabled / links</code> 可以快速创建一个带有预定义样式的按钮，适应用户体验场景，如 <code>class="btn primary"</code>
+            </p>
+            <p class="example-notice typeone fn-mb-20">
+                为按钮添加不同的颜色只是一种视觉上的信息表达方式，但是，对于使用辅助技术 -- 例如屏幕阅读器 -- 的用户来说，颜色是不可见的。建议，确保通过颜色表达的信息或者通过内容自身表达出来（按钮上的文字），或者通过其他方式<br>
+                BrickPlus 项目暂时候还没有作出对使用屏幕阅读器的用户的需求处理
+            </p>
+            <p class="example-notice typetwo fn-mb-20">
+                跨浏览器兼容性，如果为 <code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性或叠加类 <code>.disabled</code>，Internet Explorer 9 及更低版本的浏览器将会把按钮中的文本绘制为灰色，并带有恶心的阴影，目前还没有解决办法
+                <br>
+                <code>&lt;a&gt;</code> 元素的 <code>class="btn links"</code> 样式并不支持 <code>[disabled] / .disabled</code>
+            </p>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <h5 class="fn-pb-10">
+                        典型按钮样式
+                    </h5>
+                    <div class="plural-btns fn-mb-40">
+                        <button type="button" class="btn default">default</button>
+                        <button type="button" class="btn primary">primary</button>
+                        <button type="button" class="btn secondary">secondary</button>
+                        <button type="button" class="btn thirdly">thirdly</button>
+                        <button type="button" class="btn disabled" disabled="disabled">disabled</button>
+                        <a href="javascript:;void(0)" class="btn links">links</a>
+                    </div>
+                    <h5 class="fn-pb-10">
+                        叠加类 <code>.current</code>，展示激活状态下的按钮（<code>class="btn links"</code> 和 <code>[disabled] / .disabled</code> 没有定义激活状态）
+                    </h5>
+                    <div class="plural-btns">
+                        <button type="button" class="btn default current">default</button>
+                        <button type="button" class="btn primary current">primary</button>
+                        <button type="button" class="btn secondary current">secondary</button>
+                        <button type="button" class="btn thirdly current">thirdly</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default / primary / secondary / thirdly / disabled / links </span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default current / primary current / secondary current / thirdly current</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre>
+                </div>
+            </div>
+        </section>
     </div>
     <div class="tabs-panel" id="tp3">
-        <div class="example-wrap">
-
-        </div>
+        <section class="example-wrap">
+            <p class="example-description fn-mb-20">
+                BrickPlus 提供了四种不同的按钮尺寸，以备适应不同的特殊设计，其中三种非常规尺寸需通过叠加类 <code>.large-btn / .small-btn / .smaller-btn</code> 展示
+            </p>
+            <div class="example fn-mb-40">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <div class="plural-btns">
+                        <button type="button" class="btn default large-btn">large</button>
+                        <button type="button" class="btn default">default</button>
+                        <button type="button" class="btn default small-btn">small</button>
+                        <button type="button" class="btn default smaller-btn">smaller</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default ( large-btn / small-btn / smaller-btn )</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre>
+                </div>
+            </div>
+        </section>
+        <section class="example-wrap">
+            <p class="example-description fn-mb-20">
+                叠加类 <code>.block-btn</code> 可以将其拉伸至父元素 100% 的宽度，而且按钮也变为了块级 <code>block</code> 元素。
+            </p>
+            <p class="example-notice typeone fn-mb-20">
+                <code>&lt;a&gt;</code> 元素构成的按钮，在使用叠加类 <code>.links</code> 之后，并不支持再套用 <code>.block-btn</code> 叠加类
+            </p>
+            <div class="example fn-mb-40">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <div>
+                        <button type="button" class="btn default block-btn">Block Button</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn ( default / primary / secondary / thirdly / disabled ) block-btn</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre>
+                </div>
+            </div>
+        </section>
     </div>
     <div class="tabs-panel" id="tp4">
-        <div class="example-wrap">
-
-        </div>
+        <ul class="fn-pl-15">
+            <li clas="fn-pb-20">
+                <a href="#BtnInlineTypeSet" class="link-standard">典型行内排版</a>
+            </li>
+            <li>
+                <a href="#BtnInlineTypeSetSpec" class="link-standard">特殊行内排版</a>
+            </li>
+        </ul>
+        <section class="example-wrap">
+            <h3 class="fn-pb-10 fn-pt-45" id="BtnInlineTypeSet">
+                典型行内排版
+            </h3>
+            <p class="example-description fn-mb-20">
+                按钮的行内排列，由工具类 <code>.text-align-( left / right / center )</code> 在其最近的父结构样式中控制
+            </p>
+            <p class="example-notice typeone fn-mb-20">
+                当行内排列为左对齐时，父层样式引用可以省略 <code>.text-align-left</code>
+            </p>
+            <p class="example-notice typetwo fn-mb-20">
+                BrickPLus 工具类 <code>.text-align-justify</code> 并不支持典型行内排列的组合
+            </p>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <h5 class="fn-pb-10">左对齐</h5>
+                    <div class="plural-btns text-align-left fn-mb-40">
+                        <button type="button" class="btn default">Button</button>
+                        <button type="button" class="btn default">Button</button>
+                        <button type="button" class="btn default">Button</button>
+                        <a href="javascript:;void(0)" class="btn links">Links</a>
+                    </div>
+                    <h5 class="fn-pb-10 text-align-center">居中</h5>
+                    <div class="plural-btns text-align-center fn-mb-40">
+                        <a href="javascript:;void(0)" class="btn links">Links</a>
+                        <button type="button" class="btn default">Button</button>
+                        <button type="button" class="btn default">Button</button>
+                        <button type="button" class="btn default">Button</button>
+                        <a href="javascript:;void(0)" class="btn links">Links</a>
+                    </div>
+                    <h5 class="fn-pb-10 text-align-right">右对齐</h5>
+                    <div class="plural-btns text-align-right fn-mb-40">
+                        <a href="javascript:;void(0)" class="btn links">Links</a>
+                        <button type="button" class="btn default">Button</button>
+                        <button type="button" class="btn default">Button</button>
+                        <button type="button" class="btn default">Button</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                <pre>
+                    <code>
+&lt;div <span class="va">class="<span class="cl">text-align-( left / center / right ) plural-btns</span>"</span>&gt;<span class="tg">...</span>&lt;/div&gt;
+                     </code>
+                </pre>
+                </div>
+            </div>
+        </section>
+        <section class="example-wrap">
+            <h3 class="fn-pb-10 fn-pt-45" id="BtnInlineTypeSetSpec">
+                特殊行内排版
+            </h3>
+            <p class="example-description fn-mb-20">
+                当一个或者多个按钮或按钮组需要在父结构中居中，然后再附加一个超链接，但超链接并不占用父结构宽度，则需要在父亲结构中加入 <code>.btn-with-viceLink</code> 样式
+                <br>
+                父结构中用作附加超链接的 <code>&lt;a&gt;</code> 元素加入 <code>.btn-vicelink</code> 样式
+            </p>
+            <p class="example-notice typeone fn-mb-20">
+                典型的按钮样式 <code>class="btn links"</code> 和这里展示的类 <code>class="btn-vicelink"</code> 两者完全不一样，别搞错
+            </p>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <div class="text-align-center">
+                        <div class="btn-with-viceLink plural-btns text-align-center">
+                            <button type="button" class="btn default">Button</button>
+                            <button type="button" class="btn default">Button</button>
+                            <button type="button" class="btn default">Button</button>
+                            <a href="###" class="btn-vicelink">Links</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-code">
+                <pre>
+                    <code>
+&lt;div <span class="va">class="<span class="cl">text-align-center</span>"</span>&gt;
+    &lt;div <span class="va">class="<span class="cl">btn-with-viceLink text-align-center ( plural-btns )</span>"</span>&gt;
+        <span class="tg">...</span>
+        &lt;a <span class="va">href="<span class="cl">...</span>"</span> <span class="va">class="<span class="cl">btn-vicelink</span>"</span>&gt;<span class="tg">...</span>&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                     </code>
+                </pre>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="tabs-panel" id="tp5">
-        <div class="example-wrap">
-
-        </div>
+    <div class="tabs-panel active" id="tp5">
+        <section class="example-wrap">
+            <p class="example-description fn-mb-20">
+                BrickPlus 提供了四种不同的按钮尺寸，以备适应不同的特殊设计，其中三种非常规尺寸需通过叠加类 <code>.large-btn / .small-btn / .smaller-btn</code> 展示
+            </p>
+            <div class="example fn-mb-40">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <div class="plural-btns">
+                        <button type="button" class="btn default large-btn">large</button>
+                        <button type="button" class="btn default">default</button>
+                        <button type="button" class="btn default small-btn">small</button>
+                        <button type="button" class="btn default smaller-btn">smaller</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default ( large-btn / small-btn / smaller-btn )</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 {% endblock %}
