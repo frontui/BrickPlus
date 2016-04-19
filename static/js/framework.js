@@ -8,6 +8,28 @@ $(function (){
     //BrickPlus 内容框(bricks-content-wrap)动画
     $('.bricks-content-wrap').addClass('tab-panel-animated-bricks');
 
+    //BrickPlus 内容框(bricks-content-wrap)动画
+    function bricksUserCtrlOpen() {
+        var buwIcon = $("#buw > a");
+        var buwMenuBtn = document.getElementsByClassName('bum');
+        var buwMenu = document.getElementsByClassName('bricks-user-menu');
+
+        $(buwIcon).click(
+            function () {
+                $(this).toggleClass('animation');
+                $(buwMenu).slideToggle(180);
+            }
+        );
+
+        $(buwMenuBtn).click(
+            function () {
+                $(buwIcon).removeClass('animation');
+                $(buwMenu).slideUp(180);
+            }
+        );
+    };
+    bricksUserCtrlOpen();
+
     //关闭自动填表
     function noautoform() {
         var autoform = document.getElementsByTagName("form");
@@ -15,4 +37,14 @@ $(function (){
             autoform[i].setAttribute("autocomplete", "off");
     };
     noautoform();
+
+    //返回页面顶部
+    $(window).scroll(function() {
+        if($(window).scrollTop() >= 150){
+            $('.actgotop').fadeIn(400);
+        }else{
+            $('.actgotop').fadeOut(400);
+        }
+    });
+    $('.actgotop').click(function(){$('html,body').animate({scrollTop: '0'}, 400);});
 });

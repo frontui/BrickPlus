@@ -83,7 +83,8 @@ h6 {
     line-height: @size-actgotop;
     .square(@size-actgotop);
     .rounded(@borderRadius-actgotop);
-    .link-custom(lighten(@bgColor-actgotop,30%),lighten(@bgColor-actgotop,30%),none);
+    .link-custom(lighten(@bgColor-actgotop,55%),#fff,none);
+    .transition(all,0.3s,ease,0);
 
     > i {
         .form-notice-icon-font-family();
@@ -91,6 +92,10 @@ h6 {
         &:before {
             content: "\e603";
         }
+    }
+
+    &:hover {
+        background-color: @bgColor-hover-actgotop;
     }
 }
 

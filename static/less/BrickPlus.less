@@ -301,6 +301,7 @@ body {
     border-right: none;
     background-color: @bgColor-BricksUserMenu;
     width: @width-BricksUserMenuOptionGroup * 4 + 1px + 10px * 2;
+    z-index: @zIndex-BricksUserMenu;
 }
 
 @media (max-width:1024px) {
@@ -717,7 +718,9 @@ code {
             line-height: @line-height-base;
             display: block;
 
-            span {
+            span,
+            b,
+            em{
 
                 &.tg {
                     color: @fontColor-viceText;
