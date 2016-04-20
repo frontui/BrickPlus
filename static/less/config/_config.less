@@ -140,10 +140,13 @@
 
 
 //bricks导航搜索框
-@size-BricksSearcher: @height-BricksNav;
+@size-BricksSearcher: @height-BricksSearcher * 0.85;
 @fontSize-BricksSearcher: @fontSize-smaller;
 @bgColor-BricksSearcher: @domColor7;
 @focusWidth-BricksSearcher: @size-BricksSearcher + 200px;
+
+@height-BricksSearcher: @height-BricksNav;
+@height-form-BricksSearcher: @height-BricksSearcher;
 
 
 //bricks用户icon
@@ -201,11 +204,13 @@
     //尺寸
       @height-Prototype: 36px;
       @padding-body-Prototype: 5px 5px 0 5px;
-      @padding-btn-Prototype: 0 20px;
+      @padding-btn-Prototype: 0 30px;
       @gapSize-btn-Prototype: 5px;
       //色调
       @borderColor1-Prototype: @borderColor-default;
       @bgColor1-Prototype: #fff;
+      //prototype响应式参数
+      @padding-btn-screen1024-Prototype: 0 15px;
 
 
 //按钮
@@ -384,8 +389,8 @@
 @size-actgotop: 40px;
 @lineHeight-actgotop: @size-actgotop * 1.4;
 @borderRadius-actgotop: 3px;
-@bgColor-actgotop: rgba(68,146,212,0.55);
-@bgColor-hover-actgotop: rgba(68,146,212,0.85);
+@bgColor-actgotop: rgba(38,47,59,0.55);
+@bgColor-hover-actgotop: rgba(38,47,59,0.85);
 
 
 //栅格系统

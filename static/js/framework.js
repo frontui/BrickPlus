@@ -16,17 +16,22 @@ $(function (){
 
         $(buwIcon).click(
             function () {
-                $(this).toggleClass('animation');
-                $(buwMenu).slideToggle(180);
+                $(this).addClass('animation');
+                $(buwMenu).show();
             }
         );
 
         $(buwMenuBtn).click(
             function () {
                 $(buwIcon).removeClass('animation');
-                $(buwMenu).slideUp(180);
+                $(buwMenu).hide();
             }
         );
+
+        /*$("body").bind("click",function(){
+            $(buwIcon).removeClass("animation");
+            $(buwMenu).hide();
+        })*/
     };
     bricksUserCtrlOpen();
 
