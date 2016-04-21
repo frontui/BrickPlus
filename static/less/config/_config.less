@@ -47,9 +47,6 @@
 @fontColor-base: #999;
     //标题色调
     @fontColor-heading: #333;
-
-    @fontColor-text:#666;
-
     //默认文本色调
     @fontColor-default: #666;
     //副文本色调
@@ -186,19 +183,6 @@
     @size-screen1024-btn-b-BricksAside: 22px;
 
 
-//bricks色卡展示
-    //bricks色卡颜色
-    @color1-BricksColorExample: @domColor1;
-    @color2-BricksColorExample: @domColor2;
-    @color3-BricksColorExample: @domColor3;
-    @color4-BricksColorExample: @domColor4;
-    @color5-BricksColorExample: @domColor5;
-    @color6-BricksColorExample: @domColor6;
-    @color7-BricksColorExample: @domColor7;
-    //bricks色卡尺寸
-    @size-BricksColorExample: 50px;
-
-
 //选项卡（标签页）
   //prototype
     //尺寸
@@ -250,7 +234,7 @@
     @bgColor-warning-formControl: lighten(@borderColor-warning-formControl,12%);
     @bgColor-formControlModaOps: @fontColor-link;
     @bgColor-formControlModaOps-icon: lighten(@fontColor-link,15%);
-    @borderColor-primary-formControl: lighten(@borderColor-default,20%);
+    @borderColor-primary-formControl: darken(@domColor7,25%); //lighten(@borderColor-default,20%);
     @borderColor-focus-formControl: @domColor1;
     @borderColor-correct-formControl: @domColor2;
     @borderColor-error-formControl: @domColor3;

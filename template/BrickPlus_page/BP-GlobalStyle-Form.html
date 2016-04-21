@@ -1,0 +1,698 @@
+{% extends "_BrickPlus_layout/4-BP-GlobalStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+    {# 渲染主导航 #}
+    {{ navigator.theNav(mainNav,cur='2') }}
+    {# 渲染侧导航 #}
+    {{ asideNav.theAsideNav(mainAsideNav,cur='4') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+{# 设置标签页 #}
+{%
+    set tabs = [
+        {text: '表单组件结构', url: '#tp1'},
+        {text: '基础表单类型', url: '#tp2'}
+    ]
+%}
+{# 渲染标签页 #}
+{{ tab.prototype(tabs,cur='2') }}
+
+<div class="tabs-content">
+    <div class="tabs-panel" id="tp1">
+        <section class="example-wrap">
+            <ul class="example-description">
+                <li>
+                    BrickPlus 表单会有标准的表单组件包裹结构，可以参考代码演示，这样能最好的呈现出表单的排列和控制表单的各种组合，但这种结构嵌套并不是必须的，也可以单独使用。
+                </li>
+            </ul>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <form action="">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="FormTree1">
+                                    <b>*</b>
+                                    <span>标准表单标题宽度可以放十八个中文字符</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" id="FormTree1" placeholder="表单提示语"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="example-code">
+                    <pre>
+                        <code>
+&lt;<b>div <span class="va">class="<span class="cl">form-group</span>"</span></b>&gt;
+    &lt;<b>label <span class="va">class="<span class="cl">form-control-label</span>"</span></b> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;<b>b</b>&gt;&lt;<b>/b</b>&gt; <span class="tg">//用作标注必填项</span>
+        &lt;<b>span</b>&gt;<span class="tg">...</span>&lt;<b>/span</b>&gt; <span class="tg">//填写表单标题</span>
+        &lt;<b>em</b>&gt;<span class="tg">：</span>&lt;<b>/em</b>&gt; <span class="tg">//标题标点符号</span>
+    &lt;<b>/label</b>&gt;
+    &lt;<b>div <span class="va">class="<span class="cl">form-control-wrap</span>"</span></b>&gt; <span class="tg">//表单组件定位嵌套</span>
+        <span class="tg">...</span>
+    &lt;<b>/div</b>&gt;
+&lt;<b>/div</b>&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tabs-panel active" id="tp2">
+        <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+            <a href="#FormKeyIn" class="btn default">Keyin</a>
+            <a href="#FormSelect" class="btn default">Select</a>
+            <a href="#FormSimSelect" class="btn default">模拟 Select</a>
+            <a href="#FormDate" class="btn default">日期选择</a>
+            <a href="#FormRadioCheckBox" class="btn default">单选和多选</a>
+            <a href="#FormModal" class="btn default">模态窗表单</a>
+            <a href="#FormData" class="btn default">静态数据展示</a>
+        </div>
+        <section class="example-wrap">
+            <h2 id="FormKeyIn">
+                Keyin
+            </h2>
+            <ul class="example-description">
+                <li>
+                    单独的表单控件会被自动赋予一些全局样式。所有设置了 <code>.form-control</code> 类的 <code>&lt;input type="text / password"&gt;</code> 元素都将被默认设置宽度属性为 <code>width: 100%;</code>。
+                </li>
+            </ul>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <form action="">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="FormKeyIn1">
+                                    <b>*</b>
+                                    <span>Keyin</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" id="FormKeyIn1" placeholder="表单提示语">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="example-code">
+                    <pre>
+                        <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>input</b> <span class="va">type="<span class="cl"><b>text / password / email / tel</b></span>"</span> <span class="va">class="<span class="cl"><b>form-control</b></span>"</span> <span class="va">id="<span class="cl">...</span>"</span> <span class="va">placeholder="<span class="cl">...</span>"</span>/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section class="example-wrap">
+            <h2 id="FormSelect">
+                Select
+            </h2>
+            <ul class="example-description">
+                <li>
+                    同样，<code>.form-control</code> 类同样可以影响 <code>select</code> 元素，包括其中的几种展示模式。
+                </li>
+            </ul>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <form action="">
+                        <div class="fn-pb-10">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b>*</b>
+                                    <span>select</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control">
+                                        <option>
+                                            option 1
+                                        </option>
+                                        <option>
+                                            option 2
+                                        </option>
+                                        <option>
+                                            option 3
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fn-pb-10">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <b>*</b>
+                                    <span>select ( group )</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control">
+                                        <optgroup label="group1">
+                                            <option>
+                                                group1 option 1
+                                            </option>
+                                            <option>
+                                                group1 option 2
+                                            </option>
+                                            <option>
+                                                group1 option 3
+                                            </option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fn-pb-10">
+                            <div class="form-group">
+                                <label class="form-control-label" >
+                                    <b>*</b>
+                                    <span>select ( multiple )</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control" multiple>
+                                        <option>
+                                            multiple option 1
+                                        </option>
+                                        <option>
+                                            multiple option 2
+                                        </option>
+                                        <option>
+                                            multiple option 3
+                                        </option>
+                                        <option>
+                                            multiple option 4
+                                        </option>
+                                        <option>
+                                            multiple option 5
+                                        </option>
+                                        <option>
+                                            multiple option 6
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label class="form-control-label" >
+                                    <b>*</b>
+                                    <span>select ( size )</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <select class="form-control" size="3">
+                                        <option>
+                                            multiple option 1
+                                        </option>
+                                        <option>
+                                            multiple option 2
+                                        </option>
+                                        <option>
+                                            multiple option 3
+                                        </option>
+                                        <option>
+                                            multiple option 4
+                                        </option>
+                                        <option>
+                                            multiple option 5
+                                        </option>
+                                        <option>
+                                            multiple option 6
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="example-code">
+                    <pre>
+                        <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>select</b> <span class="va">class="<span class="cl"><b>form-control</b></span>"</span>/&gt;
+        &lt;/<b>select</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section class="example-wrap">
+            <h2 id="FormSimSelect">
+                模拟 Select
+            </h2>
+            <ul class="example-description">
+                <li>
+                    模拟 Select 表单组件有固定的 Dom 结构，详细请参考代码演示。
+                </li>
+                <li>
+                    注意 IE7 及以下版本 IE 浏览器的兼容，这里的解决方法是分别用人工给出现在页面的 模拟 Select 和 日期下拉 的 <code>.form-group</code> 层添加内联的 <code>z-index</code> 属性，先出现的层级最大，依次累减。
+                </li>
+            </ul>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <form action="">
+                        <div class="fn-mb-10">
+                            <div class="form-group" style="*z-index: 1;">
+                                <label class="form-control-label">
+                                    <b>*</b>
+                                    <span>模拟 Select</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-dropdown">
+                                        <span class="form-control-dropdown-btn">
+                                            <i></i>
+                                        </span>
+                                        <div class="form-control-dropdown-value" title="请选择一个选项">请选择一个选项</div>
+                                        <ul class="form-control-dropdown-menu">
+                                            <li title="option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                                                option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                            </li>
+                                            <li title="option one">
+                                                option one
+                                            </li>
+                                            <li title="option two">
+                                                option two
+                                            </li>
+                                            <li title="option three">
+                                                option three
+                                            </li>
+                                            <li title="option four">
+                                                option four
+                                            </li>
+                                            <li title="option five">
+                                                option five
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fn-mb-10">
+                            <div class="form-group" style="*z-index: 1;">
+                                <label class="form-control-label">
+                                    <b>*</b>
+                                    <span>银行类型 Select</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-dropdown">
+                                            <span class="form-control-dropdown-btn">
+                                                <i></i>
+                                            </span>
+                                        <div class="form-control-dropdown-value" aria-expanded="false">
+                                            <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                            <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                        </div>
+                                        <ul class="form-control-dropdown-menu">
+                                            <li title="option">
+                                                <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                                <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-icbc" title="工商银行"></span>
+                                                <span class="form-control-bank-card">工商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-ccb" title="建设银行"></span>
+                                                <span class="form-control-bank-card">建设银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-abc" title="农业银行"></span>
+                                                <span class="form-control-bank-card">农业银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-boc" title="中国银行"></span>
+                                                <span class="form-control-bank-card">中国银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-comm" title="交通银行"></span>
+                                                <span class="form-control-bank-card">交通银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-pingan" title="平安银行"></span>
+                                                <span class="form-control-bank-card">平安银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-psbc" title="邮政银行"></span>
+                                                <span class="form-control-bank-card">邮政银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-shbc" title="上海银行"></span>
+                                                <span class="form-control-bank-card">上海银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-wzbc" title="温州银行"></span>
+                                                <span class="form-control-bank-card">温州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-spdb" title="浦发银行"></span>
+                                                <span class="form-control-bank-card">浦发银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-ecitic" title="中信银行"></span>
+                                                <span class="form-control-bank-card">中信银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-cgbchina" title="广发银行"></span>
+                                                <span class="form-control-bank-card">广发银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-cmbc" title="民生银行"></span>
+                                                <span class="form-control-bank-card">民生银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-cib" title="兴业银行"></span>
+                                                <span class="form-control-bank-card">兴业银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-cebbank" title="光大银行"></span>
+                                                <span class="form-control-bank-card">光大银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-srcb" title="上海农商银行"></span>
+                                                <span class="form-control-bank-card">上海农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-bankofbeijing" title="北京银行"></span>
+                                                <span class="form-control-bank-card">北京银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-bjrcb" title="北京农商银行"></span>
+                                                <span class="form-control-bank-card">北京农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-szfz" title="深圳发展银行"></span>
+                                                <span class="form-control-bank-card">深圳发展银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-nbcb" title="宁波银行"></span>
+                                                <span class="form-control-bank-card">宁波银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-hzbank" title="杭州银行"></span>
+                                                <span class="form-control-bank-card">杭州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-dongguanbank" title="东莞银行"></span>
+                                                <span class="form-control-bank-card">东莞银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-hsbc" title="汇丰银行"></span>
+                                                <span class="form-control-bank-card">汇丰银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-hkbea" title="东亚银行"></span>
+                                                <span class="form-control-bank-card">东亚银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-961111" title="广州农商银行"></span>
+                                                <span class="form-control-bank-card">广州农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-hxb" title="华夏银行"></span>
+                                                <span class="form-control-bank-card">华夏银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-crbank" title="华润银行"></span>
+                                                <span class="form-control-bank-card">华润银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-lanzhou" title="兰州银行"></span>
+                                                <span class="form-control-bank-card">兰州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-hebbank" title="河北银行"></span>
+                                                <span class="form-control-bank-card">河北银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-hsbank" title="微商银行"></span>
+                                                <span class="form-control-bank-card">微商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-qdccb" title="青岛银行"></span>
+                                                <span class="form-control-bank-card">青岛银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-ydnsh" title="尧都农商"></span>
+                                                <span class="form-control-bank-card">尧都农商&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-zheshang" title="浙商银行"></span>
+                                                <span class="form-control-bank-card">浙商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-nccbank" title="南昌银行"></span>
+                                                <span class="form-control-bank-card">南昌银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-cbhb" title="渤海银行"></span>
+                                                <span class="form-control-bank-card">渤海银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-egbank" title="恒丰银行"></span>
+                                                <span class="form-control-bank-card">恒丰银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                            <li title="option">
+                                                <span class="bank-icon icon-tianjinbank" title="天津银行"></span>
+                                                <span class="form-control-bank-card">天津银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group" style="*z-index: 2;">
+                                <label class="form-control-label" for="FormSelectKeyIn1">
+                                    <b>*</b>
+                                    <span>模糊匹配 + Select</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-dropdown">
+                                        <span class="form-control-dropdown-btn">
+                                            <i></i>
+                                        </span>
+                                        <input type="text" data-toggle="dropdown" class="form-control" id="FormSelectKeyIn1" placeholder="请输入文字" value=""/>
+                                        <ul class="form-control-dropdown-menu">
+                                            <li title="option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                            </li>
+                                            <li title="option one">option one
+                                            </li>
+                                            <li title="option two">option two
+                                            </li>
+                                            <li title="option three">option three
+                                            </li>
+                                            <li title="option four">option four
+                                            </li>
+                                            <li title="option five">option five
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="example-code">
+                    <pre>
+                        <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span> <span class="va">style="<span class="cl"><b>*z-index: *;</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">模拟 Select</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown</b></span>"</span>/&gt;
+            &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-btn</b></span>"</span>/&gt;
+                &lt;<b>i</b>/&gt;&lt;/<b>i</b>/&gt;
+            &lt;/<b>span</b>&gt;
+            &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-value</b></span>"</span> <span class="va">title="<span class="cl"><b>...</b></span>"</span>/&gt;
+                <span class="tg">...</span>
+            &lt;/<b>div</b>&gt;
+            &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-menu</b></span>"</span>/&gt;
+                &lt;<b>li</b> <span class="va">title="<span class="cl">...</span>"</span>/&gt;
+                &lt;/<b>li</b>&gt;
+            &lt;/<b>ul</b>&gt;
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+<br>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span> <span class="va">style="<span class="cl"><b>*z-index: *;</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">银行类型 Select</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown</b></span>"</span>/&gt;
+            &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-btn</b></span>"</span>/&gt;
+                &lt;<b>i</b>/&gt;&lt;/<b>i</b>/&gt;
+            &lt;/<b>span</b>&gt;
+            &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-value</b></span>"</span> <span class="va">title="<span class="cl"><b>...</b></span>"</span>/&gt;
+                &lt;<b>span</b> <span class="va">class="<span class="cl"><b>bank-bg bank-***</b></span>"</span> <span class="va">title="<span class="cl"><b>...</b></span>"</span>/&gt;&lt;/<b>span</b>&gt;
+                &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-bank-card</b></span>"</span>&gt;
+                    <span class="tg">...</span>
+                &lt;/<b>span</b>&gt;
+            &lt;/<b>div</b>&gt;
+            &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-menu</b></span>"</span>/&gt;
+                &lt;<b>li</b> <span class="va">title="<span class="cl">...</span>"</span>/&gt;
+                    &lt;<b>span</b> <span class="va">class="<span class="cl"><b>bank-bg bank-***</b></span>"</span> <span class="va">title="<span class="cl"><b>...</b></span>"</span>/&gt;&lt;/<b>span</b>&gt;
+                    &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-bank-card</b></span>"</span>&gt;
+                        <span class="tg">...</span>
+                    &lt;/<b>span</b>&gt;
+                &lt;/<b>li</b>&gt;
+                <span class="tg">...</span>
+            &lt;/<b>ul</b>&gt;
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+<br>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span> <span class="va">style="<span class="cl"><b>*z-index: *;</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">模糊匹配 + Select</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown</b></span>"</span>/&gt;
+            &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-btn</b></span>"</span>/&gt;
+                &lt;<b>i</b>/&gt;&lt;/<b>i</b>/&gt;
+            &lt;/<b>span</b>&gt;
+            &lt;<b>input</b> <span class="va">class="<span class="cl"><b>form-control</b></span>"</span> <span class="va">type="<span class="cl"><b>text</b></span>"</span> <span class="va">data-toggle="<span class="cl"><b>dropdown</b></span>"</span> <span class="va">placeholder="<span class="cl">...</span>"</span> <span class="va">id="<span class="cl">...</span>"</span>/&gt;
+            &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-menu</b></span>"</span>/&gt;
+                &lt;<b>li</b> <span class="va">title="<span class="cl">...</span>"</span>/&gt;
+                &lt;/<b>li</b>&gt;
+            &lt;/<b>ul</b>&gt;
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section class="example-wrap">
+            <h2 id="FormDate">
+                日期选择
+            </h2>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <form action="">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="FormSelectKeyIn1">
+                                    <b>*</b>
+                                    <span>日期选择</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-date">
+                                        <span class="form-control-date-btn">
+                                            <i></i>
+                                        </span>
+                                        <input class="form-control" value="2015-05-17" type="text" data-toggle="datetimepicker" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="example-code">
+                    <pre>
+                        <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span> <span class="va">style="<span class="cl"><b>*z-index: *;</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">日期选择</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown</b></span>"</span>/&gt;
+            &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-btn</b></span>"</span>/&gt;
+                &lt;<b>i</b>/&gt;&lt;/<b>i</b>/&gt;
+            &lt;/<b>span</b>&gt;
+            &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-value</b></span>"</span> <span class="va">title="<span class="cl"><b>...</b></span>"</span>/&gt;
+                <span class="tg">...</span>
+            &lt;/<b>div</b>&gt;
+            &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-menu</b></span>"</span>/&gt;
+                &lt;<b>li</b> <span class="va">title="<span class="cl">...</span>"</span>/&gt;
+                &lt;/<b>li</b>&gt;
+            &lt;/<b>ul</b>&gt;
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

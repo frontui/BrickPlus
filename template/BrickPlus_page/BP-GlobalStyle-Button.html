@@ -81,22 +81,25 @@
     </div>
     <div class="tabs-panel" id="tp2">
         <section class="example-wrap">
-            <p class="example-description fn-mb-20">
-                使用前缀类 <code>.btn</code> 和叠加类 <code>.default / primary  / secondary / thirdly / disabled / links</code> 可以快速创建一个带有预定义样式的按钮，适应用户体验场景，如 <code>class="btn primary"</code>
-            </p>
-            <p class="example-notice typeone fn-mb-20">
-                为按钮添加不同的颜色只是一种视觉上的信息表达方式，但是，对于使用辅助技术 -- 例如屏幕阅读器 -- 的用户来说，颜色是不可见的。建议，确保通过颜色表达的信息或者通过内容自身表达出来（按钮上的文字），或者通过其他方式<br>
-                BrickPlus 项目暂时候还没有作出对使用屏幕阅读器的用户的需求处理
-            </p>
-            <p class="example-notice typetwo fn-mb-20">
-                跨浏览器兼容性，如果为 <code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性或叠加类 <code>.disabled</code>，Internet Explorer 9 及更低版本的浏览器将会把按钮中的文本绘制为灰色，并带有恶心的阴影，目前还没有解决办法
-                <br>
-                <code>&lt;a&gt;</code> 元素的 <code>class="btn links"</code> 样式并不支持 <code>[disabled] / .disabled</code>
-            </p>
+            <ul class="example-description">
+                <li>
+                    使用前缀类 <code>.btn</code> 和叠加类 <code>.default / primary  / secondary / thirdly / disabled / links</code> 可以快速创建一个带有预定义样式的按钮，适应用户体验场景，如 <code>class="btn primary"</code>。
+                </li>
+                <li>
+                    为按钮添加不同的颜色只是一种视觉上的信息表达方式，但是，对于使用辅助技术 -- 例如屏幕阅读器 -- 的用户来说，颜色是不可见的。建议，确保通过颜色表达的信息或者通过内容自身表达出来（按钮上的文字），或者通过其他方式；
+                    <br>
+                    BrickPlus 项目暂时候还没有作出对使用屏幕阅读器的用户的需求处理。
+                </li>
+                <li>
+                    跨浏览器兼容性，如果为 <code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性或叠加类 <code>.disabled</code>，Internet Explorer 9 及更低版本的浏览器将会把按钮中的文本绘制为灰色，并带有恶心的阴影，目前还没有解决办法；
+                    <br>
+                    <code>&lt;a&gt;</code> 元素的 <code>class="btn links"</code> 样式并不支持 <code>[disabled] / .disabled</code>。
+                </li>
+            </ul>
             <div class="example">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
-                    <h5 class="fn-pb-10">
+                    <h5>
                         典型按钮样式
                     </h5>
                     <div class="plural-btns fn-mb-40">
@@ -107,7 +110,7 @@
                         <button type="button" class="btn disabled" disabled="disabled">disabled</button>
                         <a href="javascript:;void(0)" class="btn links">links</a>
                     </div>
-                    <h5 class="fn-pb-10">
+                    <h5>
                         叠加类 <code>.current</code>，展示激活状态下的按钮（<code>class="btn links"</code> 和 <code>[disabled] / .disabled</code> 没有定义激活状态）
                     </h5>
                     <div class="plural-btns">
@@ -129,10 +132,19 @@
         </section>
     </div>
     <div class="tabs-panel" id="tp3">
+        <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+            <a href="#BtnSize" class="btn default">典型尺寸类型</a>
+            <a href="#BtnBlockSize" class="btn default">块化按钮</a>
+        </div>
         <section class="example-wrap">
-            <p class="example-description fn-mb-20">
-                BrickPlus 提供了四种不同的按钮尺寸，以备适应不同的特殊设计，其中三种非常规尺寸需通过叠加类 <code>.large-btn / .small-btn / .smaller-btn</code> 展示
-            </p>
+            <h2 id="BtnSize">
+                典型尺寸类型
+            </h2>
+            <ul class="example-description">
+                <li>
+                    BrickPlus 提供了四种不同的按钮尺寸，以备适应不同的特殊设计，其中三种非常规尺寸需通过叠加类 <code>.large-btn / .small-btn / .smaller-btn</code> 展示。
+                </li>
+            </ul>
             <div class="example fn-mb-40">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
@@ -153,12 +165,17 @@
             </div>
         </section>
         <section class="example-wrap">
-            <p class="example-description fn-mb-20">
-                叠加类 <code>.block-btn</code> 可以将其拉伸至父元素 100% 的宽度，而且按钮也变为了块级 <code>block</code> 元素。
-            </p>
-            <p class="example-notice typeone fn-mb-20">
-                <code>&lt;a&gt;</code> 元素构成的按钮，在使用叠加类 <code>.links</code> 之后，并不支持再套用 <code>.block-btn</code> 叠加类
-            </p>
+            <h2 id="BtnBlockSize">
+                块化按钮
+            </h2>
+            <ul class="example-description">
+                <li>
+                    叠加类 <code>.block-btn</code> 可以将其拉伸至父元素 100% 的宽度，而且按钮也变为了块级 <code>block</code> 元素。
+                </li>
+                <li>
+                    <code>&lt;a&gt;</code> 元素构成的按钮，在使用叠加类 <code>.links</code> 之后，并不支持再套用 <code>.block-btn</code> 叠加类。
+                </li>
+            </ul>
             <div class="example fn-mb-40">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
@@ -177,31 +194,29 @@
         </section>
     </div>
     <div class="tabs-panel" id="tp4">
-        <ul class="fn-pl-15">
-            <li clas="fn-pb-20">
-                <a href="#BtnInlineTypeSet" class="link-standard">典型行内排版</a>
-            </li>
-            <li>
-                <a href="#BtnInlineTypeSetSpec" class="link-standard">特殊行内排版</a>
-            </li>
-        </ul>
+        <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+            <a href="#BtnInlineTypeSet" class="btn default">典型行内排版</a>
+            <a href="#BtnInlineTypeSetSpec" class="btn default">特殊行内排版</a>
+        </div>
         <section class="example-wrap">
-            <h2 class="fn-pb-10 fn-pt-45" id="BtnInlineTypeSet">
+            <h2 id="BtnInlineTypeSet">
                 典型行内排版
             </h2>
-            <p class="example-description fn-mb-20">
-                按钮的行内排列，由工具类 <code>.text-align-( left / right / center )</code> 在其最近的父结构样式中控制
-            </p>
-            <p class="example-notice typeone fn-mb-20">
-                当行内排列为左对齐时，父层样式引用可以省略 <code>.text-align-left</code>
-            </p>
-            <p class="example-notice typetwo fn-mb-20">
-                BrickPlus 工具类 <code>.text-align-justify</code> 并不支持典型行内排列的组合
-            </p>
+            <ul class="example-description">
+                <li>
+                    按钮的行内排列，由工具类 <code>.text-align-( left / right / center )</code> 在其最近的父结构样式中控制。
+                </li>
+                <li>
+                    当行内排列为左对齐时，父层样式引用可以省略 <code>.text-align-left</code>。
+                </li>
+                <li>
+                    BrickPlus 工具类 <code>.text-align-justify</code> 并不支持典型行内排列的组合。
+                </li>
+            </ul>
             <div class="example">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
-                    <h5 class="fn-pb-10">左对齐</h5>
+                    <h5>左对齐</h5>
                     <div class="plural-btns text-align-left fn-mb-40">
                         <button type="button" class="btn default">Button</button>
                         <button type="button" class="btn default">Button</button>
@@ -234,20 +249,22 @@
             </div>
         </section>
         <section class="example-wrap">
-            <h2 class="fn-pb-10 fn-pt-45" id="BtnInlineTypeSetSpec">
+            <h2 id="BtnInlineTypeSetSpec">
                 特殊行内排版
             </h2>
-            <p class="example-description fn-mb-20">
-                当一个或者多个按钮或按钮组需要在父结构中居中，然后再附加一个超链接，但超链接并不占用父结构宽度，则需要在父亲结构中加入 <code>.btn-with-viceLink</code> 样式
-                <br>
-                父结构中用作附加超链接的 <code>&lt;a&gt;</code> 元素加入 <code>.btn-vicelink</code> 样式
-            </p>
-            <p class="example-notice typeone fn-mb-20">
-                典型的按钮样式 <code>class="btn links"</code> 和这里展示的类 <code>class="btn-vicelink"</code> 两者完全不一样，别搞错
-            </p>
-            <p class="example-notice typetwo fn-mb-20">
-                特殊排版对 Dom 树的结构和样式引用都有一定的要求，详细请参考代码演示
-            </p>
+            <ul class="example-description">
+                <li>
+                    当一个或者多个按钮或按钮组需要在父结构中居中，然后再附加一个超链接，但超链接并不占用父结构宽度，则需要在父亲结构中加入 <code>.btn-with-viceLink</code> 样式；
+                    <br>
+                    父结构中用作附加超链接的 <code>&lt;a&gt;</code> 元素加入 <code>.btn-vicelink</code> 样式。
+                </li>
+                <li>
+                    典型的按钮样式 <code>class="btn links"</code> 和这里展示的类 <code>class="btn-vicelink"</code> 两者完全不一样，别搞错。
+                </li>
+                <li>
+                    特殊排版对 Dom 树的结构和样式引用都有一定的要求，详细请参考代码演示。
+                </li>
+            </ul>
             <div class="example">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
@@ -276,31 +293,27 @@
         </section>
     </div>
     <div class="tabs-panel" id="tp5">
-        <ul class="fn-pl-15">
-            <li clas="fn-pb-20">
-                <a href="#BtnGroupBase" class="link-standard">典型按钮组</a>
-            </li>
-            <li>
-                <a href="#BtnGroupSize" class="link-standard">按钮组的尺寸</a>
-            </li>
-            <li>
-                <a href="#BtnGroupTypeSet" class="link-standard">按钮组的排版</a>
-            </li>
-        </ul>
+        <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+            <a href="#BtnGroupBase" class="btn default">典型按钮组</a>
+            <a href="#BtnGroupSize" class="btn default">按钮组的尺寸</a>
+            <a href="#BtnGroupTypeSet" class="btn default">按钮组的排版</a>
+        </div>
         <section class="example-wrap">
-            <h2 class="fn-pb-10 fn-pt-45" id="BtnGroupBase">
+            <h2 id="BtnGroupBase">
                 典型按钮组
             </h2>
-            <p class="example-description fn-mb-20">
-                将多个 <code>.btn</code> 系列的元素放在 <code>.btn-group-box</code> 中，得到一个样式意义上的按钮组
-            </p>
-            <p class="example-notice typeone fn-mb-20">
-                多个 <code>.btn-group-box</code> 和 <code>.btn</code> 的行内排版方法是一样的，因此可以很方便的组合按钮组和按钮，做成有用的组件
-            </p>
-            <div class="example fn-mb-40">
+            <ul class="example-description">
+                <li>
+                    将多个 <code>.btn</code> 系列的元素放在 <code>.btn-group-box</code> 中，得到一个样式意义上的按钮组。
+                </li>
+                <li>
+                    多个 <code>.btn-group-box</code> 和 <code>.btn</code> 的行内排版方法是一样的，因此可以很方便的组合按钮组和按钮，做成有用的组件。
+                </li>
+            </ul>
+            <div class="example">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
-                    <h5 class="fn-mb-10">
+                    <h5>
                         单独的按钮组
                     </h5>
                     <div class="fn-mb-40">
@@ -310,7 +323,7 @@
                             <button type="button" class="btn default">3</button>
                         </div>
                     </div>
-                    <h5 class="fn-mb-10">
+                    <h5>
                         按钮组和按钮的组合
                     </h5>
                     <div class="plural-btns">
@@ -332,8 +345,8 @@
                     </div>
                 </div>
                 <div class="example-code">
-                <pre>
-                    <code>
+                    <pre>
+                        <code>
 &lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
     &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
     <span class="tg">...</span>
@@ -346,28 +359,31 @@
     &lt;/div&gt;
     &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl"><b>btn default</b></span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
 &lt;/div&gt;
-                     </code>
-                </pre>
+                        </code>
+                    </pre>
                 </div>
             </div>
         </section>
         <section class="example-wrap">
-            <h2 class="fn-pb-10 fn-pt-45" id="BtnGroupSize">
+            <h2 id="BtnGroupSize">
                 按钮组的尺寸
             </h2>
-            <p class="example-description fn-mb-20">
-                按钮组的尺寸类通过继承按钮的尺寸样式得到和同样的四种尺寸，<br>
-                其中三种非常规尺寸需要通过工具类 <code>( large / small / smaller )-btn-gb</code> 展示
-            </p>
-            <p class="example-notice typetwo fn-mb-20">
-                这里需要注意的是，按钮组和按钮的尺寸类不同点在于，按钮组的尺寸类作为工具类存在，即使放在按钮组元素的父层也能起效，并且影响父层内的所有按钮组和按钮系列，
-                <br>
-                而按钮的尺寸类则作为单独按钮样式的叠加样式使用，并不能影响其他同类
-            </p>
-            <div class="example fn-mb-40">
+            <ul class="example-description">
+                <li>
+                    按钮组的尺寸类通过继承按钮的尺寸样式得到和同样的四种尺寸，
+                    <br>
+                    其中三种非常规尺寸需要通过工具类 <code>( large / small / smaller )-btn-gb</code> 展示。
+                </li>
+                <li>
+                    这里需要注意的是，按钮组和按钮的尺寸类不同点在于，按钮组的尺寸类作为工具类存在，即使放在按钮组元素的父层也能起效，并且影响父层内的所有按钮组和按钮系列，
+                    <br>
+                    而按钮的尺寸类则作为单独按钮样式的叠加样式使用，并不能影响其他同类。
+                </li>
+            </ul>
+            <div class="example">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
-                    <h5 class="fn-mb-10">
+                    <h5>
                         按钮组的四种尺寸
                     </h5>
                     <div class="fn-mb-10">
@@ -394,7 +410,7 @@
                             <button type="button" class="btn default">Button Group Box</button>
                         </div>
                     </div>
-                    <h5 class="fn-mb-10">
+                    <h5>
                         尺寸工具应用在按钮组和按钮的组合
                     </h5>
                     <div class="plural-btns large-btn-gb fn-mb-10">
@@ -467,8 +483,8 @@
                     </div>
                 </div>
                 <div class="example-code">
-                <pre>
-                    <code>
+                    <pre>
+                        <code>
 &lt;div <span class="va">class="<span class="cl">btn-group-box <b>( large / small / smaller )-btn-gb</b></span>"</span>&gt;
     &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
     <span class="tg">...</span>
@@ -481,28 +497,30 @@
     &lt;/div&gt;
     &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
 &lt;/div&gt;
-                     </code>
-                </pre>
+                        </code>
+                    </pre>
                 </div>
             </div>
         </section>
         <section class="example-wrap">
-            <h2 class="fn-pb-10 fn-pt-45" id="BtnGroupTypeSet">
+            <h2 id="BtnGroupTypeSet">
                 按钮组的排版
             </h2>
-            <p class="example-description fn-mb-20">
-                BrickPlus 按钮组的排版分为三种：水平排列（典型的按钮组），垂直排列（<code>.vertical-btn-gb</code>），两端对齐排列（<code>.justified-btn-gb</code>）
-            </p>
-            <p class="example-notice typeone fn-mb-20">
-                和按钮组的尺寸类不同，排版类是叠加类，只能应用于一个按钮组
-            </p>
-            <p class="example-notice typetwo fn-mb-20">
-                为了将 <code>&lt;button&gt;</code> 元素用于两端对齐的按钮组中，必须将每个 <code>.btn</code> 系列的 <code>&lt;button&gt;</code> 包裹进一个 <code>.btn-group-box</code> 中
-            </p>
+            <ul class="example-description">
+                <li>
+                    BrickPlus 按钮组的排版分为三种：水平排列（典型的按钮组），垂直排列（<code>.vertical-btn-gb</code>），两端对齐排列（<code>.justified-btn-gb</code>）。
+                </li>
+                <li>
+                    和按钮组的尺寸类不同，排版类是叠加类，只能应用于一个按钮组。
+                </li>
+                <li>
+                    为了将 <code>&lt;button&gt;</code> 元素用于两端对齐的按钮组中，必须将每个 <code>.btn</code> 系列的 <code>&lt;button&gt;</code> 包裹进一个 <code>.btn-group-box</code> 中。
+                </li>
+            </ul>
             <div class="example">
                 <div class="example-tag">实例</div>
                 <div class="example-box">
-                    <h5 class="fn-mb-10">
+                    <h5>
                         垂直排列的按钮组
                     </h5>
                     <div class="fn-mb-40">
@@ -512,7 +530,7 @@
                             <button type="button" class="btn default">Group Box</button>
                         </div>
                     </div>
-                    <h5 class="fn-mb-10">
+                    <h5>
                         两端对齐的按钮组
                     </h5>
                     <div class="btn-group-box justified-btn-gb fn-mb-10">
@@ -535,8 +553,8 @@
                     </div>
                 </div>
                 <div class="example-code">
-                <pre>
-                    <code>
+                    <pre>
+                        <code>
 &lt;div <span class="va">class="<span class="cl">btn-group-box <b>vertical-btn-gb</b></span>"</span>&gt;
     &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
     <span class="tg">...</span>
@@ -553,8 +571,8 @@
     &lt;/div&gt;
     <span class="tg">...</span>
 &lt;/div&gt;
-                     </code>
-                </pre>
+                        </code>
+                    </pre>
                 </div>
             </div>
         </section>
