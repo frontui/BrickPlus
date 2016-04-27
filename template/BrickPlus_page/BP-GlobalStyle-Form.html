@@ -93,6 +93,7 @@ set tabs = [
       <a href="#FormDate" class="btn default">日期选择</a>
       <a href="#FormModal" class="btn default">模态窗表单</a>
       <a href="#FormRadioCheckBox" class="btn default">单选和多选</a>
+      <a href="#FormOps" class="btn default">复数值展现</a>
       <a href="#FormData" class="btn default">静态数据展示</a>
     </div>
     <section class="example-wrap">
@@ -110,7 +111,7 @@ set tabs = [
         <div class="example-box">
           <form action="">
             <div>
-              <div class="form-group">
+              <div class="form-group fn-pb-10">
                 <label class="form-control-label" for="FormKeyIn1">
                   <b>*</b>
                   <span>Keyin</span>
@@ -120,28 +121,35 @@ set tabs = [
                   <input type="text" class="form-control" id="FormKeyIn1" placeholder="表单提示语">
                 </div>
               </div>
+              <div class="form-group">
+                <label class="form-control-label" for="FormKeyIn2">
+                  <b>*</b>
+                  <span>文本输入框</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <textarea name="" id="FormKeyIn2" cols="30" rows="10" placeholder="表单提示语" class="form-control"></textarea>
+                </div>
+              </div>
             </div>
           </form>
         </div>
         <div class="example-code">
-                    <pre>
-                        <code>
+          <pre>
+            <code>
 &lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
-    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span
-                          class="cl">...</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
         &lt;b&gt;&lt;/b&gt;
         &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
         &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
     &lt;/label&gt;
     &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
-        &lt;<b>input</b> <span class="va">type="<span
-                          class="cl"><b>text / password / email / tel</b></span>"</span> <span class="va">class="<span
-                          class="cl"><b>form-control</b></span>"</span> <span class="va">id="<span class="cl">...</span>"</span> <span
-                          class="va">placeholder="<span class="cl">...</span>"</span>/&gt;
+        &lt;<b>input</b> <span class="va">type="<span class="cl"><b>text / password / email / tel</b></span>"</span> <span class="va">class="<span class="cl"><b>form-control</b></span>"</span> <span class="va">id="<span class="cl">...</span>"</span> <span class="va">placeholder="<span class="cl">...</span>"</span>/&gt;
+        &lt;<b>textarea</b> <span class="va">class="<span class="cl">form-control</span>"</span>&gt;&lt;/<b>textarea</b>&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-                        </code>
-                    </pre>
+            </code>
+          </pre>
         </div>
       </div>
     </section>
@@ -353,9 +361,9 @@ set tabs = [
                 </label>
                 <div class="form-control-wrap">
                   <div class="form-control-dropdown">
-                                            <span class="form-control-dropdown-btn">
-                                                <i></i>
-                                            </span>
+                    <span class="form-control-dropdown-btn">
+                      <i></i>
+                    </span>
                     <div class="form-control-dropdown-value" aria-expanded="false">
                       <span class="bank-icon icon-cmb" title="招商银行"></span>
                       <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
@@ -667,7 +675,8 @@ set tabs = [
                     <span class="form-control-date-btn">
                       <i></i>
                     </span>
-                    <input class="form-control" value="yyyy-mm-dd" type="text" data-toggle="datetimepicker" readonly="readonly">
+                    <input class="form-control" value="yyyy-mm-dd" type="text" data-toggle="datetimepicker"
+                           readonly="readonly">
                   </div>
                 </div>
               </div>
@@ -688,7 +697,9 @@ set tabs = [
             &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-dropdown-btn</b></span>"</span>/&gt;
                 &lt;<b>i</b>/&gt;&lt;/<b>i</b>/&gt;
             &lt;/<b>span</b>&gt;
-            &lt;<b>input</b> <span class="va">type="<span class="cl"><b>text</b></span>"</span> <span class="va">class="<span class="cl"><b>form-control</b></span>"</span> <b><span class="va">data-toggle="<span class="cl">datetimepicker</span>"</span></b> <b><span class="va">readonly="<span class="cl">readonly</span>"</span></b>/&gt;
+            &lt;<b>input</b> <span class="va">type="<span class="cl"><b>text</b></span>"</span> <span class="va">class="<span
+              class="cl"><b>form-control</b></span>"</span> <b><span class="va">data-toggle="<span class="cl">datetimepicker</span>"</span></b> <b><span
+              class="va">readonly="<span class="cl">readonly</span>"</span></b>/&gt;
         &lt;/<b>div</b>&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -717,7 +728,8 @@ set tabs = [
                     <span class="form-control-modal-btn">
                       <i></i>
                     </span>
-                    <input class="form-control" value="点击我会弹出一个窗口" type="text" data-toggle="modal" data-target="#myModal" readonly="readonly">
+                    <input class="form-control" value="点击我会弹出一个窗口" type="text" data-toggle="modal"
+                           data-target="#myModal" readonly="readonly">
                   </div>
                 </div>
               </div>
@@ -738,12 +750,166 @@ set tabs = [
             &lt;<b>span</b> <span class="va">class="<span class="cl"><b>form-control-modal-btn</b></span>"</span>/&gt;
                 &lt;<b>i</b>/&gt;&lt;/<b>i</b>/&gt;
             &lt;/<b>span</b>&gt;
-            &lt;<b>input</b> <span class="va">type="<span class="cl"><b>text</b></span>"</span> <span class="va">class="<span class="cl"><b>form-control</b></span>"</span> <b><span class="va">data-toggle="<span class="cl">modal</span>"</span></b> <b><span class="va">data-target="<span class="cl">***</span>"</span></b> <b><span class="va">readonly="<span class="cl">readonly</span>"</span></b>/&gt;
+            &lt;<b>input</b> <span class="va">type="<span class="cl"><b>text</b></span>"</span> <span class="va">class="<span
+              class="cl"><b>form-control</b></span>"</span> <b><span class="va">data-toggle="<span
+              class="cl">modal</span>"</span></b> <b><span class="va">data-target="<span
+              class="cl">***</span>"</span></b> <b><span class="va">readonly="<span
+              class="cl">readonly</span>"</span></b>/&gt;
         &lt;/<b>div</b>&gt;
     &lt;/div&gt;
 &lt;/div&gt;
                         </code>
                     </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormRadioCheckBox">
+        单选和多选
+      </h2>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>单选和多选</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <div class="form-control-check">
+                    <label>
+                      单选项
+                      <input type="radio" name=""/>
+                    </label>
+                    <label>
+                      多选项
+                      <input type="checkbox" name=""/>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">单选和多选</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-check</b></span>"</span>/&gt;
+            &lt;<b>label</b>/&gt;
+              <span class="tg">...</span>
+              &lt;<b>input</b> <span class="va">type="<span class="cl"><b>radio / checkbox</b></span>"</span>/&gt;
+            &lt;/<b>label</b>&gt;
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormOps">
+        复数值展现
+      </h2>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>复数值展现</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <div class="form-control-modal-value">
+                    <div class="form-control-modal-ops">
+                      <i></i>daisiwei
+                    </div>
+                    <div class="form-control-modal-ops">
+                      <i></i>chenshixing
+                    </div>
+                    <div class="form-control-modal-ops">
+                      <i></i>shaojinhong
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">静态数据展示</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-static</b></span>"</span>/&gt;
+              <span class="tg">...</span>
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormData">
+        静态数据展示
+      </h2>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>静态数据展示</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <div class="form-control-static">
+                    展示静态表单数据
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">静态数据展示</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-static</b></span>"</span>/&gt;
+              <span class="tg">...</span>
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
         </div>
       </div>
     </section>
