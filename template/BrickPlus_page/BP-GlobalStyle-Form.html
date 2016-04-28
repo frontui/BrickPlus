@@ -32,12 +32,16 @@
 {# 设置标签页 #}
 {%
 set tabs = [
-{text: '表单组件结构', url: '#tp1'},
-{text: '基础表单类型', url: '#tp2'}
+{text: '组件结构', url: '#tp1'},
+{text: '表单类型', url: '#tp2'},
+{text: '表单状态', url: '#tp3'},
+{text: '辅助文本', url: '#tp4'},
+{text: '上传样式', url: '#tp5'}
+
 ]
 %}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='2') }}
+{{ tab.prototype(tabs,cur='5') }}
 
 <div class="tabs-content">
   <div class="tabs-panel" id="tp1">
@@ -85,7 +89,7 @@ set tabs = [
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp2">
+  <div class="tabs-panel" id="tp2">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#FormKeyIn" class="btn default">Keyin</a>
       <a href="#FormSelect" class="btn default">Select</a>
@@ -93,7 +97,7 @@ set tabs = [
       <a href="#FormDate" class="btn default">日期选择</a>
       <a href="#FormModal" class="btn default">模态窗表单</a>
       <a href="#FormRadioCheckBox" class="btn default">单选和多选</a>
-      <a href="#FormOps" class="btn default">复数值展现</a>
+      <a href="#FormOps" class="btn default">多个值展示</a>
       <a href="#FormData" class="btn default">静态数据展示</a>
     </div>
     <section class="example-wrap">
@@ -819,7 +823,7 @@ set tabs = [
     </section>
     <section class="example-wrap">
       <h2 id="FormOps">
-        复数值展现
+        多个值展示
       </h2>
       <div class="example">
         <div class="example-tag">实例</div>
@@ -834,15 +838,9 @@ set tabs = [
                 </label>
                 <div class="form-control-wrap">
                   <div class="form-control-modal-value">
-                    <div class="form-control-modal-ops">
-                      <i></i>daisiwei
-                    </div>
-                    <div class="form-control-modal-ops">
-                      <i></i>chenshixing
-                    </div>
-                    <div class="form-control-modal-ops">
-                      <i></i>shaojinhong
-                    </div>
+                    <div class="form-control-modal-ops">daisiwei</div>
+                    <div class="form-control-modal-ops">chenshixing</div>
+                    <div class="form-control-modal-ops">shaojinhong</div>
                   </div>
                 </div>
               </div>
@@ -855,11 +853,12 @@ set tabs = [
 &lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
     &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
         &lt;b&gt;&lt;/b&gt;
-        &lt;span&gt;<span class="tg">静态数据展示</span>&lt;/span&gt;
+        &lt;span&gt;<span class="tg">多个值展示</span>&lt;/span&gt;
         &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
     &lt;/label&gt;
     &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
-        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-static</b></span>"</span>/&gt;
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-modal-value</b></span>"</span>/&gt;
+              &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-modal-ops</b></span>"</span>/&gt;&lt;/<b>div</b>&gt;
               <span class="tg">...</span>
         &lt;/<b>div</b>&gt;
     &lt;/div&gt;
@@ -904,6 +903,268 @@ set tabs = [
     &lt;/label&gt;
     &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
         &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-static</b></span>"</span>/&gt;
+              <span class="tg">...</span>
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#FormVerify" class="btn default">表单校验</a>
+      <a href="#FormDisabled" class="btn default">禁用状态</a>
+      <a href="#FormReadOnly" class="btn default">只读状态</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="FormVerify">表单校验</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 对表单组件的校验状态，如 <code>错误( .has-error )</code>、<code>警告( .has-warning )</code> 和 <code>成功( .has-correct )</code> 状态，都定义了规范样式。对应的校验类叠加到到表单组件的父元素即可。任何包含在此元素之内的表单相关样式都将接受校验样式的重置。
+        </li>
+        <li>
+          BrickPlus 暂时未针对辅助工具进行表单验证状态的优化，如阅读器。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div class="form-group has-correct fn-mb-40">
+                <label class="form-control-label" for="FormVerify1">
+                  <span>keyin</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormVerify1" placeholder="表单提示语" value="表单值"/>
+                  <div class="form-notice">
+                    <i></i>
+                    表单校验成功
+                  </div>
+                </div>
+              </div>
+            <div class="form-group has-error fn-mb-40">
+                <label class="form-control-label" for="FormVerify2">
+                  <span>keyin</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <textarea name="" class="form-control" id="FormVerify2" cols="30" rows="10" placeholder="表单提示语">
+                    表单值
+                  </textarea>
+                  <div class="form-notice">
+                    <i></i>
+                    表单校验失败
+                  </div>
+                </div>
+              </div>
+            <div class="form-group has-warning">
+              <label class="form-control-label">
+                <span>select</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <select class="form-control">
+                  <option>
+                    表单值
+                  </option>
+                </select>
+                <div class="form-notice">
+                  <i></i>
+                  表单校验警告
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group <b>has-( correct / error / warning )</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">表单校验</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        <span class="tg">...</span>
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-notice</b></span>"</span>/&gt;
+              &lt;<b>i</b>&gt;&lt;/<b>i</b>&gt;
+              <span class="tg">...</span>
+        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormDisabled">禁用状态</h2>
+      <ul class="example-description">
+        <li>
+          为输入框设置 <code>[disabled]</code> 属性可以禁止其与用户有任何交互（焦点、输入等）。被禁用的输入框颜色更浅，并且还添加了 <code>not-allowed</code> 鼠标状态。
+        </li>
+        <li>
+          BricksPlus 中的表单 <code>[disabled]</code> 属性暂没有对 <code>&lt;fieldset&gt;</code> 做任何样式定义。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div class="form-group">
+              <label class="form-control-label" for="FormDisabled1">
+                <span>禁用状态</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <input type="text" class="form-control" id="FormDisabled1" placeholder="表单提示语" value="表单值" disabled/>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">禁用状态</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;input <span class="va">type="<span class="cl">text / password / email / tel</span>"</span> <span class="va">class="<span class="cl">form-control</span>"</span> <span class="va">id="<span class="cl">...</span>"</span> <span class="va">placeholder="<span class="cl">...</span>"</span> <b>disabled</b>/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormReadOnly">只读状态</h2>
+      <ul class="example-description">
+        <li>
+          为输入框设置 <code>[readonly]</code> 属性可以禁止用户修改输入框中的内容。处于只读状态的输入框颜色更浅（就像被禁用的输入框一样），但是仍然保留标准的鼠标状态和焦点状态。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div class="form-group">
+              <label class="form-control-label" for="FormDisabled1">
+                <span>只读状态</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <input type="text" class="form-control" id="FormDisabled1" placeholder="表单提示语" value="表单值" readonly/>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">只读状态</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        &lt;input <span class="va">type="<span class="cl">text / password / email / tel</span>"</span> <span class="va">class="<span class="cl">form-control</span>"</span> <span class="va">id="<span class="cl">...</span>"</span> <span class="va">placeholder="<span class="cl">...</span>"</span> <b>readonly</b>/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          针对表单组件结构的“块（block）”级辅助文本，给 <code>p</code> 元素引用 <code>.from-tips</code> 类，即可得到需要的辅助文本效果。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div class="form-group">
+              <label class="form-control-label" for="FormHelpText1">
+                <span>辅助文本</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <textarea name="" id="FormHelpText1" cols="30" rows="10" placeholder="表单提示语" class="form-control"></textarea>
+                <p class="form-tips">
+                  辅助文本
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">辅助文本</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        <span class="tg">...</span>
+        &lt;<b>p</b> <span class="va">class="<span class="cl"><b>form-tips</b></span>"</span>/&gt;
+              <span class="tg">...</span>
+        &lt;/<b>p</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp5">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          BrickPlus 的组件非常简单，通过简单的工具类组合即可用在表单或其他组件中。
+        </li>
+        <li>
+          表单上传控件的样式有特定的结构，详细请参考代码示范。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="text-align-center">
+            <label for="FormUpload1" class="form-upload-box btn primary">
+              上传文件
+              <input type="file" id="FormUpload1"/>
+            </label>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">上传样式</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        <span class="tg">...</span>
+        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-tips</b></span>"</span>/&gt;
               <span class="tg">...</span>
         &lt;/<b>div</b>&gt;
     &lt;/div&gt;
