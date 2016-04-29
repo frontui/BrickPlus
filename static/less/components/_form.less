@@ -13,7 +13,7 @@ input::-ms-clear {
 .input-placeholder(@fontColor-viceText);
 
 // ******************
-// 表单框架字符颜色
+// 表单框架
 // ******************
 .form-title {
   border-bottom: 1px solid @borderColor-primary;
@@ -1138,7 +1138,7 @@ select[size].form-control {
 // ******************
 // 文件上传表单组件
 // ******************
-.form-upload-box {
+.uploader {
   position: relative;
   overflow: hidden;
   text-indent: 0;
@@ -1163,6 +1163,7 @@ select[size].form-control {
     display: block;
     text-align: left;
     padding-left: @paddingLR-default-fromControl + @borderWidth-formControl;
+    width: auto;
 
     > span {
       max-width: 95%;

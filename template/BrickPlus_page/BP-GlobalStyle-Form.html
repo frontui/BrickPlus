@@ -32,23 +32,24 @@
 {# 设置标签页 #}
 {%
 set tabs = [
-{text: '组件结构', url: '#tp1'},
-{text: '表单类型', url: '#tp2'},
-{text: '表单状态', url: '#tp3'},
+{text: '结构', url: '#tp1'},
+{text: '类型', url: '#tp2'},
+{text: '状态', url: '#tp3'},
 {text: '辅助文本', url: '#tp4'},
-{text: '上传样式', url: '#tp5'}
-
+{text: '上传', url: '#tp5'},
+{text: '排列', url: '#tp6'},
+{text: '组合', url: '#tp7'}
 ]
 %}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='5') }}
+{{ tab.prototype(tabs,cur='7') }}
 
 <div class="tabs-content">
   <div class="tabs-panel" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          BrickPlus 表单会有标准的表单组件包裹结构，可以参考代码演示，这样能最好的呈现出表单的排列和控制表单的各种组合，但这种结构嵌套并不是必须的，也可以单独使用。
+          BrickPlus 表单会有标准的表单组件包裹结构，可以参考代码示范，这样能最好的呈现出表单的排列和控制表单的各种组合，但这种结构嵌套并不是必须的，也可以单独使用。
         </li>
       </ul>
       <div class="example">
@@ -70,8 +71,8 @@ set tabs = [
           </form>
         </div>
         <div class="example-code">
-                    <pre>
-                        <code>
+          <pre>
+            <code>
 &lt;<b>div <span class="va">class="<span class="cl">form-group</span>"</span></b>&gt;
     &lt;<b>label <span class="va">class="<span class="cl">form-control-label</span>"</span></b> <span
                           class="va">for="<span class="cl">...</span>"</span>&gt;
@@ -83,8 +84,8 @@ set tabs = [
         <span class="tg">...</span>
     &lt;<b>/div</b>&gt;
 &lt;<b>/div</b>&gt;
-                        </code>
-                    </pre>
+            </code>
+          </pre>
         </div>
       </div>
     </section>
@@ -99,6 +100,7 @@ set tabs = [
       <a href="#FormRadioCheckBox" class="btn default">单选和多选</a>
       <a href="#FormOps" class="btn default">多个值展示</a>
       <a href="#FormData" class="btn default">静态数据展示</a>
+      <a href="#FormSpec" class="btn default">特殊类型</a>
     </div>
     <section class="example-wrap">
       <h2 id="FormKeyIn">
@@ -306,7 +308,7 @@ set tabs = [
       </h2>
       <ul class="example-description">
         <li>
-          模拟 Select 表单组件有固定的 Dom 结构，详细请参考代码演示。
+          模拟 Select 表单组件有固定的 Dom 结构，详细请参考代码示范。
         </li>
         <li>
           注意 IE7 及以下版本 IE 浏览器的兼容，这里的解决方法是分别用人工给出现在页面的 模拟 Select 和 日期下拉 的 <code>.form-group</code> 层添加内联的
@@ -833,7 +835,7 @@ set tabs = [
               <div class="form-group">
                 <label class="form-control-label">
                   <b>*</b>
-                  <span>复数值展现</span>
+                  <span>多个值展示</span>
                   <em>：</em>
                 </label>
                 <div class="form-control-wrap">
@@ -906,6 +908,61 @@ set tabs = [
               <span class="tg">...</span>
         &lt;/<b>div</b>&gt;
     &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormSpec">
+        特殊类型
+      </h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 提供完全隐藏或单单是不显示表单标题的表单样式工具，用于特殊的表单排版需求，通过 <code>.form-no-label（完全剔除表单标题）</code> 和 <code>.form-hide-label（不显示表单标题）</code> 两个工具类控制样式的变化。
+        </li>
+        <li>
+          <code>.form-no-label（完全剔除表单标题）</code> 的表现效果为标题在排版中完全不占用页面宽度，但结构仍然存在；<br>
+          <code>.form-hide-label（不显示表单标题）</code> 的表现效果为标题在排版中占用宽度依然存在，标题文字在页面上不可见。
+        </li>
+        <li>
+          这两个工具类只能影响单一个表单组件，但这样做能更好的适应混合排版类型的表单页面。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group form-hide-label fn-pb-10">
+                <label class="form-control-label" for="FormSpec1">
+                  <b>*</b>
+                  <span>不显示表单标题</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormSpec1" placeholder="不显示表单标题">
+                </div>
+              </div>
+              <div class="form-group form-no-label">
+                <label class="form-control-label" for="FormSpec2">
+                  <b>*</b>
+                  <span>完全剔除表单标题</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormSpec2" placeholder="完全剔除表单标题">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group <b>( form-hide-label / form-no-label )</b></span>"</span>&gt;
+    <span class="tg">...</span>
 &lt;/div&gt;
             </code>
           </pre>
@@ -1133,21 +1190,24 @@ set tabs = [
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp5">
+  <div class="tabs-panel" id="tp5">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          BrickPlus 的组件非常简单，通过简单的工具类组合即可用在表单或其他组件中。
+          BrickPlus 的上传组件非常简单，通过元素 <code>label</code> 和 上传组件工具类 <code>.uploader</code> 为基础，包裹上传输入框；<br>
         </li>
         <li>
           表单上传控件的样式有特定的结构，详细请参考代码示范。
+        </li>
+        <li>
+          上传组件的展现样式可以完全由 <code>.btn</code> 系列样式控制，所以 <code>.btn</code> 能适应的结构组合，上传组件一样可以，一样继承 <code>.btn</code> 的扩展类。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
           <div class="text-align-center">
-            <label for="FormUpload1" class="form-upload-box btn primary">
+            <label for="FormUpload1" class="uploader btn primary">
               上传文件
               <input type="file" id="FormUpload1"/>
             </label>
@@ -1156,17 +1216,211 @@ set tabs = [
         <div class="example-code">
           <pre>
             <code>
+&lt;<b>label</b> <span class="va">class="<span class="cl"><b>uploader</b> btn primary</span>"</span>&gt;
+    &lt;<b>input</b> <span class="va">type="<span class="cl"><b>file</b></span>"</span>/&gt;
+&lt;/<b>label</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp6">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#FormInline" class="btn default">水平排列</a>
+      <a href="#FormVertical" class="btn default">垂直排列</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="FormInline">
+        水平排列
+      </h2>
+      <ul class="example-description">
+        <li>
+          表单组件的默认排列样式就是水平排列
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group">
+                <label class="form-control-label" for="FormInline1">
+                  <b>*</b>
+                  <span>标题和组件在一行内</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormInline1" placeholder="表单提示语"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
 &lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
-    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
         &lt;b&gt;&lt;/b&gt;
-        &lt;span&gt;<span class="tg">上传样式</span>&lt;/span&gt;
+        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
         &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
     &lt;/label&gt;
     &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
         <span class="tg">...</span>
-        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-tips</b></span>"</span>/&gt;
-              <span class="tg">...</span>
-        &lt;/<b>div</b>&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormVertical">
+        垂直排列
+      </h2>
+      <ul class="example-description">
+        <li>
+          排版上，表单标题和表单组件各占一行，只需要在引用 <code>.from-group</code> 类的父元素上叠加 <code>.has-vertical</code>，就能实现。
+        </li>
+        <li>
+          垂直排版的表单，标题并没有宽度限制，这样很好的适应某些特殊的UI需求
+        </li>
+        <li>
+          <code>.has-vertical</code> 只能改变单一组表单组件的排列，能适应混合类型排列的表单页面。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group has-vertical">
+                <label class="form-control-label" for="FormVertical1">
+                  <b>*</b>
+                  <span>标题和组件各占一行</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormVertical1" placeholder="表单提示语"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group <b>has-vertical</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        <span class="tg">...</span>
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp7">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#FormInline" class="btn default">水平排列</a>
+      <a href="#FormVertical" class="btn default">垂直排列</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="FormInline">
+        水平排列
+      </h2>
+      <ul class="example-description">
+        <li>
+          表单组件的默认排列样式就是水平排列
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group">
+                <label class="form-control-label" for="FormInline1">
+                  <b>*</b>
+                  <span>标题和组件在一行内</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormInline1" placeholder="表单提示语"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        <span class="tg">...</span>
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormVertical">
+        垂直排列
+      </h2>
+      <ul class="example-description">
+        <li>
+          排版上，表单标题和表单组件各占一行，只需要在引用 <code>.from-group</code> 类的父元素上叠加 <code>.has-vertical</code>，就能实现。
+        </li>
+        <li>
+          垂直排版的表单，标题并没有宽度限制，这样很好的适应某些特殊的UI需求
+        </li>
+        <li>
+          <code>.has-vertical</code> 只能改变单一组表单组件的排列，能适应混合类型排列的表单页面。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div>
+              <div class="form-group has-vertical">
+                <label class="form-control-label" for="FormVertical1">
+                  <b>*</b>
+                  <span>标题和组件各占一行</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormVertical1" placeholder="表单提示语"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">form-group <b>has-vertical</b></span>"</span>&gt;
+    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+        &lt;b&gt;&lt;/b&gt;
+        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+        <span class="tg">...</span>
     &lt;/div&gt;
 &lt;/div&gt;
             </code>
