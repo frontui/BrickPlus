@@ -1329,16 +1329,24 @@ set tabs = [
   </div>
   <div class="tabs-panel active" id="tp7">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
-      <a href="#FormInline" class="btn default">水平排列</a>
-      <a href="#FormVertical" class="btn default">垂直排列</a>
+      <a href="#FormGsBase" class="btn default">基本额外元素组合</a>
+      <a href="#FormGsButton" class="btn default">额外按钮的拼接</a>
+      <a href="#FormGsMix" class="btn default">混合组装</a>
     </div>
     <section class="example-wrap">
-      <h2 id="FormInline">
-        水平排列
+      <h2 id="FormGsBase">
+        基本额外元素组合
       </h2>
       <ul class="example-description">
         <li>
-          表单组件的默认排列样式就是水平排列
+          找到表单组件中的 <code>.form-group</code> 层，引用 <code>.form-gs</code> 前置工具类为前提；
+          <br>
+          BrickPlus 提供了在 <code>.form-control-wrap</code> 中使用的额外元素工具类 <code>.form-addon</code>，用于在表单控件的左右两边加上文字，单选或多选框和超链接。
+        </li>
+        <li>
+          <code>.form-addon</code> 可以在控件两侧同时增加多个（只要你的视口宽度支持）；
+          <br>
+          需要添加的 <code>.form-addon</code> 只要不是放在最左边或最右边，则需要因应其所处的一则（左或右），叠加 <code>.child-left（左侧）</code> 或 <code>.child-right（右侧）</code>，获得正确的样式。
         </li>
       </ul>
       <div class="example">
@@ -1346,14 +1354,27 @@ set tabs = [
         <div class="example-box">
           <form action="">
             <div>
-              <div class="form-group">
-                <label class="form-control-label" for="FormInline1">
-                  <b>*</b>
-                  <span>标题和组件在一行内</span>
+              <div class="form-group form-gs">
+                <label class="form-control-label" for="FormGS1">
+                  <span>基本额外元素组合</span>
                   <em>：</em>
                 </label>
                 <div class="form-control-wrap">
-                  <input type="text" class="form-control" id="FormInline1" placeholder="表单提示语"/>
+                  <span class="form-addon">@</span>
+                  <span class="form-addon child-left">
+                    <input type="checkbox">
+                  </span>
+                  <span class="form-addon child-left">
+                    <a href="#" class="link-standard">超链接</a>
+                  </span>
+                  <input type="text" class="form-control" id="FormGS1" placeholder="表单提示语"/>
+                  <span class="form-addon child-right">
+                    <a href="#" class="link-standard">超链接</a>
+                  </span>
+                  <span class="form-addon child-right">
+                    <input type="radio">
+                  </span>
+                  <span class="form-addon">@</span>
                 </div>
               </div>
             </div>
@@ -1362,15 +1383,16 @@ set tabs = [
         <div class="example-code">
           <pre>
             <code>
-&lt;div <span class="va">class="<span class="cl">form-group</span>"</span>&gt;
-    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
-        &lt;b&gt;&lt;/b&gt;
-        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
-        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
-    &lt;/label&gt;
-    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
-        <span class="tg">...</span>
-    &lt;/div&gt;
+&lt;div <span class="va">class="<span class="cl">form-group <b>form-gs</b></span>"</span>&gt;
+  &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+    &lt;b&gt;&lt;/b&gt;
+    &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+    &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+  &lt;/label&gt;
+  &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+     &lt;span <span class="va">class="<span class="cl"><b>form-addon ( child-left / right )</b></span>"</span>&gt;&lt;/span&gt;
+    <span class="tg">...</span>
+  &lt;/div&gt;
 &lt;/div&gt;
             </code>
           </pre>
@@ -1378,33 +1400,114 @@ set tabs = [
       </div>
     </section>
     <section class="example-wrap">
-      <h2 id="FormVertical">
-        垂直排列
+      <h2 id="FormGsButton">
+        额外按钮的拼接
       </h2>
       <ul class="example-description">
         <li>
-          排版上，表单标题和表单组件各占一行，只需要在引用 <code>.from-group</code> 类的父元素上叠加 <code>.has-vertical</code>，就能实现。
+          同样的，找到表单组件中的 <code>.form-group</code> 层，引用 <code>.form-gs</code> 前置工具类为前提；
+          <br>
+          BrickPlus 提供了在 <code>.form-control-wrap</code> 中使用的额外按钮拼接工具类 <code>.form-addon-dom</code>，用于在表单控件的左右两边加上按钮，按钮组或者按钮式下拉菜单。
         </li>
         <li>
-          垂直排版的表单，标题并没有宽度限制，这样很好的适应某些特殊的UI需求
-        </li>
-        <li>
-          <code>.has-vertical</code> 只能改变单一组表单组件的排列，能适应混合类型排列的表单页面。
+          <code>.form-addon-dom</code> 可以在控件两侧同时增加多个（只要你的视口宽度支持）；
+          <br>
+          需要添加的 <code>.form-addon-dom</code> 只要不是放在最左边或最右边，则需要因应其所处的一则（左或右），叠加 <code>.child-left（左侧）</code> 或 <code>.child-right（右侧）</code>，获得正确的样式。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
           <form action="">
-            <div>
-              <div class="form-group has-vertical">
-                <label class="form-control-label" for="FormVertical1">
-                  <b>*</b>
-                  <span>标题和组件各占一行</span>
-                  <em>：</em>
-                </label>
-                <div class="form-control-wrap">
-                  <input type="text" class="form-control" id="FormVertical1" placeholder="表单提示语"/>
+            <h5>基本的按钮拼接</h5>
+            <div class="form-group form-gs fn-mb-40">
+              <label class="form-control-label" for="FormGsButton1">
+                <span>额外按钮的拼接</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <span class="form-addon-com">
+                  <button class="btn default" type="button">1</button>
+                </span>
+                <input type="text" class="form-control" id="FormGsButton1" placeholder="额外按钮的拼接"/>
+                  <span class="form-addon-com">
+                    <button class="btn default" type="button">1</button>
+                  </span>
+              </div>
+            </div>
+            <h5>额外按钮组的拼接</h5>
+            <div class="form-group form-gs fn-mb-40">
+              <label class="form-control-label" for="FormGsButton2">
+                <span>额外按钮组的拼接</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">1</button>
+                    <button class="btn default" type="button">2</button>
+                    <button class="btn default" type="button">3</button>
+                  </div>
+                </div>
+                <div class="form-addon-com child-left">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">4</button>
+                    <button class="btn default" type="button">5</button>
+                    <button class="btn default" type="button">6</button>
+                  </div>
+                </div>
+                <input type="text" class="form-control" id="FormGsButton2" placeholder="额外按钮组的拼接"/>
+                <div class="form-addon-com child-right">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">7</button>
+                    <button class="btn default" type="button">8</button>
+                    <button class="btn default" type="button">9</button>
+                  </div>
+                </div>
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">10</button>
+                    <button class="btn default" type="button">11</button>
+                    <button class="btn default" type="button">12</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h5>额外按钮组的拼接</h5>
+            <div class="form-group form-gs fn-mb-40">
+              <label class="form-control-label" for="FormGsButton3">
+                <span>额外按钮组的拼接</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">1</button>
+                    <button class="btn default" type="button">2</button>
+                    <button class="btn default" type="button">3</button>
+                  </div>
+                </div>
+                <div class="form-addon-com child-left">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">4</button>
+                    <button class="btn default" type="button">5</button>
+                    <button class="btn default" type="button">6</button>
+                  </div>
+                </div>
+                <input type="text" class="form-control" id="FormGsButton3" placeholder="额外按钮组的拼接"/>
+                <div class="form-addon-com child-right">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">7</button>
+                    <button class="btn default" type="button">8</button>
+                    <button class="btn default" type="button">9</button>
+                  </div>
+                </div>
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">10</button>
+                    <button class="btn default" type="button">11</button>
+                    <button class="btn default" type="button">12</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1413,15 +1516,16 @@ set tabs = [
         <div class="example-code">
           <pre>
             <code>
-&lt;div <span class="va">class="<span class="cl">form-group <b>has-vertical</b></span>"</span>&gt;
-    &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
-        &lt;b&gt;&lt;/b&gt;
-        &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
-        &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
-    &lt;/label&gt;
-    &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
-        <span class="tg">...</span>
-    &lt;/div&gt;
+&lt;div <span class="va">class="<span class="cl">form-group <b>form-gs</b></span>"</span>&gt;
+  &lt;label <span class="va">class="<span class="cl">form-control-label</span>"</span> <span class="va">for="<span class="cl">...</span>"</span>&gt;
+    &lt;b&gt;&lt;/b&gt;
+    &lt;span&gt;<span class="tg">...</span>&lt;/span&gt;
+    &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
+  &lt;/label&gt;
+  &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
+     &lt;span <span class="va">class="<span class="cl"><b>form-addon ( child-left / right )</b></span>"</span>&gt;&lt;/span&gt;
+    <span class="tg">...</span>
+  &lt;/div&gt;
 &lt;/div&gt;
             </code>
           </pre>
