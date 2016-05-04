@@ -25,13 +25,30 @@ body {
     }
 }
 
-//取消移动端浏览器下渲染以下元素点击区域的默认有色遮罩
+// ******************
+// 取消移动端浏览器下渲染以下元素点击区域的默认有色遮罩
+// ******************
 a,button,input,textarea,label {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+// ******************
+// 字符串颜色工具类
+// ******************
 .fontcolor-vice {
-    color: @fontColor-viceText;
+    color: @fontColor-viceText !important;
+}
+
+.fontcolor-warning {
+  color: @fontColor-warning !important;
+}
+
+.fontcolor-error {
+  color: @fontColor-error !important;
+}
+
+.fontcolor-success {
+  color: @fontColor-success !important;
 }
 
 h1,h2,h3,h4,h5,h6,p {

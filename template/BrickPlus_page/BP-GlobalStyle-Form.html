@@ -1414,15 +1414,18 @@ set tabs = [
           <br>
           需要添加的 <code>.form-addon-dom</code> 只要不是放在最左边或最右边，则需要因应其所处的一则（左或右），叠加 <code>.child-left（左侧）</code> 或 <code>.child-right（右侧）</code>，获得正确的样式。
         </li>
+        <li>
+          <code>.form-addon-dom</code>，可以看做是一个拥有间隔样式的容器，能将按钮及按钮下拉菜单组件有条理的拼接好，类似于 <code>.plural-btns</code> 和 <code>.btn-group-box</code> 的功能。
+        </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
           <form action="">
-            <h5>基本的按钮拼接</h5>
+            <h5>按钮拼接</h5>
             <div class="form-group form-gs fn-mb-40">
               <label class="form-control-label" for="FormGsButton1">
-                <span>额外按钮的拼接</span>
+                <span>按钮的拼接</span>
                 <em>：</em>
               </label>
               <div class="form-control-wrap">
@@ -1435,10 +1438,10 @@ set tabs = [
                   </span>
               </div>
             </div>
-            <h5>额外按钮组的拼接</h5>
+            <h5>按钮组的拼接</h5>
             <div class="form-group form-gs fn-mb-40">
               <label class="form-control-label" for="FormGsButton2">
-                <span>额外按钮组的拼接</span>
+                <span>按钮组的拼接</span>
                 <em>：</em>
               </label>
               <div class="form-control-wrap">
@@ -1473,40 +1476,213 @@ set tabs = [
                 </div>
               </div>
             </div>
-            <h5>额外按钮组的拼接</h5>
-            <div class="form-group form-gs fn-mb-40">
+            <h5>按钮式下拉菜单的拼接</h5>
+            <div class="form-group form-gs fn-mb-10">
               <label class="form-control-label" for="FormGsButton3">
-                <span>额外按钮组的拼接</span>
+                <span class="fontcolor-warning">不建议的拼接方式</span>
                 <em>：</em>
               </label>
               <div class="form-control-wrap">
                 <div class="form-addon-com">
                   <div class="btn-group-box">
-                    <button class="btn default" type="button">1</button>
-                    <button class="btn default" type="button">2</button>
-                    <button class="btn default" type="button">3</button>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default">1</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default dropdown-menu-btn">2</button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default">3</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default dropdown-menu-btn">4</button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <input type="text" class="form-control" id="FormGsButton3" placeholder="不建议的拼接方式"/>
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default">5</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default dropdown-menu-btn">6</button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default dropdown-menu-btn">7</button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default">8</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li><a href="#">菜单选项</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">菜单选项</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-gs">
+              <label class="form-control-label" for="FormGsButton4">
+                <span class="fontcolor-success">建议的拼接方式</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default">1</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
                   </div>
                 </div>
                 <div class="form-addon-com child-left">
                   <div class="btn-group-box">
-                    <button class="btn default" type="button">4</button>
-                    <button class="btn default" type="button">5</button>
-                    <button class="btn default" type="button">6</button>
+                    <button type="button" class="btn default dropdown-menu-btn">2</button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
                   </div>
                 </div>
-                <input type="text" class="form-control" id="FormGsButton3" placeholder="额外按钮组的拼接"/>
+                <div class="form-addon-com child-left">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default">3</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-addon-com child-left">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default dropdown-menu-btn">4</button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <input type="text" class="form-control" id="FormGsButton4" placeholder="建议的拼接方式"/>
                 <div class="form-addon-com child-right">
                   <div class="btn-group-box">
-                    <button class="btn default" type="button">7</button>
-                    <button class="btn default" type="button">8</button>
-                    <button class="btn default" type="button">9</button>
+                    <button type="button" class="btn default">5</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-addon-com child-right">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default dropdown-menu-btn">6</button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-addon-com child-right">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default">7</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
                   </div>
                 </div>
                 <div class="form-addon-com">
                   <div class="btn-group-box">
-                    <button class="btn default" type="button">10</button>
-                    <button class="btn default" type="button">11</button>
-                    <button class="btn default" type="button">12</button>
+                    <button type="button" class="btn default dropdown-menu-btn">8</button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -1523,12 +1699,66 @@ set tabs = [
     &lt;em&gt;<span class="tg">：</span>&lt;/em&gt;
   &lt;/label&gt;
   &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
-     &lt;span <span class="va">class="<span class="cl"><b>form-addon ( child-left / right )</b></span>"</span>&gt;&lt;/span&gt;
+     &lt;div <span class="va">class="<span class="cl"><b>form-addon-dom ( child-left / right )</b></span>"</span>&gt;&lt;/div&gt;
     <span class="tg">...</span>
   &lt;/div&gt;
 &lt;/div&gt;
             </code>
           </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormGsMix">
+        混合组装
+      </h2>
+      <ul class="example-description">
+        <li>
+          这里列出了部分比较常用的组合范例，如有需要可自行组装适应需求变化的组合，顺便告诉 <a href="mailto: alien1983gs@126.com" class="link-standard">我们</a> 有哪些组合不能实现。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="">
+            <div class="form-group form-gs fn-mb-10">
+              <label class="form-control-label" for="FormGsMix1">
+                <span>范例</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-addon">
+                  ￥
+                </div>
+                <input type="text" class="form-control" id="FormGsMix1" placeholder="请输入充值金额"/>
+                <div class="form-addon-com">
+                  <button type="button" class="btn primary">确认充值</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-gs fn-mb-10">
+              <label class="form-control-label" for="FormGsButton5">
+                <span>范例</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <input type="text" class="form-control" id="FormGsButton5" placeholder="请输入邮箱地址"/>
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default">126.com</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>

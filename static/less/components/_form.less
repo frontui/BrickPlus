@@ -1053,6 +1053,13 @@ select[size].form-control {
           .rounded(0);
           float: none;
         }
+
+        &:last-child:not(:first-child) {
+
+          > .btn {
+            border-left-width: 0;
+          }
+        }
       }
     }
 
