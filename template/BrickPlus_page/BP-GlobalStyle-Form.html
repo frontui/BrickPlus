@@ -38,7 +38,9 @@ set tabs = [
 {text: '辅助文本', url: '#tp4'},
 {text: '上传', url: '#tp5'},
 {text: '排列', url: '#tp6'},
-{text: '组合', url: '#tp7'}
+{text: '组合', url: '#tp7'},
+{text: '表单栅格', url: '#tp8'},
+{text: '尺寸', url: '#tp9'}
 ]
 %}
 {# 渲染标签页 #}
@@ -50,6 +52,9 @@ set tabs = [
       <ul class="example-description">
         <li>
           BrickPlus 表单会有标准的表单组件包裹结构，可以参考代码示范，这样能最好的呈现出表单的排列和控制表单的各种组合，但这种结构嵌套并不是必须的，也可以单独使用。
+        </li>
+        <li>
+          表单标题能容纳的字符串数上限受到标题样式宽度的影响，标准宽度表单标题能容纳十八个中文字符，当设计表单标题的时候，请考虑实际能够显示的字符串数目。
         </li>
       </ul>
       <div class="example">
@@ -1476,6 +1481,29 @@ set tabs = [
                 </div>
               </div>
             </div>
+            <div class="form-group form-gs fn-mb-40">
+              <label class="form-control-label" for="FormGsButton6">
+                <span>按钮组的拼接</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">1</button>
+                    <button class="btn default" type="button">2</button>
+                    <button class="btn default" type="button">3</button>
+                  </div>
+                </div>
+                <input type="text" class="form-control" id="FormGsButton6" placeholder="额外按钮组的拼接"/>
+                <div class="form-addon-com">
+                  <div class="btn-group-box">
+                    <button class="btn default" type="button">4</button>
+                    <button class="btn default" type="button">5</button>
+                    <button class="btn default" type="button">6</button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <h5>按钮式下拉菜单的拼接</h5>
             <div class="form-group form-gs fn-mb-10">
               <label class="form-control-label" for="FormGsButton3">
@@ -1722,30 +1750,82 @@ set tabs = [
         <div class="example-box">
           <form action="">
             <div class="form-group form-gs fn-mb-10">
-              <label class="form-control-label" for="FormGsMix1">
-                <span>范例</span>
-                <em>：</em>
-              </label>
-              <div class="form-control-wrap">
-                <div class="form-addon">
-                  ￥
-                </div>
-                <input type="text" class="form-control" id="FormGsMix1" placeholder="请输入充值金额"/>
-                <div class="form-addon-com">
-                  <button type="button" class="btn primary">确认充值</button>
+            <label class="form-control-label" for="FormGsMix1">
+              <span>范例</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-addon">
+                A
+              </div>
+              <div class="form-addon-com child-left">
+                <button type="button" class="btn default">1</button>
+              </div>
+              <div class="form-addon child-left">
+                B
+              </div>
+              <div class="form-addon-com child-left">
+                <div class="btn-group-box">
+                  <button type="button" class="btn default">2</button>
+                  <button type="button" class="btn default">3</button>
                 </div>
               </div>
+              <div class="form-addon-com child-left">
+                <div class="btn-group-box">
+                  <button type="button" class="btn default">4</button>
+                  <button type="button" class="btn default dropdown-menu-btn"></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">菜单选项</a></li>
+                    <li><a href="#">菜单选项</a></li>
+                    <li><a href="#">菜单选项</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">菜单选项</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-addon-com child-left">
+                <div class="btn-group-box">
+                  <button type="button" class="btn default dropdown-menu-btn">5</button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">菜单选项</a></li>
+                    <li><a href="#">菜单选项</a></li>
+                    <li><a href="#">菜单选项</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">菜单选项</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-addon child-left">
+                C
+              </div>
+              <input type="text" class="form-control" id="FormGsMix1" placeholder="范例"/>
             </div>
-            <div class="form-group form-gs fn-mb-10">
-              <label class="form-control-label" for="FormGsButton5">
+          </div>
+            <div class="form-group form-gs">
+              <label class="form-control-label" for="FormGsMix2">
                 <span>范例</span>
                 <em>：</em>
               </label>
               <div class="form-control-wrap">
-                <input type="text" class="form-control" id="FormGsButton5" placeholder="请输入邮箱地址"/>
-                <div class="form-addon-com">
+                <input type="text" class="form-control" id="FormGsMix2" placeholder="范例"/>
+                <div class="form-addon child-right">
+                  C
+                </div>
+                <div class="form-addon-com child-right">
+                  <button type="button" class="btn default">1</button>
+                </div>
+                <div class="form-addon child-right">
+                  B
+                </div>
+                <div class="form-addon-com child-right">
                   <div class="btn-group-box">
-                    <button type="button" class="btn default">126.com</button>
+                    <button type="button" class="btn default">2</button>
+                    <button type="button" class="btn default">3</button>
+                  </div>
+                </div>
+                <div class="form-addon-com child-right">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default">4</button>
                     <button type="button" class="btn default dropdown-menu-btn"></button>
                     <ul class="dropdown-menu">
                       <li><a href="#">菜单选项</a></li>
@@ -1756,9 +1836,165 @@ set tabs = [
                     </ul>
                   </div>
                 </div>
+                <div class="form-addon-com child-right">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default dropdown-menu-btn">5</button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li><a href="#">菜单选项</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">菜单选项</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-addon">
+                  A
+                </div>
               </div>
             </div>
           </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp8">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          将栅格系统应用到表单结构里面的能组合出更复杂的表单页面；<br>
+          需要将栅格系统嵌进表单的时候，要给表单的定义元素 <code>&lt;form&gt;</code> 引用 <code>.form-grid</code> 前置类。
+        </li>
+        <li>
+          系统在表单内的应用大致上和独立使用的效果是一样的，只是为了适应某些表单特有的排版效果，在结合表单的时候会再重新定义一些样式，例如表单标题的宽度和排版，<code>row</code> 和 <code>col</code> 的内外间距；<br>
+          所以在你需要用到栅格去构建表单的时候，请考虑到这些变化会否对原有设计产生影响。
+        </li>
+        <li>
+          BrickPlus 也允许在套有栅格系统的表单当中插入有排版的字符串（暂时只支持行内结构的流元素），只要将栅格系统结合叠加类 <code>.form-grid-addon</code> 使用，详细可参考代码示范；
+          <br>
+          往后仍会继续完善这小工具。
+        </li>
+<!--
+        暂时发现一个栅格表单的样式BUG，就是当表单组件引用 .form-large 尺寸类的时候的，表单标题中各个元素的宽度不能吻合，导致‘：’ 在 ‘ * ’出现的时候被挤兑出标题之外。需要找个时间处理一下，或需要重新编写表单标题的基础样式。
+-->
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="" class="form-grid">
+            <div class="container-fluid">
+              <h5>典型的表单栅格应用</h5>
+              <div class="row fn-mb-40">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="form-group fn-pb-10">
+                    <label class="form-control-label">
+                      <b>*</b>
+                      <span>栅格表单</span>
+                      <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="text" class="form-control" placeholder="表单提示语"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="form-group fn-pb-10">
+                    <label class="form-control-label">
+                      <b>*</b>
+                      <span>栅格表单</span>
+                      <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="text" class="form-control" placeholder="表单提示语"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="form-group fn-pb-10">
+                    <label class="form-control-label">
+                      <b>*</b>
+                      <span>栅格表单</span>
+                      <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="text" class="form-control" placeholder="表单提示语"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h5>特殊的表单栅应用</h5>
+              <div class="row">
+                <div class="col-lg-5">
+                  <div class="form-group form-no-label">
+                    <label class="form-control-label">
+                      <b>*</b>
+                      <span>栅格表单</span>
+                      <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="text" class="form-control" placeholder="表单提示语"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 form-grid-addon">支持栅格插入字符串</div>
+                <div class="col-lg-5">
+                  <div class="form-group form-no-label">
+                    <label class="form-control-label">
+                      <b>*</b>
+                      <span>栅格表单</span>
+                      <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="text" class="form-control" placeholder="表单提示语"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>container-fluid ( container )</b></span>"</span>&gt;
+  &lt;div <span class="va">class="<span class="cl"><b>row</b></span>"</span>&gt;
+    &lt;div <span class="va">class="<span class="cl"><b>col-xx-xx</b></span>"</span>&gt;
+      <span class="tg">...</span>
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp9">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          BrickPlus 提供了四不同的表单尺寸，以备适应不同的页面设计，其中三种非常规尺寸需通过叠加类 <code>.form-large / .form-small / .form-smaller</code> 展示。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <form action="" class="form-smaller">
+
+          </form>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>container-fluid ( container )</b></span>"</span>&gt;
+  &lt;div <span class="va">class="<span class="cl"><b>row</b></span>"</span>&gt;
+    &lt;div <span class="va">class="<span class="cl"><b>col-xx-xx</b></span>"</span>&gt;
+      <span class="tg">...</span>
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
         </div>
       </div>
     </section>

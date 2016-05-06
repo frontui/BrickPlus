@@ -32,6 +32,7 @@ input::-ms-clear {
   line-height: 0;
   text-align: center;
 
+  > [class^="col-lg-"], [class*=" col-lg-"],
   > [class^="col-md-"], [class*=" col-md-"],
   > [class^="col-xs-"], [class*=" col-xs-"],
   > [class^="col-sm-"], [class*=" col-sm-"] {
@@ -1067,7 +1068,8 @@ select[size].form-control {
 
       > .btn {
         .border-radius(@borderRadius-formControl, 0, 0, @borderRadius-formControl);
-        border-right-width: 0;
+        //border-right-width: 0;
+        margin-right: @paddingSize-btngb-inForm;
       }
 
       > .btn-group-box {
@@ -1094,7 +1096,8 @@ select[size].form-control {
 
       > .btn {
         .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
-        border-left-width: 0;
+        //border-left-width: 0;
+        margin-left: @paddingSize-btngb-inForm;
       }
 
       > .btn-group-box {
@@ -1201,6 +1204,7 @@ select[size].form-control {
     margin-right: -(@pa-ma-width-grid-gutter-formControl);
   }
 
+  [class^="col-lg-"], [class*=" col-lg-"],
   [class^="col-md-"], [class*=" col-md-"],
   [class^="col-xs-"], [class*=" col-xs-"],
   [class^="col-sm-"], [class*=" col-sm-"] {
@@ -1247,7 +1251,7 @@ select[size].form-control {
 // 表单尺寸
 // ******************
 .form-large {
-  padding-left: @width-label-large-formControl + @width-grpFix-formControl;
+  //padding-left: @width-label-large-formControl + @width-grpFix-formControl;
 
   textarea.form-control {
     height: auto;
@@ -1408,7 +1412,7 @@ select[size].form-control {
 }
 
 .form-small {
-  padding-left: @width-label-small-formControl + @width-grpFix-formControl;
+  //padding-left: @width-label-small-formControl + @width-grpFix-formControl;
 
   textarea.form-control {
     height: auto;
@@ -1584,7 +1588,7 @@ select[size].form-control {
 }
 
 .form-smaller {
-  padding-left: @width-label-smaller-formControl + @width-grpFix-formControl;
+  //padding-left: @width-label-smaller-formControl + @width-grpFix-formControl;
 
   textarea.form-control {
     height: auto;
