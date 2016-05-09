@@ -151,15 +151,17 @@
 
   &.dropdown-menu-btn {
     position: relative;
-    padding-right: 30px;
+    //padding-right: 30px;
 
     &:after {
       .caret-down();
-      position: absolute;
-      top: 50%;
-      margin-top: -@sizeX-default-caret/2;
-      right: 10px;
+      //position: absolute;
+      //top: 50%;
+      //margin-top: -@sizeX-default-caret/2;
+      //right: 10px;
       content: '';
+      .inline-block();
+      margin-left: 8px;
     }
   }
 
@@ -247,7 +249,7 @@ fieldset[disabled] a.btn {
 
     & + .dropdown-menu-btn {
       padding-right: @padding-dropDownMenu-btn;
-      padding-left: @padding-dropDownMenu-btn;
+      padding-left: 0;
     }
 
     &:first-child {

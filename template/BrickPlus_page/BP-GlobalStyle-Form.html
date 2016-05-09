@@ -40,11 +40,12 @@ set tabs = [
 {text: '排列', url: '#tp6'},
 {text: '组合', url: '#tp7'},
 {text: '表单栅格', url: '#tp8'},
-{text: '尺寸', url: '#tp9'}
+{text: '尺寸', url: '#tp9'},
+{text: '表单框架', url: '#tp10'}
 ]
 %}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='7') }}
+{{ tab.prototype(tabs,cur='10') }}
 
 <div class="tabs-content">
   <div class="tabs-panel" id="tp1">
@@ -1332,7 +1333,7 @@ set tabs = [
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp7">
+  <div class="tabs-panel" id="tp7">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#FormGsBase" class="btn default">基本额外元素组合</a>
       <a href="#FormGsButton" class="btn default">额外按钮的拼接</a>
@@ -1973,24 +1974,150 @@ set tabs = [
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          BrickPlus 提供了四不同的表单尺寸，以备适应不同的页面设计，其中三种非常规尺寸需通过叠加类 <code>.form-large / .form-small / .form-smaller</code> 展示。
+          BrickPlus 提供了四种不同的表单尺寸，以备适应不同的页面设计，其中三种非常规尺寸需通过叠加类 <code>.form-large / .form-small / .form-smaller</code> 展示。
+        </li>
+        <li>
+          表单的尺寸控制类和按钮的尺寸控制类不同，能作为全局控制样式使用，也就是说，可以只在表单最外围一层引用，然后对内里的表单组件产生效果；
+          <br>
+          而引用在单个表单组件的 <code>.form-control</code> 一层，就只影响单个组件。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          <form action="" class="form-smaller">
-
+          <form action="">
+            <div>
+              <div class="form-group form-large fn-pb-10">
+                <label class="form-control-label" for="formSize1">
+                  <span>large form</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="formSize1" placeholder="表单提示语"/>
+                </div>
+              </div>
+              <div class="form-group fn-pb-10">
+                <label class="form-control-label" for="formSize2">
+                  <span>default form</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="formSize2" placeholder="表单提示语"/>
+                </div>
+              </div>
+              <div class="form-group form-small fn-pb-10">
+                <label class="form-control-label" for="formSize3">
+                  <span>small form</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="formSize3" placeholder="表单提示语"/>
+                </div>
+              </div>
+              <div class="form-group form-smaller">
+                <label class="form-control-label" for="formSize4">
+                  <span>smaller form</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="formSize4" placeholder="表单提示语"/>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;div <span class="va">class="<span class="cl"><b>container-fluid ( container )</b></span>"</span>&gt;
-  &lt;div <span class="va">class="<span class="cl"><b>row</b></span>"</span>&gt;
-    &lt;div <span class="va">class="<span class="cl"><b>col-xx-xx</b></span>"</span>&gt;
+&lt;div <span class="va">class="<span class="cl"><b>form-( large / small / smaller )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp10">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#FormTitle" class="btn default">表单题目</a>
+      <a href="#FormPosition" class="btn default">表单居中</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="FormTitle">表单题目</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 并没有定义表单标题的字符尺寸，将 <code>.form-title</code> 类引用到 <code>&lt;h&gt;</code> 系列元素能更快的得到一个表单的题目。
+        </li>
+        <li>
+          其实它是独立的，能用在任何地方，看你的需要咯。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h4 class="form-title fn-mb-30">表单题目
+            <br>
+            <small>题目下的 <code>&lt;small&gt;</code> 元素被定义成副标题的样式</small>
+          </h4>
+          <h4 class="form-title">表单题目
+            <small class="fn-ml-10">题目下的 <code>&lt;small&gt;</code> 元素被定义成副标题的样式</small>
+          </h4>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;h1 <span class="va">class="<span class="cl"><b>form-title</b></span>"</span>&gt;
+  <span class="tg">...</span>
+  &lt;small&gt;<span class="tg">...</span>&lt;/small&gt;
+&lt;/h1&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="FormPosition">表单居中</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 提供简单的表单居中样式结构套合，只需在表单的最外层引用 <code>.form-in-center</code> 类，重新定义其下的元素所使用的栅格样式（对，没错，我们又用到了栅格工具，因为好用），因为栅格工具能方便的决定居中表单在不同视口的情况下所占的宽度比例，确保效果；
+          <br>
+          给引用栅格工具样式的元素叠加 <code>.form-center-box</code> 类（处理掉表单组件的标题宽度，让组件的主题体在页面上看起来是居中的），然后在栅格元素下再套合表单结构。
+        </li>
+        <li>
+          表单居中需要谨慎考虑装载表单的容器的实际有效宽度，避免出现内容在页面上溢出容器的错位效果。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h4 class="form-title fn-mb-20">表单居中
+            <small class="fn-ml-10">表单居中的展现需要结合栅格工具</small>
+          </h4>
+          <div class="form-in-center">
+            <div class="col-lg-6 col-md-10 form-center-box">
+              <form action="">
+                <div class="form-group">
+                  <label class="form-control-label" for="FormPosition1">
+                    <span>范例</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control" id="FormPosition1" placeholder="表单提示语"/>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>form-in-center</b></span>"</span>&gt;
+  &lt;div <span class="va">class="<span class="cl"><b>col-xx-xx form-center-box</b></span>"</span>&gt;
+    &lt;form&gt;
       <span class="tg">...</span>
-    &lt;/div&gt;
+    &lt;/form&gt;
   &lt;/div&gt;
 &lt;/div&gt;
             </code>
