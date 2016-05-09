@@ -45,10 +45,10 @@ set tabs = [
 ]
 %}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='10') }}
+{{ tab.prototype(tabs,cur='1') }}
 
 <div class="tabs-content">
-  <div class="tabs-panel" id="tp1">
+  <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
@@ -2038,7 +2038,7 @@ set tabs = [
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp10">
+  <div class="tabs-panel" id="tp10">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#FormTitle" class="btn default">表单题目</a>
       <a href="#FormPosition" class="btn default">表单居中</a>

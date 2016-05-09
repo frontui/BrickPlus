@@ -1,0 +1,1370 @@
+{% extends "_BrickPlus_layout/4-BP-GlobalStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='2') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='3') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+{# 设置标签页 #}
+{%
+set tabs = [
+{text: '典型表格', url: '#tp1'},
+{text: '表格样式', url: '#tp2'}
+]
+%}
+{# 渲染标签页 #}
+{{ tab.prototype(tabs,cur='2') }}
+
+<div class="tabs-content">
+  <div class="tabs-panel" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          BrickPlus 提供一套标准的表格样式，简洁明快的风格能适应绝大多数的密集型数据展示；
+          <br>
+          但我们并没有直接重置 <code>&lt;table&gt;</code> 标签的默认样式，因为还会有很多地方需要用到这个标签，我们只需将它用于展示数据的样式独立出来。标准表单的所有都定义在 <code>.table</code> 这个前置类之中，只需在 <code>&lt;table&gt;</code> 中引用即可。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ZERO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item TWO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    jingdong
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ONE
+                  </td>
+                  <td>
+                    TJZT201501548025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+                    <code>
+&lt;<b>table</b> <span class="va">class="<span class="cl"><b>table</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>table</b>&gt;
+                     </code>
+                </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp2">
+
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#TableInverse" class="btn default">斑马条纹表格</a>
+      <a href="#TableBorder" class="btn default">表格边框</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="TableInverse">斑马条纹表格</h2>
+      <ul class="example-description">
+        <li>
+          通过引用 <code>.table</code> 的叠加类 <code>.table-inverse</code> 可以给 <code>&lt;tbody&gt;</code> 之内的每一行增加斑马条纹样式。
+        </li>
+        <li>
+          条纹状表格是依赖 <code>:nth-child</code> 选择器实现的，而这一功能不被 Internet Explorer 8 支持。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+            <table class="table table-inverse">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+                    <code>
+&lt;table <span class="va">class="<span class="cl">table <b>table-inverse</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/table&gt;
+                     </code>
+                </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="TableBorder">表格边框</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 提供了五种不同的表格样式适应不同的UI设计需求，其中四种非常规样式需在 <code>.table</code> 类后叠加 <code>.table-inverse</code>、<code>.table-bordered-type1</code>、<code>.table-bordered-type2</code>、<code>.table-bordered-type3</code> 类得到。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5 class="fn-pb-10">Default</h5>
+          <div class="table-wrap fn-mb-30">
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 class="fn-pb-10">.table-inverse</h5>
+          <div class="table-wrap fn-mb-30">
+            <table class="table table-inverse">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 class="fn-pb-10">.table-bordered-type1</h5>
+          <div class="table-wrap fn-mb-30">
+            <table class="table table-bordered-type1">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 class="fn-pb-10">.table-bordered-type2</h5>
+          <div class="table-wrap fn-mb-30">
+            <table class="table table-bordered-type2">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 class="fn-pb-10">.table-bordered-type3</h5>
+          <div class="table-wrap">
+            <table class="table table-bordered-type3">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td class="text-align-left">
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+                    <code>
+&lt;<b>table</b> <span class="va">class="<span class="cl">table</span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>table</b>&gt;
+                     </code>
+                </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}
