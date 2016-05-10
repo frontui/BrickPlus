@@ -1,7 +1,9 @@
 ﻿@charset "utf-8";
 
 
-//模态窗口背景渐入
+// ******************
+// 模态窗口背景淡出淡入
+// ******************
 .fade {
     opacity: 0;
     .transition(opacity,.15s,linear,0);
@@ -11,9 +13,11 @@
     }
 }
 
-//模态窗口
+// ******************
+// 模态窗口
+// ******************
 .modal-background {
-    //background-image: url("@{images-url}black70.png"); //IE8及以下需作兼容处理
+    //background-image: url("@{images-url}black70.png"); //在IE8.less及IE76.less再作兼容处理
     background-color: rgba(0,0,0,0.7);
     position: fixed;
     top: 0;

@@ -33,14 +33,16 @@
 {%
 set tabs = [
 {text: '典型表格', url: '#tp1'},
-{text: '表格样式', url: '#tp2'}
+{text: '表格样式', url: '#tp2'},
+{text: '表格状态', url: '#tp3'},
+{text: '响应式表格', url: '#tp4'}
 ]
 %}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='2') }}
+{{ tab.prototype(tabs,cur='1') }}
 
 <div class="tabs-content">
-  <div class="tabs-panel" id="tp1">
+  <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
@@ -137,7 +139,7 @@ set tabs = [
                   <td>
                     <span class="amount take">288.00</span>
                   </td>
-                  <td class="text-align-left">
+                  <td>
                     <div class="btn-group-box smaller-btn-gb">
                       <button type="button" class="btn default">详情</button>
                       <button type="button" class="btn default dropdown-menu-btn"></button>
@@ -240,7 +242,7 @@ set tabs = [
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp2">
+  <div class="tabs-panel" id="tp2">
 
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#TableInverse" class="btn default">斑马条纹表格</a>
@@ -450,7 +452,7 @@ set tabs = [
       <h2 id="TableBorder">表格边框</h2>
       <ul class="example-description">
         <li>
-          BrickPlus 提供了五种不同的表格样式适应不同的UI设计需求，其中四种非常规样式需在 <code>.table</code> 类后叠加 <code>.table-inverse</code>、<code>.table-bordered-type1</code>、<code>.table-bordered-type2</code>、<code>.table-bordered-type3</code> 类得到。
+          BrickPlus 提供了四种不同的表格样式适应不同的UI设计需求，其中三种非常规样式需在 <code>.table</code> 类后叠加 <code>.table-bordered-type1</code>、<code>.table-bordered-type2</code>、<code>.table-bordered-type3</code> 类得到。
         </li>
       </ul>
       <div class="example">
@@ -459,182 +461,6 @@ set tabs = [
           <h5 class="fn-pb-10">Default</h5>
           <div class="table-wrap fn-mb-30">
             <table class="table">
-              <colgroup>
-                <col style="width: 70px">
-                <col>
-                <col style="width: 100px">
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col style="width: 100px">
-              </colgroup>
-              <thead>
-              <tr>
-                <th>
-                  <label class="table-checked-all">
-                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
-                    全选
-                  </label>
-                </th>
-                <th>
-                  创建时间
-                </th>
-                <th>
-                  业务类型
-                </th>
-                <th>
-                  商品名称
-                </th>
-                <th>
-                  订单号
-                </th>
-                <th>
-                  对方账号
-                </th>
-                <th>
-                  余额
-                </th>
-                <th>
-                  收入
-                </th>
-                <th>
-                  支出
-                </th>
-                <th>
-                  操作
-                </th>
-              </tr>
-              </thead>
-              <tbody id="j-checkall-demo">
-              <tr>
-                <td>
-                  <input type="checkbox">
-                </td>
-                <td>
-                    <span class="text-nowrap">
-                      2015-05-25
-                    </span>
-                    <span class="text-nowrap fontcolor-vice">
-                      10:25:36
-                    </span>
-                </td>
-                <td>
-                  交易
-                </td>
-                <td>
-                  Item ZERO
-                </td>
-                <td>
-                  TJZT201505200025
-                </td>
-                <td>
-                  liang1126
-                </td>
-                <td>
-                  <span class="amount">158,026.00</span>
-                </td>
-                <td>
-                  <span class="amount add">3,252.00</span>
-                </td>
-                <td>
-                  <span class="amount take">288.00</span>
-                </td>
-                <td class="text-align-left">
-                  <div class="btn-group-box smaller-btn-gb">
-                    <button type="button" class="btn default">详情</button>
-                    <button type="button" class="btn default dropdown-menu-btn"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox">
-                </td>
-                <td>
-                    <span class="text-nowrap">
-                      2015-05-25
-                    </span>
-                    <span class="text-nowrap fontcolor-vice">
-                      10:25:36
-                    </span>
-                </td>
-                <td>
-                  交易
-                </td>
-                <td>
-                  Item TWO
-                </td>
-                <td>
-                  TJZT201505200025
-                </td>
-                <td>
-                  jingdong
-                </td>
-                <td>
-                  <span class="amount">158,026.00</span>
-                </td>
-                <td>
-                  <span class="amount add">3,252.00</span>
-                </td>
-                <td>
-                  <span class="amount take">288.00</span>
-                </td>
-                <td class="text-align-left">
-                  <div class="btn-group-box smaller-btn-gb">
-                    <button type="button" class="btn default">详情</button>
-                    <button type="button" class="btn default dropdown-menu-btn"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox">
-                </td>
-                <td>
-                    <span class="text-nowrap">
-                      2015-05-25
-                    </span>
-                    <span class="text-nowrap fontcolor-vice">
-                      10:25:36
-                    </span>
-                </td>
-                <td>
-                  交易
-                </td>
-                <td>
-                  Item ONE
-                </td>
-                <td>
-                  TJZT201501548025
-                </td>
-                <td>
-                  liang1126
-                </td>
-                <td>
-                  <span class="amount">158,026.00</span>
-                </td>
-                <td>
-                  <span class="amount add">3,252.00</span>
-                </td>
-                <td>
-                  <span class="amount take">288.00</span>
-                </td>
-                <td class="text-align-left">
-                  <div class="btn-group-box smaller-btn-gb">
-                    <button type="button" class="btn default">详情</button>
-                    <button type="button" class="btn default dropdown-menu-btn"></button>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <h5 class="fn-pb-10">.table-inverse</h5>
-          <div class="table-wrap fn-mb-30">
-            <table class="table table-inverse">
               <colgroup>
                 <col style="width: 70px">
                 <col>
@@ -1340,11 +1166,300 @@ set tabs = [
         <div class="example-code">
                 <pre>
                     <code>
-&lt;<b>table</b> <span class="va">class="<span class="cl">table</span>"</span>&gt;
+&lt;table <span class="va">class="<span class="cl">table <b>( table-bordered-type1 / table-bordered-type2 / table-bordered-type3 )</b></span>"</span>&gt;
   <span class="tg">...</span>
-&lt;/<b>table</b>&gt;
+&lt;/table&gt;
                      </code>
                 </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          通过这些状态类可以为行或单元格设置颜色。
+        </li>
+        <li>
+          和其他框架组件一样，这些靠颜色分辨状态的体验工具类，还没有做对残障人群的辅助处理，后续开发中将会尽快完善这一项。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+            <table class="table table-bordered-type3">
+              <colgroup>
+                <col style="width: 150px;">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>
+                    类
+                  </th>
+                  <th>
+                    描述
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="t-active">
+                  <td>
+                    .t-active
+                  </td>
+                  <td>
+                    标识处于活跃状态
+                  </td>
+                </tr>
+                <tr class="t-success">
+                  <td>
+                    .t-success
+                  </td>
+                  <td>
+                    标识成功或积极的状态
+                  </td>
+                </tr>
+                <tr class="t-info">
+                  <td>
+                    .t-info
+                  </td>
+                  <td>
+                    标识普通的提示信息
+                  </td>
+                </tr>
+                <tr class="t-warning">
+                  <td>
+                    .t-warning
+                  </td>
+                  <td>
+                    标识警告或需要用户注意的状态
+                  </td>
+                </tr>
+                <tr class="t-danger">
+                  <td>
+                    .t-danger
+                  </td>
+                  <td>
+                    标识处于危险或潜在的带来负面影响的状态
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+                    <code>
+&lt;<b>tr / th / td</b> <span class="va">class="<span class="cl"><b>t-active / t-success / t-info / t-warning / t-danger</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>tr / th / td</b>&gt;
+                     </code>
+                </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          将任何 <code>.table</code> 元素包裹在 <code>.table-responsive</code> 元素内，即可创建响应式表格，当响应式表格的宽度超过容器宽度的时候，就会出现水平滚动条，处理列过多，且列数据不能换行的情况。
+        </li>
+        <li>
+          <code>.table-responsive</code> 并不适合（不是不支持）嵌有按钮式下拉菜单的表格。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap table-responsive">
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo">
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ZERO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td>
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default">打印</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item TWO
+                </td>
+                <td>
+                  TJZT201505200025
+                </td>
+                <td>
+                  jingdong
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td>
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default">打印</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                </td>
+                <td>
+                  交易
+                </td>
+                <td>
+                  Item ONE
+                </td>
+                <td>
+                  TJZT201501548025
+                </td>
+                <td>
+                  liang1126
+                </td>
+                <td>
+                  <span class="amount">158,026.00</span>
+                </td>
+                <td>
+                  <span class="amount add">3,252.00</span>
+                </td>
+                <td>
+                  <span class="amount take">288.00</span>
+                </td>
+                <td>
+                  <div class="btn-group-box smaller-btn-gb">
+                    <button type="button" class="btn default">详情</button>
+                    <button type="button" class="btn default">打印</button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">table-wrap <b>table-responsive</b></span>"</span>&gt;
+  &lt;table <span class="va">class="<span class="cl">table</span>"</span>&gt;
+    <span class="tg">...</span>
+  &lt;/table&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
         </div>
       </div>
     </section>

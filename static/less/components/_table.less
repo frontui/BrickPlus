@@ -179,8 +179,6 @@
     }
 }
 
-
-
 // ******************
 // 全选
 // ******************
@@ -236,43 +234,39 @@
 }*/
 
 // ******************
-// 数值
+// 处理ff浏览器下 fieldset 拥有宽度在 table-responsive 类下的异常表现
 // ******************
-.amount {
-    position: relative;
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
 
-    > b {
-        display: none;
-    }
+// ******************
+// 响应式表格
+// ******************
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 0.01%;
+  width: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
-    &.add,
-    &.take {
-        padding-left: 18px;
-        position: relative;
+  > .table {
+    table-layout: auto;
 
-        &:before {
-            display: block;
-            position: absolute;
-            top: 1px;
-            left: 0;
-            .form-notice-icon-font-family();
-            font-size: @fontSize-smaller;
+    > tbody > tr > td,
+    > tbody > tr > th,
+    > tfoot > tr > td,
+    > tfoot > tr > th,
+    > thead > tr > td,
+    > thead > tr > th {
+      .text-nowrap();
+
+      > .btn-group-box {
+
+        > .btn {
+          float: none;
         }
+      }
     }
-
-    &.add {
-        color: @fontColor-success;
-
-        &:before {
-            content: @content-icon-add-amount;
-        }
-    }
-
-    &.take {
-        color: @fontColor-error;
-
-        &:before {
-            content: @content-icon-take-amount;
-        }
-    }
+  }
 }

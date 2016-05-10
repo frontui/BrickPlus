@@ -51,6 +51,48 @@ a,button,input,textarea,label {
   color: @fontColor-success !important;
 }
 
+// ******************
+// 数值
+// ******************
+.amount {
+  position: relative;
+
+  > b {
+    display: none;
+  }
+
+  &.add,
+  &.take {
+    padding-left: 18px;
+    position: relative;
+
+    &:before {
+      display: block;
+      position: absolute;
+      top: 1px;
+      left: 0;
+      .form-notice-icon-font-family();
+      font-size: @fontSize-smaller;
+    }
+  }
+
+  &.add {
+    color: @fontColor-success;
+
+    &:before {
+      content: @content-icon-add-amount;
+    }
+  }
+
+  &.take {
+    color: @fontColor-error;
+
+    &:before {
+      content: @content-icon-take-amount;
+    }
+  }
+}
+
 h1,h2,h3,h4,h5,h6,p {
     font-weight: 500;
     margin: 0;
