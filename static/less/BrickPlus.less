@@ -9,6 +9,7 @@
 //body
 body {
     background-color: @bgColor-body-Bricks;
+    overflow-x: hidden;
 }
 
 //bricks logo
@@ -103,11 +104,11 @@ body {
 
 //bricks 主导航
 .bricks-header {
-    //z-index: @zIndex-head-Bricks;
-    //position: fixed;
-    //top: 0;
-    //left: @width-BricksAside;
-    //right: 0;
+    z-index: @zIndex-head-Bricks;
+    position: absolute;
+    top: 0;
+    left: @width-BricksAside;
+    right: 0;
     background-color: @bgColor-BricksNav;
     border-bottom: @borderWidth-BricksHeader solid @borderColor-BricksNav;
     .clearfix();
@@ -567,8 +568,14 @@ body {
 
 //bricks 内容一级盒子
 .bricks-main-wrap {
-    padding-left: @width-BricksAside;
-    overflow: hidden;
+  padding-left: @width-BricksAside;
+  padding-top: @height-BricksNav + @borderWidth-BricksHeader;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @media (max-width:1024px) {
@@ -581,6 +588,7 @@ body {
 .bricks-content-wrap {
     margin: 0px; //(@height-BricksNav + @borderWidth-BricksHeader + 15px) 15px 15px 15px;
     display: none;
+    height: 100%;
 }
 
 //tabs内容淡入动画
@@ -779,7 +787,7 @@ ol.example-description {
     position: relative;
 
     > .sim-body-main {
-        height: 600px;
+        height: 400px;
         background: url( http://www.wefax.cn/Content/images/index/tu3.jpg ) center center no-repeat;
         background-size: cover;
         filter: blur(14px) contrast(0.4) brightness(1.4);
@@ -793,4 +801,38 @@ ol.example-description {
         position: absolute;
         .rounded(@borderRadius-wrap-modal);
     }
+}
+
+//空白内容页
+.blank-face {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+
+  &:before {
+    .form-notice-icon-font-family();
+    content: '\f1cb';
+    font-size: 34rem;
+    color: lighten(@fontColor-viceText,35%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -34rem / 2 + 3rem;
+    margin-top: -34rem / 2;
+  }
+
+  &:after {
+    content: 'There is nothing here! Guys';
+    font-size: @fontSize-large;
+    line-height: @line-height-base;
+    position: absolute;
+    width: 34rem;
+    margin-left: -34rem / 2;
+    margin-top: -3rem;
+    top: 50%;
+    left: 50%;
+  }
 }

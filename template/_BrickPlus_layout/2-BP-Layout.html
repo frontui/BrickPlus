@@ -32,18 +32,17 @@
 {# 公共Dom树 #}
 {% block body %}
     <div class="main">
+
+        {# 渲染页面导航 #}
+        {% block nav %}
+        {% endblock %}
+
         <div class="bricks-main-wrap">
-
-            {# 渲染页面导航 #}
-            {% block nav %}
-            {% endblock %}
-
             <div class="bricks-content-wrap">
                 {# 加载页面内容 #}
                 {% block content %}
                 {% endblock %}
             </div>
-
         </div>
 
         {{ footer.theFooter() }}
@@ -62,6 +61,7 @@
 <script src="{{ static }}/js/ui/dropdown.js?v={{ version }}"></script>
 <script src="{{ static }}/js/ui/modal.js?v={{ version }}"></script>
 <script src="{{ static }}/js/ui/datetimepicker.js?v={{ version }}"></script>
+<script src="{{ static }}/js/ui/checkAll.js?v={{ version }}"></script>
 <script src="{{ static }}/js/common.js?v={{ version }}"></script>
 <script src="{{ static }}/js/framework.js?v={{ version }}"></script>
 {% endblock %}

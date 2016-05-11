@@ -17,8 +17,18 @@
 {% endblock %}
 
 
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='1') }}
+{% endblock %}
+
+
 {# 加载页面内容 #}
 {% block content %}
+<div class="blank-face"></div>
 {% endblock %}
 
 
