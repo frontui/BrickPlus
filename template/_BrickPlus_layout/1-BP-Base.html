@@ -4,7 +4,6 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="renderer" content="webkit">
-        <meta name="viewport" content="width=device-width">
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="FrontUIteam·Project" />
         <meta name="keywords" content="FED" />
@@ -36,7 +35,7 @@
         <!--[if lt IE 8]>
 		    <link rel="stylesheet" href="{{ static }}/css/ie-76.css?v={{ version }}">
         <![endif]-->
-        
+
         {# 字体图标兼容IE7/6 （因为 fonticon 的兼容样式在 less 编译中语法报错，所以直接用 css，不编译）#}
         <!--[if lte IE 7]>
             <link rel="stylesheet" href="{{ static }}/iconfont-ie7/ie7.css?v={{ version }}">
@@ -56,7 +55,7 @@
 
     {# 加载页面 body 类 #}
     <body {% block bodyClass %}{% endblock %}>
-        
+
         {# 加载页面内容 #}
         {% block body %}{% endblock %}
 
