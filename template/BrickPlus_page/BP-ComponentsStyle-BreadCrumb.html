@@ -21,6 +21,12 @@
 {% endblock %}
 
 
+{# 当前页面没内容时候 #}
+{% block blankpage %}
+<div class="blank-face"></div>
+{% endblock %}
+
+
 {# 渲染页面导航 #}
 {% block nav %}
 {# 渲染主导航 #}
@@ -32,7 +38,6 @@
 
 {# 加载页面内容 #}
 {% block content %}
-<div class="blank-face"></div>
 {% endblock %}
 
 

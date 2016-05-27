@@ -38,12 +38,25 @@ body {
         95% {
             @{-}color: @color2-BricksLogo;
         }
-
         100% {
             @{-}color: @color1-BricksLogo;
             @{-}transform: scale(1);
         }
     }
+}
+
+//bricks aside btn border
+& {
+  .keyframes( bricksAsideBtnBorder );
+
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translateX(-100%);
+    }
+    100% {
+      @{-}transform: translateX(0);
+    }
+  }
 }
 
 .bricks-logo {
@@ -104,11 +117,6 @@ body {
 
 //bricks 主导航
 .bricks-header {
-    z-index: @zIndex-head-Bricks;
-    position: absolute;
-    top: 0;
-    left: @width-BricksAside;
-    right: 0;
     background-color: @bgColor-BricksNav;
     border-bottom: @borderWidth-BricksHeader solid @borderColor-BricksNav;
     .clearfix();
@@ -252,7 +260,6 @@ body {
 
         &:before,
         &:after {
-            display: block;
             height: 100%;
             position: absolute;
             top: 0;
@@ -424,6 +431,29 @@ body {
                 .link-custom(@fontColor-link-BricksAside,@fontColor-linkHover-BricksAside,none);
                 .transition(all,0.3s,ease,0);
                 .rounded(@borderRadius-btn-BricksAside);
+                overflow: hidden;
+
+                .btn-border {
+                    position: absolute;
+                    border-top: @borderWidth-BricksAside solid @domColor3;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    .transition(all,0.3s,ease,0);
+                    display: none;
+
+                    &:before {
+                        position: absolute;
+                        width: @borderWidth-BricksAside;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        height: 100%;
+                        background-color: @domColor3;
+                        content: '';
+                    }
+                }
 
                 > i {
                     .form-notice-icon-font-family();
@@ -471,6 +501,22 @@ body {
 
                 &:hover {
                     background-color: @hoverBgColor-btn-BricksAside;
+
+                    .btn-border {
+                        .animation-s(bricksAsideBtnBorder,0.3s,ease,0,1,normal,running,both);
+                        display: block;
+
+                      &:after {
+                        position: absolute;
+                        width: @borderWidth-BricksAside;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        background-color: @domColor3;
+                        content: '';
+                        display: block;
+                      }
+                    }
 
                     > i {
                         right: 14px;
@@ -569,13 +615,7 @@ body {
 //bricks 内容一级盒子
 .bricks-main-wrap {
   padding-left: @width-BricksAside;
-  padding-top: @height-BricksNav + @borderWidth-BricksHeader;
-  overflow-x: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  //overflow-x: hidden;
 }
 
 @media (max-width:1024px) {
@@ -805,34 +845,43 @@ ol.example-description {
 
 //空白内容页
 .blank-face {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  font-size: 0;
-  line-height: 0;
-  text-align: center;
+  //position: relative;
+  position: fixed;
+  top: @height-BricksNav + @borderWidth-BricksHeader;
+  left: @width-BricksAside;
+  right: 0;
+  bottom: 0;
+  background-color: @bgColor-body-Bricks;
+  .animation-s(tab-panel-bricks,1s,ease-out,0,1,normal,running,both);
 
   &:before {
     .form-notice-icon-font-family();
     content: '\f1cb';
-    font-size: 34rem;
+    font-size: 400px;
     color: lighten(@fontColor-viceText,35%);
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -34rem / 2 + 3rem;
-    margin-top: -34rem / 2;
+    margin: -200px 0 0 -200px;
   }
 
   &:after {
-    content: 'There is nothing here! Guys';
+    content: 'There are nothing here! Guys';
     font-size: @fontSize-large;
     line-height: @line-height-base;
     position: absolute;
-    width: 34rem;
-    margin-left: -34rem / 2;
-    margin-top: -3rem;
+    width: 400px;
+    text-align: center;
+    margin-left: -200px;
     top: 50%;
     left: 50%;
+  }
+
+  @media (max-width:1024px) {
+
+    & {
+      left: @width-screen1024-BricksAside;
+    }
+
   }
 }

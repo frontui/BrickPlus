@@ -3,7 +3,7 @@
 
 {# 引用公共样式表 #}
 {% block globalCss %}
-	<link rel="stylesheet" href="{{ static }}/css/BrickPlus.css?v={{ version }}">
+<link rel="stylesheet" href="{{ static }}/css/BrickPlus.css?v={{ version }}">
 {% endblock %}
 
 
@@ -11,13 +11,13 @@
 {% import "_BrickPlus_components/navigator.html" as navigator %}
 {# 设置主导航 #}
 {%
-    set mainNav = [
-        {text: '起步', url: 'BP-Start-Download.html'},
-        {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
-        {text: '组件样式', url: 'BP-ComponentsStyle-BreadCrumb.html'},
-        {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-CheckAll.html'},
-        {text: 'GitHub', url: 'javascript:;void(0)'}
-    ]
+  set mainNav = [
+    {text: '起步', url: 'BP-Start-Download.html'},
+    {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
+    {text: '组件样式', url: 'BP-ComponentsStyle-BreadCrumb.html'},
+    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-CheckAll.html'},
+    {text: 'GitHub', url: 'javascript:;void(0)'}
+  ]
 %}
 
 {# 加载侧导航导航 #}
@@ -31,26 +31,31 @@
 
 {# 公共Dom树 #}
 {% block body %}
-    <div class="main">
+<div class="main">
+  <div class="bricks-main-wrap">
 
-        {# 渲染页面导航 #}
-        {% block nav %}
-        {% endblock %}
+    {# 当前页面没内容时候 #}
+    {% block blankpage %}
+    {% endblock %}
 
-        <div class="bricks-main-wrap">
-            <div class="bricks-content-wrap">
-                {# 加载页面内容 #}
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
+    {# 渲染页面导航 #}
+    {% block nav %}
+    {% endblock %}
 
-        {{ footer.theFooter() }}
-
-        {# 返回页面顶部按钮 #}
-        <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>
-
+    <div class="bricks-content-wrap">
+      {# 加载页面内容 #}
+      {% block content %}
+      {% endblock %}
     </div>
+
+  </div>
+
+  {{ footer.theFooter() }}
+
+  {# 返回页面顶部按钮 #}
+  <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>
+
+</div>
 {% endblock %}
 
 
