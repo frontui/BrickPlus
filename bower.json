@@ -5,6 +5,9 @@
     "jquery": "1.11.1",
     "html5shiv": "~3.7.3",
     "respond": "~1.4.2",
-    "frontui": "~1.0.0"
+    "frontui": "~1.2.14",
+    "requirejs": "^2.2.0",
+    "avalon": "^2.0.1",
+    "es5-shim": "^4.5.8"
   }
 }
