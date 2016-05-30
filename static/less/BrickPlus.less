@@ -47,14 +47,53 @@ body {
 
 //bricks aside btn border
 & {
-  .keyframes( bricksAsideBtnBorder );
+  .keyframes( bricksAsideBtnBorderXTOP );
 
   .-frames(@-...) {
     0% {
       @{-}transform: translateX(-100%);
     }
     100% {
-      @{-}transform: translateX(0);
+      @{-}transform: translateX(200%);
+    }
+  }
+}
+
+& {
+  .keyframes( bricksAsideBtnBorderXBOTTOM );
+
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translateX(200%);
+    }
+    100% {
+      @{-}transform: translateX(-100%);
+    }
+  }
+}
+
+& {
+  .keyframes( bricksAsideBtnBorderYLEFT );
+
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translateY(200%);
+    }
+    100% {
+      @{-}transform: translateY(-100%);
+    }
+  }
+}
+
+& {
+  .keyframes( bricksAsideBtnBorderYRIGHT );
+
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translateY(-100%);
+    }
+    100% {
+      @{-}transform: translateY(200%);
     }
   }
 }
@@ -422,7 +461,7 @@ body {
         .reset-list( none,@fontSize-smaller,@line-height-base );
 
         > li {
-            padding: 0 10px;
+            padding: 0 10px 10px 10px;
 
             > a {
                 position: relative;
@@ -434,25 +473,38 @@ body {
                 overflow: hidden;
 
                 .btn-border {
-                    position: absolute;
-                    border-top: @borderWidth-BricksAside solid @domColor3;
+                  position: absolute;
+                  background-color: darken(@domColor7,15%);
+                  .transition(all, 0.3s, ease, 0);
+                  display: none;
+
+                  &.top {
                     left: 0;
                     right: 0;
                     top: 0;
-                    bottom: 0;
-                    .transition(all,0.3s,ease,0);
-                    display: none;
+                    height: @borderWidth-BricksAside;
+                  }
 
-                    &:before {
-                        position: absolute;
-                        width: @borderWidth-BricksAside;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        height: 100%;
-                        background-color: @domColor3;
-                        content: '';
-                    }
+                  &.right {
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: @borderWidth-BricksAside;
+                  }
+
+                  &.bottom {
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: @borderWidth-BricksAside;
+                  }
+
+                  &.left {
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: @borderWidth-BricksAside;
+                  }
                 }
 
                 > i {
@@ -503,18 +555,22 @@ body {
                     background-color: @hoverBgColor-btn-BricksAside;
 
                     .btn-border {
-                        .animation-s(bricksAsideBtnBorder,0.3s,ease,0,1,normal,running,both);
                         display: block;
 
-                      &:after {
-                        position: absolute;
-                        width: @borderWidth-BricksAside;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        background-color: @domColor3;
-                        content: '';
-                        display: block;
+                      &.top {
+                        .animation-s(bricksAsideBtnBorderXTOP,0.6s,linear,0,1,normal,running,both);
+                      }
+
+                      &.right {
+                        .animation-s(bricksAsideBtnBorderYRIGHT,0.3s,linear,0.3s,1,normal,running,both);
+                      }
+
+                      &.bottom {
+                        .animation-s(bricksAsideBtnBorderXBOTTOM,0.6s,linear,0.3s,1,normal,running,both);
+                      }
+
+                      &.left {
+                        .animation-s(bricksAsideBtnBorderYLEFT,0.3s,linear,0.7s,1,normal,running,both);
                       }
                     }
 
@@ -531,6 +587,10 @@ body {
                     color: @currFontColor-btn-BricksAside;
                     background: @currBgColor-btn-BricksAside;
                     //.outer-shadow(0,0,8px,0.4);
+
+                  .btn-border {
+                    display: none;
+                  }
 
                     > i {
                         right: 14px;

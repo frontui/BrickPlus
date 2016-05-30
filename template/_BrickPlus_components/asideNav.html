@@ -1,26 +1,29 @@
 {% macro theAsideNav(mainAsideNav,cur='') %}
 <aside class="bricks-aside">
-    <div class="bricks-logo" id="BrickPlusLogo">
-        <span>B</span>
-        <span>r</span>
-        <span>i</span>
-        <span>c</span>
-        <span>k</span>
-        <a href="BP-Start-Download.html"></a>
-    </div>
-    <div class="bricks-aside-ul-wrap">
-        <ul>
-            {% for item in mainAsideNav %}
-            <li {% if loop.index == cur %}class="current"{% endif %}>
-                <a href="{{ item.url }}">
-                    <i></i>
-                    <b></b>
-                    <span class="btn-border"></span>
-                    {{ item.text }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+  <div class="bricks-logo" id="BrickPlusLogo">
+    <span>B</span>
+    <span>r</span>
+    <span>i</span>
+    <span>c</span>
+    <span>k</span>
+    <a href="BP-Start-Download.html"></a>
+  </div>
+  <div class="bricks-aside-ul-wrap">
+    <ul>
+      {% for item in mainAsideNav %}
+      <li {% if loop.index== cur %}class="current" {% endif %}>
+        <a href="{{ item.url }}">
+          <i></i>
+          <b></b>
+          <span class="btn-border top"></span>
+          <span class="btn-border right"></span>
+          <span class="btn-border bottom"></span>
+          <span class="btn-border left"></span>
+          {{ item.text }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </aside>
 {% endmacro %}
