@@ -2,24 +2,19 @@
 // 标签页
 // ******************
 .tabs-wrap {
-  .clearfix();
-  position: relative;
 
-  .tabs {
-    .reset-list(none, 0, 0);
-    text-align: center;
-
-    > li {
-
-      > .tabs-btn {
-        display: block;
-      }
-    }
+  .tabs > li .tabs-btn {
+    //在不使用 prototype 样式的时候，.tabs-btn 仍能作为启用标签页插件的一个空类使用，所以骨架类结构里面没有样式
   }
 
+  //典型标签页样式
   &.prototype {
+    .clearfix();
+    position: relative;
 
     .tabs {
+      .reset-list(none, 0, 0);
+      text-align: center;
       padding: @padding-body-Prototype;
       border-bottom: 1px solid @borderColor1-Prototype;
       .clearfix();
@@ -28,6 +23,7 @@
         float: left;
 
         > .tabs-btn {
+          display: block;
           .link-standard(@fontColor-link);
           height: @height-Prototype;
           line-height: @height-Prototype;

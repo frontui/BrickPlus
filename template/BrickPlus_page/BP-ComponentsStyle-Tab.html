@@ -33,23 +33,18 @@
 
 {# 加载页面内容 #}
 {% block content %}
-
-{# 设置标签页 #}
-{%
-set tabs = [
-{text: '结构', url: '#tp1'},
-{text: '样式', url: '#tp2'}
-]
-%}
-{# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='2') }}
-
 <div class="tabs-content">
-  <div class="tabs-panel " id="tp1">
+  <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          以弹出对话框的形式出现，当模态窗口出现时，<code>&lt;body&gt;</code> 将添加类 <code>.modal-open</code> 这个类。
+          我们建议当你需要使用标签页的时候，套用 BrickPlus 标准的结构，这样能够使标签页的按钮使用达到最好的用户体验效果，例如：激活 <code>&lt;li&gt;</code> 标签的 <code>.active</code> 类从而影响 <code>.tab-btns</code> 类，使其有用户点击激活的状态样式。<br>
+        </li>
+        <li>
+          由于标签页的使用，可以直接在标签按钮上引用 <code>.tab-btns</code> 类或者绑定 <code>data-toggle="tab"</code> 达到目的，所以也可以不使用标准结构，而自行编写新的样式。
+        </li>
+        <li>
+          BrickPlus 标准的标签页结构有定义在 1024 分辨率下的响应式样式。
         </li>
       </ul>
       <div class="example">
@@ -83,85 +78,14 @@ set tabs = [
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>modal-background</b></span>"</span>&gt;
-  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>modal-layer</b></span>"</span>&gt;
-    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>modal-position</b></span>"</span>&gt;
-      &lt;<b>div</b> <span class="va">class="<span class="cl"><b>modal-wrap animated bounceInDown</b></span>"</span>&gt;
-        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>modal-head</b></span>"</span>&gt;
-          <span class="tg">模态窗口标题</span>
-          &lt;<b>i</b> <span class="va">class="<span class="cl"><b>modal-close</b></span>"</span>&gt;&lt;/<b>i</b>&gt;
-        &lt;/<b>div</b>&gt;
-        &lt;<b>div</b> <span class="va">class="<span class="cl"><b>modal-body</b></span>"</span>&gt;
-          <span class="tg">模态窗口主体高度不限</span>
-        &lt;/<b>div</b>&gt;
-      &lt;/<b>div</b>&gt;
-    &lt;/<b>div</b>&gt;
-  &lt;/<b>div</b>&gt;
-&lt;/<b>div</b>&gt;
-            </code>
-          </pre>
-        </div>
-      </div>
-    </section>
-  </div>
-  <div class="tabs-panel active" id="tp2">
-    <section class="example-wrap">
-      <ul class="example-description">
-        <li>
-          在保持 Dom 结构不变的情况下，通过改变样式得到完全不同展现效果的标签页；
-          <br>
-          BrickPlus 提供了两种不同的模态窗尺寸，以备适应不同的设计需求，通过给 <code>.tabs-wrap</code> 叠加类 <code>.prototype / .primary-type</code> 展示。
-        </li>
-      </ul>
-      <div class="example">
-        <div class="example-tag">实例</div>
-        <div class="example-box">
-          <h5>Prototype</h5>
-          <div class="tabs-wrap prototype fn-mb-30">
-            <ul class="tabs">
-              <li class="active">
-                <a href="#" class="tabs-btn">
-                  Tab 1
-                </a>
-              </li>
-              <li>
-                <a href="#" class="tabs-btn">
-                  Tab 2
-                </a>
-              </li>
-              <li>
-                <a href="#" class="tabs-btn">
-                  Tab 3
-                </a>
-              </li>
-            </ul>
-          </div>
-          <h5>Primary type</h5>
-          <div class="tabs-wrap prototype">
-            <ul class="tabs">
-              <li class="active">
-                <a href="#" class="tabs-btn">
-                  Tab 1
-                </a>
-              </li>
-              <li>
-                <a href="#" class="tabs-btn">
-                  Tab 2
-                </a>
-              </li>
-              <li>
-                <a href="#" class="tabs-btn">
-                  Tab 3
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="example-code">
-          <pre>
-            <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap ( prototype / primary-type )</b></span>"</span>&gt;
-  <span class="tg">...</span>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
+    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+  &lt;/<b>ul</b>&gt;
 &lt;/<b>div</b>&gt;
             </code>
           </pre>
@@ -170,7 +94,6 @@ set tabs = [
     </section>
   </div>
 </div>
-
 {% endblock %}
 
 

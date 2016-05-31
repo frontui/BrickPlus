@@ -33,21 +33,20 @@
 
 {# 加载页面内容 #}
 {% block content %}
-
-{# 设置标签页 #}
-{%
-set tabs = [
-{text: '可作按钮的标签或元素', url: '#tp1'},
-{text: '预定义样式', url: '#tp2'},
-{text: '尺寸', url: '#tp3'},
-{text: '排版', url: '#tp4'},
-{text: '按钮组', url: '#tp5'},
-{text: '按钮式下拉菜单', url: '#tp6'}
-]
-%}
 {# 渲染标签页 #}
-{{ tab.prototype(tabs,cur='1') }}
-
+{{
+  tab.prototype(
+    tabs = [
+      {text: '可作按钮的标签或元素', url: '#tp1'},
+      {text: '预定义样式', url: '#tp2'},
+      {text: '尺寸', url: '#tp3'},
+      {text: '排版', url: '#tp4'},
+      {text: '按钮组', url: '#tp5'},
+      {text: '按钮式下拉菜单', url: '#tp6'}
+    ],
+    cur='1'
+  )
+}}
 <div class="tabs-content">
   <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">

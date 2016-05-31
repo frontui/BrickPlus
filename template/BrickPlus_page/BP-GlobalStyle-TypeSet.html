@@ -22,12 +22,6 @@
 {% endblock %}
 
 
-{# 当前页面没内容时候 #}
-{% block blankpage %}
-<div class="blank-face"></div>
-{% endblock %}
-
-
 {# 渲染页面导航 #}
 {% block nav %}
 {# 渲染主导航 #}
@@ -39,6 +33,142 @@
 
 {# 加载页面内容 #}
 {% block content %}
+{# 渲染标签页 #}
+{{
+  tab.prototype(
+    tabs = [
+      {text: '标题', url: '#tp1'},
+      {text: '预定义样式', url: '#tp2'},
+      {text: '尺寸', url: '#tp3'},
+      {text: '排版', url: '#tp4'},
+      {text: '按钮组', url: '#tp5'},
+      {text: '按钮式下拉菜单', url: '#tp6'}
+    ],
+    cur='1'
+  )
+}}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          HTML 中的所有标题标签，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外，还提供了 <code>.h1</code> 到 <code>.h6</code> 类，为的是给内联（inline）属性的文本赋予标题的样式。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+            <table class="table table-bordered-type2">
+              <colgroup>
+                <col>
+                <col style="width: 140px">
+                <col style="width: 80px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>
+                    示范
+                  </th>
+                  <th>
+                    引用变量
+                  </th>
+                  <th>
+                    值
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <h1>h1.标题内容</h1>
+                  </td>
+                  <td>
+                    @fontSize-largest
+                  </td>
+                  <td>
+                    ~34px
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h2 style="padding: 0;">h2.标题内容</h2>
+                  </td>
+                  <td>
+                    @fontSize-larger
+                  </td>
+                  <td>
+                    ~24px
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>h3.标题内容</h3>
+                  </td>
+                  <td>
+                    @fontSize-large
+                  </td>
+                  <td>
+                    ~18px
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>h4.标题内容</h4>
+                  </td>
+                  <td>
+                    @fontSize-small
+                  </td>
+                  <td>
+                    ~16px
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 style="padding: 0;">h5.标题内容</h5>
+                  </td>
+                  <td>
+                    @fontSize-smaller
+                  </td>
+                  <td>
+                    ~14px
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>h6.标题内容</h6>
+                  </td>
+                  <td>
+                    @fontSize-smallest
+                  </td>
+                  <td>
+                    ~12px
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>ol</b> <span class="va">class="<span class="cl"><b>breadcrumb</b></span>"</span>&gt;
+  &lt;<b>li</b>&gt;
+    &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span>&gt;
+      <span class="tg">导航位置</span>
+    &lt;/<b>a</b>&gt;
+  &lt;/<b>li</b>&gt;
+  &lt;<b>li</b>&gt;
+    <span class="tg">当前位置</span>
+  &lt;/<b>li</b>&gt;
+&lt;/<b>ol</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 {% endblock %}
 
 

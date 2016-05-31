@@ -21,12 +21,6 @@
 {% endblock %}
 
 
-{# 当前页面没内容时候 #}
-{% block blankpage %}
-<div class="blank-face"></div>
-{% endblock %}
-
-
 {# 渲染页面导航 #}
 {% block nav %}
 {# 渲染主导航 #}
@@ -38,6 +32,52 @@
 
 {# 加载页面内容 #}
 {% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          在一个带有层次的导航结构中标明当前页面的位置，各路径间的分隔符已经自动通过 CSS 的 <code>:before</code> 和 <code>content</code> 属性添加了。
+        </li>
+        <li>
+          路径导航组件有固定的 Dom 结构，详细请参考代码示范。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          {# 渲染路径导航 #}
+          {{
+            breadcrumb.default(
+              list = [
+                {link: 'javascript:void(0);', text:'一级导航'},
+                {link: 'javascript:void(0);', text:'二级导航'},
+                {link: 'javascript:void(0);', text:'三级导航'},
+                {text: '当前位置'}
+              ]
+            )
+          }}
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>ol</b> <span class="va">class="<span class="cl"><b>breadcrumb</b></span>"</span>&gt;
+  &lt;<b>li</b>&gt;
+    &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span>&gt;
+      <span class="tg">导航位置</span>
+    &lt;/<b>a</b>&gt;
+  &lt;/<b>li</b>&gt;
+  &lt;<b>li</b>&gt;
+    <span class="tg">当前位置</span>
+  &lt;/<b>li</b>&gt;
+&lt;/<b>ol</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 {% endblock %}
 
 
