@@ -7,8 +7,6 @@ html {
 html,
 body {
     .font-hei();
-    //height: 100%;
-    //width: 100%;
 }
 
 body {
@@ -32,120 +30,9 @@ a,button,input,textarea,label {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-// ******************
-// 字符串颜色工具类
-// ******************
-.fontcolor-vice {
-    color: @fontColor-viceText !important;
-}
 
-.fontcolor-warning {
-  color: @fontColor-warning !important;
-}
 
-.fontcolor-error {
-  color: @fontColor-error !important;
-}
 
-.fontcolor-success {
-  color: @fontColor-success !important;
-}
-
-// ******************
-// 数值
-// ******************
-.amount {
-  position: relative;
-
-  > b {
-    display: none;
-  }
-
-  &.add,
-  &.take {
-    padding-left: 18px;
-    position: relative;
-
-    &:before {
-      display: block;
-      position: absolute;
-      top: 1px;
-      left: 0;
-      .form-notice-icon-font-family();
-      font-size: @fontSize-smaller;
-    }
-  }
-
-  &.add {
-    color: @fontColor-success;
-
-    &:before {
-      content: @content-icon-add-amount;
-    }
-  }
-
-  &.take {
-    color: @fontColor-error;
-
-    &:before {
-      content: @content-icon-take-amount;
-    }
-  }
-}
-
-// ******************
-// 标题
-// ******************
-h1,h2,h3,h4,h5,h6,p {
-    font-weight: 500;
-    margin: 0;
-}
-
-h1,h2,h3,h4,h5,h6 {
-    color: @fontColor-heading;
-}
-
-h1,
-.h1 {
-    font-size: @fontSize-largest;
-}
-
-h2,
-.h2 {
-    font-size: @fontSize-larger;
-}
-
-h3,
-.h3 {
-    font-size: @fontSize-large;
-}
-
-h4,
-.h4 {
-    font-size: @fontSize-small;
-}
-
-h5,
-.h5 {
-    font-size: @fontSize-smaller
-}
-
-h6,
-.h6 {
-    font-size: @fontSize-smallest;
-}
-
-.link-standard {
-    .link-standard();
-}
-
-.pull-left{
-    float: left;
-}
-
-.pull-right {
-    float: right;
-}
 
 
 

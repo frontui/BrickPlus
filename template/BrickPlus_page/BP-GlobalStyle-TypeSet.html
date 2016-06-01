@@ -38,21 +38,25 @@
   tab.prototype(
     tabs = [
       {text: '标题', url: '#tp1'},
-      {text: '预定义样式', url: '#tp2'},
-      {text: '尺寸', url: '#tp3'},
-      {text: '排版', url: '#tp4'},
-      {text: '按钮组', url: '#tp5'},
-      {text: '按钮式下拉菜单', url: '#tp6'}
+      {text: '页面主体', url: '#tp2'},
+      {text: '内联文本元素', url: '#tp3'},
+      {text: '对齐', url: '#tp4'},
+      {text: '改变大小写', url: '#tp5'},
+      {text: '缩略语', url: '#tp6'},
+      {text: '地址', url: '#tp7'},
+      {text: '引用', url: '#tp8'},
+      {text: '列表', url: '#tp9'}
     ],
-    cur='1'
+    cur='9'
   )
 }}
 <div class="tabs-content">
-  <div class="tabs-panel active" id="tp1">
+  <div class="tabs-panel" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          HTML 中的所有标题标签，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外，还提供了 <code>.h1</code> 到 <code>.h6</code> 类，为的是给内联（inline）属性的文本赋予标题的样式。
+          HTML 中的所有标题标签，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外，还提供了 <code>.h1</code> 到 <code>.h6</code> 类，为的是给内联（inline）属性的文本赋予标题的样式；<br>
+          在标题内还可以包含 <code>&lt;small&gt;</code> 标签或赋予 <code>.small</code> 类的元素，可以用来标记副标题。
         </li>
       </ul>
       <div class="example">
@@ -81,7 +85,7 @@
               <tbody>
                 <tr>
                   <td>
-                    <h1>h1.标题内容</h1>
+                    <h1>h1.标题内容 <small>副标题内容</small></h1>
                   </td>
                   <td>
                     @fontSize-largest
@@ -92,7 +96,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h2 style="padding: 0;">h2.标题内容</h2>
+                    <h2 style="padding: 0;">h2.标题内容 <small>副标题内容</small></h2>
                   </td>
                   <td>
                     @fontSize-larger
@@ -103,7 +107,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h3>h3.标题内容</h3>
+                    <h3>h3.标题内容 <small>副标题内容</small></h3>
                   </td>
                   <td>
                     @fontSize-large
@@ -114,7 +118,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h4>h4.标题内容</h4>
+                    <h4>h4.标题内容 <small>副标题内容</small></h4>
                   </td>
                   <td>
                     @fontSize-small
@@ -125,7 +129,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h5 style="padding: 0;">h5.标题内容</h5>
+                    <h5 style="padding: 0;">h5.标题内容 <small>副标题内容</small></h5>
                   </td>
                   <td>
                     @fontSize-smaller
@@ -136,7 +140,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <h6>h6.标题内容</h6>
+                    <h6>h6.标题内容 <small>副标题内容</small></h6>
                   </td>
                   <td>
                     @fontSize-smallest
@@ -152,16 +156,466 @@
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>ol</b> <span class="va">class="<span class="cl"><b>breadcrumb</b></span>"</span>&gt;
-  &lt;<b>li</b>&gt;
-    &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span>&gt;
-      <span class="tg">导航位置</span>
-    &lt;/<b>a</b>&gt;
-  &lt;/<b>li</b>&gt;
-  &lt;<b>li</b>&gt;
-    <span class="tg">当前位置</span>
-  &lt;/<b>li</b>&gt;
-&lt;/<b>ol</b>&gt;
+&lt;<b>h1/2/3/4/5/6</b> (<span class="va">class="<span class="cl"><b>h1/2/3/4/5/6</b></span>"</span>)&gt;
+  <span class="tg">...</span>
+  &lt;<b>small</b> (<span class="va">class="<span class="cl"><b>small</b></span>"</span>)&gt;
+    <span class="tg">...</span>
+  &lt;/<b>small</b>&gt;
+&lt;/<b>h1/2/3/4/5/6</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          BrickPlus 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 <code>&lt;body&gt;</code> 元素和所有段落元素。另外，<code>&lt;p&gt;</code> 被重置所有外边距为 0；
+          通过添加 <code>.lead</code> 类可以让段落突出显示。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="lead">钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p>
+          <br>
+          <p>2014年、会社は広州天河CBDセンター区の中核に位置し、現在従業員は百人近く、深センに事務所を設立。钱途連携は国内初のフォーカスモードに基づいてインターネットを通じて、企業の取引の過程の電子登録システム（ブランド名「E +口座」）、ドッキング良質の金融資源は中小企業に付加価値を提供し、新型のサプライチェーンの融資や革新支払い決済の金融サービス産業。</p>
+          <br>
+          <p>現在、钱途連携業務は放射線の金融、不動産、飲食、医薬品など多くの産業として允リットル工業、山東高速、万科産、九州通など数百有名な企業と緊密な協力関係の確立によって、パートナーの実際的な需要にカスタマイズ製品、実現E +口座機能の基礎の上に協力パートナードッキング良質金融資源、安全かつ高効率に解決し、融資と決済需要増値、および産業金融分野の業務開拓やシーンを建て。钱途連携の革新的な能力と専門のサービスも数多くパートナーと業界団体の高さを認可し、2015年の国際的なトップを獲得し风投機構IDG資本投資。</p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>p</b> (<span class="va">class="<span class="cl"><b>lead</b></span>"</span>)&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          在 HTML5 中可以放心使用 <code>&lt;b&gt;</code> 和 <code>&lt;i&gt;</code> 标签。<code>&lt;b&gt;</code> 用于高亮单词或短语，不带有任何着重的意味；而 <code>&lt;i&gt;</code> 标签主要用于发言、技术词汇等。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5>标记文本 <code>&lt;mark&gt;</code> </h5>
+          <p class="fn-mb-40">用标记元素 <mark>高亮</mark> 文本内容</p>
+          <h5>删除文本 <code>&lt;del&gt;</code></h5>
+          <p class="fn-mb-40"><del>用删除标签就能标记一段被删除的文本</del></p>
+          <h5>无用文本 <code>&lt;s&gt;</code></h5>
+          <p class="fn-mb-40"><s>这段文本就被标记为一段作废文本</s></p>
+          <h5>插入文本 <code>&lt;ins&gt;</code></h5>
+          <p class="fn-mb-40">这里有一段作为插入文本的示范内容 “ <ins>插入文本</ins> ” 已经被标记起来</p>
+          <h5>文本下划线 <code>&lt;u&gt;</code></h5>
+          <p class="fn-mb-40"><u>对有需要的文本使用下划线标签，但语义上和插入文本不同</u></p>
+          <h5>小号文本 <code>&lt;small&gt;</code></h5>
+          <p class="fn-mb-40">相对主要内容来说<small>（某些需要作为辅助内容存在的语句）</small></p>
+          <h5>着重文本 <code>&lt;strong&gt;</code></h5>
+          <p class="fn-mb-40">有时候在无需高亮文本的时候，<strong>强调语句也是一种选择</strong></p>
+          <h5>斜体文本 <code>&lt;em&gt;</code></h5>
+          <p>下面的代码片段的文本呈现为 <em>斜体文本</em>。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          通过对齐工具类，可以简单方便的将行内元素或字符串重新对齐。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="text-align-left fn-mb-10">左对齐</p>
+          <p class="text-align-center fn-mb-10">左对齐</p>
+          <p class="text-align-right fn-mb-10">左对齐</p>
+          <p class="text-align-justify fn-mb-10">两端对齐</p>
+          <p class="text-nowrap">不换行</p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;p <span class="va">class="<span class="cl"><b>text-align-( left / center / right / justify ) / text-nowrap</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/p&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp5">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          通过这几个类可以改变文本的大小写。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="text-lowercase fn-mb-10">Lowercased text.</p>
+          <p class="text-uppercase fn-mb-10">Uppercased text.</p>
+          <p class="text-capitalize">Capitalized text.</p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;p <span class="va">class="<span class="cl"><b>text-lowercase / text-uppercase / text-capitalize</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/p&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp6">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          当鼠标悬停在缩写和缩写词上时就会显示完整内容，BricksPlus 实现了对 HTML 的 <code>&lt;abbr&gt;</code> 元素的增强样式。缩略语元素带有 <code>title</code> 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 <code>title</code>属性。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          这里显示的是一个基本缩略语：<abbr title="attribute">attr</abbr><br>
+          这里显示的是一个首字母缩略语，为缩略语添加 <code>.initialism</code> 类，可以让 font-size 变得稍微小些。：<abbr title="HyperText Markup Language" class="initialism">html</abbr>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>abbr</b> <span class="va">title="<span class="cl"><b>...</b></span>"</span> <span class="va">class="<span class="cl"><b>initialism</b></span>"</span>&gt;<span class="tg">...</span>&lt;/<b>abbr</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp7">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          让联系信息以最接近日常使用的格式呈现。在每行结尾添加 <code>&lt;br&gt;</code> 可以保留需要的样式。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <address>
+            <strong>广东钱途互联商务服务有限公司 <small>（以下简称“钱途互联”）</small></strong><br><br>
+            广东省广州市天河区<br>
+            体育西路109号高盛大厦8层<br>
+            <abbr title="telephone" class="initialism">tel:</abbr> 020-61847588<br>
+          </address>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>address</b>&gt;<span class="tg">...</span>&lt;/<b>address</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp8">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#DefaultBlockquote" class="btn default">默认样式的引用</a>
+      <a href="#MixBlockquote" class="btn default">多种引用样式</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="DefaultBlockquote">默认样式的引用</h2>
+      <ul class="example-description">
+        <li>
+          将任何 HTML 元素包裹在 <code>&lt;blockquote&gt;</code> 中即可表现为引用样式。对于直接引用，我们建议用 <code>&lt;p&gt;</code> 标签。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <blockquote>
+            <p>钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p>
+          </blockquote>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>blockquote</b>&gt;<span class="tg">...</span>&lt;/<b>blockquote</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="MixBlockquote">多种引用样式</h2>
+      <ul class="example-description">
+        <li>
+          对于标准样式的 <code>&lt;blockquote&gt;</code>，可以通过几个简单的变体就能改变风格和内容；
+          命名来源：添加 <code>&lt;footer&gt;</code> 用于标明引用来源。来源的名称可以包裹进 <code>&lt;cite&gt;</code> 标签中。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <blockquote class="fn-mb-40">
+            <p>钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p>
+            <br>
+            <footer>ここはあなたの引用のコピーを表示して<cite title="の出所">の出所</cite></footer>
+          </blockquote>
+          <h5>另一种展示风格：通过赋予 <code>&lt;.blockquote-reverse&gt;</code> 类可以让引用呈现内容右对齐的效果。</h5>
+          <blockquote class="blockquote-reverse">
+            <p>钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p>
+            <br>
+            <footer>ここはあなたの引用のコピーを表示して<cite title="の出所">の出所</cite></footer>
+          </blockquote>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>blockquote</b> (<span class="va">class="<span class="cl"><b>blockquote-reverse</b></span>"</span>)&gt;
+  &lt;p&gt;<span class="tg">...</span>&lt;/p&gt;
+  &lt;<b>footer</b>&gt;
+    <span class="tg">...</span>
+    &lt;<b>cite</b>&gt;
+      <span class="tg">...</span>
+    &lt;/<b>cite</b>&gt;
+  &lt;/<b>footer</b>&gt;
+&lt;/<b>blockquote</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp9">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#UlList" class="btn default">无序列表</a>
+      <a href="#OlList" class="btn default">有序列表</a>
+      <a href="#UnStyledList" class="btn default">无样式列表</a>
+      <a href="#InlineList" class="btn default">水平列表</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="UlList">无序列表</h2>
+      <ul class="example-description">
+        <li>
+          排列顺序无关紧要的一列元素，BrickPlus 并没有对 <code>&lt;ul&gt;</code> 标签进行样式重置，而是引用一个样式，重塑一个 BrickPlus 风格的无序列表；
+          <br>
+          在 <code>&lt;ul&gt;</code> 上引用 <code>.ul-standard</code> 类就能得到一个 BrickPlus 风格的无序列表。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <ul class="ul-standard">
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item Three
+              <ul>
+                <li>
+                  Lv2 List Item One
+                  <ul>
+                    <li>
+                      Lv3 List Item One
+                    </li>
+                    <li>
+                      Lv3 List Item Two
+                    </li>
+                    <li>
+                      Lv3 List Item Three
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Lv2 List Item Two
+                </li>
+                <li>
+                  Lv2 List Item Three
+                </li>
+              </ul>
+            </li>
+            <li>
+              List Item Four
+            </li>
+          </ul>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>ul</b> <span class="va">class="<span class="cl"><b>ul-standard</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="OlList">有序列表</h2>
+      <ul class="example-description">
+        <li>
+          排列顺序至关紧要的一列元素，和无序列表同理，在 <code>&lt;ol&gt;</code> 上引用 <code>.ol-standard</code> 类就能得到一个 BrickPlus 风格的有序列表。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <ol class="ol-standard">
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item Three
+              <ol>
+                <li>
+                  Lv2 List Item One
+                  <ol>
+                    <li>
+                      Lv3 List Item One
+                    </li>
+                    <li>
+                      Lv3 List Item Two
+                    </li>
+                    <li>
+                      Lv3 List Item Three
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  Lv2 List Item Two
+                </li>
+                <li>
+                  Lv2 List Item Three
+                </li>
+              </ol>
+            </li>
+            <li>
+              List Item Four
+            </li>
+          </ol>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>ul</b> <span class="va">class="<span class="cl"><b>ol-standard</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="UnStyledList">无样式列表</h2>
+      <ul class="example-description">
+        <li>
+          移除了默认的 list-style 样式和左侧外边距和内边距的一组元素（包括并只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <ul class="list-unstyled">
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item Three
+              <ol>
+                <li>
+                  Lv2 List Item One
+                  <ul>
+                    <li>
+                      Lv3 List Item One
+                    </li>
+                    <li>
+                      Lv3 List Item Two
+                    </li>
+                    <li>
+                      Lv3 List Item Three
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Lv2 List Item Two
+                </li>
+                <li>
+                  Lv2 List Item Three
+                </li>
+              </ol>
+            </li>
+            <li>
+              List Item Four
+            </li>
+          </ul>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>ul / ol</b> <span class="va">class="<span class="cl"><b>list-unstyled</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul / ol</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="InlineList">水平列表</h2>
+      <ul class="example-description">
+        <li>
+          移除了默认的 list-style 样式和左侧外边距和内边距的一组元素（包括并只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。<br>
+          在列表上引用 <code>.list-inline</code> 类就能得到一个 BrickPlus 风格的水平列表（没有 <code>list-style</code> 属性设置）。<br>
+          通过设置 display: inline-block; 并添加少量的内补（padding），将所有元素放置于同一行。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <ul class="list-inline">
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item One
+            </li>
+            <li>
+              List Item Three
+            </li>
+            <li>
+              List Item Four
+            </li>
+          </ul>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>ul / ol</b> <span class="va">class="<span class="cl"><b>list-unstyled</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul / ol</b>&gt;
             </code>
           </pre>
         </div>
