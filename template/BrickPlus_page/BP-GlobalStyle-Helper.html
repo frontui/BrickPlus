@@ -1,0 +1,320 @@
+{% extends "_BrickPlus_layout/4-BP-GlobalStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='2') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='6') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+{# 渲染标签页 #}
+{{
+  tab.prototype(
+    tabs = [
+      {text: '情景色调', url: '#tp1'},
+      {text: '数值', url: '#tp2'},
+      {text: '箭头', url: '#tp3'},
+      {text: '清除浮动', url: '#tp4'}
+    ],
+    cur='4'
+  )
+}}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          通过颜色来展示意图，BrickPlus 提供了一组工具类。这些类可以应用于链接或者字符串。
+        </li>
+        <li>
+          当然大多数情况下，我们建议你在字符串级别的 Dom 上面引用这些类，只需要一个 <code>&lt;span&gt;</code> 标签嵌套你要处理的对象就可以解决问题。
+        </li>
+        <li>
+          使用颜色来增加含义只提供了一个视觉指示，这将不被传递给用户的辅助技术，如屏幕阅读器。确保由颜色表示的信息是从内容本身是显而易见的（上下文的颜色是只用于加强意义，已经存在于文本/标记），或通过其他手段，如附加文本隐藏的类。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5>情景文本色调</h5>
+          <table class="table table-bordered-type2 fn-mb-40">
+            <colgroup>
+              <col>
+              <col style="width: 180px">
+            </colgroup>
+            <thead>
+            <tr>
+              <th>
+                示范
+              </th>
+              <th>
+                引用类
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                <p class="fontcolor-heading">标识为标题色调</p>
+              </td>
+              <td>
+                .fontcolor-heading
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-default">标识为一般性文本色调</p>
+              </td>
+              <td>
+                .fontcolor-default
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-vice">标识副文本或副标题的色调</p>
+              </td>
+              <td>
+                .fontcolor-vice
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-link">标识超链接的色调</p>
+              </td>
+              <td>
+                .fontcolor-link
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-error">标识错误内容或危险内容的色调</p>
+              </td>
+              <td>
+                .fontcolor-error
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-success">标识正确内容或安全内容的色调</p>
+              </td>
+              <td>
+                .fontcolor-success
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-warning">标识注意事项或警告内容的色调</p>
+              </td>
+              <td>
+                .fontcolor-warning
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="fontcolor-tips">标识为提示信息或辅助内容的色调</p>
+              </td>
+              <td>
+                .fontcolor-tips
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <h5>情景背景色调</h5>
+          <table class="table table-bordered-type3">
+            <colgroup>
+              <col>
+              <col style="width: 180px">
+            </colgroup>
+            <thead>
+            <tr>
+              <th>
+                示范
+              </th>
+              <th>
+                引用类
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="bgcolor-tips">
+                <p>标识为提示、副文本、辅助内容背景</p>
+              </td>
+              <td>
+                .bgcolor-tips
+              </td>
+            </tr>
+            <tr>
+              <td class="bgcolor-success">
+                <p>标识为成功、正确、安全内容背景</p>
+              </td>
+              <td>
+                .bgcolor-success
+              </td>
+            </tr>
+            <tr>
+              <td class="bgcolor-info">
+                <p>标识为信息，通知内容背景</p>
+              </td>
+              <td>
+                .bgcolor-info
+              </td>
+            </tr>
+            <tr>
+              <td class="bgcolor-warning">
+                <p>标识为注意事项，警告内容背景</p>
+              </td>
+              <td>
+                .bgcolor-warning
+              </td>
+            </tr>
+            <tr>
+              <td class="bgcolor-danger">
+                <p>标识为错误内容或危险内容背景</p>
+              </td>
+              <td>
+                .bgcolor-danger
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;p <span class="va">class="<span class="cl"><b>fontcolor-heading / default / vice / link / error / success / warning / tips</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/p&gt;
+
+&lt;p <span class="va">class="<span class="cl"><b>bgcolor-tips / success / info / warning / danger</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/p&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          项目中的正负数值展示可以通过工具类 <code>amount</code> 系列得到优化；
+          通过对数值用一层行内元素包裹，并引用对应的 <code>amount</code> 工具。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="fn-mb-10">正数：<span class="amount add">5,999.00</span></p>
+          <p class="fn-mb-10">负数：<span class="amount take">5,999.00</span></p>
+          <p>典型：<span class="amount">5,999.00</span></p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;span <span class="va">class="<span class="cl"><b>amount ( add / take )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/span&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          通过使用箭头符号可以指示某个元素具有展开内容的功能。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="fn-mb-10">默认箭头： <span class="caret"></span></p>
+          <p class="fn-mb-10">上箭头： <span class="caret-up"></span></p>
+          <p class="fn-mb-10">左箭头： <span class="caret-left"></span></p>
+          <p class="fn-mb-10">右箭头： <span class="caret-right"></span></p>
+          <p class="fn-mb-10">下箭头： <span class="caret-down"></span></p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;span <span class="va">class="<span class="cl"><b>caret-up / down / left / right</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/span&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          通过为父元素添加 <code>.clearfix</code> 类可以很容易地清除浮动（float），可以作为 mixin 使用。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>clearfix</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

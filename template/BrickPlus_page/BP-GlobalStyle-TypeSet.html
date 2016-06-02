@@ -45,9 +45,10 @@
       {text: '缩略语', url: '#tp6'},
       {text: '地址', url: '#tp7'},
       {text: '引用', url: '#tp8'},
-      {text: '列表', url: '#tp9'}
+      {text: '列表', url: '#tp9'},
+      {text: '边距', url: '#tp10'}
     ],
-    cur='9'
+    cur='10'
   )
 }}
 <div class="tabs-content">
@@ -169,7 +170,12 @@
     </section>
   </div>
   <div class="tabs-panel" id="tp2">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#mainfont" class="btn default">主体内容</a>
+      <a href="#fontSize" class="btn default">字体尺寸类</a>
+    </div>
     <section class="example-wrap">
+      <h2 id="mainfont">主体内容</h2>
       <ul class="example-description">
         <li>
           BrickPlus 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 <code>&lt;body&gt;</code> 元素和所有段落元素。另外，<code>&lt;p&gt;</code> 被重置所有外边距为 0；
@@ -189,6 +195,31 @@
           <pre>
             <code>
 &lt;<b>p</b> (<span class="va">class="<span class="cl"><b>lead</b></span>"</span>)&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="fontSize">字体尺寸类</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 采用递归的计算方式生成定义字体大小的工具类 <code>fs-(12~36)</code>，由最低 12 像素到最高 36 像素的字体尺寸。
+        </li>
+        <li>
+          公式设定为每 2 像素计算出一个尺寸类，所以在 <code>fs-(12~36)</code> 中是每一次偶数为一个有效工具类，如：fs-12、fs-14、fs-16。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fs-(12~36)</b></span>"</span>&gt;
   <span class="tg">...</span>
 &lt;/<b>p</b>&gt;
             </code>
@@ -400,12 +431,13 @@
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp9">
+  <div class="tabs-panel" id="tp9">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#UlList" class="btn default">无序列表</a>
       <a href="#OlList" class="btn default">有序列表</a>
       <a href="#UnStyledList" class="btn default">无样式列表</a>
       <a href="#InlineList" class="btn default">水平列表</a>
+      <a href="#DesList" class="btn default">描述</a>
     </div>
     <section class="example-wrap">
       <h2 id="UlList">无序列表</h2>
@@ -591,11 +623,14 @@
           在列表上引用 <code>.list-inline</code> 类就能得到一个 BrickPlus 风格的水平列表（没有 <code>list-style</code> 属性设置）。<br>
           通过设置 display: inline-block; 并添加少量的内补（padding），将所有元素放置于同一行。
         </li>
+        <li>
+          由于是行内元素排列，所以同样的排版类 <code>.text-align-left / center / right</code> 已经预先设置好对 <code>.list-inline</code> 模式的排版样式，引入就行，父类中添加 <code>text-align:</code> 属性则没有效果，这点需要注意。
+        </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          <ul class="list-inline">
+          <ul class="list-inline text-align-center">
             <li>
               List Item One
             </li>
@@ -613,9 +648,122 @@
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>ul / ol</b> <span class="va">class="<span class="cl"><b>list-unstyled</b></span>"</span>&gt;
+&lt;<b>ul / ol</b> <span class="va">class="<span class="cl"><b>list-inline ( text-align-left / center / right )</b></span>"</span>&gt;
   <span class="tg">...</span>
 &lt;/<b>ul / ol</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="DesList">描述</h2>
+      <ul class="example-description">
+        <li>
+          移除了默认的 list-style 样式和左侧外边距和内边距的一组元素（包括并只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。<br>
+          在列表上引用 <code>.list-inline</code> 类就能得到一个 BrickPlus 风格的水平列表（没有 <code>list-style</code> 属性设置）。<br>
+          通过设置 display: inline-block; 并添加少量的内补（padding），将所有元素放置于同一行；<br>
+          通过给 <code>&lt;dl&gt;</code> 引用 <code>.dl-horizontal</code> 类可以让 <code>&lt;dl&gt;</code> 内的短语及其描述排在一行。开始是像 <code>&lt;dl&gt;</code> 的默认样式堆叠在一起，随着宽度逐渐展开而排列在一行。
+        </li>
+        <li>
+          由于是行内元素排列，所以同样的排版类 <code>.text-align-left / center / right</code> 已经预先设置好对 <code>.list-inline</code> 模式的排版样式，引入就行，父类中添加 <code>text-align:</code> 属性则没有效果，这点需要注意。
+        </li>
+        <li>
+          水平排列的描述列表在较窄的视口（viewport）内，列表将变为默认堆叠排列的布局方式。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <dl>
+            <dt>
+              記述のリスト
+            </dt>
+            <dd>
+              記述目録用語を定義することに絶好です。
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              2015年の国際的なトップを獲得し风投機構IDG資本投資
+            </dt>
+            <dd>
+              現在、钱途連携業務は放射線の金融、不動産、飲食、医薬品など多くの産業として允リットル工業、山東高速、万科産、九州通など数百有名な企業と緊密な協力関係の確立によって、パートナーの実際的な需要にカスタマイズ製品、実現E +口座機能の基礎の上に協力パートナードッキング良質金融資源、安全かつ高効率に解決し、融資と決済需要増値、および産業金融分野の業務開拓やシーンを建て。
+            </dd>
+          </dl>
+          <dl class="fn-mb-40">
+            <dt>
+              中国最大の投資の早期と長期のリスク投資ファンド
+            </dt>
+            <dd>
+              钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。
+            </dd>
+          </dl>
+          <h5>水平排列的描述</h5>
+          <dl class="dl-horizontal">
+            <dt>
+              記述のリスト
+            </dt>
+            <dd>
+              記述目録用語を定義することに絶好です。
+            </dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>
+              2015年の国際的なトップを獲得し风投機構IDG資本投資
+            </dt>
+            <dd>
+              現在、钱途連携業務は放射線の金融、不動産、飲食、医薬品など多くの産業として允リットル工業、山東高速、万科産、九州通など数百有名な企業と緊密な協力関係の確立によって、パートナーの実際的な需要にカスタマイズ製品、実現E +口座機能の基礎の上に協力パートナードッキング良質金融資源、安全かつ高効率に解決し、融資と決済需要増値、および産業金融分野の業務開拓やシーンを建て。
+            </dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>
+              中国最大の投資の早期と長期のリスク投資ファンド
+            </dt>
+            <dd>
+              钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。
+            </dd>
+          </dl>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>dl</b> (<span class="va">class="<span class="cl"><b>dl-horizontal</b></span>"</span>)&gt;
+  &lt;<b>dt</b>&gt;
+    <span class="tg">...</span>
+  &lt;/<b>dd</b>&gt;
+&lt;/<b>dl</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp10">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#padding" class="btn default">内边距</a>
+      <a href="#margin" class="btn default">外边距</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="padding">内边距</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 采用递归的计算方式生成定义内边距大小的工具类，分为五大类：<code>fn-pa-xx</code>，<code>fn-pa-xx</code>
+        </li>
+        <li>
+          公式设定为每 2 像素计算出一个尺寸类，所以在 <code>fs-(12~36)</code> 中是每一次偶数为一个有效工具类，如：fs-12、fs-14、fs-16。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fs-(12~36)</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
             </code>
           </pre>
         </div>

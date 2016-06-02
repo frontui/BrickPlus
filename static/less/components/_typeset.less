@@ -98,82 +98,6 @@ s,
   color: @fontColor-viceText;
 }
 
-// ******************
-// 字符串颜色工具类
-// ******************
-.fontcolor-heading {
-  color: @fontColor-heading !important;
-}
-
-.fontcolor-default {
-  color: @fontColor-default !important;
-}
-
-.fontcolor-vice {
-  color: @fontColor-viceText !important;
-}
-
-.fontcolor-link {
-  color: @fontColor-link !important;
-}
-
-.fontcolor-error {
-  color: @fontColor-error !important;
-}
-
-.fontcolor-success {
-  color: @fontColor-success !important;
-}
-
-.fontcolor-warning {
-  color: @fontColor-warning !important;
-}
-
-.fontcolor-tips {
-  color: @fontColor-viceText !important;
-}
-
-// ******************
-// 数值
-// ******************
-.amount {
-  position: relative;
-
-  > b {
-    display: none;
-  }
-
-  &.add,
-  &.take {
-    padding-left: 18px;
-    position: relative;
-
-    &:before {
-      display: block;
-      position: absolute;
-      top: 1px;
-      left: 0;
-      .form-notice-icon-font-family();
-      font-size: @fontSize-smaller;
-    }
-  }
-
-  &.add {
-    color: @fontColor-success;
-
-    &:before {
-      content: @content-icon-add-amount;
-    }
-  }
-
-  &.take {
-    color: @fontColor-error;
-
-    &:before {
-      content: @content-icon-take-amount;
-    }
-  }
-}
 
 // ******************
 // 排版工具类，尽量能在元素样式里面申明就不要用到这种附加类，否则会增加兼容性样式编写的难度，此类工具多用在对版面布局没影响的元素中
@@ -190,6 +114,10 @@ s,
     margin-left: 10px;
     margin-right: 0;
   }
+
+  &.list-inline > li {
+    padding-left: 10px;
+  }
 }
 
 .text-align-left {
@@ -204,6 +132,10 @@ s,
     margin-right: 10px;
     margin-left: 0;
   }
+
+  &.list-inline > li {
+    padding-right: 10px;
+  }
 }
 
 .text-align-center {
@@ -217,6 +149,11 @@ s,
   &.plural-btns > .btn-group-box {
     margin-left: 5px;
     margin-right: 5px;
+  }
+
+  &.list-inline > li {
+    padding-right: 5px;
+    padding-left: 5px;
   }
 }
 
@@ -240,14 +177,6 @@ s,
   text-transform: capitalize;
 }
 
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
 .text-hide {
   .text-hide();
 }
@@ -257,11 +186,11 @@ s,
 }
 
 .inline-block {
-  .inline-block();
+  .inline-block();  //没写在UI规范上面
 }
 
 .link-standard {
-  .link-standard(); //标准文字链接样式
+  .link-standard(); //标准文字链接样式，没写在UI规范上面
 }
 
 abbr[title],
@@ -313,7 +242,7 @@ blockquote {
 
 .blockquote-reverse,
 blockquote.pull-right {
-  padding-right: 15px;
+  padding-right: 20px;
   padding-left: 0;
   border-right: 5px solid @borderColor-default;
   border-left: 0;
@@ -370,164 +299,50 @@ blockquote.pull-right {
 
 dl {
   margin: 0;
+
+  + dl {
+    padding-top: 15px;
+  }
 }
+
 dt,
 dd {
   line-height: @line-height-base;
 }
+
 dt {
-  font-weight: 500;
+  font-weight: bold;
   color: @fontColor-heading;
+  padding-bottom: 5px;
 }
+
 dd {
   margin: 0;
 }
 
-// Horizontal description lists
-//
-// Defaults to being stacked without any of the below styles applied, until the
-// grid breakpoint is reached (default of ~768px).
-
 .dl-horizontal {
+
+  dt {
+    float: left;
+    text-align: right;
+    width: @width-horizontal-dt;
+  }
+
   dd {
-    &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
-  }
-}
-
-
-// ******************
-// 递归生成 margin 族类
-// ******************
-.init-margin(@min: 0, @max: 50, @space: 5, @pre: fn) {
-  .build-margin(@count) when (@count >= @min) {
-    .build-margin((@count - @space));
-
-    .@{pre}-mt-@{count} {
-      margin-top: @count * 1px;
-    }
-    .@{pre}-mb-@{count} {
-      margin-bottom: @count * 1px;
-    }
-    .@{pre}-mtb-@{count} {
-      margin-top: @count * 1px;
-      margin-bottom: @count * 1px;
-    }
-
-    .@{pre}-ml-@{count} {
-      margin-left: @count * 1px;
-    }
-    .@{pre}-mr-@{count} {
-      margin-right: @count * 1px;
-    }
-    .@{pre}-mlr-@{count} {
-      margin-left: @count * 1px;
-      margin-right: @count * 1px;
-    }
-
-    .@{pre}-ma-@{count} {
-      margin: @count * 1px;
-    }
+    margin-left: @width-horizontal-dt + 10px;
+    &:extend(.clearfix all);
   }
 
-  .build-margin(@max);
-}
-.init-margin;
+  @media (max-width: 768px) {
 
-
-// ******************
-// 递归生成 padding 族类
-// ******************
-.init-padding(@min: 0, @max: 50, @space: 5, @pre: fn) {
-  .build-padding(@count) when (@count >= @min) {
-    .build-padding((@count - @space));
-
-    .@{pre}-pt-@{count} {
-      padding-top: @count * 1px;
-    }
-    .@{pre}-pb-@{count} {
-      padding-bottom: @count * 1px;
-    }
-    .@{pre}-ptb-@{count} {
-      padding-top: @count * 1px;
-      padding-bottom: @count * 1px;
+    dt {
+      float: none;
+      text-align: left;
+      width:  auto;
     }
 
-    .@{pre}-pl-@{count} {
-      padding-left: @count * 1px;
-    }
-    .@{pre}-pr-@{count} {
-      padding-right: @count * 1px;
-    }
-    .@{pre}-plr-@{count} {
-      padding-left: @count * 1px;
-      padding-right: @count * 1px;
-    }
-
-    .@{pre}-pa-@{count} {
-      padding: @count * 1px;
+    dd {
+      margin-left: 0;
     }
   }
-
-  .build-padding(@max);
-}
-.init-padding;
-
-
-// ******************
-// 递归生成 fontsize 族类
-// ******************
-.init-fontSize(@min: 12, @max: 36, @space: 2, @pre: fs) {
-  .build-fontSize(@count) when (@count >= @min) {
-    .build-fontSize((@count - @space));
-
-    .@{pre}-@{count} {
-      font-size: @count * 1px;
-    }
-    .lh-@{count} {
-      line-height: @count * 1px;
-    }
-  }
-
-  .build-fontSize(@max);
-}
-.init-fontSize;
-
-
-// ******************
-// 箭头
-// ******************
-.caret,
-.caret-down {
-  .arrow-up-or-down(border-top, @sizeY-default-caret, @sizeX-default-caret);
-}
-
-.caret-up {
-  .arrow-up-or-down(border-bottom, @sizeY-default-caret, @sizeX-default-caret);
-}
-
-.caret-left {
-  .arrow-left-or-right(border-right, @sizeX-default-caret, @sizeY-default-caret);
-}
-
-.caret-right {
-  .arrow-left-or-right(border-left, @sizeX-default-caret, @sizeY-default-caret);
-}
-
-
-// ******************
-// 清除浮动
-// ******************
-.clearfix {
-  *zoom: 1;
-}
-
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  line-height: 0;
-  content: "";
-}
-
-.clearfix:after {
-  clear: both;
 }
