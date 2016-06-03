@@ -1,0 +1,87 @@
+//警示
+.alert {
+  border-width: 1px;
+  border-style: solid;
+  padding: 15px 15px 15px 50px;
+  position: relative;
+  line-height: @line-height-base;
+  font-size: @fontSize-smaller;
+  .word-wrap();
+  .transition(all, 0.3s, ease, 0);
+  .rounded(3px);
+
+  &:before,
+  &:after {
+    .form-notice-icon-font-family();
+    font-size: @fontSize-larger;
+    position: absolute;
+    top: 13px;
+  }
+
+  &:before {
+    left: 15px;
+  }
+
+  &:after {
+    right: 15px;
+    cursor: pointer;
+    color: @fontColor-viceText;
+    display: none;
+    content: "\e070";
+
+    &:hover {
+      color: @fontColor-default;
+    }
+  }
+
+  &.alert-warning {
+    border-color: transparent;
+    background-color: @bgColor-warning;
+
+    &:before {
+      content: "\e000";
+      color: #fff;
+    }
+
+    &:hover {
+      border-color: @fontColor-warning * 0.9;
+    }
+  }
+
+  &.with-close {
+    padding: 15px 50px;
+
+    > em {
+      .inline-block();
+
+      &:hover {
+        .animation-s(close-btn, 0.4s, linear, 0, 1, normal, running, forwards);
+      }
+    }
+  }
+
+  // 成功
+  &-success {
+    border: 2px solid @fontColor-success;
+    color: @fontColor-success;
+
+    > i {
+      &:before {
+        content: '\e281';
+        color: @fontColor-success;
+      }
+    }
+  }
+
+  &-danger {
+    border: 2px solid @fontColor-error;
+    color: @fontColor-error;
+
+    > i {
+      &:before {
+        content: '\e205';
+        color: @fontColor-error;
+      }
+    }
+  }
+}

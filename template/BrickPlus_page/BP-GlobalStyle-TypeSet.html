@@ -48,11 +48,11 @@
       {text: '列表', url: '#tp9'},
       {text: '边距', url: '#tp10'}
     ],
-    cur='10'
+    cur='1'
   )
 }}
 <div class="tabs-content">
-  <div class="tabs-panel" id="tp1">
+  <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
@@ -209,12 +209,16 @@
           BrickPlus 采用递归的计算方式生成定义字体大小的工具类 <code>fs-(12~36)</code>，由最低 12 像素到最高 36 像素的字体尺寸。
         </li>
         <li>
-          公式设定为每 2 像素计算出一个尺寸类，所以在 <code>fs-(12~36)</code> 中是每一次偶数为一个有效工具类，如：fs-12、fs-14、fs-16。
+          公式设定为每 2 像素计算出一个尺寸类，所以在 <code>fs-(12~36)</code> 中是每一次偶数为一个有效工具类，如：fs-12、fs-14、fs-16...。
+        </li>
+        <li>
+          字符尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
+          <p>字体尺寸类：fs-(12~36)</p>
         </div>
         <div class="example-code">
           <pre>
@@ -739,7 +743,7 @@
       </div>
     </section>
   </div>
-  <div class="tabs-panel active" id="tp10">
+  <div class="tabs-panel" id="tp10">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#padding" class="btn default">内边距</a>
       <a href="#margin" class="btn default">外边距</a>
@@ -748,20 +752,69 @@
       <h2 id="padding">内边距</h2>
       <ul class="example-description">
         <li>
-          BrickPlus 采用递归的计算方式生成定义内边距大小的工具类，分为五大类：<code>fn-pa-xx</code>，<code>fn-pa-xx</code>
+          和字符尺寸的工具类一样，BrickPlus 也采用递归的计算方式生成定义内边距大小的工具类，由最低 0 像素到最高 50 像素的边距尺寸；
+          <br>
+          分为七大类：<code>.fn-pa-xx（全内边距）</code>，<code>.fn-pt-xx（上内边距）</code>，<code>.fn-pb-xx（下内边距）</code>，<code>.fn-pl-xx（左内边距）</code>，<code>.fn-pr-xx（右内边距）</code>，<code>.fn-plr-xx（左右内边距），<code>.fn-ptb-xx（上下内边距）</code></code>。
         </li>
         <li>
-          公式设定为每 2 像素计算出一个尺寸类，所以在 <code>fs-(12~36)</code> 中是每一次偶数为一个有效工具类，如：fs-12、fs-14、fs-16。
+          公式设定为每 5 像素计算出一个尺寸类，所以在内边距工具类的界限 0 ~ 50 像素中是每一次整除 5 后得出一个有效工具类，如：fn-pa-0、fn-pa-5、fn-pa-10...。
+        </li>
+        <li>
+          内边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
+          <p class="fn-mb-10">全内边距：.fn-pa-(0~50)</p>
+          <p class="fn-mb-10">上内边距：.fn-pt-(0~50)</p>
+          <p class="fn-mb-10">下内边距：.fn-pb-(0~50)</p>
+          <p class="fn-mb-10">左内边距：.fn-pl-(0~50)</p>
+          <p class="fn-mb-10">右内边距：.fn-pr-(0~50)</p>
+          <p class="fn-mb-10">上下内边距：.fn-ptb-(0~50)</p>
+          <p class="fn-mb-10">左右内边距：.fn-plr-(0~50)</p>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fs-(12~36)</b></span>"</span>&gt;
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fn-( pa / pt / pb / pl / pr / plr / ptb )-( 0~50 )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="margin">外边距</h2>
+      <ul class="example-description">
+        <li>
+          外边距工具类也采用递归的计算方式生成定义外边距大小的工具类，由最低 0 像素到最高 50 像素的边距尺寸；
+          <br>
+          分为七大类：<code>.fn-ma-xx（全外边距）</code>，<code>.fn-mt-xx（上外边距）</code>，<code>.fn-mb-xx（下外边距）</code>，<code>.fn-ml-xx（左外边距）</code>，<code>.fn-mr-xx（右外边距）</code>，<code>.fn-mlr-xx（左右外边距），<code>.fn-mtb-xx（上下外边距）</code></code>。
+        </li>
+        <li>
+          公式设定为每 5 像素计算出一个尺寸类，所以在外边距工具类的界限 0 ~ 50 像素中是每一次整除 5 后得出一个有效工具类，如：fn-ma-0、fn-ma-5、fn-ma-10...。
+        </li>
+        <li>
+          外边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="fn-mb-10">全外边距：.fn-ma-(0~50)</p>
+          <p class="fn-mb-10">上外边距：.fn-mt-(0~50)</p>
+          <p class="fn-mb-10">下外边距：.fn-mb-(0~50)</p>
+          <p class="fn-mb-10">左外边距：.fn-ml-(0~50)</p>
+          <p class="fn-mb-10">右外边距：.fn-mr-(0~50)</p>
+          <p class="fn-mb-10">上下外边距：.fn-mtb-(0~50)</p>
+          <p class="fn-mb-10">左右外边距：.fn-mlr-(0~50)</p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fn-( ma / mt / mb / ml / mr / mlr / mtb )-( 0~50 )</b></span>"</span>&gt;
   <span class="tg">...</span>
 &lt;/<b>p</b>&gt;
             </code>
