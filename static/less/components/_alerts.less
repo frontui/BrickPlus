@@ -1,87 +1,150 @@
 //警示
 .alert {
-  border-width: 1px;
-  border-style: solid;
-  padding: 15px 15px 15px 50px;
   position: relative;
+  border: @borderWidth-default-alert solid @borderColor-default-alert;
+  padding: @paddingAround-default-alert;
   line-height: @line-height-base;
   font-size: @fontSize-smaller;
+  color: @fontColor-default-alert;
+  background-color: @bgColor-default-alert;
   .word-wrap();
   .transition(all, 0.3s, ease, 0);
-  .rounded(3px);
+  .rounded(@borderRadius-default-alert);
 
   &:before,
-  &:after {
+  > em {
+    position: absolute;
     .form-notice-icon-font-family();
     font-size: @fontSize-larger;
-    position: absolute;
-    top: 13px;
+    .transition(all, 0.3s, ease, 0);
   }
 
   &:before {
-    left: 15px;
+    top: 9px;
+    left: 10px;
+    border: @borderWidth-default-alert*4 solid transparent;
   }
 
-  &:after {
+  > em {
+    top: 15px;
     right: 15px;
     cursor: pointer;
-    color: @fontColor-viceText;
-    display: none;
-    content: "\e070";
-
-    &:hover {
-      color: @fontColor-default;
-    }
   }
 
+  &:hover {
+    border-color: darken(@borderColor-default-alert,10%);
+  }
+
+  //警告
   &.alert-warning {
-    border-color: transparent;
-    background-color: @bgColor-warning;
+    border-color: @borderColor-warning-alert;
+    background-color: @bgColor-warning-alert;
+    color: @fontColor-warning-alert;
+    padding-left: 55px;
 
     &:before {
-      content: "\e000";
-      color: #fff;
+      content: @icon-warning-alert;
+      color: @fontColor-warning-alert;
+      .rounded(50%);
     }
 
     &:hover {
-      border-color: @fontColor-warning * 0.9;
+      border-color: darken(@borderColor-warning-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-warning-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-warning-alert,20%);
+      }
     }
   }
 
-  &.with-close {
-    padding: 15px 50px;
+  //成功
+  &.alert-success {
+    border-color: @borderColor-success-alert;
+    background-color: @bgColor-success-alert;
+    color: @fontColor-success-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-success-alert;
+      color: @fontColor-success-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-success-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-success-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-success-alert,20%);
+      }
+    }
+  }
+
+  //信息
+  &.alert-info {
+    border-color: @borderColor-info-alert;
+    background-color: @bgColor-info-alert;
+    color: @fontColor-info-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-info-alert;
+      color: @fontColor-info-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-info-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-info-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-info-alert,20%);
+      }
+    }
+  }
+
+  //危险
+  &.alert-danger {
+    border-color: @borderColor-danger-alert;
+    background-color: @bgColor-danger-alert;
+    color: @fontColor-danger-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-danger-alert;
+      color: @fontColor-danger-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-danger-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-danger-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-danger-alert,20%);
+      }
+    }
+  }
+
+  //带关闭按钮
+  &.alert-dismissible {
+    padding-right: 50px;
 
     > em {
-      .inline-block();
+      font-size: @fontSize-large;
 
-      &:hover {
-        .animation-s(close-btn, 0.4s, linear, 0, 1, normal, running, forwards);
+      &:after {
+        content: @icon-close-alert;
       }
     }
   }
 
-  // 成功
-  &-success {
-    border: 2px solid @fontColor-success;
-    color: @fontColor-success;
-
-    > i {
-      &:before {
-        content: '\e281';
-        color: @fontColor-success;
-      }
-    }
-  }
-
-  &-danger {
-    border: 2px solid @fontColor-error;
-    color: @fontColor-error;
-
-    > i {
-      &:before {
-        content: '\e205';
-        color: @fontColor-error;
-      }
-    }
+  & + & {
+    margin-top: 10px;
   }
 }

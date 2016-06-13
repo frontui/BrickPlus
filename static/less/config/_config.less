@@ -52,8 +52,10 @@
   @fontColor-success: darken(@domColor2, 20%);
   //警告文本色调
   @fontColor-warning: lighten(@domColor5, 10%);
-  //信息文本色调
+  //提示文本色调
   @fontColor-tips: @fontColor-viceText;
+  //消息文本色调
+  @fontColor-info: @domColor1;
 
 
 //基础边框色调
@@ -360,6 +362,37 @@
   //描述列表
     //尺寸
     @width-horizontal-dt: 200px;
+
+
+//警告框
+  //尺寸
+  @borderWidth-default-alert: 1px;
+  @paddingAround-default-alert: 15px;
+  @borderRadius-default-alert: 3px;
+  //色调
+  @borderColor-default-alert: @borderColor-default;
+  @borderColor-warning-alert: darken(@bgColor-warning,5%);
+  @borderColor-success-alert: darken(@bgColor-success,5%);
+  @borderColor-info-alert: darken(@bgColor-info,5%);
+  @borderColor-danger-alert: darken(@bgColor-danger,5%);
+  @bgColor-default-alert: @bgColor-primary;
+  @bgColor-warning-alert: @bgColor-warning;
+  @bgColor-success-alert: @bgColor-success;
+  @bgColor-info-alert: @bgColor-info;
+  @bgColor-danger-alert: @bgColor-danger;
+  @fontColor-default-alert: @fontColor-viceText;
+  @fontColor-warning-alert: @fontColor-warning;
+  @fontColor-success-alert: @fontColor-success;
+  @fontColor-info-alert: @fontColor-info;
+  @fontColor-danger-alert: @fontColor-error;
+  //图标
+  @icon-close-alert: "\e070";
+  @icon-warning-alert: "\e000";
+  @icon-success-alert: "\e281";
+  @icon-info-alert: "\e605";
+  @icon-danger-alert: "\e205";
+
+
 
 
 //分页尺寸

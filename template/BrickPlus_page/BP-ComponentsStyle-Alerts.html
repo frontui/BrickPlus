@@ -38,43 +38,80 @@
   tab.prototype(
     tabs = [
       {text: '结构和样式', url: '#tp1'},
-      {text: '可关闭警告框', url: '#tp2'}
+      {text: '带关闭按钮', url: '#tp2'}
     ],
-    cur='1'
+    cur='2'
   )
 }}
 <div class="tabs-content">
-  <div class="tabs-panel active" id="tp1">
+  <div class="tabs-panel" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
           警告框组件通过提供一些灵活的预定义消息，为常见的用户动作提供反馈消息；<br>
-          <code>.alert</code> 类是必须要设置的，另外还提供了有特殊意义的4个类.alert-success，.alert-info，.alert-warning，.alert-danger代表不同的警告信息。
-          暂时只提供.alert-warning类
+          <code>.alert</code> 类是必须要设置的，另外还提供了有特殊意义的4个类 <code>.alert-success</code>，<code>.alert-info</code>，<code>.alert-warning</code>，<code>.alert-danger</code> 代表不同的警告信息。
         </li>
         <li>
-          警告框没有默认类，只有基类和修饰类。默认的灰色警告框并没有多少意义。所以您要使用一种有意义的警告类。目前提供了成功、消息、警告或危险。
+          警告框没有默认类，只有基类和修饰类。基类在大多情况下都用不上。所以您要使用一种有意义的警告类。目前提供了成功、消息、警告或危险。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
+          <div class="alert">
+            这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+            <em></em>
+          </div>
+          <div class="alert alert-success">
+            <b>.alert-success</b>，鼓励，正确，正面性质的事件即时描述。
+            <em data-dismiss="alert"></em>
+          </div>
+          <div class="alert alert-info">
+            <b>.alert-info</b>，包含提示意义，或帮助信息在内的即时描述。
+            <em data-dismiss="alert"></em>
+          </div>
           <div class="alert alert-warning">
-            <span class="warning-FontColor">rayalienkiss</span>，您尚未进行账户验证，<a href="###" class="link-standard text-nowrap">请先验证</a>
+            <b>.alert-warning</b>，注意事项或警告内容的即时描述。
+            <em data-dismiss="alert"></em>
+          </div>
+          <div class="alert alert-danger">
+            <b>.alert-danger</b>，错误内容或危险内容的即时描述。
+            <em data-dismiss="alert"></em>
           </div>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
-  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
-    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
-      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
-        <span class="tg">...</span>
-      &lt;/<b>a</b>&gt;
-    &lt;/<b>li</b>&gt;
-  &lt;/<b>ul</b>&gt;
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>alert ( alert-success / alert-info / alert-warning / alert-danger )</b></span>"</span>&gt;
+  <span class="tg">...</span>
 &lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          为警告框叠加 <code>.alert-dismissible</code> 类，显示警告框自带的关闭按钮。<br>
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="alert alert-dismissible">
+            这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+            <em data-dismiss="alert"></em>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">alert <b>alert-dismissible</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/div&gt;
             </code>
           </pre>
         </div>
