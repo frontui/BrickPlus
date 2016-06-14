@@ -899,25 +899,31 @@ ol.example-description {
     }
 }
 
-//模态窗口展示样式
+// ******************
+// 模拟浏览器窗口
+// ******************
 .sim-body {
-    position: relative;
+  position: relative;
 
-    > .sim-body-main {
-        height: 400px;
-        background: url( http://www.wefax.cn/Content/images/index/tu3.jpg ) center center no-repeat;
-        background-size: cover;
-        filter: blur(14px) contrast(0.4) brightness(1.4);
-        outline: none;
-        border: none;
-        .rounded(@borderRadius-wrap-modal);
+  > .sim-body-main {
+    height: 400px;
+    background: url(http://www.wefax.cn/Content/images/index/tu3.jpg) center center no-repeat;
+    background-size: cover;
+    filter: blur(14px) contrast(0.4) brightness(1.4);
+    outline: none;
+    border: none;
+    .rounded(@borderRadius-wrap-modal);
 
-    }
+  }
 
-    > .modal-background {
-        position: absolute;
-        .rounded(@borderRadius-wrap-modal);
-    }
+  > .modal-background {
+    position: absolute;
+    .rounded(@borderRadius-wrap-modal);
+  }
+
+  > .alert-fixed-wrap {
+    position: absolute;
+  }
 }
 
 //空白内容页
