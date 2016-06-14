@@ -32,35 +32,23 @@
     > .result-inner {
       display: table-cell;
       vertical-align: middle;
-
-      > h1 + * {
-        padding-top: 10px;
-      }
     }
   }
 }
 
 .result-wrap {
   text-align: center;
+  padding: 50px 0;
 
-  &.success {
+  &.result-success {
 
-    .result-box {
+    .result-box > .result-icon:before {
+      content: @icon-success-resultNotice;
+      color: @iconColor-success-resultNotice;
+    }
 
-      > .result-icon:before {
-        content: @icon-success-resultNotice;
-        color: @iconColor-success-resultNotice;
-      }
-
-      > .result-content {
-
-        > .result-inner {
-
-          > h1 {
-            color: @fontColor-success;
-          }
-        }
-      }
+    .result-box > .result-content > .result-inner > h1 {
+      color: @fontColor-success;
     }
   }
 
