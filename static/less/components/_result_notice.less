@@ -1,0 +1,140 @@
+// ******************
+// 结果页面提示信息
+// ******************
+.result-box {
+  position: relative;
+  .inline-block();
+  padding-left: @iconWrapSize-resultNotice;
+
+  > .result-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .square(@iconWrapSize-resultNotice);
+    text-align: center;
+    .inline-block();
+    .rounded(50%);
+    border: 1px solid @borderColor-default;
+
+    &:before {
+      font-size: 60px;
+      .form-notice-icon-font-family();
+      line-height: @iconWrapSize-resultNotice;
+    }
+  }
+
+  > .result-content {
+    padding-left: 20px;
+    min-height: @iconWrapSize-resultNotice;
+    display: table;
+    text-align: left;
+
+    > .result-inner {
+      display: table-cell;
+      vertical-align: middle;
+
+      > h1 + * {
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+.result-wrap {
+  text-align: center;
+
+  &.success {
+
+    .result-box {
+
+      > .result-icon:before {
+        content: @icon-success-resultNotice;
+        color: @iconColor-success-resultNotice;
+      }
+
+      > .result-content {
+
+        > .result-inner {
+
+          > h1 {
+            color: @fontColor-success;
+          }
+        }
+      }
+    }
+  }
+
+  /*&.waiting {
+
+    .notice-box {
+
+      > .notice-img {
+        background: url("@{images-url}waiting.gif") no-repeat;
+      }
+
+      > h3 {
+        color: @fontColor-info;
+      }
+    }
+  }
+
+  &.error {
+
+    .notice-box {
+
+      > .notice-img {
+        background: url("@{images-url}error.png") no-repeat;
+      }
+
+      > h3 {
+        color: @fontColor-error;
+      }
+    }
+  }
+
+  &.info {
+
+    .notice-box {
+
+      > .notice-img {
+        background: url("@{images-url}info.png") no-repeat;
+      }
+
+      > h3 {
+        color: @fontColor-info;
+      }
+    }
+  }*/
+
+  &.in-modal {
+    border: none !important;
+    padding: 0;
+
+    .result-box {
+      padding-left: 88px;
+      min-height: 62px;
+
+      > .result-icon {
+        .square(62px);
+        background-size: cover;
+      }
+
+      > h3 {
+        color: @fontColor-heading !important;
+        font-size: @fontSize-smaller !important;
+        font-weight: 500;
+        padding-bottom: 10px;
+      }
+    }
+
+  }
+}
+
+// 弹框按钮
+.modalLayer {
+  min-width: 322px;
+}
+
+.in-modal-btns {
+  margin-top: 30px;
+}
