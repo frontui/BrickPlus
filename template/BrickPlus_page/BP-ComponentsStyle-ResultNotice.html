@@ -49,20 +49,71 @@
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          警告框组件通过提供一些灵活的预定义消息，为常见的用户动作提供反馈消息；<br>
-          <code>.alert</code> 类是必须要设置的，另外还提供了有特殊意义的4个类 <code>.alert-success</code>，<code>.alert-info</code>，<code>.alert-warning</code>，<code>.alert-danger</code> 代表不同的警告信息。
+          任务结果提示和警告框一样，拥有基类和四个有特殊意思的情景应用类，适应不用的用户场景，在 <code>.result-wrap</code> 这一层（基类）叠加 <code>.result-success</code>，<code>.result-wait</code>，<code>.result-fail</code>，<code>.result-info</code> 中的一种，得到相应的特殊场景内容。
+          这个组件多数是作为一个完整的页面内容呈现的，所以必须它有固定的 html 结构，详情请参考代码示例。
+        </li>
+        <li>
+          基类没用吗？未必，看你怎么用。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
+          <div class="result-wrap">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    我只引用了任务结果提示组件的基类！内容很简单是不是？但结构不是！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="result-wrap result-success">
             <div class="result-box">
               <div class="result-icon"></div>
               <div class="result-content">
                 <div class="result-inner">
                   <h1>
-                    勝利の大逃亡！
+                    .result-success，我代表积极，正确，鼓励性质的行为结果！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-wait">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-wait，看到我，就是说你需要等待，给我点时间！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-fail">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-fail，你失败了，You are a loser of life！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-info">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-info，看我，有些事情你是需要知道的！
                   </h1>
                 </div>
               </div>

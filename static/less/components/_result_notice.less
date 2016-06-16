@@ -4,7 +4,6 @@
 .result-box {
   position: relative;
   .inline-block();
-  padding-left: @iconWrapSize-resultNotice;
 
   > .result-icon {
     position: absolute;
@@ -15,9 +14,10 @@
     .inline-block();
     .rounded(50%);
     border: 1px solid @borderColor-default;
+    display: none;
 
     &:before {
-      font-size: 60px;
+      font-size: 36px;
       .form-notice-icon-font-family();
       line-height: @iconWrapSize-resultNotice;
     }
@@ -40,59 +40,89 @@
   text-align: center;
   padding: 50px 0;
 
+  //成功
   &.result-success {
 
-    .result-box > .result-icon:before {
-      content: @icon-success-resultNotice;
-      color: @iconColor-success-resultNotice;
-    }
+    .result-box {
+      padding-left: @iconWrapSize-resultNotice;
 
-    .result-box > .result-content > .result-inner > h1 {
-      color: @fontColor-success;
-    }
-  }
+      > .result-icon {
+        display: block;
 
-  /*&.waiting {
-
-    .notice-box {
-
-      > .notice-img {
-        background: url("@{images-url}waiting.gif") no-repeat;
+        &:before {
+          content: @icon-success-resultNotice;
+          color: @iconColor-success-resultNotice;
+        }
       }
 
-      > h3 {
-        color: @fontColor-info;
+      > .result-content > .result-inner > h1 {
+        color: @fontColor-success;
       }
     }
   }
 
-  &.error {
+  //等待
+  &.result-wait {
 
-    .notice-box {
+    .result-box {
+      padding-left: @iconWrapSize-resultNotice;
 
-      > .notice-img {
-        background: url("@{images-url}error.png") no-repeat;
+      > .result-icon {
+        display: block;
+
+        &:before {
+          content: @icon-wait-resultNotice;
+          color: @iconColor-wait-resultNotice;
+        }
       }
 
-      > h3 {
-        color: @fontColor-error;
+      > .result-content > .result-inner > h1 {
+        color: @fontColor-viceText;
       }
     }
   }
 
-  &.info {
+  //失败
+  &.result-fail {
 
-    .notice-box {
+    .result-box {
+      padding-left: @iconWrapSize-resultNotice;
 
-      > .notice-img {
-        background: url("@{images-url}info.png") no-repeat;
+      > .result-icon {
+        display: block;
+
+        &:before {
+          content: @icon-fail-resultNotice;
+          color: @iconColor-fail-resultNotice;
+        }
       }
 
-      > h3 {
-        color: @fontColor-info;
+      > .result-content > .result-inner > h1 {
+        color: @topicColor-fail-resultNotice;
       }
     }
-  }*/
+  }
+
+  //信息
+  &.result-info {
+
+    .result-box {
+      padding-left: @iconWrapSize-resultNotice;
+
+      > .result-icon {
+        display: block;
+
+        &:before {
+          content: @icon-info-resultNotice;
+          color: @iconColor-info-resultNotice;
+        }
+      }
+
+      > .result-content > .result-inner > h1 {
+        color: @topicColor-info-resultNotice;
+      }
+    }
+  }
 
   &.in-modal {
     border: none !important;
