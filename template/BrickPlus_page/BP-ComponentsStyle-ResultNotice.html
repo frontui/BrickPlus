@@ -38,14 +38,14 @@
   tab.prototype(
     tabs = [
       {text: '结构和样式', url: '#tp1'},
-      {text: '带关闭按钮', url: '#tp2'},
-      {text: '固定的警告框', url: '#tp3'}
+      {text: '尺寸', url: '#tp2'},
+      {text: '排版', url: '#tp3'}
     ],
-    cur='1'
+    cur='3'
   )
 }}
 <div class="tabs-content">
-  <div class="tabs-panel active" id="tp1">
+  <div class="tabs-panel" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
@@ -123,12 +123,159 @@
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>alert ( alert-success / alert-info / alert-warning / alert-danger )</b></span>"</span>&gt;
-  <span class="tg">...</span>
-  &lt;<b>em</b> <b><span class="va">data-dismiss="<span class="cl">alert</span>"</span></b>&gt;&lt;/<b>em</b>&gt;
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-wrap ( result-success / result-info / result-wait / alert-fail )</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-box</b></span>"</span>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-icon</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-content</b></span>"</span>&gt;
+      &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-inner</b></span>"</span>&gt;
+        &lt;<b>h1</b>&gt;
+          <span class="tg">...</span>
+        &lt;/<b>h1</b>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>div</b>&gt;
+    &lt;/<b>div</b>&gt;
+  &lt;/<b>div</b>&gt;
 &lt;/<b>div</b>&gt;
             </code>
           </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          组件在1024分辨率屏幕下，会缩小图标和标题的尺寸。另外还提供 <code>.result-s</code> 的尺寸类（暂时仅提供一种），适应不同的结构容器宽度。
+        </li>
+        <li>
+          <code>.result-s</code> 的尺寸类和1024分辨率下的组件尺寸，调整参数是一样的，即，一样（除了内补边距,内补边距的缩小只会在1024分辨率下会触发）。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap result-success result-s">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    おめでとう！君には人生の大賞が！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">result-wrap <b>result-s</b></span>"</span>&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel active" id="tp3">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#resultVertical" class="btn default">垂直排列</a>
+      <a href="#resultExample" class="btn default">组合案例</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="resultVertical">垂直排列</h2>
+      <ul class="example-description">
+        <li>
+          组件在1024分辨率屏幕下，会缩小图标和标题的尺寸。另外还提供 <code>.result-s</code> 的尺寸类（暂时仅提供一种），适应不同的结构容器宽度。
+        </li>
+        <li>
+          <code>.result-s</code> 的尺寸类和1024分辨率下的组件尺寸，调整参数是一样的，即，一样（除了内补边距,内补边距的缩小只会在1024分辨率下会触发）。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap result-success result-vertical">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    おめでとう！君には人生の大賞が！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">result-wrap <b>result-vertical</b></span>"</span>&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="resultExample">组合案例</h2>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap result-success">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    おめでとう！君には人生の大賞が！
+                  </h1>
+                  <p class="fn-pt-15 fn-pb-10">
+                    あなたの選択：
+                  </p>
+                  <ul class="ul-standard">
+                    <li>
+                      寝て、本当に呼び覚まして呼び覚まして、本当に起こされて、本当に呼び覚まして。
+                    </li>
+                    <li>
+                      起きて、良い服を着て現場に行く。
+                    </li>
+                  </ul>
+                  <div class="text-align-left plural-btns fn-pt-15 small-btn-gb">
+                    <button type="button" class="btn secondary">寝続ける</button>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default">呼ばれ</button>
+                      <button type="button" class="btn default">起きて</button>
+                    </div>
+                    <a href="javascript:void(0);" class="btn links">助けを求める</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-fail result-vertical">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    世界が終わって！
+                  </h1>
+                  <p class="fn-ptb-15 text-align-center">
+                    舞いあがるは終焉の地，あなたの号泣のは演奏鎮魂の楽章。
+                  </p>
+                  <div class="text-align-center plural-btns">
+                    <a href="javascript:void(0);" class="btn links">用虎の巻復活</a>
+                    <a href="javascript:void(0);" class="btn links">電源を切る</a>
+                    <a href="javascript:void(0);" class="btn links">助けを求める</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

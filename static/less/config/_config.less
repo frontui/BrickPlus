@@ -397,7 +397,17 @@
 
 //结果页面提示信息
   //尺寸
-  @iconWrapSize-resultNotice: 80px;
+    //标准尺寸
+    @iconWrapSize-resultNotice: 80px;
+    @iconSize-resultNotice: floor(@iconWrapSize-resultNotice*0.4);
+    //小码
+    @iconWrapSize-sizeS-resultNotice: 60px;
+    @iconSize-sizeS-resultNotice: floor(@iconWrapSize-sizeS-resultNotice*0.4);
+    @fontSize-topic-sizeS-resultNotice: floor(@iconWrapSize-sizeS-resultNotice*0.45);
+    //响应式尺寸
+    @iconWrapSize-screen1024-resultNotice: @iconWrapSize-sizeS-resultNotice;
+    @iconSize-screen1024-resultNotice: @iconSize-sizeS-resultNotice;
+    @fontSize-topic-screen1024-resultNotice: @fontSize-topic-sizeS-resultNotice;
   //色调
   @iconColor-success-resultNotice: @fontColor-success;
   @iconColor-wait-resultNotice: @fontColor-tips;
