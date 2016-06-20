@@ -424,6 +424,36 @@
   @icon-info-resultNotice: "\e24d";
 
 
+//进度条
+  //尺寸
+    //标准尺寸
+    @height-default-progressBar: 10px;
+    @stripedSize-default-progressBar: 40px;
+    //L尺寸
+    @height-sizeL-progressBar: 20px;
+    //S尺寸
+    @height-sizeS-progressBar: 5px;
+  //色调
+  @bgColor-body-default-progressBar: linear-gradient(to bottom, lighten(@domColor1,15%), lighten(@domColor1,5%));
+  @bgColor-body-success-progressBar: linear-gradient(to bottom, lighten(@domColor2,10%), lighten(@domColor2,0%));
+  @bgColor-body-warning-progressBar: linear-gradient(to bottom, lighten(@domColor5,25%), lighten(@domColor5,15%));
+  @bgColor-body-danger-progressBar: linear-gradient(to bottom, lighten(@domColor3,10%), lighten(@domColor3,0%));
+  @bgColor-body-disabled-progressBar: linear-gradient(to bottom, darken(#fff,17%), darken(#fff,22%));
+  @bgColor-warp-default-progressBar: darken(@bgColor-primary,5%);
+
+  //linear-gradient(to bottom, @domColor2, @domColor3);
+
+//tooltips
+  //尺寸
+  @width-default-toolTips: 240px;
+  @arrowSize-default-toolTips: 6px;
+  @borderRadius-default-toolTips: 3px;
+  //色调
+  @fontColor-default-toolTips: darken(@borderColor-default-toolTips,45%);
+  @bgColor-default-toolTips: #fffbec;
+  @borderColor-default-toolTips: #f5dfb1;
+
+
 //分页尺寸
 
 

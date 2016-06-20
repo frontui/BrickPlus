@@ -7,6 +7,11 @@
 @import "_grid.less";
 
 /*
+--- 梯度mixin ---
+*/
+@import "_gradients.less";
+
+/*
 --- 工具样式 ---
 */
 @import "_divider.less";
@@ -312,25 +317,27 @@
 }
 
 //样式上下箭头
-.arrow-up-or-down(@border-top-or-bottom,@ysize,@xsize) {
+.arrow-up-or-down(@border-top-or-bottom,@ysize,@xsize,@color:inherit) {
     display: inline-block;
     width: 0;
     height: 0;
     vertical-align: middle;
     @{border-top-or-bottom}: @ysize dashed;
     @{border-top-or-bottom}: @ysize solid ~"\9"; // IE8
+    @{border-top-or-bottom}-color: @color;
     border-right: @xsize solid transparent;
     border-left: @xsize solid transparent;
 }
 
 // 样式左右箭头
-.arrow-left-or-right(@border-left-or-right,@xsize,@ysize) {
+.arrow-left-or-right(@border-left-or-right,@xsize,@ysize,@color:inherit) {
     display: inline-block;
     width: 0;
     height: 0;
     vertical-align: middle;
     @{border-left-or-right}: @xsize dashed;
     @{border-left-or-right}: @xsize solid ~"\9"; // IE8
+    @{border-left-or-right}-color: @color;
     border-top: @ysize solid transparent;
     border-bottom: @ysize solid transparent;
 }

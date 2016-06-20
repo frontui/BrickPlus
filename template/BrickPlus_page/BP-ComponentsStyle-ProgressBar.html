@@ -1,0 +1,194 @@
+{% extends "_BrickPlus_layout/5-BP-ComponentsStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='3') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='6') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+{# 渲染标签页 #}
+{{
+  tab.prototype(
+    tabs = [
+      {text: '结构和样式', url: '#tp1'},
+      {text: '堆叠效果', url: '#tp2'}
+    ],
+    cur='1'
+  )
+}}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#progressBase" class="btn default">基础</a>
+      <a href="#progressStriped" class="btn default">斑马条纹效果</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="progressBase">基础</h2>
+      <ul class="example-description">
+        <li>
+          通过这些简单、灵活的进度条，为当前工作流程或动作提供实时反馈。
+          组件提供基类 <code>progress</code> 和四个能适应情景应用或典型 UI 设计使用的叠加类，只需在 <code>.progress-bar</code> 层中引用 <code>.bar-success</code>，<code>.bar-warning</code>，<code>.bar-danger</code> 或 <code>.bar-disabled</code> 其中之一即可。
+        </li>
+        <li>
+          进度条组件使用了 CSS3 的 <code>transition</code> 和 <code>animation</code> 属性来完成一些特效。这些特性在 IE9 或以下版本中、Firefox 的老版本中没有被支持。Opera 12 不支持 <code>animation</code> 属性。
+        </li>
+        <li>
+          进度条组件有固定的 html 结构，详情请参考代码示例。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5>.bar-success</h5>
+          <div class="progress">
+            <div class="progress-bar bar-success" style="width: 100%;" data-toggle="tooltips" data-pos="right" title="100%"></div>
+          </div>
+          <h5 class="fn-mt-40">default</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 80%;" data-toggle="tooltips" data-pos="right" title="80%"></div>
+          </div>
+          <h5 class="fn-mt-40">.bar-warning</h5>
+          <div class="progress">
+            <div class="progress-bar bar-warning" style="width: 60%;" data-toggle="tooltips" data-pos="right" title="60%"></div>
+          </div>
+          <h5 class="fn-mt-40">.bar-danger</h5>
+          <div class="progress">
+            <div class="progress-bar bar-danger" style="width: 40%;" data-toggle="tooltips" data-pos="right" title="40%"></div>
+          </div>
+          <h5 class="fn-mt-40">.bar-disabled</h5>
+          <div class="progress">
+            <div class="progress-bar bar-disabled" style="width: 20%;" data-toggle="tooltips" data-pos="right" title="20%"></div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>progress</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>progress-bar ( bar-success / bar-warning / bar-danger / bar-disabled )</b></span>"</span> <span class="va">style="<span class="cl"><b>width: xxx;</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="progressStriped">斑马条纹效果</h2>
+      <ul class="example-description">
+        <li>
+          通过渐变可以为进度条创建条纹效果，IE9 及更低版本不支持。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5>.bar-success</h5>
+          <div class="progress">
+            <div class="progress-bar bar-success bar-striped" style="width: 100%;" data-toggle="tooltips" data-pos="right" title="100%"></div>
+          </div>
+          <h5 class="fn-mt-40">default</h5>
+          <div class="progress">
+            <div class="progress-bar bar-striped" style="width: 80%;" data-toggle="tooltips" data-pos="right" title="80%"></div>
+          </div>
+          <h5 class="fn-mt-40">.bar-warning</h5>
+          <div class="progress">
+            <div class="progress-bar bar-warning bar-striped" style="width: 60%;" data-toggle="tooltips" data-pos="right" title="60%"></div>
+          </div>
+          <h5 class="fn-mt-40">.bar-danger</h5>
+          <div class="progress">
+            <div class="progress-bar bar-danger bar-striped" style="width: 40%;" data-toggle="tooltips" data-pos="right" title="40%"></div>
+          </div>
+          <h5 class="fn-mt-40">.bar-disabled</h5>
+          <div class="progress">
+            <div class="progress-bar bar-disabled bar-striped" style="width: 20%;" data-toggle="tooltips" data-pos="right" title="20%"></div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>progress</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>progress-bar ( bar-success / bar-warning / bar-danger / bar-disabled )</b></span>"</span> <span class="va">style="<span class="cl"><b>width: xxx;</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          把多个 <code>.progress-bar</code> 放入同一个 <code>.progress</code> 中，使它们呈现堆叠的效果。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="progress">
+            <div class="progress-bar bar-success" style="width: 25%;" data-toggle="tooltips" data-pos="top" title="25%"></div>
+            <div class="progress-bar" style="width: 20%;" data-toggle="tooltips" data-pos="top" title="20%"></div>
+            <div class="progress-bar bar-warning" style="width: 15%;" data-toggle="tooltips" data-pos="top" title="15%"></div>
+            <div class="progress-bar bar-danger" style="width: 10%;" data-toggle="tooltips" data-pos="top" title="10%"></div>
+            <div class="progress-bar bar-disabled" style="width: 5%;" data-toggle="tooltips" data-pos="top" title="5%"></div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">progress</span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>progress-bar</b></span>"</span> <span class="va">style="<span class="cl"><b>width: xxx;</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>progress-bar</b></span>"</span> <span class="va">style="<span class="cl"><b>width: xxx;</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
+  <span class="tg">...</span>
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}
