@@ -1,19 +1,6 @@
 // ******************
 // 进度条
 // ******************
-
-// WebKit
-@-webkit-keyframes bar-stripes {
-  from  { background-position: 40px 0; }
-  to    { background-position: 0 0; }
-}
-
-// Spec and IE10+
-@keyframes bar-stripes {
-  from  { background-position: 40px 0; }
-  to    { background-position: 0 0; }
-}
-
 .progress {
   overflow: hidden;
   height: @height-default-progressBar;
@@ -49,7 +36,7 @@
   }
 }
 
-//Theme
+// 主题
 .bar-success {
   background: @bgColor-body-success-progressBar;
 }
@@ -70,50 +57,50 @@
 .bar-striped {
   #gradient > .striped(); //引用梯度工具
   background-size: @stripedSize-default-progressBar @stripedSize-default-progressBar;
-  background-color: lighten(@domColor1,15%) !important; //将 .progress-bar 的渐变底色变回纯色，让条纹样式的渐变样式生效
+  background-color: lighten(@domColor1,15%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
 
   &.bar-success {
-    background-color: lighten(@domColor2,10%) !important; //将 .progress-bar 的渐变底色变回纯色，让条纹样式的渐变样式生效
+    background-color: lighten(@domColor2,10%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
   }
 
   &.bar-warning {
-    background-color: lighten(@domColor5,25%) !important; //将 .progress-bar 的渐变底色变回纯色，让条纹样式的渐变样式生效
+    background-color: lighten(@domColor5,25%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
   }
 
   &.bar-danger {
-    background-color: lighten(@domColor3,10%) !important; //将 .progress-bar 的渐变底色变回纯色，让条纹样式的渐变样式生效
+    background-color: lighten(@domColor3,10%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
   }
 
   &.bar-disabled {
-    background-color: darken(#fff,17%) !important; //将 .progress-bar 的渐变底色变回纯色，让条纹样式的渐变样式生效
+    background-color: darken(#fff,17%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
   }
 }
 
-// Call animation for the active one
-//
-// `.progress.active .progress-bar` is deprecated as of v3.2.0 in favor of the
-// `.progress-bar.active` approach.
-/*.progress.active .progress-bar,
+// 条纹进度条动作
+& {
+  .keyframes( bar-stripes );
+
+  .-frames(@-...) {
+    0% {
+      @{-}background-position: 40px 0;
+    }
+    100% {
+      @{-}background-position: 0 0;
+    }
+  }
+}
+
+.progress.active .progress-bar,
 .progress-bar.active {
-  .animation(bar-stripes 2s linear infinite);
-}*/
-
-
-// Variations
-// -------------------------
-
-/*.progress-bar-success {
-  .progress-bar-variant(@progress-bar-success-bg);
+  .animation-s(bar-stripes,2s,linear,0,infinite,normal,running,both);
 }
 
-.progress-bar-info {
-  .progress-bar-variant(@progress-bar-info-bg);
+// 尺寸
+.progress.size-l {
+  height: @height-sizeL-progressBar;
 }
 
-.progress-bar-warning {
-  .progress-bar-variant(@progress-bar-warning-bg);
+.progress.size-s {
+  height: @height-sizeS-progressBar;
 }
 
-.progress-bar-danger {
-  .progress-bar-variant(@progress-bar-danger-bg);
-}*/
