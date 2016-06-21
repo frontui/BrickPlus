@@ -58,6 +58,7 @@
   #gradient > .striped(); //引用梯度工具
   background-size: @stripedSize-default-progressBar @stripedSize-default-progressBar;
   background-color: lighten(@domColor1,15%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
+  .animation-s(bar-stripes,2s,linear,0,infinite,normal,running,both);
 
   &.bar-success {
     background-color: lighten(@domColor2,10%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
@@ -88,11 +89,6 @@
       @{-}background-position: 0 0;
     }
   }
-}
-
-.progress.active .progress-bar,
-.progress-bar.active {
-  .animation-s(bar-stripes,2s,linear,0,infinite,normal,running,both);
 }
 
 // 尺寸
