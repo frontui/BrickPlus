@@ -1,24 +1,182 @@
 // ******************
 // 步骤
 // ******************
-.step {
+.step-wrap {
 
-  &-box {
-    .clearfix();
+  .step-box {
     position: relative;
+    min-height: @size-stepIcon-Step;
+    margin-bottom: 15px;
+    .clearfix();
+
+    > .step-bar {
+      height: @height-bar-step;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -(@height-bar-step/2);
+      background-color: @borderColor-stepIconBefore-Step;
+
+      > div {
+
+      }
+    }
+
+    > .step {
+      position: absolute;
+      top: 0;
+      .square(@size-stepIcon-Step);
+      .rounded(50%);
+      .link-custom(@fontColor-default, @fontColor-default, none);
+      text-align: center;
+      cursor: default;
+      border: @borderWidth-stepIconAfter-Step solid @borderColor-stepIconBefore-Step;
+      background-color: @bgColor-stepIcon-step;
+      .transition(all,0.07s,linear,0);
+
+      &:after {
+        .border-box();
+        .transition(all,0.07s,linear,0.1s);
+        .square(@size-stepIcon-Step + 14px);
+        .rounded(50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -((@size-stepIcon-Step + 14px)/2);
+        margin-left: -((@size-stepIcon-Step + 14px)/2);
+        content: '';
+        line-height: (@size-stepIcon-Step + 14px) - 2*@borderWidth-stepIconAfter-Step;
+        font-size: (@size-stepIcon-Step + 14px)*0.4;
+      }
+
+      &:before {
+        .border-box();
+        .transition(all,0.35s,ease-out,0.1s);
+        .square(@size-stepIcon-Step + 28px);
+        .rounded(50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -((@size-stepIcon-Step + 28px)/2);
+        margin-left: -((@size-stepIcon-Step + 28px)/2);
+        content: '';
+      }
+
+      &:hover {
+        .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
+        border-color: @shadowColor-stepIcon-Step;
+
+        &:before {
+          .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
+          .opacity(0);
+        }
+
+        &:after {
+          .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+        }
+      }
+    }
+
+    > a.step {
+      cursor: pointer;
+    }
   }
 
-  &-item {
-    width: 100px;
-    height: 100px;
-    background-color: #cdcdcd;
+  .step-title {
+    position: relative;
 
-    /*&:first-child:not(:last-child) {
-      margin-left: 0;
-    }*/
+    > p {
+      text-align: center;
+      .text-nowrap();
+      margin: 0 auto;
+    }
+  }
+}
 
-    /*&.last {
-      float: right;
-    }*/
+//三步
+//定义三步的排版
+.step-wrap.three-steps {
+
+  .step-box {
+
+    > .step-bar {
+
+      > div {
+        width: 33.33%;
+      }
+    }
+
+    > .step {
+      left: 0;
+
+      &:after {
+        content: '1';
+      }
+
+      & + .step {
+        left: 50%;
+        margin-left: -(@size-stepIcon-Step/2);
+
+        &:after {
+          content: '2';
+        }
+      }
+
+      & + .step + .step {
+        right: 0;
+        left: auto;
+
+        &:after {
+          content: '3';
+        }
+      }
+    }
+  }
+}
+//定义三步的流程样式
+.step-wrap.three-steps.pass1 {
+
+  .step-box {
+
+    > .step {
+      .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 25%));
+      border-color: @shadowColor-stepIcon-Step;
+
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 35%));
+      }
+
+      & + .step {
+        box-shadow: none;
+        border-color: @borderColor-stepIconBefore-Step;
+
+        &:before {
+          display: block;
+        }
+
+        &:after {
+          box-shadow: none;
+        }
+
+        &:hover {
+          .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
+          border-color: @shadowColor-stepIcon-Step;
+
+          &:before {
+            .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
+            .opacity(0);
+          }
+
+          &:after {
+            .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+          }
+        }
+      }
+    }
   }
 }
