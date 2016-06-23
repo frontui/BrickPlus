@@ -23,7 +23,7 @@
       }
     }
 
-    > .step {
+    /*> .step {
       position: absolute;
       top: 0;
       .square(@size-stepIcon-Step);
@@ -74,6 +74,63 @@
 
         &:after {
           .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+        }
+      }
+    }*/
+
+    > .step {
+      position: absolute;
+      top: 0;
+      .square(@size-stepIcon-Step);
+      .rounded(50%);
+      .link-custom(@fontColor-default, @fontColor-default, none);
+      text-align: center;
+      cursor: default;
+      border: @borderWidth-stepIconAfter-Step solid @borderColor-stepIconBefore-Step;
+      background-color: @bgColor-stepIcon-step;
+      //.transition(all,0.07s,linear,0);
+
+      &:after {
+        .border-box();
+        //.transition(all,0.07s,linear,0.1s);
+        .square(@size-stepIcon-Step + 14px);
+        .rounded(50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -((@size-stepIcon-Step + 14px)/2);
+        margin-left: -((@size-stepIcon-Step + 14px)/2);
+        content: '';
+        line-height: (@size-stepIcon-Step + 14px) - 2*@borderWidth-stepIconAfter-Step;
+        font-size: (@size-stepIcon-Step + 14px)*0.4;
+      }
+
+      &:before {
+        .border-box();
+        //.transition(all,0.35s,ease-out,0.1s);
+        .square(@size-stepIcon-Step + 28px);
+        .rounded(50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -((@size-stepIcon-Step + 28px)/2);
+        margin-left: -((@size-stepIcon-Step + 28px)/2);
+        content: '';
+      }
+
+      &:hover {
+        //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
+        //border-color: @shadowColor-stepIcon-Step;
+        .animation-s(stepIconhover,0.07s,linear,0,2,alternate,running,both);
+
+        &:before {
+          //.outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));alternate
+          //.opacity(0);
+        }
+
+        &:after {
+          //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+          .animation-s(stepIconhover2,0.07s,linear,0.1s,2,alternate,running,both);
         }
       }
     }
@@ -177,6 +234,36 @@
           }
         }
       }
+    }
+  }
+}
+
+
+//anim
+& {
+  .keyframes( stepIconhover );
+
+  .-frames(@-...) {
+    0% {
+      //@{-}box-shadow: 0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%);
+      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,25%));
+    }
+    100% {
+      //@{-}box-shadow: 0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%);
+      .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
+    }
+  }
+}
+
+& {
+  .keyframes( stepIconhover2 );
+
+  .-frames(@-...) {
+    0% {
+      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,35%));
+    }
+    100% {
+      .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
     }
   }
 }
