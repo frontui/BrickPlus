@@ -121,16 +121,17 @@
       &:hover {
         //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
         //border-color: @shadowColor-stepIcon-Step;
-        .animation-s(stepIconhover,0.07s,linear,0,2,alternate,running,both);
+        .animation-s(stepIconhover,0.3s,linear,0,1,normal,running,both);
 
         &:before {
-          //.outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));alternate
+          //.outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
           //.opacity(0);
+          //.animation-s(stepIconhover3,0.35s,ease-out,0.1s,1,normal,running,both);
         }
 
         &:after {
-          //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
-          .animation-s(stepIconhover2,0.07s,linear,0.1s,2,alternate,running,both);
+          //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));alternate
+          .animation-s(stepIconhover2,0.3s,linear,0.3s,1,normal,running,both);
         }
       }
     }
@@ -246,7 +247,11 @@
   .-frames(@-...) {
     0% {
       //@{-}box-shadow: 0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%);
-      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,25%));
+      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,45%));
+    }
+    60% {
+      //@{-}box-shadow: 0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%);
+      .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,35%));
     }
     100% {
       //@{-}box-shadow: 0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%);
@@ -260,10 +265,27 @@
 
   .-frames(@-...) {
     0% {
-      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,35%));
+      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,45%));
+    }
+    60% {
+      .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,35%));
     }
     100% {
       .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+    }
+  }
+}
+
+& {
+  .keyframes( stepIconhover3 );
+
+  .-frames(@-...) {
+    0% {
+      .outer-shadow-custom(0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%));
+    }
+    100% {
+      .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
+      .opacity(0);
     }
   }
 }
