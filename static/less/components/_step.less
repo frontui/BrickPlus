@@ -5,139 +5,78 @@
 
   .step-box {
     position: relative;
-    min-height: @size-stepIcon-Step;
+    min-height: @size-stepIconLv1-Step;
     margin-bottom: 15px;
     .clearfix();
 
-    > .step-bar {
+    .step-bar {
       height: @height-bar-step;
       position: absolute;
       top: 50%;
-      left: 0;
-      right: 0;
+      left: @size-stepIconLv1-Step - 10px;
+      right: @size-stepIconLv1-Step - 10px;
       margin-top: -(@height-bar-step/2);
       background-color: @borderColor-stepIconBefore-Step;
 
-      > div {
-
+      &:before {
+        height: @bodyHeight-bar-step;
+        background-color: lighten(@shadowColor-stepIcon-Step,0%);
+        position: absolute;
+        top: 50%;
+        margin-top: -@bodyHeight-bar-step/2;
+        left: 0;
+        .rounded(@bodyHeight-bar-step);
+        content: '';
       }
     }
 
-    /*> .step {
+    .step {
       position: absolute;
       top: 0;
-      .square(@size-stepIcon-Step);
+      .square(@size-stepIconLv1-Step);
       .rounded(50%);
-      .link-custom(@fontColor-default, @fontColor-default, none);
       text-align: center;
-      cursor: default;
       border: @borderWidth-stepIconAfter-Step solid @borderColor-stepIconBefore-Step;
       background-color: @bgColor-stepIcon-step;
-      .transition(all,0.07s,linear,0);
 
       &:after {
         .border-box();
-        .transition(all,0.07s,linear,0.1s);
-        .square(@size-stepIcon-Step + 14px);
+        .square(@size-stepIconLv2-Step);
         .rounded(50%);
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -((@size-stepIcon-Step + 14px)/2);
-        margin-left: -((@size-stepIcon-Step + 14px)/2);
+        margin-top: -(@size-stepIconLv2-Step/2);
+        margin-left: -(@size-stepIconLv2-Step/2);
         content: '';
-        line-height: (@size-stepIcon-Step + 14px) - 2*@borderWidth-stepIconAfter-Step;
-        font-size: (@size-stepIcon-Step + 14px)*0.4;
+        line-height: @size-stepIconLv2-Step - 2*@borderWidth-stepIconAfter-Step;
+        font-size: @size-stepIconLv2-Step*0.4;
       }
 
       &:before {
         .border-box();
-        .transition(all,0.35s,ease-out,0.1s);
-        .square(@size-stepIcon-Step + 28px);
+        .square(@size-stepIconLv3-Step);
         .rounded(50%);
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -((@size-stepIcon-Step + 28px)/2);
-        margin-left: -((@size-stepIcon-Step + 28px)/2);
+        margin-top: -(@size-stepIconLv3-Step/2);
+        margin-left: -(@size-stepIconLv3-Step/2);
         content: '';
       }
 
       &:hover {
-        .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
+        .step-icon-anim-lv1();
         border-color: @shadowColor-stepIcon-Step;
 
-        &:before {
-          .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
-          .opacity(0);
-        }
-
         &:after {
-          .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+          .step-icon-anim-lv2();
         }
-      }
-    }*/
-
-    > .step {
-      position: absolute;
-      top: 0;
-      .square(@size-stepIcon-Step);
-      .rounded(50%);
-      .link-custom(@fontColor-default, @fontColor-default, none);
-      text-align: center;
-      cursor: default;
-      border: @borderWidth-stepIconAfter-Step solid @borderColor-stepIconBefore-Step;
-      background-color: @bgColor-stepIcon-step;
-      //.transition(all,0.07s,linear,0);
-
-      &:after {
-        .border-box();
-        //.transition(all,0.07s,linear,0.1s);
-        .square(@size-stepIcon-Step + 14px);
-        .rounded(50%);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -((@size-stepIcon-Step + 14px)/2);
-        margin-left: -((@size-stepIcon-Step + 14px)/2);
-        content: '';
-        line-height: (@size-stepIcon-Step + 14px) - 2*@borderWidth-stepIconAfter-Step;
-        font-size: (@size-stepIcon-Step + 14px)*0.4;
-      }
-
-      &:before {
-        .border-box();
-        //.transition(all,0.35s,ease-out,0.1s);
-        .square(@size-stepIcon-Step + 28px);
-        .rounded(50%);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -((@size-stepIcon-Step + 28px)/2);
-        margin-left: -((@size-stepIcon-Step + 28px)/2);
-        content: '';
-      }
-
-      &:hover {
-        //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
-        //border-color: @shadowColor-stepIcon-Step;
-        .animation-s(stepIconhover,0.3s,linear,0,1,normal,running,both);
 
         &:before {
-          //.outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
-          //.opacity(0);
-          //.animation-s(stepIconhover3,0.35s,ease-out,0.1s,1,normal,running,both);
-        }
-
-        &:after {
-          //.outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));alternate
-          .animation-s(stepIconhover2,0.3s,linear,0.3s,1,normal,running,both);
+          .step-icon-anim-lv3();
         }
       }
-    }
-
-    > a.step {
-      cursor: pointer;
     }
   }
 
@@ -158,14 +97,7 @@
 
   .step-box {
 
-    > .step-bar {
-
-      > div {
-        width: 33.33%;
-      }
-    }
-
-    > .step {
+    .step {
       left: 0;
 
       &:after {
@@ -174,7 +106,7 @@
 
       & + .step {
         left: 50%;
-        margin-left: -(@size-stepIcon-Step/2);
+        margin-left: -(@size-stepIconLv1-Step/2);
 
         &:after {
           content: '2';
@@ -192,17 +124,21 @@
     }
   }
 }
+
 //定义三步的流程样式
 .step-wrap.three-steps.pass1 {
 
   .step-box {
 
-    > .step {
-      .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 25%));
-      border-color: @shadowColor-stepIcon-Step;
+    .step-bar:before {
+      width: 25%;
+    }
+
+    .step {
+      .step-icon-current();
 
       &:before {
-        display: none;
+
       }
 
       &:after {
@@ -212,6 +148,7 @@
       & + .step {
         box-shadow: none;
         border-color: @borderColor-stepIconBefore-Step;
+        color: @fontColor-default;
 
         &:before {
           display: block;
@@ -239,53 +176,71 @@
   }
 }
 
+//步骤组建mixin
+//步骤current效果
+.step-icon-current() {
+  .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 25%));
+  color: darken(@shadowColor-stepIcon-Step,20%);
+  border-color: @shadowColor-stepIcon-Step;
+}
 
-//anim
+//步骤鼠标动画动作流程
+.step-icon-anim-lv1() {
+  .animation-s(stepIconhoverlv1,0.3s,linear,0,1,normal,running,both);
+}
+
+.step-icon-anim-lv2() {
+  .animation-s(stepIconhoverlv2,0.3s,linear,0.3s,1,normal,running,both);
+}
+
+.step-icon-anim-lv3() {
+  .animation-s(stepIconhoverlv3,0.35s,ease-out,0.1s,1,normal,running,both);
+}
+
+//步骤鼠标动画
 & {
-  .keyframes( stepIconhover );
+  .keyframes( stepIconhoverlv1 );
 
   .-frames(@-...) {
     0% {
-      //@{-}box-shadow: 0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%);
-      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,45%));
+      @{-}box-shadow: 0 0 0 0 lighten(@shadowColor-stepIcon-Step,45%);
     }
     60% {
-      //@{-}box-shadow: 0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%);
-      .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,35%));
+      @{-}box-shadow: 0 0 0 15px lighten(@shadowColor-stepIcon-Step,35%);
     }
     100% {
-      //@{-}box-shadow: 0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%);
-      .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
+      @{-}box-shadow: 0 0 0 8px lighten(@shadowColor-stepIcon-Step,25%);
     }
   }
 }
 
 & {
-  .keyframes( stepIconhover2 );
+  .keyframes( stepIconhoverlv2 );
 
   .-frames(@-...) {
     0% {
-      .outer-shadow-custom(0,0,0,0,lighten(@shadowColor-stepIcon-Step,45%));
+      @{-}box-shadow: 0 0 0 0 lighten(@shadowColor-stepIcon-Step,45%);
     }
     60% {
-      .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,35%));
+      @{-}box-shadow: 0 0 0 15px lighten(@shadowColor-stepIcon-Step,35%);
     }
     100% {
-      .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
+      @{-}box-shadow: 0 0 0 8px lighten(@shadowColor-stepIcon-Step,35%);
     }
   }
 }
 
 & {
-  .keyframes( stepIconhover3 );
+  .keyframes( stepIconhoverlv3 );
 
   .-frames(@-...) {
     0% {
-      .outer-shadow-custom(0,0,0,0px,lighten(@shadowColor-stepIcon-Step,25%));
+      @{-}box-shadow: 0 0 0 0 lighten(@shadowColor-stepIcon-Step,25%);
     }
     100% {
-      .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
-      .opacity(0);
+      @{-}box-shadow: 0 0 0px 25px lighten(@shadowColor-stepIcon-Step,45%);
+      @{-}opacity: 0;
+      display: none;
     }
   }
 }
