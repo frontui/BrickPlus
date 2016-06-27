@@ -6,15 +6,15 @@
   .step-box {
     position: relative;
     min-height: @size-stepIconLv1-Step;
-    margin-bottom: 15px;
+    margin: 0 (@size-stepIconLv1-Step/2) 20px (@size-stepIconLv1-Step/2);
     .clearfix();
 
     .step-bar {
       height: @height-bar-step;
       position: absolute;
       top: 50%;
-      left: @size-stepIconLv1-Step - 10px;
-      right: @size-stepIconLv1-Step - 10px;
+      left: 0;
+      right: 0;
       margin-top: -(@height-bar-step/2);
       background-color: @borderColor-stepIconBefore-Step;
 
@@ -82,11 +82,12 @@
 
   .step-title {
     position: relative;
+    min-height: @line-height-stepTitle*2;
 
     > p {
-      text-align: center;
-      .text-nowrap();
-      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      line-height: @line-height-stepTitle;
     }
   }
 }
@@ -98,7 +99,7 @@
   .step-box {
 
     .step {
-      left: 0;
+      left: -(@size-stepIconLv1-Step/2);
 
       &:after {
         content: '1';
@@ -114,12 +115,32 @@
       }
 
       & + .step + .step {
-        right: 0;
+        right: -(@size-stepIconLv1-Step/2);
         left: auto;
 
         &:after {
           content: '3';
         }
+      }
+    }
+  }
+
+  .step-title {
+
+    > p {
+      width: @width-stepTitle;
+      left: 0;
+
+      & + p {
+        left: 50%;
+        margin-left: -@width-stepTitle/2;
+        text-align: center;
+      }
+
+      & + p + p {
+        right: 0;
+        left: auto;
+        text-align: right;
       }
     }
   }
@@ -137,51 +158,134 @@
     .step {
       .step-icon-current();
 
-      &:before {
-
-      }
-
-      &:after {
-        .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 35%));
-      }
-
       & + .step {
-        box-shadow: none;
-        border-color: @borderColor-stepIconBefore-Step;
-        color: @fontColor-default;
-
-        &:before {
-          display: block;
-        }
-
-        &:after {
-          box-shadow: none;
-        }
-
-        &:hover {
-          .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,25%));
-          border-color: @shadowColor-stepIcon-Step;
-
-          &:before {
-            .outer-shadow-custom(0,0,0,15px,lighten(@shadowColor-stepIcon-Step,25%));
-            .opacity(0);
-          }
-
-          &:after {
-            .outer-shadow-custom(0,0,0,8px,lighten(@shadowColor-stepIcon-Step,35%));
-          }
-        }
+        .step-icon-not-current();
       }
     }
   }
 }
 
-//步骤组建mixin
+.step-wrap.three-steps.pass2 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 75%;
+    }
+
+    .step {
+      .step-icon-current();
+
+      & + .step + .step {
+        .step-icon-not-current();
+      }
+    }
+  }
+}
+
+.step-wrap.three-steps.pass3 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%;
+    }
+
+    .step {
+      .step-icon-current();
+    }
+  }
+}
+
+//四步
+//定义四步的排版
+.step-wrap.four-steps {
+
+  .step-box {
+
+    .step {
+      left: -(@size-stepIconLv1-Step/2);
+
+      &:after {
+        content: '1';
+      }
+
+      & + .step {
+        left: 33.33%;
+        margin-left: -(@size-stepIconLv1-Step/2);
+
+        &:after {
+          content: '2';
+        }
+      }
+
+      & + .step + .step {
+        left: 66.66%;
+        margin-left: -(@size-stepIconLv1-Step/2);
+
+         &:after {
+           content: '3';
+         }
+       }
+
+      & + .step + .step + .step {
+        right: -(@size-stepIconLv1-Step/2);;
+        left: auto;
+
+        &:after {
+          content: '4';
+        }
+      }
+    }
+  }
+
+  .step-title {
+
+    > p {
+      width: @width-stepTitle;
+      left: 0;
+
+      & + p {
+        left: 33.33%;
+        margin-left: -(@width-stepTitle/2);
+        text-align: center;
+      }
+
+      & + p + p {
+        left: 66.66%;
+        margin-left: -(@width-stepTitle/2);
+        text-align: center;
+      }
+
+      & + p + p + p {
+        right: 0;
+        left: auto;
+        text-align: right;
+      }
+    }
+  }
+}
+
+//步骤组件mixin
 //步骤current效果
 .step-icon-current() {
   .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 25%));
   color: darken(@shadowColor-stepIcon-Step,20%);
   border-color: @shadowColor-stepIcon-Step;
+
+  &:after {
+    .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 35%));
+  }
+}
+
+.step-icon-not-current() {
+  box-shadow: none;
+  border-color: @borderColor-stepIconBefore-Step;
+  color: @fontColor-default;
+
+  &:after {
+    box-shadow: none;
+  }
 }
 
 //步骤鼠标动画动作流程
