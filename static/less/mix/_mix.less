@@ -238,10 +238,8 @@
 // 截断文本
 .text-hide() {
   overflow: hidden;
-  /*-webkit--o-text-overflow: ellipsis;
-  -moz-text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;*/
+  //-webkit--o-text-overflow: ellipsis;
+  //-ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -391,15 +389,6 @@
     animation-direction: @direction;
     animation-play-state: @play-state;
     animation-fill-mode: @fill-mode;
-    // Firefox
-    /*-moz-animation-name: @name;
-    -moz-animation-duration: @duration;
-    -moz-animation-timing-function: @timing-function;
-    -moz-animation-delay: @delay;
-    -moz-animation-iteration-count: @iteration-count;
-    -moz-animation-direction: @direction;
-    -moz-animation-play-state: @play-state;
-    -moz-animation-fill-mode: @fill-mode;*/
     // Safari 和 Chrome
     /*-webkit-animation-name: @name;
     -webkit-animation-duration: @duration;
@@ -409,15 +398,6 @@
     -webkit-animation-direction: @direction;
     -webkit-animation-play-state: @play-state;
     -webkit-animation-fill-mode: @fill-mode;*/
-    // Opera
-    /*-o-animation-name: @name;
-    -o-animation-duration: @duration;
-    -o-animation-timing-function: @timing-function;
-    -o-animation-delay: @delay;
-    -o-animation-iteration-count: @iteration-count;
-    -o-animation-direction: @direction;
-    -o-animation-play-state: @play-state;
-    -o-animation-fill-mode: @fill-mode;*/
 }
 
 // 动画定义简化
@@ -433,16 +413,12 @@
 // 单独属性定义
 .animation-delay( @delay ) {
     animation-delay: @delay;
-    /*-moz-animation-delay: @delay;
-    -webkit-animation-delay: @delay;
-    -o-animation-delay: @delay;*/
+    //-webkit-animation-delay: @delay;
 }
 
 .animation-duration( @duration ) {
     animation-duration: @duration;
-    /*-moz-animation-duration: @duration;
-    -webkit-animation-duration: @duration;
-    -o-animation-duration: @duration;*/
+    //-webkit-animation-duration: @duration;
 }
 
 & {
