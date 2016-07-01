@@ -256,8 +256,7 @@
               <section class="example-wrap">
                 <h2 id="resultVertical">垂直排列</h2>
                 <ul class="example-description">
-                  <li> 组件在1024分辨率屏幕下，会缩小图标和标题的尺寸。另外还提供 <code>.result-s</code> 的尺寸类（暂时仅提供一种），适应不同的结构容器宽度。 </li>
-                  <li> <code>.result-s</code> 的尺寸类和1024分辨率下的组件尺寸，调整参数是一样的，即，一样（除了内补边距,内补边距的缩小只会在1024分辨率下会触发）。 </li>
+                  <li> 在 <code>.result-wrap</code> 这一层引用 <code>.result-vertical</code>，就能得到一个垂直排版的 result notice。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
