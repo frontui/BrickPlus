@@ -52,3 +52,6 @@ $RECYCLE.BIN/
 *.swp
 
 .vscode
+
+# gh-pages
+document/

@@ -28,3 +28,8 @@ task(serverRoot);
 -------------*/
 // var svnTask = require('./task/svnTask');
 // svnTask(Lib.banner);
+
+/*-------------
+* 文档
+* ------------*/
+var docTask = require('./task/document')(Lib.banner)

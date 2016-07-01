@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var config = require('../config.json')
 var pkg    = require('../package.json')
 // var svn    = require('../svn.json')
-var gulp   = require('gulp')
+// var gulp   = require('gulp')
 var path   = require('path')
 var fs     = require('fs')
 var $      = require('gulp-load-plugins')()
@@ -28,6 +28,7 @@ module.exports = function defaultTask(serverRoot) {
   	return gulp.src([config.template + '/**/**.html', '!'+ config.template + '/**/_**.html', '!'+ config.template +'/_**/*.html'])
                   .pipe($.plumber( { errorHandler: errHandler } ))
           				.pipe(template(config))
+                  .pipe($.prettify({indent_size: 2}))
           				.pipe(gulp.dest(config.destPath))
                   .pipe(connect.reload())
   });
