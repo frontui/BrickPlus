@@ -37,7 +37,6 @@
   <body>
     <div class="main">
       <div class="bricks-main-wrap">
-        <div class="blank-face"></div>
         <nav class="bricks-header">
           <div class="bricks-user-wrap" id="buw">
             <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="./static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
@@ -73,13 +72,13 @@
           </div>
           <div class="bricks-nav">
             <ul>
-              <li class="current"> <a href="BP-Start-Download.html">
+              <li> <a href="BP-Start-Download.html">
                         起步
                     </a> </li>
               <li> <a href="BP-GlobalStyle-Grid.html">
                         全局样式
                     </a> </li>
-              <li> <a href="BP-ComponentsStyle-BreadCrumb.html">
+              <li class="current"> <a href="BP-ComponentsStyle-BreadCrumb.html">
                         组件样式
                     </a> </li>
               <li> <a href="BP-JavaScriptComponents-CheckAll.html">
@@ -97,19 +96,67 @@
           </div>
           <div class="bricks-aside-ul-wrap">
             <ul>
-              <li>
-                <a href="BP-Start-Download.html"> <i></i> <b></b> 下载 </a>
-              </li>
               <li class="current">
-                <a href="BP-Start-Install.html"> <i></i> <b></b> 安装 </a>
+                <a href="BP-ComponentsStyle-BreadCrumb.html"> <i></i> <b></b> 路径导航 </a>
               </li>
               <li>
-                <a href="BP-Start-BaseTemplate.html"> <i></i> <b></b> 基本模板 </a>
+                <a href="BP-ComponentsStyle-Tab.html"> <i></i> <b></b> 标签页 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-Modal.html"> <i></i> <b></b> 模态窗 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-Alerts.html"> <i></i> <b></b> 警告框 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-ResultNotice.html"> <i></i> <b></b> 任务结果提示 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-ProgressBar.html"> <i></i> <b></b> 进度条 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-Step.html"> <i></i> <b></b> 步骤 </a>
               </li>
             </ul>
           </div>
         </aside>
-        <div class="bricks-content-wrap"> </div>
+        <div class="bricks-content-wrap">
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="tp1">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 在一个带有层次的导航结构中标明当前页面的位置，各路径间的分隔符已经自动通过 CSS 的 <code>:before</code> 和 <code>content</code> 属性添加了。 </li>
+                  <li> 路径导航组件有固定的 Dom 结构，详细请参考代码示范。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <ul class="breadcrumb">
+                      <li> <a href="javascript:void(0);">一级导航</a> </li>
+                      <li> <a href="javascript:void(0);">二级导航</a> </li>
+                      <li> <a href="javascript:void(0);">三级导航</a> </li>
+                      <li> 当前位置 </li>
+                    </ul>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>ol</b> <span class="va">class="<span class="cl"><b>breadcrumb</b></span>"</span>&gt;
+  &lt;<b>li</b>&gt;
+    &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span>&gt;
+      <span class="tg">导航位置</span>
+    &lt;/<b>a</b>&gt;
+  &lt;/<b>li</b>&gt;
+  &lt;<b>li</b>&gt;
+    <span class="tg">当前位置</span>
+  &lt;/<b>li</b>&gt;
+&lt;/<b>ol</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
       </div>
       <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>

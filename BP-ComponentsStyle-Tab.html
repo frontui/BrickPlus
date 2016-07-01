@@ -37,7 +37,6 @@
   <body>
     <div class="main">
       <div class="bricks-main-wrap">
-        <div class="blank-face"></div>
         <nav class="bricks-header">
           <div class="bricks-user-wrap" id="buw">
             <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="./static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
@@ -73,13 +72,13 @@
           </div>
           <div class="bricks-nav">
             <ul>
-              <li class="current"> <a href="BP-Start-Download.html">
+              <li> <a href="BP-Start-Download.html">
                         起步
                     </a> </li>
               <li> <a href="BP-GlobalStyle-Grid.html">
                         全局样式
                     </a> </li>
-              <li> <a href="BP-ComponentsStyle-BreadCrumb.html">
+              <li class="current"> <a href="BP-ComponentsStyle-BreadCrumb.html">
                         组件样式
                     </a> </li>
               <li> <a href="BP-JavaScriptComponents-CheckAll.html">
@@ -98,18 +97,78 @@
           <div class="bricks-aside-ul-wrap">
             <ul>
               <li>
-                <a href="BP-Start-Download.html"> <i></i> <b></b> 下载 </a>
+                <a href="BP-ComponentsStyle-BreadCrumb.html"> <i></i> <b></b> 路径导航 </a>
               </li>
               <li class="current">
-                <a href="BP-Start-Install.html"> <i></i> <b></b> 安装 </a>
+                <a href="BP-ComponentsStyle-Tab.html"> <i></i> <b></b> 标签页 </a>
               </li>
               <li>
-                <a href="BP-Start-BaseTemplate.html"> <i></i> <b></b> 基本模板 </a>
+                <a href="BP-ComponentsStyle-Modal.html"> <i></i> <b></b> 模态窗 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-Alerts.html"> <i></i> <b></b> 警告框 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-ResultNotice.html"> <i></i> <b></b> 任务结果提示 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-ProgressBar.html"> <i></i> <b></b> 进度条 </a>
+              </li>
+              <li>
+                <a href="BP-ComponentsStyle-Step.html"> <i></i> <b></b> 步骤 </a>
               </li>
             </ul>
           </div>
         </aside>
-        <div class="bricks-content-wrap"> </div>
+        <div class="bricks-content-wrap">
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="tp1">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 我们建议当你需要使用标签页的时候，套用 BrickPlus 标准的结构，这样能够使标签页的按钮使用达到最好的用户体验效果，例如：激活 <code>&lt;li&gt;</code> 标签的 <code>.active</code> 类从而影响 <code>.tab-btns</code> 类，使其有用户点击激活的状态样式。<br> </li>
+                  <li> 由于标签页的使用，可以直接在标签按钮上引用 <code>.tab-btns</code> 类或者绑定 <code>data-toggle="tab"</code> 达到目的，所以也可以不使用标准结构，而自行编写新的样式。 </li>
+                  <li> BrickPlus 标准的标签页结构有定义在 1024 分辨率下的响应式样式。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="tabs-wrap prototype">
+                      <ul class="tabs">
+                        <li class="active"> <a href="#tabexp1" class="tabs-btn">
+                  Tab 1
+                </a> </li>
+                        <li> <a href="#tabexp2" class="tabs-btn">
+                  Tab 2
+                </a> </li>
+                        <li> <a href="#tabexp3" class="tabs-btn">
+                  Tab 3
+                </a> </li>
+                      </ul>
+                    </div>
+                    <div class="tabs-content">
+                      <div class="tabs-panel active text-align-center" id="tabexp1">Tab Content One</div>
+                      <div class="tabs-panel text-align-center" id="tabexp2">Tab Content Two</div>
+                      <div class="tabs-panel text-align-center" id="tabexp3">Tab Content Three</div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
+    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+  &lt;/<b>ul</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
       </div>
       <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
