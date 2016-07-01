@@ -1,7 +1,7 @@
 /*
 * 生成 gitpage 页面
 * 更新document目录到gh-pages 分支
-* git subtree push --prefix document origin gh-pages
+* 发布文档: gulp deploy
 */
 
 var gulp = require('gulp')
@@ -12,7 +12,7 @@ var pkg    = require('../package.json')
 var path   = require('path')
 var fs     = require('fs')
 var $      = require('gulp-load-plugins')()
-var git    = require('gulp-git')
+var ghPages    = require('gulp-gh-pages')
 
 var dest = path.join(__dirname, '../', 'document');
 var staticPath = path.join(__dirname, '../', config.staticPath)
@@ -55,13 +55,17 @@ function docTask(banner) {
             .pipe(gulp.dest(dest+'/static/js'))
   })
 
-  gulp.task('document', ['clean'], function() {
-    return gulp.start(['doc:home', 'doc:copy', 'doc:styles', 'doc:copyBower'])
+  gulp.task('document', function(cb) {
+    $.sequence('clean', ['doc:home', 'doc:copy', 'doc:styles', 'doc:copyBower'])(cb)
   })
 
   // gulp.task('gh-pages', ['document'], function() {
   //   git.exec({ args: 'subtree push --prefix document origin gh-pages' });
   // })
+  gulp.task('deploy',['document'], function() {
+    return gulp.src([dest+'/**/*'])
+            .pipe(ghPages())
+  })
 }
 
 module.exports = docTask;
