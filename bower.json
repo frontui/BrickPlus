@@ -1,7 +1,29 @@
 {
   "name": "brickplus",
   "version": "0.1.0",
-  "dependencies": {
+  "homepage": "https://github.com/frontui/BrickPlus",
+  "authors": ["frontpay"],
+  "main": [
+    "dist/js/brickplus.min.js",
+    "dist/css/bricksplus.min.css"
+  ],
+  "licens": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "assist",
+    "document",
+    "lib",
+    "OutPut",
+    "static",
+    "task",
+    "template",
+    "gulpfile.js"
+  ],
+  "devDependencies": {
     "jquery": "^1.11.1",
     "frontui": "^1.0.0",
     "html5shiv": "~3.7.3",

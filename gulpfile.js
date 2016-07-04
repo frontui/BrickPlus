@@ -33,3 +33,8 @@ task(serverRoot);
 * 文档
 * ------------*/
 var docTask = require('./task/document')(Lib.banner)
+
+/*-------------
+* 打包
+* ------------*/
+var bundleTask = require('./task/bundle')(Lib.banner)
