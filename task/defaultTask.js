@@ -127,7 +127,7 @@ module.exports = function defaultTask(serverRoot) {
    * 默认任务
    * template, less, watch
    */
-  gulp.task('default:update', function() {
+  gulp.task('default:update', function(cb) {
     $.sequence('mixin', ['template', 'less', 'watch'], 'server')(cb)
   })
 
