@@ -1,5 +1,7 @@
-//分页
-.pagination-wrap {
+// ******************
+// 分页
+// ******************
+/*.pagination-wrap {
     .clearfix();
     font-size: 0;
     line-height: 0;
@@ -48,4 +50,113 @@
             }
         }
     }
+}*/
+
+/*.pagination-box {
+  .inline-block();
 }
+
+.pagination {
+  .inline-block();
+  .reset-list(left,0,0);
+  .clearfix();
+
+  > li {
+
+    > a,
+    > span {
+      margin-left: -1px;
+
+      .link-custom(@fontColor-default, @fontColor-link, none);
+      cursor: pointer;
+      .rounded(@borderRadius-btn);
+      padding: @padding-default-btn;
+      outline: none;
+      border: 1px solid @borderColor-default;
+      text-align: center;
+      font-size: @fontSize-smaller;
+      line-height: @line-height-base;
+      .transition(all, 0.3s, ease, 0);
+      white-space: nowrap;
+      overflow: visible;
+      height: @height-default-btn;
+    }
+
+    &:first-child {
+
+      > a,
+      > span {
+        margin-left: 0;
+      }
+    }
+
+    &:last-child {
+      > a,
+      > span {
+      }
+    }
+  }
+
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: @pagination-hover-color;
+      background-color: @pagination-hover-bg;
+      border-color: @pagination-hover-border;
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 2;
+      color: @pagination-active-color;
+      background-color: @pagination-active-bg;
+      border-color: @pagination-active-border;
+      cursor: default;
+    }
+  }
+
+  > .disabled {
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: @pagination-disabled-color;
+      background-color: @pagination-disabled-bg;
+      border-color: @pagination-disabled-border;
+      cursor: @cursor-disabled;
+    }
+  }
+}
+
+// Pagination
+
+.pagination-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  > li {
+    > a,
+    > span {
+      padding: @padding-vertical @padding-horizontal;
+      font-size: @font-size;
+      line-height: @line-height;
+    }
+    &:first-child {
+      > a,
+      > span {
+        .border-left-radius(@border-radius);
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        .border-right-radius(@border-radius);
+      }
+    }
+  }
+}*/
