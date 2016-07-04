@@ -1,11 +1,14 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 
 /*
 --- 基础定义 ---
 */
-@import "_normalize";        //浏览器样式初始化
-@import "config/_config";   //样式参数
-@import "mix/_mix";          //mixin
+
+
+@import "BrickPlus-Mixin/normalize";        //浏览器样式初始化
+@import "config/_config"; //样式参数
+@import "BrickPlus-Mixin/BrickPlus-theme-default"; // 配色
+@import "BrickPlus-Mixin/mixin/mixin";          //mixin
 @import "_font";             //字形
 @import "_fonticon";         //字体图标
 @import "_sprite";           //雪碧图

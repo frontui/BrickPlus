@@ -35,7 +35,7 @@ module.exports = function defaultTask(serverRoot) {
 
   // less
   gulp.task('less', function(){
-      return gulp.src([config.staticPath+'/less/**/**.less', '!'+ config.staticPath +'/_**/**', '!'+ config.staticPath + '/**/_*.less'])
+      return gulp.src([config.staticPath+'/less/**/**.less', '!'+ config.staticPath +'/_**/**', '!'+ config.staticPath + '/**/_*.less', '!'+ config.staticPath + '/less/BrickPlus-Mixin/**/**.less'])
                   .pipe($.sourcemaps.init())
                   .pipe($.less())
                   .pipe($.autoprefixer())
@@ -107,12 +107,26 @@ module.exports = function defaultTask(serverRoot) {
       gulp.watch(config.staticPath + '/images/sprite/sprite-*/**/**', ['sprite'])
   })
 
+  //-- 首次下载
+  gulp.task('cloneMixin', function() {
+    $.git.clone('https://github.com/frontui/BrickPlus-Mixin.git', {args: './static/less/BrickPlus-Mixin'}, function(err) {
+      //gulp.start(['pullMixin'])
+    })
+  })
+
+  //-- 更新less Mixin
+  gulp.task('updateMixin', function() {
+    return gulp.src('./static/less/BrickPlus-Mixin')
+              .pipe($.run('git pull origin master'))
+  })
+
 
   /**
    * 默认任务
    * template, less, watch
    */
-  gulp.task('default', function(){
-      gulp.start(['template', 'less', 'server', 'watch'])
+  gulp.task('default', function(cb){
+    //$.sequence('updateMixin', ['template', 'less', 'server', 'watch'])(cb)
+    gulp.start(['template', 'less', 'server', 'watch'])
   })
 }
