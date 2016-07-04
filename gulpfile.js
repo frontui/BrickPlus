@@ -6,7 +6,7 @@
 
 var config = require('./config.json')
 var pkg    = require('./package.json')
-var svn    = require('./svn.json')
+// var svn    = require('./svn.json')
 var gulp   = require('gulp')
 var path   = require('path')
 var fs     = require('fs')
@@ -26,5 +26,10 @@ task(serverRoot);
 /*-------------
 *  svn任务
 -------------*/
-var svnTask = require('./task/svnTask');
-svnTask(Lib.banner);
+// var svnTask = require('./task/svnTask');
+// svnTask(Lib.banner);
+
+/*-------------
+* 文档
+* ------------*/
+var docTask = require('./task/document')(Lib.banner)

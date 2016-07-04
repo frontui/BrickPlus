@@ -4,18 +4,19 @@
 var gulp = require('gulp');
 var config = require('../config.json')
 var pkg    = require('../package.json')
-var svn    = require('../svn.json')
-var gulp   = require('gulp')
+// var svn    = require('../svn.json')
+// var gulp   = require('gulp')
 var path   = require('path')
 var fs     = require('fs')
 var $      = require('gulp-load-plugins')()
 var connect = $.connect
 
 var Lib        = require('../lib')
-var errHandler = Lib.errHandler
+// var errHandler = Lib.errHandler
+var errHandler = $.notify.onError('错误: <%= error.message %>')
 var template   = Lib.template(config.template);
 
-var pngquant = require('imagemin-pngquant')
+// var pngquant = require('imagemin-pngquant')
 var spritesmith = require('gulp.spritesmith')
 var merge = require('merge-stream')
 
@@ -27,6 +28,7 @@ module.exports = function defaultTask(serverRoot) {
   	return gulp.src([config.template + '/**/**.html', '!'+ config.template + '/**/_**.html', '!'+ config.template +'/_**/*.html'])
                   .pipe($.plumber( { errorHandler: errHandler } ))
           				.pipe(template(config))
+                  .pipe($.prettify({indent_size: 2}))
           				.pipe(gulp.dest(config.destPath))
                   .pipe(connect.reload())
   });
@@ -34,10 +36,12 @@ module.exports = function defaultTask(serverRoot) {
   // less
   gulp.task('less', function(){
       return gulp.src([config.staticPath+'/less/**/**.less', '!'+ config.staticPath +'/_**/**', '!'+ config.staticPath + '/**/_*.less'])
-                  .pipe($.plumber( { errorHandler: errHandler } ))
+                  .pipe($.sourcemaps.init())
                   .pipe($.less())
                   .pipe($.autoprefixer())
+                  .pipe($.sourcemaps.write('./maps'))
                   .pipe(gulp.dest(config.staticPath+'/css'))
+                  .pipe($.plumber( { errorHandler: errHandler } ))
                   .pipe(connect.reload())
   })
 

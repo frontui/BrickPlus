@@ -62,13 +62,14 @@ module.exports = function svn(banner) {
       return gulp.src([config.staticPath+'/images/**/**', '!'+config.staticPath+'/images/sprite/sprite-**/', '!'+config.staticPath+'/images/sprite/sprite-**/**/**'])
           .pipe($.plumber( { errorHandler: Lib.errrHandler } ))
           .pipe($.changed(svn.staticPath))
-          .pipe($.imagemin({
+          // 不进行压缩
+          /*.pipe($.imagemin({
                       optimizationLevel: 5,
                       progressive: true,
                       svgoPlugins: [{removeViewBox: false}]//,
                       //use: [pngquant()]
                   })
-          )
+          )*/
           .pipe(gulp.dest(svn.staticPath+'/images'))
   })
 
