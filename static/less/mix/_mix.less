@@ -26,21 +26,13 @@
 */
 // transition
 .transition ( @property, @duration, @timing-function, @delay ) {
-    /*-webkit-transition-property: @property;
-       -moz-transition-property: @property;
-         -o-transition-property: @property;*/
+    //-webkit-transition-property: @property;
             transition-property: @property;
-    /*-webkit-transition-duration: @duration;
-       -moz-transition-duration: @duration;
-         -o-transition-duration: @duration;*/
+    //-webkit-transition-duration: @duration;
             transition-duration: @duration;
-    /*-webkit-transition-timing-function: @timing-function;
-       -moz-transition-timing-function: @timing-function;
-         -o-transition-timing-function: @timing-function;*/
+    //-webkit-transition-timing-function: @timing-function;
             transition-timing-function: @timing-function;
-    /*-webkit-transition-delay: @delay;
-       -moz-transition-delay: @delay;
-         -o-transition-delay: @delay;*/
+    //-webkit-transition-delay: @delay;
             transition-delay: @delay;
 }
 
@@ -106,10 +98,7 @@
 
 // Basic transform
 .transform( @transform ) {
-    /*-webkit-transform: @transform;
-       -moz-transform: @transform;
-        -ms-transform: @transform;
-         -o-transform: @transform;*/
+    //-webkit-transform: @transform;
             transform: @transform;
 }
 
@@ -130,25 +119,19 @@
 
 // Background clip
 .background-clip( @argument: padding-box ) {
-  /*-webkit-background-clip: @argument;
-     -moz-background-clip: @argument;*/
+  //-webkit-background-clip: @argument;
           background-clip: @argument;
 }
 
 // Box sizing
 .border-box( @sizing: border-box ) {
-  /*-webkit-box-sizing: @sizing;
-     -moz-box-sizing: @sizing;
-      -ms-box-sizing: @sizing;*/
+  //-webkit-box-sizing: @sizing;
           box-sizing: @sizing;
 }
 
 // User select
 .user-select( @select: none ) {
-  /*-webkit-user-select: @select;
-     -moz-user-select: @select;
-      -ms-user-select: @select;
-       -o-user-select: @select;*/
+  //-webkit-user-select: @select;
           user-select: @select;
 }
 
