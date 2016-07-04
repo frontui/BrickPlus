@@ -174,6 +174,7 @@
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
       <a href="#mainfont" class="btn default">主体内容</a>
       <a href="#fontSize" class="btn default">字体尺寸类</a>
+      <a href="#lineHeight" class="btn default">行高类</a>
     </div>
     <section class="example-wrap">
       <h2 id="mainfont">主体内容</h2>
@@ -225,6 +226,35 @@
           <pre>
             <code>
 &lt;<b>p</b> <span class="va">class="<span class="cl"><b>fs-(12~36)</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="lineHeight">行高类</h2>
+      <ul class="example-description">
+        <li>
+          BrickPlus 采用递归的计算方式生成定义行高尺寸的工具类 <code>lh-(12~36)</code>，由最低 12 像素到最高 36 像素的字体尺寸（是的，行高并没有使用相对单位，因为行高类和其他排版类一样是最后的设计应对手段，需要做到一致的需求）。
+        </li>
+        <li>
+          公式设定为每 2 像素计算出一个行高类，所以在 <code>lh-(12~36)</code> 中是每一次偶数为一个有效工具类，如：lh-12、lh-14、lh-16...。
+        </li>
+        <li>
+          行高尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p>行高尺寸类：lh-(12~36)</p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>lh-(12~36)</b></span>"</span>&gt;
   <span class="tg">...</span>
 &lt;/<b>p</b>&gt;
             </code>
@@ -761,7 +791,7 @@
           公式设定为每 5 像素计算出一个尺寸类，所以在内边距工具类的界限 0 ~ 50 像素中是每一次整除 5 后得出一个有效工具类，如：fn-pa-0、fn-pa-5、fn-pa-10...。
         </li>
         <li>
-          内边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。
+          内边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。
         </li>
       </ul>
       <div class="example">
@@ -798,7 +828,7 @@
           公式设定为每 5 像素计算出一个尺寸类，所以在外边距工具类的界限 0 ~ 50 像素中是每一次整除 5 后得出一个有效工具类，如：fn-ma-0、fn-ma-5、fn-ma-10...。
         </li>
         <li>
-          外边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。
+          外边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。
         </li>
       </ul>
       <div class="example">

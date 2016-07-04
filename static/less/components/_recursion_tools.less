@@ -8,29 +8,29 @@
     .build-margin((@count - @space));
 
     .@{pre}-mt-@{count} {
-      margin-top: @count * 1px;
+      margin-top: @count * 1px !important;
     }
     .@{pre}-mb-@{count} {
-      margin-bottom: @count * 1px;
+      margin-bottom: @count * 1px !important;
     }
     .@{pre}-mtb-@{count} {
-      margin-top: @count * 1px;
-      margin-bottom: @count * 1px;
+      margin-top: @count * 1px !important;
+      margin-bottom: @count * 1px !important;
     }
 
     .@{pre}-ml-@{count} {
-      margin-left: @count * 1px;
+      margin-left: @count * 1px !important;
     }
     .@{pre}-mr-@{count} {
-      margin-right: @count * 1px;
+      margin-right: @count * 1px !important;
     }
     .@{pre}-mlr-@{count} {
-      margin-left: @count * 1px;
-      margin-right: @count * 1px;
+      margin-left: @count * 1px !important;
+      margin-right: @count * 1px !important;
     }
 
     .@{pre}-ma-@{count} {
-      margin: @count * 1px;
+      margin: @count * 1px !important;
     }
   }
 
@@ -47,29 +47,29 @@
     .build-padding((@count - @space));
 
     .@{pre}-pt-@{count} {
-      padding-top: @count * 1px;
+      padding-top: @count * 1px !important;
     }
     .@{pre}-pb-@{count} {
-      padding-bottom: @count * 1px;
+      padding-bottom: @count * 1px !important;
     }
     .@{pre}-ptb-@{count} {
-      padding-top: @count * 1px;
-      padding-bottom: @count * 1px;
+      padding-top: @count * 1px !important;
+      padding-bottom: @count * 1px !important;
     }
 
     .@{pre}-pl-@{count} {
-      padding-left: @count * 1px;
+      padding-left: @count * 1px !important;
     }
     .@{pre}-pr-@{count} {
-      padding-right: @count * 1px;
+      padding-right: @count * 1px !important;
     }
     .@{pre}-plr-@{count} {
-      padding-left: @count * 1px;
-      padding-right: @count * 1px;
+      padding-left: @count * 1px !important;
+      padding-right: @count * 1px !important;
     }
 
     .@{pre}-pa-@{count} {
-      padding: @count * 1px;
+      padding: @count * 1px !important;
     }
   }
 
@@ -79,17 +79,17 @@
 
 
 // ******************
-// 递归生成 fontsize 族类
+// 递归生成 fontsize 和 lineheight 族类
 // ******************
 .init-fontSize(@min: 12, @max: 36, @space: 2, @pre: fs) {
   .build-fontSize(@count) when (@count >= @min) {
     .build-fontSize((@count - @space));
 
     .@{pre}-@{count} {
-      font-size: @count * 1px;
+      font-size: @count * 1px !important;
     }
     .lh-@{count} {
-      line-height: @count * 1px;
+      line-height: @count * 1px !important;
     }
   }
 
