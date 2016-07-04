@@ -40,7 +40,7 @@
       {text: '情景色调', url: '#tp1'},
       {text: '数值', url: '#tp2'},
       {text: '箭头', url: '#tp3'},
-      {text: '清除浮动', url: '#tp4'}
+      {text: '浮动', url: '#tp4'}
     ],
     cur='1'
   )
@@ -294,12 +294,24 @@
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
+          <div class="clearfix fn-mb-10">
+            <div class="pull-left">.pull-left（左浮动）</div>
+          </div>
+          <div class="clearfix fn-mb-10">
+            <div class="pull-right">.pull-right（右浮动）</div>
+          </div>
+          <div class="clearfix">
+            .clearfix（清除浮动）
+          </div>
+
         </div>
         <div class="example-code">
           <pre>
             <code>
 &lt;div <span class="va">class="<span class="cl"><b>clearfix</b></span>"</span>&gt;
+  &lt;div <span class="va">class="<span class="cl"><b>pull-( left / right )</b></span>"</span>&gt;
   <span class="tg">...</span>
+  &lt;/div&gt;
 &lt;/div&gt;
             </code>
           </pre>
