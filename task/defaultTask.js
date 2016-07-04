@@ -20,6 +20,10 @@ var template   = Lib.template(config.template);
 var spritesmith = require('gulp.spritesmith')
 var merge = require('merge-stream')
 
+// webpack
+var webpackConfig = require('../webpack.config.js')
+var webpack = require('webpack')
+
 var clean = require('del')
 
 module.exports = function defaultTask(serverRoot) {
@@ -44,6 +48,22 @@ module.exports = function defaultTask(serverRoot) {
                   .pipe(gulp.dest(config.staticPath+'/css'))
                   .pipe($.plumber( { errorHandler: errHandler } ))
                   .pipe(connect.reload())
+  })
+
+  // brickplus.js
+  gulp.task('scripts', function(callback) {
+    //console.log(webpackConfig('./src'));
+    // return gulp.src(['./src/**/*.js'])
+    //             .pipe(webpack(webpackConfig('./src')))
+    //             .pipe(gulp.dest(config.staticPath+'/js/brickplus'))
+    webpack(
+      webpackConfig('./src', './static/js/brickplus'),
+      function(err, stats) {
+        //callback()
+      }
+    )
+
+    callback()
   })
 
   // sprite
@@ -104,6 +124,7 @@ module.exports = function defaultTask(serverRoot) {
 
   gulp.task('watch', function(){
       gulp.watch(config.template + '/**/**.html', ['template'])
+      gulp.watch('./src/**/**.js', ['scripts'])
       gulp.watch(config.staticPath + '/less/**/**', ['less'])
       gulp.watch(config.staticPath + '/images/sprite/sprite-*/**/**', ['sprite'])
   })
@@ -128,11 +149,11 @@ module.exports = function defaultTask(serverRoot) {
    * template, less, watch
    */
   gulp.task('default:update', function(cb) {
-    $.sequence('mixin', ['template', 'less', 'watch'], 'server')(cb)
+    $.sequence('mixin', ['template', 'less', 'scripts', 'watch'], 'server')(cb)
   })
 
   gulp.task('default', function(cb){
-    $.sequence(['template', 'less', 'watch'], 'server')(cb)
+    $.sequence(['template', 'less', 'scripts', 'watch'], 'server')(cb)
     //gulp.start(['template', 'less', 'server', 'watch'])
   })
 }

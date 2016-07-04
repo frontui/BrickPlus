@@ -8,7 +8,8 @@
     <span>k</span>
     <a href="BP-Start-Download.html"></a>
   </div>
-  <div class="bricks-aside-ul-wrap">
+  <div id="side-scrollbar">
+    <div class="bricks-aside-ul-wrap">
     <ul>
       {% for item in mainAsideNav %}
       <li {% if loop.index== cur %}class="current" {% endif %}>
@@ -20,6 +21,7 @@
       </li>
       {% endfor %}
     </ul>
+  </div>
   </div>
 </aside>
 {% endmacro %}

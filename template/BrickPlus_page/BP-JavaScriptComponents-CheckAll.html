@@ -39,6 +39,206 @@
 
 {# 加载页面内容 #}
 {% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          为任意 <code>&lt;input type="check"&gt;</code> 添加 <code>data-toggle="checkall"</code> 类为其绑定全选插件。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo1">
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ZERO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td>
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item TWO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    jingdong
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ONE
+                  </td>
+                  <td>
+                    TJZT201501548025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+<code>
+&lt;input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox"&gt;
+</code>
+                  <br>
+                </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 {% endblock %}
 
 
@@ -49,6 +249,7 @@
 
 {# 页面专有 javascript 文件地址 #}
 {% block js %}
+<script src="{{static}}/js/brickplus/checkAll.js"></script>
 {% endblock %}
 
 

@@ -1,3 +1,6 @@
+/**
+ * 引入perfect-scrollbar
+ */
 $(function (){
     //Dom准备就绪加载 BrickPlus Logo 动画样式
     $('#BrickPlusLogo').addClass('move');
@@ -52,4 +55,7 @@ $(function (){
         }
     });
     $('.actgotop').click(function(){$('html,body').animate({scrollTop: '0'}, 400);});
+
+    // 左侧菜单滚动条
+    $('#side-scrollbar').perfectScrollbar();
 });
