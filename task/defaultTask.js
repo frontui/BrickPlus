@@ -20,6 +20,7 @@ var template   = Lib.template(config.template);
 var spritesmith = require('gulp.spritesmith')
 var merge = require('merge-stream')
 
+var clean = require('del')
 
 module.exports = function defaultTask(serverRoot) {
 
@@ -108,25 +109,30 @@ module.exports = function defaultTask(serverRoot) {
   })
 
   //-- 首次下载
-  gulp.task('cloneMixin', function() {
-    $.git.clone('https://github.com/frontui/BrickPlus-Mixin.git', {args: './static/less/BrickPlus-Mixin'}, function(err) {
-      //gulp.start(['pullMixin'])
-    })
+  gulp.task('cleanMixin', function(cb) {
+    clean(['./static/less/BrickPlus-Mixin'], cb)
+  })
+  gulp.task('mixin', ['cleanMixin'], function(cb) {
+    $.git.clone('https://github.com/frontui/BrickPlus-Mixin.git', {args: './static/less/BrickPlus-Mixin'}, cb)
   })
 
-  //-- 更新less Mixin
-  gulp.task('updateMixin', function() {
-    return gulp.src('./static/less/BrickPlus-Mixin')
-              .pipe($.run('git pull origin master'))
-  })
+  // //-- 更新less Mixin
+  // gulp.task('updateMixin', function() {
+  //   return gulp.src('./static/less/BrickPlus-Mixin')
+  //             .pipe($.run('git pull origin master'))
+  // })
 
 
   /**
    * 默认任务
    * template, less, watch
    */
+  gulp.task('default:update', function() {
+    $.sequence('mixin', ['template', 'less', 'watch'], 'server')(cb)
+  })
+
   gulp.task('default', function(cb){
-    //$.sequence('updateMixin', ['template', 'less', 'server', 'watch'])(cb)
-    gulp.start(['template', 'less', 'server', 'watch'])
+    $.sequence(['template', 'less', 'watch'], 'server')(cb)
+    //gulp.start(['template', 'less', 'server', 'watch'])
   })
 }
