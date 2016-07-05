@@ -24,15 +24,22 @@ function getEntries(folder) {
 }
 
 module.exports = function(entries, output) {
-  if(/\.js$/g.test(entries)) { // 单个文件
+  /*if(/\.js$/g.test(entries)) { // 单个文件
     entryFiles.push(entries)
   } else { // 多文件
     entryFiles = getEntries(entries)
+  }*/
+  if(typeof entries === 'string') { // 多文件
+    entryFiles = getEntries(entries)
+  } else { // 单个文件
+    entryFiles = entries
   }
+
+  // console.log(entryFiles)
 
   // 返回webpack.config
   return {
-    //watch: !(NODE_ENV === 'production'),
+    watch: !(NODE_ENV === 'production'),
     entry: entryFiles,
     output: {
       path: path.join(__dirname, output),
@@ -44,9 +51,11 @@ module.exports = function(entries, output) {
       loaders: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
           loader: 'babel',
-          query: ['es2015', 'stage-0']
+          query: {
+            presets: ['es2015', 'stage-0']
+          },
+          exclude: /node_modules/
         }
       ]
     },

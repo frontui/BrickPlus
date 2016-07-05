@@ -56,14 +56,19 @@ module.exports = function defaultTask(serverRoot) {
     // return gulp.src(['./src/**/*.js'])
     //             .pipe(webpack(webpackConfig('./src')))
     //             .pipe(gulp.dest(config.staticPath+'/js/brickplus'))
+    var wc = webpackConfig('./src', './static/js/brickplus');
+    var init = false;
     webpack(
-      webpackConfig('./src', './static/js/brickplus'),
+      wc,
       function(err, stats) {
-        //callback()
+        !init && callback()
+        init = !0;
+        err && console.log(err)
+        //console.log(stats)
       }
     )
 
-    callback()
+    //callback()
   })
 
   // sprite
@@ -124,7 +129,7 @@ module.exports = function defaultTask(serverRoot) {
 
   gulp.task('watch', function(){
       gulp.watch(config.template + '/**/**.html', ['template'])
-      gulp.watch('./src/**/**.js', ['scripts'])
+      //gulp.watch('./src/**/**.js', ['scripts'])
       gulp.watch(config.staticPath + '/less/**/**', ['less'])
       gulp.watch(config.staticPath + '/images/sprite/sprite-*/**/**', ['sprite'])
   })
@@ -149,11 +154,11 @@ module.exports = function defaultTask(serverRoot) {
    * template, less, watch
    */
   gulp.task('default:update', function(cb) {
-    $.sequence('mixin', ['template', 'less', 'scripts', 'watch'], 'server')(cb)
+    $.sequence('mixin', ['template', 'less', 'scripts'], 'server', 'watch')(cb)
   })
 
   gulp.task('default', function(cb){
-    $.sequence(['template', 'less', 'scripts', 'watch'], 'server')(cb)
+    $.sequence(['template', 'less', 'scripts'], 'server', 'watch')(cb)
     //gulp.start(['template', 'less', 'server', 'watch'])
   })
 }

@@ -25,6 +25,8 @@ _thirdPart/
 _thirdPart
 static/css
 static/css/
+static/js/brickplus
+static/js/brickplus/
 
 *.exe
 svn.json
