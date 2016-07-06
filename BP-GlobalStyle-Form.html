@@ -13,6 +13,7 @@
     <title> BrickPlus </title>
     <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
+    <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <!--[if IE 8]>
 		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
         <![endif]-->
@@ -94,27 +95,29 @@
           <div class="bricks-logo" id="BrickPlusLogo"> <span>B</span> <span>r</span> <span>i</span> <span>c</span> <span>k</span>
             <a href="BP-Start-Download.html"></a>
           </div>
-          <div class="bricks-aside-ul-wrap">
-            <ul>
-              <li>
-                <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
-              </li>
-              <li class="current">
-                <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
-              </li>
-            </ul>
+          <div id="side-scrollbar">
+            <div class="bricks-aside-ul-wrap">
+              <ul>
+                <li>
+                  <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
+                </li>
+                <li class="current">
+                  <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </aside>
         <div class="bricks-content-wrap">
@@ -1731,6 +1734,7 @@
       </div>
     </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
+    <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/ui.js?v=1.0.0"></script>
     <script src="./static/js/datetimepicker/datetimepicker.js?v=1.0.0"></script>
     <script src="./static/js/framework.js?v=1.0.0"></script>
