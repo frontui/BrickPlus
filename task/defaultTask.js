@@ -56,8 +56,26 @@ module.exports = function defaultTask(serverRoot) {
     // return gulp.src(['./src/**/*.js'])
     //             .pipe(webpack(webpackConfig('./src')))
     //             .pipe(gulp.dest(config.staticPath+'/js/brickplus'))
+    console.log('webpack编译-->')
     var wc = webpackConfig('./src', './static/js/brickplus');
     var init = false;
+    webpack(
+      wc,
+      function(err, stats) {
+        !init && callback()
+        init = !0;
+        err && console.log(err) && console.log(stats)
+      }
+    )
+
+    //callback()
+  })
+
+  // 多文件entry时，通过require方式会报错
+  gulp.task('scripts:brickplus', function() {
+    var wc = webpackConfig({brickplus: './src/brickplus.js'}, './static/js/brickplus');
+    var init = false;
+    console.log('webpack编译-->')
     webpack(
       wc,
       function(err, stats) {
@@ -67,8 +85,6 @@ module.exports = function defaultTask(serverRoot) {
         //console.log(stats)
       }
     )
-
-    //callback()
   })
 
   // sprite
@@ -129,9 +145,9 @@ module.exports = function defaultTask(serverRoot) {
 
   gulp.task('watch', function(){
       gulp.watch(config.template + '/**/**.html', ['template'])
-      //gulp.watch('./src/**/**.js', ['scripts'])
+      gulp.watch('./src/**/**.js', ['scripts'])
       gulp.watch(config.staticPath + '/less/**/**', ['less'])
-      gulp.watch(config.staticPath + '/images/sprite/sprite-*/**/**', ['sprite'])
+      //gulp.watch(config.staticPath + '/images/sprite/sprite-*/**/**', ['sprite'])
   })
 
   //-- 首次下载
@@ -154,11 +170,16 @@ module.exports = function defaultTask(serverRoot) {
    * template, less, watch
    */
   gulp.task('default:update', function(cb) {
-    $.sequence('mixin', ['template', 'less', 'scripts'], 'server', 'watch')(cb)
+    $.sequence('mixin', ['template', 'less'], 'server', 'watch')(cb)
+  })
+
+  // 分离出开发组件任务，减轻服务负担
+  gulp.task('components', function(cb) {
+    $.sequence(['template', 'less', 'scripts'], 'server', 'watch')(cb)
   })
 
   gulp.task('default', function(cb){
-    $.sequence(['template', 'less', 'scripts'], 'server', 'watch')(cb)
+    $.sequence(['template', 'less'], 'server', 'watch')(cb)
     //gulp.start(['template', 'less', 'server', 'watch'])
   })
 }

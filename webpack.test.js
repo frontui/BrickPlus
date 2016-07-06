@@ -24,24 +24,12 @@ function getEntries(folder) {
   return files;
 }
 
-module.exports = function(entries, output) {
-  /*if(/\.js$/g.test(entries)) { // 单个文件
-    entryFiles.push(entries)
-  } else { // 多文件
-    entryFiles = getEntries(entries)
-  }*/
-  if(typeof entries === 'string') { // 多文件
-    entryFiles = getEntries(entries)
-  } else { // 单个文件
-    entryFiles = entries
-  }
-
-  //console.log(entryFiles)
-
-  // 返回webpack.config
-  return {
+module.exports = {
     watch: !(NODE_ENV === 'production'),
-    entry: entryFiles,
+    entry: {
+      checkAll: path.resolve('./src', 'checkAll.js'),
+      tab: path.resolve('./src', 'tab.js')
+    },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
       filename: '[name].js',
@@ -75,4 +63,3 @@ module.exports = function(entries, output) {
       }
     ]
   }
-}

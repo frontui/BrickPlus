@@ -16,7 +16,7 @@ function getEntries(folder) {
   dirs.forEach(function(file) {
     matchs = file.match(/(.+)\.js$/)
     // 不包含brickplus
-    if(matchs && matchs[1] && matchs[1] !== 'brickPlus') {
+    if(matchs && matchs[1].toLowercase() !== 'brickplus') {
       files[matchs[1]] = path.resolve(folder, file)
     }
   })
@@ -36,7 +36,8 @@ module.exports = function(entries, output) {
     entryFiles = entries
   }
 
-  //console.log(entryFiles)
+  // console.log(entryFiles)
+  //console.log(path.join(__dirname, 'src'));
 
   // 返回webpack.config
   return {
@@ -55,15 +56,16 @@ module.exports = function(entries, output) {
           loader: 'babel',
           query: {
             presets: ['es2015', 'stage-0']
-          },
-          exclude: /node_modules/
+          }
+          //,
+          //exclude: /node_modules/
         }
       ]
     },
-    resolve: {
-      extensions: ['', '.js'],
-      root: [path.join(__dirname, 'src')]
-    },
+    // resolve: {
+    //   extensions: ['', '.js'],
+    //   root: [path.join(__dirname, 'src')]
+    // },
     externals: [
       {
         jquery: {
