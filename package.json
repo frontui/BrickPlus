@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "gulp",
     "deploy": "gulp deploy",
-    "build": "gulp bundle"
+    "build": "gulp bundle",
+    "webpack-test": "webpack --config webpack.test.js --color --progress --display-modules"
   },
   "repository": {
     "type": "git",
