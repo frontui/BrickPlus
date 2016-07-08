@@ -1,85 +1,70 @@
 // ******************
 // 分页
 // ******************
-/*.pagination-wrap {
-    .clearfix();
-    font-size: 0;
-    line-height: 0;
-    display: block;
-}
 
-.pagination {
-    .reset-list( left,block,@smallest-FontSize,@pagination-height );
-    .clearfix();
-    .inline-block();
-
-    > li {
-
-        > a {
-            display: block;
-            .link-custom( @viceText-FontColor,@viceText-FontColor,none );
-            border: 1px solid transparent;
-            text-align: center;
-            .rounded( 3px );
-            padding: 0 8px;
-
-            &:hover {
-                border-color: @primary-BorderColor;
-            }
-
-            &:active {
-                color: #fff;
-                border-color: @pagination-bgColor-1;
-                background-color: @pagination-bgColor-1;
-            }
-        }
-
-        > span {
-            color: @default-FontColor;
-            display: block;
-            padding: 0 8px;
-        }
-
-        &.active {
-
-            > a {
-                color: #fff;
-                border-color: @pagination-bgColor-1;
-                background-color: @pagination-bgColor-1;
-                cursor: default;
-            }
-        }
-    }
-}*/
-
-/*.pagination-box {
-  .inline-block();
-}
-
-.pagination {
-  .inline-block();
-  .reset-list(left,0,0);
-  .clearfix();
+//分页尺寸mixin
+.pagination-size(@size:@size-default-pagination,@fontSize:@fontSize-default-pagination,@iconFontSize:@iconFontSize-default-pagination) {
 
   > li {
 
     > a,
     > span {
-      margin-left: -1px;
+      .square(@size);
+      line-height: @size - 2*@borderWidth-default-pagination;
+      font-size: @fontSize;
 
-      .link-custom(@fontColor-default, @fontColor-link, none);
-      cursor: pointer;
-      .rounded(@borderRadius-btn);
-      padding: @padding-default-btn;
-      outline: none;
-      border: 1px solid @borderColor-default;
+      > span {
+        font-size: @iconFontSize;
+      }
+    }
+  }
+}
+
+.pagination-box {
+  font-size: 0;
+  line-height: 0;
+
+  > .p-add-ons {
+    .inline-block();
+    width: 160px;
+    vertical-align: middle;
+  }
+
+  > p.p-add-ons {
+    font-size: @fontSize-smaller;
+    color: @fontColor-viceText;
+    line-height: @line-height-base;
+    width: auto;
+  }
+}
+
+.paginations,
+.pagination {
+  .reset-list(left,0,0);
+  .clearfix();
+  .inline-block();
+  vertical-align: middle;
+
+  > li {
+
+    > a,
+    > span {
+      position: relative;
+      margin-left: -@borderWidth-default-pagination;
+      display: block;
+      .square(@size-default-pagination);
+      border: @borderWidth-default-pagination solid @borderColor-default-pagination;
+      line-height: @size-default-pagination - 2*@borderWidth-default-pagination;
+      font-size: @fontSize-default-pagination;
       text-align: center;
-      font-size: @fontSize-smaller;
-      line-height: @line-height-base;
-      .transition(all, 0.3s, ease, 0);
       white-space: nowrap;
       overflow: visible;
-      height: @height-default-btn;
+      .link-custom(@fontColor-default-pagination,@fontColorHover-default-pagination,none);
+      background-color: @bgColor-default-pagination;
+
+      > span {
+        font-size: @iconFontSize-default-pagination;
+      }
     }
 
     &:first-child {
@@ -87,12 +72,15 @@
       > a,
       > span {
         margin-left: 0;
+        .border-radius(@borderRadius-default-pagination,0,0,@borderRadius-default-pagination);
       }
     }
 
     &:last-child {
+
       > a,
       > span {
+        .border-radius(0,@borderRadius-default-pagination,@borderRadius-default-pagination,0);
       }
     }
   }
@@ -102,61 +90,72 @@
     &:hover,
     &:focus {
       z-index: 3;
-      color: @pagination-hover-color;
-      background-color: @pagination-hover-bg;
-      border-color: @pagination-hover-border;
+      border-color: @borderColorHover-default-pagination;
+      background-color: @bgColorHover-default-pagination;
     }
   }
 
   > .active > a,
   > .active > span {
+
     &,
     &:hover,
     &:focus {
-      z-index: 2;
-      color: @pagination-active-color;
-      background-color: @pagination-active-bg;
-      border-color: @pagination-active-border;
+      z-index: 3;
+      color: @fontColorActive-default-pagination;
+      background-color: @bgColorActive-default-pagination;
+      border-color: @borderColorActive-default-pagination;
       cursor: default;
     }
   }
 
   > .disabled {
+
     > span,
     > span:hover,
     > span:focus,
     > a,
     > a:hover,
     > a:focus {
-      color: @pagination-disabled-color;
-      background-color: @pagination-disabled-bg;
-      border-color: @pagination-disabled-border;
-      cursor: @cursor-disabled;
+      color: @fontColorDisabled-default-pagination;
+      border-color: @borderColor-default-pagination;
+      background-color: @bgColorDisabled-default-pagination;
+      cursor: not-allowed;
     }
   }
 }
 
-// Pagination
+//分页尺寸
+.pagination-box.large-pagination {
 
-.pagination-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
-  > li {
-    > a,
-    > span {
-      padding: @padding-vertical @padding-horizontal;
-      font-size: @font-size;
-      line-height: @line-height;
-    }
-    &:first-child {
-      > a,
+  .paginations,
+  .pagination {
+    .pagination-size(@size-large-pagination,@fontSize-large-pagination,@iconFontSize-large-pagination);
+
+    > li > a,
+    > li > span {
+
       > span {
-        .border-left-radius(@border-radius);
-      }
-    }
-    &:last-child {
-      > a,
-      > span {
-        .border-right-radius(@border-radius);
+        line-height: @size-large-pagination - 2*@borderWidth-default-pagination - 4px;
       }
     }
   }
-}*/
+}
+
+.pagination-box.small-pagination {
+
+  .paginations,
+  .pagination {
+    .pagination-size(@size-small-pagination,@fontSize-small-pagination,@iconFontSize-small-pagination);
+  }
+}
+
+.pagination-box.smaller-pagination {
+
+  .paginations,
+  .pagination {
+    .pagination-size(@size-smaller-pagination,@fontSize-smaller-pagination,@iconFontSize-smaller-pagination);
+  }
+}
+
+

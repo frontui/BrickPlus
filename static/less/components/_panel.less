@@ -1,0 +1,173 @@
+// ******************
+// 面板
+// ******************
+
+//分页
+  //尺寸
+  @borderWidth-panel: 1px;
+  @borderWidth-heading-panel: 1px;
+  @borderWidth-footer-panel: 1px;
+  @borderRadius-panel: @borderRadius-public;
+  @paddingSize-body-panel: 20px;
+  @paddingSize-heading-panel: @paddingSize-body-panel;
+  @paddingSize-footer-panel: @paddingSize-body-panel;
+  @fontSize-heading-panel: @fontSize-small;
+  @fontSize-footer-panel: @fontSize-smaller;
+  //色调
+    //背景色
+      //默认色调
+      @bgColor-default-panel: #fff;
+      @bgColor-default-heading-panel: @bgColor-default-panel;
+      @bgColor-default-footer-panel: @bgColor-tips;
+      //info色调
+      @bgColor-info-heading-panel: @domColor1;
+      //success色调
+      @bgColor-success-heading-panel: @domColor2;
+      //tips色调
+      @bgColor-tips-heading-panel: @bgColor-tips;
+      //warning色调
+      @bgColor-warning-heading-panel: lighten(@domColor5,25%);
+      //danger色调
+      @bgColor-danger-heading-panel: @domColor3;
+    //边框色
+      //默认色调
+      @borderColor-default-panel: @borderColor-default;
+      @borderColor-default-heading-panel: lighten(@borderColor-default-panel,5%);
+      @borderColor-default-footer-panel: @borderColor-default-heading-panel;
+      //info色调
+      @borderColor-info-panel: darken(@bgColor-info-heading-panel,10%);
+      @borderColor-info-heading-panel: @borderColor-info-panel;
+      //success色调
+      @borderColor-success-panel: darken(@bgColor-success-heading-panel,10%);
+      @borderColor-success-heading-panel: @borderColor-success-panel;
+      //tips色调
+      @borderColor-tips-panel: @borderColor-default-panel;
+      @borderColor-tips-heading-panel: @borderColor-default-heading-panel;
+      //warning色调
+      @borderColor-warning-panel: darken(@bgColor-warning-heading-panel,10%);
+      @borderColor-warning-heading-panel: @borderColor-warning-panel;
+      //danger色调
+      @borderColor-danger-panel: darken(@bgColor-danger-heading-panel,10%);
+      @borderColor-danger-heading-panel: @borderColor-danger-panel;
+    //字符色
+      //默认色调
+      @fontColor-default-heading-panel: @fontColor-heading;
+      @fontColor-default-footer-panel: lighten(@fontColor-viceText,10%);
+      //info色调
+      @fontColor-info-heading-panel: #fff;
+      //success色调
+      @fontColor-success-heading-panel: #fff;
+      //tips色调
+      @fontColor-tips-heading-panel: @fontColor-default-heading-panel;
+      //warning色调
+      @fontColor-warning-heading-panel: #fff;
+      //danger色调
+      @fontColor-danger-heading-panel: #fff;
+
+.panel-variant (
+  @fontColor-heading:@fontColor-default-heading-panel,
+  @bgColor-heading:@bgColor-default-heading-panel,
+  @borderColor-heading:@borderColor-default-heading-panel,
+  @borderColor:@borderColor-default-panel
+  ) {
+  border-color: @borderColor;
+
+  & > .panel-heading {
+    color: @fontColor-heading;
+    background-color: @bgColor-heading;
+    border-color: @borderColor-heading;
+
+    /*+ .panel-collapse > .panel-body {
+      border-top-color: @borderColor;
+    }*/
+
+    /*.badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }*/
+  }
+
+  /*& > .panel-footer {
+    + .panel-collapse > .panel-body {
+      border-bottom-color: @border;
+    }
+  }*/
+}
+
+.panel {
+  background-color: @bgColor-default-panel;
+  border: @borderWidth-panel solid @borderColor-default-panel;
+  border-radius: @borderRadius-panel;
+
+  &-body {
+    padding: @paddingSize-body-panel;
+    .clearfix();
+  }
+
+  &-heading {
+    .border-radius(@borderRadius-panel - 1px,@borderRadius-panel - 1px,0,0);
+    padding: @paddingSize-heading-panel/2 @paddingSize-heading-panel;
+    border-bottom: @borderWidth-heading-panel solid @borderColor-default-heading-panel;
+    background-color: @bgColor-default-heading-panel;
+    font-size: @fontSize-heading-panel;
+    line-height: @line-height-base;
+    color: @fontColor-default-heading-panel;
+    .clearfix();
+
+    /*> .dropdown .dropdown-toggle {
+      color: inherit;
+    }*/
+  }
+
+  &-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: @fontSize-heading-panel;
+    line-height: @line-height-base;
+    color: inherit;
+    float: left;
+
+    > a,
+    > small,
+    > .small,
+    > small > a,
+    > .small > a {
+      color: inherit;
+    }
+  }
+
+  &-footer {
+    .border-radius(0,0,@borderRadius-panel - 1px,@borderRadius-panel - 1px);
+    padding: @paddingSize-footer-panel/2 @paddingSize-footer-panel;
+    background-color: @bgColor-default-footer-panel;
+    font-size: @fontSize-footer-panel;
+    line-height: @line-height-base;
+    border-top: @borderWidth-footer-panel solid @borderColor-default-footer-panel;
+    color: @fontColor-default-footer-panel;
+  }
+
+  .table-wrap + .panel-footer {
+    border-top: none;
+  }
+}
+
+//主题
+.panel.info-panel {
+  .panel-variant(@fontColor-info-heading-panel,@bgColor-info-heading-panel,@borderColor-info-heading-panel,@borderColor-info-panel);
+}
+
+.panel.success-panel {
+  .panel-variant(@fontColor-success-heading-panel,@bgColor-success-heading-panel,@borderColor-success-heading-panel,@borderColor-success-panel);
+}
+
+.panel.tips-panel {
+  .panel-variant(@fontColor-tips-heading-panel,@bgColor-tips-heading-panel,@borderColor-tips-heading-panel,@borderColor-tips-panel);
+}
+
+.panel.warning-panel {
+  .panel-variant(@fontColor-warning-heading-panel,@bgColor-warning-heading-panel,@borderColor-warning-heading-panel,@borderColor-warning-panel);
+}
+
+.panel.danger-panel {
+  .panel-variant(@fontColor-danger-heading-panel,@bgColor-danger-heading-panel,@borderColor-danger-heading-panel,@borderColor-danger-panel);
+}
