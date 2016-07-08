@@ -58,4 +58,23 @@ $(function (){
 
     // 左侧菜单滚动条
     $('#side-scrollbar').perfectScrollbar();
+
+
+    // 路由异步加载
+    var $tabTemplate = $('.tabs-btn[data-template]');
+    function loadContent(el) {
+      var $that = $(el);
+      var url = $that.data('template');
+      var $target = $that.attr('data-target') ? $($that.attr('data-target')) : $($that.attr('href'))
+      if(!!url && !!$target.length) {
+        $target.slideUp()
+        $target.load(url, function() {
+          $target.stop(false, true).slideDown()
+        })
+      }
+    }
+    $tabTemplate.on('show.ui.tab', function(e) {
+      loadContent(e.target)
+    })
+    loadContent($tabTemplate.eq(9))
 });

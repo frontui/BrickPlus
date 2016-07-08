@@ -39,13 +39,20 @@ function docTask(banner) {
   })
 
   gulp.task('doc:copy', function() {
-    return gulp.src([staticPath+'/iconfont/**/**', staticPath+'/iconfont-ie7/**/**', staticPath+'/images/**/**', staticPath+'/js/*.js'], { base: '.'})
+    return gulp.src([staticPath+'/iconfont/**/**', staticPath+'/iconfont-ie7/**/**', staticPath+'/images/**/**', staticPath+'/js/*.js', staticPath+'/images/**/**', staticPath+'/js/perfect-scrollbar/**/**'], { base: '.'})
             .pipe(gulp.dest(dest))
+  })
+
+  gulp.task('doc:brickplus', function() {
+    return gulp.src([staticPath+'/js/brickplus/**/*.js'])
+                .pipe($.uglify())
+                .pipe($.header(banner, { pkg: pkg}))
+                .pipe(gulp.dest(dest+'/static/js/brickplus'))
   })
 
   gulp.task('doc:styles', function() {
     return gulp.src([staticPath+'/css/**/**.css'])
-                .pipe($.minifyCss({compatibility: 'ie7'}))
+                .pipe($.cleanCss({compatibility: 'ie7'}))
                 .pipe($.header(banner, { pkg: pkg}))
                 .pipe(gulp.dest(dest+'/static/css'))
   })
@@ -56,7 +63,7 @@ function docTask(banner) {
   })
 
   gulp.task('document', function(cb) {
-    $.sequence('clean', ['doc:home', 'doc:copy', 'doc:styles', 'doc:copyBower'])(cb)
+    $.sequence('clean', ['doc:home', 'doc:copy', 'doc:styles', 'doc:copyBower', 'doc:brickplus'])(cb)
   })
 
   // gulp.task('gh-pages', ['document'], function() {

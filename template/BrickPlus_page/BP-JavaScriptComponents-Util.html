@@ -1,0 +1,79 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='1') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+{# 设置标签页 #}
+{%
+  set tabs = [
+    {text: '概述', url: '#tp1', template: './pages/util-start.html'},
+    {text: '输入框输入过滤', url: '#tp1', template: './pages/util-input-filter.html'},
+    {text: '全角转半角', url: '#tp1', template: './pages/util-dbc-sbc.html'},
+    {text: '金额简体转繁体', url: '#tp1', template: './pages/util-cn-money.html'},
+    {text: '浏览器版本检测', url: '#tp1', template: './pages/util-browser.html'},
+    {text: '倒计时', url: '#tp1', template: './pages/util-tick-clock.html'},
+    {text: '文本框插入文字', url: '#tp1', template: './pages/util-insertTextAtCaret.html'},
+    {text: '日期间隔计算', url: '#tp1', template: './pages/util-dayDiff.html'},
+    {text: '时间计算', url: '#tp1', template: './pages/util-dateDiff.html'},
+    {text: '金额格式化', url: '#tp1', template: './pages/util-currency.html'}
+  ]
+%}
+{# 渲染标签页 #}
+{{ tab.prototype(tabs,cur='1') }}
+
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/brickPlus.Util.js"></script>
+<script src="{{static}}/js/demo-util.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

@@ -1,0 +1,81 @@
+{# page: 金额格式化 #}
+<section class="example-wrap">
+    <ul class="example-description">
+      <li>
+        <code>BrickPlus.Uitl.currecy</code>在金额体系有太多的金额数字，大多时候后端返回的往往是数字，而页面上产品需要显示千位符的金额文字，此时我们需要对金额数字进行格式化。
+      </li>
+    </ul>
+    <div class="example">
+      <div class="example-tag">参数说明</div>
+      <div class="example-box">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>num</td>
+                <td>将格式化的数字</td>
+                <td>Number</td>
+                <td>null</td>
+              </tr>
+              <tr>
+                <td>decimal</td>
+                <td>格式化小数点位数</td>
+                <td>Number</td>
+                <td>
+                    2
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="example">
+      <div class="example-tag">实例</div>
+      <div class="example-box">
+        <div class="form-group">
+            <label class="form-control-label">
+              <span>金额</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" id="demo-currency-input" class="form-control" placeholder="请输入您的数字...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">
+              <span>格式化后</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-static" id="demo-currency-target"></div>
+            </div>
+          </div>
+      </div>
+      <div class="example-code">
+        <pre>
+          <code>
+// -----------
+// 金额格式化
+var fnCurrency = BrickPlus.Util.currency;
+$(document).on('keyup', '#demo-currency-input', function() {
+  var number = $(this).val();
+  var $target = $('#demo-currency-target');
+
+  $target.html(fnCurrency(number))
+
+})
+          </code>
+        </pre>
+      </div>
+    </div>
+  </section>
