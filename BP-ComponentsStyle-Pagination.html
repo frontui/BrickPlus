@@ -82,10 +82,10 @@
               <li class="current"> <a href="BP-ComponentsStyle-BreadCrumb.html">
                         组件样式
                     </a> </li>
-              <li> <a href="BP-JavaScriptComponents-CheckAll.html">
+              <li> <a href="BP-JavaScriptComponents-Util.html">
                         JavaScript 插件
                     </a> </li>
-              <li> <a href="javascript:;void(0)">
+              <li> <a href="http://github.com/frontui/brickplus">
                         GitHub
                     </a> </li>
             </ul>
@@ -122,6 +122,9 @@
                 <li class="current">
                   <a href="BP-ComponentsStyle-Pagination.html"> <i></i> <b></b> 分页 </a>
                 </li>
+                <li>
+                  <a href="BP-ComponentsStyle-Panel.html"> <i></i> <b></b> 面板 </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -133,10 +136,16 @@
                 结构和样式
             </a> </li>
               <li> <a href="#tp2" class="tabs-btn">
-                种类
+                状态
             </a> </li>
               <li> <a href="#tp3" class="tabs-btn">
                 尺寸
+            </a> </li>
+              <li> <a href="#tp4" class="tabs-btn">
+                排版
+            </a> </li>
+              <li> <a href="#tp5" class="tabs-btn">
+                组合
             </a> </li>
             </ul>
           </div>
@@ -144,43 +153,534 @@
             <div class="tabs-panel active" id="tp1">
               <section class="example-wrap">
                 <ul class="example-description">
-                  <li> Brick提供一种拥有固定样式的步骤示意图，在结构最外层引用基类 <code>.step-wrap</code> 之后，需要根据你的需要，引用 <code>three / four / five / six / seven-steps</code> 工具类来定义你需要的步骤数量（我们现在提供了3-7步的工具类）；然后，由 <code>pass1 / 2 / 3 / 4 / 5 / 6 / 7</code> 这种工具类展示的你的步骤流程点。 </li>
-                  <li>
-                  步骤组件有固定的 html 结构，详情请参考代码示例。 </li>
+                  <li> 我们提供简单的分页组件，适应不同的UI设计方案。 </li>
+                  <li> 分页组件有固定的 html 结构，详情请参考代码示例。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
                   <div class="example-box">
                     <nav class="pagination-box">
-                      <ul class="pagination">
-                        <li>
-                          <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
                         </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                          <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
                         </li>
                       </ul>
                     </nav>
                   </div>
                   <div class="example-code"> <pre>
             <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>step-wrap ( three / four / five / six / seven -steps ) ( pass1 / 2 / 3 / 4 / 5 / / 6 / 7 )</b></span>"</span>&gt;
-  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>step-box</b></span>"</span>&gt;
-    <span class="tg">&lt;!--进度条--&gt;</span>
-    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>step-bar</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
-    <span class="tg">&lt;!--步骤标记--&gt;</span>
-    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>the-step</b></span>"</span>&gt;
-      &lt;<b>div</b> <span class="va">class="<span class="cl"><b>step</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
-      &lt;<b>p</b>&gt;<span class="tg">...</span>&lt;/<b>p</b>&gt;
-    &lt;/<b>div</b>&gt;
+&lt;<b>nav</b> <span class="va">class="<span class="cl"><b>pagination-box</b></span>"</span>&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>pagination</b></span>"</span>&gt;
+    &lt;<b>li</b> <span class="va">title="<span class="cl"><b>第一页</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span>&gt;
+        &lt;<b>span</b>&gt;
+          <span class="tg">&amp;laquo;</span>
+        &lt;/<b>span</b>&gt;
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+    &lt;<b>li</b> <span class="va">title="<span class="cl"><b>上一页</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span>&gt;
+        &lt;<b>span</b>&gt;
+          <span class="tg">&amp;lsaquo;</span>
+        &lt;/<b>span</b>&gt;
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
     <span class="tg">...</span>
-  &lt;/<b>div</b>&gt;
-&lt;/<b>div</b>&gt;
+    &lt;<b>li</b>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+    <span class="tg">...</span>
+    &lt;<b>li</b> <span class="va">title="<span class="cl"><b>下一页</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span>&gt;
+        &lt;<b>span</b>&gt;
+          <span class="tg">&amp;rsaquo;</span>
+        &lt;/<b>span</b>&gt;
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+    &lt;<b>li</b> <span class="va">title="<span class="cl"><b>最后一页</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span>&gt;
+        &lt;<b>span</b>&gt;
+          <span class="tg">&amp;raquo;</span>
+        &lt;/<b>span</b>&gt;
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+  &lt;/<b>ul</b>&gt;
+&lt;/<b>nav</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp2">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#paginationActive" class="btn default">激活状态</a> <a href="#paginationDisabled" class="btn default">禁用状态</a> </div>
+              <section class="example-wrap">
+                <h2 id="paginationActive">激活状态</h2>
+                <ul class="example-description">
+                  <li> 给 <code>.pagination</code> 下的子元素 <code>li</code> 引用 <code>.active</code> 类。得到当前页的激活样式。 </li>
+                  <li> 你还可以将激活状态应用于 <code>span</code> 标签，或者在向前/向后的箭头处省略 <code>a</code> 标记，即替换 <code>a</code> 标签，这样就可以让其保持需要的样式而不能被点击。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <nav class="pagination-box">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li class="active"> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;nav <span class="va">class="<span class="cl">pagination-box</span>"</span>&gt;
+  &lt;ul <span class="va">class="<span class="cl">pagination</span>"</span>&gt;
+    &lt;li <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
+      &lt;a <span class="va">href="<span class="cl"></span>"</span>&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    <span class="tg">...</span>
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;nav <span class="va">class="<span class="cl">pagination-box</span>"</span>&gt;
+  &lt;ul <span class="va">class="<span class="cl">pagination</span>"</span>&gt;
+    &lt;li <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
+      &lt;<b>span</b>&gt;
+      &lt;/<b>span</b>&gt;
+    &lt;/li&gt;
+    <span class="tg">...</span>
+  &lt;/ul&gt;
+&lt;/nav&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="paginationDisabled">禁用状态</h2>
+                <ul class="example-description">
+                  <li> 给 <code>.pagination</code> 下的子元素 <code>li</code> 引用 <code>.disabled</code> 类。得到按钮的禁用样式。 </li>
+                  <li> 你还可以将禁用状态应用于 <code>span</code> 标签，或者在向前/向后的箭头处省略 <code>a</code> 标记，即替换 <code>a</code> 标签，这样就可以让其保持需要的样式而不能被点击。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <nav class="pagination-box">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li class="disabled"> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;nav <span class="va">class="<span class="cl">pagination-box</span>"</span>&gt;
+  &lt;ul <span class="va">class="<span class="cl">pagination</span>"</span>&gt;
+    &lt;li <span class="va">class="<span class="cl"><b>disabled</b></span>"</span>&gt;
+      &lt;a <span class="va">href="<span class="cl"></span>"</span>&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    <span class="tg">...</span>
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;nav <span class="va">class="<span class="cl">pagination-box</span>"</span>&gt;
+  &lt;ul <span class="va">class="<span class="cl">pagination</span>"</span>&gt;
+    &lt;li <span class="va">class="<span class="cl"><b>disabled</b></span>"</span>&gt;
+      &lt;<b>span</b>&gt;
+      &lt;/<b>span</b>&gt;
+    &lt;/li&gt;
+    <span class="tg">...</span>
+  &lt;/ul&gt;
+&lt;/nav&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp3">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> BrickPlus 提供了四种不同的分页尺寸，以备适应不同的特殊设计，其中三种非常规尺寸需通过给 <code>.pagination-box</code> 这一层叠加 <code>.large-pagination</code> / <code>.small-pagination</code> / <code>.smaller-pagination</code> 尺寸类展示。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>large pagination</h5>
+                    <nav class="pagination-box large-pagination fn-mb-40">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <h5>default</h5>
+                    <nav class="pagination-box fn-mb-40">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <h5>small pagination</h5>
+                    <nav class="pagination-box small-pagination fn-mb-40">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <h5>smaller pagination</h5>
+                    <nav class="pagination-box smaller-pagination">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;nav <span class="va">class="<span class="cl">pagination-box <b>large-pagination / small-pagination / smaller-pagination</b></span>"</span>&gt;
+&lt;/nav&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp4">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> <code>.pagination</code> 部件是一个行内块级元素，通过给 <code>.pagination-box</code> 这一层叠加排版工具类 <code>.text-align-left</code>，<code>.text-align-center</code>，<code>.text-align-right</code> 就能调整分页组件的排版位置。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>left</h5>
+                    <nav class="pagination-box text-align-left fn-mb-40">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <h5 class="text-align-center">center</h5>
+                    <nav class="pagination-box text-align-center fn-mb-40">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <h5 class="text-align-right">right</h5>
+                    <nav class="pagination-box text-align-right">
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;nav <span class="va">class="<span class="cl">pagination-box <b>text-align-left / text-align-center / text-align-right</b></span>"</span>&gt;
+&lt;/nav&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp5">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 通过和其他组件的组合，还可以得到一个更强大的分页工具；<br> 将要组合到的组件放在 <code>.pagination-box</code> 层下面，并套上一层 <code>.p-add-ons</code>，组合文本结构的话，只能在 <code>.p-add-ons</code> 这一层用 <code>p</code> 标签作为包裹包裹元素。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <nav class="pagination-box text-align-center">
+                      <p class="p-add-ons fn-mr-15">查找到&nbsp;100&nbsp;条记录，共&nbsp;5&nbsp;页</p>
+                      <ul class="paginations">
+                        <li title="第一页">
+                          <a href="#"> <span>
+                      &laquo;
+                    </span> </a>
+                        </li>
+                        <li title="上一页">
+                          <a href="#"> <span>
+                      &lsaquo;
+                    </span> </a>
+                        </li>
+                        <li> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li> <a href="#">4</a> </li>
+                        <li> <a href="#">5</a> </li>
+                        <li title="下一页">
+                          <a href="#"> <span>
+                      &rsaquo;
+                    </span> </a>
+                        </li>
+                        <li title="最后一页">
+                          <a href="#"> <span>
+                      &raquo;
+                    </span> </a>
+                        </li>
+                      </ul>
+                      <div class="p-add-ons fn-ml-15">
+                        <div class="form-group form-gs form-no-label">
+                          <div class="form-control-wrap"> <input type="text" class="form-control" placeholder="跳转">
+                            <div class="form-addon child-right">页</div>
+                            <div class="form-addon-com"> <button type="button" class="btn default">GO</button> </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="p-add-ons fn-ml-15">
+                        <div class="form-group form-gs form-no-label">
+                          <div class="form-control-wrap">
+                            <div class="form-addon">每页</div> <select class="form-control">
+                    <option>20</option>
+                    <option>60</option>
+                    <option>100</option>
+                  </select>
+                            <div class="form-addon">条</div>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;nav <span class="va">class="<span class="cl">pagination-box</span>"</span>&gt;
+  &lt;div <span class="va">class="<span class="cl"><b>p-add-ons</b></span>"</span>&gt;
+    <span class="tg">...</span>
+  &lt;/div&gt;
+  &lt;<b>p</b> <span class="va">class="<span class="cl"><b>p-add-ons</b></span>"</span>&gt;
+    <span class="tg">...</span>
+  &lt;/<b>p</b>&gt;
+&lt;/nav&gt;
             </code>
           </pre> </div>
                 </div>

@@ -13,7 +13,6 @@
     <title> BrickPlus </title>
     <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
-    <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <!--[if IE 8]>
 		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
         <![endif]-->
@@ -76,16 +75,16 @@
               <li> <a href="BP-Start-Download.html">
                         起步
                     </a> </li>
-              <li class="current"> <a href="BP-GlobalStyle-Grid.html">
+              <li> <a href="BP-GlobalStyle-Grid.html">
                         全局样式
                     </a> </li>
-              <li> <a href="BP-ComponentsStyle-BreadCrumb.html">
+              <li class="current"> <a href="BP-ComponentsStyle-BreadCrumb.html">
                         组件样式
                     </a> </li>
-              <li> <a href="BP-JavaScriptComponents-Util.html">
+              <li> <a href="BP-JavaScriptComponents-CheckAll.html">
                         JavaScript 插件
                     </a> </li>
-              <li> <a href="http://github.com/frontui/brickplus">
+              <li> <a href="javascript:;void(0)">
                         GitHub
                     </a> </li>
             </ul>
@@ -98,23 +97,53 @@
           <div id="side-scrollbar">
             <div class="bricks-aside-ul-wrap">
               <ul>
+                <li>
+                  <a href="BP-JavaScriptComponents-CheckAll.html"> <i></i> <b></b> 全选 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Alert.html"> <i></i> <b></b> 警告框 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Dropdown.html"> <i></i> <b></b> 下拉框 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Tooltip.html"> <i></i> <b></b> tooltips 提示 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Switcher.html"> <i></i> <b></b> 切换器 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Tab.html"> <i></i> <b></b> 选项卡 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-SmoothScroll.html"> <i></i> <b></b> 平滑滚动 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Pagination.html"> <i></i> <b></b> 分页 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Modal.html"> <i></i> <b></b> 弹层 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Notify.html"> <i></i> <b></b> 通知 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-DateTimePicker.html"> <i></i> <b></b> 日历 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Charts.html"> <i></i> <b></b> 图表 </a>
+                </li>
                 <li class="current">
-                  <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
+                  <a href="BP-JavaScriptComponents-Slider.html"> <i></i> <b></b> 轮播 </a>
                 </li>
                 <li>
-                  <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
+                  <a href="BP-JavaScriptComponents-Validation.html"> <i></i> <b></b> 表单验证 </a>
                 </li>
                 <li>
-                  <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
+                  <a href="BP-JavaScriptComponents-FileUpload.html"> <i></i> <b></b> 文件上传 </a>
                 </li>
                 <li>
-                  <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
-                </li>
-                <li>
-                  <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
-                </li>
-                <li>
-                  <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
+                  <a href="BP-JavaScriptComponents-DataTables.html"> <i></i> <b></b> 数据表格DataTables </a>
                 </li>
               </ul>
             </div>
@@ -125,8 +154,46 @@
             <div class="tabs-panel active" id="tp1">
               <section class="example-wrap">
                 <ul class="example-description">
-                  <li> BrickPlus 的栅格系统从 <a href="http://www.bootcss.com/" class="link-standard">Bootstrap</a> 完整引入，暂时并未对其进行订制式开发， <br> 所以你可以通过阅读原装的 <a href="http://v3.bootcss.com/css/#grid" class="link-standard">Bootstrap 栅格系统教程</a> 了解用法。 <br> ... </li>
+                  <li> 我们建议当你需要使用标签页的时候，套用 BrickPlus 标准的结构，这样能够使标签页的按钮使用达到最好的用户体验效果，例如：激活 <code>&lt;li&gt;</code> 标签的 <code>.active</code> 类从而影响 <code>.tab-btns</code> 类，使其有用户点击激活的状态样式。<br> </li>
+                  <li> 由于标签页的使用，可以直接在标签按钮上引用 <code>.tab-btns</code> 类或者绑定 <code>data-toggle="tab"</code> 达到目的，所以也可以不使用标准结构，而自行编写新的样式。 </li>
+                  <li> BrickPlus 标准的标签页结构有定义在 1024 分辨率下的响应式样式。 </li>
                 </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="tabs-wrap prototype">
+                      <ul class="tabs">
+                        <li class="active"> <a href="#tabexp1" class="tabs-btn">
+                  Tab 1
+                </a> </li>
+                        <li> <a href="#tabexp2" class="tabs-btn">
+                  Tab 2
+                </a> </li>
+                        <li> <a href="#tabexp3" class="tabs-btn">
+                  Tab 3
+                </a> </li>
+                      </ul>
+                    </div>
+                    <div class="tabs-content">
+                      <div class="tabs-panel active text-align-center" id="tabexp1">Tab Content One</div>
+                      <div class="tabs-panel text-align-center" id="tabexp2">Tab Content Two</div>
+                      <div class="tabs-panel text-align-center" id="tabexp3">Tab Content Three</div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
+    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+  &lt;/<b>ul</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
               </section>
             </div>
           </div>
@@ -135,9 +202,8 @@
       <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
     <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="./static/js/ui.js?v=1.0.0"></script>
-    <script src="./static/js/datetimepicker/datetimepicker.js?v=1.0.0"></script>
     <script src="./static/js/framework.js?v=1.0.0"></script>
+    <script src="./static/js/brickplus/tab.js"></script>
     <script>
     </script>
   </body>
