@@ -46,8 +46,8 @@
       {text: '地址', url: '#tp7'},
       {text: '引用', url: '#tp8'},
       {text: '列表', url: '#tp9'},
-      {text: '边距', url: '#tp10'}
-
+      {text: '边距', url: '#tp10'},
+      {text: '宽度', url: '#tp11'}
     ],
     cur='1'
   )
@@ -854,7 +854,36 @@
       </div>
     </section>
   </div>
-
+  <div class="tabs-panel" id="tp11">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          递归的计算方式生成定义宽度大小的工具类，由最低 50 像素到最高 400 像素的宽度尺寸；
+        </li>
+        <li>
+          公式设定为每 50 像素计算出一个宽度类，所以在宽度类的界限 50 ~ 400 像素中是每一次整除 50 后得出一个有效工具类，如：w-50、w-100、w-150...。
+        </li>
+        <li>
+          宽度类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <p class="fn-mb-10">宽度：.w-(50~400)</p>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>w-( 50~400 )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
 {% endblock %}
 

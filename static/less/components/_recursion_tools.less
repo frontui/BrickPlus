@@ -96,3 +96,19 @@
   .build-fontSize(@max);
 }
 .init-fontSize;
+
+// ******************
+// 递归生成 width 族类
+// ******************
+.init-width(@min: 50, @max: 400, @space: 50, @pre: w) {
+  .build-width(@count) when (@count >= @min) {
+    .build-width((@count - @space));
+
+    .@{pre}-@{count} {
+      width: @count * 1px !important;
+    }
+  }
+
+  .build-width(@max);
+}
+.init-width;

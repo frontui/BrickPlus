@@ -1,69 +1,6 @@
 // ******************
 // 面板
 // ******************
-
-//分页
-  //尺寸
-  @borderWidth-panel: 1px;
-  @borderWidth-heading-panel: 1px;
-  @borderWidth-footer-panel: 1px;
-  @borderRadius-panel: @borderRadius-public;
-  @paddingSize-body-panel: 20px;
-  @paddingSize-heading-panel: @paddingSize-body-panel;
-  @paddingSize-footer-panel: @paddingSize-body-panel;
-  @fontSize-heading-panel: @fontSize-small;
-  @fontSize-footer-panel: @fontSize-smaller;
-  //色调
-    //背景色
-      //默认色调
-      @bgColor-default-panel: #fff;
-      @bgColor-default-heading-panel: @bgColor-default-panel;
-      @bgColor-default-footer-panel: @bgColor-tips;
-      //info色调
-      @bgColor-info-heading-panel: @domColor1;
-      //success色调
-      @bgColor-success-heading-panel: @domColor2;
-      //tips色调
-      @bgColor-tips-heading-panel: @bgColor-tips;
-      //warning色调
-      @bgColor-warning-heading-panel: lighten(@domColor5,25%);
-      //danger色调
-      @bgColor-danger-heading-panel: @domColor3;
-    //边框色
-      //默认色调
-      @borderColor-default-panel: @borderColor-default;
-      @borderColor-default-heading-panel: lighten(@borderColor-default-panel,5%);
-      @borderColor-default-footer-panel: @borderColor-default-heading-panel;
-      //info色调
-      @borderColor-info-panel: darken(@bgColor-info-heading-panel,10%);
-      @borderColor-info-heading-panel: @borderColor-info-panel;
-      //success色调
-      @borderColor-success-panel: darken(@bgColor-success-heading-panel,10%);
-      @borderColor-success-heading-panel: @borderColor-success-panel;
-      //tips色调
-      @borderColor-tips-panel: @borderColor-default-panel;
-      @borderColor-tips-heading-panel: @borderColor-default-heading-panel;
-      //warning色调
-      @borderColor-warning-panel: darken(@bgColor-warning-heading-panel,10%);
-      @borderColor-warning-heading-panel: @borderColor-warning-panel;
-      //danger色调
-      @borderColor-danger-panel: darken(@bgColor-danger-heading-panel,10%);
-      @borderColor-danger-heading-panel: @borderColor-danger-panel;
-    //字符色
-      //默认色调
-      @fontColor-default-heading-panel: @fontColor-heading;
-      @fontColor-default-footer-panel: lighten(@fontColor-viceText,10%);
-      //info色调
-      @fontColor-info-heading-panel: #fff;
-      //success色调
-      @fontColor-success-heading-panel: #fff;
-      //tips色调
-      @fontColor-tips-heading-panel: @fontColor-default-heading-panel;
-      //warning色调
-      @fontColor-warning-heading-panel: #fff;
-      //danger色调
-      @fontColor-danger-heading-panel: #fff;
-
 .panel-variant (
   @fontColor-heading:@fontColor-default-heading-panel,
   @bgColor-heading:@bgColor-default-heading-panel,
@@ -113,10 +50,20 @@
     line-height: @line-height-base;
     color: @fontColor-default-heading-panel;
     .clearfix();
+    display: table;
+    width: 100%;
 
     /*> .dropdown .dropdown-toggle {
       color: inherit;
     }*/
+
+    .ph-add-ons {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 0;
+      line-height: 0;
+      .clearfix();
+    }
   }
 
   &-title {
@@ -125,14 +72,15 @@
     font-size: @fontSize-heading-panel;
     line-height: @line-height-base;
     color: inherit;
-    float: left;
+    display: table-cell;
+    vertical-align: middle;
 
     > a,
     > small,
     > .small,
     > small > a,
     > .small > a {
-      color: inherit;
+      color: @fontColor-viceText;
     }
   }
 
@@ -145,10 +93,18 @@
     border-top: @borderWidth-footer-panel solid @borderColor-default-footer-panel;
     color: @fontColor-default-footer-panel;
   }
+}
 
-  .table-wrap + .panel-footer {
-    border-top: none;
-  }
+.panel-body + .table-wrap .table > thead > tr {
+  border-top: @borderWidth-1-table solid @borderColor-2-table;
+}
+
+.table-wrap + .panel-footer {
+  border-top: none;
+}
+
+.table-wrap:last-child .table tr:last-child {
+  border-bottom: none;
 }
 
 //主题
