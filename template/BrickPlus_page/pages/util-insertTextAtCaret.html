@@ -1,0 +1,69 @@
+{# page: 倒计时 #}
+<section class="example-wrap">
+    <ul class="example-description">
+      <li>
+        <code>BrickPlus.Uitl.insertTextAtCaret</code>在文本框光标处插入自定义字符，在短信模板管理功能使用比较广泛。
+      </li>
+    </ul>
+    <div class="example">
+      <div class="example-tag">参数说明</div>
+      <div class="example-box">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>默认值</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>elem</td>
+                <td>必填，输入框dom元素</td>
+                <td>Object</td>
+                <td>null</td>
+              </tr>
+              <tr>
+                <td>text</td>
+                <td>插入文字</td>
+                <td>String</td>
+                <td>
+                    null
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="example">
+      <div class="example-tag">实例</div>
+      <div class="example-box">
+        <div class="fn-mb-20">
+          <textarea name="" id="insert-textarea" cols="30" rows="10" class="form-control" autofocus>尊敬的用户 ，您的智商已不多，请及时充值。详情请了解链接：。</textarea>
+        </div>
+        <div class="plural-btns">
+
+          <button type="button" class="btn default" data-text="{产品汪}">用户名标签</button>
+          <button type="button" class="btn default" data-text="{link}">链接</button>
+        </div>
+      </div>
+      <div class="example-code">
+        <pre>
+          <code>
+// -----------
+// 文本框插入文字
+var insertTextAtCaret = BrickPlus.Util.insertTextAtCaret;
+$(document).on('click', '[data-text]', function() {
+  var elem = $('#insert-textarea')[0];
+  var text = $(this).data('text');
+  insertTextAtCaret(elem, text)
+})
+          </code>
+        </pre>
+      </div>
+    </div>
+  </section>

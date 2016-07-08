@@ -15,8 +15,8 @@
     {text: '起步', url: 'BP-Start-Download.html'},
     {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
     {text: '组件样式', url: 'BP-ComponentsStyle-BreadCrumb.html'},
-    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-CheckAll.html'},
-    {text: 'GitHub', url: 'javascript:;void(0)'}
+    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-Util.html'},
+    {text: 'GitHub', url: 'http://github.com/frontui/brickplus'}
   ]
 %}
 
@@ -71,6 +71,6 @@
 {% block globalJs %}
 <script src="{{ bower_components }}/jquery/dist/jquery.min.js?v={{ version }}"></script>
 <script src="{{ static }}/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-<script src="{{ static }}/js/framework.js?v={{ version }}"></script>
 <script src="{{ static }}/js/brickplus/tab.js"></script>
+<script src="{{ static }}/js/framework.js?v={{ version }}"></script>
 {% endblock %}
