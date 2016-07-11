@@ -227,7 +227,8 @@
             <div class="panel-body">
               <form action="">
                 <div class="form-in-center">
-                  <h4 class="form-title fn-mb-20">表单居中
+                  <h4 class="form-title fn-mb-20">
+                    表单居中
                     <small class="fn-ml-10">表单居中的展现需要结合栅格工具</small>
                   </h4>
                   <div class="col-lg-6 col-md-10 form-center-box">
@@ -248,7 +249,7 @@
                         <em>：</em>
                       </label>
                       <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="fp2" placeholder="http://localhost:8599/OutPut/BrickPlus_page/BP-GlobalStyle-Form.pdf" readonly>
+                        <input type="text" class="form-control" id="fp2" placeholder="" value="http://localhost:8599/OutPut/BrickPlus_page/BP-GlobalStyle-Form.pdf" readonly>
                         <span class="form-addon-com">
                           <label for="FormUpload1" class="uploader btn primary">
                             重新上传
@@ -257,20 +258,60 @@
                         </span>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group fn-mb-10">
                       <label class="form-control-label">
                         <span>开户行省市</span>
                         <em>：</em>
                       </label>
-                      <div class="form-control-wrap">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="提示语">
-                          </div>
-                          <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="提示语">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-control-wrap">
+                            <select class="form-control">
+                              <option>
+                                省
+                              </option>
+                              <option>
+                                option 2
+                              </option>
+                              <option>
+                                option 3
+                              </option>
+                            </select>
                           </div>
                         </div>
+                        <div class="col-sm-6">
+                          <div class="form-control-wrap">
+                            <select class="form-control">
+                              <option>
+                                市
+                              </option>
+                              <option>
+                                option 2
+                              </option>
+                              <option>
+                                option 3
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group fn-mb-10">
+                      <label class="form-control-label">
+                        <span>设置密码</span>
+                        <em>：</em>
+                      </label>
+                      <div class="form-control-wrap">
+                        <input type="password" class="form-control" placeholder="8-20个英文字幕/数字或符号的组合">
+                        <div class="progress size-s fn-mt-5">
+                          <div class="progress-bar bar-warning" style="width: 50%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-control-wrap text-align-left plural-btns">
+                        <button class="btn primary">确认提交</button>
+                        <a href="#" class="btn links">返回</a>
                       </div>
                     </div>
                   </div>
