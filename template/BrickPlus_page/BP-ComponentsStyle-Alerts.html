@@ -98,6 +98,7 @@
       <ul class="example-description">
         <li>
           为警告框叠加 <code>.alert-dismissible</code> 类，显示警告框自带的关闭按钮。<br>
+          需要自定义关闭按钮文本则引用 <code>.alert-dismissible-text</code> 类，并在结构内的 <code>em</code> 标签用输入需要的文本内容。
         </li>
       </ul>
       <div class="example">
@@ -107,13 +108,17 @@
             这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
             <em data-dismiss="alert"></em>
           </div>
+          <div class="alert alert-dismissible-text">
+            这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+            <em data-dismiss="alert">不再提示</em>
+          </div>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;div <span class="va">class="<span class="cl">alert <b>alert-dismissible</b></span>"</span>&gt;
+&lt;div <span class="va">class="<span class="cl">alert <b>alert-dismissible / alert-dismissible-text</b></span>"</span>&gt;
   <span class="tg">...</span>
-  &lt;em <span class="va">data-dismiss="<span class="cl">alert</span>"</span>&gt;&lt;/em&gt;
+  &lt;em <span class="va">data-dismiss="<span class="cl">alert</span>"</span>&gt;<span class="tg">...</span>&lt;/em&gt;
 &lt;/div&gt;
             </code>
           </pre>
