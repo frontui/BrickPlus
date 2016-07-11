@@ -1808,6 +1808,32 @@ select[size].form-control {
   }
 }
 
+@media (max-width: 1024px) {
+  .form-group{
+    padding-left: 0 !important;
+
+    .form-control-label {
+      position: relative;
+      display: block;
+      text-align: left;
+      padding-left: @paddingLR-default-fromControl + @borderWidth-formControl;
+      width: auto;
+
+      > span {
+        max-width: 95%;
+      }
+
+      > b {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-right: 0;
+      }
+    }
+
+  }
+}
+
 // ******************
 // 富文本编辑框
 // ******************
