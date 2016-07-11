@@ -166,6 +166,28 @@ module.exports = function defaultTask(serverRoot) {
     $.git.clone('https://github.com/frontui/BrickPlus-Mixin.git', {args: './static/less/BrickPlus-Mixin'}, cb)
   })
 
+  // -- 更新iconfont
+  gulp.task('cleanIconfont', function(cb) {
+    clean(['./static/frontui-icon'], cb);
+  })
+
+  gulp.task('iconfontClone', function(cb) {
+    $.git.clone('https://github.com/frontui/frontui-icon', { args: './static/frontui-icon'}, cb)
+  })
+
+  gulp.task('iconfontMove', function( cb ) {
+    return gulp.src(['./static/frontui-icon/fonticon/{fonts,ie7}/**/**'])
+                .pipe(gulp.dest('./static'))
+  })
+
+  gulp.task('iconfontRemove', function( cb) {
+    clean(['./static/frontui-icon'], cb);
+  })
+
+  gulp.task('iconfont', function(cb) {
+    $.sequence('cleanIconfont', 'iconfontClone', 'iconfontMove', 'iconfontRemove')(cb)
+  })
+
   // //-- 更新less Mixin
   // gulp.task('updateMixin', function() {
   //   return gulp.src('./static/less/BrickPlus-Mixin')
