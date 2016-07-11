@@ -1,3 +1,6 @@
+/**
+ * 引入perfect-scrollbar
+ */
 $(function (){
     //Dom准备就绪加载 BrickPlus Logo 动画样式
     $('#BrickPlusLogo').addClass('move');
@@ -52,4 +55,26 @@ $(function (){
         }
     });
     $('.actgotop').click(function(){$('html,body').animate({scrollTop: '0'}, 400);});
+
+    // 左侧菜单滚动条
+    $('#side-scrollbar').perfectScrollbar();
+
+
+    // 路由异步加载
+    var $tabTemplate = $('.tabs-btn[data-template]');
+    function loadContent(el) {
+      var $that = $(el);
+      var url = $that.data('template');
+      var $target = $that.attr('data-target') ? $($that.attr('data-target')) : $($that.attr('href'))
+      if(!!url && !!$target.length) {
+        $target.slideUp()
+        $target.load(url, function() {
+          $target.stop(false, true).slideDown()
+        })
+      }
+    }
+    $tabTemplate.on('show.ui.tab', function(e) {
+      loadContent(e.target)
+    })
+    loadContent($tabTemplate.eq(9))
 });

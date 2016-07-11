@@ -13,6 +13,7 @@
     <title> BrickPlus </title>
     <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
+    <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <!--[if IE 8]>
 		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
         <![endif]-->
@@ -81,10 +82,10 @@
               <li> <a href="BP-ComponentsStyle-BreadCrumb.html">
                         组件样式
                     </a> </li>
-              <li> <a href="BP-JavaScriptComponents-CheckAll.html">
+              <li> <a href="BP-JavaScriptComponents-Util.html">
                         JavaScript 插件
                     </a> </li>
-              <li> <a href="javascript:;void(0)">
+              <li> <a href="http://github.com/frontui/brickplus">
                         GitHub
                     </a> </li>
             </ul>
@@ -94,27 +95,29 @@
           <div class="bricks-logo" id="BrickPlusLogo"> <span>B</span> <span>r</span> <span>i</span> <span>c</span> <span>k</span>
             <a href="BP-Start-Download.html"></a>
           </div>
-          <div class="bricks-aside-ul-wrap">
-            <ul>
-              <li>
-                <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
-              </li>
-              <li class="current">
-                <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
-              </li>
-              <li>
-                <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
-              </li>
-            </ul>
+          <div id="side-scrollbar">
+            <div class="bricks-aside-ul-wrap">
+              <ul>
+                <li>
+                  <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
+                </li>
+                <li class="current">
+                  <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </aside>
         <div class="bricks-content-wrap">
@@ -233,17 +236,18 @@
                     </div>
                   </div>
                   <div class="example-code"> <pre>
-                    <code>
+<code>
 &lt;<b>table</b> <span class="va">class="<span class="cl"><b>table</b></span>"</span>&gt;
   <span class="tg">...</span>
 &lt;/<b>table</b>&gt;
-                     </code>
+</code>
+                  <br>
                 </pre> </div>
                 </div>
               </section>
             </div>
             <div class="tabs-panel" id="tp2">
-              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#TableInverse" class="btn default">斑马条纹表格</a> <a href="#TableBorder" class="btn default">表格边框</a> </div>
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#TableInverse" class="btn default">斑马条纹表格</a> <a href="#TableBorder" class="btn default">表格边框</a> <a href="#TableAlign" class="btn default">表格对齐</a> </div>
               <section class="example-wrap">
                 <h2 id="TableInverse">斑马条纹表格</h2>
                 <ul class="example-description">
@@ -725,6 +729,69 @@
                 </pre> </div>
                 </div>
               </section>
+              <section class="example-wrap">
+                <h2 id="TableAlign">表格对齐</h2>
+                <ul class="example-description">
+                  <li> BirckPlus 提供了两种不同的表格对齐方式（<b>主要是最对纯数据表格，例如详情页等</b>）适应不同的UI设计需求，这两种常规样式需在 <code>.table</code> 和（ <code>.table-bordered-type2</code>或 <code>.table-bordered-type3</code>）类后叠加 <code>.table-align-type1</code>、<code>.table-align-type2</code>类得到。
+                    </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5 class="fn-pb-10">.table-align-type1</h5>
+                    <div class="table-wrap fn-mb-30">
+                      <table class="table table-bordered-type2 table-align-type1">
+                        <colgroup>
+                          <col width="20%">
+                          <col>
+                          <col width="20%">
+                          <col> </colgroup>
+                        <tr>
+                          <th>账户名</th>
+                          <td>xxx</td>
+                          <th>所属渠道</th>
+                          <td>Z001</td>
+                        </tr>
+                        <tr>
+                          <th>姓名</th>
+                          <td>张三丰</td>
+                          <th>手机号码</th>
+                          <td>13800138000</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <h5 class="fn-pb-10">.table-align-type2</h5>
+                    <div class="table-wrap fn-mb-30">
+                      <table class="table table-bordered-type3 table-align-type2">
+                        <colgroup>
+                          <col width="20%">
+                          <col>
+                          <col width="20%">
+                          <col> </colgroup>
+                        <tr>
+                          <th>账户名</th>
+                          <td>xxx</td>
+                          <th>所属企业</th>
+                          <td>CIA</td>
+                        </tr>
+                        <tr>
+                          <th>姓名</th>
+                          <td>张三丰</td>
+                          <th>手机号码</th>
+                          <td>13800138000</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                    <code>
+&lt;table <span class="va">class="<span class="cl">table <b>( table-bordered-type2 / table-bordered-type3 )</b> <b>( table-align-type1 / table-align-type2 )</b></span>"</span>&gt;
+<span class="tg">...</span>
+&lt;/table&gt;
+                    </code>
+                </pre> </div>
+                </div>
+              </section>
             </div>
             <div class="tabs-panel" id="tp3">
               <section class="example-wrap">
@@ -881,11 +948,11 @@
                   </div>
                   <div class="example-code"> <pre>
             <code>
-&lt;div <span class="va">class="<span class="cl">table-wrap <b>table-responsive</b></span>"</span>&gt;
-  &lt;table <span class="va">class="<span class="cl">table</span>"</span>&gt;
-    <span class="tg">...</span>
-  &lt;/table&gt;
-&lt;/div&gt;
+              &lt;div <span class="va">class="<span class="cl">table-wrap <b>table-responsive</b></span>"</span>&gt;
+                &lt;table <span class="va">class="<span class="cl">table</span>"</span>&gt;
+                  <span class="tg">...</span>
+                &lt;/table&gt;
+              &lt;/div&gt;
             </code>
           </pre> </div>
                 </div>
@@ -896,6 +963,7 @@
       </div>
       <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
+    <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/ui.js?v=1.0.0"></script>
     <script src="./static/js/datetimepicker/datetimepicker.js?v=1.0.0"></script>
     <script src="./static/js/framework.js?v=1.0.0"></script>
