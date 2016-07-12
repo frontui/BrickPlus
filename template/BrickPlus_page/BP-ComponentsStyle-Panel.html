@@ -232,24 +232,28 @@
                     <small class="fn-ml-10">表单居中的展现需要结合栅格工具</small>
                   </h4>
                   <div class="col-lg-6 col-md-10 form-center-box">
-                    <div class="form-group form-gs fn-mb-10">
+                    <div class="form-group fn-mb-10">
                       <label class="form-control-label" for="fp1">
                         <span>周期计算</span>
                         <em>：</em>
                       </label>
-                      <div class="form-control-wrap">
+                      <div class="form-gs-box">
                         <span class="form-addon">T+</span>
-                        <input type="text" class="form-control" id="fp1" placeholder="填数字">
+                        <div class="form-control-wrap">
+                          <input type="text" class="form-control" id="fp1" placeholder="填数字">
+                        </div>
                         <span class="form-addon">天</span>
                       </div>
                     </div>
-                    <div class="form-group form-gs fn-mb-10">
+                    <div class="form-group fn-mb-10">
                       <label class="form-control-label" for="fp2">
                         <span>融资协议承诺书</span>
                         <em>：</em>
                       </label>
-                      <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="fp2" placeholder="" value="http://localhost:8599/OutPut/BrickPlus_page/BP-GlobalStyle-Form.pdf" readonly>
+                      <div class="form-gs-box">
+                        <div class="form-control-wrap">
+                          <input type="text" class="form-control" id="fp2" placeholder="" value="http://localhost:8599/OutPut/BrickPlus_page/BP-GlobalStyle-Form.pdf" readonly>
+                        </div>
                         <span class="form-addon-com">
                           <label for="FormUpload1" class="uploader btn primary">
                             重新上传
@@ -324,8 +328,11 @@
               <h1 class="panel-title">Table Panel Example<small>（此处应有副标题）</small></h1>
               <div class="ph-add-ons">
                 <div class="pull-right fn-ml-10 w-250">
-                  <div class="form-group form-gs form-no-label form-small">
-                    <div class="form-control-wrap"><input type="text" class="form-control" placeholder="关键字">
+                  <div class="form-group form-no-label form-small">
+                    <div class="form-gs-box">
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" placeholder="关键字">
+                      </div>
                       <div class="form-addon-com">
                         <button type="button" class="btn primary"><i class="icon-search"></i></button>
                       </div>
@@ -490,7 +497,10 @@
                 </ul>
                 <div class="p-add-ons fn-ml-15">
                   <div class="form-group form-gs form-no-label form-small">
-                    <div class="form-control-wrap"><input type="text" class="form-control" placeholder="跳转">
+                    <div class="form-gs-box">
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" placeholder="跳转">
+                      </div>
                       <div class="form-addon child-right">页</div>
                       <div class="form-addon-com">
                         <button type="button" class="btn default">GO</button>
@@ -500,13 +510,15 @@
                 </div>
                 <div class="p-add-ons fn-ml-15">
                   <div class="form-group form-gs form-no-label form-small">
-                    <div class="form-control-wrap">
+                    <div class="form-gs-box">
                       <div class="form-addon">每页</div>
-                      <select class="form-control">
-                        <option>20</option>
-                        <option>60</option>
-                        <option>100</option>
-                      </select>
+                      <div class="form-control-wrap">
+                        <select class="form-control">
+                          <option>20</option>
+                          <option>60</option>
+                          <option>100</option>
+                        </select>
+                      </div>
                       <div class="form-addon">条</div>
                     </div>
                   </div>

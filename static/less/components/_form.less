@@ -899,11 +899,8 @@ select[size].form-control {
   font-size: 0;
 }
 
-.form-gs {
-
-  .form-control-wrap {
-    display: table;
-  }
+.form-gs-box {
+  display: table;
 
   .form-control-dropdown {
     display: table-cell;
@@ -991,9 +988,30 @@ select[size].form-control {
     }
   }
 
-  .form-control {
+  .form-control-wrap {
     display: table-cell;
     vertical-align: top;
+
+    .form-control {
+      .rounded(0);
+    }
+
+    &:first-child {
+
+      .form-control {
+        .border-radius(@borderRadius-formControl, 0, 0, @borderRadius-formControl);
+      }
+    }
+
+    &:last-child {
+
+      .form-control {
+        .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
+      }
+    }
+  }
+
+  /*.form-control {
     .rounded(0);
 
     &:first-child {
@@ -1003,7 +1021,7 @@ select[size].form-control {
     &:last-child {
       .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
     }
-  }
+  }*/
 
   .form-addon {
     display: table-cell;
