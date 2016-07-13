@@ -904,6 +904,9 @@ ol.example-description {
 // ******************
 .sim-body {
   position: relative;
+  overflow: hidden;
+  border: 1px solid @borderColor-default;
+  .rounded(@borderRadius-wrap-modal);
 
   > .sim-body-main {
     height: 400px;
@@ -913,12 +916,14 @@ ol.example-description {
     outline: none;
     border: none;
     .rounded(@borderRadius-wrap-modal);
-
   }
 
   > .modal-background {
     position: absolute;
-    .rounded(@borderRadius-wrap-modal);
+  }
+
+  > .page-spinner {
+    position: absolute;
   }
 
   > .alert-fixed-wrap {

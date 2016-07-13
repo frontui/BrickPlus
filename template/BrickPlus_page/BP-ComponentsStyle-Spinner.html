@@ -19,7 +19,6 @@
 
 {# 加载页面 body 设置，例如引用‘类’ #}
 {% block bodyClass %}
-class="page-spinner-open <!--modal-open-->"
 {% endblock %}
 
 
@@ -34,15 +33,6 @@ class="page-spinner-open <!--modal-open-->"
 
 {# 加载页面内容 #}
 {% block content %}
-{# 渲染标签页 #}
-{{
-  tab.prototype(
-    tabs = [
-      {text: '结构和样式', url: '#tp1'}
-    ],
-    cur='1'
-  )
-}}
 <div class="tabs-content">
   <div class="tabs-panel active" id="tp1">
     <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
@@ -84,28 +74,44 @@ class="page-spinner-open <!--modal-open-->"
       <h2 id="SpinnerInWrap">页面的加载动画</h2>
       <ul class="example-description">
         <li>
-          ...
+          当页面加载动画出现时，<code>&lt;body&gt;</code> 将添加类 <code>.page-spinner-open</code> 这个类。
+        </li>
+        <li>
+          将页面加载动画的 HTML 代码放在文档的最高层级内（也就是说，尽量作为 <code>&lt;body&gt;</code> 的直接子元素）。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
+          <div class="sim-body">
+            <div class="sim-body-main"></div>
+            <div class="page-spinner">
+              <div class="spinner-layer">
+                <div class="spinner">
+                  <span class="six"></span>
+                  <span class="five"></span>
+                  <span class="four"></span>
+                  <span class="three"></span>
+                  <span class="two"></span>
+                  <span class="one"></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel</b></span>"</span>&gt;
-  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-heading</b></span>"</span>&gt;
-    &lt;<b>h1</b> <span class="va">class="<span class="cl"><b>panel-title</b></span>"</span>&gt;<span
-              class="tg">...</span>&lt;/<b>h1</b>&gt;
-    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>ph-add-ons</b></span>"</span>&gt;<span
-              class="tg">...</span>&lt;/<b>div</b>&gt;
-  &lt;/<b>div</b>&gt;
-  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-body</b></span>"</span>&gt;
-    <span class="tg">...</span>
-  &lt;/<b>div</b>&gt;
-  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-footer</b></span>"</span>&gt;
-    <span class="tg">...</span>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>page-spinner</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>spinner-layer</b></span>"</span>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>spinner</b></span>"</span>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>one</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>two</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>three</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>four</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>five</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>six</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+    &lt;/<b>div</b>&gt;
   &lt;/<b>div</b>&gt;
 &lt;/<b>div</b>&gt;
             </code>
@@ -120,30 +126,15 @@ class="page-spinner-open <!--modal-open-->"
 
 {# 加载弹窗内容 #}
 {% block modal %}
-<div class="page-spinner">
+<!--<div class="page-spinner">
   <div class="spinner-layer">
     <div class="spinner">
-      123
-    </div>
-  </div>
-</div>
-<!--<div class="modal-background" id="myModal" role="dialog">
-  <div class="modal-layer">
-    <div class="modal-position">
-      <div class="modal-wrap animated bounceInDown">
-        <div class="modal-head">
-          modal
-          <i class="modal-close" title="关闭"></i>
-        </div>
-        <div class="modal-body">
-          &lt;!&ndash;模态窗口高度不限&ndash;&gt;
-          <div class="text-align-right plural-btns fn-pt-30">
-            <a href="###" class="btn links">链接</a>
-            <button type="button" class="btn default">取消</button>
-            <button type="button" class="btn primary">确认</button>
-          </div>
-        </div>
-      </div>
+      <span class="six"></span>
+      <span class="five"></span>
+      <span class="four"></span>
+      <span class="three"></span>
+      <span class="two"></span>
+      <span class="one"></span>
     </div>
   </div>
 </div>-->

@@ -3,25 +3,6 @@
 // ******************
 
 //按钮中的加载动画
-  //尺寸
-    //默认
-    @size-btn-spinner: 16px;
-    @borderWidth-btn-spinner: 2px;
-    //in smaller btn
-    @size-smaller-btn-spinner: 10px;
-  //色调
-    //默认
-    @borderColor1-default-spinner-addon: rgba(0,0,0,0.1);
-    @borderColor2-default-spinner-addon: rgba(0,0,0,0.4);
-
-//页面中的加载动画
-  //Z 轴排序
-  @zIndex-backGround-spinner: 10000;
-  //尺寸
-  //色调
-  @bgColor-page-spinner: rgba(255,255,255,0.1);
-
-//按钮中的加载动画
 .btn-spinner-anim() {
   .animation-s(btn-spinner,0.45s,linear,0,infinite,normal,running,both);
 }
@@ -60,6 +41,48 @@
 }
 
 //页面中的加载动画
+.page-spinner-anim() {
+  .animation-s(page-spinner,4.6s,linear,0,infinite,normal,running,both);
+}
+
+& {
+  .keyframes(page-spinner);
+
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translateX(-50px);
+      @{-}opacity: 0;
+      background-color: @pointColor3-page-spinner;
+    }
+    40% {
+      @{-}transform: translateX(-50px);
+      @{-}opacity: 0;
+    }
+    50% {
+      @{-}transform: translateX(-15px);
+    }
+    60% {
+      @{-}opacity: 1;
+      background-color: @pointColor1-page-spinner;
+    }
+    70% {
+      @{-}transform: translateX(0);
+    }
+    80% {
+      @{-}opacity: 1;
+    }
+    90% {
+      @{-}transform: translateX(15px);
+    }
+    100% {
+      @{-}transform: translateX(50px);
+      @{-}opacity: 0;
+      background-color: @pointColor2-page-spinner;
+    }
+  }
+}
+
+
 .page-spinner {
   position: fixed;
   top: 0;
@@ -82,13 +105,52 @@
   vertical-align: middle;
   width: 100%;
   text-align: center;
+  font-size: 0;
+  line-height: 0;
+
+  > span {
+    content: '';
+    .inline-block();
+    .square(@sizePoint-page-pinner);
+    background-color: @pointColor1-page-spinner;
+    .rounded(50%);
+    margin: 0 5px;
+    .page-spinner-anim();
+
+    &.two {
+      .animation-delay(0.25s);
+    }
+
+    &.three {
+      .animation-delay(0.5s);
+    }
+
+    &.four {
+      .animation-delay(0.75s);
+    }
+
+    &.five {
+      .animation-delay(1s);
+    }
+
+    &.six {
+      .animation-delay(1.25s);
+    }
+
+    @media (max-width: 1024px) {
+
+      &.six {
+        display: none;
+      }
+    }
+  }
 }
 
 .page-spinner-open {
   overflow: hidden;
 
   > .main {
-    filter: blur(7px) contrast(0.4) brightness(1.4);
+    filter: blur(14px) contrast(0.4) brightness(1.4);
     outline: none;
     border: none;
   }
