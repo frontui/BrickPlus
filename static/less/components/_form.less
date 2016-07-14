@@ -306,7 +306,7 @@ select[size].form-control {
     text-align: center;
     .square(@lineHeight-formControl);
     .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
-    .form-notice-icon-font-family();
+    .icon-font-family();
     .transition(all, 0.3s, ease, 0);
     content: @content-icon-formControlModaOps;
     line-height: @lineHeight-formControl;
@@ -367,7 +367,7 @@ select[size].form-control {
   .transition(all, 0.3s, ease, 0);
 
   > i {
-    .form-notice-icon-font-family(); //报错了，但起效
+    .icon-font-family(); //报错了，但起效
   }
 }
 
@@ -504,7 +504,7 @@ select[size].form-control {
     top: 6px;
     left: 9px;
     font-size: @fontSize-larger;
-    .form-notice-icon-font-family(); //报错了，但起效
+    .icon-font-family(); //报错了，但起效
     .inline-block();
   }
 
