@@ -41,7 +41,10 @@ module.exports = function(entries, output) {
   // 返回webpack.config
   return {
     watch: !(NODE_ENV === 'production'),
-    entry: entryFiles,
+    //entry: entryFiles,
+    entry: {
+      datetimepicker: './src/datetimepicker.js'
+    },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
       filename: '[name].js',

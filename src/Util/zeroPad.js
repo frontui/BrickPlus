@@ -5,5 +5,5 @@
  */
 
 module.exports = function(number) {
-  return number > 10 ? d : '0' + d;
+  return number > 9 ? number : '0' + number;
 }

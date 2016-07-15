@@ -251,6 +251,10 @@ set tabs = [
         <div class="example-code">
                 <pre>
 <code>
+&lt;!--
+  data-toggle="checkAll" 全局绑定checkAll全选插件
+  data-target="#j-checkall-demo1 :checkbox" 目标操作的多选项选择器
+--&gt;
 &lt;input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox"&gt;
 </code>
                   <br>
@@ -664,11 +668,13 @@ set tabs = [
         </div>
         <div class="example-code">
                 <pre><code>
+// checked.ui.checkAll 已全选触发事件
 $('#j-event-1').on('checked.ui.checkAll', function(){
   alert($(this).prop('checked') ? '全选' : '取消全选')
 })
                             </code></pre>
                             <pre><code>
+// 已反选触发事件
 $('#j-event-2').on('reversed.ui.checkAll', function(){
   alert('反选')
 })
