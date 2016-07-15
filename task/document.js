@@ -40,7 +40,7 @@ function docTask(banner) {
 
   gulp.task('doc:copy', function() {
     //return gulp.src([staticPath+'/iconfont/**/**', staticPath+'/iconfont-ie7/**/**', staticPath+'/images/**/**', staticPath+'/js/*.js', staticPath+'/images/**/**', staticPath+'/js/perfect-scrollbar/**/**'], { base: '.'})
-    return gulp.src([staticPath+'/fonticon/{fonts,ie7}/**/**', staticPath+'/images/**/**', staticPath+'/js/*.js', staticPath+'/images/**/**', staticPath+'/js/perfect-scrollbar/**/**'], { base: '.'})
+    return gulp.src([staticPath+'/{fonts,ie7}/**/**', staticPath+'/images/**/**', staticPath+'/js/*.js', staticPath+'/images/**/**', staticPath+'/js/perfect-scrollbar/**/**'], { base: '.'})
             .pipe(gulp.dest(dest))
   })
 

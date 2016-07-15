@@ -306,7 +306,7 @@ select[size].form-control {
     text-align: center;
     .square(@lineHeight-formControl);
     .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
-    .form-notice-icon-font-family();
+    .icon-font-family();
     .transition(all, 0.3s, ease, 0);
     content: @content-icon-formControlModaOps;
     line-height: @lineHeight-formControl;
@@ -367,7 +367,7 @@ select[size].form-control {
   .transition(all, 0.3s, ease, 0);
 
   > i {
-    .form-notice-icon-font-family(); //报错了，但起效
+    .icon-font-family(); //报错了，但起效
   }
 }
 
@@ -504,7 +504,7 @@ select[size].form-control {
     top: 6px;
     left: 9px;
     font-size: @fontSize-larger;
-    .form-notice-icon-font-family(); //报错了，但起效
+    .icon-font-family(); //报错了，但起效
     .inline-block();
   }
 
@@ -869,6 +869,7 @@ select[size].form-control {
   font-size: @fontSize-formControl;
   .rounded(@borderRadius-formControl);
   margin-top: 10px;
+  text-align: left;
 }
 
 // ******************
@@ -898,11 +899,8 @@ select[size].form-control {
   font-size: 0;
 }
 
-.form-gs {
-
-  .form-control-wrap {
-    display: table;
-  }
+.form-gs-box {
+  display: table;
 
   .form-control-dropdown {
     display: table-cell;
@@ -990,9 +988,30 @@ select[size].form-control {
     }
   }
 
-  .form-control {
+  .form-control-wrap {
     display: table-cell;
     vertical-align: top;
+
+    .form-control {
+      .rounded(0);
+    }
+
+    &:first-child {
+
+      .form-control {
+        .border-radius(@borderRadius-formControl, 0, 0, @borderRadius-formControl);
+      }
+    }
+
+    &:last-child {
+
+      .form-control {
+        .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
+      }
+    }
+  }
+
+  /*.form-control {
     .rounded(0);
 
     &:first-child {
@@ -1002,7 +1021,7 @@ select[size].form-control {
     &:last-child {
       .border-radius(0, @borderRadius-formControl, @borderRadius-formControl, 0);
     }
-  }
+  }*/
 
   .form-addon {
     display: table-cell;
@@ -1804,6 +1823,32 @@ select[size].form-control {
     .form-control-label {
       width: auto;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-group{
+    padding-left: 0 !important;
+
+    .form-control-label {
+      position: relative;
+      display: block;
+      text-align: left;
+      padding-left: @paddingLR-default-fromControl + @borderWidth-formControl;
+      width: auto;
+
+      > span {
+        max-width: 95%;
+      }
+
+      > b {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-right: 0;
+      }
+    }
+
   }
 }
 

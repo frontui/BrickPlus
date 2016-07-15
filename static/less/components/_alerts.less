@@ -16,7 +16,7 @@
   &:before,
   > em {
     position: absolute;
-    .form-notice-icon-font-family();
+    .icon-font-family();
     font-size: @fontSize-larger;
     .transition(all, 0.3s, ease, 0);
   }
@@ -143,6 +143,17 @@
       &:after {
         content: @icon-close-alert;
       }
+    }
+  }
+
+  &.alert-dismissible-text {
+    padding-right: 100px;
+
+    > em {
+      font-size: @fontSize-smallest;
+      .link-standard();
+      line-height: @line-height-base;
+      font-family: "Microsoft YaHei",sans-serif !important;
     }
   }
 
