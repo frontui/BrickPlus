@@ -3,8 +3,270 @@
 * @Site：http://sentsin.com/layui/laydate
 */
 
+@date-picker-color: @domColor1;
+@date-picker-color-orange: @domColor5;
+@date-picker-color-blue: @domColor1;
+@date-picker-color-green: @domColor2;
+@date-picker-color-red: @domColor3;
+
+@date-picker-borderColor: #e1e1e1;
+
+.datetimepicker(@color, @borderColor) {
+  border: 1px solid @borderColor;
+  background: #fff;
+  border-radius: 2px;
+  text-align: left;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 1000;
+  cursor: default;
+
+  box-shadow: 1px 1px 5px rgba(0,0,0,.15);
+
+  // &.active {
+  //   border-color: @color;
+  // }
+
+  //--- header
+  &-header {
+    border-bottom: 1px solid lighten(@borderColor, 2%);
+    padding: 6px 8px;
+    height: 42px;
+
+    > button {
+      display: inline-block;
+      margin: 2px 5px 0 0;
+      vertical-align: top;
+      color: #333;
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      outline: 0 none;
+      padding: 3px 12px;
+      text-align: center;
+
+      &:hover,&.active {
+        background: @color;
+        color: #fff;
+        border-color: darken(@color, 10%);
+      }
+    }
+  }
+
+  //--- body
+  &-body {
+    position: relative;
+    padding-bottom: 11px;
+    > table {
+      float: left;
+      margin: 0 8px;
+      padding: 4px;
+      border-spacing: 0 7px;
+      border-collapse: collapse;
+
+      > caption {
+        height: 35px;
+        line-height: 35px;
+        font-weight: 700;
+        font-size: 14px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        white-space: nowrap;
+        min-width: 32px;
+      }
+
+      thead {
+        tr {
+          border: 1px solid @borderColor;
+          background: #f7f8fa;
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+
+          > th {
+            padding: 5px 10px;
+            height: 20px;
+            line-height: 20px;
+            color: #444;
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      td {
+        padding: 5px 11px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 4px;
+        color: #333;
+        text-align: center;
+
+        transition: all .3s;
+
+        &.disabled {
+          color: #bbb;
+          cursor: default;
+        }
+
+        &.today {
+          font-weight: bold;
+          color: @color;
+        }
+
+        &.selected {
+          background: #EEE;
+        }
+
+        &.active {
+          background: @color;
+          color: #fff;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  // 上一个月
+  &-prev-month,
+  &-next-month {
+    position: absolute;
+    top: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+      color: @color;
+    }
+  }
+
+  &-prev-month {
+    left: 10px;
+  }
+
+  &-next-month {
+    right: 10px;
+  }
+
+  //--- footer
+  &-footer {
+    border-top: 1px solid lighten(@borderColor, 2%);
+    padding: 6px 8px;
+    height: 42px;
+  }
+
+  &-msg {
+    float: left;
+
+    .form-control {
+      display: inline-block;
+      padding: 0 7px;
+      vertical-align: middle;
+      width: 90px;
+      height: 28px;
+      transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    }
+  }
+
+  &-btns {
+    float: right;
+
+    > .btn {
+      margin-left: 5px;
+    }
+  }
+
+  // 下拉框
+  &-dropdown {
+    display: inline-block;
+    margin: 0 5px;
+    position: relative;
+    vertical-align: top;
+    cursor: pointer;
+
+    i {
+      margin: 0 5px;
+      vertical-align: middle;
+      font-size: 12px;
+      .opacity(.5);
+    }
+
+    &.active {
+      color: @color;
+
+      > ul {
+        display: block;
+      }
+
+      i {
+        .opacity(1);
+      }
+    }
+
+    > ul {
+      display: none;
+      position: absolute;
+      top: 32px;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      border: 1px solid @borderColor;
+      border-radius: 0 0 4px 4px;
+      background: #fff;
+      max-height: 180px;
+      overflow-y: auto;
+      list-style: none;
+      white-space: nowrap;
+      color: #666;
+
+      > li {
+        text-align: center;
+        padding: 0 30px 0 20px;
+        cursor: pointer;
+
+        &.active,
+        &.active:hover {
+          background: lighten(@color, 10);
+          color: #fff;
+        }
+
+        &:hover {
+          background: #eee;
+        }
+      }
+    }
+  }
+
+  .datetimepicker-hook();
+}
+
+// 日历选择
+.datetimepicker {
+  .datetimepicker(@date-picker-color, @date-picker-borderColor);
+}
+
+// 钩子函数
+.datetimepicker-hook() {}
 
 
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+/*
 //@import "_config";          //项目样式设定项
 //@import "_mix";             //项目样式工具
 
@@ -654,4 +916,4 @@
     }
 }
 
-
+*/
