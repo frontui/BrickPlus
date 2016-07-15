@@ -69,7 +69,7 @@
     //line-height: @lineHeight-head-modal;
     font-size: @fontSize-large;
     background-color: @bgColor-head-modal;
-    padding: @padding-head-modal;
+    padding: @paddingTB-head-modal @paddingLR-head-modal @paddingTB-head-modal @paddingLR-head-modal;
     .border-radius(@borderRadius-wrap-modal,@borderRadius-wrap-modal,0,0);
     .clearfix();
 
@@ -95,7 +95,7 @@
 }
 
 .modal-body {
-    padding: @padding-body-modal;
+    padding: 0 @paddingLR-body-modal @paddingTB-body-modal @paddingLR-body-modal;
     background-color: @bgColor-body-modal;
     .border-radius(0,0,@borderRadius-wrap-modal,@borderRadius-wrap-modal);
 }
