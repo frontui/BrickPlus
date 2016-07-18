@@ -25,10 +25,9 @@ function getEntries(folder) {
 }
 
 module.exports = {
-    watch: !(NODE_ENV === 'production'),
+    //watch: !(NODE_ENV === 'production'),
     entry: {
-      checkAll: path.resolve('./src', 'checkAll.js'),
-      tab: path.resolve('./src', 'tab.js')
+      datetimepicker: path.resolve(__dirname, './src/test.js')
     },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
@@ -42,24 +41,29 @@ module.exports = {
           test: /\.js$/,
           loader: 'babel',
           query: {
-            presets: ['es2015', 'stage-0']
+            presets: ['es2015']
           },
-          exclude: /node_modules/
+          exclude: /(node_modules|bower_components)/,
         }
       ]
     },
     resolve: {
+      alias: {
+        jquery: 'bower_components/jquery/dist/jquery.min.js',
+        zeroPad: './src/Util/zeroPad.js'
+      },
       extensions: ['', '.js'],
       root: [path.join(__dirname, 'src')]
     },
     externals: [
       {
-        jquery: {
-          root: 'jQuery',
-          commonjs2: 'jquery',
-          commonjs: 'jquery',
-          amd: 'jquery'
-        }
+        // jquery: {
+        //   root: 'jQuery',
+        //   commonjs2: 'jquery',
+        //   commonjs: 'jquery',
+        //   amd: 'jquery'
+        // }
+        jquery: true
       }
     ]
   }

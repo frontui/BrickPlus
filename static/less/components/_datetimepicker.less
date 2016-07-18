@@ -99,7 +99,7 @@
         width: 20px;
         height: 20px;
         line-height: 20px;
-        border-radius: 4px;
+        // border-radius: 4px;
         color: #333;
         text-align: center;
 
@@ -116,13 +116,30 @@
         }
 
         &.selected {
-          background: #EEE;
+          background: #eee;
         }
 
         &.active {
           background: @color;
           color: #fff;
           border-radius: 4px;
+        }
+
+        &.first {
+          background: darken(#eee, 20%);
+          color: #fff;
+
+          border-radius: 4px 0 0 4px;
+
+          &.last {
+            border-radius: 4px;
+          }
+        }
+
+        &.last {
+          background: darken(#eee, 20%);
+          color: #fff;
+          border-radius: 0 4px 4px 0;
         }
       }
     }
@@ -167,6 +184,7 @@
       vertical-align: middle;
       width: 90px;
       height: 28px;
+      border-color: ~"#bfbfbf!important";
       transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
     }
   }
@@ -239,6 +257,8 @@
       }
     }
   }
+
+
 
   .datetimepicker-hook();
 }
