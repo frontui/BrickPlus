@@ -76,5 +76,5 @@ $(function (){
     $tabTemplate.on('show.ui.tab', function(e) {
       loadContent(e.target)
     })
-    loadContent($tabTemplate.eq(9))
+    loadContent($tabTemplate.eq(0))
 });
