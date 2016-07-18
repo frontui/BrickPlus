@@ -174,14 +174,19 @@ DateTimePikcer.prototype.setValue = function(ymd, end, newDate) {
 
     this.$el.val([ymd, this.options.defaultText, end].join(''));
     this.endDate = end;
+
+
+    this.$end.val(end);
   } else { // 单选日期
     this.$el.val(ymd);
+    this.$end.val(ymd);
     this.endDate = ymd;
   }
 
   // 开始&结束文本框的日期
   this.$start.val(ymd);
-  this.$end.val(end ? end : ymd);
+
+
 }
 
 /**
@@ -239,8 +244,9 @@ DateTimePikcer.prototype.__addCss = function() {
 
   // 重置所有样式
   this.$body.find('td').removeClass('selected first last active');
-
+// console.log(start, end)
   for(var d = startDate; d.getTime() <= endDate.getTime(); d.setDate(d.getDate() + 1)) {
+    // console.log(date2ymd(d))
     $('#'+ uuid + date2ymd(d)).addClass(cls)
   }
 
@@ -253,11 +259,14 @@ DateTimePikcer.prototype.__addCss = function() {
 
 DateTimePikcer.prototype.__setPosition = function() {
   var offset = this.$el.offset(),
+      scrollTop = $(window).scrollTop(),
       winHeight = $(window).height(),
       elHeight = this.$el.outerHeight(),
       caHeight = this.$calendar[0].offsetHeight;
 
-  if(offset.top + caHeight >= winHeight) { // 在上方
+  if(offset.top - scrollTop - caHeight < 0) {
+    this.$calendar.css('top', elHeight + 'px');
+  } else if(offset.top - scrollTop + caHeight >= winHeight) { // 在上方
     this.$calendar.css('top', -caHeight + 'px');
   } else { // 默认下方
     this.$calendar.css('top', elHeight + 'px');
