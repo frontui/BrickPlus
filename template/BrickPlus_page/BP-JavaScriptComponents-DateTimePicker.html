@@ -39,7 +39,8 @@ set tabs = [
   {text: '概述', url: '#tp1'},
   {text: '配置项', url: '#tp2'},
   {text: '限制日期', url: '#tp3'},
-  {text: '日期区间', url: '#tp4'}
+  {text: '日期区间', url: '#tp4'},
+  {text: '事件监听', url: '#tp5'}
 ]
 %}
 {# 渲染标签页 #}
@@ -49,7 +50,7 @@ set tabs = [
     <section class="example-wrap fn-mb-20">
       <ul class="example-description">
         <li>
-          日历控件提供了两种模式：单选日期和区间日期
+          日历控件提供了两种模式：单选日期和区间日期。大多数日历选择框需将文本框设置为<code>readonly</code>属性，不提供用户自行修改日期，保证输入框日期格式正确完整。
         </li>
         <li>
           单选日期类似之前的日历控件，用户点击某日期则选择该日期。
@@ -87,31 +88,55 @@ set tabs = [
           </div>
           <div class="form-group">
             <label class="form-control-label">
-              <span>对比日期</span>
+              <span>日期区间</span>
               <em>：</em>
             </label>
             <div class="form-control-wrap">
               <div class="form-control-date">
                 <span class="form-control-date-btn"><i></i></span>
-                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{isCompare: true}"  class="form-control">
+                <input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control">
               </div>
             </div>
           </div>
         </div>
         <div class="example-code">
-          <pre>
-            <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
-  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
-    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
-      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
-        <span class="tg">...</span>
-      &lt;/<b>a</b>&gt;
-    &lt;/<b>li</b>&gt;
-  &lt;/<b>ul</b>&gt;
-&lt;/<b>div</b>&gt;
-            </code>
-          </pre>
+          <pre><code>&lt;div class="form-group fn-mb-20"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;默认双日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12" readonly data-toggle="datetimepicker"  class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group fn-mb-20"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;单个日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{calendars: 1}" class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;对比日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
         </div>
       </div>
     </section>
@@ -187,10 +212,22 @@ set tabs = [
               </thead>
               <tbody>
                 <tr>
-                  <td>isCompare</td>
-                  <td>是否进行对比，设置为区间日期</td>
+                  <td>period</td>
+                  <td>设置为区间日期</td>
                   <td>Boolean</td>
                   <td>false</td>
+                </tr>
+                <tr>
+                  <td>names</td>
+                  <td>设置为区间日期的开始时间和结束时间的name属性，当period为true时必须配置此属性。其中数组第一项为开始时间的 name，第二项为结束时间的 name 属性，其他忽略</td>
+                  <td>Array</td>
+                  <td>[]</td>
+                </tr>
+                <tr>
+                  <td>dayRangeMax</td>
+                  <td>设置日期区间最大的跨度天数，超出此数会提示并设置日期为今天。</td>
+                  <td>Number</td>
+                  <td>366</td>
                 </tr>
                 <tr>
                   <td>defaultText</td>
@@ -461,7 +498,96 @@ $('[data-toggle="setOption"]').on('click', function() {
     </section>
   </div>
   <div class="tabs-panel" id="tp4">
+    <ul class="example-description">
+        <li>
+          日期区间是为了方便我们快速的选择一段时间，比如2天内，一星期内，两星期内抑或30天内。
+        </li>
+        <li>
+          启用日期区间模式必须设置<code>{period: true, names: ['start_time', 'end_time']}</code>两个属性。
+        </li>
+        <li>
+          日期区间提供快速选择范围的快捷按钮。
+        </li>
+        <li>
+          自主选择区间，如果不点击确定按钮在开始和结束日期不一样（一段时间范围区间）时则重新开始选择日期。
+        </li>
+        <li>
+          日期选择文本框可以赋值，支持<code>'yyyy-mm-dd'</code>,<code>'yyyy-mm-dd 至 yyyy-mm-dd'</code>之类样式，无法识别则使用当天日期
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>日期区间</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time'], calendars: 1}"  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>日期区间</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>
+    &lt;div class="form-group"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;对比日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+      </div>
+  </div>
+  <div class="tabs-panel" id="tp5">
+    <ul class="example-description">
+        <li>
+          日历选择器提供了相应的 jQuery 显示<code>show.ui.datetimepicker</code>，隐藏<code>hide.ui.datetimepicker</code>，选择<code>choose.ui.datetimepicker</code>事件。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-code">
+          <pre><code>
+// 带返回参数
+// date 为开始日期，单选日期为选择日期
+// end 日期区间模式时，返回结束日期
+$('[data-toggle]').on('choose.ui.datetimepicker', function(e, date, end) {
+  console.log(date, end)
+  console.log($(this).val())
+})
 
+$('[data-toggle]').on('show.ui.datetimepicker', function(e, date) {
+  console.log('show')
+})
+
+$('[data-toggle]').on('hide.ui.datetimepicker', function(e, date) {
+  console.log('hide')
+})
+</code></pre>
+        </div>
+      </div>
   </div>
 </div>
 {% endblock %}
@@ -482,9 +608,17 @@ $('[data-toggle="setOption"]').on('click', function() {
 {% block jsPage %}
 <script>
 $(function() {
-  $('[data-toggle]').on('choose.ui.datetimepicker', function(e, date) {
-    console.log(date)
+  $('[data-toggle]').on('choose.ui.datetimepicker', function(e, date, end) {
+    console.log(date, end)
     console.log($(this).val())
+  })
+
+  $('[data-toggle]').on('show.ui.datetimepicker', function(e, date) {
+    console.log('show')
+  })
+
+  $('[data-toggle]').on('hide.ui.datetimepicker', function(e, date) {
+    console.log('hide')
   })
 
   // demo 3

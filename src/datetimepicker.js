@@ -42,6 +42,15 @@ function DateTimePikcer(element, options) {
  * @param
  */
 DateTimePikcer.prototype.init = function() {
+
+  //昨天,今天,最近7天,最近14天,最近30天
+  this.periodObj = {};
+  this.periodObj['today'] = 0;
+  this.periodObj['yesterday'] = 1;
+  this.periodObj['aRecent7Days'] = 6;
+  this.periodObj['aRecent14Days'] = 13;
+  this.periodObj['aRecent30Days'] = 29;
+
   //--- 渲染模板
   this.render();
 
@@ -73,11 +82,24 @@ DateTimePikcer.prototype.init = function() {
 
   // 配置是否显示
   // 无比较时隐藏头部，底部
-  if(!this.options.isCompare) this.$header.hide() && this.$footer.hide();
+  if(!this.options.period) this.$header.hide() && this.$footer.hide();
 
   //--- 赋值初始化
   this.__setDefaultValue();
 
+  // --- 开始&结束日期的name属性
+  var k = 0,
+      names = this.options.names,
+      nameLen = names.length > 2 ? 2 : names.length;
+  for(; k < 2; k++) {
+    this[k === 0 ? '$start' : '$end'].prop('name', names[k])
+  }
+
+  //--- 一个日历的区间选择
+  if(this.options.calendars === 1 && this.options.period) {
+    this.$cancelBtn.hide();
+    this.periodBtns.eq(1).hide();
+  }
 
   // 渲染日历
   // show的时候才渲染
@@ -92,32 +114,74 @@ DateTimePikcer.prototype.init = function() {
  * @return {[type]} [description]
  */
 DateTimePikcer.prototype.__setDefaultValue = function() {
-  var __selfValue = this.formatDate($.trim(this.$el.val()));
+  var __self = this;
+  var inputValue = $.trim(__self.$el.val());
+  var __selfValue, dates = [], __endValue = '';
+
   // 为空的时候默认选上今天日期
-  if(__selfValue === '') {
-    __selfValue = this.date2ymd(new Date())
+  if(inputValue === '') {
+
+    __selfValue = __endValue = __self.date2ymd(new Date())
+
+  } else if(inputValue.indexOf(__self.options.defaultText) > -1){ // 对比
+    // 按 defaultText 拆分开始和结束日期
+    dates = inputValue.split(__self.options.defaultText);
+
+    if(dates.length === 2) { // 为 xxxx-xx-xx 至 oooo-oo-oo格式
+      if(__self.compareStrDate(dates[0], dates[1]) < 0) { // 比较开始和结束时间
+        __selfValue = __self.formatDate(dates[0]);
+        __endValue = __self.formatDate(dates[1]);
+      } else { // 交换开始结束时间位置
+        __selfValue = __self.formatDate(dates[1]);
+        __endValue = __self.formatDate(dates[0]);
+      }
+    } else {  // 开始结束日期相同
+      __selfValue = __endValue = __self.formatDate(dates[0]);
+    }
+
+  } else { // 单选
+
+    __selfValue = __endValue = __self.formatDate($.trim(__self.$el.val()));
+
   }
 
-  this.setValue(__selfValue);
-  this.$el.val(__selfValue);
-  // 默认初始化
-  this.endDate = __selfValue;
+
+  // 重新设定默认值
+  __self.setValue(__selfValue, __endValue);
 }
 
-DateTimePikcer.prototype.setValue = function(ymd, type) {
-  if(this.options.isCompare) { // 对比多选
-    if(type === 1) { // 设置结束时间
-      this.$end.val(ymd);
-      //this.endDate= ymd;
-    } else { // 开始时间
-      this.$start.val(ymd);
-      //this.startDate = ymd;
+DateTimePikcer.prototype.setValue = function(ymd, end, newDate) {
+
+  // 区间日期
+  if(this.options.period) {
+    if(!!newDate) { // 选择日期非快捷日期
+      // 之前已选了范围
+      // 再选择则为重新开始选择日期
+      if(ymd !== end) {
+        ymd = end = newDate;
+      }
+
+
+      // if else if 减少比较操作
+      // 新选的日期比之前开始日期小，则开始时间为最新选中时间
+      if(this.compareStrDate(newDate, ymd) < 0) {
+        ymd = newDate;
+      }else if(this.compareStrDate(end, newDate) < 0) { // 新选的日期比之前结束时间大，则结束时间应为最新选中时间
+        end = newDate;
+      }
+
     }
-  } else { // 单选
-    this.$start.val(ymd);
-    this.$end.val(ymd);
-    //this.startDate = this.endDate = ymd;
+
+    this.$el.val([ymd, this.options.defaultText, end].join(''));
+    this.endDate = end;
+  } else { // 单选日期
+    this.$el.val(ymd);
+    this.endDate = ymd;
   }
+
+  // 开始&结束文本框的日期
+  this.$start.val(ymd);
+  this.$end.val(end ? end : ymd);
 }
 
 /**
@@ -165,14 +229,25 @@ DateTimePikcer.prototype.renderCalendar = function() {
  * 已选日期添加样式
  */
 DateTimePikcer.prototype.__addCss = function() {
-  var startDate = this.str2date(this.$start.val()),
-      endDate   = this.str2date(this.$end.val()),
+  var start = this.$start.val(),
+      end = this.$end.val(),
+      startDate = this.str2date(start),
+      endDate   = this.str2date(end),
       date2ymd = this.date2ymd,
       uuid = this.uuid,
-      cls = this.options.isCompare ? 'selected' : 'active';
+      cls = this.options.period ? 'selected' : 'active';
+
+  // 重置所有样式
+  this.$body.find('td').removeClass('selected first last active');
 
   for(var d = startDate; d.getTime() <= endDate.getTime(); d.setDate(d.getDate() + 1)) {
     $('#'+ uuid + date2ymd(d)).addClass(cls)
+  }
+
+  // 区间日期
+  if(this.options.period) {
+    $('#'+ uuid + start).addClass('first');
+    $('#'+ uuid + end).addClass('last');
   }
 }
 
@@ -192,8 +267,13 @@ DateTimePikcer.prototype.__setPosition = function() {
 DateTimePikcer.prototype.__listenEvent = function() {
   var __self = this;
 
+  this.$el.on('focus', $.proxy(this.show, this))
+
   // 取消
   this.$cancelBtn.on('click', $.proxy(this.close, this))
+
+  // 确定
+  this.$confirmBtn.on('click', $.proxy(this.confirmSelect, this))
 
   // 阻止冒泡，不关闭日历
   this.$calendar.on('click', function(e) { e.stopPropagation(); return false; })
@@ -209,6 +289,13 @@ DateTimePikcer.prototype.__listenEvent = function() {
     __self.activeDate(this);
     __self.selectDate($(this).attr('data-date'));
   });
+
+  // 选择特殊日期7,14,30
+  this.$calendar.on('click', '[data-day]', function() {
+    __self.selectPeriod($(this))
+    __self.selectDate();
+    __self.__togglePeriodBtn($(this))
+  })
 
   // 上一个
   this.$calendar.on('click', '[data-action="prevMonth"]', function() {
@@ -243,6 +330,35 @@ DateTimePikcer.prototype.__listenEvent = function() {
 }
 
 /**
+ * 选择特殊日期期间，快捷键
+ * @param  {[type]} el [description]
+ * @return {[type]}    [description]
+ */
+DateTimePikcer.prototype.selectPeriod = function(el) {
+  var elPeriod = $(el),
+      days = elPeriod.attr('data-day'),
+      date;
+
+  days = this.periodObj[days],
+  date = this.getSpecialPeriod(days);
+
+  // 给文本框赋值
+  this.$end.val(date.today);
+  this.$start.val(date.otherday);
+  this.endDate = date.today;
+}
+
+/**
+ * 按钮点击后加上激活样式
+ * @param  {element} el 当前点击按钮，为空时取出所有高亮
+ * @return {[type]}    [description]
+ */
+DateTimePikcer.prototype.__togglePeriodBtn = function(el) {
+  this.periodBtns.removeClass('active');
+  el && $(el).addClass('active');
+}
+
+/**
  * @description 计算今天，昨天，最近7天，最近30天返回的时间范围
  * @param {Num} period 快捷选择的时间段，今天、昨天、最近7天、最近30天
  */
@@ -250,11 +366,11 @@ DateTimePikcer.prototype.getSpecialPeriod = function(period){
   var __method = this;
   var date = new Date();
   //如果今天不可用，则从昨天向前推 added by johnnyzheng 12-07
-  (true == __method.mOpts.isTodayValid && ('' != __method.mOpts.isTodayValid) || 2 > period)? '' : date.setTime(date.getTime() - ( 1 * 24 * 60 * 60 * 1000));
-  var timeStamp = ((date.getTime()- ( period * 24 * 60 * 60 * 1000)) < (__method.mOpts.minValidDate * 1000)) ? (__method.mOpts.minValidDate * 1000) : (date.getTime()- ( period * 24 * 60 * 60 * 1000)) ;
-  var todayStr = date.getFullYear() + '-' + (date.getMonth()+ 1 ) + '-' + date.getDate();
+  (true == __method.options.isTodayValid && ('' != __method.options.isTodayValid) || 2 > period)? '' : date.setTime(date.getTime() - ( 1 * 24 * 60 * 60 * 1000));
+  var timeStamp = ((date.getTime()- ( period * 24 * 60 * 60 * 1000)) < (__method.options.minValidDate * 1000)) ? (__method.options.minValidDate * 1000) : (date.getTime()- ( period * 24 * 60 * 60 * 1000)) ;
+  var todayStr = date.getFullYear() + '-' + zeroPad(date.getMonth()+ 1 ) + '-' + zeroPad(date.getDate());
   date.setTime(timeStamp);
-  var otherdayStr = date.getFullYear() + '-' + (date.getMonth()+ 1 ) + '-' + date.getDate();
+  var otherdayStr = date.getFullYear() + '-' + zeroPad(date.getMonth()+ 1 ) + '-' + zeroPad(date.getDate());
   if(period == __method.periodObj.aYesterday){
     todayStr = otherdayStr;
   }
@@ -277,30 +393,14 @@ DateTimePikcer.prototype.checkDateRange = function(startYmd, endYmd) {
   var day;
 
     if(eTime >= sTime) {
-    day = (eTime - sTime)/1000/60/60/24;
-        // 判断是否超过最大日期外
-        /*maxEDate = this.str2date(startYmd);
-        maxEDate.setMonth(maxEDate.getMonth() + this.mOpts.monthRangeMax);
-        maxEDate.setDate(maxEDate.getDate() + this.mOpts.dayRangeMax - 1);
-        if(maxEDate.getTime() < eTime) {
-            alert('结束日期不能大于：' + this.date2ymd(maxEDate).join('-'));
-            return false;
-        }*/
+      day = (eTime - sTime)/1000/60/60/24;
     } else {
-    day = (sTime - eTime)/1000/60/60/24;
-        // 判断是否超过最大日期外
-        //maxEDate = this.str2date(stPartYmd);
-    /*maxEDate = this.str2date(endYmd);
-        maxEDate.setMonth(maxEDate.getMonth() - this.mOpts.monthRangeMax);
-        maxEDate.setDate(maxEDate.getDate() - this.mOpts.dayRangeMax + 1);
-        if(maxEDate.getTime() > eTime) {
-            alert('开始日期不能小于：' + this.date2ymd(maxEDate).join('-'));
-            return false;
-        }*/
+      day = (sTime - eTime)/1000/60/60/24;
     }
-  if(day>this.mOpts.dayRangeMax){
-            alert('最大时间跨度不能大于：'+this.mOpts.dayRangeMax);
-            return false;
+
+  if(day > this.options.dayRangeMax){
+    alert('最大时间跨度不能大于：'+this.options.dayRangeMax);
+    return false;
   }
     return true;
 }
@@ -310,15 +410,49 @@ DateTimePikcer.prototype.checkDateRange = function(startYmd, endYmd) {
  *  @param {String} ymd 时间字符串
  */
 DateTimePikcer.prototype.selectDate = function(ymd) {
-  var Evt = $.Event('choose.ui.datetimepicker')
-  this.$el.val(ymd).trigger(Evt, ymd);
 
-  this.setValue(ymd);
+  var Evt = $.Event('choose.ui.datetimepicker');
+  var start = this.$start.val(),
+      end = this.$end.val();
 
-  // 配置函数回调
-  typeof this.options.success === 'function' && this.options.success(ymd);
-  this.close();
+  // 区间日期
+  if(this.options.period && ymd) {
+    this.setValue(start, end, ymd);
+    this.__addCss();
+    // 去除快捷按钮高亮
+    this.__togglePeriodBtn();
+  } else {
+
+    if(!ymd) { // 特殊日期
+      ymd = start;
+    }
+
+    this.setValue(ymd, end);
+    this.$el.trigger(Evt, [ymd, end]);
+    // 配置函数回调
+    typeof this.options.success === 'function' && this.options.success(ymd, end);
+    this.close();
+  }
 };
+
+/**
+ * 确定按钮
+ * @return {[type]} [description]
+ */
+DateTimePikcer.prototype.confirmSelect = function() {
+  var __self = this,
+      start = this.$start.val(),
+      end = this.$end.val();
+  // @todo: 检测选择日期是否在限制范围内
+  if(!__self.checkDateRange(start, end)) {
+    start = end = __self.date2ymd(new Date());
+    this.$start.val(start)
+    this.$end.val(end);
+  }
+
+  __self.selectDate();
+
+}
 
 /**
  * 高亮样式
@@ -389,7 +523,6 @@ DateTimePikcer.prototype.close = function() {
  * @param {[type]} d [description]
  */
 DateTimePikcer.prototype.setMaxDate = function(d) {
-  console.log(d)
   this.options.max = this.formatDate(d) || this.options.max;
 }
 
@@ -445,8 +578,11 @@ DateTimePikcer.prototype.dropDown = function(el, type, index) {
   $(el).addClass('active')
 }
 
-// @todo: 选择月份顺序问题
-//
+/**
+ * 选择年或月时切换
+ * @param  {[type]} el [description]
+ * @return {[type]}    [description]
+ */
 DateTimePikcer.prototype.selectYMD = function(el) {
   var that = $(el),
       type = that.attr('data-type'),
@@ -697,12 +833,14 @@ DateTimePikcer.prototype.formatDate = function(ymd) {
 };
 
 DateTimePikcer.DEAFULTS = {
-  isCompare: false,     // 是否对比
+  period: false,     // 是否设置为区间日期
   defaultText : ' 至 ', // 时间区间拼接字符
   calendars: 2,    // 默认显示两个月
+  dayRangeMax: 366, // 区间最大选择366天
   isTodayValid : true,// 今天是否可選
   min: '1970-01-01', // 最小可用时间
   max: '',           // 最大可用时间
+  names: [],         // 区间日期必须设置，开始时间和结束时间的name属性
   stopToday: false, // 今天是否不可选
   weekendDis : false, // 灰掉周末不可选。
   disCertainDay : [], // 不可用的周日期设置数组，如：[1,3]是要周一， 周三 两天不可选，每个周的周一，周三都不可选择。
@@ -714,9 +852,11 @@ DateTimePikcer.DEAFULTS = {
 DateTimePikcer.TEMPLATE =
   ['<div class="'+ __prefix +' clearfix">',
     '<div class="'+ __prefix +'-header">',
-    '<button type="button" class="'+ __prefix +'-btn" data-day="7">7天</button>',
-    '<button type="button" class="'+ __prefix +'-btn" data-day="14">14天</button>',
-    '<button type="button" class="'+ __prefix +'-btn" data-day="30">30天</button>',
+    '<button type="button" class="'+ __prefix +'-btn" data-day="today">今天</button>',
+    '<button type="button" class="'+ __prefix +'-btn" data-day="yesterday">2天</button>',
+    '<button type="button" class="'+ __prefix +'-btn" data-day="aRecent7Days">7天</button>',
+    '<button type="button" class="'+ __prefix +'-btn" data-day="aRecent14Days">14天</button>',
+    '<button type="button" class="'+ __prefix +'-btn" data-day="aRecent30Days">30天</button>',
     '</div>',
     '<div class="'+ __prefix +'-body clearfix">',
     '</div>',
