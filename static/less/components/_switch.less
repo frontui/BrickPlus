@@ -1,0 +1,99 @@
+// ******************
+// 开关
+// ******************
+
+//开关
+  //尺寸
+    //默认
+    @fontSize-switch: @fontSize-smallest;
+    @gapSize-default-switch: 2px;
+    @height-default-switch: @height-smaller-btn;
+  //色调
+  @bgColor-off-switch: @bgColor-disabled-btn;
+  @bgColor-on-switch: @bgColor-secondary-btn;
+  @bgColor-btn-switch: #fff;
+  @fontColor-off-switch: lighten(@fontColor-viceText,20%);
+
+/*.switch-size(@size:@height-default-switch,@gapSize:@gapSize-default-switch) {
+  height: @size;
+  width: @size*2;
+  .rounded(@size);
+
+  &-inner {
+    top: @gapSize;
+    left: @gapSize;
+    right: @gapSize;
+    bottom: @gapSize;
+
+
+    &:before {
+      .square(@size - @gapSize);
+      margin-top: -(@size - @gapSize)/2;
+    }
+  }
+
+  &:active,
+  &:focus,
+  &.checked .switch-inner:before {
+    left: @size - @gapSize;
+  }
+}*/
+
+.switch {
+  .inline-block();
+  vertical-align: middle;
+  position: relative;
+  height: @height-default-switch;
+  width: @height-default-switch*2;
+  .rounded(@height-default-switch);
+  background-color: @bgColor-off-switch;
+  cursor: pointer;
+  .inner-shadow-custom(0,0,2px,0,rgba(0,0,0,0.075));
+  .transition(all,0.3s,ease,0);
+
+  &-inner {
+    position: absolute;
+    top: @gapSize-default-switch;
+    left: @gapSize-default-switch;
+    right: @gapSize-default-switch;
+    bottom: @gapSize-default-switch;
+    .rounded(@height-default-switch - @gapSize-default-switch);
+    text-align: right;
+    line-height: @height-default-switch - @gapSize-default-switch;
+    padding-right: @gapSize-default-switch*2;
+    font-size: @fontSize-switch;
+    color: @fontColor-off-switch;
+
+
+    &:before {
+      content: '';
+      .rounded(50%);
+      .square(@height-default-switch - @gapSize-default-switch);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -(@height-default-switch - @gapSize-default-switch)/2;
+      background-color: @bgColor-btn-switch;
+      .outer-shadow-custom(0,2px,3px,0);
+      .transition(all,0.3s,ease,0);
+    }
+  }
+
+  &:active,
+  &:focus,
+  &.checked {
+    background-color: @bgColor-on-switch;
+
+    .switch-inner {
+      .outer-shadow-custom(0,0,6px,3px,rgba(93,211,150,0.6));
+      text-align: left;
+      padding-left: @gapSize-default-switch*2;
+      color: lighten(@bgColor-on-switch,100%);
+
+      &:before {
+        left: @height-default-switch - @gapSize-default-switch;
+        .outer-shadow-custom(0,2px,3px,1px);
+      }
+    }
+  }
+}
