@@ -98,7 +98,7 @@
           <div id="side-scrollbar">
             <div class="bricks-aside-ul-wrap">
               <ul>
-                <li class="current">
+                <li>
                   <a href="BP-ComponentsStyle-BreadCrumb.html"> <i></i> <b></b> 路径导航 </a>
                 </li>
                 <li>
@@ -128,7 +128,7 @@
                 <li>
                   <a href="BP-ComponentsStyle-Spinner.html"> <i></i> <b></b> 加载动画 </a>
                 </li>
-                <li>
+                <li class="current">
                   <a href="BP-ComponentsStyle-Switch.html"> <i></i> <b></b> 开关 </a>
                 </li>
               </ul>
@@ -136,35 +136,39 @@
           </div>
         </aside>
         <div class="bricks-content-wrap">
+          <div class="tabs-wrap prototype">
+            <ul class="tabs">
+              <li class="active"> <a href="#tp1" class="tabs-btn">
+                结构和样式
+            </a> </li>
+              <li> <a href="#tp2" class="tabs-btn">
+                种类
+            </a> </li>
+              <li> <a href="#tp3" class="tabs-btn">
+                尺寸
+            </a> </li>
+            </ul>
+          </div>
           <div class="tabs-content">
             <div class="tabs-panel active" id="tp1">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#SpinnerInBtn" class="btn default">按钮中的加载动画</a> <a href="#SpinnerInWrap" class="btn default">页面的加载动画</a> </div>
               <section class="example-wrap">
+                <h2 id="SpinnerInBtn">按钮中的加载动画</h2>
                 <ul class="example-description">
-                  <li> 在一个带有层次的导航结构中标明当前页面的位置，各路径间的分隔符已经自动通过 CSS 的 <code>:before</code> 和 <code>content</code> 属性添加了。 </li>
-                  <li> 路径导航组件有固定的 Dom 结构，详细请参考代码示范。 </li>
+                  <li> 给 <code>.btn</code> 系列的按钮元素引用 <code>.btn-spinner</code> 类，得到 loading 状态下的按钮样式。它拥有和 <code>.disabled / [disabled]</code> 一样的设计用意，并加载等待的效果。<br> </li>
+                  <li> 但 <code>input</code> 标签没有 <code>:before</code>，所以在 <code>.btn</code> 系列按钮元素中，<code>input</code> 的按钮不会显示 spinner 动画。 </li>
+                  <li> 在按钮中引用的 <code>.btn-spinner</code> 的同时，需要脚本控制给拥有 <code>[disabled]</code> 属性的按钮标签添加这个属性，才能真整实现加载状态下的按钮不可用。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
-                  <div class="example-box">
-                    <ul class="breadcrumb">
-                      <li> <a href="javascript:void(0);">一级导航</a> </li>
-                      <li> <a href="javascript:void(0);">二级导航</a> </li>
-                      <li> <a href="javascript:void(0);">三级导航</a> </li>
-                      <li> 当前位置 </li>
-                    </ul>
+                  <div class="example-box"> <span class="switch">
+            <span class="switch-inner"></span> </span>
                   </div>
                   <div class="example-code"> <pre>
             <code>
-&lt;<b>ol</b> <span class="va">class="<span class="cl"><b>breadcrumb</b></span>"</span>&gt;
-  &lt;<b>li</b>&gt;
-    &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span>&gt;
-      <span class="tg">导航位置</span>
-    &lt;/<b>a</b>&gt;
-  &lt;/<b>li</b>&gt;
-  &lt;<b>li</b>&gt;
-    <span class="tg">当前位置</span>
-  &lt;/<b>li</b>&gt;
-&lt;/<b>ol</b>&gt;
+&lt;<b>button</b> <span class="va">class="<span class="cl">btn default <b>btn-spinner</b></span>"</span> disabled&gt;
+  <span class="tg">...</span>
+&lt;/<b>button</b>&gt;
             </code>
           </pre> </div>
                 </div>
