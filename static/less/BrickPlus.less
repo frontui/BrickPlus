@@ -52,14 +52,19 @@ body {
   .-frames(@-...) {
     0% {
       @{-}transform: translateX(-100%);
+      @{-}opacity: 0;
+    }
+    50% {
+      @{-}opacity: 1;
     }
     100% {
       @{-}transform: translateX(100%);
+      @{-}opacity: 0;
     }
   }
 }
 
-& {
+/*& {
   .keyframes( bricksAsideBtnBorderXBOTTOM );
 
   .-frames(@-...) {
@@ -70,9 +75,9 @@ body {
       @{-}transform: translateX(-100%);
     }
   }
-}
+}*/
 
-& {
+/*& {
   .keyframes( bricksAsideBtnBorderYLEFT );
 
   .-frames(@-...) {
@@ -83,9 +88,9 @@ body {
       @{-}transform: translateY(-100%);
     }
   }
-}
+}*/
 
-& {
+/*& {
   .keyframes( bricksAsideBtnBorderYRIGHT );
 
   .-frames(@-...) {
@@ -94,6 +99,27 @@ body {
     }
     100% {
       @{-}transform: translateY(100%);
+    }
+  }
+}*/
+
+//bricks main nav current border anim
+.brick-nav-curr() {
+  .animation-s(bricksNavCurr,0.3s,linear,0,1,normal,running,both);
+}
+
+& {
+  .keyframes( bricksNavCurr );
+
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translateX(300%);
+      @{-}opacity: 0;
+
+    }
+    100% {
+      @{-}transform: translateX(0);
+      @{-}opacity: 1;
     }
   }
 }
@@ -175,31 +201,43 @@ body {
 }
 
 .bricks-nav {
-    height: @height-BricksNav;
-    float: right;
-    position: relative;
+  height: @height-BricksNav;
+  float: right;
+  position: relative;
 
-    > ul {
-        .clearfix();
-        .reset-list( left,@fontSize-smaller,@height-BricksNav );
+  > ul {
+    .clearfix();
+    .reset-list(left, @fontSize-smaller, @height-BricksNav);
 
-        > li {
+    > li {
+      position: relative;
 
-            > a {
-                display: block;
-                padding: 0 20px;
-                .link-custom(@navColor-BricksNav,@fontColor-link,none);
-                .transition(all,0.3s,ease,0);
-            }
+      > a {
+        display: block;
+        padding: 0 20px;
+        .link-custom(@navColor-BricksNav, @fontColor-link, none);
+        .transition(all, 0.3s, ease, 0);
+      }
 
-            &.current {
+      &.current {
 
-                > a {
-                    color: @fontColor-link;
-                }
-            }
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: @fontColor-link;
+          .brick-nav-curr();
         }
+
+        > a {
+          color: @fontColor-link;
+        }
+      }
     }
+  }
 }
 
 //bricks 导航搜索框
@@ -340,7 +378,7 @@ body {
 .bricks-user-menu {
     display: none;
     position: absolute;
-    top: @height-BricksNav;
+    top: @height-BricksNav + @borderWidth-BricksHeader;
     right: -20px;
     border: 1px solid @borderColor-BricksUserMenu;
     border-top: none;
@@ -542,32 +580,32 @@ body {
     background: @HoverBorderColorTOP-btn-BricksAside;
   }
 
-  > ul > li:after {
+  /*> ul > li:after {
     left: 0;
     right: 0;
     bottom: 0;
     height: @borderWidth-BricksAside;
     background: @HoverBorderColorBOTTOM-btn-BricksAside;
     display: none;
-  }
+  }*/
 
-  > ul > li > a:before {
+  /*> ul > li > a:before {
     right: 0;
     top: 0;
     bottom: 0;
     width: @borderWidth-BricksAside;
     background: @HoverBorderColorRIGHT-btn-BricksAside;
     display: none;
-  }
+  }*/
 
-  > ul > li > a:after {
+  /*> ul > li > a:after {
     left: 0;
     top: 0;
     bottom: 0;
     width: @borderWidth-BricksAside;
     background: @HoverBorderColorLEFT-btn-BricksAside;
     display: none;
-  }
+  }*/
 
   //鼠标经过状态
   > ul > li:hover {
@@ -592,17 +630,17 @@ body {
       .animation-s(bricksAsideBtnBorderXTOP, 0.6s, linear, 0, 1, normal, running, both);
     }
 
-    &:after {
+    /*&:after {
       .animation-s(bricksAsideBtnBorderXBOTTOM, 0.6s, linear, 0.6s, 1, normal, running, both);
-    }
+    }*/
 
-    & > a:before {
+    /*& > a:before {
       .animation-s(bricksAsideBtnBorderYRIGHT, 0.3s, linear, 0.45s, 1, normal, running, both);
-    }
+    }*/
 
-    & > a:after {
+    /*& > a:after {
       .animation-s(bricksAsideBtnBorderYLEFT, 0.3s, linear, 1s, 1, normal, running, both);
-    }
+    }*/
   }
 
   //激活状态
