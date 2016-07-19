@@ -656,11 +656,13 @@ DateTimePikcer.prototype.fillDate = function(year, month, index) {
     var thead = document.createElement('thead');
     var tr = document.createElement('tr');
     var days = [ '日', '一', '二', '三', '四', '五', '六' ];
-    for (var i = 0, th; i < 7; i++) {
-      th = document.createElement('th');
-      $(th).append(days[i]);
-      $(tr).append(th);
+    for (var i = 0, th = ''; i < 7; i++) {
+      // th = document.createElement('th');
+      // $(th).append(days[i]);
+      // $(tr).append(th);
+      th += '<th>'+ days[i] +'</th>';
     }
+    $(tr).html(th);
     $(thead).append(tr);
     $(table).append(thead);
 

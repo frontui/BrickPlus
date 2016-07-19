@@ -33,64 +33,197 @@
 
 {# 加载页面内容 #}
 {% block content %}
+{# 渲染标签页 #}
+{{
+  tab.prototype(
+    tabs = [
+      {text: '概述', url: '#tp1'},
+      {text: 'a链接标签绑定', url: '#tp2'},
+      {text: '插件接口', url: '#tp3'},
+      {text: '事件监听', url: '#tp4'},
+      {text: '异步交互', url: '#tp5'}
+    ],
+    cur='1'
+  )
+}}
 <div class="tabs-content">
   <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
       <ul class="example-description">
         <li>
-          我们建议当你需要使用标签页的时候，套用 BrickPlus 标准的结构，这样能够使标签页的按钮使用达到最好的用户体验效果，例如：激活 <code>&lt;li&gt;</code> 标签的 <code>.active</code> 类从而影响 <code>.tab-btns</code> 类，使其有用户点击激活的状态样式。<br>
+          警告框大多数是系统对用户的提示，用户阅读后可通过关闭和不再提示按钮关闭警告框。多条警告信息可以进行上下轮播。
         </li>
         <li>
-          由于标签页的使用，可以直接在标签按钮上引用 <code>.tab-btns</code> 类或者绑定 <code>data-toggle="tab"</code> 达到目的，所以也可以不使用标准结构，而自行编写新的样式。
+          为任意 <code>[data-dismiss="alert"]</code>和<code>[data-target="#elementId"]</code>，  添加 绑定了警告框关闭。
+        <li>
+          当 <code>.alert</code> 包含 <code>.alert-dismissible</code> 和 <code>alert-dismissible-text</code>  类时显示 <code>em</code> 关闭按钮,默认 <code>em</code> 为关闭按钮
         </li>
         <li>
-          BrickPlus 标准的标签页结构有定义在 1024 分辨率下的响应式样式。
+          通过 <code>$(selector).alert()</code> 绑定 <code>em</code> 关闭
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          <div class="tabs-wrap prototype">
-            <ul class="tabs">
-              <li class="active">
-                <a href="#tabexp1" class="tabs-btn">
-                  Tab 1
-                </a>
-              </li>
-              <li>
-                <a href="#tabexp2" class="tabs-btn">
-                  Tab 2
-                </a>
-              </li>
-              <li>
-                <a href="#tabexp3" class="tabs-btn">
-                  Tab 3
-                </a>
-              </li>
-            </ul>
+          <div class="alert alert-warning alert-dismissible">
+            这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+            <em data-dismiss="alert"></em>
           </div>
-          <div class="tabs-content">
-            <div class="tabs-panel active text-align-center" id="tabexp1">Tab Content One</div>
-            <div class="tabs-panel text-align-center" id="tabexp2">Tab Content Two</div>
-            <div class="tabs-panel text-align-center" id="tabexp3">Tab Content Three</div>
+          <div class="alert alert-danger alert-dismissible-text">
+            这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+            <em data-dismiss="alert">不再提示</em>
+          </div>
+
+          <div class="alert alert-danger alert-dismissible-text">
+            <div class="alert-body">
+              <ul>
+                <li>1这种就是最基础的警告框，可以用在对事件的即时描述情景上面。</li>
+                <li>2这种就是最基础的警告框，可以用在对事件的即时描述情景上面。</li>
+                <li>3这种就是最基础的警告框，可以用在对事件的即时描述情景上面。</li>
+              </ul>
+            </div>
+            <em data-dismiss="alert">不再提示</em>
           </div>
         </div>
         <div class="example-code">
-          <pre>
-            <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
-  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
-    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
-      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
-        <span class="tg">...</span>
-      &lt;/<b>a</b>&gt;
-    &lt;/<b>li</b>&gt;
-  &lt;/<b>ul</b>&gt;
-&lt;/<b>div</b>&gt;
-            </code>
-          </pre>
+          <pre><code>&lt;div class="alert alert-warning alert-dismissible"&gt;
+    这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+    &lt;em data-dismiss="alert"&gt;&lt;/em&gt;
+&lt;/div&gt;
+&lt;div class="alert alert-danger alert-dismissible-text"&gt;
+    这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+    &lt;em data-dismiss="alert"&gt;不再提示&lt;/em&gt;
+&lt;/div&gt;
+&lt;!-- 带滚动消息 HTML 结构 --&gt;
+&lt;div class="alert alert-danger alert-dismissible-text"&gt;
+  &lt;div class="alert-body"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;1这种就是最基础的警告框，可以用在对事件的即时描述情景上面。&lt;/li&gt;
+      &lt;li&gt;2这种就是最基础的警告框，可以用在对事件的即时描述情景上面。&lt;/li&gt;
+      &lt;li&gt;3这种就是最基础的警告框，可以用在对事件的即时描述情景上面。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;em data-dismiss="alert"&gt;不再提示&lt;/em&gt;
+&lt;/div&gt;
+</code></pre>
         </div>
       </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          a标签通过设置 <code>data-dismiss="alert"</code> 和 <code>data-target</code> 来绑定触发关闭警告框。如果我们没有设置data-target,将会获取a标签中的hash作为目标警告框。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+          <div class="example-box">
+              <div class="alert alert-warning alert-dismissible" id="demo-1"> 这种就是最基础的警告框，可以用在对事件的即时描述情景上面。 <em data-dismiss="alert"></em> </div>
+
+              <p class="fn-pt-20">
+                <a href="#demo-1" data-dismiss="alert" class="btn default small-btn">关闭警告框</a>
+              </p>
+          </div>
+          <div class="example-code"> <pre><code>&lt;div class="alert alert-warning alert-dismissible" <b>id="demo-1"</b>&gt;
+    这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+    &lt;em data-dismiss="alert"&gt;&lt;/em&gt;
+&lt;/div&gt;
+&lt;p class="fn-pt-20"&gt;
+<b>&lt;a href="#demo-1" data-dismiss="alert" class="btn default small-btn"&gt;关闭警告框&lt;/a&gt;</b>
+&lt;/p&gt;
+</code></pre> </div>
+                </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          <code>alert</code>插件提供了<code>close</code>关闭的方法
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+          <div class="example-box">
+              <div class="alert alert-warning alert-dismissible" id="demo-2"> 这种就是最基础的警告框，可以用在对事件的即时描述情景上面。 <em data-dismiss="alert"></em> </div>
+
+              <p class="fn-pt-20">
+                <button type="button" id="btn-2" class="btn default small-btn">关闭警告框</button>
+              </p>
+          </div>
+          <div class="example-code"> <pre><code>
+// -- 插件接口
+function ajax() {
+  // ajax 异步操作
+  setTimeout(function() {
+    $('#demo-2').alert('close');
+  }, 1500);
+}
+$('#btn-2').on('click', ajax)
+</code></pre> </div>
+                </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          为元素添加 <code>close.ui.alert</code> 监听警告框事件。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+          <div class="example-box">
+              <div class="alert alert-warning alert-dismissible" id="demo-3"> 这种就是最基础的警告框，可以用在对事件的即时描述情景上面。 <em data-dismiss="alert"></em> </div>
+
+              <p class="fn-pt-20">
+                <button type="button" id="btn-3" class="btn default small-btn">关闭警告框</button>
+              </p>
+          </div>
+          <div class="example-code"> <pre><code>
+// --- 事件监听
+$('#demo-3').on('closed.ui.alert', function(e) {
+  alert('#'+ e.relatedTarget[0].id + '已关闭');
+})
+
+$('#btn-3').on('click', function() {
+  $('#demo-3').alert('close')
+})
+</code></pre> </div>
+                </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp5">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          此处演示点击关闭需要异步请求后台操作 cookie 记住已关闭的方法。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+          <div class="example-box">
+              <div class="alert alert-warning alert-dismissible" id="demo-5"> 这种就是最基础的警告框，可以用在对事件的即时描述情景上面。 <em data-dismiss="alert"></em> </div>
+          </div>
+          <div class="example-code"> <pre><code>
+// 异步交互
+var handleCookies = function(el, event) {
+  setTimeout(function(){
+    // 强制关闭
+    // $(selector).alert(方法，事件对象，force是否强制执行)
+    <b>el.alert('close', event, true)</b>
+  }, 1500)
+};
+$('#demo-5').on('close.ui.alert', function(e) {
+  var that = $(this);
+  // 中断关闭 alert
+  e.preventDefault();
+  handleCookies(that, e)
+})
+</code></pre> </div>
+                </div>
     </section>
   </div>
 </div>
@@ -104,11 +237,52 @@
 
 {# 页面专有 javascript 文件地址 #}
 {% block js %}
+<script src="{{ static }}/js/brickPlus/alert.js"></script>
 {% endblock %}
 
 
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
+$(function() {
+  // -- 插件接口
+  function ajax() {
+    // ajax 异步操作
+    setTimeout(function() {
+      $('#demo-2').alert('close');
+    }, 1500);
+  }
+  $('#btn-2').on('click', ajax)
+
+  // --- 事件监听
+  $('#demo-3').on('closed.ui.alert', function(e) {
+    alert('#'+ e.target.id + '已关闭');
+  })
+
+  $('#demo-3').on('close.ui.alert', function(e) {
+    alert('#'+ e.target.id + '开始关闭');
+  })
+
+  $('#btn-3').on('click', function() {
+    $('#demo-3').alert('close')
+  })
+
+  // 异步交互
+  var handleCookies = function(el, event) {
+    setTimeout(function(){
+      console.log('handleCookies is compeleted!')
+      // 强制关闭
+      // $(selector).alert(方法，事件对象，force是否强制执行)
+      el.alert('close', event, true)
+    }, 1500)
+  };
+  $('#demo-5').on('close.ui.alert', function(e) {
+    var that = $(this);
+    // 中断关闭 alert
+    e.preventDefault();
+    handleCookies(that, e)
+  })
+
+})
 </script>
 {% endblock %}

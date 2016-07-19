@@ -46,7 +46,7 @@ module.exports = function(entries, output) {
     //context: path.resolve(__dirname),
     //entry: entryFiles,
     entry: {
-      datetimepicker: './src/datetimepicker.js'
+      alert: './src/alert.js'
     },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
