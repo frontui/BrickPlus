@@ -46,7 +46,7 @@ module.exports = function(entries, output) {
     //context: path.resolve(__dirname),
     //entry: entryFiles,
     entry: {
-      placeholder: './src/placeholder.js'
+      'brickPlus.Util': './src/brickPlus.Util.js'
     },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
