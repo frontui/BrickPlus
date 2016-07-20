@@ -12,35 +12,11 @@
     @gapSize-default-switch: 2px;
     @height-default-switch: @height-smaller-btn;
   //色调
-  @bgColor-off-switch: @bgColor-disabled-btn;
+  @bgColor-off-switch: darken(@bgColor-disabled-btn,5%);
   @bgColor-on-switch: @domColor2;
+  @bgColor-disabled-switch: @bgColor-disabled-btn;
   @bgColor-btn-switch: #fff;
   @fontColor-off-switch: lighten(@fontColor-viceText,20%);
-
-/*.switch-size(@size:@height-default-switch,@gapSize:@gapSize-default-switch) {
-  height: @size;
-  width: @size*2;
-  .rounded(@size);
-
-  &-inner {
-    top: @gapSize;
-    left: @gapSize;
-    right: @gapSize;
-    bottom: @gapSize;
-
-
-    &:before {
-      .square(@size - @gapSize);
-      margin-top: -(@size - @gapSize)/2;
-    }
-  }
-
-  &:active,
-  &:focus,
-  &.checked .switch-inner:before {
-    left: @size - @gapSize;
-  }
-}*/
 
 .switch {
   .inline-block();
@@ -51,7 +27,7 @@
   .rounded(@height-default-switch);
   background-color: @bgColor-off-switch;
   cursor: pointer;
-  .inner-shadow-custom(0,0,2px,0,rgba(0,0,0,0.075));
+  .inner-shadow-custom(0,0,3px,0,rgba(0,0,0,0.075));
   .transition(all,0.3s,ease,0);
 
   &-inner {
@@ -77,11 +53,12 @@
       top: 50%;
       margin-top: -(@height-default-switch - @gapSize-default-switch)/2;
       background-color: @bgColor-btn-switch;
-      .outer-shadow-custom(0,2px,3px,0);
+      .outer-shadow-custom(0,2px,4px,0,rgba(0,0,0,0.15));
       .transition(all,0.3s,ease,0);
     }
   }
 
+  //开关文字
   &.with-text {
 
     .switch-inner:after {
@@ -89,6 +66,7 @@
     }
   }
 
+  //开关图标
   &.with-icon {
 
     .switch-inner:after {
@@ -97,7 +75,6 @@
     }
   }
 
-  &:active,
   &.checked {
     background-color: @bgColor-on-switch;
 
@@ -115,7 +92,6 @@
   }
 
   //打开开关后文字改变
-  &.with-text:active,
   &.checked.with-text {
 
     .switch-inner:after {
@@ -124,11 +100,25 @@
   }
 
   //打开开关后图标改变
-  &.with-icon:active,
   &.checked.with-icon {
 
     .switch-inner:after {
       content: @icon-on-switch;
+    }
+  }
+
+  //不可用状态
+  &.disabled {
+    background-color: @bgColor-disabled-switch;
+    cursor: not-allowed;
+
+    .switch-inner {
+      color: lighten(@bgColor-on-switch,100%);
+
+      &:before {
+        .inner-shadow-custom(0,0,3px,0,rgba(0,0,0,0.075));
+        background-color: darken(@bgColor-disabled-switch,1%);
+      }
     }
   }
 }

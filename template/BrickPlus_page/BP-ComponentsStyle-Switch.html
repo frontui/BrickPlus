@@ -56,22 +56,65 @@
       </h2>
       <ul class="example-description">
         <li>
-          某些情况需要用到开/关两种状态的触发元素实现用户场景，需要用到开关组件。
+          某些情况需要用到开/关两种状态的触发元素实现用户场景，需要用到开关组件；<br>
+          在 <code>.switch</code> 叠加 <code>.checked</code> 将开关切换为打开样式。
+        </li>
+        <li>
+          和 checkbox 的区别是，切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合。
+        </li>
+        <li>
+          开关组件有固定的 Dom 结构，详细请参考代码示范。
         </li>
       </ul>
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          <span class="switch with-icon">
-            <span class="switch-inner"></span>
-          </span>
+          <div class="fn-mb-10">
+            <span class="switch">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div>
+            <span class="switch checked">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;<b>button</b> <span class="va">class="<span class="cl">btn default <b>btn-spinner</b></span>"</span> disabled&gt;
-  <span class="tg">...</span>
-&lt;/<b>button</b>&gt;
+&lt;span <span class="va">class="<span class="cl"><b>switch</b></span>"</span>&gt;
+  &lt;span <span class="va">class="<span class="cl"><b>switch-inner</b></span>"</span>&gt;&lt;/span&gt;
+&lt;/span&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="SwitchDisabled">
+        不可用状态
+      </h2>
+      <ul class="example-description">
+        <li>
+          在 <code>.switch</code> 叠加 <code>.disabled</code> 将开关切换为不可用样式。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div>
+            <span class="switch disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;span <span class="va">class="<span class="cl">switch <b>disabled</b></span>"</span>&gt;
+  &lt;span <span class="va">class="<span class="cl">switch-inner</span>"</span>&gt;&lt;/span&gt;
+&lt;/span&gt;
             </code>
           </pre>
         </div>
