@@ -1,6 +1,6 @@
 /**
  * 上下无缝滚动
- * by tommyshao
+ * by tommyshao <jinhong.shao@frontpay.cn>
  * 2016-07-19
  */
 

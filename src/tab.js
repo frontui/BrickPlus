@@ -1,7 +1,7 @@
 /**
  * @component   : tab 选项卡切换
  * @version     : {{VERSION}}
- * @author      : tommyshao
+ * @author      : tommyshao <jinhong.shao@frontpay.cn>
  * @created     : 2016-07-06
  * @description : 基于 frontui
  * @Reference   : bootstrap.tab.js

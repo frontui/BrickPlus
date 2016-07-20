@@ -1,6 +1,6 @@
 /**
  * 判断是否支持css transition
- * by tommyshao
+ * by tommyshao <jinhong.shao@frontpay.cn>
  * 2016-07-19
  *
  * Reference bootstrap.transition.js

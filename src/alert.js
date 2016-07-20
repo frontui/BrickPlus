@@ -1,6 +1,6 @@
 /**
  * 警告框 v2.0
- * by tommyshao
+ * by tommyshao <jinhong.shao@frontpay.cn>
  * 2016-07-19
  *
  * Reference bootstrap.alert.js

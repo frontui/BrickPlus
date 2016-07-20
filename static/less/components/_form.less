@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 
 // ******************
 // placeholder字符颜色
@@ -119,6 +119,12 @@ input::-ms-clear {
   .text-hide();
   .transition(all, 0.3s, ease, 0);
   .rounded(@borderRadius-formControl);
+
+  // 内联输入框
+  &-inline {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
   &:focus {
     .form-control-focus();
