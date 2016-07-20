@@ -1,5 +1,20 @@
 ﻿@charset "utf-8";
 
+.btn-disabled() {
+  background-color: @bgColor-disabled-btn;
+  border-color: @bgColor-disabled-btn;
+  color: lighten(@fontColor-viceText, 20%);
+  cursor: not-allowed;
+
+  &:hover,
+  &:active,
+  &.current {
+    background-color: @bgColor-disabled-btn;
+    border-color: darken(@bgColor-disabled-btn, 4%);
+    box-shadow: none;
+  }
+}
+
 // ******************
 // 多个按钮并行
 // ******************
@@ -119,17 +134,7 @@
 
   &.disabled,
   &[disabled] {
-    background-color: @bgColor-disabled-btn;
-    border-color: @bgColor-disabled-btn;
-    color: lighten(@fontColor-viceText, 20%);
-    cursor: not-allowed;
-
-    &:hover,
-    &:active,
-    &.current {
-      background-color: @bgColor-disabled-btn;
-      border-color: darken(@bgColor-disabled-btn, 4%);
-    }
+    .btn-disabled();
   }
 
   &.links {
@@ -519,3 +524,4 @@ fieldset[disabled] a.btn {
     &:extend(.large-btn);
   }
 }
+

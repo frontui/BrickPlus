@@ -24,7 +24,7 @@ function bundle(banner) {
                 .pipe($.header(banner, { pkg: pkg}))
                 .pipe($.rename('brickplus.css'))
                 .pipe(gulp.dest(dest+'/css'))
-                .pipe($.minifyCss({compatibility: 'ie7'}))
+                .pipe($.cleanCss({compatibility: 'ie7'}))
                 .pipe($.header(banner, { pkg: pkg}))
                 .pipe($.rename('brickplus.min.css'))
                 .pipe(gulp.dest(dest+'/css'))

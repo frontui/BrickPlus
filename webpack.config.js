@@ -41,7 +41,13 @@ module.exports = function(entries, output) {
   // 返回webpack.config
   return {
     watch: !(NODE_ENV === 'production'),
-    entry: entryFiles,
+    debug: !(NODE_ENV === 'production'),
+    profile: true,
+    //context: path.resolve(__dirname),
+    //entry: entryFiles,
+    entry: {
+      placeholder: './src/placeholder.js'
+    },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
       filename: '[name].js',
@@ -50,17 +56,21 @@ module.exports = function(entries, output) {
     },
     module: {
       loaders: [
-        {
-          test: /\.js$/,
-          loader: 'babel',
-          query: {
-            presets: ['es2015', 'stage-0']
-          },
-          exclude: /node_modules/
-        }
+        // {
+        //   test: /\.js$/,
+        //   loader: 'babel',
+        //   query: {
+        //     presets: ['es2015']
+        //   },
+        //   exclude: /node_modules/
+        // }
       ]
     },
     resolve: {
+      alias: {
+        jquery: 'bower_components/jquery/dist/jquery.min.js',
+        zeroPad: './src/Util/zeroPad.js'
+      },
       extensions: ['', '.js'],
       root: [path.join(__dirname, 'src')]
     },
@@ -72,6 +82,7 @@ module.exports = function(entries, output) {
           commonjs: 'jquery',
           amd: 'jquery'
         }
+        //jquery: true
       }
     ]
   }

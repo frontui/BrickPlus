@@ -56,15 +56,19 @@ module.exports = function defaultTask(serverRoot) {
     // return gulp.src(['./src/**/*.js'])
     //             .pipe(webpack(webpackConfig('./src')))
     //             .pipe(gulp.dest(config.staticPath+'/js/brickplus'))
-    console.log('webpack编译-->')
-    var wc = webpackConfig('./src', './static/js/brickplus');
+    $.util.log('webpack编译-->')
+    var config = webpackConfig('./src', './static/js/brickplus');
     var init = false;
     webpack(
-      wc,
+      config,
       function(err, stats) {
+        // err && console.log(err) && console.log(stats)
+        if(err) throw new $.util.PluginError("webpack", err);
+        $.util.log("[webpack]", stats.toString({
+            // output options
+        }));
         !init && callback()
         init = !0;
-        err && console.log(err) && console.log(stats)
       }
     )
 
@@ -72,17 +76,21 @@ module.exports = function defaultTask(serverRoot) {
   })
 
   // 多文件entry时，通过require方式会报错
-  gulp.task('scripts:brickplus', function() {
-    var wc = webpackConfig({brickplus: './src/brickplus.js'}, './static/js/brickplus');
+  gulp.task('scripts:brickplus', function(callback) {
+    var config = webpackConfig({brickplus: './src/brickplus.js'}, './static/js/brickplus');
     var init = false;
-    console.log('webpack编译-->')
+    $.util.log('webpack编译-->')
     webpack(
-      wc,
+      config,
       function(err, stats) {
+        //err && console.log(err)
+        //console.log(stats)
+        if(err) throw new $.util.PluginError("webpack", err);
+        $.util.log("[webpack]", stats.toString({
+            // output options
+        }));
         !init && callback()
         init = !0;
-        err && console.log(err)
-        //console.log(stats)
       }
     )
   })
@@ -156,6 +164,28 @@ module.exports = function defaultTask(serverRoot) {
   })
   gulp.task('mixin', ['cleanMixin'], function(cb) {
     $.git.clone('https://github.com/frontui/BrickPlus-Mixin.git', {args: './static/less/BrickPlus-Mixin'}, cb)
+  })
+
+  // -- 更新iconfont
+  gulp.task('cleanIconfont', function(cb) {
+    clean(['./static/frontui-icon'], cb);
+  })
+
+  gulp.task('iconfontClone', function(cb) {
+    $.git.clone('https://github.com/frontui/frontui-icon', { args: './static/frontui-icon'}, cb)
+  })
+
+  gulp.task('iconfontMove', function( cb ) {
+    return gulp.src(['./static/frontui-icon/fonticon/{fonts,ie7}/**/**'])
+                .pipe(gulp.dest('./static'))
+  })
+
+  gulp.task('iconfontRemove', function( cb) {
+    clean(['./static/frontui-icon'], cb);
+  })
+
+  gulp.task('iconfont', function(cb) {
+    $.sequence('cleanIconfont', 'iconfontClone', 'iconfontMove', 'iconfontRemove')(cb)
   })
 
   // //-- 更新less Mixin

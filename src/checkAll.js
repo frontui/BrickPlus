@@ -1,7 +1,7 @@
 /**
  * @component   : checkAll全选
  * @version     : {{VERSION}}
- * @author      : tommyshao
+ * @author      : tommyshao <jinhong.shao@frontpay.cn>
  * @created     : 2016-07-05
  * @description :
  * @useage      :

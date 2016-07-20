@@ -1,0 +1,153 @@
+{% extends "_BrickPlus_layout/5-BP-ComponentsStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='3') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='10') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#SpinnerInBtn" class="btn default">按钮中的加载动画</a>
+      <a href="#SpinnerInWrap" class="btn default">页面的加载动画</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="SpinnerInBtn">按钮中的加载动画</h2>
+      <ul class="example-description">
+        <li>
+          给 <code>.btn</code> 系列的按钮元素引用 <code>.btn-spinner</code> 类，得到 loading 状态下的按钮样式。它拥有和 <code>.disabled / [disabled]</code> 一样的设计用意，并加载等待的效果。<br>
+        </li>
+        <li>
+          但 <code>input</code> 标签没有 <code>:before</code>，所以在 <code>.btn</code> 系列按钮元素中，<code>input</code> 的按钮不会显示 spinner 动画。
+        </li>
+        <li>
+          在按钮中引用的 <code>.btn-spinner</code> 的同时，需要脚本控制给拥有 <code>[disabled]</code> 属性的按钮标签添加这个属性，才能真整实现加载状态下的按钮不可用。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="text-align-center">
+            <button class="btn primary btn-spinner" disabled>Loading...</button>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>button</b> <span class="va">class="<span class="cl">btn default <b>btn-spinner</b></span>"</span> disabled&gt;
+  <span class="tg">...</span>
+&lt;/<b>button</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="SpinnerInWrap">页面的加载动画</h2>
+      <ul class="example-description">
+        <li>
+          当页面加载动画出现时，<code>&lt;body&gt;</code> 将添加类 <code>.page-spinner-open</code> 这个类。
+        </li>
+        <li>
+          将页面加载动画的 HTML 代码放在文档的最高层级内（也就是说，尽量作为 <code>&lt;body&gt;</code> 的直接子元素）。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="sim-body">
+            <div class="sim-body-main"></div>
+            <div class="page-spinner">
+              <div class="spinner-layer">
+                <div class="spinner">
+                  <span class="six"></span>
+                  <span class="five"></span>
+                  <span class="four"></span>
+                  <span class="three"></span>
+                  <span class="two"></span>
+                  <span class="one"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>page-spinner</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>spinner-layer</b></span>"</span>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>spinner</b></span>"</span>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>one</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>two</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>three</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>four</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>five</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+      &lt;<b>span</b> <span class="va">class="<span class="cl"><b>six</b></span>"</span>&gt;&lt;/<b>span</b>&gt;
+    &lt;/<b>div</b>&gt;
+  &lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+<!--<div class="page-spinner">
+  <div class="spinner-layer">
+    <div class="spinner">
+      <span class="six"></span>
+      <span class="five"></span>
+      <span class="four"></span>
+      <span class="three"></span>
+      <span class="two"></span>
+      <span class="one"></span>
+    </div>
+  </div>
+</div>-->
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

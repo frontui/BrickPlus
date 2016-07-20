@@ -36,7 +36,7 @@ module.exports = function svn(banner) {
       return gulp.src([config.staticPath+'/css/**/**.css'], {base: 'client'})
           .pipe($.plumber( { errorHandler: Lib.errHandler } ))
           .pipe($.changed(svn.staticPath))
-          .pipe($.minifyCss({compatibility: 'ie7'}))
+          .pipe($.cleanCss({compatibility: 'ie7'}))
           .pipe($.header(banner, { pkg: pkg}))
           .pipe(gulp.dest(svn.staticPath))
   })

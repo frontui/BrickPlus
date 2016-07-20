@@ -1,0 +1,104 @@
+{# page:  概述 #}
+<section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          <code>BrickPlus</code>提供了<code>BrickPlus.Util</code>工具类，主要为<code>frontpay</code>各项目常用函数。
+        </li>
+        <li>
+          引入<code>brickPlus.Uitl.js</code>文件我们可以获取到<code>BrickPlus</code>的全局变量
+        </li>
+        <li>
+          支持<code>UMD</code>方式
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">函数列表</div>
+        <div class="example-box">
+          <div class="table-wrap">
+            <table class="table">
+              <colgroup>
+                <col style="width: 20%;">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>函数名</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>inputFilter</td>
+                  <td>
+                    输入框过滤函数，可以配置过滤键入内容
+                  </td>
+                </tr>
+                <tr>
+                  <td>dbcToSbc</td>
+                  <td>
+                    输入框全角规定字符必须转换成半角字符，用于确定输入内容的长度。
+                  </td>
+                </tr>
+                <tr>
+                  <td>cnMoney</td>
+                  <td>
+                    金额数字转换成繁体大写中文
+                  </td>
+                </tr>
+                <tr>
+                  <td>browser</td>
+                  <td>
+                    浏览器版本，供应商检测
+                  </td>
+                </tr>
+                <tr>
+                  <td>clockTick</td>
+                  <td>
+                    倒计时函数，可扩展成倒计时的插件
+                  </td>
+                </tr>
+                 <tr>
+                  <td>dateDiff</td>
+                  <td>
+                    计算距离 n 天后的日期
+                  </td>
+                </tr>
+                <tr>
+                  <td>dayDiff</td>
+                  <td>
+                    计算两个日期之间相隔天数
+                  </td>
+                </tr>
+                <tr>
+                  <td>currency</td>
+                  <td>
+                    金额数字千分位格式化
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+console.dir(BrickPlus.Util)
+/*
+object {
+  browser: Object,
+  clockTick: Function,
+  cnMoney: Function,
+  currency: Function,
+  dateDiff: Function,
+  dayDiff: Function,
+  dbcToSbc: Function,
+  inputFilter: Function,
+  inserTextAtCaret: Function
+}
+ */
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+}

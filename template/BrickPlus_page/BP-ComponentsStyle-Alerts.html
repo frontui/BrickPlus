@@ -98,6 +98,7 @@
       <ul class="example-description">
         <li>
           为警告框叠加 <code>.alert-dismissible</code> 类，显示警告框自带的关闭按钮。<br>
+          需要自定义关闭按钮文本则引用 <code>.alert-dismissible-text</code> 类，并在结构内的 <code>em</code> 标签用输入需要的文本内容。
         </li>
       </ul>
       <div class="example">
@@ -107,13 +108,17 @@
             这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
             <em data-dismiss="alert"></em>
           </div>
+          <div class="alert alert-dismissible-text">
+            这种就是最基础的警告框，可以用在对事件的即时描述情景上面。
+            <em data-dismiss="alert">不再提示</em>
+          </div>
         </div>
         <div class="example-code">
           <pre>
             <code>
-&lt;div <span class="va">class="<span class="cl">alert <b>alert-dismissible</b></span>"</span>&gt;
+&lt;div <span class="va">class="<span class="cl">alert <b>alert-dismissible / alert-dismissible-text</b></span>"</span>&gt;
   <span class="tg">...</span>
-  &lt;em <span class="va">data-dismiss="<span class="cl">alert</span>"</span>&gt;&lt;/em&gt;
+  &lt;em <span class="va">data-dismiss="<span class="cl">alert</span>"</span>&gt;<span class="tg">...</span>&lt;/em&gt;
 &lt;/div&gt;
             </code>
           </pre>
@@ -126,6 +131,9 @@
       <ul class="example-description">
         <li>
           在 <code>body</code> 下的 <code>.main</code> 这一层，放置一个块级容器，并引用类 <code>.alert-fixed-wrap</code>，将需要出现的警告框结构都放置在里面。
+        </li>
+        <li>
+          在视口宽度最大值为 768 像素的时候，固定位置的警告框将会相对于上级容器的宽度改变宽度，并一直保持与上级容器的 30 像素边距。
         </li>
       </ul>
       <div class="example">
