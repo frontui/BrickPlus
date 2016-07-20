@@ -3,6 +3,9 @@
 // ******************
 
 //开关
+  //图标
+  @icon-off-switch: "\e070";
+  @icon-on-switch: '\e28a';
   //尺寸
     //默认
     @fontSize-switch: @fontSize-smallest;
@@ -10,7 +13,7 @@
     @height-default-switch: @height-smaller-btn;
   //色调
   @bgColor-off-switch: @bgColor-disabled-btn;
-  @bgColor-on-switch: @bgColor-secondary-btn;
+  @bgColor-on-switch: @domColor2;
   @bgColor-btn-switch: #fff;
   @fontColor-off-switch: lighten(@fontColor-viceText,20%);
 
@@ -79,8 +82,22 @@
     }
   }
 
+  &.with-text {
+
+    .switch-inner:after {
+      content: '关';
+    }
+  }
+
+  &.with-icon {
+
+    .switch-inner:after {
+      .icon-font-family();
+      content: @icon-off-switch;
+    }
+  }
+
   &:active,
-  &:focus,
   &.checked {
     background-color: @bgColor-on-switch;
 
@@ -94,6 +111,24 @@
         left: @height-default-switch - @gapSize-default-switch;
         .outer-shadow-custom(0,2px,3px,1px);
       }
+    }
+  }
+
+  //打开开关后文字改变
+  &.with-text:active,
+  &.checked.with-text {
+
+    .switch-inner:after {
+      content: '开';
+    }
+  }
+
+  //打开开关后图标改变
+  &.with-icon:active,
+  &.checked.with-icon {
+
+    .switch-inner:after {
+      content: @icon-on-switch;
     }
   }
 }
