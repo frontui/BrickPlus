@@ -6,7 +6,7 @@
 
 var zeroPad = require('./zeroPad')
 
-var dateReg = /^\d{4}-\d{1,2}-\d{1,2}$/g;
+var dateReg = /^\d{4}-\d{1,2}-\d{1,2}$/;
 
 var dayDiff = function(start, end) {
   var sArr = [], eArr = [], sTime = 0, eTime = 0, diff = 0
