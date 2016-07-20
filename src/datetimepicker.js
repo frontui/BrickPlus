@@ -1,6 +1,6 @@
 /**
  * 日期选择插件
- * by tommyshao
+ * by tommyshao <jinhong.shao@frontpay.cn>
  * fork daterange
  * 2016-07-11
  */

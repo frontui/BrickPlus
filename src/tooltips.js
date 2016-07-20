@@ -1,6 +1,6 @@
 /**
  * tooltips提示
- * by tommyshao
+ * by tommyshao <jinhong.shao@frontpay.cn>
  * 2016-07-19
  *
  * Reference uikit.tooltips.js

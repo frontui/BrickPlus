@@ -1,6 +1,6 @@
 /**
  * brickPlus主文件
- * by tommyshao
+ * by tommyshao <jinhong.shao@frontpay.cn>
  * 2016-07-04
  */
 
