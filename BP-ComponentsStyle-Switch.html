@@ -151,17 +151,17 @@
           </div>
           <div class="tabs-content">
             <div class="tabs-panel active" id="tp1">
-              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#SpinnerInBtn" class="btn default">按钮中的加载动画</a> <a href="#SpinnerInWrap" class="btn default">页面的加载动画</a> </div>
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#SwitchBase" class="btn default">基础</a> <a href="#SwitchDisabled" class="btn default">不可用状态</a> </div>
               <section class="example-wrap">
-                <h2 id="SpinnerInBtn">按钮中的加载动画</h2>
+                <h2 id="SwitchBase">
+        基础
+      </h2>
                 <ul class="example-description">
-                  <li> 给 <code>.btn</code> 系列的按钮元素引用 <code>.btn-spinner</code> 类，得到 loading 状态下的按钮样式。它拥有和 <code>.disabled / [disabled]</code> 一样的设计用意，并加载等待的效果。<br> </li>
-                  <li> 但 <code>input</code> 标签没有 <code>:before</code>，所以在 <code>.btn</code> 系列按钮元素中，<code>input</code> 的按钮不会显示 spinner 动画。 </li>
-                  <li> 在按钮中引用的 <code>.btn-spinner</code> 的同时，需要脚本控制给拥有 <code>[disabled]</code> 属性的按钮标签添加这个属性，才能真整实现加载状态下的按钮不可用。 </li>
+                  <li> 某些情况需要用到开/关两种状态的触发元素实现用户场景，需要用到开关组件。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
-                  <div class="example-box"> <span class="switch">
+                  <div class="example-box"> <span class="switch with-icon">
             <span class="switch-inner"></span> </span>
                   </div>
                   <div class="example-code"> <pre>
