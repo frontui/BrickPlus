@@ -113,7 +113,7 @@
                   <a href="BP-JavaScriptComponents-Tooltip.html"> <i></i> <b></b> tooltips 提示 </a>
                 </li>
                 <li>
-                  <a href="BP-JavaScriptComponents-Placeholder.html"> <i></i> <b></b> 占位符 </a>
+                  <a href="BP-JavaScriptComponents-Switcher.html"> <i></i> <b></b> 切换器 </a>
                 </li>
                 <li>
                   <a href="BP-JavaScriptComponents-Tab.html"> <i></i> <b></b> 选项卡 </a>
@@ -167,248 +167,60 @@
                   <a href="BP-JavaScriptComponents-Calendar.html"> <i></i> <b></b> 日历 </a>
                 </li>
                 <li>
+                  <a href="BP-JavaScriptComponents-Calendar.html"> <i></i> <b></b> 日历 </a>
+                </li>
+                <li>
                   <a href="BP-JavaScriptComponents-Collapse.html"> <i></i> <b></b> 折叠面板 </a>
                 </li>
                 <li>
                   <a href="BP-JavaScriptComponents-Spin.html"> <i></i> <b></b> 加载 </a>
-                </li>
-                <li>
-                  <a href="BP-JavaScriptComponents-PDFView.html"> <i></i> <b></b> PDF预览 </a>
                 </li>
               </ul>
             </div>
           </div>
         </aside>
         <div class="bricks-content-wrap">
-          <div class="tabs-wrap prototype">
-            <ul class="tabs">
-              <li class="active"> <a href="#tp1" class="tabs-btn">
-                概述
-            </a> </li>
-              <li> <a href="#tp2" class="tabs-btn">
-                参数配置
-            </a> </li>
-              <li> <a href="#tp3" class="tabs-btn">
-                位置配置
-            </a> </li>
-              <li> <a href="#tp4" class="tabs-btn">
-                文本框提示
-            </a> </li>
-              <li> <a href="#tp5" class="tabs-btn">
-                异步加载内容
-            </a> </li>
-            </ul>
-          </div>
           <div class="tabs-content">
             <div class="tabs-panel active" id="tp1">
               <section class="example-wrap">
                 <ul class="example-description">
-                  <li> 轻松创建一个漂亮的工具提示。 </li>
-                  <li> 要应用这个组件，需要为某个元素添加 <code>data-toggle="tooltips"</code> 属性。你还需要添加一个 <code>title</code> 属性，它的值即是提示文本。 </li>
+                  <li> 我们建议当你需要使用标签页的时候，套用 BrickPlus 标准的结构，这样能够使标签页的按钮使用达到最好的用户体验效果，例如：激活 <code>&lt;li&gt;</code> 标签的 <code>.active</code> 类从而影响 <code>.tab-btns</code> 类，使其有用户点击激活的状态样式。<br> </li>
+                  <li> 由于标签页的使用，可以直接在标签按钮上引用 <code>.tab-btns</code> 类或者绑定 <code>data-toggle="tab"</code> 达到目的，所以也可以不使用标准结构，而自行编写新的样式。 </li>
+                  <li> BrickPlus 标准的标签页结构有定义在 1024 分辨率下的响应式样式。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
                   <div class="example-box">
-                    <p> <button type="button" class="btn primary" data-toggle="tooltips" title="请先阅读协议">同意</button> </p> <br>
-                    <p> <a href="#" class="link-standard" data-toggle="tooltips" title="钱途互联是国内首家专注于通过互联模式">钱途互联官网</a> </p> <br>
-                    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient <a href="#" class="link-standard" data-toggle="tooltips" title="loading..." data-url="./pages/placeholder.html">montes</a>,
-                      nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p> <br>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, <abbr title="attribute" data-toggle="tooltips">attr</abbr>,
-                      nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p> <br>
-                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p> <br> <address>
-            <strong>广东钱途互联商务服务有限公司 <small>（以下简称“钱途互联”）</small></strong><br><br>
-            广东省广州市天河区<br>
-            体育西路109号高盛大厦8层<br>
-            <abbr title="telephone" class="initialism" data-toggle="tooltips">tel:</abbr> 020-61847588<br>
-          </address> </div>
-                  <div class="example-code"> <pre>
-            <code>
-&lt;a href="#" class="link-standard" data-toggle="tooltips" title="钱途互联是国内首家专注于通过互联模式"&gt;钱途互联官网&lt;/a&gt;
-            </code>
-          </pre> </div>
-                </div>
-              </section>
-            </div>
-            <div class="tabs-panel" id="tp2">
-              <section class="example-wrap">
-                <ul class="example-description">
-                  <li> <code>tooltips</code>提供了位置，动画，高亮等配置参数 </li>
-                  <li> 可通过<code>data-*</code>进行初始化配置,其中<code>*</code>代表参数名 </li>
-                </ul>
-                <div class="example">
-                  <div class="example-tag">实例</div>
-                  <div class="example-box">
-                    <div class="tables-wrap">
-                      <table class="table">
-                        <thead>
-                          <th>参数</th>
-                          <th>类型</th>
-                          <th>默认值</th>
-                          <th>描述</th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>offset</td>
-                            <td>Number</td>
-                            <td>9</td>
-                            <td>与元素之间的偏移量</td>
-                          </tr>
-                          <tr>
-                            <td>pos</td>
-                            <td>String</td>
-                            <td>top</td>
-                            <td>tooltips位置类型</td>
-                          </tr>
-                          <tr>
-                            <td>animation</td>
-                            <td>boolean</td>
-                            <td>true</td>
-                            <td>是否启用淡入动画</td>
-                          </tr>
-                          <tr>
-                            <td>delay</td>
-                            <td>Number</td>
-                            <td>0</td>
-                            <td>显示间隔时间 ms</td>
-                          </tr>
-                          <tr>
-                            <td>cls</td>
-                            <td>String</td>
-                            <td>''</td>
-                            <td>显示元素高亮类</td>
-                          </tr>
-                          <tr>
-                            <td>url</td>
-                            <td>String</td>
-                            <td>''</td>
-                            <td>异步加载内容地址</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div class="tabs-wrap prototype">
+                      <ul class="tabs">
+                        <li class="active"> <a href="#tabexp1" class="tabs-btn">
+                  Tab 1
+                </a> </li>
+                        <li> <a href="#tabexp2" class="tabs-btn">
+                  Tab 2
+                </a> </li>
+                        <li> <a href="#tabexp3" class="tabs-btn">
+                  Tab 3
+                </a> </li>
+                      </ul>
+                    </div>
+                    <div class="tabs-content">
+                      <div class="tabs-panel active text-align-center" id="tabexp1">Tab Content One</div>
+                      <div class="tabs-panel text-align-center" id="tabexp2">Tab Content Two</div>
+                      <div class="tabs-panel text-align-center" id="tabexp3">Tab Content Three</div>
                     </div>
                   </div>
                   <div class="example-code"> <pre>
             <code>
-&lt;a href="#" class="link-standard"
-data-toggle="tooltips"
-title="钱途互联是国内首家专注于通过互联模式"
-<b>data-offset="10"</b>
-<b>data-*...</b>
-&gt;钱途互联官网&lt;/a&gt;
-            </code>
-          </pre> </div>
-                </div>
-              </section>
-            </div>
-            <div class="tabs-panel" id="tp3">
-              <section class="example-wrap">
-                <ul class="example-description">
-                  <li> 提供了9宫图方位配置,使用<code>data-pos</code>属性进行配置。 </li>
-                </ul>
-                <div class="example">
-                  <div class="example-tag">实例</div>
-                  <div class="example-box">
-                    <div class="tables-wrap">
-                      <table class="table">
-                        <thead>
-                          <th>参数</th>
-                          <th>描述</th>
-                          <th>示例</th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>data-pos="top"</td>
-                            <td>对齐顶部居中</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="top" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="top-left"</td>
-                            <td>对齐左上</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="top-left" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="top-right"</td>
-                            <td>对齐右上</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="top-right" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="bottom"</td>
-                            <td>底部居中</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="bottom" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="bottom-left"</td>
-                            <td>左下对齐</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="bottom-left" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="bottom-right"</td>
-                            <td>右下对齐</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="bottom-right" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="left"</td>
-                            <td>左对齐</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="left" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                          <tr>
-                            <td>data-pos="right"</td>
-                            <td>右对齐</td>
-                            <td> <button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="right" class="btn default small-btn">Hover me</button> </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div class="example-code"> <pre>
-            <code>
-&lt;button type="button" data-toggle="tooltips" title="Hover me long ...." data-pos="bottom" class="btn default small-btn"&gt;Hover me&lt;/button&gt;
-            </code>
-          </pre> </div>
-                </div>
-              </section>
-            </div>
-            <div class="tabs-panel" id="tp4">
-              <section class="example-wrap">
-                <ul class="example-description">
-                  <li> 我们可以对表单元素添加<code>tooltips</code>来提醒文本框填写的注意事项。 </li>
-                </ul>
-                <div class="example">
-                  <div class="example-tag">实例</div>
-                  <div class="example-box">
-                    <div class="form-group"> <label class="form-control-label">
-              <span>邮箱</span>
-              <em>：</em>
-            </label>
-                      <div class="form-control-wrap"> <input type="text" class="form-control" data-toggle="tooltips" title="邮箱作为登录的唯一用户名" data-pos="bottom-left"> </div>
-                    </div>
-                  </div>
-                  <div class="example-code"> <pre>
-            <code>
-&lt;input type="text" class="form-control" data-toggle="tooltips" title="邮箱作为登录的唯一用户名" data-pos="bottom-left"&gt;
-            </code>
-          </pre> </div>
-                </div>
-              </section>
-            </div>
-            <div class="tabs-panel" id="tp5">
-              <section class="example-wrap">
-                <ul class="example-description">
-                  <li> <code>tooltips</code>需要异步加载内容，须配置<code>data-url=""</code>属性,url的值参照jquery的 load 方法, 而且 title 属性作为加载前的提示文字 </li>
-                </ul>
-                <div class="example">
-                  <div class="example-tag">实例</div>
-                  <div class="example-box">
-                    <div class="form-group"> <label class="form-control-label">
-              <span>邮箱</span>
-              <em>：</em>
-            </label>
-                      <div class="form-control-wrap"> <input type="text" class="form-control" data-toggle="tooltips" title="loading..." data-url="./pages/placeholder.html" data-pos="bottom-left"> </div>
-                    </div>
-                  </div>
-                  <div class="example-code"> <pre>
-            <code>
-&lt;input type="text" class="form-control" data-toggle="tooltips"  title="loading..." data-url="./pages/placeholder.html" data-pos="bottom-left" da&gt;
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
+    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>a</b>&gt;
+    &lt;/<b>li</b>&gt;
+  &lt;/<b>ul</b>&gt;
+&lt;/<b>div</b>&gt;
             </code>
           </pre> </div>
                 </div>
@@ -422,7 +234,6 @@ title="钱途互联是国内首家专注于通过互联模式"
     <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/brickplus/tab.js"></script>
     <script src="./static/js/framework.js?v=1.0.0"></script>
-    <script src="./static/js/brickplus/tooltips.js"></script>
     <script>
     </script>
   </body>
