@@ -2,35 +2,6 @@
 // 开关
 // ******************
 
-//开关
-  //图标
-  @icon-off-switch: "\e070";
-  @icon-on-switch: '\e28a';
-  @icon-disabled-switch: '\e033';
-  //尺寸
-    //默认
-    @fontSize-switch: @fontSize-smallest;
-    @iconSize-disabled-switch: @fontSize-large;
-    @gapSize-default-switch: 2px; //gapsize 请保持偶数设置
-    @height-default-switch: @height-smaller-btn;
-    //size small
-    @gapSize-small-switch: 2px;
-    @height-small-switch: @height-default-switch - 8px;
-    //size large
-    @gapSize-large-switch: 2px;
-    @height-large-switch: @height-small-btn;
-    //size large
-    @gapSize-xlarge-switch: 2px;
-    @height-xlarge-switch: @height-default-btn;
-  //色调
-  @bgColor-off-switch: darken(@bgColor-disabled-btn,5%);
-  @bgColor-on-switch: @domColor2;
-  @bgColor-disabled-switch: @bgColor-disabled-btn;
-  @bgColor-btn-switch: #fff;
-  @fontColor-off-switch: lighten(@fontColor-viceText,20%);
-  @fontColor-disabled-switch: @fontColor-off-switch;
-  @iconColor-disabled-switch: darken(@bgColor-disabled-switch,10%);
-
 //disabled swicth mixin
 .disabled-switch() {
   background-color: @bgColor-disabled-switch;
@@ -55,7 +26,7 @@
 }
 
 //switch size mixin
-.switch-size(@size:@height-default-switch,@gapSize:@gapSize-default-switch) {
+.switch-size(@size:@height-default-switch,@gapSize:@gapSize-default-switch,@isd:@iconSize-disabled-switch,@counts:2,@fs:@fontSize-switch) {
   height: @size;
   width: @size*2;
   .rounded(@size);
@@ -67,8 +38,8 @@
     bottom: @gapSize;
     .rounded(@size - @gapSize);
     line-height: @size - @gapSize - 1px;
-    padding-right: @gapSize*2;
-    font-size: @fontSize-switch;
+    padding-right: @gapSize*@counts;
+    font-size: @fs;
 
     &:before {
       .square(@size - @gapSize);
@@ -87,11 +58,21 @@
   &.checked {
 
     .switch-inner {
-      padding-left: @gapSize*2;
+      padding-left: @gapSize*@counts;
 
       &:before {
         left: @size - @gapSize;
       }
+    }
+  }
+
+  //不可用状态
+  &.disabled {
+    .disabled-switch();
+
+    .switch-inner:before {
+      font-size: @isd;
+      line-height: (@size - @gapSize);
     }
   }
 }
@@ -202,15 +183,17 @@
 
   //small size
   &.size-s {
-    .switch-size(@height-small-switch,@gapSize-small-switch);
+    .switch-size(@height-small-switch,@gapSize-small-switch,@iconSize-disabled-small-switch);
   }
 
+  //large size
   &.size-l {
-    .switch-size(@height-large-switch,@gapSize-large-switch);
+    .switch-size(@height-large-switch,@gapSize-large-switch,@iconSize-disabled-large-switch,4);
   }
 
+  //xlarge size
   &.size-xl {
-    .switch-size(@height-xlarge-switch,@gapSize-xlarge-switch);
+    .switch-size(@height-xlarge-switch,@gapSize-xlarge-switch,@iconSize-disabled-xlarge-switch,6,@fontSize-xlarge-switch);
   }
 }
 
