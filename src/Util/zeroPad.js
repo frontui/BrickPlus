@@ -4,6 +4,8 @@
  * 2016-07-06
  */
 
-module.exports = function(number) {
+function zeroPad(number) {
   return number > 9 ? number : '0' + number;
 }
+
+module.exports = zeroPad

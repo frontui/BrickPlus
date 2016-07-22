@@ -41,6 +41,7 @@ module.exports = function defaultTask(serverRoot) {
   // less
   gulp.task('less', function(){
       return gulp.src([config.staticPath+'/less/**/**.less', '!'+ config.staticPath +'/_**/**', '!'+ config.staticPath + '/**/_*.less', '!'+ config.staticPath + '/less/BrickPlus-Mixin/**/**.less'])
+                  .pipe($.plumber( { errorHandler: errHandler } ))
                   .pipe($.sourcemaps.init())
                   .pipe($.less())
                   .pipe($.autoprefixer())

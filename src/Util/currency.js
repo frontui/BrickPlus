@@ -8,7 +8,7 @@
  */
 var currency = function(num, decimal) {
   decimal = decimal || 2
-  let n = Number(num), parts;
+  var n = Number(num), parts;
 
   if(!isNaN(n)) {
     n = Number(num).toFixed(decimal)

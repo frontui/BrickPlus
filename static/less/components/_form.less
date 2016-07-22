@@ -203,7 +203,75 @@ select[size].form-control {
     .form-control-dropdown-menu {
       display: block;
     }
+
+    // placement - up
+    // 向上展开
+    &.up {
+
+      .form-control-dropdown-value {
+        .border-radius(0, 0, @borderRadius-formControl, @borderRadius-formControl);
+      }
+
+      .form-control-dropdown-menu {
+        border-bottom: none;
+        border-top: @borderWidth-formControl solid @borderColor-focus-formControl;
+      }
+
+      .form-control {
+        .border-radius(0, 0, @borderRadius-formControl, @borderRadius-formControl);
+      }
+    }
+
   }
+
+  // 多选
+  &.multiple {
+    .form-control-dropdown-menu {
+      > li {
+        padding-right: 40px;
+        &:after {
+          .icon-font-family;
+          position: absolute;
+          top: 8px;
+          right: 10px;
+          content: "\e28a";
+          font-size: 24px;
+
+          // animate
+          opacity: 0;
+          visibility: hidden;
+          transform: scale(0);
+          transition: all .2s ease-in-out;
+        }
+
+        &.hover {
+          &:after{
+            visibility:visible;
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    // 同.form-control-modal-value
+    .form-control-dropdown-value {
+      padding-top: @paddingTB-default-fromControl;
+      height: auto;
+      min-height: @height-formControl;
+      line-height: @lineHeight-formControl;
+
+      .form-control-modal-ops{
+        cursor: default;
+
+        &:after {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+
 }
 
 .form-control-modal {
@@ -261,7 +329,15 @@ select[size].form-control {
     left: @paddingLR-default-fromControl + @borderWidth-formControl;
     color: @fontColor-viceText;
     font-size: @fontSize-smaller;
+
+    // 比下拉低
+    z-index: @zIndex-dropDownMenu-formControl - 1;
   }
+}
+
+// 占位符
+.form-control-placeholder {
+  color: @fontColor-viceText;
 }
 
 .form-control-dropdown-value,
@@ -348,6 +424,18 @@ select[size].form-control {
     position: relative;
     .transition(all, 0.3s, ease, 0);
     .text-hide();
+
+    // 禁止状态
+    &.disabled {
+      color: @fontColor-viceText;
+      cursor: not-allowed;
+
+      &:hover,
+      &.hover {
+        color: @fontColor-viceText;
+        background-color: @bgColor-default-form;
+      }
+    }
 
     &:hover,
     &.hover {

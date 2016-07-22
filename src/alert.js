@@ -123,3 +123,5 @@ $(function () {
         Alert.prototype.close.call(e.target, e);
     })
 })
+
+module.exports = Alert

@@ -13,10 +13,12 @@ var zeroPad = require('./zeroPad')
  * @param  {String} prefix 连接字符串，默认是“-”
  * @return {String}     计算后的时间 xxxx-xx-xx
  */
-var dateDiff = function(d, diff, prefix='-') {
+var dateDiff = function(d, diff, prefix) {
   var date = new Date(d),
       diffDay = date.getTime() + 24 * 60 * 60 * 1000 * diff,
       dd = new Date(diffDay)
+
+  prefix = prefix || '-';
 
   return [dd.getFullYear(), zeroPad(dd.getMonth() + 1), zeroPad(dd.getDate())].join(prefix);
 }

@@ -260,3 +260,5 @@ var handler = function () {
 $(function () {
     $(document).on('mouseenter.ui.tooltips focus.ui.tooltips', toggle, handler)
 })
+
+module.exports = Tooltips

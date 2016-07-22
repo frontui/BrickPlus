@@ -934,3 +934,5 @@ $(function() {
     if(inputController.length)  clickHandler.call(inputController, e)
   })
 })
+
+module.exports = DateTimePikcer

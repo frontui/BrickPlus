@@ -8,10 +8,12 @@
 
 var $ = require('jquery')
 
+var fn = require('./Util/debounce')
+
 // var BrickPlus = require('brickPlus')
-if( typeof BrickPlus === 'undefined') {
-  var BrickPlus = {}
-}
+//if( typeof BrickPlus === 'undefined') {
+//  var BrickPlus = {}
+//}
 
 // ------- 工具函数库 ----------
 
@@ -37,10 +39,13 @@ var Util = {
   // 12. 时间计算
   dateDiff: require('./Util/dateDiff'),
   // 13. 金额格式化
-  currency: require('./Util/currency')
+  currency: require('./Util/currency'),
+  zeroPad: require('./Util/zeroPad'),
+  debounce: fn.debounce,
+  throttle: fn.throttle
 }
 
-BrickPlus.Util = Util
+//BrickPlus.Util = Util
 
 // API
-module.exports = BrickPlus
+module.exports = Util

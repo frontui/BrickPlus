@@ -63,3 +63,5 @@ $(function () {
         }
     }
 })
+
+module.exports = transitionEnd

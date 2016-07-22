@@ -43,10 +43,11 @@ module.exports = function(entries, output) {
     watch: !(NODE_ENV === 'production'),
     debug: !(NODE_ENV === 'production'),
     profile: true,
+    cache: true,
     //context: path.resolve(__dirname),
-    //entry: entryFiles,
+    // entry: entryFiles,
     entry: {
-      'brickPlus.Util': './src/brickPlus.Util.js'
+      'dropdown': './src/dropdown.js'
     },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
@@ -56,14 +57,15 @@ module.exports = function(entries, output) {
     },
     module: {
       loaders: [
-        // {
-        //   test: /\.js$/,
-        //   loader: 'babel',
-        //   query: {
-        //     presets: ['es2015']
-        //   },
-        //   exclude: /node_modules/
-        // }
+        {
+          test: /\.js$/,
+          loader: 'babel',
+          query: {
+            presets: ['es2015'],
+            cacheDirectory: true
+          },
+          exclude: /node_modules/
+        }
       ]
     },
     resolve: {
@@ -72,7 +74,7 @@ module.exports = function(entries, output) {
         zeroPad: './src/Util/zeroPad.js'
       },
       extensions: ['', '.js'],
-      root: [path.join(__dirname, 'src')]
+      root: [path.resolve('./src')]
     },
     externals: [
       {

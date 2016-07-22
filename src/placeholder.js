@@ -71,3 +71,5 @@ $.fn.placeholder.Constructor = Placeholder;
 $(function () {
     $('input[placeholder]').placeholder()
 });
+
+module.exports = Placeholder

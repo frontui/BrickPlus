@@ -13,6 +13,7 @@ var path   = require('path')
 var fs     = require('fs')
 var $      = require('gulp-load-plugins')()
 var ghPages    = require('gulp-gh-pages')
+var errHandler = $.notify.onError('错误: <%= error.message %>')
 
 var dest = path.join(__dirname, '../', 'document');
 var staticPath = path.join(__dirname, '../', config.staticPath)
@@ -46,6 +47,7 @@ function docTask(banner) {
 
   gulp.task('doc:brickplus', function() {
     return gulp.src([staticPath+'/js/brickplus/**/*.js'])
+                .pipe($.plumber( { errorHandler: errHandler } ))
                 .pipe($.uglify())
                 .pipe($.header(banner, { pkg: pkg}))
                 .pipe(gulp.dest(dest+'/static/js/brickplus'))
