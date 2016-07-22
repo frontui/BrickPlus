@@ -2,21 +2,80 @@
 // 开关
 // ******************
 
-//开关
-  //图标
-  @icon-off-switch: "\e070";
-  @icon-on-switch: '\e28a';
-  //尺寸
-    //默认
-    @fontSize-switch: @fontSize-smallest;
-    @gapSize-default-switch: 2px;
-    @height-default-switch: @height-smaller-btn;
-  //色调
-  @bgColor-off-switch: darken(@bgColor-disabled-btn,5%);
-  @bgColor-on-switch: @domColor2;
-  @bgColor-disabled-switch: @bgColor-disabled-btn;
-  @bgColor-btn-switch: #fff;
-  @fontColor-off-switch: lighten(@fontColor-viceText,20%);
+//disabled swicth mixin
+.disabled-switch() {
+  background-color: @bgColor-disabled-switch;
+  cursor: not-allowed;
+
+  .switch-inner {
+    box-shadow: none;
+    color: @fontColor-disabled-switch;
+
+    &:before {
+      .icon-font-family();
+      content: @icon-disabled-switch;
+      font-size: @iconSize-disabled-switch;
+      line-height: (@height-default-switch - @gapSize-default-switch);
+      text-align: center;
+      color: @iconColor-disabled-switch;
+      box-shadow: none;
+      text-shadow: 1px 1px 0 rgba(255,255,255,1);
+      background-color: transparent;
+    }
+  }
+}
+
+//switch size mixin
+.switch-size(@size:@height-default-switch,@gapSize:@gapSize-default-switch,@isd:@iconSize-disabled-switch,@counts:2,@fs:@fontSize-switch) {
+  height: @size;
+  width: @size*2;
+  .rounded(@size);
+
+  .switch-inner {
+    top: @gapSize;
+    left: @gapSize;
+    right: @gapSize;
+    bottom: @gapSize;
+    .rounded(@size - @gapSize);
+    line-height: @size - @gapSize - 1px;
+    padding-right: @gapSize*@counts;
+    font-size: @fs;
+
+    &:before {
+      .square(@size - @gapSize);
+      margin-top: -(@size - @gapSize)/2;
+    }
+  }
+
+  //开关图标
+  &.with-icon {
+
+    .switch-inner {
+      line-height: @size;
+    }
+  }
+
+  &.checked {
+
+    .switch-inner {
+      padding-left: @gapSize*@counts;
+
+      &:before {
+        left: @size - @gapSize;
+      }
+    }
+  }
+
+  //不可用状态
+  &.disabled {
+    .disabled-switch();
+
+    .switch-inner:before {
+      font-size: @isd;
+      line-height: (@size - @gapSize);
+    }
+  }
+}
 
 .switch {
   .inline-block();
@@ -38,7 +97,7 @@
     bottom: @gapSize-default-switch;
     .rounded(@height-default-switch - @gapSize-default-switch);
     text-align: right;
-    line-height: @height-default-switch - @gapSize-default-switch;
+    line-height: @height-default-switch - @gapSize-default-switch - 1px;
     padding-right: @gapSize-default-switch*2;
     font-size: @fontSize-switch;
     color: @fontColor-off-switch;
@@ -58,6 +117,11 @@
     }
   }
 
+  //不可用状态
+  &.disabled {
+    .disabled-switch();
+  }
+
   //开关文字
   &.with-text {
 
@@ -69,12 +133,17 @@
   //开关图标
   &.with-icon {
 
-    .switch-inner:after {
-      .icon-font-family();
-      content: @icon-off-switch;
+    .switch-inner {
+      line-height: @height-default-switch;
+
+      &:after {
+        .icon-font-family();
+        content: @icon-off-switch;
+      }
     }
   }
 
+  //打开开关
   &.checked {
     background-color: @bgColor-on-switch;
 
@@ -88,6 +157,11 @@
         left: @height-default-switch - @gapSize-default-switch;
         .outer-shadow-custom(0,2px,3px,1px);
       }
+    }
+
+    //在已经开启开关的情况下，开关处于disabled状态
+    &.disabled {
+      .disabled-switch();
     }
   }
 
@@ -107,18 +181,19 @@
     }
   }
 
-  //不可用状态
-  &.disabled {
-    background-color: @bgColor-disabled-switch;
-    cursor: not-allowed;
+  //small size
+  &.size-s {
+    .switch-size(@height-small-switch,@gapSize-small-switch,@iconSize-disabled-small-switch);
+  }
 
-    .switch-inner {
-      color: lighten(@bgColor-on-switch,100%);
+  //large size
+  &.size-l {
+    .switch-size(@height-large-switch,@gapSize-large-switch,@iconSize-disabled-large-switch,4);
+  }
 
-      &:before {
-        .inner-shadow-custom(0,0,3px,0,rgba(0,0,0,0.075));
-        background-color: darken(@bgColor-disabled-switch,1%);
-      }
-    }
+  //xlarge size
+  &.size-xl {
+    .switch-size(@height-xlarge-switch,@gapSize-xlarge-switch,@iconSize-disabled-xlarge-switch,6,@fontSize-xlarge-switch);
   }
 }
+

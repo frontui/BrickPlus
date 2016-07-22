@@ -38,22 +38,16 @@
   tab.prototype(
     tabs = [
       {text: '结构和样式', url: '#tp1'},
-      {text: '种类', url: '#tp2'},
-      {text: '尺寸', url: '#tp3'}
+      {text: '开关辨识', url: '#tp2'},
+      {text: '状态', url: '#tp3'},
+      {text: '尺寸', url: '#tp4'}
     ],
     cur='1'
   )
 }}
 <div class="tabs-content">
   <div class="tabs-panel active" id="tp1">
-    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
-      <a href="#SwitchBase" class="btn default">基础</a>
-      <a href="#SwitchDisabled" class="btn default">不可用状态</a>
-    </div>
     <section class="example-wrap">
-      <h2 id="SwitchBase">
-        基础
-      </h2>
       <ul class="example-description">
         <li>
           某些情况需要用到开/关两种状态的触发元素实现用户场景，需要用到开关组件；<br>
@@ -91,6 +85,64 @@
         </div>
       </div>
     </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          BrickPlus 允许开关组件能够使用色彩辨别状态以外的方法去辨识开关激活与否，如在 <code>.switch</code> 层引用 <code>.with-icon</code> 或者 <code>.with-text</code> 工具类，使开关带有状态识的图标或者文字。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5>典型开关</h5>
+          <div class="fn-mb-10">
+            <span class="switch">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div class="fn-mb-40">
+            <span class="switch checked">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <h5>带有图标的开关 <code>.with-icon</code></h5>
+          <div class="fn-mb-10">
+            <span class="switch with-icon">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div class="fn-mb-40">
+            <span class="switch with-icon checked">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <h5>带有文字的开关 <code>.with-text</code></h5>
+          <div class="fn-mb-10">
+            <span class="switch with-text">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div>
+            <span class="switch with-text checked">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;span <span class="va">class="<span class="cl">switch <b>with-icon / text</b></span>"</span>&gt;
+  &lt;span <span class="va">class="<span class="cl">switch-inner</span>"</span>&gt;&lt;/span&gt;
+&lt;/span&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
     <section class="example-wrap">
       <h2 id="SwitchDisabled">
         不可用状态
@@ -101,10 +153,228 @@
         </li>
       </ul>
       <div class="example">
+        <div class="example-tag">实例></i></div>
+        <div class="example-box">
+          <div class="table-wrap">
+            <table class="table table-bordered-type2">
+              <colgroup>
+                <col style="width: 150px">
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th></th>
+                <th>关闭后不可用</th>
+                <th>开启后不可用</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>典型开关</th>
+                  <td>
+                    <span class="switch disabled">
+                      <span class="switch-inner"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="switch checked disabled">
+                      <span class="switch-inner"></span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>带有图标的开关</th>
+                  <td>
+                    <span class="switch with-icon disabled">
+                      <span class="switch-inner"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="switch with-icon checked disabled">
+                      <span class="switch-inner"></span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>带有文字的开关</th>
+                  <td>
+                    <span class="switch with-text disabled">
+                      <span class="switch-inner"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="switch with-text checked disabled">
+                      <span class="switch-inner"></span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;span <span class="va">class="<span class="cl">switch <b>disabled</b></span>"</span>&gt;
+  &lt;span <span class="va">class="<span class="cl">switch-inner</span>"</span>&gt;&lt;/span&gt;
+&lt;/span&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          BrickPlus 暂时提供四种种开关尺寸以适应不同的UI设计，其中三种非典型尺寸需要通过在 <code>.switch</code> 这一层引用 <code>.size-s / l / xl</code> 工具类，改变开关的尺寸样式。
+        </li>
+        <li>
+          <code>.size-s</code> 类并不支持和 <code>.with-text / icon</code> 类一起使用，如要更改的开关的辨识方法，可以给开关加载 <code>tooltips</code> 工具。
+        </li>
+      </ul>
+      <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          <div>
+          <h5>小码尺寸 <code>.size-s</code></h5>
+          <div class="fn-mb-10">
+            <span class="switch size-s">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-s disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div class="fn-mb-40">
+            <span class="switch checked size-s">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch checked size-s disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <h5>默认尺寸</h5>
+          <div class="fn-mb-10">
+            <span class="switch">
+              <span class="switch-inner"></span>
+            </span>
             <span class="switch disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-text">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-text disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-icon">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-icon disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div class="fn-mb-40">
+            <span class="switch checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-text checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-text checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-icon checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch with-icon checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <h5>大码尺寸 <code>.size-l</code></h5>
+          <div class="fn-mb-10">
+            <span class="switch size-l">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-text">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-text disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-icon">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-icon disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div class="fn-mb-40">
+            <span class="switch size-l checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-text checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-text checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-icon checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-l with-icon checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <h5>加大码尺寸 <code>.size-xl</code></h5>
+          <div class="fn-mb-10">
+            <span class="switch size-xl">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-text">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-text disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-icon">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-icon disabled">
+              <span class="switch-inner"></span>
+            </span>
+          </div>
+          <div>
+            <span class="switch size-xl checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-text checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-text checked disabled">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-icon checked">
+              <span class="switch-inner"></span>
+            </span>
+            <span class="switch size-xl with-icon checked disabled">
               <span class="switch-inner"></span>
             </span>
           </div>
@@ -112,7 +382,7 @@
         <div class="example-code">
           <pre>
             <code>
-&lt;span <span class="va">class="<span class="cl">switch <b>disabled</b></span>"</span>&gt;
+&lt;span <span class="va">class="<span class="cl">switch <b>size-s / l / xl</b></span>"</span>&gt;
   &lt;span <span class="va">class="<span class="cl">switch-inner</span>"</span>&gt;&lt;/span&gt;
 &lt;/span&gt;
             </code>
