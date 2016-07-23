@@ -1,1 +1,110 @@
-时间间隔
+<section class="example-wrap">
+  <ul class="example-description">
+    <li> 计算两个日期相差天数,<code>dayDiff(start, end)</code> </li>
+  </ul>
+  <div class="example">
+    <div class="example-tag">参数说明</div>
+    <div class="example-box">
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>属性</th>
+              <th>说明</th>
+              <th>类型</th>
+              <th>默认值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>start</td>
+              <td>开始时间，必须符合日期格式<code>xxxx-xx-xx</code></td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>end</td>
+              <td>开始时间，必须符合日期格式<code>xxxx-xx-xx</code></td>
+              <td>String</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> <br>
+  <div class="example">
+    <div class="example-tag">实例</div>
+    <div class="example-box">
+      <div class="form-group"> <label for="" class="form-control-label">
+            <span>开始时间</span>
+            <em>：</em>
+          </label>
+        <div class="form-control-wrap">
+          <div class="form-control-date"> <span class="form-control-date-btn"><i></i></span> <input type="text" data-toggle="datetimepicker" data-option="{calendars: 1}" class="form-control" readonly value="2016-07-20" id="demo-day-diff-start"> </div>
+        </div>
+      </div> <br>
+      <div class="form-group"> <label for="" class="form-control-label">
+            <span>结束时间</span>
+            <em>：</em>
+          </label>
+        <div class="form-control-wrap">
+          <div class="form-control-date"> <span class="form-control-date-btn"><i></i></span> <input type="text" data-toggle="datetimepicker" data-option="{calendars: 1}" class="form-control" readonly value="2016-07-20" id="demo-day-diff-end"> </div>
+        </div>
+      </div> <br>
+      <div class="form-group"> <label for="" class="form-control-label">
+            <span>回执天数</span>
+            <em>：</em>
+          </label>
+        <div class="form-control-wrap">
+          <div class="form-control-static"> <span id="demo-day-diff">0</span>天 </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-code"> <pre>
+          <code>
+$(function() {
+  var $start = $('#demo-day-diff-start'),
+      $end = $('#demo-day-diff-end'),
+      $text = $('#demo-day-diff'),
+      dayDiff = BrickPlus.Util.dayDiff;
+
+  var calcDays = function(a, b) {
+    var days = dayDiff(a, b);
+    $text.html(days)
+  };
+
+  $start.on('choose.ui.datetimepicker', function(e, date) {
+    calcDays(date, $end.val())
+  });
+
+  $end.on('choose.ui.datetimepicker', function(e, date) {
+    calcDays(date, $start.val())
+  })
+})
+          </code>
+        </pre> </div>
+  </div>
+</section>
+<script>
+  $(function()
+  {
+    var $start = $('#demo-day-diff-start'),
+      $end = $('#demo-day-diff-end'),
+      $text = $('#demo-day-diff'),
+      dayDiff = BrickPlus.Util.dayDiff;
+    var calcDays = function(a, b)
+    {
+      var days = dayDiff(a, b);
+      $text.html(days)
+    };
+    $start.on('choose.ui.datetimepicker', function(e, date)
+    {
+      calcDays(date, $end.val())
+    });
+    $end.on('choose.ui.datetimepicker', function(e, date)
+    {
+      calcDays(date, $start.val())
+    })
+  })
+</script>
