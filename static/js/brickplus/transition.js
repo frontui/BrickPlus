@@ -1,7 +1,7 @@
 /*! generator-frontman v0.1.2
 *  by fronui team
 *  (c) 2014-2016 www.frontpay.cn
-* updated on 2016-07-23
+* updated on 2016-07-25
 *  Licensed under MIT
 */
  !function(n,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("jquery")):"function"==typeof define&&define.amd?define(["jquery"],t):"object"==typeof exports?exports.BrickPlus=t(require("jquery")):n.BrickPlus=t(n.jQuery)}(this,function(n){return function(n){function t(i){if(e[i])return e[i].exports;var r=e[i]={exports:{},id:i,loaded:!1};return n[i].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var e={};return t.m=n,t.c=e,t.p="",t(0)}([function(n,t,e){"use strict";function i(){var n=document.createElement("ui"),t={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"};for(var e in t)if(void 0!==n.style[e])return{end:t[e]};return!1}var r=e(1);r.fn.emulateTransitionEnd=function(n){var t=!1,e=this;r(this).one("uiTransitionEnd",function(){t=!0});var i=function(){t||r(e).trigger(r.support.transition.end)};return setTimeout(i,n),this},r(function(){r.support.transition=i(),r.support.transition&&(r.event.special.uiTransitionEnd={bindType:r.support.transition.end,delegateType:r.support.transition.end,handle:function(n){if(r(n.target).is(this))return n.handleObj.handler.apply(this,arguments)}})}),n.exports=i},function(t,e){t.exports=n}])});
