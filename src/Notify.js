@@ -106,8 +106,8 @@ Notify.DEFAULTS = {
     timeout: 5000, // 定时延迟消失
     group: null,   // 是否分组
     pos: "vcenter", // 定位
-    onClose: function () {
-    }  // 关闭触发事件
+    onClose: $.noop,  // 关闭触发事件
+    compelete: $.noop  // 消失后函数
 };
 
 // Public Method
@@ -160,6 +160,8 @@ Notify.prototype.close = function (instanly) {
             $this.$el.trigger('close.ui.notify', [$this]);
 
             delete messages[$this.uuid];
+
+            typoef $this.options.compelete === 'function' && $this.options.compelete($this.$el)
         }
 
     if (this.timeout) clearTimeout(this.timeout);

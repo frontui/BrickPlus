@@ -91,7 +91,7 @@
 }
 
 .notify-vcenter {
-  top: 50%;
+  top: 35%;
   left: 50%;
   margin-left: -(@notify-width / 2);
 }
@@ -127,7 +127,16 @@
 
 .notify-message:hover > .notify-close { visibility: visible; }
 
-
+.notify-message-success,
+.notify-message-primary,
+.notify-message-danger,
+.notify-message-warning {
+  .notify-bfc {
+    > i {
+      color: #fff;
+    }
+  }
+}
 /* Modifier: `uk-alert-info`
  ========================================================================== */
 

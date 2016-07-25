@@ -71,7 +71,9 @@ $('#j-btn').on('click', function() {
         <div class="example-code">
           <pre>
             <code>
-$('#j-btn').notify({message: '<i class="icon-info"></i> 我是有图标的!'})
+$('#j-btn-2').on('click', function() {
+    $.notify({ message: '&lt;div class="notify-bfc"&gt;&lt;i class="icon-info-outline"&gt;&lt;/i&gt; &lt;div&gt;&lt;p&gt;我是有图标的!&lt;/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;'});
+  })
             </code>
           </pre>
         </div>
@@ -90,7 +92,9 @@ $('#j-btn').notify({message: '<i class="icon-info"></i> 我是有图标的!'})
         <div class="example-code">
           <pre>
             <code>
-$('#j-btn-3').notify({ message: '<i class="icon-info"></i> 我是有图标的!', timeout: 1000});
+$('#j-btn-3').on('click', function() {
+  $.notify({ message: '&lt;div class="notify-bfc"&gt;&lt;i class="icon-done"&gt;&lt;/i&gt; &lt;div&gt;&lt;p&gt;我是有图标的!&lt;/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;', timeout: 1000});
+})
             </code>
           </pre>
         </div>
