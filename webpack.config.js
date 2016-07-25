@@ -47,12 +47,12 @@ module.exports = function(entries, output) {
     //context: path.resolve(__dirname),
     // entry: entryFiles,
     entry: {
-      'dropdown': './src/dropdown.js'
+      'Notify': './src/Notify.js'
     },
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
       filename: '[name].js',
-      library: 'BrickPlus',
+      library: '[name]',
       libraryTarget: 'umd'
     },
     module: {

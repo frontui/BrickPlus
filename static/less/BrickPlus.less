@@ -185,6 +185,11 @@ body {
 
 //bricks 主导航
 .bricks-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
     background-color: @bgColor-BricksNav;
     border-bottom: @borderWidth-BricksHeader solid @borderColor-BricksNav;
     .clearfix();
@@ -192,6 +197,10 @@ body {
     &.slideInUp {
         top: -(@height-BricksNav + @borderWidth-BricksHeader); //.bricks-header本身并没有定义高度，.bricks-header的总高度是由.bricks-nav的高度加上自己的border宽度而来
     }
+
+  &-placement {
+    height: @height-BricksNav + 1;
+  }
 }
 
 @media (max-width:1024px) {
