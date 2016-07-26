@@ -13,6 +13,7 @@
  *          pos: 'top-center',
  *          opacity: .85,
  *          timeout: 5000,
+ *          icon: '',['info', 'success', 'warning', 'error'],
  *          onClose: function(){}
  *      });
  */
@@ -107,7 +108,15 @@ Notify.DEFAULTS = {
     group: null,   // 是否分组
     pos: "vcenter", // 定位
     onClose: $.noop,  // 关闭触发事件
-    compelete: $.noop  // 消失后函数
+    compelete: $.noop,  // 消失后函数
+    icon: ''//['info', 'success', 'warning', 'error'],
+};
+
+Notify.ICONS = {
+  'info': 'icon-info-outline',
+  'success': 'icon-done',
+  'warning': 'icon-error_outline',
+  'error': 'icon-highlight_remove'
 };
 
 // Public Method
@@ -161,7 +170,7 @@ Notify.prototype.close = function (instanly) {
 
             delete messages[$this.uuid];
 
-            typoef $this.options.compelete === 'function' && $this.options.compelete($this.$el)
+            typeof $this.options.compelete === 'function' && $this.options.compelete($this.$el)
         }
 
     if (this.timeout) clearTimeout(this.timeout);
@@ -183,6 +192,10 @@ Notify.prototype.content = function (html) {
         return container.html();
     }
 
+    // 带图标
+    if(!!this.options.icon) {
+      html = '<div class="notify-bfc"><i class="'+ Notify.ICONS[this.options.icon] +'"></i> <div>'+ html +'</div></div>'
+    }
     container.html(html);
 
     return this;
