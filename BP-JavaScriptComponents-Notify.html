@@ -205,10 +205,22 @@ $('#j-btn').on('click', function() {
                 </ul>
                 <div class="example fn-mb-20">
                   <div class="example-tag">实例</div>
-                  <div class="example-box"> <button type="button" class="btn default small-btn" id="j-btn-2">弹出有图标的通知</button> </div>
+                  <div class="example-box"> <button type="button" class="btn default small-btn" id="j-btn-2">弹出有info图标的通知</button> <br> <br> <button type="button" class="btn default small-btn" id="j-btn-5">弹出有success图标的通知</button> <br> <br> <button type="button" class="btn default small-btn"
+                      id="j-btn-6">弹出有warning图标的通知</button> <br> <br> <button type="button" class="btn default small-btn" id="j-btn-7">弹出有error图标的通知</button> </div>
                   <div class="example-code"> <pre>
             <code>
-$('#j-btn').notify({message: '<i class="icon-info"></i> 我是有图标的!'})
+$('#j-btn-2').on('click', function() {
+  $.notify({ icon: 'info', message: '&lt;p&gt;我是有info图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;p/p&gt;'});
+})
+$('#j-btn-5').on('click', function() {
+  $.notify({ icon: 'success', message: '&lt;pp&gt;我是有success图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;'});
+})
+$('#j-btn-6').on('click', function() {
+  $.notify({ icon: 'warning', message: '&lt;p&gt;我是有warning图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;'});
+})
+$('#j-btn-7').on('click', function() {
+  $.notify({ icon: 'error', message: '&lt;pp&gt;我是有error图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;p/p&gt;'});
+})
             </code>
           </pre> </div>
                 </div>
@@ -221,7 +233,9 @@ $('#j-btn').notify({message: '<i class="icon-info"></i> 我是有图标的!'})
                   <div class="example-box"> <button type="button" class="btn default small-btn" id="j-btn-3">定时隐藏</button> </div>
                   <div class="example-code"> <pre>
             <code>
-$('#j-btn-3').notify({ message: '<i class="icon-info"></i> 我是有图标的!', timeout: 1000});
+$('#j-btn-3').on('click', function() {
+  $.notify({ message: '&lt;div class="notify-bfc"&gt;&lt;i class="icon-done"&gt;&lt;/i&gt; &lt;div&gt;&lt;p&gt;我是有图标的!&lt;/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;', timeout: 1000});
+})
             </code>
           </pre> </div>
                 </div>
@@ -276,6 +290,11 @@ $('#j-btn-3').notify({ message: '<i class="icon-info"></i> 我是有图标的!',
                             <td><code>'vcenter'</code></td>
                             <td><code>$.notify({message: '居中', pos: 'vcenter'})</code></td>
                             <td><button class="btn default small-btn j-pos" data-pos="vcenter">居中</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'icon'</code></td>
+                            <td><code>$.notify({message: '居中', icon: 'info'})</code></td>
+                            <td>显示图标icon</td>
                           </tr>
                         </tbody>
                       </table>
@@ -371,7 +390,32 @@ $('#j-btn-3').notify({ message: '<i class="icon-info"></i> 我是有图标的!',
         {
           $.notify(
           {
-            message: '<div class="notify-bfc"><i class="icon-info-outline"></i> <div><p>我是有图标的!</p><p>朕知道了</p></div></div>'
+            icon: 'info',
+            message: '<p>我是有info图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-5').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'success',
+            message: '<p>我是有success图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-6').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'warning',
+            message: '<p>我是有warning图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-7').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'error',
+            message: '<p>我是有error图标的!</p><p>朕知道了</p>'
           });
         })
         $('#j-btn-3').on('click', function()
