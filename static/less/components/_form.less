@@ -74,9 +74,16 @@ input::-ms-clear {
   overflow: hidden;
   .clearfix();
 
+  background-color: #6dbfff;
+
+  &:before {
+    content: '';
+    .inline-block();
+    height: 100%;
+    vertical-align: middle;
+  }
+
   > em, span {
-    font-size: @fontSize-formControl;
-    color: @fontColor-label-formControl;
   }
 
   > em {
@@ -91,7 +98,20 @@ input::-ms-clear {
     .inline-block();
     line-height: @line-height-base;
     vertical-align: middle;
-    max-width: 76%;
+    font-size: @fontSize-formControl;
+    color: @fontColor-label-formControl;
+    background-color: #2b9f63;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      .square(6px);
+      .rounded(50%);
+      top: 50%;
+      margin-top: -3px;
+      background-color: @fontColor-error;
+    }
   }
 
   > b {
