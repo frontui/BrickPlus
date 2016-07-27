@@ -76,6 +76,7 @@ input::-ms-clear {
 
   background-color: #6dbfff;
 
+  //用来撑开 label > span 需要的高度
   &:before {
     content: '';
     .inline-block();
@@ -106,11 +107,11 @@ input::-ms-clear {
     &:before {
       content: '';
       position: absolute;
-      .square(6px);
+      .square(@requiredIconSize-formControl);
       .rounded(50%);
       top: 50%;
-      margin-top: -3px;
-      background-color: @fontColor-error;
+      margin-top: @requiredIconSize-formControl/2;
+      background-color: @requiredIconColor-formControl;
     }
   }
 
@@ -118,7 +119,7 @@ input::-ms-clear {
     .inline-block();
     height: 100%;
     vertical-align: middle;
-    color: @fontColor-error;
+    color: @fontColor-danger;
     line-height: @height-formControl + 9px;
     font-size: ceil(@fontSize-formControl * 1.7);
     padding-right: 5px;
@@ -756,7 +757,7 @@ select[size].form-control {
 
   .form-control {
     border-color: @borderColor-error-formControl;
-    color: @fontColor-error;
+    color: @fontColor-danger;
 
     &:focus {
       color: @fontColor-value-formControl;
@@ -766,12 +767,12 @@ select[size].form-control {
 
   input[type='text'][readonly].form-control {
     border-color: @borderColor-error-formControl;
-    color: @fontColor-error;
+    color: @fontColor-danger;
     cursor: pointer;
   }
 
   .form-notice {
-    color: @fontColor-error;
+    color: @fontColor-danger;
     border-color: @borderColor-error-formControl;
     background-color: @bgColor-error-formControl;
 
@@ -792,11 +793,11 @@ select[size].form-control {
 
   .form-control-dropdown-value {
     border-color: @borderColor-error-formControl;
-    color: @fontColor-error;
+    color: @fontColor-danger;
   }
 
   .form-control-bank-card {
-    color: @fontColor-error;
+    color: @fontColor-danger;
   }
 
   .form-control-dropdown-btn,
@@ -808,7 +809,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
-      color: @fontColor-error;
+      color: @fontColor-danger;
 
       //用于体现单选表单和多选表单的disabled样式
       &.disabled {
@@ -850,7 +851,7 @@ select[size].form-control {
 
       input[type='text'][readonly].form-control {
         border-color: @borderColor-error-formControl;
-        color: @fontColor-error;
+        color: @fontColor-danger;
       }
 
       .form-control-dropdown-btn,

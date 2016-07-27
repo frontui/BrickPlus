@@ -19,8 +19,9 @@
   color: @fontColor-link !important;
 }
 
-.fontcolor-error {
-  color: @fontColor-error !important;
+.fontcolor-error,
+.fontcolor-danger {
+  color: @fontColor-danger !important;
 }
 
 .fontcolor-success {
@@ -103,7 +104,7 @@
   }
 
   &.take {
-    color: @fontColor-error;
+    color: @fontColor-danger;
 
     &:before {
       content: @content-icon-take-amount;
