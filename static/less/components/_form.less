@@ -71,10 +71,7 @@ input::-ms-clear {
   text-align: right;
   font-size: 0;
   line-height: 0;
-  overflow: hidden;
   .clearfix();
-
-  background-color: #6dbfff;
 
   //用来撑开 label > span 需要的高度
   &:before {
@@ -84,45 +81,22 @@ input::-ms-clear {
     vertical-align: middle;
   }
 
-  > em, span {
-  }
-
-  > em {
-    .inline-block();
-    height: 100%;
-    line-height: @height-formControl;
-    vertical-align: middle;
-    font-style: normal;
-  }
-
   > span {
     .inline-block();
     line-height: @line-height-base;
     vertical-align: middle;
     font-size: @fontSize-formControl;
     color: @fontColor-label-formControl;
-    background-color: #2b9f63;
     position: relative;
 
     &:before {
-      content: '';
       position: absolute;
       .square(@requiredIconSize-formControl);
       .rounded(50%);
-      top: 50%;
-      margin-top: @requiredIconSize-formControl/2;
+      top: @requiredIconSize-formControl;
+      left: -@requiredIconSize-formControl*2;
       background-color: @requiredIconColor-formControl;
     }
-  }
-
-  > b {
-    .inline-block();
-    height: 100%;
-    vertical-align: middle;
-    color: @fontColor-danger;
-    line-height: @height-formControl + 9px;
-    font-size: ceil(@fontSize-formControl * 1.7);
-    padding-right: 5px;
   }
 }
 
@@ -351,12 +325,12 @@ select[size].form-control {
     color: @fontColor-viceText;
     font-size: @fontSize-smaller;
 
-    // 比下拉低
+    //比下拉低
     z-index: @zIndex-dropDownMenu-formControl - 1;
   }
 }
 
-// 占位符
+//占位符
 .form-control-placeholder {
   color: @fontColor-viceText;
 }
@@ -446,7 +420,7 @@ select[size].form-control {
     .transition(all, 0.3s, ease, 0);
     .text-hide();
 
-    // 禁止状态
+    //禁止状态
     &.disabled {
       color: @fontColor-viceText;
       cursor: not-allowed;
@@ -1306,19 +1280,7 @@ select[size].form-control {
     position: relative;
     display: block;
     text-align: left;
-    padding-left: @paddingLR-default-fromControl + @borderWidth-formControl;
     width: auto;
-
-    > span {
-      max-width: 95%;
-    }
-
-    > b {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding-right: 0;
-    }
   }
 }
 
@@ -1395,16 +1357,8 @@ select[size].form-control {
     width: @width-label-large-formControl;
     height: @height-large-formControl;
 
-    > em, span {
+    > span {
       font-size: @fontSize-large-formControl;
-    }
-
-    > em {
-      line-height: @height-large-formControl;
-    }
-
-    > b {
-      line-height: @height-large-formControl + 9px;
     }
   }
 
@@ -1550,6 +1504,10 @@ select[size].form-control {
       width: auto;
     }
   }
+
+  .form-control-label > span:before {
+    top: @requiredIconSize-formControl*1.3;
+  }
 }
 
 .form-small {
@@ -1564,16 +1522,8 @@ select[size].form-control {
     height: @height-small-formControl;
     .text-hide();
 
-    > em, span {
+    > span {
       font-size: @fontSize-small-formControl;
-    }
-
-    > em {
-      line-height: @height-small-formControl;
-    }
-
-    > b {
-      line-height: @height-small-formControl + 9px;
     }
   }
 
@@ -1747,16 +1697,8 @@ select[size].form-control {
     height: @height-smaller-formControl;
     .text-hide();
 
-    > em, span {
+    > span {
       font-size: @fontSize-smaller-formControl;
-    }
-
-    > em {
-      line-height: @height-smaller-formControl;
-    }
-
-    > b {
-      line-height: @height-smaller-formControl + 9px;
     }
   }
 
@@ -1939,6 +1881,10 @@ select[size].form-control {
       width: auto;
     }
   }
+
+  .form-control-label > span:before {
+    top: @requiredIconSize-formControl*0.8;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1949,22 +1895,17 @@ select[size].form-control {
       position: relative;
       display: block;
       text-align: left;
-      padding-left: @paddingLR-default-fromControl + @borderWidth-formControl;
       width: auto;
-
-      > span {
-        max-width: 95%;
-      }
-
-      > b {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding-right: 0;
-      }
     }
-
   }
+}
+
+// ******************
+// 表单必填项
+// ******************
+.form-required .form-control-label > span:before,
+.form-required.form-control-label > span:before {
+  content: '';
 }
 
 // ******************
