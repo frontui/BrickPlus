@@ -1,5 +1,5 @@
-{% macro default(list=[]) %}
-<ul class="breadcrumb">
+{% macro default(list=[],fixedClass='') %}
+<ul class="breadcrumb {{ fixedClass }}">
   {% for item in list %}
   <li>
     {% if item.link %}

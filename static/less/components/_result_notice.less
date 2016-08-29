@@ -25,7 +25,6 @@
   }
 
   > .result-content {
-    padding-left: 20px;
     min-height: @iconWrapSize-resultNotice;
     display: table;
     text-align: left;
@@ -48,6 +47,10 @@
 
     .result-box {
       padding-left: @iconWrapSize-resultNotice;
+
+      > .result-content {
+        padding-left: 20px;
+      }
 
       > .result-icon {
         display: block;
