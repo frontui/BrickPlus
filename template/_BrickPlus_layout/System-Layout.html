@@ -44,28 +44,34 @@
 
 {# 加载页面 body 设置，例如引用‘类’ #}
 {% block bodyClass %}
-class="system-body"
+class="system"
 {% endblock %}
 
 
 {# 公共Dom树 #}
 {% block body %}
 <div class="main">
-  <div class="system-content-wrap">
 
-    {# 当前页面没内容时候 #}
-    {% block blankpage %}
-    {% endblock %}
+  {# 渲染页面导航 #}
+  {% block SystemNav %}
+  {% endblock %}
 
-    {# 渲染页面导航 #}
-    {% block SystemNav %}
-    {% endblock %}
+  <div class="system-container">
 
-    <div class="bricks-content-wrap">
+    <div class="system-aside-extend">
+      456
+    </div>
+
+    <div class="system-content">
+      123
       {# 加载页面内容 #}
       {% block content %}
       {% endblock %}
     </div>
+
+    {# 当前页面没内容时候 #}
+    {% block blankpage %}
+    {% endblock %}
 
   </div>
 

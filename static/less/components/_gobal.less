@@ -23,7 +23,13 @@ body {
         .border-box();
     }
 
-    &.system-body {
+    // 系统布局结构
+    &.system > .main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
       background: @bgStyle-body-system;
       background-size: 100% 100%;
     }
@@ -37,8 +43,32 @@ a,button,input,textarea,label {
 }
 
 // ******************
-// 系统内容容器
+// 系统框架容器
 // ******************
-.system-content-wrap {
-  margin-top: @height-systemTopNav;
+.system-container {
+  position: absolute;
+  top: @height-systemTopNav;
+  left: 180px;
+  bottom: 0;
+  right: 0;
+  background-color: gray;
+  .transition(all,0.2s,ease,0);
+  .clearfix();
+}
+
+.system-aside-extend {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  background-color: blue;
+  float: left;
+  margin-left: -180px;
+  .transition(all,0.2s,ease,0);
+}
+
+.system-content {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
 }

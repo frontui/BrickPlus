@@ -1,15 +1,24 @@
 @charset "utf-8";
 
+// ******************
+// 导航背景色
+// ******************
+.bgColor-systemNav() {
+  .domColor6-for-bg(0.5);
+}
+
+// ******************
+// 顶部导航
+// ******************
 .system-top-nav {
   z-index: @zIndex-systemTopNav;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: @height-systemTopNav;
-  background-color: transparent;
-  //background-color: @bgColor-systemTopNav;
   .clearfix();
+  .bgColor-systemNav();
 }
 
 .system-logo {
