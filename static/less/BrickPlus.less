@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @import "_share"; //项目共用样式库
+@import "_share"; //项目共用样式库
 
 /*
 --- bricks style ---
@@ -956,6 +957,14 @@ ol.example-description {
 // ******************
 // 模拟浏览器窗口
 // ******************
+.sim-body-for-nav {
+  position: relative;
+
+  > .main-for-nav {
+
+  }
+}
+
 .sim-body {
   position: relative;
   overflow: hidden;
@@ -970,6 +979,10 @@ ol.example-description {
     outline: none;
     border: none;
     .rounded(@borderRadius-wrap-modal);
+  }
+
+  > .sim-body-main-for-nav {
+
   }
 
   > .modal-background {

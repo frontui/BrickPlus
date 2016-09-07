@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.system-top-nav {
+  z-index: @zIndex-systemTopNav;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: @height-systemTopNav;
+  background-color: transparent;
+  //background-color: @bgColor-systemTopNav;
+  .clearfix();
+}
+
+.system-logo {
+  float: left;
+  height: @height-systemTopNav;
+  .link-standard();
+
+  > img {
+    display: block;
+    height: 100%;
+  }
+}

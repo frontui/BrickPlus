@@ -7,6 +7,7 @@ html {
 html,
 body {
     .font-hei();
+    height: 100%;
 }
 
 body {
@@ -21,6 +22,11 @@ body {
     * {
         .border-box();
     }
+
+    &.system-body {
+      background: @bgStyle-body-system;
+      background-size: 100% 100%;
+    }
 }
 
 // ******************
@@ -30,11 +36,9 @@ a,button,input,textarea,label {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-
-
-
-
-
-
-
-
+// ******************
+// 系统内容容器
+// ******************
+.system-content-wrap {
+  margin-top: @height-systemTopNav;
+}

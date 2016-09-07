@@ -1,0 +1,86 @@
+{% extends "_BrickPlus_layout/1-BP-Base.html" %}
+
+
+{# 引用公共样式表 #}
+{% block globalCss %}
+<link rel="stylesheet" href="{{ static }}/css/BrickPlus.css?v={{ version }}">
+<link rel="stylesheet" href="{{ static }}/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
+{% endblock %}
+
+
+{# 加载主导航 #}
+{% import "_BrickPlus_components/navigator.html" as navigator %}
+{# 设置主导航 #}
+{%
+  set mainNav = [
+    {text: '起步', url: 'BP-Start-Download.html'},
+    {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
+    {text: '组件样式', url: 'BP-ComponentsStyle-BreadCrumb.html'},
+    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-Util.html'},
+    {text: 'GitHub', url: 'http://github.com/frontui/brickplus'}
+  ]
+%}
+
+
+{# 加载侧导航导航 #}
+{% import "_BrickPlus_components/asideNav.html" as asideNav %}
+
+
+{# 加载页脚 #}
+{% import "_BrickPlus_components/footer.html" as footer %}
+
+
+{# 加载标签页 #}
+{% import "_BrickPlus_components/tab.html" as tab %}
+
+
+{# 加载路径导航 #}
+{% import "_BrickPlus_components/breadcrumb.html" as breadcrumb %}
+
+
+{# 加载系统导航 #}
+{% import "_BrickPlus_components/systemNavigator.html" as systemNavigator %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+class="system-body"
+{% endblock %}
+
+
+{# 公共Dom树 #}
+{% block body %}
+<div class="main">
+  <div class="system-content-wrap">
+
+    {# 当前页面没内容时候 #}
+    {% block blankpage %}
+    {% endblock %}
+
+    {# 渲染页面导航 #}
+    {% block SystemNav %}
+    {% endblock %}
+
+    <div class="bricks-content-wrap">
+      {# 加载页面内容 #}
+      {% block content %}
+      {% endblock %}
+    </div>
+
+  </div>
+
+  {# 返回页面顶部按钮 #}
+  <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>
+
+</div>
+{% endblock %}
+
+
+{# 引用公共 javascript 文件 #}
+{% block globalJs %}
+<script src="{{ bower_components }}/jquery/dist/jquery.min.js?v={{ version }}"></script>
+<script src="{{ static }}/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="{{ bower_components }}/frontui/js/ui.js?v={{ version }}"></script>
+<script src="{{ bower_components }}/frontui/js/datetimepicker/datetimepicker.js?v={{ version }}"></script>
+<script src="{{ static }}/js/framework.js?v={{ version }}"></script>
+{% endblock %}
