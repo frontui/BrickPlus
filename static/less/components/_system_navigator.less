@@ -1,11 +1,12 @@
 @charset "utf-8";
 
 // ******************
-// 导航背景色
+// 导航半透明按钮底色
 // ******************
-.bgColor-systemNav() {
-  .domColor6-for-bg(0.5);
+.bgcolor-btns-system-nav() {
+  .domColor6-for-bg(0.35);
 }
+
 
 // ******************
 // 顶部导航
@@ -18,16 +19,102 @@
   right: 0;
   height: @height-systemTopNav;
   .clearfix();
-  .bgColor-systemNav();
 }
 
+// ******************
+// 顶部导航logo
+// ******************
 .system-logo {
   float: left;
   height: @height-systemTopNav;
   .link-standard();
+  .bgcolor-btns-system-nav();
 
   > img {
     display: block;
     height: 100%;
+  }
+}
+
+// ******************
+// 顶部导航-按钮
+// ******************
+.stn-btn {
+  position: relative;
+  height: @height-systemTopNav;
+  line-height: @height-systemTopNav;
+  padding: 0 25px;
+  font-size: @fontSize-smaller;
+  .transition(all,0.3s,ease,0);
+  .link-custom(darken(@fontColor-systemTopNav,10%),@fontColor-systemTopNav,none);
+
+  //有下拉内容
+  &.dropdown::after {
+    content: '';
+    margin-left: 8px;
+    .caret-down();
+    .inline-block();
+    color: darken(@fontColor-systemTopNav,25%);
+  }
+
+  &.dropdown:hover::after {
+    .transition(all,0.3s,ease,0);
+    .rotate(180deg);
+    color: @fontColor-systemTopNav;
+  }
+
+  //有同样式并列元素
+  & + &:before {
+    content: '';
+    width: 1px;
+    height: @height-systemTopNav/2;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -(@height-systemTopNav/2)/2;
+    .bgcolor-btns-system-nav();
+  }
+
+  //下拉菜单公共内容
+  .stn-dropdown {
+
+    &::before {
+      position: absolute;
+      top: -@arrowSize-dropdown-systemTopNav;
+      left: @arrowSize-dropdown-systemTopNav*2;
+      .arrow-up-or-down(border-bottom,@arrowSize-dropdown-systemTopNav,@arrowSize-dropdown-systemTopNav,@bgColor-dropdown-systemTopNav);
+    }
+  }
+
+  //产品跳转列表
+  .pl {
+    position: absolute;
+    top: @height-systemTopNav;
+    left: 0;
+    .clearfix();
+    padding: 15px 0;
+    .outer-shadow-custom(0,0,0,1px);
+    background-color: @bgColor-dropdown-pl-systemTopNav;
+
+    &::before {
+      border-bottom-color: @bgColor-dropdown-pl-systemTopNav;
+    }
+  }
+
+  .pl > ul {
+    .reset-list(left,@fontSize-smallest,@line-height-base);
+    width: @width-dropdown-pl-systemTopNav;
+    background: @bgStyle-dropdown-pl-systemTopNav;
+    .clearfix();
+
+    > li {
+
+      > a {
+        display: block;
+        width: @width-dropdown-pl-systemTopNav/3;
+        .link-custom(@fontColor-default,@fontColor-link,none);
+        padding: 0 15px;
+      }
+    }
   }
 }
