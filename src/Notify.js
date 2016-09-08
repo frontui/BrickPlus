@@ -103,7 +103,7 @@ Notify.VERSION = '1.0.0';
 Notify.DEFAULTS = {
     message: "", // 提示内容
     status: "",  // 状态，样式颜色
-    opacity: .85, // 层透明度
+    opacity: .95, // 层透明度
     timeout: 5000, // 定时延迟消失
     group: null,   // 是否分组
     pos: "vcenter", // 定位
