@@ -27,6 +27,8 @@ static/css
 static/css/
 static/js/brickplus
 static/js/brickplus/
+.publish
+.publish/
 
 *.exe
 svn.json

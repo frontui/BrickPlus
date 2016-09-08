@@ -2,11 +2,16 @@
  * bundle 使用webpack 打包
  * 配置文件
  * by tommyshao
+ * 
+ * webpack --watch
  */
+
 var path = require('path')
 var fs = require('fs')
-var NODE_ENV = process.env.NODE_ENV
+var webpack = require('webpack')
 var entryFiles = [];
+var srcPath = path.resolve('./src')
+var entries = getEntries(srcPath)
 
 function getEntries(folder) {
   var paths = path.resolve(folder)
@@ -16,23 +21,22 @@ function getEntries(folder) {
   dirs.forEach(function(file) {
     matchs = file.match(/(.+)\.js$/)
     // 不包含brickplus
-    if(matchs && matchs[1] && matchs[1] !== 'brickPlus') {
-      files[matchs[1]] = path.resolve(folder, file)
+    if(matchs && matchs[1]) {
+      // 使用数组才不会抛出模块之间引用的错误
+      files[matchs[1]] = [path.resolve(folder, file)]
     }
   })
 
   return files;
 }
 
+
 module.exports = {
-    //watch: !(NODE_ENV === 'production'),
-    entry: {
-      datetimepicker: path.resolve(__dirname, './src/test.js')
-    },
+    entry: entries, // 多入口
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
       filename: '[name].js',
-      library: 'BrickPlus',
+      library: '[name]',
       libraryTarget: 'umd'
     },
     module: {
@@ -41,9 +45,10 @@ module.exports = {
           test: /\.js$/,
           loader: 'babel',
           query: {
-            presets: ['es2015']
+            presets: ['es2015'],
+            cacheDirectory: true
           },
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/
         }
       ]
     },
@@ -53,17 +58,17 @@ module.exports = {
         zeroPad: './src/Util/zeroPad.js'
       },
       extensions: ['', '.js'],
-      root: [path.join(__dirname, 'src')]
+      root: [path.resolve('./src')]
     },
     externals: [
       {
-        // jquery: {
-        //   root: 'jQuery',
-        //   commonjs2: 'jquery',
-        //   commonjs: 'jquery',
-        //   amd: 'jquery'
-        // }
-        jquery: true
+        jquery: {
+          root: 'jQuery',
+          commonjs2: 'jquery',
+          commonjs: 'jquery',
+          amd: 'jquery'
+        }
+        //jquery: true
       }
     ]
-  }
+}
