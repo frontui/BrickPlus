@@ -1,5 +1,5 @@
 node_modules/
-dist/
+#dist/
 html/
 output/
 
@@ -27,6 +27,8 @@ static/css
 static/css/
 static/js/brickplus
 static/js/brickplus/
+.publish
+.publish/
 
 *.exe
 svn.json

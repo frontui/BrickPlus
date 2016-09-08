@@ -6,10 +6,9 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp",
-    "cp": "gulp components",
+    "cp": "webpack --watch --config webpack.conf.js",
     "deploy": "gulp deploy",
-    "build": "gulp bundle",
-    "webpack-test": "webpack --config webpack.test.js --color --progress --display-modules"
+    "build": "gulp bundle"
   },
   "repository": {
     "type": "git",

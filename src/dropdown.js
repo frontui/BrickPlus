@@ -272,7 +272,7 @@ Dropdown.prototype.selected = function(that) {
  * @return
  */
 Dropdown.prototype._highlight = function(el) {
-  if(!this.options.multiple) {
+  if(!this.options.multiple) { // 单选
     $(el).addClass('hover').siblings().removeClass('hover')
   } else {
     $(el).toggleClass('hover')
@@ -280,11 +280,11 @@ Dropdown.prototype._highlight = function(el) {
 
   return this
 }
-
+ 
 /**
  * 选中赋值处理
  * @param {String} title    当前项的实际值
- * @param {String} value    当前想的 html内容
+ * @param {String} value    当前项的 html内容
  * @param {Boolean} selected 选中或取消
  */
 Dropdown.prototype.setValue = function(title, value, selected) {

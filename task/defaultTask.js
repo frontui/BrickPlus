@@ -154,7 +154,7 @@ module.exports = function defaultTask(serverRoot) {
 
   gulp.task('watch', function(){
       gulp.watch(config.template + '/**/**.html', ['template'])
-      gulp.watch('./src/**/**.js', ['scripts'])
+      gulp.watch(config.staticPath + '/js/**/**').on('change', function(){ connect.reload() })
       gulp.watch(config.staticPath + '/less/**/**', ['less'])
       //gulp.watch(config.staticPath + '/images/sprite/sprite-*/**/**', ['sprite'])
   })
@@ -205,9 +205,9 @@ module.exports = function defaultTask(serverRoot) {
   })
 
   // 分离出开发组件任务，减轻服务负担
-  gulp.task('components', function(cb) {
-    $.sequence(['template', 'less', 'scripts'], 'server', 'watch')(cb)
-  })
+  // gulp.task('components', function(cb) {
+  //   $.sequence(['template', 'less', 'scripts'], 'server', 'watch')(cb)
+  // })
 
   gulp.task('default', function(cb){
     $.sequence(['template', 'less'], 'server', 'watch')(cb)
