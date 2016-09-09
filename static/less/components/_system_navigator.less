@@ -21,6 +21,7 @@
   .clearfix();
 }
 
+
 // ******************
 // 顶部导航logo
 // ******************
@@ -36,85 +37,154 @@
   }
 }
 
+
 // ******************
 // 顶部导航-按钮
 // ******************
 .stn-btn {
+  display: block;
   position: relative;
   height: @height-systemTopNav;
   line-height: @height-systemTopNav;
   padding: 0 25px;
   font-size: @fontSize-smaller;
   .transition(all,0.3s,ease,0);
-  .link-custom(darken(@fontColor-systemTopNav,10%),@fontColor-systemTopNav,none);
+  .link-custom(darken(@fontColor-systemTopNav,25%),@fontColor-systemTopNav,none);
 
-  //有下拉内容
-  &.dropdown::after {
-    content: '';
-    margin-left: 8px;
-    .caret-down();
-    .inline-block();
-    color: darken(@fontColor-systemTopNav,25%);
+  &:hover {
+    background-color: @bgColor-hover-btns-systemTopNav;
   }
+}
 
-  &.dropdown:hover::after {
-    .transition(all,0.3s,ease,0);
-    .rotate(180deg);
+
+// ******************
+// 顶部导航-下拉组件
+// ******************
+.stn-dropdown-wrap {
+  position: relative;
+
+  > .stn-btn {
+
+    &::after {
+      content: '';
+      margin-left: 8px;
+      .caret-down();
+      .inline-block();
+      color: darken(@fontColor-systemTopNav,25%);
+    }
+  }
+}
+
+.stn-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  .outer-shadow-custom(0,0,0,1px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -@arrowSize-dropdown-systemTopNav;
+    left: @arrowSize-dropdown-systemTopNav*2;
+    .arrow-up-or-down(border-bottom,@arrowSize-dropdown-systemTopNav,@arrowSize-dropdown-systemTopNav,@bgColor-dropdown-systemTopNav);
+  }
+}
+
+.stn-dropdown-wrap:hover {
+
+  > .stn-btn {
+    background-color: @bgColor-hover-btns-systemTopNav;
     color: @fontColor-systemTopNav;
   }
 
-  //有同样式并列元素
-  & + &:before {
-    content: '';
-    width: 1px;
-    height: @height-systemTopNav/2;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    margin-top: -(@height-systemTopNav/2)/2;
-    .bgcolor-btns-system-nav();
-  }
+  .stn-dropdown-menu {
+    display: block;
 
-  //下拉菜单公共内容
-  .stn-dropdown {
-
-    &::before {
-      position: absolute;
-      top: -@arrowSize-dropdown-systemTopNav;
-      left: @arrowSize-dropdown-systemTopNav*2;
-      .arrow-up-or-down(border-bottom,@arrowSize-dropdown-systemTopNav,@arrowSize-dropdown-systemTopNav,@bgColor-dropdown-systemTopNav);
+    &.stn-product-menu {
+      .stnDropDownMenuPlAnim();
     }
   }
+}
 
-  //产品跳转列表
-  .pl {
-    position: absolute;
-    top: @height-systemTopNav;
-    left: 0;
-    .clearfix();
-    padding: 15px 0;
-    .outer-shadow-custom(0,0,0,1px);
-    background-color: @bgColor-dropdown-pl-systemTopNav;
+.stnDropDownMenuPlAnim() {
+  .animation-s(stnDropDownMenuPl,0.3s,ease-out,0,1,normal,running,both);
+}
 
-    &::before {
-      border-bottom-color: @bgColor-dropdown-pl-systemTopNav;
+& {
+  .keyframes( stnDropDownMenuPl );
+  .-frames(@-...) {
+    0% {
+      @{-}transform: translate(-100%,0);
+      @{-}opacity: 0;
+    }
+    100% {
+      @{-}transform: translate(0,0);
+      @{-}opacity: 1;
     }
   }
+}
 
-  .pl > ul {
-    .reset-list(left,@fontSize-smallest,@line-height-base);
-    width: @width-dropdown-pl-systemTopNav;
+// ******************
+// 顶部导航-产品跳转列表
+// ******************
+.stn-product-menu {
+  background-color: @bgColor-dropdown-pl-systemTopNav;
+  padding: @gapSize-dropdown-pl-item-systemTopNav/2 0;
+
+  > .stn-pm-box {
+    width: @width-dropdown-pl-item-systemTopNav*3;
     background: @bgStyle-dropdown-pl-systemTopNav;
     .clearfix();
 
-    > li {
+    .pl {
+      .reset-list(left,@fontSize-smallest,@line-height-base);
 
-      > a {
-        display: block;
-        width: @width-dropdown-pl-systemTopNav/3;
-        .link-custom(@fontColor-default,@fontColor-link,none);
-        padding: 0 15px;
+      > li {
+        width: @width-dropdown-pl-item-systemTopNav;
+
+        > a {
+          display: block;
+          .link-custom(@fontColor-default,@fontColor-link,none);
+          padding: @gapSize-dropdown-pl-item-systemTopNav/4 @gapSize-dropdown-pl-item-systemTopNav;
+          .transition(all,0.3s,linear,0);
+          .text-hide();
+        }
       }
     }
   }
+
+  &::before {
+    border-bottom-color: @bgColor-dropdown-pl-systemTopNav;
+  }
+}
+
+
+// ******************
+// 顶部导航-按钮分割线
+// ******************
+.stn-dropdown-wrap + .stn-btn:before,
+.stn-btn + .stn-dropdown-wrap > .stn-btn:before,
+.stn-btn + .stn-btn:before {
+  content: '';
+  width: 1px;
+  height: @height-systemTopNav/2;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -(@height-systemTopNav/2)/2;
+  .bgcolor-btns-system-nav();
+}
+
+
+// ******************
+// 顶部导航-侧导航
+// ******************
+.system-aside {
+  z-index: @zIndex-systemAside;
+  position: absolute;
+  top: @height-systemTopNav;
+  left: 0;
+  bottom: 0;
+  width: @width-systemAside;
 }

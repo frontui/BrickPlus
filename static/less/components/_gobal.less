@@ -48,12 +48,13 @@ a,button,input,textarea,label {
 .system-container {
   position: absolute;
   top: @height-systemTopNav;
-  left: 180px;
+  left: @width-systemAside;
   bottom: 0;
   right: 0;
   background-color: gray;
   .transition(all,0.2s,ease,0);
   .clearfix();
+  z-index: @zIndex-systemContainer;
 }
 
 .system-aside-extend {
