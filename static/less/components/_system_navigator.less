@@ -7,6 +7,10 @@
   .domColor6-for-bg(0.35);
 }
 
+.bgcolor-hover-btns-system-nav() {
+  .domColor6-for-bg(0.55);
+}
+
 
 // ******************
 // 顶部导航
@@ -49,7 +53,7 @@
   padding: 0 25px;
   font-size: @fontSize-smaller;
   .transition(all,0.3s,ease,0);
-  .link-custom(darken(@fontColor-systemTopNav,25%),@fontColor-systemTopNav,none);
+  .link-custom(@fontColor-btns-systemTopNav,@fontColor-hover-btns-systemTopNav,none);
 
   &:hover {
     background-color: @bgColor-hover-btns-systemTopNav;
@@ -70,7 +74,7 @@
       margin-left: 8px;
       .caret-down();
       .inline-block();
-      color: darken(@fontColor-systemTopNav,25%);
+      color: darken(@fontColor-btns-systemTopNav,25%);
     }
   }
 }
@@ -95,7 +99,7 @@
 
   > .stn-btn {
     background-color: @bgColor-hover-btns-systemTopNav;
-    color: @fontColor-systemTopNav;
+    color: @fontColor-btns-systemTopNav;
   }
 
   .stn-dropdown-menu {
@@ -115,11 +119,9 @@
   .keyframes( stnDropDownMenuPl );
   .-frames(@-...) {
     0% {
-      @{-}transform: translate(-100%,0);
       @{-}opacity: 0;
     }
     100% {
-      @{-}transform: translate(0,0);
       @{-}opacity: 1;
     }
   }
@@ -178,7 +180,7 @@
 
 
 // ******************
-// 顶部导航-侧导航
+// 侧导航
 // ******************
 .system-aside {
   z-index: @zIndex-systemAside;
@@ -186,5 +188,82 @@
   top: @height-systemTopNav;
   left: 0;
   bottom: 0;
+  padding-top: @switchSize-systemAside;
+}
+
+.system-aside-container {
+  position: relative;
+  height: 100%;
+  width: @width-systemAside + 40px;
+  padding-bottom: @gapSize-systemAside;
+  overflow: auto;
+}
+
+.aside-list-1 {
+  .reset-list(none,@fontSize-smaller,@line-height-base);
   width: @width-systemAside;
+
+  > li {
+    padding: 0 @gapSize-systemAside;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: 16px 16px 16px 50px;
+      .link-custom(@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside,none);
+      .bgcolor-btns-system-nav();
+      .rounded(@borderRadius-public);
+      .transition(all,0.3s,ease,0);
+
+      //导航图标公共样式
+      &::before {
+        .icon-font-family();
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        margin-top: -(@fontSize-smaller/2);
+      }
+
+      //导航图标样式
+      &.system-setting::before {
+        content: @icon-system-setting-systemAside;
+      }
+
+      &:hover {
+        .bgcolor-hover-btns-system-nav();
+      }
+    }
+
+    > .aside-list-2 {
+      display: none;
+      .reset-list(none,@fontSize-smaller,@line-height-base);
+
+      > li {
+        //侧导航二级导航之间的间隔
+        padding-top: @gapSize-systemAside;
+
+        > a {
+          display: block;
+          padding: 16px 16px 16px 50px;
+          .link-custom(@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside,none);
+          background-color: @bgColor-lv2-btns-systemAside;
+          .rounded(@borderRadius-public);
+          .transition(all,0.3s,ease,0);
+        }
+      }
+    }
+
+    //侧导航current状态
+    &.current {
+
+      .aside-list-2 {
+        display: block;
+      }
+    }
+
+    //侧导航一级导航之间的间隔
+    & + li {
+      padding-top: @gapSize-systemAside;
+    }
+  }
 }

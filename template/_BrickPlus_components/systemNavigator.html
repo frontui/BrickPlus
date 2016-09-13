@@ -65,8 +65,27 @@
 </nav>
 {% endmacro %}
 
-{% macro systemAside(asideList,cur='',static='/static',fixedClass='') %}
+{% macro systemAside(asideList,cur='',lv2cur='',static='/static',fixedClass='') %}
 <aside class="system-aside">
-  <a href="###">123</a>
+  <div class="system-aside-container">
+    <ul class="aside-list-1">
+      {% for li in asideList %}
+      <li {% if loop.index == cur%}class="current"{% endif %}>
+        <a href="{{ li.url }}" class="{{ li.iconClass }}">
+          {{ li.text }}
+        </a>
+        <ul class="aside-list-2">
+          {% for li2 in li.lv2 %}
+          <li {% if loop.index == lv2cur %}class="current"{% endif %}>
+            <a href="{{ li2.url }}">
+              {{ li2.text }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </aside>
 {% endmacro %}
