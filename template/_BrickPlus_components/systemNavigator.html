@@ -11,13 +11,13 @@
       <div class="stn-pm-box">
         <ul class="pl">
           <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXXXXXX</a>
+            <a href="###" title="123">XXXXXXXXXXXXXXXXXXXXXX</a>
           </li>
           <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
+            <a href="###" title="456">XXXXXXXXXXX</a>
           </li>
           <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
+            <a href="###" title="789">XXXXXXXXXXX</a>
           </li>
           <li>
             <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
@@ -68,17 +68,18 @@
 {% macro systemAside(asideList,cur='',lv2cur='',static='/static',fixedClass='') %}
 <aside class="system-aside">
   <div class="system-aside-container">
-    <ul class="aside-list-1">
+    <ul class="aside-list-1" id="systemAside">
       {% for li in asideList %}
       <li {% if loop.index == cur%}class="current"{% endif %}>
         <a href="{{ li.url }}" class="{{ li.iconClass }}">
-          {{ li.text }}
+          <div class="aside-tooltips" data-toggle="tooltips" title="{{ li.text }}" data-pos="right"></div>
+          <span class="sa">{{ li.text }}</span>
         </a>
         <ul class="aside-list-2">
           {% for li2 in li.lv2 %}
           <li {% if loop.index == lv2cur %}class="current"{% endif %}>
             <a href="{{ li2.url }}">
-              {{ li2.text }}
+              <span class="sa">{{ li2.text }}</span>
             </a>
           </li>
           {% endfor %}
