@@ -32,6 +32,7 @@ body {
       right: 0;
       background: @bgStyle-body-system;
       background-size: 100% 100%;
+      overflow: hidden;
     }
 }
 
@@ -48,12 +49,65 @@ a,button,input,textarea,label {
 .system-container {
   position: absolute;
   top: @height-systemTopNav;
-  left: 180px;
+  left: @width-systemAside;
   bottom: 0;
   right: 0;
   background-color: gray;
-  .transition(all,0.2s,ease,0);
+  .transition(all,0.3s,ease,0);
   .clearfix();
+  z-index: @zIndex-systemContainer;
+
+  > .system-aside-switch {
+    position: absolute;
+    top: 0;
+    left: -@switchSize-systemAside;
+    .square(@switchSize-systemAside);
+    .link-custom(@fontColor-btns-systemTopNav,@fontColor-hover-btns-systemTopNav,none);
+
+    > span {
+      display: block;
+      background-color: @fontColor-btns-systemTopNav;
+      height: 2px;
+      position: relative;
+      margin: 18px auto 0 auto;
+      width: 2px;
+      .transition(all,0.3s,ease,0);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        height: 2px;
+        left: 0;
+        width: 100%;
+        background-color: @fontColor-btns-systemTopNav;
+        .transition(all,0.3s,ease,0);
+      }
+
+      &::before {
+        top: -200%;
+      }
+
+      &::after {
+        bottom: -200%;
+      }
+    }
+
+    &:hover > span,
+    &:active > span {
+      background-color: @fontColor-hover-btns-systemTopNav;
+
+      &::before,
+      &::after {
+        background-color: @fontColor-hover-btns-systemTopNav;
+      }
+    }
+  }
+
+  &.fold-system-aside {
+    left: @width-fold-systemAside;
+  }
 }
 
 .system-aside-extend {
@@ -61,7 +115,7 @@ a,button,input,textarea,label {
   top: 0;
   bottom: 0;
   width: 180px;
-  background-color: blue;
+  background-color: #ccc;
   float: left;
   margin-left: -180px;
   .transition(all,0.2s,ease,0);
@@ -70,5 +124,5 @@ a,button,input,textarea,label {
 .system-content {
   width: 100%;
   height: 100%;
-  background-color: yellow;
+  background-color: #ddd;
 }

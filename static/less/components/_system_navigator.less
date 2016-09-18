@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-// ******************
-// 导航背景色
-// ******************
-.bgColor-systemNav() {
-  .domColor6-for-bg(0.5);
-}
 
 // ******************
 // 顶部导航
@@ -18,16 +12,359 @@
   right: 0;
   height: @height-systemTopNav;
   .clearfix();
-  .bgColor-systemNav();
 }
 
+
+// ******************
+// 顶部导航logo
+// ******************
 .system-logo {
   float: left;
   height: @height-systemTopNav;
   .link-standard();
+  background-color: @bgColor-btns-systemAside;
 
   > img {
     display: block;
     height: 100%;
+  }
+}
+
+
+// ******************
+// 顶部导航-按钮
+// ******************
+.stn-btn {
+  display: block;
+  position: relative;
+  height: @height-systemTopNav;
+  line-height: @height-systemTopNav;
+  padding: 0 25px;
+  font-size: @fontSize-smaller;
+  .transition(all,0.3s,ease,0);
+  .link-custom(@fontColor-btns-systemTopNav,@fontColor-hover-btns-systemTopNav,none);
+
+  &:hover {
+    background-color: @bgColor-hover-btns-systemTopNav;
+  }
+}
+
+
+// ******************
+// 顶部导航-下拉组件
+// ******************
+.stn-dropdown-wrap {
+  position: relative;
+
+  > .stn-btn {
+
+    &::after {
+      content: '';
+      margin-left: 8px;
+      .caret-down();
+      .inline-block();
+      color: darken(@fontColor-btns-systemTopNav,25%);
+    }
+  }
+}
+
+.stn-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  .outer-shadow-custom(0,0,0,1px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -@arrowSize-dropdown-systemTopNav;
+    left: @arrowSize-dropdown-systemTopNav*2;
+    .arrow-up-or-down(border-bottom,@arrowSize-dropdown-systemTopNav,@arrowSize-dropdown-systemTopNav,@bgColor-dropdown-systemTopNav);
+  }
+}
+
+.stn-dropdown-wrap:hover {
+
+  > .stn-btn {
+    background-color: @bgColor-hover-btns-systemTopNav;
+    color: @fontColor-hover-btns-systemTopNav;
+
+    &::after {
+      color: @fontColor-hover-btns-systemTopNav;
+    }
+  }
+
+  .stn-dropdown-menu {
+    display: block;
+
+    &.stn-product-menu {
+      .stnDropDownMenuPlAnim();
+    }
+  }
+}
+
+.stnDropDownMenuPlAnim() {
+  .animation-s(stnDropDownMenuPl,0.3s,ease-out,0,1,normal,running,both);
+}
+
+& {
+  .keyframes( stnDropDownMenuPl );
+  .-frames(@-...) {
+    0% {
+      @{-}opacity: 0;
+    }
+    100% {
+      @{-}opacity: 1;
+    }
+  }
+}
+
+// ******************
+// 顶部导航-产品跳转列表
+// ******************
+.stn-product-menu {
+  background-color: @bgColor-dropdown-pl-systemTopNav;
+  padding: @gapSize-dropdown-pl-item-systemTopNav/2 0;
+
+  > .stn-pm-box {
+    width: @width-dropdown-pl-item-systemTopNav*3;
+    background: @bgStyle-dropdown-pl-systemTopNav;
+    .clearfix();
+
+    .pl {
+      .reset-list(left,@fontSize-smallest,@line-height-base);
+
+      > li {
+        width: @width-dropdown-pl-item-systemTopNav;
+
+        > a {
+          display: block;
+          .link-custom(@fontColor-default,@fontColor-link,none);
+          padding: @gapSize-dropdown-pl-item-systemTopNav/4 @gapSize-dropdown-pl-item-systemTopNav;
+          .transition(all,0.3s,linear,0);
+          .text-hide();
+        }
+      }
+    }
+  }
+
+  &::before {
+    border-bottom-color: @bgColor-dropdown-pl-systemTopNav;
+  }
+}
+
+
+// ******************
+// 顶部导航-按钮分割线
+// ******************
+.stn-dropdown-wrap + .stn-btn:before,
+.stn-btn + .stn-dropdown-wrap > .stn-btn:before,
+.stn-btn + .stn-btn:before {
+  content: '';
+  width: 1px;
+  height: @height-systemTopNav/2;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -(@height-systemTopNav/2)/2;
+  background-color: @bgColor-btns-systemAside;
+}
+
+
+// ******************
+// 侧导航
+// ******************
+
+//侧导航定位结构
+.system-aside {
+  z-index: @zIndex-systemAside;
+  position: absolute;
+  top: @height-systemTopNav;
+  left: 0;
+  bottom: 0;
+}
+
+//侧导航容器
+.system-aside-container {
+  position: absolute;;
+  top: @switchSize-systemAside;
+  bottom: 0;
+  width: @width-systemAside + 40px;
+  padding-bottom: @gapSize-systemAside;
+  overflow: auto;
+}
+
+//侧导航按钮公共样式
+.aside-btn-pubilc-style(@bgColor,@bgColor-hover,@fontColor-btns,@fontColor-hover-btns) {
+  position: relative;
+  display: block;
+  padding: @paddingSize-btns-systemAside 0 @paddingSize-btns-systemAside+1px @height-btns-systemAside;
+  min-height: @height-btns-systemAside + 2*@borderSize-btns-systemAside;
+  background-color: @bgColor;
+  border: @borderSize-btns-systemAside solid transparent;
+  .rounded(@borderRadius-public);
+  .transition(all,0.3s,ease,0);
+  .link-custom(@fontColor-btns,@fontColor-hover-btns,none);
+
+  &:hover {
+    background-color: @bgColor-hover;
+  }
+}
+
+//侧导航一级导航
+.aside-list-1 {
+  width: @width-systemAside;
+  .reset-list(none,@fontSize-smaller,@line-height-base);
+  .transition(all,0.3s,ease,0);
+
+  .sa {
+    padding-right: @paddingSize-btns-systemAside;
+  }
+
+  > li {
+    padding: 0 @gapSize-systemAside;
+
+    > a {
+      .aside-btn-pubilc-style(@bgColor-btns-systemAside,@bgColor-hover-btns-systemAside,@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside);
+
+      &:hover {
+        border-color: @borderColor-hover-lv1-btns-system;
+      }
+
+      //模拟tooltips
+      // .sim-tooltips {
+      //   position: absolute;
+      //   top: -@borderSize-btns-systemAside;
+      //   left: 110%;
+      //   height: @height-btns-systemAside + 2*@borderSize-btns-systemAside;
+      //   line-height: @height-btns-systemAside;
+      //   white-space: nowrap;
+      //   background-color: @bgColor-hover-btns-systemAside;
+      //   z-index: 4;
+      //   padding: 0 @paddingSize-btns-systemAside;
+      //   .rounded(@borderRadius-public);
+      //
+      //   &::before {
+      //     content: '';
+      //     position: absolute;
+      //     top: 50%;
+      //     left: -@arrowSize-simTooltips-systemAside;
+      //     margin-top: -@arrowSize-simTooltips-systemAside;
+      //     .arrow-left-or-right(border-right,@arrowSize-simTooltips-systemAside,@arrowSize-simTooltips-systemAside,@bgColor-hover-btns-systemAside);
+      //   }
+      // }
+
+      //调用tooltips开关
+      .aside-tooltips {
+        position: absolute;
+        top: 0;
+        left: 0;
+        .square(@height-btns-systemAside);
+        display: none;
+      }
+
+      //导航图标公共样式
+      &::before {
+        .icon-font-family();
+        position: absolute;
+        top: 50%;
+        left: 17px;
+        margin-top: -(@fontSize-smaller/2);
+      }
+
+      //系统设置图标
+      &.system-setting::before {
+        content: @icon-system-setting-systemAside;
+      }
+
+      //运营管理图标
+      &.operative-manage::before {
+        content: @icon-operative-manage-systemAside;
+      }
+
+      //用户管理图标
+      &.account-manage::before {
+        content: @icon-account-manage-systemAside;
+      }
+
+      //风控管理图标
+      &.risk-manage::before {
+        content: @icon-risk-manage-systemAside;
+      }
+
+      //系统管理图标
+      &.system-manage::before {
+        content: @icon-system-manage-systemAside;
+      }
+    }
+
+    > .aside-list-2 {
+      display: none;
+      .reset-list(none,@fontSize-smaller,@line-height-base);
+
+      .sa {
+        padding-left: @paddingSize-btns-systemAside;
+      }
+
+      > li {
+        //侧导航二级导航之间的间隔
+        padding-top: @gapSize-systemAside;
+
+        > a {
+          .aside-btn-pubilc-style(@bgColor-lv2-btns-systemAside,@bgColor-hover-lv2-btns-systemAside,@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside);
+          padding-left: 0;
+
+          &:hover {
+            border-top-color: @borderColor-hover-lv2-btns-system;
+            .outer-shadow-custom(0,0,0,1px,rgba(0,0,0,0.045));
+          }
+        }
+      }
+    }
+
+    //侧导航current状态
+    &.current {
+
+      > a {
+        background-color: @bgColor-hover-btns-systemAside;
+        color: @fontColor-hover-btns-systemAside;
+        border-color: @borderColor-hover-lv1-btns-system;
+      }
+
+      > .aside-list-2 {
+        display: block;
+
+        > li.current > a {
+          color: @fontColor-hover-btns-systemAside;
+          border-top-color: @borderColor-hover-lv2-btns-system;
+          background-color: @bgColor-hover-lv2-btns-systemAside;
+          .outer-shadow-custom(0,0,0,1px,rgba(0,0,0,0.045));
+        }
+      }
+    }
+
+    //侧导航一级导航之间的间隔
+    & + li {
+      padding-top: @gapSize-systemAside;
+    }
+  }
+
+  &.fold {
+    width: @width-fold-systemAside;
+    overflow: hidden;
+
+    .sa {
+      visibility: hidden;
+      display: none;
+    }
+
+    > li > a .aside-tooltips {
+      display: block;
+    }
+
+    > li > .aside-list-2 {
+      display: none;
+    }
   }
 }

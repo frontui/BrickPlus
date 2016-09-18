@@ -2,7 +2,7 @@
 
 
 {# 填写页面 title #}
-{% block title %}BrickPlus{% endblock %}
+{% block title %}system{% endblock %}
 
 
 {# 页面专有样式表地址 #}
@@ -22,7 +22,7 @@
 {# 渲染系统顶部导航 #}
 {{ systemNavigator.systemTopNav(topNavList,cur='1') }}
 {# 渲染系统侧导航 #}
-{{ systemNavigator.systemAside(asideList,cur='1') }}
+{{ systemNavigator.systemAside(asideList,cur='2',lv2cur='1') }}
 {% endblock %}
 
 

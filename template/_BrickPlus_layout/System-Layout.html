@@ -42,6 +42,97 @@
 {% import "_BrickPlus_components/systemNavigator.html" as systemNavigator %}
 
 
+{# 设置侧导航 #}
+{%
+  set asideList = [
+    {
+      text: 'Level 1 option',
+      url: 'javascript:void(0);',
+      iconClass: 'system-setting',
+      lv2: [
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        }
+      ]
+    },
+    {
+      text: '系统侧导航',
+      url: 'javascript:void(0);',
+      iconClass: 'system-setting',
+      lv2: [
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        }
+      ]
+    },
+    {
+      text: 'Level 1 option',
+      url: 'javascript:void(0);',
+      iconClass: 'system-setting',
+      lv2: [
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        }
+      ]
+    },
+    {
+      text: 'Level 1 option',
+      url: 'javascript:void(0);',
+      iconClass: 'system-setting',
+      lv2: [
+        {
+          text: 'Level 2 option',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: '二级菜单',
+          url: 'javascript:void(0);'
+        }
+      ]
+    }
+  ]
+%}
+
+
 {# 加载页面 body 设置，例如引用‘类’ #}
 {% block bodyClass %}
 class="system"
@@ -57,10 +148,14 @@ class="system"
   {% endblock %}
 
   <div class="system-container">
+    <!-- 系统侧导航开关 -->
+    <a href="javascript:void(0);" class="system-aside-switch">
+      <span></span>
+    </a>
 
-    <div class="system-aside-extend">
+    <!-- <div class="system-aside-extend">
       456
-    </div>
+    </div> -->
 
     <div class="system-content">
       123
