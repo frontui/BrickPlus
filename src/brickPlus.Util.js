@@ -10,10 +10,11 @@ var $ = require('jquery')
 
 var fn = require('./Util/debounce')
 
-// var BrickPlus = require('brickPlus')
-//if( typeof BrickPlus === 'undefined') {
-//  var BrickPlus = {}
-//}
+//var BrickPlus = require('brickPlus')
+if( typeof BrickPlus === 'undefined') {
+ var BrickPlus = {};    
+ window.BrickPlus = BrickPlus
+}
 
 // ------- 工具函数库 ----------
 
@@ -45,7 +46,7 @@ var Util = {
   throttle: fn.throttle
 }
 
-//BrickPlus.Util = Util
+BrickPlus.Util = Util
 
 // API
 module.exports = Util

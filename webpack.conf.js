@@ -54,7 +54,7 @@ module.exports = {
     },
     resolve: {
       alias: {
-        jquery: 'bower_components/jquery/dist/jquery.min.js',
+        //jquery: 'bower_components/jquery/dist/jquery.min.js',
         zeroPad: './src/Util/zeroPad.js'
       },
       extensions: ['', '.js'],
@@ -72,3 +72,19 @@ module.exports = {
       }
     ]
 }
+
+/**
+ * production
+ */
+/*
+,
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: { // 排除不想要压缩的对象名称
+                except: ['$super', '$', 'exports', 'require', 'module', '_']
+            },
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.NoErrorsPlugin(),
+        */
