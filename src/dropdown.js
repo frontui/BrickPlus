@@ -10,11 +10,25 @@
  * $(element).on('selected.ui.dropdown', function(e, obj){});
  */
 
+ /**
+ * @TODO:
+ *  1- 分组模式
+ *  2- ajax 请求列表，可过滤
+ * 
+ */
+
 var $ = require('jquery')
 var Util = require('./Util/debounce')
 
 var toggle = '.form-control-dropdown'
 var toggleValue = '[data-toggle="dropdown"]'
+ 
+// $.ajaxSetup({
+//   //crossDomain: true,
+//   headers: {
+//     "X-Requested-With": "XMLHttpRequest"
+//   }
+// })
 
 /**
  * 占位符
@@ -69,8 +83,13 @@ var Dropdown = function(el, option) {
   // 初始化
   this.init()
 
-  // 设置默认选中
-  this._setDefaultValue()
+  // 区分是否异步请求列表
+  // if(!!this.options.ajax && typeof this.options.ajax === 'string') {
+  //   this._initAjax()
+  // } else {
+    // 设置默认选中
+    this._setDefaultValue()
+  // }
 }
 
 // 版本
@@ -95,7 +114,9 @@ Dropdown.DEFAULTS = {
   // 多选分隔符
   separator: ',',
   // 成功回调
-  callback: $.noop
+  callback: $.noop,
+  // 是否异步返回列表
+  ajax: false
 }
 
 /**
@@ -121,6 +142,52 @@ Dropdown.prototype.init = function() {
   // 输入框过滤
   this.$target.on('keydown.ui.dropdown', this.keydown(this))
 }
+
+/**
+ * 初始化 ajax 方式列表
+ * @return 
+ */
+/*Dropdown.prototype._initAjax = function() {
+  this.$ajaxInput = this._renderAjaxTxt()
+  // 输入框则
+  //if(this.isInput) {
+  this.$ajaxInput.on('keyup.ui.dropdown', Util.throttle(this._ajaxfilter(this), 200))
+  //}
+  // 输入框 上下选择
+  this.$ajaxInput.on('keydown.ui.dropdown', this.keydown(this))
+
+  // 首次加载
+  this._ajaxfilter.call(this.$ajaxInput, this)()
+}
+
+Dropdown.prototype._renderAjaxTxt = function() {
+  var $li = $('<li class="disabled"></li>'),
+      $input = $('<input placeholder="请输入..." />')
+
+  $li.append($input).appendTo(this.$list.empty())    
+  return $input;
+}
+
+Dropdown.prototype._ajaxfilter = function(that) {
+  return function(e) {
+      var q = $.trim($(this).val())
+      console.log('q:'+ q)
+      $.get(that.options.ajax, { q: q}).done(that._renderList(that))
+  }
+}
+
+Dropdown.prototype._renderList = function(that) {
+  return function(res) {
+    if(res.status !== 1) return;
+    var template = ''
+    $.each(res.data, function(i, item ) {
+      template += '<li rel="'+ item.value +'">'+ item.text +'</li>'
+    })
+
+    that.$list.splice(1, that.$list.length).remove();
+    that.$list.append(template)
+  }
+}*/
 
 Dropdown.prototype._setDefaultValue = function() {
   var option = this.$input.val() || this.$target.val()
@@ -411,6 +478,7 @@ Dropdown.prototype._setPosition = function() {
       style = {top: '0'},
       placement = false // 方向，向上为 true
 
+  // 朝上    
   if(offset.top - scrollTop + elHeight + listHeight > viewHeight) {
     style.top = -listHeight + 'px'
     placement = true

@@ -1,0 +1,87 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='21') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          时间选择器提供快捷的选择时，分，秒的下拉框组件。
+        </li>
+        <li>
+          通过<code>data-toggle="timer-picker"</code>绑定输入框，输入框最好设置为只读<code>readonly</code>
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group">
+            <label for="" class="form-control-label">
+              <span>维护时间</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="5:05:05" readonly>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="example-code">
+          <pre><code>&lt;input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="5:05:05" readonly&gt;
+</code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/timerPicker.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}
