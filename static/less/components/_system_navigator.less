@@ -216,10 +216,12 @@
 .aside-list-1 {
   width: @width-systemAside;
   .reset-list(none,@fontSize-smaller,@line-height-base);
-  .transition(all,0.3s,ease,0);
+  .transition(all,0.2s,ease,0);
 
   .sa {
     padding-right: @paddingSize-btns-systemAside;
+    word-break: break-all;
+    display: block;
   }
 
   > li {
@@ -229,7 +231,7 @@
       .aside-btn-pubilc-style(@bgColor-btns-systemAside,@bgColor-hover-btns-systemAside,@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside);
 
       &:hover {
-        border-color: @borderColor-hover-lv1-btns-system;
+        border-color: @borderColor-hover-lv1-btns-systemAside;
       }
 
       //模拟tooltips
@@ -316,8 +318,28 @@
           padding-left: 0;
 
           &:hover {
-            border-top-color: @borderColor-hover-lv2-btns-system;
+            border-top-color: @borderColor-hover-lv2-btns-systemAside;
             .outer-shadow-custom(0,0,0,1px,rgba(0,0,0,0.045));
+          }
+        }
+
+        > .aside-list-3 {
+          display: none;
+          .reset-list(none,@fontSize-smaller,@line-height-base);
+          margin-top: @gapSize-systemAside;
+          padding: 3px 0;
+          .rounded(@borderRadius-public);
+          border: @borderSize-btns-systemAside solid @borderColor-lv3-btns-systemAside;
+
+          > li {
+
+            > a {
+              display: block;
+              padding: @gapSize-systemAside/2 0;
+              .rounded(@borderRadius-public);
+              .link-custom(@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside,none);
+              .transition(all,0.3s,ease,0);
+            }
           }
         }
       }
@@ -329,17 +351,31 @@
       > a {
         background-color: @bgColor-hover-btns-systemAside;
         color: @fontColor-hover-btns-systemAside;
-        border-color: @borderColor-hover-lv1-btns-system;
+        border-color: @borderColor-hover-lv1-btns-systemAside;
       }
 
       > .aside-list-2 {
         display: block;
 
-        > li.current > a {
-          color: @fontColor-hover-btns-systemAside;
-          border-top-color: @borderColor-hover-lv2-btns-system;
-          background-color: @bgColor-hover-lv2-btns-systemAside;
-          .outer-shadow-custom(0,0,0,1px,rgba(0,0,0,0.045));
+        > li.current {
+
+          > a {
+            color: @fontColor-hover-btns-systemAside;
+            border-top-color: @borderColor-hover-lv2-btns-systemAside;
+            background-color: @bgColor-hover-lv2-btns-systemAside;
+            .outer-shadow-custom(0,0,0,1px,rgba(0,0,0,0.045));
+          }
+
+          > .aside-list-3 {
+            display: block;
+
+            > li.current {
+
+              > a {
+                color: @fontColor-hover-btns-systemAside;
+              }
+            }
+          }
         }
       }
     }
@@ -355,7 +391,6 @@
     overflow: hidden;
 
     .sa {
-      visibility: hidden;
       display: none;
     }
 
@@ -365,6 +400,10 @@
 
     > li > .aside-list-2 {
       display: none;
+
+      > li > .aside-list-3 {
+        display: none;
+      }
     }
   }
 }

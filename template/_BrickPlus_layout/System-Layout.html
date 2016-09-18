@@ -44,87 +44,88 @@
 
 {# 设置侧导航 #}
 {%
-  set asideList = [
+  set lv1 = [
     {
-      text: 'Level 1 option',
+      text: 'Level 1',
       url: 'javascript:void(0);',
       iconClass: 'system-setting',
       lv2: [
         {
-          text: 'Level 2 option',
+          text: 'Level 2',
           url: 'javascript:void(0);'
         },
         {
-          text: '二级菜单',
+          text: 'Level 2',
           url: 'javascript:void(0);'
         }
       ]
     },
     {
-      text: '系统侧导航',
+      text: 'Level 1',
       url: 'javascript:void(0);',
-      iconClass: 'system-setting',
+      iconClass: 'operative-manage',
       lv2: [
         {
-          text: 'Level 2 option',
-          url: 'javascript:void(0);'
+          text: 'Level 2',
+          url: 'javascript:void(0);',
+          lv3: [
+            {
+              text: 'Level 3',
+              url: 'javascript:void(0);'
+            },
+            {
+              text: 'Level 3',
+              url: 'javascript:void(0);'
+            }
+          ]
         },
         {
-          text: '二级菜单',
-          url: 'javascript:void(0);'
-        },
-        {
-          text: 'Level 2 option',
-          url: 'javascript:void(0);'
-        },
-        {
-          text: '二级菜单',
-          url: 'javascript:void(0);'
-        },
-        {
-          text: 'Level 2 option',
-          url: 'javascript:void(0);'
-        },
-        {
-          text: '二级菜单',
-          url: 'javascript:void(0);'
-        },
-        {
-          text: 'Level 2 option',
-          url: 'javascript:void(0);'
-        },
-        {
-          text: '二级菜单',
+          text: 'Level 2',
           url: 'javascript:void(0);'
         }
       ]
     },
     {
-      text: 'Level 1 option',
+      text: 'Level 1',
       url: 'javascript:void(0);',
-      iconClass: 'system-setting',
+      iconClass: 'account-manage',
       lv2: [
         {
-          text: 'Level 2 option',
+          text: 'Level 2',
           url: 'javascript:void(0);'
         },
         {
-          text: '二级菜单',
+          text: 'Level 2',
           url: 'javascript:void(0);'
         }
       ]
     },
     {
-      text: 'Level 1 option',
+      text: 'Level 1',
       url: 'javascript:void(0);',
-      iconClass: 'system-setting',
+      iconClass: 'risk-manage',
       lv2: [
         {
-          text: 'Level 2 option',
+          text: 'Level 2',
           url: 'javascript:void(0);'
         },
         {
-          text: '二级菜单',
+          text: 'Level 2',
+          url: 'javascript:void(0);'
+        }
+      ]
+    },
+    {
+      text: 'Level 1',
+      url: 'javascript:void(0);',
+      iconClass: 'system-manage',
+      lv2: [
+        {
+          text: 'Level 2',
+          url: 'javascript:void(0);'
+        },
+        {
+          text: 'Level 2',
           url: 'javascript:void(0);'
         }
       ]
@@ -147,26 +148,19 @@ class="system"
   {% block SystemNav %}
   {% endblock %}
 
-  <div class="system-container">
-    <!-- 系统侧导航开关 -->
-    <a href="javascript:void(0);" class="system-aside-switch">
-      <span></span>
-    </a>
+  <div class="system-container" id="systemContainer">
 
-    <!-- <div class="system-aside-extend">
-      456
-    </div> -->
-
-    <div class="system-content">
-      123
+    <div class="system-content" style="margin-left: 0;">
+      <div style="background-color: gray; height: 200%; width: 10px;"></div>
       {# 加载页面内容 #}
       {% block content %}
       {% endblock %}
     </div>
 
-    {# 当前页面没内容时候 #}
-    {% block blankpage %}
-    {% endblock %}
+    <!-- 系统侧导航开关 -->
+    <button class="system-aside-switch" onclick="sas();">
+      <span></span>
+    </button>
 
   </div>
 

@@ -65,22 +65,31 @@
 </nav>
 {% endmacro %}
 
-{% macro systemAside(asideList,cur='',lv2cur='',static='/static',fixedClass='') %}
+{% macro systemAside(lv1,lv1cur='',lv2cur='',lv3cur='',static='/static',fixedClass='') %}
 <aside class="system-aside">
   <div class="system-aside-container">
     <ul class="aside-list-1" id="systemAside">
-      {% for li in asideList %}
-      <li {% if loop.index == cur%}class="current"{% endif %}>
-        <a href="{{ li.url }}" class="{{ li.iconClass }}">
-          <div class="aside-tooltips" data-toggle="tooltips" title="{{ li.text }}" data-pos="right"></div>
-          <span class="sa">{{ li.text }}</span>
+      {% for li1 in lv1 %}
+      <li {% if loop.index == lv1cur %}class="current"{% endif %}>
+        <a href="{{ li1.url }}" class="{{ li1.iconClass }}">
+          <div class="aside-tooltips" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right"></div>
+          <span class="sa">{{ li1.text }}</span>
         </a>
         <ul class="aside-list-2">
-          {% for li2 in li.lv2 %}
+          {% for li2 in li1.lv2 %}
           <li {% if loop.index == lv2cur %}class="current"{% endif %}>
             <a href="{{ li2.url }}">
               <span class="sa">{{ li2.text }}</span>
             </a>
+            <ul class="aside-list-3">
+              {% for li3 in li2.lv3 %}
+              <li {% if loop.index == lv3cur %}class="current"{% endif %}>
+                <a href="{{ li3.url }}">
+                  <span class="sa">{{ li3.text }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
           </li>
           {% endfor %}
         </ul>
