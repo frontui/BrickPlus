@@ -33,11 +33,13 @@ function getEntries(folder) {
 
 module.exports = {
     entry: entries, // 多入口
+    devtool: 'source-map',
     output: {
       path: path.join(__dirname, './static/js/brickplus'),
       filename: '[name].js',
       library: '[name]',
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
+      sourceMapFilename: '[name].js.map'
     },
     module: {
       loaders: [

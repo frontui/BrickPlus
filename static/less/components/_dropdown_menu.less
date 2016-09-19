@@ -116,8 +116,6 @@
   .dropdown-menu;
   margin: 0;
   padding: 0;
-  min-width:240px;
-  white-space: nowrap;
   z-index: @zIndex-dropDown-Menu;
 
   // display: block;
@@ -126,26 +124,68 @@
     display: block;
   }
 
-  &-list {
-    display: inline-block;
-    vertical-align: top;
-    padding: 0;
+  // ------------
+  // tab
+  &-nav {
     margin: 0;
-    width: 80px;
-    height: 250px;
-    overflow: hidden;
-    overflow-y: auto;
-    text-align: center;
+    padding: 0;
+    min-width: 300px;
+    list-style: none;
+    border-top: 2px solid @domColor1;
+    background: #fcfcfc;
+    border-bottom: 1px solid @borderColor-default;
+    font-size: @fontSize-small;
+    .clearfix;
+
+    > li {
+      float: left;
+      margin-bottom: -1px;
+      padding: 8px 25px;
+      border-left: 1px solid @borderColor-default;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        &.active {
+          border-right: 1px solid @borderColor-default;
+        }
+      }
+
+      // 选中状态
+      &.active {
+        color: @domColor1;
+        background: #fff;
+        border-bottom-color: #fff; 
+      }
+    }
+  }
+
+  &-list {
+    display: none;
+    padding: 20px;
+    margin: 0;
+    width: 340px;
     list-style: none;
     
+    &.active {
+      display: block;
+    }
   
     > li {
-      padding: 8px 5px;
+      display: inline-block;
+      padding: 5px 10px;
+      width: 50px;
+      text-align: center;
 
       &:hover, &.active {
         cursor: pointer;
         color: @domColor1;
         background: @bgColorHover-btn-dorpDown-menu;
+        border-radius: @borderRadius-public;
       }
     }
   }

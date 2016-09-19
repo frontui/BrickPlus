@@ -40,7 +40,7 @@ function bundle(banner) {
 
   // 生成bricks.js
   gulp.task('bundle:js', function() {
-    return gulp.src('../src/brickplus.js')
+    return gulp.src('../src/*.js')
                 .pipe(webpack(webpackConfig))
                 .pipe($.replace('{{VERSION}}', pkg.version))
                 .pipe($.header(banner, {pkg: pkg}))
