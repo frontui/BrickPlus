@@ -19,10 +19,18 @@
 
 {# 渲染系统导航 #}
 {% block SystemNav %}
-{# 渲染系统顶部导航 #}
-{{ systemNavigator.systemTopNav(topNavList,cur='1') }}
-{# 渲染系统侧导航 #}
-{{ systemNavigator.systemAside(lv1,lv1cur='2',lv2cur='1',lv3cur='1') }}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(topNavList,cur='1') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='2',lv2cur='1',lv3cur='1') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
 {% endblock %}
 
 
