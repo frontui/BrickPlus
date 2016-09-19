@@ -111,13 +111,13 @@
                 <li>
                   <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
                 </li>
-                <li class="current">
+                <li>
                   <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
                 </li>
                 <li>
                   <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
                 </li>
-                <li>
+                <li class="current">
                   <a href="BP-GlobalStyle-Navigator.html"> <i></i> <b></b> 导航 </a>
                 </li>
               </ul>
@@ -125,54 +125,43 @@
           </div>
         </aside>
         <div class="bricks-content-wrap">
-          <div class="tabs-wrap prototype">
-            <ul class="tabs">
-              <li class="active"> <a href="#tp1" class="tabs-btn">
-                可作按钮的标签或元素
-            </a> </li>
-              <li> <a href="#tp2" class="tabs-btn">
-                预定义样式
-            </a> </li>
-              <li> <a href="#tp3" class="tabs-btn">
-                尺寸
-            </a> </li>
-              <li> <a href="#tp4" class="tabs-btn">
-                排版
-            </a> </li>
-              <li> <a href="#tp5" class="tabs-btn">
-                按钮组
-            </a> </li>
-              <li> <a href="#tp6" class="tabs-btn">
-                按钮式下拉菜单
-            </a> </li>
-            </ul>
-          </div>
+          <!-- 
+<div class="tabs-wrap prototype">
+    <ul class="tabs">
+        
+        <li class="active">
+            <a href="#tp1" class="tabs-btn">
+                XXXXX
+            </a>
+        </li>
+        
+    </ul>
+</div>
+ -->
           <div class="tabs-content">
             <div class="tabs-panel active" id="tp1">
               <section class="example-wrap">
                 <ul class="example-description">
-                  <li> 目前仅支持了 3 种 dom 使用 <code>.btn</code> 系列样式，为 <code>&lt;a&gt;</code> 、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮的类，即可使用。 </li>
-                  <li> <code>class="btn links"</code> 的用法仅支持 <code>&lt;a&gt;</code> 标签。 </li>
-                  <li> 如果 <code>&lt;a&gt;</code> 元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 <code>role="button"</code> 属性。 </li>
+                  <li> 在广义上，任何告知用户他在哪里，他能去什么地方以及如何到达那里的方式，都可以称之为导航。而我们将中后台常见的导航方式进行提炼和封装，帮助设计者快速构建清晰和流畅的系统。当设计者使用导航或者自定义一些导航结构时。 </li>
+                  <li> 尽可能提供标示、上下文线索以及网站地图，避免用户迷路。 </li>
+                  <li> 保持导航样式和行为一致或者减少导航数量，降低用户学习成本。 </li>
+                  <li> 尽可能减少页面间的跳转（eg：一个常见任务需要多个页面跳转时，请减少至一至两次），让用户移动距离保持简短。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
                   <div class="example-box">
-                    <div class="plural-btns"> <a href="###" class="btn default" role="button">a</a> <button type="button" class="btn default">button</button> <input type="button" class="btn default" value="input button"> <input type="submit" class="btn default" value="input submit">                      </div>
+                    <div class="sim-body-for-nav">
+                      <div class="main-for-nav"> </div>
+                    </div>
                   </div>
                   <div class="example-code"> <pre>
-                    <code>
-&lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span
-                      class="va">role="<span class="cl">button</span>"</span>&gt;<span
-                      class="tg">...</span>&lt;/<b>a</b>&gt;
-&lt;<b>button</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span
-                      class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/<b>button</b>&gt;
-&lt;<b>input</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span
-                      class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
-&lt;<b>input</b> <span class="va">type="<span class="cl">submit</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span
-                      class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
-                     </code>
-                </pre> </div>
+            <code>
+&lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">role="<span class="cl">button</span>"</span>&gt;<span class="tg">...</span>&lt;/<b>a</b>&gt;
+&lt;<b>button</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/<b>button</b>&gt;
+&lt;<b>input</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
+&lt;<b>input</b> <span class="va">type="<span class="cl">submit</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
+            </code>
+          </pre> </div>
                 </div>
               </section>
             </div>

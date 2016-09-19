@@ -78,3 +78,9 @@ $(function (){
     })
     loadContent($tabTemplate.eq(0))
 });
+
+//系统框架布局交互
+function sas() {
+    $('#systemAside').toggleClass("fold");
+    $('#systemContainer').toggleClass("fold-system-aside");
+}
