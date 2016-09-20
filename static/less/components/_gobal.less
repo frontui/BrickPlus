@@ -43,17 +43,21 @@ a,button,input,textarea,label {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+
+.system-part-action-set() {
+  .transition(all,0.5s,ease-in,0);
+}
+
 // ******************
 // 系统框架容器
 // ******************
-
 .system-container {
   position: absolute;
   top: @height-systemTopNav;
   left: @width-systemAside;
   bottom: 0;
   right: 0;
-  .transition(all,0.5s,ease,0);
+  .system-part-action-set();
   .clearfix();
   z-index: @zIndex-systemContainer;
 
@@ -135,10 +139,38 @@ a,button,input,textarea,label {
   height: 100%;
   overflow: auto;
   z-index: @zIndex-systemContent;
-  .transition(all,0.5s,ease,0);
+  .system-part-action-set();
   background-color: #fff;
 
+  .system-assist-nav-switch {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    margin-top: -(64px/2);
+    width: 20px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    background-color: @bgColor-btns-systemAssistNav;
+    .border-radius(@borderRadius-public,0,0,@borderRadius-public);
+    .link-custom(@fontColor-btns-systemAssistNav,@fontColor-hover-btns-systemAssistNav,none);
+    .system-part-action-set();
+
+    &::before {
+      .icon-font-family();
+      content: '\e601';
+    }
+  }
+
   &.move {
-    margin-left: -@width-systemAssistNav;
+    margin-left: -(@width-systemAssistNav - 0);
+
+    .system-assist-nav-switch {
+      right: @width-systemAssistNav;
+
+      &::before {
+        content: '\e602';
+      }
+    }
   }
 }
