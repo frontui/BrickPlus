@@ -140,7 +140,7 @@ export default class TimerPicker extends Drop {
         let $current = $(event.target)
         let value = $current.html()
         let liEl = this.navEl.children('li')
-        this.timer.splice(idx, 1, value < 9 && this.props.zero ?  `0${value}` : value)
+        this.timer.splice(idx, 1, value < 10 && this.props.zero ?  `0${value}` : value)
 
         $current.addClass('active').siblings().removeClass('active')
         this.el.val(this.timer.join(this.props.char))

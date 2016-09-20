@@ -46,7 +46,7 @@ function docTask(banner) {
   })
 
   gulp.task('doc:brickplus', function() {
-    return gulp.src([staticPath+'/js/brickplus/**/*.js'])
+    return gulp.src([staticPath+'/js/brickplus/**/*.js', '!'+ staticPath+'/js/brickplus/**/*.js.map',])
                 .pipe($.plumber( { errorHandler: errHandler } ))
                 .pipe($.uglify())
                 .pipe($.header(banner, { pkg: pkg}))
