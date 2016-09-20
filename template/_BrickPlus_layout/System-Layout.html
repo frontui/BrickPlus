@@ -133,6 +133,76 @@
   ]
 %}
 
+{# 设置辅助导航 #}
+{%
+  set assistNav = [
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    }
+  ]
+%}
+
 
 {# 加载页面 body 设置，例如引用‘类’ #}
 {% block bodyClass %}
@@ -148,10 +218,17 @@ class="system"
   {% block SystemNav %}
   {% endblock %}
 
+
+  {# 渲染页面主要内容 #}
   <div class="system-container" id="systemContainer">
 
-    <div class="system-content" style="margin-left: 0;">
+    <!-- 系统页面内容盒子 -->
+    <div class="system-content move" id="systemContent">
+
+      {# just a test el #}
       <div style="background-color: gray; height: 200%; width: 10px;"></div>
+
+
       {# 加载页面内容 #}
       {% block content %}
       {% endblock %}
@@ -163,6 +240,7 @@ class="system"
     </button>
 
   </div>
+
 
   {# 返回页面顶部按钮 #}
   <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>

@@ -187,7 +187,7 @@
 
 //侧导航容器
 .system-aside-container {
-  position: absolute;;
+  position: absolute;
   top: @switchSize-systemAside;
   bottom: 0;
   width: @width-systemAside + 40px;
@@ -216,7 +216,7 @@
 .aside-list-1 {
   width: @width-systemAside;
   .reset-list(none,@fontSize-smaller,@line-height-base);
-  .transition(all,0.2s,ease,0);
+  .transition(all,0.5s,ease,0);
 
   .sa {
     padding-right: @paddingSize-btns-systemAside;
@@ -404,6 +404,194 @@
       > li > .aside-list-3 {
         display: none;
       }
+    }
+  }
+}
+
+
+// ******************
+// 附加导航
+// ******************
+
+//附加导航定位结构
+.system-assist-nav {
+  position: absolute;
+  top: @height-systemTopNav;
+  right: -40px;
+  bottom: 0;
+  z-index: @zIndex-systemAssistNav;
+  width: @width-systemAssistNav + 40px;
+  overflow: auto;
+
+  &.show {
+    z-index: @zIndex-systemAssistNav + 1;
+
+    .sanh-icon > div {
+      display: block;
+      .systemAssistNavHeadIcon();
+
+      & + div {
+        .animation-delay(0.6s+0.2s*1);
+      }
+
+      & + div + div {
+        .animation-delay(0.6s+0.2s*3);
+      }
+
+      & + div + div + div {
+        .animation-delay(0.6s+0.2s*2);
+      }
+    }
+  }
+}
+
+//附加导航容器
+.system-assist-nav-container {
+  width: @width-systemAssistNav;
+  padding: 0 30px @gapSize-systemAssistNav 30px;
+}
+
+//附加导航head
+.system-assist-nav-head {
+  color: @fontColor-hover-btns-systemAssistNav;
+  text-align: center;
+  padding: @gapSize-systemAssistNav*1.5 0;
+
+  .sanh-icon {
+    .inline-block();
+    vertical-align: middle;
+    .square(@iconSize-head-systemAssistNav);
+    position: relative;
+    margin-right: 5px;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      .square(@iconSize-head-systemAssistNav/2 - 1px);
+      border: 1px solid @iconColor-head-systemAssistNav;
+
+      & + div {
+        left: auto;
+        right: 0;
+      }
+
+      & + div + div {
+        left: 0;
+        right: auto;
+        top: auto;
+        bottom: 0;
+      }
+
+      & + div + div + div {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+
+.systemAssistNavHeadIcon() {
+  .animation-s(systemAssistNavHeadIcon,0.5s,ease-out,0.6s,1,normal,running,both);
+}
+
+& {
+  .keyframes( systemAssistNavHeadIcon );
+  .-frames(@-...) {
+    0% {
+      @{-}opacity: 0;
+      background-color: transparent;
+    }
+
+    50% {
+      background-color: @fontColor-hover-btns-systemAssistNav;
+    }
+
+    100% {
+      @{-}opacity: 1;
+      background-color: transparent;
+    }
+  }
+}
+
+//附加导航控制按钮
+.system-assist-nav-ctrl {
+  display: block;
+  margin-top: @gapSize-systemAssistNav;
+  padding: 5px 23px 5px 9px;
+  font-size: @fontSize-smaller;
+  line-height: @line-height-base;
+  .link-custom(@fontColor-hover-btns-systemAssistNav,@fontColor-hover-btns-systemAssistNav,none);
+  .transition(all,0.3s,ease,0);
+  .rounded(@borderRadius-public);
+  border: @borderSize-btns-systemAside solid transparent;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    margin-top: -(@fontSize-smallest/2);
+    .icon-font-family();
+    content: '\f05b';
+    font-size: @fontSize-smallest;
+  }
+
+  &:hover {
+    color: @fontColor-hover-btns-systemAssistNav;
+    background-color: @bgColor-hover-btns-systemTopNav;
+  }
+
+  &.add {
+    border-color: @fontColor-btns-systemAssistNav;
+
+    &::after {
+      content: '\e069';
+    }
+
+    &:hover {
+      border-color: @fontColor-hover-btns-systemAssistNav;
+      background-color: transparent;
+    }
+  }
+}
+
+//附加导航
+.system-assist-nav-list {
+  .reset-list(none,@fontSize-smaller,@line-height-base);
+  display: block;
+  max-height: 400px;
+  overflow: hidden;
+
+  > li {
+
+    > a {
+      position: relative;
+      display: block;
+      .rounded(@borderRadius-public);
+      .link-custom(@fontColor-btns-systemAssistNav,@fontColor-hover-btns-systemAssistNav,none);
+      .transition(all,0.3s,ease,0);
+      background-color: @bgColor-btns-systemAssistNav;
+      padding: 6px 24px 6px 10px;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        margin-top: -(@fontSize-smallest/2);
+        .icon-font-family();
+        content: @icon-btns-systemAssistNav;
+        font-size: @fontSize-smallest;
+      }
+
+      &:hover {
+        background-color: @bgColor-hover-btns-systemAssistNav;
+      }
+    }
+
+    & + li {
+      margin-top: @gapSize-systemAssistNav;
     }
   }
 }

@@ -53,7 +53,7 @@ a,button,input,textarea,label {
   left: @width-systemAside;
   bottom: 0;
   right: 0;
-  .transition(all,0.2s,ease,0);
+  .transition(all,0.5s,ease,0);
   .clearfix();
   z-index: @zIndex-systemContainer;
 
@@ -130,11 +130,15 @@ a,button,input,textarea,label {
 }
 
 .system-content {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: auto;
+  z-index: @zIndex-systemContent;
+  .transition(all,0.5s,ease,0);
   background-color: #fff;
-  position: relative;
-  z-index: 2;
-  .transition(all,0.2s,ease,0);
+
+  &.move {
+    margin-left: -@width-systemAssistNav;
+  }
 }
