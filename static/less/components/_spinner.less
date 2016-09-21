@@ -82,9 +82,14 @@
   }
 }
 
-
-.page-spinner {
+// 相对页面为固定
+body > .page-spinner {
   position: fixed;
+}
+
+// 默认相对于区域
+.page-spinner {
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -92,6 +97,17 @@
   z-index: @zIndex-backGround-spinner;
   background-color: @bgColor-page-spinner;
   overflow: hidden;
+
+  // animate 
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity, visibility .1s;
+
+  // fade 
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .spinner-layer {
