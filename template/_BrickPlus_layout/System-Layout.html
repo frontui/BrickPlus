@@ -221,33 +221,19 @@ class="system"
 
   {# 渲染页面主要内容 #}
   <div class="system-container" id="systemContainer">
-
-    <!-- 系统页面内容盒子 -->
-    <div class="system-content" id="systemContent">
-
+    <div class="system-content-wrap">
       <!-- 系统辅助导航开关 -->
       <a href="javascript:void(0);" class="system-assist-nav-switch" onclick="san();"></a>
-
-      {# just a test el #}
-      <div style="background-color: gray; height: 200%; width: 10px;"></div>
-
-
-      {# 加载页面内容 #}
-      {% block content %}
-      {% endblock %}
+      <!-- 系统页面内容盒子 -->
+      <div class="system-content">
+        {# 加载页面内容 #}
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
-
-    <!-- 系统侧导航开关 -->
-    <button class="system-aside-switch" onclick="sas();">
-      <span></span>
-    </button>
-
   </div>
-
-
   {# 返回页面顶部按钮 #}
   <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>
-
 </div>
 {% endblock %}
 

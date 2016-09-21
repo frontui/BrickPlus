@@ -66,9 +66,16 @@
 {% endmacro %}
 
 {% macro systemAside(lv1,lv1cur='',lv2cur='',lv3cur='',static='/static',fixedClass='') %}
-<aside class="system-aside">
+<aside class="system-aside" id="systemAside">
   <div class="system-aside-container">
-    <ul class="aside-list-1" id="systemAside">
+
+    <!-- 系统侧导航开关 -->
+    <a class="system-aside-switch" onclick="sas();" href="javascript:void(0);">
+      <span></span>
+    </a>
+
+    <!-- 系统侧导航列表 -->
+    <ul class="aside-list-1">
       {% for li1 in lv1 %}
       <li {% if loop.index == lv1cur %}class="current"{% endif %}>
         <a href="{{ li1.url }}" class="{{ li1.iconClass }}">
