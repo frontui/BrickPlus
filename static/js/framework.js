@@ -79,8 +79,14 @@ $(function (){
     loadContent($tabTemplate.eq(0))
 });
 
-//系统框架布局交互
+//系统打开左侧导航交互
 function sas() {
     $('#systemAside').toggleClass("fold");
     $('#systemContainer').toggleClass("fold-system-aside");
+}
+
+//系统打开辅助导航交互
+function san() {
+    $('#systemContent').toggleClass("move");
+    $('#systemAssistNav').toggleClass("show");
 }

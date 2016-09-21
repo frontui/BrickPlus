@@ -30,7 +30,21 @@
             <script src="/bower_components/es5-shim/es5-sham.min.js?v=1.0.0"></script>
         <![endif]-->
     <style>
-
+      .carousel> ul> li {
+        padding: 30px 50px;
+        text-align: center;
+      }
+      
+      .carousel> ul> li> a {
+        display: block;
+        height: 300px;
+        line-height: 300px;
+      }
+      
+      .carousel> ul> li> a> img {
+        display: inline-block;
+        vertical-align: middle;
+      }
     </style>
   </head>
 
@@ -132,7 +146,7 @@
                   <a href="BP-JavaScriptComponents-Notify.html"> <i></i> <b></b> 通知 </a>
                 </li>
                 <li>
-                  <a href="BP-JavaScriptComponents-DateTimePicker.html"> <i></i> <b></b> 日历 </a>
+                  <a href="BP-JavaScriptComponents-DateTimePicker.html"> <i></i> <b></b> 日历选择器 </a>
                 </li>
                 <li>
                   <a href="BP-JavaScriptComponents-Charts.html"> <i></i> <b></b> 图表 </a>
@@ -153,9 +167,6 @@
                   <a href="BP-JavaScriptComponents-Cascader.html"> <i></i> <b></b> 城市级联 </a>
                 </li>
                 <li>
-                  <a href="BP-JavaScriptComponents-Slider.html"> <i></i> <b></b> 滑动输入条 </a>
-                </li>
-                <li>
                   <a href="BP-JavaScriptComponents-TreeSelect.html"> <i></i> <b></b> 树形选择器 </a>
                 </li>
                 <li>
@@ -168,13 +179,19 @@
                   <a href="BP-JavaScriptComponents-Calendar.html"> <i></i> <b></b> 日历 </a>
                 </li>
                 <li>
-                  <a href="BP-JavaScriptComponents-Collapse.html"> <i></i> <b></b> 折叠面板 </a>
+                  <a href="BP-JavaScriptComponents-Panel.html"> <i></i> <b></b> 折叠面板 </a>
                 </li>
                 <li>
-                  <a href="BP-JavaScriptComponents-Spin.html"> <i></i> <b></b> 加载 </a>
+                  <a href="BP-JavaScriptComponents-Spiner.html"> <i></i> <b></b> 加载 </a>
                 </li>
                 <li>
                   <a href="BP-JavaScriptComponents-PDFView.html"> <i></i> <b></b> PDF预览 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-switch.html"> <i></i> <b></b> 开关 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-progress.html"> <i></i> <b></b> 进度条 </a>
                 </li>
               </ul>
             </div>
@@ -184,46 +201,152 @@
           <div class="tabs-content">
             <div class="tabs-panel active" id="tp1">
               <section class="example-wrap">
+                <h2>轮播组件</h2>
                 <ul class="example-description">
-                  <li> 我们建议当你需要使用标签页的时候，套用 BrickPlus 标准的结构，这样能够使标签页的按钮使用达到最好的用户体验效果，例如：激活 <code>&lt;li&gt;</code> 标签的 <code>.active</code> 类从而影响 <code>.tab-btns</code> 类，使其有用户点击激活的状态样式。<br> </li>
-                  <li> 由于标签页的使用，可以直接在标签按钮上引用 <code>.tab-btns</code> 类或者绑定 <code>data-toggle="tab"</code> 达到目的，所以也可以不使用标准结构，而自行编写新的样式。 </li>
-                  <li> BrickPlus 标准的标签页结构有定义在 1024 分辨率下的响应式样式。 </li>
+                  <li> 轮播可以用于banner多列表信息滚动，数据模块信息滚动。 </li>
                 </ul>
                 <div class="example">
-                  <div class="example-tag">实例</div>
+                  <div class="example-tag">实例一</div>
                   <div class="example-box">
-                    <div class="tabs-wrap prototype">
-                      <ul class="tabs">
-                        <li class="active"> <a href="#tabexp1" class="tabs-btn">
-                  Tab 1
-                </a> </li>
-                        <li> <a href="#tabexp2" class="tabs-btn">
-                  Tab 2
-                </a> </li>
-                        <li> <a href="#tabexp3" class="tabs-btn">
-                  Tab 3
-                </a> </li>
+                    <div class="carousel" data-toggle="carousel">
+                      <ul>
+                        <li>
+                          <h1>1</h1> </li>
+                        <li>
+                          <h1>2</h1> </li>
+                        <li>
+                          <h1>3</h1> </li>
                       </ul>
                     </div>
-                    <div class="tabs-content">
-                      <div class="tabs-panel active text-align-center" id="tabexp1">Tab Content One</div>
-                      <div class="tabs-panel text-align-center" id="tabexp2">Tab Content Two</div>
-                      <div class="tabs-panel text-align-center" id="tabexp3">Tab Content Three</div>
+                  </div>
+                  <div class="example-code"> <pre><code>&lt;div class="carousel" data-toggle="carousel"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;h1&gt;1&lt;/h1&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h1&gt;2&lt;/h1&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h1&gt;3&lt;/h1&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre> </div>
+                </div> <br> <br>
+                <div class="example">
+                  <div class="example-tag">实例二</div>
+                  <div class="example-box">
+                    <div class="carousel" data-toggle="carousel" data-dots="true" data-prev="#prev" data-next="#next">
+                      <ul>
+                        <li>
+                          <a href="http://www.frontpay.cn"><img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf./static/superman/img/logo/bd_logo1_31bdc765.png" alt=""></a>
+                        </li>
+                        <li>
+                          <a href="http://www.frontpay.cn"><img src="https://www.sogou.com/index/images/logo_440x140.png" alt=""></a>
+                        </li>
+                        <li>
+                          <a href="http://www.frontpay.cn"><img src="http://p3.qhmsg.com/t01b7cb83f41d31a8bf.png" alt=""></a>
+                        </li>
+                      </ul>
+                    </div> <a href="#" class="btn primary" id="prev">上一张</a> <a href="#" class="btn thirdly" id="next">下一张</a> </div>
+                  <div class="example-code"> <pre><code>&lt;div class="carousel" data-toggle="carousel" data-dots="true" data-prev="#prev" data-next="#next"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;a href="http://www.frontpay.cn"&gt;&lt;img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf./static/superman/img/logo/bd_logo1_31bdc765.png" alt=""&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="http://www.frontpay.cn"&gt;&lt;img src="https://www.sogou.com/index/images/logo_440x140.png" alt=""&gt;&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="http://www.frontpay.cn"&gt;&lt;img src="http://p3.qhmsg.com/t01b7cb83f41d31a8bf.png" alt=""&gt;&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- 外部控制 --&gt;
+&lt;a href="#" class="btn primary" id="prev"&gt;上一张&lt;/a&gt;
+&lt;a href="#" class="btn thirdly" id="next"&gt;下一张&lt;/a&gt;
+</code></pre> </div>
+                </div> <br> <br>
+                <h2>参数配置</h2>
+                <div class="example fn-mb-20">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="tables-wrap">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>属性</th>
+                            <th>默认值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> css3 </td>
+                            <td> true </td>
+                            <td> css3动画优先 </td>
+                          </tr>
+                          <tr>
+                            <td> speed </td>
+                            <td> 300 </td>
+                            <td> 切换动画时间间隔 </td>
+                          </tr>
+                          <tr>
+                            <td> delay </td>
+                            <td> null </td>
+                            <td> 自动轮播，当值大于0时启动 </td>
+                          </tr>
+                          <tr>
+                            <td> complete </td>
+                            <td> $.noop </td>
+                            <td> 切换完成回调 </td>
+                          </tr>
+                          <tr>
+                            <td> keys </td>
+                            <td> null </td>
+                            <td> 键盘控制按键 </td>
+                          </tr>
+                          <tr>
+                            <td> dots </td>
+                            <td> null </td>
+                            <td> 是否显示索引 </td>
+                          </tr>
+                          <tr>
+                            <td> fluid </td>
+                            <td> true </td>
+                            <td> 是否响应式 </td>
+                          </tr>
+                          <tr>
+                            <td> prev </td>
+                            <td> null </td>
+                            <td> 上一张按钮 </td>
+                          </tr>
+                          <tr>
+                            <td> next </td>
+                            <td> null </td>
+                            <td> 下一张按钮 </td>
+                          </tr>
+                          <tr>
+                            <td> arrows </td>
+                            <td> true </td>
+                            <td> 是否显示箭头图标 </td>
+                          </tr>
+                          <tr>
+                            <td> prevText </td>
+                            <td> '&lt;' </td>
+                            <td> 上一张按钮文字 </td>
+                          </tr>
+                          <tr>
+                            <td> nextText </td>
+                            <td> '&gt;' </td>
+                            <td> 下一张按钮文字 </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  <div class="example-code"> <pre>
-            <code>
-&lt;<b>div</b> <span class="va">class="<span class="cl"><b>tabs-wrap prototype</b></span>"</span>&gt;
-  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>tabs</b></span>"</span>&gt;
-    &lt;<b>li</b> <span class="va">class="<span class="cl"><b>active</b></span>"</span>&gt;
-      &lt;<b>a</b> <span class="va">href="<span class="cl"><b>#...</b></span>"</span> <span class="va">class="<span class="cl"><b>tabs-btn</b></span>"</span>&gt;
-        <span class="tg">...</span>
-      &lt;/<b>a</b>&gt;
-    &lt;/<b>li</b>&gt;
-  &lt;/<b>ul</b>&gt;
-&lt;/<b>div</b>&gt;
-            </code>
-          </pre> </div>
                 </div>
               </section>
             </div>
@@ -235,6 +358,7 @@
     <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/brickplus/tab.js"></script>
     <script src="./static/js/framework.js?v=1.0.0"></script>
+    <script src="./static/js/brickplus/carousel.js"></script>
     <script>
     </script>
   </body>
