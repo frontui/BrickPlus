@@ -9,24 +9,26 @@ var config = require('../config.json')
 var pkg    = require('../package.json')
 var path   = require('path')
 var fs     = require('fs')
-var webpack = require('webpack-stream')
 var $      = require('gulp-load-plugins')()
 
-var webpackConfig = require('../webpack.config.js')
 
 var dest = path.join(__dirname, '../', 'dist')
 var staticPath = path.join(__dirname, '../', config.staticPath)
 
 function bundle(banner) {
+  gulp.task('bundle:clean', function(cb) {
+    del([dest], cb)
+  })
+
   // 样式
   gulp.task('bundle:styles', function() {
     return gulp.src([staticPath+'/css/main.css'])
                 .pipe($.header(banner, { pkg: pkg}))
                 .pipe($.rename('brickplus.css'))
-                .pipe(gulp.dest(dest+'/css'))
+                //.pipe(gulp.dest(dest+'/css'))
                 .pipe($.cleanCss({compatibility: 'ie7'}))
                 .pipe($.header(banner, { pkg: pkg}))
-                .pipe($.rename('brickplus.min.css'))
+                //.pipe($.rename('brickplus.min.css'))
                 .pipe(gulp.dest(dest+'/css'))
                 .pipe($.size({showFiles: true, title: 'minified'}))
                 .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}))
@@ -34,20 +36,19 @@ function bundle(banner) {
 
   // 复制文件
    gulp.task('bundle:copy', function() {
-    return gulp.src([staticPath+'/{iconfont,iconfont-ie7,images}/**/**'])
+    return gulp.src([staticPath+'/{fonts,ie7,images}/**/**'])
             .pipe(gulp.dest(dest))
    })
 
   // 生成bricks.js
   gulp.task('bundle:js', function() {
-    return gulp.src('../src/*.js')
-                .pipe(webpack(webpackConfig))
+    return gulp.src(staticPath+'/js/brickplus/**.js')
                 .pipe($.replace('{{VERSION}}', pkg.version))
                 .pipe($.header(banner, {pkg: pkg}))
-                .pipe(gulp.dest(dest+'/js'))
+                //.pipe(gulp.dest(dest+'/js'))
                 .pipe($.uglify())
                 .pipe($.header(banner, {pkg: pkg}))
-                .pipe($.rename({suffix: '.min'}))
+                //.pipe($.rename({suffix: '.min'}))
                 .pipe(gulp.dest(dest+'/js'))
                 .pipe($.size({showFiles: true, title: 'minified'}))
                 .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}))
@@ -55,7 +56,7 @@ function bundle(banner) {
 
   // 打包
   gulp.task('bundle', function(cb) {
-    $.sequence(['bundle:styles', 'bundle:copy'])(cb)
+    $.sequence('bundle:clean', ['bundle:styles', 'bundle:copy', 'bundle:js'])(cb)
   })
 }
 

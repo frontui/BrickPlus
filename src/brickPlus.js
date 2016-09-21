@@ -12,9 +12,29 @@ let BrickPlus = {}
 
 
 // 全选组件
-let checkAll = require('./checkAll')
+//require('./checkAll')
 // tab组件
-let Tab = require('./tab')
+//require('./tab')
+import './transition'
+import './swipe'
+
+import './alert'
+import './carousel'
+import './checkAll'
+import './datetimepicker'
+import './dropdown'
+import './Modal'
+import './Notify'
+import './pagination'
+import './placeholder'
+import './progress'
+import './scroller'
+import './smoothScroll'
+import './spin'
+import './switch'
+import './tab'
+import './timerPicker'
+import './tooltips'
 
 
 // ------- 工具函数库 ----------

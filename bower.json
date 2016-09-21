@@ -19,9 +19,18 @@
     "lib",
     "OutPut",
     "static",
+    "src",
     "task",
     "template",
-    "gulpfile.js"
+    "gulpfile.js",
+    "npm-debug.log",
+    "config.json",
+    "editorconfig",
+    "jshintrc",
+    "README.MD",
+    "webpack.conf.js",
+    "webpack.config.js",
+    "weflow.config.json"
   ],
   "devDependencies": {
     "jquery": "^1.11.1",

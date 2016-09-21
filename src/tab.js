@@ -15,6 +15,7 @@
 'use strict'
 
 var $ = require('jquery')
+require('./transition')
 
 const toggle = '[data-toggle="tab"],.tabs-btn'
 
