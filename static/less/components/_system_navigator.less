@@ -216,7 +216,7 @@
 .aside-list-1 {
   width: @width-systemAside;
   .reset-list(none,@fontSize-smaller,@line-height-base);
-  .transition(all,0.5s,ease,0);
+  .system-part-action-set();
 
   .sa {
     padding-right: @paddingSize-btns-systemAside;
@@ -561,7 +561,7 @@
 .system-assist-nav-list {
   .reset-list(none,@fontSize-smaller,@line-height-base);
   display: block;
-  max-height: 400px;
+  //max-height: 400px;
   overflow: hidden;
 
   > li {
