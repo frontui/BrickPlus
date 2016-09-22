@@ -192,10 +192,52 @@
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
-                  <div class="example-box"> </div>
+                  <div class="example-box"> <button type="button" class="btn default" data-toggle="modal" data-target="#j-modal1">modal</button> <br> <br> <button type="button" class="btn default" id="btn-small-modal">smaller-modal</button> <br> <br> <button type="button" class="btn default"
+                      id="btn-default-modal">default-modal</button> </div>
                   <div class="example-code"> <pre>
             <code>
-
+// -------------
+// large - 更大
+// small - 小的
+// smaller - 更小的
+// '' | false - 默认尺寸
+// 设置窗口大小
+$('#btn-small-modal').on('click', function() {
+  $('#j-modal1').modal('setSize', 'smaller')
+                .modal('show')
+})
+// 默认窗口大小
+$('#btn-default-modal').on('click', function() {
+  $('#j-modal1').modal('setSize', '')
+                .modal('show')
+})
+            </code>
+          </pre> </div>
+                </div> <br> <br>
+                <h2>自定义弹层</h2>
+                <ul class="example-description">
+                  <li> 待续 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box"> <button type="button" class="btn default" id="btn-call-js">modal</button> </div>
+                  <div class="example-code"> <pre>
+            <code>
+// -------------
+// large - 更大
+// small - 小的
+// smaller - 更小的
+// '' | false - 默认尺寸
+// 设置窗口大小
+$('#btn-small-modal').on('click', function() {
+  $('#j-modal1').modal('setSize', 'smaller')
+                .modal('show')
+})
+// 默认窗口大小
+$('#btn-default-modal').on('click', function() {
+  $('#j-modal1').modal('setSize', '')
+                .modal('show')
+})
             </code>
           </pre> </div>
                 </div>
@@ -205,11 +247,51 @@
         </div>
       </div>
       <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
+    <!-- 内部弹层 -->
+    <div class="modal-background fade" id="j-modal1">
+      <div class="modal-layer">
+        <div class="modal-position">
+          <div class="modal-wrap animated">
+            <div class="modal-head"> 模态窗口标题 <i class="modal-close"></i> </div>
+            <div class="modal-body"> 模态窗口主体高度不限 </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
     <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/brickplus/tab.js"></script>
     <script src="./static/js/framework.js?v=1.0.0"></script>
+    <script src="./static/js/brickplus/modal.js"></script>
     <script>
+      $(function()
+      {
+        // -------------
+        // large - 更大
+        // small - 小的
+        // smaller - 更小的
+        // '' | false - 默认尺寸
+        // 设置窗口大小
+        $('#btn-small-modal').on('click', function()
+          {
+            $('#j-modal1').modal('setSize', 'smaller').modal('show')
+          })
+          // 默认窗口大小
+        $('#btn-default-modal').on('click', function()
+          {
+            $('#j-modal1').modal('setSize', '').modal('show')
+          })
+          // ----------
+          // 自定义弹层
+        $('#btn-call-js').on('click', function()
+        {
+          $('#call-js').modal(
+          {
+            title: 'xxxx',
+            content: '自定义弹层'
+          })
+        })
+      })
     </script>
   </body>
 

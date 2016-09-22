@@ -67,9 +67,12 @@
   </a> <a href="javascript:void(0);" class="stn-btn pull-left">
     管理系统
   </a> </nav>
-      <aside class="system-aside">
+      <aside class="system-aside" id="systemAside">
         <div class="system-aside-container">
-          <ul class="aside-list-1" id="systemAside">
+          <!-- 系统侧导航开关 -->
+          <a class="system-aside-switch" onclick="sas();" href="javascript:void(0);"> <span></span> </a>
+          <!-- 系统侧导航列表 -->
+          <ul class="aside-list-1">
             <li>
               <a href="javascript:void(0);" class="system-setting">
                 <div class="aside-tooltips" data-toggle="tooltips" title="Level 1" data-pos="right"></div> <span class="sa">Level 1</span> </a>
@@ -215,15 +218,15 @@
     </a> </div>
       </aside>
       <div class="system-container" id="systemContainer">
-        <!-- 系统页面内容盒子 -->
-        <div class="system-content" id="systemContent">
+        <div class="system-content-wrap">
           <!-- 系统辅助导航开关 -->
           <a href="javascript:void(0);" class="system-assist-nav-switch" onclick="san();"></a>
-          <div style="background-color: gray; height: 200%; width: 10px;"></div>
+          <!-- 系统页面内容盒子 -->
+          <div class="system-content"> <a href="###">123</a>
+            <div style="background-color: gray; height: 2000px; width: 0px;"></div>
+          </div>
         </div>
-        <!-- 系统侧导航开关 --><button class="system-aside-switch" onclick="sas();">
-      <span></span>
-    </button> </div> <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
+      </div> <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
     <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/ui.js?v=1.0.0"></script>
