@@ -12,6 +12,7 @@
   right: 0;
   height: @height-systemTopNav;
   .clearfix();
+  padding-right: @gapSize-systemAssistNav*3;
 }
 
 
@@ -120,6 +121,8 @@
   }
 }
 
+
+
 // ******************
 // 顶部导航-产品跳转列表
 // ******************
@@ -152,6 +155,49 @@
   &::before {
     border-bottom-color: @bgColor-dropdown-pl-systemTopNav;
   }
+}
+
+
+// ******************
+// 顶部导航-图标
+// ******************
+.stn-function-icon {
+  float: right;
+  position: relative;
+  .link-custom(@fontColor-hover-btns-systemTopNav,@fontColor-hover-btns-systemTopNav,none);
+
+  .fr {
+    position: absolute;
+    top: @height-systemTopNav/4;
+    right: @height-systemTopNav/4;
+  }
+
+  .fi {
+    display: block;
+    .square(@height-systemTopNav/2);
+    margin-top: (@height-systemTopNav/4);
+    .rounded(@borderRadius-public);
+    background-color: @bgColor-functionIcon-systemTopNav;
+    text-align: center;
+    .transition(all,0.3s,ease,0);
+
+    > [class^="icon-"],
+    > [class*=" icon-"] {
+      line-height: 1.5;
+      font-size: @fontSize-large;
+    }
+  }
+
+  &:hover {
+
+    .fi {
+      background-color: darken(@bgColor-functionIcon-systemTopNav,25%);
+    }
+  }
+}
+
+.stn-function-icon + .stn-function-icon {
+  margin-right: 10px;
 }
 
 
