@@ -41,6 +41,71 @@
 {# 加载系统导航 #}
 {% import "_BrickPlus_components/systemNavigator.html" as systemNavigator %}
 
+{# 设置顶部导航产品列表 #}
+{%
+  set pl = [
+    {
+      product: '产品名称'
+    },
+    {
+      product: '产品名称'
+    },
+    {
+      product: '产品名称'
+    },
+    {
+      product: '产品名称'
+    },
+    {
+      product: '产品名称'
+    },
+    {
+      product: '产品名称'
+    },
+    {
+      product: '产品名称'
+    }
+  ]
+%}
+
+{# 设置顶部导航主题列表 #}
+{%
+  set topNavThemesList = [
+    {
+      bgColor: '#3dc9ca'
+    },
+    {
+      bgColor: '#ff8363'
+    },
+    {
+      bgColor: '#e1e6ef'
+    },
+    {
+      bgColor: '#b897f3'
+    },
+    {
+      bgColor: '#89bf64'
+    },
+    {
+      bgColor: '#3d89ca'
+    }
+  ]
+%}
+
+{# 设置顶部导航用户菜单 #}
+{%
+  set userMenu = [
+    {
+      option: 'option one'
+    },
+    {
+      option: 'option two'
+    },
+    {
+      option: 'option three'
+    }
+  ]
+%}
 
 {# 设置侧导航 #}
 {%

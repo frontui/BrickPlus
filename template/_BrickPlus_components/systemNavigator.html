@@ -1,4 +1,4 @@
-{% macro systemTopNav(topNavList,cur='',static='/static',fixedClass='') %}
+{% macro systemTopNav(pl,topNavThemesList,userMenu,username,fixedClass='',static='/static') %}
 <nav class="system-top-nav">
   <a href="###" class="system-logo">
     <img src="{{ static }}/images/systemLogo/eplus.png" alt="">
@@ -10,48 +10,11 @@
     <div class="stn-dropdown-menu stn-product-menu">
       <div class="stn-pm-box">
         <ul class="pl">
+          {% for item in pl %}
           <li>
-            <a href="###" title="123">XXXXXXXXXXXXXXXXXXXXXX</a>
+            <a href="###" title="{{ item.product }}">{{ item.product }}</a>
           </li>
-          <li>
-            <a href="###" title="456">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="789">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
-          <li>
-            <a href="###" title="XXXXXXXXXXXXXXXXXXXXXX">XXXXXXXXXXX</a>
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -62,7 +25,9 @@
   <a href="javascript:void(0);" class="stn-btn pull-left">
     管理系统
   </a>
+
   <a href="javascript:void(0);" class="stn-function-icon">
+    <span class="fr">23</span>
     <span class="fi">
       <i class="icon-notifications_none"></i>
     </span>
@@ -72,11 +37,33 @@
       <i class="icon-timer"></i>
     </span>
   </a>
-  <a href="javascript:void(0);" class="stn-function-icon">
+  <a href="javascript:void(0);" class="stn-function-icon stn-dropdown-wrap themes">
     <span class="fi">
-      <i class="icon-notifications_none"></i>
+      <i></i>
     </span>
+    <div class="stn-dropdown-menu">
+      <ul class="stn-themes-menu">
+        {% for item in topNavThemesList %}
+        <li style="background-color: {{ item.bgColor }};"></li>
+        {% endfor %}
+      </ul>
+    </div>
   </a>
+  <div class="stn-dropdown-wrap pull-right fn-mr-10 user">
+    <a class="stn-btn">
+      <img src="{{ static }}/images/userheadshot/scenery-7.png" alt="">
+      Hello! {{ username }}
+    </a>
+    <div class="stn-dropdown-menu">
+      <ul class="stn-user-menu">
+        {% for item in userMenu %}
+        <li>
+          <a href="#">{{ item.option }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 </nav>
 {% endmacro %}
 
