@@ -22,7 +22,7 @@
   float: left;
   height: @height-systemTopNav;
   .link-standard();
-  background-color: @bgColor-btns-systemAside;
+  //background-color: @bgColor-btns-systemAside;
 
   > img {
     display: block;
@@ -179,7 +179,7 @@
 //侧导航定位结构
 .system-aside {
   z-index: @zIndex-systemAside;
-  position: absolute;
+  position: fixed;
   top: @height-systemTopNav;
   left: 0;
   bottom: 0;
@@ -188,11 +188,51 @@
 //侧导航容器
 .system-aside-container {
   position: absolute;
-  top: @switchSize-systemAside;
+  top: 0;
   bottom: 0;
   width: @width-systemAside + 40px;
   padding-bottom: @gapSize-systemAside;
   overflow: auto;
+}
+
+.system-aside-switch {
+  position: relative;
+  display: block;
+  .size(@width-systemAside,@switchSize-systemAside);
+  .link-standard(@fontColor-hover-btns-systemAside);
+  .system-part-action-set();
+
+  > span {
+    position: absolute;;
+    top: 50%;
+    left: 50%;
+    .square(2px);
+    margin-top: -1px;
+    margin-left: -1px;
+    .transition(all,0.6s,ease,0);
+    transition-delay: 0.2s;
+    background-color: @switchIconColor-systemAside;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      .square(2px);
+      left: 0;
+      background-color: @switchIconColor-systemAside;
+      .transition(all,0.6s,ease,0);
+    }
+
+    &::before {
+      top: -200%;
+    }
+
+    &::after {
+      bottom: -200%;
+      transition-delay: 0.4s;
+    }
+  }
 }
 
 //侧导航按钮公共样式
@@ -230,10 +270,6 @@
     > a {
       .aside-btn-pubilc-style(@bgColor-btns-systemAside,@bgColor-hover-btns-systemAside,@fontColor-btns-systemAside,@fontColor-hover-btns-systemAside);
 
-      &:hover {
-        border-color: @borderColor-hover-lv1-btns-systemAside;
-      }
-
       //模拟tooltips
       // .sim-tooltips {
       //   position: absolute;
@@ -243,9 +279,9 @@
       //   line-height: @height-btns-systemAside;
       //   white-space: nowrap;
       //   background-color: @bgColor-hover-btns-systemAside;
-      //   z-index: 4;
       //   padding: 0 @paddingSize-btns-systemAside;
       //   .rounded(@borderRadius-public);
+      //   display: none;
       //
       //   &::before {
       //     content: '';
@@ -298,6 +334,10 @@
       //系统管理图标
       &.system-manage::before {
         content: @icon-system-manage-systemAside;
+      }
+
+      &:hover {
+        border-color: @borderColor-hover-lv1-btns-systemAside;
       }
     }
 
@@ -385,14 +425,36 @@
       padding-top: @gapSize-systemAside;
     }
   }
+}
 
-  &.fold {
+//侧导航折叠样式
+.system-aside.fold {
+
+  .system-aside-switch {
+    width: @width-fold-systemAside;
+
+    > span {
+      width: @switchSize-systemAside/2;
+      margin-left: -(@switchSize-systemAside/4);
+
+      &::before,
+      &::after {
+        width: @switchSize-systemAside/2;
+      }
+    }
+  }
+
+  .aside-list-1 {
     width: @width-fold-systemAside;
     overflow: hidden;
 
     .sa {
       display: none;
     }
+
+    // > li > a:hover .sim-tooltips {
+    //   display: block;
+    // }
 
     > li > a .aside-tooltips {
       display: block;
@@ -413,9 +475,30 @@
 // 附加导航
 // ******************
 
+//附加导航开关
+.system-assist-nav-switch {
+  position: fixed;
+  top: 50%;
+  right: @gapSize-systemAssistNav*3;
+  margin-top: -(64px/2);
+  width: 20px;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  background-color: @bgColor-btns-systemAssistNav;
+  .border-radius(@borderRadius-public,0,0,@borderRadius-public);
+  .link-standard(@fontColor-hover-btns-systemAssistNav);
+  .system-part-action-set();
+
+  &::before {
+    .icon-font-family();
+    content: '\e601';
+  }
+}
+
 //附加导航定位结构
 .system-assist-nav {
-  position: absolute;
+  position: fixed;
   top: @height-systemTopNav;
   right: -40px;
   bottom: 0;
@@ -424,7 +507,6 @@
   overflow: auto;
 
   &.show {
-    z-index: @zIndex-systemAssistNav + 1;
 
     .sanh-icon > div {
       display: block;
@@ -561,7 +643,7 @@
 .system-assist-nav-list {
   .reset-list(none,@fontSize-smaller,@line-height-base);
   display: block;
-  //max-height: 400px;
+  max-height: 400px;
   overflow: hidden;
 
   > li {

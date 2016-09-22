@@ -82,11 +82,11 @@ $(function (){
 //系统打开左侧导航交互
 function sas() {
     $('#systemAside').toggleClass("fold");
-    $('#systemContainer').toggleClass("fold-system-aside");
+    $('#systemContainer').toggleClass("fold-for-aside");
 }
 
 //系统打开辅助导航交互
 function san() {
-    $('#systemContent').toggleClass("move");
+    $('#systemContainer').toggleClass("fold-for-assist-nav");
     $('#systemAssistNav').toggleClass("show");
 }

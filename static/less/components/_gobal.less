@@ -8,6 +8,7 @@ html,
 body {
     .font-hei();
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -24,15 +25,23 @@ body {
     }
 
     // 系统布局结构
-    &.system > .main {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+    &.system {
       background: @bgStyle-body-system;
       background-size: 100% 100%;
-      overflow: hidden;
+      background-attachment: fixed;
+    }
+
+    &.system > .main {
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // bottom: 0;
+      // right: 0;
+      // background: @bgStyle-body-system;
+      // background-size: 100% 100%;
+      // overflow: hidden;
+      height: 100%;
+      width: 100%;
     }
 }
 
@@ -45,125 +54,67 @@ a,button,input,textarea,label {
 
 
 .system-part-action-set() {
-  .transition(all,0.5s,ease-out,0);
+  .transition(all,0.3s,ease-out,0);
 }
 
 // ******************
 // 系统框架容器
 // ******************
 .system-container {
-  position: absolute;
-  top: @height-systemTopNav;
-  left: @width-systemAside;
-  bottom: 0;
-  right: 0;
-  .system-part-action-set();
-  .clearfix();
-  z-index: @zIndex-systemContainer;
+  // position: absolute;
+  // top: @height-systemTopNav;
+  // left: @width-systemAside;
+  // bottom: 0;
+  // right: 0;
+  // .system-part-action-set();
+  // .clearfix();
+  // z-index: @zIndex-systemContainer;
 
-  > .system-aside-switch {
-    position: absolute;
-    top: 0;
-    left: -@switchSize-systemAside;
-    .square(@switchSize-systemAside);
-    background-color: transparent;
-    border: none;
-    outline: none;
+  // padding-top: @height-systemTopNav;
+  // margin-left: @width-systemAside;
+  // margin-right: @gapSize-systemAssistNav*3;
+  // .system-part-action-set();
+  // background-color: #fff;
 
-    > span {
-      position: absolute;;
-      top: 50%;
-      right: 50%;
-      .square(2px);
-      margin-top: -1px;
-      margin-right: -1px;
-      .transition(all,0.6s,ease,0);
-      transition-delay: 0.2s;
-      background-color: @switchIconColor-systemAside;
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        background-color: #fff;
-        .square(2px);
-        right: 0;
-        background-color: @switchIconColor-systemAside;
-        .transition(all,0.6s,ease,0);
-      }
-
-      &::before {
-        top: -200%;
-      }
-
-      &::after {
-        bottom: -200%;
-        transition-delay: 0.4s;
-      }
-    }
-
-    &:hover > span,
-    &:active > span {
-      background-color: @switchIconColor-hover-systemAside;
-
-      &::before,
-      &::after {
-        background-color: @switchIconColor-hover-systemAside;
-      }
-    }
-  }
-
-  &.fold-system-aside {
-    left: @width-fold-systemAside;
-
-    > .system-aside-switch {
-      left: -(@switchSize-systemAside*2);
-      width: @switchSize-systemAside*2;
-
-      > span {
-        width: @switchSize-systemAside/2;
-        margin-right: -(@switchSize-systemAside/4);
-
-        &::before,
-        &::after {
-          width: @switchSize-systemAside/2;
-        }
-      }
-    }
-  }
-}
-
-.system-content {
-  position: relative;
-  width: 100%;
   height: 100%;
-  overflow: auto;
-  z-index: @zIndex-systemContent;
+  padding-top: @height-systemTopNav;
+  margin-left: @width-systemAside;
+  margin-right: @gapSize-systemAssistNav*3;
   .system-part-action-set();
-  background-color: #fff;
 
-  .system-assist-nav-switch {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    margin-top: -(64px/2);
-    width: 20px;
-    height: 64px;
-    line-height: 64px;
-    text-align: center;
-    background-color: @bgColor-btns-systemAssistNav;
-    .border-radius(@borderRadius-public,0,0,@borderRadius-public);
-    .link-custom(@fontColor-btns-systemAssistNav,@fontColor-hover-btns-systemAssistNav,none);
+  .system-content-wrap {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
     .system-part-action-set();
-
-    &::before {
-      .icon-font-family();
-      content: '\e601';
-    }
   }
 
-  &.move {
-    margin-left: -(@width-systemAssistNav - 0);
+  .system-content {
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
+    // overflow: auto;
+    // z-index: @zIndex-systemContent;
+    // .system-part-action-set();
+    // background-color: #fff;
+
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    background-color: @bgColor-content-system;
+  }
+
+  &.fold-for-aside {
+    margin-left: @width-fold-systemAside;
+  }
+
+  &.fold-for-assist-nav {
+
+    .system-content-wrap {
+      margin-left: -(@width-systemAssistNav - @gapSize-systemAssistNav*3);
+    }
 
     .system-assist-nav-switch {
       right: @width-systemAssistNav;
