@@ -22,7 +22,7 @@
   ],
   "license": "MIT License",
   "homepage": "https://github.com/frontUI/BrickPlus#readme",
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
@@ -55,9 +55,7 @@
     "merge-stream": "^1.0.0",
     "nunjucks": "^1.3.4",
     "path": "^0.11.14",
-    "through2": "^2.0.0"
-  },
-  "devDependencies": {
+    "through2": "^2.0.0",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
