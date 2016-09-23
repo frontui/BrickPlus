@@ -12,6 +12,7 @@
   right: 0;
   height: @height-systemTopNav;
   .clearfix();
+  padding-right: @gapSize-systemAssistNav*3;
 }
 
 
@@ -57,6 +58,7 @@
   position: relative;
 
   > .stn-btn {
+    cursor: default;
 
     &::after {
       content: '';
@@ -97,19 +99,16 @@
 
   .stn-dropdown-menu {
     display: block;
-
-    &.stn-product-menu {
-      .stnDropDownMenuPlAnim();
-    }
+    .stnDropDownMenuAnim();
   }
 }
 
-.stnDropDownMenuPlAnim() {
-  .animation-s(stnDropDownMenuPl,0.3s,ease-out,0,1,normal,running,both);
+.stnDropDownMenuAnim() {
+  .animation-s(stnDropDownMenuAnim,0.3s,ease-out,0,1,normal,running,both);
 }
 
 & {
-  .keyframes( stnDropDownMenuPl );
+  .keyframes( stnDropDownMenuAnim );
   .-frames(@-...) {
     0% {
       @{-}opacity: 0;
@@ -119,6 +118,96 @@
     }
   }
 }
+
+
+// ******************
+// 顶部导航-图标
+// ******************
+.stn-function-icon {
+  float: right;
+  position: relative;
+  .link-custom(@fontColor-hover-btns-systemTopNav,@fontColor-hover-btns-systemTopNav,none);
+  height: @height-systemTopNav;
+
+  .fr {
+    position: absolute;
+    top: @height-systemTopNav/6;
+    right: -@height-systemTopNav/6;
+    font-size: @fontSize-smallest;
+    line-height: 1.2;
+    color: @fontColor-hover-btns-systemTopNav;
+    padding: 0 2px;
+    background-color: @bgColor-fr-systemTopNav;
+    .rounded(@borderRadius-public);
+    .text-hide();
+    max-width: 20px;
+  }
+
+  .fi {
+    display: block;
+    .square(@iconSize-systemTopNav);
+    .rounded(@borderRadius-public);
+    background-color: @bgColor-functionIcon-systemTopNav;
+    text-align: center;
+    .transition(all,0.3s,ease,0);
+    margin-top: (@height-systemTopNav/4 - 1px);
+    border: 1px solid transparent;
+    .rounded(50%);
+
+    > [class^="icon-"],
+    > [class*=" icon-"] {
+      line-height: 1.45;
+      font-size: @fontSize-large;
+    }
+  }
+
+  &.themes {
+    cursor: default;
+
+    .fi {
+
+      > i {
+        display: block;
+        .square(@height-systemTopNav/2);
+        .transition(all,0.3s,ease,0);
+        background: @bgStyle-fr-themes-systemTopNav;
+      }
+
+      &:hover > i {
+        .rotate(180deg);
+      }
+    }
+
+    .stn-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: -115%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -@arrowSize-dropdown-systemTopNav;
+        left: 50%;
+        margin-left: -@arrowSize-dropdown-systemTopNav;
+        .arrow-up-or-down(border-bottom,@arrowSize-dropdown-systemTopNav,@arrowSize-dropdown-systemTopNav,@bgColor-dropdown-systemTopNav);
+      }
+    }
+  }
+
+  &:hover {
+
+    .fi {
+      background-color: transparent;
+      border-color: #fff;
+      .outer-shadow-custom(0,0,0,3px,darken(@bgColor-functionIcon-systemTopNav,5%));
+    }
+  }
+}
+
+.stn-function-icon + .stn-function-icon {
+  margin-right: 10px;
+}
+
 
 // ******************
 // 顶部导航-产品跳转列表
@@ -151,6 +240,80 @@
 
   &::before {
     border-bottom-color: @bgColor-dropdown-pl-systemTopNav;
+  }
+}
+
+
+// ******************
+// 顶部导航-主题菜单
+// ******************
+.stn-themes-menu {
+  .reset-list(none,0,0);
+  background-color: @bgColor-functionIcon-systemTopNav;
+  .clearfix();
+  width: 90px;
+  text-align: center;
+  padding: 5px;
+
+  > li {
+    .square(@height-systemTopNav/2);
+    .rounded(50%);
+    .inline-block();
+    margin: 5px;
+    border: 1px solid transparent;
+    .transition(all,0.3s,ease,0);
+    cursor: pointer;
+
+    &:hover {
+      border-color: #fff;
+      .outer-shadow-custom(0,0,1px,1px);
+    }
+  }
+}
+
+
+// ******************
+// 顶部导航-用户菜单
+// ******************
+.stn-user-menu {
+  .reset-list(none,@fontSize-smaller,@line-height-base);
+  background-color: @bgColor-functionIcon-systemTopNav;
+
+  > li {
+
+    > a {
+      display: block;
+      padding: 10px 15px;
+      .link-custom(@fontColor-hover-btns-systemTopNav,@fontColor-hover-btns-systemTopNav,none);
+      .transition(all,0.3s,ease,0);
+
+      &:hover {
+        background-color: darken(@bgColor-functionIcon-systemTopNav,5%);
+      }
+    }
+
+    & + li {
+      border-top: 1px solid lighten(@bgColor-functionIcon-systemTopNav,15%);
+    }
+  }
+}
+
+.stn-dropdown-wrap.user {
+
+  .stn-btn > img {
+    .square(@iconSize-systemTopNav);
+    .rounded(50%);
+    .inline-block();
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .stn-dropdown-menu {
+    width: 250px;
+
+    &::before {
+      left: @arrowSize-dropdown-systemTopNav*2.85;
+    }
   }
 }
 

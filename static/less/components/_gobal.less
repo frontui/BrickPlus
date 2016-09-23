@@ -88,6 +88,7 @@ a,button,input,textarea,label {
     width: 100%;
     height: 100%;
     .system-part-action-set();
+    padding-bottom: @gapSize-systemAssistNav*3;
   }
 
   .system-content {
@@ -104,6 +105,8 @@ a,button,input,textarea,label {
     width: 100%;
     vertical-align: top;
     background-color: @bgColor-content-system;
+    .outer-shadow-custom(0,0,4px,1px);
+    .rounded(@borderRadius-public);
   }
 
   &.fold-for-aside {

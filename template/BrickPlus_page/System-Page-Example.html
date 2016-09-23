@@ -22,7 +22,7 @@
 
 
   {# 渲染系统顶部导航 #}
-  {{ systemNavigator.systemTopNav(topNavList,cur='1') }}
+  {{ systemNavigator.systemTopNav(pl,topNavThemesList,userMenu,username='rayalienkiss') }}
 
   {# 渲染系统侧导航 #}
   {{ systemNavigator.systemAside(lv1,lv1cur='2',lv2cur='1',lv3cur='1') }}
@@ -37,9 +37,18 @@
 {# 加载页面内容 #}
 {% block content %}
 
-  {# just a test el #}
-  <a href="###">123</a>
-  <div style="background-color: gray; height: 2000px; width: 0px;"></div>
+{# 渲染路径导航 #}
+{{
+  breadcrumb.default(
+    list = [
+      {link: 'javascript:void(0);', text:'首页'},
+      {link: 'javascript:void(0);', text:'二级导航'},
+      {link: 'javascript:void(0);', text:'三级导航'},
+      {text: '当前位置'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
 
 {% endblock %}
 
