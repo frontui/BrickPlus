@@ -783,6 +783,10 @@
     font-size: @fontSize-smallest;
   }
 
+  &.hide-list::after {
+    content: '\f0aa';
+  }
+
   &:hover {
     color: @fontColor-hover-btns-systemAssistNav;
     background-color: @bgColor-hover-btns-systemTopNav;
@@ -806,7 +810,7 @@
 .system-assist-nav-list {
   .reset-list(none,@fontSize-smaller,@line-height-base);
   display: block;
-  max-height: 400px;
+  max-height: 200px;
   overflow: hidden;
 
   > li {
@@ -838,5 +842,9 @@
     & + li {
       margin-top: @gapSize-systemAssistNav;
     }
+  }
+
+  &.more-assist {
+    max-height: none;
   }
 }
