@@ -19,14 +19,14 @@ var closeBtn = 'em';
 // 构造函数
 // ------
 var Alert = function (el, option) {
-    var that = this;
-    that.$el = $(el);
+    if(!this) return;
+    // var that = this;
+    this.$el = $(el);
     this.iScroller = null;
 
-    //that.$el.on('click', closeBtn, this.close);
-
+    // this.$el.on('click', closeBtn, $.proxy(this.close, this));
     // 检测是否为多条滚动
-    that.$el.is('.alert') && that.scroller();
+    this.$el.is('.alert') && this.scroller();
 };
 
 Alert.VERSION = '{{VERSION}}';
@@ -38,21 +38,23 @@ Alert.TRANSITION_DURATION = 300;
 // -----
 Alert.prototype.close = function (e, force) {
 
-
     if (e) e.preventDefault();
 
-    var $this = $(this);
-    var $parent = Alert.prototype._getParent($this);
+    //var $this = $(this);
+    //var $parent = Alert.prototype._getParent($this);
+    var $parent = this.$el
 
-    !!!force && $parent.trigger(e = $.Event('close.ui.alert'));
+    !!!force && $parent.trigger(e = $.Event('close.bp.alert'));
+
+    
 
     if (e.isDefaultPrevented() && !force) return;
 
     $parent.addClass('out');
 
     function removeElement() {
-        var data = $parent.data('ui.alert');
-        var ev = $.Event('closed.ui.alert', {relatedTarget: $parent});
+        var data = $parent.data('bp.alert');
+        var ev = $.Event('closed.bp.alert', {relatedTarget: $parent});
 
         // 干掉滚动
         if(data && data.iScroller) data.iScroller.destroy();
@@ -100,10 +102,13 @@ function Plugin(option) {
     var args = [].slice.call(arguments, 1);
     return $(this).each(function () {
         var $this = $(this);
-        var data = $this.data('ui.alert');
+        var data = $this.data('bp.alert');
 
-        if (!data) $this.data('ui.alert', (data = new Alert(this, option)));
-        if (typeof option == 'string') data[option].apply($(this), args);
+
+        if (!data) $this.data('bp.alert', (data = new Alert($this, option)));
+        if (typeof option === 'string'){
+            data[option].apply(data, args)
+        } 
     })
 }
 
@@ -119,8 +124,10 @@ $(function () {
     // 绑定 alert 插件
     $('.alert').alert();
 
-    $(document).on('click.ui.alert', dismiss, function (e) {
-        Alert.prototype.close.call(e.target, e);
+    $(document).on('click.bp.alert', dismiss, function (e) {
+        //Alert.prototype.close.call(e.target, e);
+        var el = Alert.prototype._getParent(e.target);
+        $(el).length && $(el).alert('close', e)
     })
 })
 

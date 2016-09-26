@@ -116,13 +116,13 @@ SmoothScroll.prototype.scrollTo = function(options) {
 function Plugin(options, otherOptions) {
     return $(this).each(function () {
         var $this = $(this);
-        var data = $this.data('ui.smoothScroll');
+        var data = $this.data('bp.smoothScroll');
         if (!data) {
-            $this.data('ui.smoothScroll', (new SmoothScroll(this, $.extend({}, $this.data(), options))));
+            $this.data('bp.smoothScroll', (new SmoothScroll(this, $.extend({}, $this.data(), options))));
         } else if( options === 'scrollTo'){
             data.scrollTo(otherOptions)
         } else {
-            $this.trigger('click.ui.smoothScroll');
+            $this.trigger('click.bp.smoothScroll');
         }
     })
 }

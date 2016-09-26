@@ -239,8 +239,8 @@ Tooltips.prototype.checkBoundary = function (left, top, width, height) {
 function Plugin(option) {
     return $(this).each(function () {
         var $this = $(this);
-        var data = $this.data('ui.tooltips');
-        if (!data) $this.data('ui.tooltips', (data = new Tooltips(this, option)));
+        var data = $this.data('bp.tooltips');
+        if (!data) $this.data('bp.tooltips', (data = new Tooltips(this, option)));
         if (typeof option == 'string') data[option]();
     })
 }
@@ -258,7 +258,7 @@ var handler = function () {
 };
 
 $(function () {
-    $(document).on('mouseenter.ui.tooltips focus.ui.tooltips', toggle, handler)
+    $(document).on('mouseenter.bp.tooltips focus.bp.tooltips', toggle, handler)
 })
 
 module.exports = Tooltips

@@ -564,7 +564,7 @@ $('[data-toggle="setOption"]').on('click', function() {
   <div class="tabs-panel" id="tp5">
     <ul class="example-description">
         <li>
-          日历选择器提供了相应的 jQuery 显示<code>show.ui.datetimepicker</code>，隐藏<code>hide.ui.datetimepicker</code>，选择<code>choose.ui.datetimepicker</code>事件。
+          日历选择器提供了相应的 jQuery 显示<code>show.bp.datetimepicker</code>，隐藏<code>hide.bp.datetimepicker</code>，选择<code>choose.bp.datetimepicker</code>事件。
         </li>
       </ul>
       <div class="example">
@@ -573,16 +573,16 @@ $('[data-toggle="setOption"]').on('click', function() {
 // 带返回参数
 // date 为开始日期，单选日期为选择日期
 // end 日期区间模式时，返回结束日期
-$('[data-toggle]').on('choose.ui.datetimepicker', function(e, date, end) {
+$('[data-toggle]').on('choose.bp.datetimepicker', function(e, date, end) {
   console.log(date, end)
   console.log($(this).val())
 })
 
-$('[data-toggle]').on('show.ui.datetimepicker', function(e, date) {
+$('[data-toggle]').on('show.bp.datetimepicker', function(e, date) {
   console.log('show')
 })
 
-$('[data-toggle]').on('hide.ui.datetimepicker', function(e, date) {
+$('[data-toggle]').on('hide.bp.datetimepicker', function(e, date) {
   console.log('hide')
 })
 </code></pre>
@@ -608,16 +608,16 @@ $('[data-toggle]').on('hide.ui.datetimepicker', function(e, date) {
 {% block jsPage %}
 <script>
 $(function() {
-  $('[data-toggle]').on('choose.ui.datetimepicker', function(e, date, end) {
+  $('[data-toggle]').on('choose.bp.datetimepicker', function(e, date, end) {
     console.log(date, end)
     console.log($(this).val())
   })
 
-  $('[data-toggle]').on('show.ui.datetimepicker', function(e, date) {
+  $('[data-toggle]').on('show.bp.datetimepicker', function(e, date) {
     console.log('show')
   })
 
-  $('[data-toggle]').on('hide.ui.datetimepicker', function(e, date) {
+  $('[data-toggle]').on('hide.bp.datetimepicker', function(e, date) {
     console.log('hide')
   })
 

@@ -7,7 +7,7 @@
  *
  * API
  * --------
- * $(element).on('selected.ui.dropdown', function(e, obj){});
+ * $(element).on('selected.bp.dropdown', function(e, obj){});
  */
 
  /**
@@ -126,21 +126,21 @@ Dropdown.DEFAULTS = {
 Dropdown.prototype.init = function() {
 
   // toggle 显示或隐藏
-  this.$el.on('click.ui.dropdown, focus.ui.dropdown', $.proxy(this.toggle, this))
+  this.$el.on('click.bp.dropdown, focus.bp.dropdown', $.proxy(this.toggle, this))
 
   // 输入框则
   if(this.isInput) {
-    this.$target.on('keyup.ui.dropdown', Util.throttle(this.filter(this), 150))
+    this.$target.on('keyup.bp.dropdown', Util.throttle(this.filter(this), 150))
   }
 
   // 选择项
-  this.$el.on('click.select.ui.dropdown', this.options.item, this.selected(this))
+  this.$el.on('click.select.bp.dropdown', this.options.item, this.selected(this))
 
   // 已选多选选项删除
-  this.$el.on('click.remove.ui.dropdown', this.options.multiSelected, this.removeMultiItem(this))
+  this.$el.on('click.remove.bp.dropdown', this.options.multiSelected, this.removeMultiItem(this))
 
   // 输入框过滤
-  this.$target.on('keydown.ui.dropdown', this.keydown(this))
+  this.$target.on('keydown.bp.dropdown', this.keydown(this))
 }
 
 /**
@@ -151,10 +151,10 @@ Dropdown.prototype.init = function() {
   this.$ajaxInput = this._renderAjaxTxt()
   // 输入框则
   //if(this.isInput) {
-  this.$ajaxInput.on('keyup.ui.dropdown', Util.throttle(this._ajaxfilter(this), 200))
+  this.$ajaxInput.on('keyup.bp.dropdown', Util.throttle(this._ajaxfilter(this), 200))
   //}
   // 输入框 上下选择
-  this.$ajaxInput.on('keydown.ui.dropdown', this.keydown(this))
+  this.$ajaxInput.on('keydown.bp.dropdown', this.keydown(this))
 
   // 首次加载
   this._ajaxfilter.call(this.$ajaxInput, this)()
@@ -218,9 +218,9 @@ Dropdown.prototype.toggle = function(sw) {
 
   // 内置点击触发
   if(sw && typeof sw['type'] !== 'undefined') {
-    this.$el.toggleClass('active', !isActived).trigger(!isActived ? 'show.ui.dropdown' : 'hide.ui.dropdown')
+    this.$el.toggleClass('active', !isActived).trigger(!isActived ? 'show.bp.dropdown' : 'hide.bp.dropdown')
   } else { // 外部调用设置
-    this.$el.toggleClass('active', sw).trigger(sw ? 'show.ui.dropdown' : 'hide.ui.dropdown')
+    this.$el.toggleClass('active', sw).trigger(sw ? 'show.bp.dropdown' : 'hide.bp.dropdown')
   }
 
   this._setPosition()
@@ -328,7 +328,7 @@ Dropdown.prototype.selected = function(that) {
     // 多选默认不关闭
     !that.options.multiple && that.hide()
 
-    var Event = $.Event('selected.ui.dropdown')
+    var Event = $.Event('selected.bp.dropdown')
     that.$el.trigger(Event, [$this, title])
   }
 }
@@ -501,7 +501,7 @@ function hideAllDropdown() {
   $(toggle).filter('.active')
            .removeClass('active')
            .data('currentItem', -1)
-           .trigger('hide.ui.dropdown')
+           .trigger('hide.bp.dropdown')
 }
 
 // 滚动条自动跳到某位置
@@ -520,12 +520,12 @@ function Plugin(option) {
   var args = [].slice.call(arguments, 1)
   return $(this).each(function() {
     var that = $(this),
-        data = that.data('ui.dropdown'),
+        data = that.data('bp.dropdown'),
         config = {};
 
     if(!data) {
       config = $.extend({}, (typeof option === 'object' ? option : {}), that.data())
-      that.data('ui.dropdown', (data = new Dropdown(that, config)))
+      that.data('bp.dropdown', (data = new Dropdown(that, config)))
       //data.toggle();
     }
 
@@ -546,18 +546,18 @@ $(function() {
   $(toggle).dropdown()
 
   // Click Event
-  $(document).on('click.ui.dropdown', toggle, function(e) {
+  $(document).on('click.bp.dropdown', toggle, function(e) {
     Plugin.call($(this), 'toggle', true)
     e.stopPropagation()
   })
 
   // Focus Event
-  $(document).on('focus.ui.dropdown', toggleValue, function(e) {
+  $(document).on('focus.bp.dropdown', toggleValue, function(e) {
     var $parent = $(this).parents(toggle);
     //console.log($(this))
     !!$parent.length && e.stopPropagation() && Plugin.call($parent, 'toggle', true)
   })
 
   // Click Others
-  $(document).on('click.hide.ui.dropdown', hideAllDropdown)
+  $(document).on('click.hide.bp.dropdown', hideAllDropdown)
 })

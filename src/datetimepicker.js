@@ -420,7 +420,7 @@ DateTimePikcer.prototype.checkDateRange = function(startYmd, endYmd) {
  */
 DateTimePikcer.prototype.selectDate = function(ymd) {
 
-  var Evt = $.Event('choose.ui.datetimepicker');
+  var Evt = $.Event('choose.bp.datetimepicker');
   var start = this.$start.val(),
       end = this.$end.val();
 
@@ -497,7 +497,7 @@ DateTimePikcer.prototype.tab = function(n) {
  * @param
  */
 DateTimePikcer.prototype.show = function() {
-  var Evt = $.Event('show.ui.datetimepicker');
+  var Evt = $.Event('show.bp.datetimepicker');
   // 隐藏所有的日历
   hideAllCalendars();
   // 显示日历层
@@ -507,7 +507,7 @@ DateTimePikcer.prototype.show = function() {
   // 位置设置
   this.__setPosition();
 
-  // 触发show.ui.datetimepicker事件，父级高亮
+  // 触发show.bp.datetimepicker事件，父级高亮
   this.$el.trigger(Evt).parent().addClass('active');
 };
 
@@ -516,14 +516,14 @@ DateTimePikcer.prototype.show = function() {
  * @param
  */
 DateTimePikcer.prototype.close = function() {
-  var Evt = $.Event('close.ui.datetimepicker');
+  var Evt = $.Event('close.bp.datetimepicker');
   // 隐藏层
   this.$calendar.hide().removeClass('active');
 
   // 关闭后，结束日期重置为选择结束日期
   this.endDate = this.$end.val();
 
-  // 触发close.ui.datetimpiker事件，父级去掉高亮
+  // 触发close.bp.datetimpiker事件，父级去掉高亮
   this.$el.trigger(Evt).parent().removeClass('active');
 };
 
