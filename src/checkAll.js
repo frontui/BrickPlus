@@ -60,7 +60,7 @@ class CheckAll{
       e
     ] = [
       isChecked || this.$el.is(':checked'), // 当前dom元素是否勾选
-      $.Event('checked.ui.checkAll', { relatedTarget: this.$el }) // 创建选中事件
+      $.Event('checked.bp.checkAll', { relatedTarget: this.$el }) // 创建选中事件
     ]
 
     // 设置所有目标元素属性为选中
@@ -73,7 +73,7 @@ class CheckAll{
   // -------
   reverse() {
     // 定义反选事件类型
-    let e = $.Event('reversed.ui.checkAll', {relatedTarget: this.$el})
+    let e = $.Event('reversed.bp.checkAll', {relatedTarget: this.$el})
     // 遍历所有目标元素，将他们选中属性反转
     this.$target.map(function () {
         return $(this).prop('checked', function() {
@@ -91,11 +91,11 @@ let Plugin = function(option, ...args) {
   return $(this).each(()=> {
     let [$this, data] = [
       $(this),
-      $(this).data('ui.checkAll')
+      $(this).data('bp.checkAll')
     ];
 
     if (!data) {
-      $this.data('ui.checkAll', (data = new CheckAll(this)));
+      $this.data('bp.checkAll', (data = new CheckAll(this)));
       if (option === 'toggle') data.toggle();
     }
 

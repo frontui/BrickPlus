@@ -56,8 +56,8 @@ Placeholder.prototype.blur = function () {
 function Plugin() {
     return $(this).each(function () {
         var $this = $(this);
-        var data = $this.data('ui.placeholder');
-        if (!data) $this.data('ui.placeholder', (data = new Placeholder(this)));
+        var data = $this.data('bp.placeholder');
+        if (!data) $this.data('bp.placeholder', (data = new Placeholder(this)));
     })
 }
 

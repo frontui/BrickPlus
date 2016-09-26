@@ -179,9 +179,9 @@ TimerPicker.DEFAULTS = {
 function Plugin(option) {
     return $(this).each(function () {
         var $this = $(this);
-        var data = $this.data('ui.tab');
+        var data = $this.data('bp.tab');
         option = $.extend({}, option, $this.data())
-        if (!data) $this.data('ui.tab', (data = new TimerPicker(this, option)));
+        if (!data) $this.data('bp.tab', (data = new TimerPicker(this, option)));
         if (typeof option == 'string') data[option] && data[option]();
     })
 }

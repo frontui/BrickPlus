@@ -98,8 +98,8 @@ Scroller.DEFUALTS = {
 function Plugin(option) {
   return $(this).each(function() {
     var that = $(this),
-        data = that.data('ui.scroller');
-    if(!data) that.data('ui.scroller', (data = new Scroller(that, option)))
+        data = that.data('bp.scroller');
+    if(!data) that.data('bp.scroller', (data = new Scroller(that, option)))
     if(typeof option === 'string') data[option]()
   })
 }

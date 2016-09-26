@@ -8,7 +8,7 @@
  * @useage      :
  ## 用法
  ```
-  $(element).on('closed.ui.alert', function(e, obj){});
+  $(element).on('closed.bp.alert', function(e, obj){});
  ```
  */
 
@@ -54,8 +54,8 @@ class Tab {
     //
     var $previous =  $ul.find('.active a'),
       [hideEvent, showEvent, $target] = [
-        $.Event('hide.ui.tab', { relatedTarget: $this[0] }),
-        $.Event('show.ui.tab', { relatedTarget: $previous[0] }),
+        $.Event('hide.bp.tab', { relatedTarget: $this[0] }),
+        $.Event('show.bp.tab', { relatedTarget: $previous[0] }),
         $(selector)
       ]
 
@@ -72,9 +72,9 @@ class Tab {
     // tab 内容切换
     this.activate($target, $target.parent(), function() {
       // 切换后上一个选项导航触发`已隐藏`事件
-      $previous.trigger({ type: 'hidden.ui.tab', relatedTarget: $this[0]})
+      $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0]})
       // 整个 tab导航项触发已显示事件
-      $this.trigger({ type: 'shown.ui.tab', relatedTarget: $previous[0]})
+      $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0]})
     })
   }
 
@@ -114,8 +114,8 @@ class Tab {
 function Plugin(option) {
     return $(this).each(function () {
         var $this = $(this);
-        var data = $this.data('ui.tab');
-        if (!data) $this.data('ui.tab', (data = new Tab(this)));
+        var data = $this.data('bp.tab');
+        if (!data) $this.data('bp.tab', (data = new Tab(this)));
         if (typeof option == 'string') data[option] && data[option]();
     })
 }
@@ -134,7 +134,7 @@ var clickHandler = function(e) {
 }
 
 $(() => {
-  $(document).on('click.ui.tab', toggle, clickHandler)
+  $(document).on('click.bp.tab', toggle, clickHandler)
 })
 
 module.exports = Tab

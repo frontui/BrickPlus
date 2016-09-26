@@ -69,7 +69,7 @@ var Notify = function (options) {
         '<a class="notify-close">&times;</a>',
         '<div></div>',
         '</div>'
-    ].join('')).data('ui.notify', this);
+    ].join('')).data('bp.notify', this);
 
     // 设置内容
     this.content(this.options.message);
@@ -91,8 +91,8 @@ var Notify = function (options) {
         containers[this.options.pos] = $('<div class="notify notify-' + this.options.pos + '"></div>')
             .appendTo($('body'))
             .on('click', '.notify-message', function () {
-                var message = $(this).data('ui.notify');
-                message.$el.trigger('manualclose.ui.notify', [message]);
+                var message = $(this).data('bp.notify');
+                message.$el.trigger('manualclose.bp.notify', [message]);
                 message.close();
             });
     }
@@ -166,7 +166,7 @@ Notify.prototype.close = function (instanly) {
             }
 
             $this.options.onClose.apply($this, []);
-            $this.$el.trigger('close.ui.notify', [$this]);
+            $this.$el.trigger('close.bp.notify', [$this]);
 
             delete messages[$this.uuid];
 

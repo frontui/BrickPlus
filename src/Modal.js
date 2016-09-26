@@ -4,12 +4,12 @@
  * Reference bootstrap.modal.js
  * API:
  *      // 监听打开
- *      $(element).on('show.ui.modal', function(e, obj){});
- *      $(element).on('shown.ui.modal', function(e, obj){});
+ *      $(element).on('show.bp.modal', function(e, obj){});
+ *      $(element).on('shown.bp.modal', function(e, obj){});
  *
  *      // 监听关闭
- *      $(element).on('hide.ui.modal', function(){});
- *      $(element).on('hidden.ui.modal', function(){});
+ *      $(element).on('hide.bp.modal', function(){});
+ *      $(element).on('hidden.bp.modal', function(){});
 
         // 绑定一个弹窗
  *      $(element).modal();
