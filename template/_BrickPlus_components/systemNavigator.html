@@ -1,11 +1,11 @@
-{% macro systemTopNav(pl,topNavThemesList,userMenu,username,fixedClass='',static='/static') %}
+{% macro systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='',username='',productName='',static='/static') %}
 <nav class="system-top-nav">
   <a href="###" class="system-logo">
     <img src="{{ static }}/images/systemLogo/eplus.png" alt="">
   </a>
   <div class="stn-dropdown-wrap pull-left">
     <a class="stn-btn">
-      E+账户管理后台
+      {{ productName }}
     </a>
     <div class="stn-dropdown-menu stn-product-menu">
       <div class="stn-pm-box">
@@ -19,13 +19,11 @@
       </div>
     </div>
   </div>
+  {% for item in stnBtns %}
   <a href="javascript:void(0);" class="stn-btn pull-left">
-    后台设置
+    {{ item.btn }}
   </a>
-  <a href="javascript:void(0);" class="stn-btn pull-left">
-    管理系统
-  </a>
-
+  {% endfor %}
   <a href="javascript:void(0);" class="stn-function-icon">
     <span class="fr">23</span>
     <span class="fi">
@@ -121,7 +119,7 @@
       </div>
       常用版块
     </div>
-    <ul class="system-assist-nav-list">
+    <ul class="system-assist-nav-list" id="systemAssistNavList">
       {% for item in assistNav %}
       <li>
         <a href="{{ item.url }}">
@@ -130,8 +128,8 @@
       </li>
       {% endfor %}
     </ul>
-    <a class="system-assist-nav-ctrl" href="javascript:void(0);">
-      展开更多
+    <a class="system-assist-nav-ctrl" href="javascript:void(0);" id="assistListMore">
+      更多
     </a>
     <a class="system-assist-nav-ctrl add" href="javascript:void(0);">
       自定义模块
