@@ -1,33 +1,11 @@
-{% extends "_BrickPlus_layout/1-BP-Base.html" %}
+{% extends "_ePlusAccount_layout/1-ePlusAccount-Base.html" %}
 
 
 {# 引用公共样式表 #}
 {% block globalCss %}
-<link rel="stylesheet" href="{{ static }}/css/BrickPlus.css?v={{ version }}">
+<link rel="stylesheet" href="{{ static }}/css/ePlusAccount.css?v={{ version }}">
 <link rel="stylesheet" href="{{ static }}/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
 {% endblock %}
-
-
-{# 加载主导航 #}
-{% import "_BrickPlus_components/navigator.html" as navigator %}
-{# 设置主导航 #}
-{%
-  set mainNav = [
-    {text: '起步', url: 'BP-Start-Download.html'},
-    {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
-    {text: '组件样式', url: 'BP-ComponentsStyle-BreadCrumb.html'},
-    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-Util.html'},
-    {text: 'GitHub', url: 'http://github.com/frontui/brickplus'}
-  ]
-%}
-
-
-{# 加载侧导航导航 #}
-{% import "_BrickPlus_components/asideNav.html" as asideNav %}
-
-
-{# 加载页脚 #}
-{% import "_BrickPlus_components/footer.html" as footer %}
 
 
 {# 加载标签页 #}
@@ -39,32 +17,14 @@
 
 
 {# 加载系统导航 #}
-{% import "_BrickPlus_components/systemNavigator.html" as systemNavigator %}
+{% import "_ePlusAccount_components/ePlusAccount_systemNavigator.html" as systemNavigator %}
 
 
 {# 设置顶部导航产品列表 #}
 {%
   set pl = [
     {
-      product: '产品名称'
-    },
-    {
-      product: '产品名称'
-    },
-    {
-      product: '产品名称'
-    },
-    {
-      product: '产品名称'
-    },
-    {
-      product: '产品名称'
-    },
-    {
-      product: '产品名称'
-    },
-    {
-      product: '产品名称'
+      product: 'E+大账户'
     }
   ]
 %}
@@ -73,12 +33,6 @@
 {# 设置顶部导航典型按钮 #}
 {%
   set stnBtns = [
-    {
-      btn: '后台设置'
-    },
-    {
-      btn: '管理系统'
-    }
   ]
 %}
 
@@ -112,13 +66,10 @@
 {%
   set userMenu = [
     {
-      option: 'option one'
+      option: '修改密码'
     },
     {
-      option: 'option two'
-    },
-    {
-      option: 'option three'
+      option: '退出'
     }
   ]
 %}
@@ -128,86 +79,75 @@
 {%
   set lv1 = [
     {
-      text: 'Level 1',
-      url: '#',
-      iconClass: 'system-setting',
-      lv2: [
-        {
-          text: 'Level 2',
-          url: '#'
-        },
-        {
-          text: 'Level 2',
-          url: '#'
-        }
-      ]
+      text: '首页',
+      url: 'ePlusAccount-index.html',
+      iconClass: 'system-setting'
     },
     {
-      text: 'Level 1',
-      url: '#',
-      iconClass: 'operative-manage',
-      lv2: [
-        {
-          text: 'Level 2',
-          url: '#',
-          lv3: [
-            {
-              text: 'Level 3',
-              url: '#'
-            },
-            {
-              text: 'Level 3',
-              url: '#'
-            }
-          ]
-        },
-        {
-          text: 'Level 2',
-          url: '#'
-        }
-      ]
+      text: '账户功能管理',
+      url: 'ePlusAccount-账户功能管理-.html',
+      iconClass: 'operative-manage'
     },
     {
-      text: 'Level 1',
+      text: '服务管理',
       url: '#',
       iconClass: 'account-manage',
       lv2: [
         {
-          text: 'Level 2',
+          text: '服务列表',
           url: '#'
         },
         {
-          text: 'Level 2',
+          text: '接入服务',
           url: '#'
         }
       ]
     },
     {
-      text: 'Level 1',
+      text: '渠道管理',
       url: '#',
       iconClass: 'risk-manage',
       lv2: [
         {
-          text: 'Level 2',
+          text: '渠道列表',
           url: '#'
         },
         {
-          text: 'Level 2',
+          text: '创建渠道',
           url: '#'
         }
       ]
     },
     {
-      text: 'Level 1',
+      text: '账户查询',
       url: '#',
       iconClass: 'system-manage',
       lv2: [
         {
-          text: 'Level 2',
+          text: '查看个人账户',
           url: '#'
         },
         {
-          text: 'Level 2',
+          text: '查看企业账户',
+          url: '#'
+        }
+      ]
+    },
+    {
+      text: '系统管理',
+      url: '#',
+      iconClass: 'system-manage',
+      lv2: [
+        {
+          text: '账户管理',
+          url: '#'
+        },
+        {
+          text: '角色管理',
+          url: '#'
+        },
+        {
+          text: '修改密码',
           url: '#'
         }
       ]
