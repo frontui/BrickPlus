@@ -105,3 +105,9 @@ function san() {
     $('#systemContainer').toggleClass('fold-for-assist-nav');
     $('#systemAssistNav').toggleClass('show');
 }
+
+$(function(){
+   $(".nav").accordion({
+        speed: 500
+    });
+});
