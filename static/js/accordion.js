@@ -16,9 +16,7 @@
 
 		var defaults = {
 			accordion: 'true',
-			speed: 300,
-			closedSign: '[+]',
-			openedSign: '[-]'
+			speed: 300
 		};
 
 		// Extend our default options with those provided.
@@ -30,13 +28,15 @@
  		$this.find("li").each(function() {
  			if($(this).find("ul").size() != 0){
  				//add the multilevel sign next to the link
- 				$(this).find("a:first").append("<span>"+ opts.closedSign +"</span>");
+ 				$(this).removeClass('current');
 
  				//avoid jumping to the top of the page when the href is an #
  				if($(this).find("a:first").attr('href') == "#"){
  		  			$(this).find("a:first").click(function(){return false;});
  		  		}
- 			}
+ 			} else {
+                $(this).addClass('current');
+            }
  		});
 
  		//open active level
