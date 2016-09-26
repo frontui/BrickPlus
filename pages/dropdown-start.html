@@ -389,15 +389,15 @@
     // ajax异步加载
     // 手动绑定初始化
     $('.form-control-dropdown').dropdown()
-    $('.form-control-dropdown').on('show.ui.dropdown', function(e)
+    $('.form-control-dropdown').on('show.bp.dropdown', function(e)
     {
       console.log('Dropdown is show', e.target)
     })
-    $('.form-control-dropdown').on('hide.ui.dropdown', function(e)
+    $('.form-control-dropdown').on('hide.bp.dropdown', function(e)
     {
       console.log('Dropdown is hide', e.target)
     })
-    $('.form-control-dropdown').on('selected.ui.dropdown', function(e, selectItem, value)
+    $('.form-control-dropdown').on('selected.bp.dropdown', function(e, selectItem, value)
     {
       console.group('Dropdown is selected')
       console.log(selectItem)

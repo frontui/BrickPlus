@@ -298,7 +298,7 @@ $('#btn-2').on('click', ajax)
             <div class="tabs-panel" id="tp4">
               <section class="example-wrap">
                 <ul class="example-description">
-                  <li> 为元素添加 <code>close.ui.alert</code> 监听警告框事件。 </li>
+                  <li> 为元素添加 <code>close.bp.alert</code> 监听警告框事件。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
@@ -308,7 +308,7 @@ $('#btn-2').on('click', ajax)
                   </div>
                   <div class="example-code"> <pre><code>
 // --- 事件监听
-$('#demo-3').on('closed.ui.alert', function(e) {
+$('#demo-3').on('closed.bp.alert', function(e) {
   alert('#'+ e.relatedTarget[0].id + '已关闭');
 })
 
@@ -338,7 +338,7 @@ var handleCookies = function(el, event) {
     <b>el.alert('close', event, true)</b>
   }, 1500)
 };
-$('#demo-5').on('close.ui.alert', function(e) {
+$('#demo-5').on('close.bp.alert', function(e) {
   var that = $(this);
   // 中断关闭 alert
   e.preventDefault();
@@ -371,11 +371,10 @@ $('#demo-5').on('close.ui.alert', function(e) {
         }
         $('#btn-2').on('click', ajax)
           // --- 事件监听
-        $('#demo-3').on('closed.ui.alert', function(e)
-        {
-          alert('#' + e.target.id + '已关闭');
-        })
-        $('#demo-3').on('close.ui.alert', function(e)
+          // $('#demo-3').on('closed.bp.alert', function(e) {
+          //   alert('#'+ e.target.id + '已关闭');
+          // })
+        $('#demo-3').on('close.bp.alert', function(e)
         {
           alert('#' + e.target.id + '开始关闭');
         })
@@ -394,7 +393,7 @@ $('#demo-5').on('close.ui.alert', function(e) {
             el.alert('close', event, true)
           }, 1500)
         };
-        $('#demo-5').on('close.ui.alert', function(e)
+        $('#demo-5').on('close.bp.alert', function(e)
         {
           var that = $(this);
           // 中断关闭 alert

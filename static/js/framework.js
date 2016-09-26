@@ -46,6 +46,22 @@ $(function (){
     };
     noautoform();
 
+    //辅助导航
+    function assistList() {
+        var btn = $('#assistListMore'),
+            list = $('#systemAssistNavList');
+
+        $(btn).click(
+            function () {
+                $(list).toggleClass('more-assist');
+                $(this).toggleClass('hide-list');
+                $(this).text($(this).text()=="收起"?"更多":"收起");
+            }
+        );
+    };
+    assistList();
+
+
     //返回页面顶部
     $(window).scroll(function() {
         if($(window).scrollTop() >= 150){
@@ -58,7 +74,6 @@ $(function (){
 
     // 左侧菜单滚动条
     $('#side-scrollbar').perfectScrollbar();
-
 
     // 路由异步加载
     var $tabTemplate = $('.tabs-btn[data-template]');
@@ -81,12 +96,12 @@ $(function (){
 
 //系统打开左侧导航交互
 function sas() {
-    $('#systemAside').toggleClass("fold");
-    $('#systemContainer').toggleClass("fold-for-aside");
+    $('#systemAside').toggleClass('fold');
+    $('#systemContainer').toggleClass('fold-for-aside');
 }
 
 //系统打开辅助导航交互
 function san() {
-    $('#systemContainer').toggleClass("fold-for-assist-nav");
-    $('#systemAssistNav').toggleClass("show");
+    $('#systemContainer').toggleClass('fold-for-assist-nav');
+    $('#systemAssistNav').toggleClass('show');
 }

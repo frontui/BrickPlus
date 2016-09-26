@@ -432,7 +432,7 @@
               <section class="example-wrap">
                 <h2 id="TableInverse">事件监听</h2>
                 <ul class="example-description">
-                  <li> 为<code>&lt;input type="check"&gt;</code>&nbsp;元素添加&nbsp;<code>checked.ui.checkAll"</code>&nbsp;<code>reversed.ui.checkAll"</code>&nbsp;监听全选及反选事件。 </li>
+                  <li> 为<code>&lt;input type="check"&gt;</code>&nbsp;元素添加&nbsp;<code>checked.bp.checkAll"</code>&nbsp;<code>reversed.bp.checkAll"</code>&nbsp;监听全选及反选事件。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
@@ -530,13 +530,13 @@
                     </div>
                   </div>
                   <div class="example-code"> <pre><code>
-// checked.ui.checkAll 已全选触发事件
-$('#j-event-1').on('checked.ui.checkAll', function(){
+// checked.bp.checkAll 已全选触发事件
+$('#j-event-1').on('checked.bp.checkAll', function(){
   alert($(this).prop('checked') ? '全选' : '取消全选')
 })
                             </code></pre> <pre><code>
 // 已反选触发事件
-$('#j-event-2').on('reversed.ui.checkAll', function(){
+$('#j-event-2').on('reversed.bp.checkAll', function(){
   alert('反选')
 })
                             </code></pre> </div>
@@ -688,11 +688,11 @@ $('#j-trigger-btn-2').on('click', function() {
       {
         //------
         // 事件监听
-        $('#j-event-1').on('checked.ui.checkAll', function()
+        $('#j-event-1').on('checked.bp.checkAll', function()
         {
           alert($(this).prop('checked') ? '全选' : '取消全选')
         })
-        $('#j-event-2').on('reversed.ui.checkAll', function()
+        $('#j-event-2').on('reversed.bp.checkAll', function()
           {
             alert('反选')
           })
