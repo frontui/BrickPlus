@@ -40,9 +40,9 @@
       <i></i>
     </span>
     <div class="stn-dropdown-menu">
-      <ul class="stn-themes-menu">
+      <ul class="stn-themes-menu" data-toggle="skin" data-target="#bp-theme">
         {% for item in topNavThemesList %}
-        <li style="background-color: {{ item.bgColor }};"></li>
+        <li style="background-color: {{ item.bgColor }};" data-theme="{{ item.theme }}"></li>
         {% endfor %}
       </ul>
     </div>
@@ -66,16 +66,16 @@
 {% endmacro %}
 
 {% macro systemAside(lv1,lv1cur='',lv2cur='',lv3cur='',static='/static',fixedClass='') %}
-<aside class="system-aside" id="systemAside">
+<aside class="system-aside" id="systemAside" data-toggle="leftPanel" data-active="fold" data-container-active="fold-for-aside">
   <div class="system-aside-container">
 
     <!-- 系统侧导航开关 -->
-    <a class="system-aside-switch" onclick="sas();" href="javascript:void(0);">
+    <a class="system-aside-switch" data-toggle="aside-switch" href="javascript:void(0);">
       <span></span>
     </a>
 
     <!-- 系统侧导航列表 -->
-    <ul class="aside-list-1">
+    <ul class="aside-list-1" data-toggle="navigator">
       {% for li1 in lv1 %}
       <li {% if loop.index == lv1cur %}class="current"{% endif %}>
         <a href="{{ li1.url }}" class="{{ li1.iconClass }}" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right">
@@ -107,7 +107,7 @@
 {% endmacro %}
 
 {% macro systemAssistNav(assistNav,static='/static',fixedClass='') %}
-<aside class="system-assist-nav" id="systemAssistNav">
+<aside class="system-assist-nav" id="systemAssistNav" data-toggle="rightPanel" data-active="show" data-container-active="fold-for-assist-nav">
   <div class="system-assist-nav-container">
     <div class="system-assist-nav-head">
       <div class="sanh-icon">
@@ -127,7 +127,7 @@
       </li>
       {% endfor %}
     </ul>
-    <a class="system-assist-nav-ctrl" href="javascript:void(0);" id="assistListMore">
+    <a class="system-assist-nav-ctrl" href="javascript:void(0);" data-toggle="expand" data-text="收起" id="assistListMore" data-target="#systemAssistNavList" data-active="hide-list" data-target-active="more-assist">
       更多
     </a>
     <a class="system-assist-nav-ctrl add" href="javascript:void(0);">

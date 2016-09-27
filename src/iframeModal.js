@@ -6,7 +6,7 @@
  */
 
 import $ from 'jquery'
-import Modal from './modal'
+import Modal from './Modal'
 
 export default class IframeModal{
     constructor(el, props, next) {

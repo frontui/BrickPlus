@@ -6,7 +6,7 @@
  */
 
 import $ from 'jquery'
-import Modal from './modal'
+import Modal from './Modal'
 
 export default class ModalLayer extends Modal {
     constructor(el, props) {
