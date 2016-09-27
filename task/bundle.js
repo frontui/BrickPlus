@@ -22,9 +22,9 @@ function bundle(banner) {
 
   // 样式
   gulp.task('bundle:styles', function() {
-    return gulp.src([staticPath+'/css/main.css'])
+    return gulp.src([staticPath+'/css/*.css'])
                 .pipe($.header(banner, { pkg: pkg}))
-                .pipe($.rename('brickplus.css'))
+                //.pipe($.rename('brickplus.css'))
                 //.pipe(gulp.dest(dest+'/css'))
                 .pipe($.cleanCss({compatibility: 'ie7'}))
                 .pipe($.header(banner, { pkg: pkg}))

@@ -8,32 +8,6 @@
 {% endblock %}
 
 
-{# 加载主导航 #}
-{% import "_BrickPlus_components/navigator.html" as navigator %}
-{# 设置主导航 #}
-{%
-  set mainNav = [
-    {text: '起步', url: 'BP-Start-Download.html'},
-    {text: '全局样式', url: 'BP-GlobalStyle-Grid.html'},
-    {text: '组件样式', url: 'BP-ComponentsStyle-BreadCrumb.html'},
-    {text: 'JavaScript 插件', url: 'BP-JavaScriptComponents-Util.html'},
-    {text: 'GitHub', url: 'http://github.com/frontui/brickplus'}
-  ]
-%}
-
-
-{# 加载侧导航导航 #}
-{% import "_BrickPlus_components/asideNav.html" as asideNav %}
-
-
-{# 加载页脚 #}
-{% import "_BrickPlus_components/footer.html" as footer %}
-
-
-{# 加载标签页 #}
-{% import "_BrickPlus_components/tab.html" as tab %}
-
-
 {# 加载路径导航 #}
 {% import "_BrickPlus_components/breadcrumb.html" as breadcrumb %}
 
@@ -331,8 +305,7 @@ class="system"
 {% block globalJs %}
 <script src="{{ bower_components }}/jquery/dist/jquery.min.js?v={{ version }}"></script>
 <script src="{{ static }}/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-{#<script src="{{ bower_components }}/frontui/js/ui.js?v={{ version }}"></script>
-<script src="{{ bower_components }}/frontui/js/datetimepicker/datetimepicker.js?v={{ version }}"></script>#}
 <script src="{{ bower_components }}/brickplus/dist/js/brickPlus.js?v={{ version }}"></script>
+<script src="{{ static }}/js/brickplus/systemPage.js"></script>
 <script src="{{ static }}/js/framework.js?v={{ version }}"></script>
 {% endblock %}
