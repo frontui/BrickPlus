@@ -423,7 +423,7 @@
 
   .sa {
     padding-right: @paddingSize-btns-systemAside;
-    word-break: break-all;
+    .text-hide();
     display: block;
   }
 
@@ -529,12 +529,11 @@
         > .aside-list-3 {
           display: none;
           .reset-list(none,@fontSize-smaller,@line-height-base);
-          margin-top: @gapSize-systemAside;
-          padding: 3px 0;
-          .rounded(@borderRadius-public);
-          border: @borderSize-btns-systemAside solid @borderColor-lv3-btns-systemAside;
 
           > li {
+            border: @borderSize-btns-systemAside solid @borderColor-lv3-btns-systemAside;
+            .rounded(@borderRadius-public);
+            margin-top: @gapSize-systemAside;
 
             > a {
               display: block;

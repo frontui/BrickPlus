@@ -1,4 +1,4 @@
-{% macro systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='',username='',productName='',static='/static') %}
+{% macro systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='',username='',productName='',fixClass='',static='/static') %}
 <nav class="system-top-nav">
   <a href="###" class="system-logo">
     <img src="{{ static }}/images/systemLogo/eplus.png" alt="">
@@ -78,20 +78,19 @@
     <ul class="aside-list-1">
       {% for li1 in lv1 %}
       <li {% if loop.index == lv1cur %}class="current"{% endif %}>
-        <a href="{{ li1.url }}" class="{{ li1.iconClass }}">
-          <div class="aside-tooltips" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right"></div>
+        <a href="{{ li1.url }}" class="{{ li1.iconClass }}" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right">
           <span class="sa">{{ li1.text }}</span>
         </a>
         <ul class="aside-list-2">
           {% for li2 in li1.lv2 %}
           <li {% if loop.index == lv2cur %}class="current"{% endif %}>
-            <a href="{{ li2.url }}">
+            <a href="{{ li2.url }}" data-toggle="tooltips" title="{{ li2.text }}" data-pos="right">
               <span class="sa">{{ li2.text }}</span>
             </a>
             <ul class="aside-list-3">
               {% for li3 in li2.lv3 %}
               <li {% if loop.index == lv3cur %}class="current"{% endif %}>
-                <a href="{{ li3.url }}">
+                <a href="{{ li3.url }}" data-toggle="tooltips" title="{{ li3.text }}" data-pos="right">
                   <span class="sa">{{ li3.text }}</span>
                 </a>
               </li>
