@@ -37,6 +37,7 @@ import './switch'
 import './tab'
 import './timerPicker'
 import './tooltips'
+import './systemPage'
 
 
 // ------- 工具函数库 ----------

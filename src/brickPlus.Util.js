@@ -12,7 +12,7 @@ var fn = require('./Util/debounce')
 
 //var BrickPlus = require('brickPlus')
 if( typeof BrickPlus === 'undefined') {
- var BrickPlus = {};    
+ var BrickPlus = {};
  window.BrickPlus = BrickPlus
 }
 

@@ -17,6 +17,12 @@
             {% block title %}{% endblock %}
         </title>
 
+        <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
+
         {# 加载favicon #}
         <link href="{{ static }}/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
 
@@ -29,11 +35,6 @@
         {# 样式兼容IE8 #}
         <!--[if IE 8]>
 		    <link rel="stylesheet" href="{{ static }}/css/ie-8.css?v={{ version }}">
-        <![endif]-->
-
-        {# 样式兼容IE7/6 #}
-        <!--[if lt IE 8]>
-		    <link rel="stylesheet" href="{{ static }}/css/ie-76.css?v={{ version }}">
         <![endif]-->
 
         {# 字体图标兼容IE7/6 （因为 fonticon 的兼容样式在 less 编译中语法报错，所以直接用 css，不编译）#}
