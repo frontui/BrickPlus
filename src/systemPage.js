@@ -47,6 +47,11 @@ let systemPage = {
                     let val = expand ? 1 : 0
                     // 默认一年过期
                     Cookie('bp.expendMenu', val, { maxage: 60 * 60 * 24 * 360 * 1000 })
+                },
+                // ie9- jq animate
+                polyfill: function(el, container, expand, callback) {
+                    let ml = expand ? '70px' : '250px'
+                    container.animate({ 'margin-left': ml}, 300, callback)
                 } 
             }
         )
@@ -57,7 +62,12 @@ let systemPage = {
             '[data-toggle="container"]', 
             { 
                 autoHide: true,
-                btn: '[data-toggle="assist-switch"]' 
+                btn: '[data-toggle="assist-switch"]',
+                // ie9- jq animate
+                polyfill: function(el, container, expand, callback) {
+                    let ml = expand ? '-220px' : '0'
+                    container.find('> div').animate({ 'margin-left': ml}, 300, callback)
+                } 
             }
         )
     },

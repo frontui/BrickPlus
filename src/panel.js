@@ -60,10 +60,10 @@ export default class Panel {
         }
 
         if($.support.transition) {
-            this.container.offsetWidth;
+            this.container[0].offsetWidth;
             this.container.one('uiTransitionEnd', callback).emulateTransitionEnd(Panel.TRANSITION_DURATION)
         } else {
-            callback()
+            typeof this.props.polyfill === 'function' ? this.props.polyfill(this.el, this.container, callback) : callback()
         }
         
     }
@@ -73,7 +73,8 @@ Panel.DEFAULTS = {
     autoHide: false,
     opened: false,
     btn: '',
-    callback: $.noop
+    callback: $.noop,
+    polyfill: null
 }
 
 // 动画时间
