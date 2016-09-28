@@ -1,0 +1,339 @@
+{% extends "_system_layout/2-system-Layout.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}E+大账户{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染系统导航 #}
+{% block SystemNav %}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='E+大账户') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='2',lv2cur='1',lv3cur='0') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+<!-- 路径导航 -->
+{{
+  breadcrumb.default(
+    list = [
+      {link: 'ePlusAccount-账户功能管理-账户功能列表.html', text:'账户功能管理'},
+      {text: '账户功能列表'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
+
+<!-- 过滤 -->
+
+
+<!-- 表格 -->
+<div class="table-wrap fn-ma-20 bgcolor-primary">
+  <table class="table table-bordered-type1">
+    <colgroup>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col style="width: 100px">
+      <col style="width: 100px"> </colgroup>
+    <thead>
+      <tr>
+        <th>账户功能ID</th>
+        <th>功能类型</th>
+        <th>账户功能名称</th>
+        <th>账户功能简介</th>
+        <th>包含字段数量</th>
+        <th>创建时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          032
+        </td>
+        <td rowspan="5">关系人管理接口</td>
+        <td>删除关系人</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td rowspan="5">关系人管理接口</td>
+        <td>删除关系人</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          032
+        </td>
+        <td>查询关联账户</td>
+        <td>如填写则显示，未填写则为空</td>
+        <td>10</td>
+        <td>
+          <span class="text-nowrap">2016-08-08</span>
+          <span class="text-nowrap fontcolor-vice">12:00:00</span>
+        </td>
+        <td>
+          {{ switch.default() }}
+        </td>
+        <td>
+          <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+            管理
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 分页 -->
+<nav class="pagination-box text-align-center">
+  <p class="p-add-ons fn-mr-15">查找到&nbsp;100&nbsp;条记录，共&nbsp;5&nbsp;页</p>
+  <ul class="paginations" data-total-pages="5">
+    <li><span>«</span></li>
+    <li class="active"><span>1</span></li>
+    <li><a href="#page-2" data-page="2">2</a></li>
+    <li><a href="#page-3" data-page="3">3</a></li>
+    <li><a href="#page-4" data-page="4">4</a></li>
+    <li><a href="#page-5" data-page="5">5</a></li>
+    <li><a href="#page-2" data-page="2">›</a></li>
+    <li><a href="#page-5" data-page="5">»</a></li>
+  </ul>
+  <div class="p-add-ons fn-ml-15">
+    <div class="form-group form-gs form-no-label">
+      <div class="form-gs-box">
+        <div class="form-control-wrap"> <input type="text" class="form-control" placeholder="跳转"> </div>
+        <div class="form-addon child-right">页</div>
+        <div class="form-addon-com"> <button type="button" class="btn default">GO</button> </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-add-ons fn-ml-15">
+    <div class="form-group form-gs form-no-label">
+      <div class="form-gs-box">
+        <div class="form-addon">每页</div>
+        <div class="form-control-wrap"> <select class="form-control">
+                      <option>20</option>
+                      <option>60</option>
+                      <option>100</option>
+                    </select> </div>
+        <div class="form-addon">条</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

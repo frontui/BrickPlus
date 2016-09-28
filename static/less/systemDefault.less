@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+@import "_systemDefaultShare"; //项目共用样式库
+
+//body
+body {
+    overflow-x: hidden;
+}
+
+// ******************
+// 返回页顶
+// ******************
+.actgotop {
+  display: none;
+  position: fixed;
+  _position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: @bgColor-actgotop;
+  font-size: @fontSize-smaller;
+  text-align: center;
+  line-height: @size-actgotop;
+  .square(@size-actgotop);
+  .rounded(@borderRadius-actgotop);
+  .link-custom(lighten(@bgColor-actgotop,80%),#fff,none);
+  .transition(all,0.3s,ease,0);
+
+  > i {
+    .icon-font-family();
+
+    &:before {
+      content: "\e603";
+    }
+  }
+
+  &:hover {
+    background-color: @bgColor-hover-actgotop;
+  }
+}
+
+// ------
+// 侧边栏滚动条
+#side-scrollbar {
+  height: 100%;
+  overflow: hidden;
+}

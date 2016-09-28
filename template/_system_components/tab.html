@@ -1,0 +1,13 @@
+{% macro prototype(tabs,cur='') %}
+<div class="tabs-wrap prototype">
+    <ul class="tabs">
+        {% for item in tabs %}
+        <li {% if loop.index == cur %}class="active"{% endif %}>
+            <a href="{{ item.url }}" class="tabs-btn"{%if item.template%} data-template="{{ item.template }}"{% endif %}>
+                {{ item.text }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
