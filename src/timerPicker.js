@@ -10,7 +10,7 @@ const toggle = '[data-toggle="timer-picker"]'
 
 export default class TimerPicker extends Drop {
     constructor(el, props) {
-        
+
         super(el, toggle, props)
 
         this.props = $.extend({}, TimerPicker.DEFAULTS, this.props)
@@ -21,7 +21,7 @@ export default class TimerPicker extends Drop {
         if(!this.props.hours) {
             this.timer.shift()
         }
-        
+
         // 不包括秒
         if(!this.props.second) {
             this.timer.pop()
@@ -35,8 +35,8 @@ export default class TimerPicker extends Drop {
     // 渲染小时
     // 根据配置参数h来决定24或者12
     __renderHH() {
-        let hours = 24, 
-            _html = [], 
+        let hours = 24,
+            _html = [],
             h = this.timer[0],
             cls = ''
         if(this.props.h == 12) hours = 12;
@@ -50,8 +50,8 @@ export default class TimerPicker extends Drop {
     // 时分都是60单位
     // 可根据参数 unit 输出不同的进度
     __renderMS(pos) {
-        let ms = 60, 
-            _html = [], 
+        let ms = 60,
+            _html = [],
             u = this.props.unit,
             mm = this.timer[pos],
             cls = ''
@@ -114,7 +114,7 @@ export default class TimerPicker extends Drop {
             this.navEl.append(`<li>${this.props.in18[2]}</li>`)
             this.bodyEl.append(this.$ss)
         }
-        
+
         this.__handlerPicker()
     }
 
@@ -196,7 +196,7 @@ $(function() {
     $(document).on('focus.timerpicker', toggle, function() {
                     $(this).timerPicker()
                 })
-                
+
                 // .on('blur.timerpicker', toggle, function(){
                 //     $(this).timerPicker('hide')
                 // })
