@@ -157,6 +157,8 @@ select[multiple].form-control,
 select[size].form-control {
   height: auto;
   overflow: auto;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .form-control-focus() {
@@ -1517,6 +1519,11 @@ select[size].form-control {
     height: auto;
   }
 
+  select.form-control {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .form-control-label {
     width: @width-label-small-formControl;
     height: @height-small-formControl;
@@ -1690,6 +1697,11 @@ select[size].form-control {
 
   textarea.form-control {
     height: auto;
+  }
+
+  select.form-control {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .form-control-label {
