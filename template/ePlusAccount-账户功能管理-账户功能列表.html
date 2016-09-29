@@ -63,7 +63,7 @@
                 <input type="text" class="form-control" placeholder="请输入账户功能名称或者ID">
               </div>
               <div class="form-addon-com child-right">
-                <button type="button" class="btn primary">
+                <button type="button" class="btn primary" title="搜索" data-toggle="tooltips">
                   <i class="icon-search"></i>
                 </button>
               </div>
@@ -333,7 +333,7 @@
       </table>
     </div>
     <div class="panel-footer">
-      <nav class="pagination-box small-pagination text-align-right">
+      <!-- <nav class="pagination-box small-pagination text-align-right">
         <p class="p-add-ons fn-mr-15">查找到&nbsp;100&nbsp;条记录，共&nbsp;5&nbsp;页</p>
         <ul class="paginations" data-total-pages="20">
         </ul>
@@ -361,7 +361,8 @@
             </div>
           </div>
         </div>
-      </nav>
+      </nav> -->
+      {{ pagination.default(id='p-One',fixedClass='small-pagination text-align-right') }}
     </div>
   </div>
 
@@ -383,5 +384,8 @@
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
+$('#p-One').on('select.bp.pagination', function(e, page) {
+  $('#j-page-text1').html('page'+ page)
+})
 </script>
 {% endblock %}

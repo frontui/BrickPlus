@@ -39,7 +39,7 @@ export default class Pagination {
 
         this.halfVisible = visiblePages / 2
 
-        this.__render() 
+        this.__render()
         !inited && this.__initEvent()
 
         // 初始化时触发
@@ -82,7 +82,7 @@ export default class Pagination {
     // opt 页面文本配置
     // islb 是否功能键，不需加 active
     __append(pageIndex, opts, islb) {
-        let item, options, cls 
+        let item, options, cls
 
         // 判断首页，末页，常规页
         pageIndex = pageIndex < 0 ? 0 : (pageIndex < this.totalPages ? pageIndex : this.totalPages - 1)
@@ -95,7 +95,7 @@ export default class Pagination {
                     : $.inArray(pageIndex + 1, this.props.disabledPages) > -1
                         ? `<li class="disabled"><span>${options.text}</span></li>`
                         : `<li><a href="#page-${pageIndex + 1}" data-page="${pageIndex + 1}">${options.text}</a></li>`
-        
+
         this.el.append(item)
     }
 
@@ -104,7 +104,7 @@ export default class Pagination {
         let props = this.props
         let interval = this.__getInterval()
         let i = 0
-        
+
         this.el.empty()
         //if(this.totalPages <= 1) return;
 
@@ -152,7 +152,7 @@ export default class Pagination {
 
     // 选择切换页码
     selectPage(pageIndex, pages) {
-        this.currentPage = pageIndex - 1 
+        this.currentPage = pageIndex - 1
 
         // 重新渲染
         this.render(pages)
@@ -166,7 +166,7 @@ export default class Pagination {
 
     // 渲染接口
     render(pages) {
-        this.totalPages = pages ? pages : this.totalPages 
+        this.totalPages = pages ? pages : this.totalPages
         this.__render()
     }
 
