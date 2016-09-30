@@ -24,8 +24,12 @@
 {% import "_system_components/systemNavigator.html" as systemNavigator %}
 
 
-{# 加载系统导航 #}
+{# 加载翻页组件 #}
 {% import "_system_components/pagination.html" as pagination %}
+
+
+{# 加载翻页组件 #}
+{% import "_system_components/form.html" as form %}
 
 
 {# 设置顶部导航产品列表 #}
@@ -94,24 +98,24 @@
   set lv1 = [
     {
       text: '首页',
-      url: 'ePlusAccount-index.html',
-      iconClass: 'system-setting'
+      url: 'index.html',
+      iconClass: 'system-home'
     },
     {
       text: '账户功能管理',
       url: '#',
-      iconClass: 'operative-manage',
+      iconClass: 'account-function',
       lv2: [
         {
           text: '账户功能列表',
-          url: 'ePlusAccount-账户功能管理-账户功能列表.html'
+          url: '账户功能管理-账户功能列表.html'
         }
       ]
     },
     {
       text: '服务管理',
       url: '#',
-      iconClass: 'account-manage',
+      iconClass: 'service-manage',
       lv2: [
         {
           text: '服务列表',
@@ -126,7 +130,7 @@
     {
       text: '渠道管理',
       url: '#',
-      iconClass: 'risk-manage',
+      iconClass: 'channel-manage',
       lv2: [
         {
           text: '渠道列表',
@@ -141,7 +145,7 @@
     {
       text: '账户查询',
       url: '#',
-      iconClass: 'system-manage',
+      iconClass: 'account-query',
       lv2: [
         {
           text: '查看个人账户',

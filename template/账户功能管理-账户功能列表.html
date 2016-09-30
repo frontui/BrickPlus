@@ -41,7 +41,7 @@
 {{
   breadcrumb.default(
     list = [
-      {link: 'ePlusAccount-账户功能管理-账户功能列表.html', text:'账户功能管理'},
+      {link: '账户功能管理-账户功能列表.html', text:'账户功能管理'},
       {text: '账户功能列表'}
     ],
     fixedClass='fn-pa-15 default-border-b'
@@ -135,7 +135,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -156,7 +156,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -177,7 +177,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -198,7 +198,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -219,7 +219,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -240,7 +240,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -261,7 +261,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -282,7 +282,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -303,7 +303,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -324,7 +324,7 @@
               {{ switch.default() }}
             </td>
             <td>
-              <a href="ePlusAccount-账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
+              <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
                 管理
               </a>
             </td>
@@ -333,36 +333,7 @@
       </table>
     </div>
     <div class="panel-footer">
-      <!-- <nav class="pagination-box small-pagination text-align-right">
-        <p class="p-add-ons fn-mr-15">查找到&nbsp;100&nbsp;条记录，共&nbsp;5&nbsp;页</p>
-        <ul class="paginations" data-total-pages="20">
-        </ul>
-        <div class="p-add-ons fn-ml-15">
-          <div class="form-group form-gs form-no-label form-small">
-            <div class="form-gs-box">
-              <div class="form-control-wrap"> <input type="text" class="form-control" placeholder="跳转"> </div>
-              <div class="form-addon child-right">页</div>
-              <div class="form-addon-com"> <button type="button" class="btn default">GO</button> </div>
-            </div>
-          </div>
-        </div>
-        <div class="p-add-ons fn-ml-15 w-130">
-          <div class="form-group form-gs form-no-label form-small">
-            <div class="form-gs-box">
-              <div class="form-addon">每页</div>
-              <div class="form-control-wrap">
-                <select class="form-control">
-                  <option>20</option>
-                  <option>60</option>
-                  <option>100</option>
-                </select>
-              </div>
-              <div class="form-addon">条</div>
-            </div>
-          </div>
-        </div>
-      </nav> -->
-      {{ pagination.default(id='p-One',fixedClass='small-pagination text-align-right') }}
+      {{ pagination.smallFullSet(fixedClass='text-align-right') }}
     </div>
   </div>
 
@@ -384,8 +355,40 @@
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
-$('#p-One').on('select.bp.pagination', function(e, page) {
-  $('#j-page-text1').html('page'+ page)
-})
+    $(function()
+      {
+        $('#pageList').on('select.bp.pagination', function(e, page)
+        {
+          $('#pageList-text3').html('demo3-page' + page)
+        })
+        $('#pageList').pagination('reset',
+          {
+            items: 40,
+            pageStr:
+            {
+              show: true
+            }
+          })
+          // 控制跳转
+        $('#pageTurnTo').on('click', function()
+          {
+            var page = $.trim($('#pageInput').val())
+            if (page !== '')
+            {
+              $('#pageList').pagination('go', parseInt(page))
+              $('#pageInput').val('')
+            }
+          })
+          // 每页记录数
+        $('#pageQuantity').on('change', function()
+        {
+          var itemsOnPage = $(this).val()
+          $('#pageList').pagination('reset',
+          {
+            itemsOnPage: itemsOnPage
+          })
+        })
+      }
+    )
 </script>
 {% endblock %}

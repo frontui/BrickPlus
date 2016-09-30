@@ -1,0 +1,23 @@
+{% macro formDataDefault(label='',value='',fixedClass='') %}
+<div class="form-group {{ fixedClass }}">
+    <label class="form-control-label">
+        <span>{{ label }}</span>
+    </label>
+    <div class="form-control-wrap">
+        <div class="form-control-static"/>
+              {{ value }}
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro textareaDefault(formID='',label='',placeholder='',value='',fixedClass='',name='') %}
+<div class="form-group {{ fixedClass }}">
+    <label class="form-control-label" for="{{ formID }}">
+        <span>{{ label }}</span>
+    </label>
+    <div class="form-control-wrap">
+        <textarea class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" name="{{ name }}" cols="30" rows="10">{{ value }}</textarea>
+    </div>
+</div>
+{% endmacro %}
