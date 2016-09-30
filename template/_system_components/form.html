@@ -1,3 +1,4 @@
+{# 标准静态数据展示表单 #}
 {% macro formDataDefault(label='',value='',fixedClass='') %}
 <div class="form-group {{ fixedClass }}">
     <label class="form-control-label">
@@ -11,6 +12,7 @@
 </div>
 {% endmacro %}
 
+{# 标准textarea #}
 {% macro textareaDefault(formID='',label='',placeholder='',value='',fixedClass='',name='') %}
 <div class="form-group {{ fixedClass }}">
     <label class="form-control-label" for="{{ formID }}">
@@ -18,6 +20,24 @@
     </label>
     <div class="form-control-wrap">
         <textarea class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" name="{{ name }}" cols="30" rows="10">{{ value }}</textarea>
+    </div>
+</div>
+{% endmacro %}
+
+{# 表单按钮 #}
+{% macro formBtns(btns,fixedClass='',btnsWrapfixedClass='') %}
+<div class="form-group form-hide-label {{ fixedClass }}">
+    <div class="form-control-wrap">
+      <div class="plural-btns {{ btnsWrapfixedClass }}">
+        {% for btn in btns %}
+          {% if btn.links %}
+          <a href="{{ btn.links }}" class="btn links {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</a>
+          {% else %}
+          <button type="button" class="btn {{ btn.btnTheme }} {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</button>
+          {# 如需要请在 btn.attr 里面写所有自定义属性 #}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
 </div>
 {% endmacro %}

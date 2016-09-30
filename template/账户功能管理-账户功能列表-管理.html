@@ -62,191 +62,81 @@
         {{ form.formDataDefault(label='功能名称',value='提交用户信息',fixedClass='fn-mb-10') }}
         {{ form.formDataDefault(label='接口编码',value='1001',fixedClass='fn-mb-10') }}
         {{ form.textareaDefault(formID='intro',label='功能简介',placeholder='50个字以内',fixedClass='fn-mb-10') }}
-        <div class="form-group">
+        <div class="form-group fn-mb-20">
             <label class="form-control-label">
                 <span>输入字段</span>
             </label>
             <div class="form-control-wrap">
-                <div class="form-control-static fn-pa-0"/>
-                <div class="table-wrap">
-
-                  <table class="table table-bordered-type1">
-                    <colgroup>
-                      <col style="width: 70px">
-                      <col>
-                      <col style="width: 100px">
-                      <col>
-                      <col>
-                      <col>
-                      <col>
-                      <col>
-                      <col>
-                      <col style="width: 100px">
-                    </colgroup>
-                    <thead>
+              <div class="table-wrap">
+                <table class="table table-bordered-type1">
+                  <colgroup>
+                    <col style="width: 200px">
+                    <col style="width: 80px">
+                    <col>
+                  </colgroup>
+                  <thead>
+                  <tr>
+                    <th>
+                      字段名称
+                    </th>
+                    <th>
+                      是否必填
+                    </th>
+                    <th>
+                      备注
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
                     <tr>
-                      <th>
-                        <label class="table-checked-all">
-                          <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox">
-                          全选
-                        </label>
-                      </th>
-                      <th>
-                        创建时间
-                      </th>
-                      <th>
-                        业务类型
-                      </th>
-                      <th>
-                        商品名称
-                      </th>
-                      <th>
-                        订单号
-                      </th>
-                      <th>
-                        对方账号
-                      </th>
-                      <th>
-                        余额
-                      </th>
-                      <th>
-                        收入
-                      </th>
-                      <th>
-                        支出
-                      </th>
-                      <th>
-                        操作
-                      </th>
+                      <td>
+                        接口编号1
+                      </td>
+                      <td>
+                        <input type="checkbox" checked="checked" disabled="disabled">
+                      </td>
+                      <td>
+                      </td>
                     </tr>
-                    </thead>
-                    <tbody id="j-checkall-demo1">
-                      <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                          <span class="text-nowrap">
-                            2015-05-25
-                          </span>
-                          <span class="text-nowrap fontcolor-vice">
-                            10:25:36
-                          </span>
-                        </td>
-                        <td>
-                          交易
-                        </td>
-                        <td>
-                          Item ZERO
-                        </td>
-                        <td>
-                          TJZT201505200025
-                        </td>
-                        <td>
-                          liang1126
-                        </td>
-                        <td>
-                          <span class="amount">158,026.00</span>
-                        </td>
-                        <td>
-                          <span class="amount add">3,252.00</span>
-                        </td>
-                        <td>
-                          <span class="amount take">288.00</span>
-                        </td>
-                        <td>
-                          <div class="btn-group-box smaller-btn-gb">
-                            <button type="button" class="btn default">详情</button>
-                            <button type="button" class="btn default dropdown-menu-btn"></button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                          <span class="text-nowrap">
-                            2015-05-25
-                          </span>
-                          <span class="text-nowrap fontcolor-vice">
-                            10:25:36
-                          </span>
-                        </td>
-                        <td>
-                          交易
-                        </td>
-                        <td>
-                          Item TWO
-                        </td>
-                        <td>
-                          TJZT201505200025
-                        </td>
-                        <td>
-                          jingdong
-                        </td>
-                        <td>
-                          <span class="amount">158,026.00</span>
-                        </td>
-                        <td>
-                          <span class="amount add">3,252.00</span>
-                        </td>
-                        <td>
-                          <span class="amount take">288.00</span>
-                        </td>
-                        <td class="text-align-left">
-                          <div class="btn-group-box smaller-btn-gb">
-                            <button type="button" class="btn default">详情</button>
-                            <button type="button" class="btn default dropdown-menu-btn"></button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                          <span class="text-nowrap">
-                            2015-05-25
-                          </span>
-                          <span class="text-nowrap fontcolor-vice">
-                            10:25:36
-                          </span>
-                        </td>
-                        <td>
-                          交易
-                        </td>
-                        <td>
-                          Item ONE
-                        </td>
-                        <td>
-                          TJZT201501548025
-                        </td>
-                        <td>
-                          liang1126
-                        </td>
-                        <td>
-                          <span class="amount">158,026.00</span>
-                        </td>
-                        <td>
-                          <span class="amount add">3,252.00</span>
-                        </td>
-                        <td>
-                          <span class="amount take">288.00</span>
-                        </td>
-                        <td class="text-align-left">
-                          <div class="btn-group-box smaller-btn-gb">
-                            <button type="button" class="btn default">详情</button>
-                            <button type="button" class="btn default dropdown-menu-btn"></button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                </div>
+                    <tr>
+                      <td>
+                        接口编号2
+                      </td>
+                      <td>
+                        <input type="checkbox">
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        接口编号3
+                      </td>
+                      <td>
+                        <input type="checkbox">
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
         </div>
+        {{
+          form.formBtns(
+            btns = [
+              {
+                text:'提交',
+                btnTheme: 'primary'
+              },
+              {
+                text:'取消',
+                links: '账户功能管理-账户功能列表.html'
+              }
+            ]
+          )
+        }}
       </form>
     </div>
   </div>

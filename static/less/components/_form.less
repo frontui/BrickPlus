@@ -153,12 +153,15 @@ textarea.form-control {
   height: auto;
 }
 
+select.form-control {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 select[multiple].form-control,
 select[size].form-control {
   height: auto;
   overflow: auto;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 .form-control-focus() {
@@ -531,7 +534,7 @@ select[size].form-control {
 }
 
 .form-control-static {
-  padding: (@paddingTB-default-fromControl + @borderWidth-formControl) (@paddingLR-default-fromControl + @borderWidth-formControl);
+  padding: (@paddingTB-default-fromControl + @borderWidth-formControl) (@paddingLR-default-fromControl + @borderWidth-formControl) (@paddingTB-default-fromControl + @borderWidth-formControl) 0;
   line-height: @lineHeight-formControl;
   font-size: @fontSize-formControl;
   color: @fontColor-value-formControl;
@@ -1478,7 +1481,7 @@ select[size].form-control {
   }
 
   .form-control-static {
-    padding: (@paddingTB-large-fromControl + @borderWidth-formControl) (@paddingLR-large-fromControl + @borderWidth-formControl);
+    padding: (@paddingTB-large-fromControl + @borderWidth-formControl) (@paddingLR-large-fromControl + @borderWidth-formControl) (@paddingTB-large-fromControl + @borderWidth-formControl) 0;
     line-height: @lineHeight-large-formControl;
     font-size: @fontSize-large-formControl;
   }
@@ -1651,7 +1654,7 @@ select[size].form-control {
   }
 
   .form-control-static {
-    padding: (@paddingTB-small-fromControl + @borderWidth-formControl) (@paddingLR-small-fromControl + @borderWidth-formControl);
+    padding: (@paddingTB-small-fromControl + @borderWidth-formControl) (@paddingLR-small-fromControl + @borderWidth-formControl) (@paddingTB-small-fromControl + @borderWidth-formControl) 0;
     line-height: @lineHeight-small-formControl;
     font-size: @fontSize-small-formControl;
   }
@@ -1854,7 +1857,7 @@ select[size].form-control {
   }
 
   .form-control-static {
-    padding: (@paddingTB-smaller-fromControl + @borderWidth-formControl) (@paddingLR-smaller-fromControl + @borderWidth-formControl);
+    padding: (@paddingTB-smaller-fromControl + @borderWidth-formControl) (@paddingLR-smaller-fromControl + @borderWidth-formControl) (@paddingTB-smaller-fromControl + @borderWidth-formControl) 0;
     line-height: @lineHeight-smaller-formControl;
     font-size: @fontSize-smaller-formControl;
   }
