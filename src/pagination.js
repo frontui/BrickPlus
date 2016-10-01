@@ -16,7 +16,7 @@
 import $ from 'jquery'
 
 const toggle = '.paginations,[data-toggle="pagination"]'
-var pageStr = '<p class="p-add-ons fn-mr-15">查找到&nbsp;{$items}&nbsp;条记录，共&nbsp;{$totalPages}&nbsp;页</p>'
+var pageStr = '<p class="p-add-ons fn-mr-15">{$items}&nbsp;条记录，共&nbsp;{$totalPages}&nbsp;页</p>'
 
 export default class Pagination {
     constructor(el, props) {

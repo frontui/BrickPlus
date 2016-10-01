@@ -25,7 +25,7 @@
   {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='E+大账户') }}
 
   {# 渲染系统侧导航 #}
-  {{ systemNavigator.systemAside(lv1,lv1cur='2',lv2cur='1',lv3cur='0') }}
+  {{ systemNavigator.systemAside(lv1,lv1cur='2',lv2cur='1') }}
 
   {# 渲染系统附加导航 #}
   {{ systemNavigator.systemAssistNav(assistNav) }}
@@ -38,6 +38,7 @@
 {% block content %}
 
 <!-- 路径导航 -->
+{# 渲染路径导航UI #}
 {{
   breadcrumb.default(
     list = [
@@ -48,13 +49,14 @@
   )
 }}
 
-{# 修正整体内容的内边距盒子，不需要定制化样式 #}
+{# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
 <div class="fn-pa-20">
 
-  <!-- 表格 + 过滤 + 翻页 -->
+  <!-- 表格 + 搜索 + 分页 -->
   <div class="panel">
     <div class="panel-heading">
       <h1 class="panel-title">账户功能列表</h1>
+      <!-- 搜索项 -->
       <div class="ph-add-ons">
         <div class="pull-right fn-ml-5 w-300">
           <div class="form-group form-no-label form-small">
@@ -68,7 +70,7 @@
                 </button>
               </div>
               <div class="form-addon-com">
-                <button type="button" class="btn default" title="重置过滤项" data-toggle="tooltips">
+                <button type="button" class="btn default" title="重置搜索项" data-toggle="tooltips">
                   <i class="icon-loop2 fs-14"></i>
                 </button>
               </div>
@@ -76,28 +78,31 @@
           </div>
         </div>
         <div class="pull-right w-150">
-          <div class="form-group form-no-label form-small">
-            <div class="form-control-wrap">
-              <select class="form-control">
-                <option>
-                  全部功能类型
-                </option>
-                <option>
-                  关系人管理接口
-                </option>
-                <option>
-                  安全信息管理接口
-                </option>
-              </select>
-            </div>
-          </div>
+          {# 渲染无label的标准selectUI #}
+          {{
+            form.selectNoLabel(
+              selectNoLabelOptions = [
+                {
+                  option: '全部功能类型'
+                },
+                {
+                  option: '关系人管理接口'
+                },
+                {
+                  option: '安全信息管理接口'
+                }
+              ],
+              fixedClass = 'form-small'
+            )
+          }}
         </div>
       </div>
     </div>
+    <!-- 表格 -->
     <div class="table-wrap">
       <table class="table">
         <colgroup>
-          <col style="width: 100px">
+          <col>
           <col>
           <col>
           <col>
@@ -132,7 +137,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -153,7 +159,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -174,7 +181,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -195,7 +203,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -216,7 +225,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -237,7 +247,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -258,7 +269,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -279,7 +291,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -300,7 +313,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -321,7 +335,8 @@
               <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
             <td>
-              {{ switch.default() }}
+              {# 渲染标准开关UI #}
+              {{ switch.switchDefault() }}
             </td>
             <td>
               <a href="账户功能管理-账户功能列表-管理.html" class="btn default smaller-btn">
@@ -333,6 +348,8 @@
       </table>
     </div>
     <div class="panel-footer">
+      <!-- 分页 -->
+      {# 渲染分页组件UI #}
       {{ pagination.smallFullSet(fixedClass='text-align-right') }}
     </div>
   </div>

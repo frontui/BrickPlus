@@ -24,6 +24,22 @@
 </div>
 {% endmacro %}
 
+{# 无label的标准select（是无label，不是隐藏label） #}
+{% macro selectNoLabel(selectNoLabelOptions,fixedClass='',attr='') %}
+<div class="form-group form-no-label {{ fixedClass }}">
+  <div class="form-control-wrap">
+    {# 如需要请在 attr 或者 item.attr 里面写其他属性 #}
+    <select class="form-control" {{ attr }}>
+      {% for item in selectNoLabelOptions %}
+      <option {{ item.attr }}>
+        {{ item.option }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% endmacro %}
+
 {# 表单按钮 #}
 {% macro formBtns(btns,fixedClass='',btnsWrapfixedClass='') %}
 <div class="form-group form-hide-label {{ fixedClass }}">
@@ -34,7 +50,7 @@
           <a href="{{ btn.links }}" class="btn links {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</a>
           {% else %}
           <button type="button" class="btn {{ btn.btnTheme }} {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</button>
-          {# 如需要请在 btn.attr 里面写所有自定义属性 #}
+          {# 如需要请在 btn.attr 里面写其他属性 #}
           {% endif %}
         {% endfor %}
       </div>

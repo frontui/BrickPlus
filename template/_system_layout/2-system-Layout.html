@@ -28,8 +28,12 @@
 {% import "_system_components/pagination.html" as pagination %}
 
 
-{# 加载翻页组件 #}
+{# 加载表单组件 #}
 {% import "_system_components/form.html" as form %}
+
+
+{# 加载按钮组件 #}
+{% import "_system_components/button.html" as button %}
 
 
 {# 设置顶部导航产品列表 #}
@@ -103,7 +107,7 @@
     },
     {
       text: '账户功能管理',
-      url: '#',
+      url: 'javascript:void(0);',
       iconClass: 'account-function',
       lv2: [
         {
@@ -114,12 +118,12 @@
     },
     {
       text: '服务管理',
-      url: '#',
+      url: 'javascript:void(0);',
       iconClass: 'service-manage',
       lv2: [
         {
           text: '服务列表',
-          url: '#'
+          url: '服务管理-服务列表.html'
         },
         {
           text: '接入服务',
@@ -129,7 +133,7 @@
     },
     {
       text: '渠道管理',
-      url: '#',
+      url: 'javascript:void(0);',
       iconClass: 'channel-manage',
       lv2: [
         {
@@ -144,7 +148,7 @@
     },
     {
       text: '账户查询',
-      url: '#',
+      url: 'javascript:void(0);',
       iconClass: 'account-query',
       lv2: [
         {
@@ -159,7 +163,7 @@
     },
     {
       text: '系统管理',
-      url: '#',
+      url: 'javascript:void(0);',
       iconClass: 'system-manage',
       lv2: [
         {
