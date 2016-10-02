@@ -104,7 +104,7 @@ input::-ms-clear {
   display: block;
   width: 100%;
   height: @height-formControl;
-  padding: @paddingTB-default-fromControl @paddingLR-default-fromControl;
+  padding: @paddingTB-default-fromControl - 1px @paddingLR-default-fromControl @paddingTB-default-fromControl @paddingLR-default-fromControl;
   line-height: @lineHeight-formControl;
   font-size: @fontSize-formControl;
   border: @borderWidth-formControl solid @borderColor-primary-formControl;
@@ -497,6 +497,10 @@ select[size].form-control {
       top: 50%;
       left: 0;
       margin-top: -6px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     //用于体现单选表单和多选表单的disabled样式
@@ -1444,7 +1448,7 @@ select[size].form-control {
 
   .form-control {
     height: @height-large-formControl;
-    padding: @paddingTB-large-fromControl @paddingLR-large-fromControl;
+    padding: @paddingTB-large-fromControl - 1px @paddingLR-large-fromControl @paddingTB-large-fromControl @paddingLR-large-fromControl;
     line-height: @lineHeight-large-formControl;
     font-size: @fontSize-large-formControl;
   }
@@ -1616,7 +1620,7 @@ select[size].form-control {
 
   .form-control {
     height: @height-small-formControl;
-    padding: @paddingTB-small-fromControl @paddingLR-small-fromControl;
+    padding: @paddingTB-small-fromControl - 1px @paddingLR-small-fromControl @paddingTB-small-fromControl @paddingLR-small-fromControl;
     line-height: @lineHeight-small-formControl;
     font-size: @fontSize-small-formControl;
   }
@@ -1796,7 +1800,7 @@ select[size].form-control {
 
   .form-control {
     height: @height-smaller-formControl;
-    padding: @paddingTB-smaller-fromControl @paddingLR-smaller-fromControl;
+    padding: @paddingTB-smaller-fromControl - 1px @paddingLR-smaller-fromControl @paddingTB-smaller-fromControl @paddingLR-smaller-fromControl;
     line-height: @lineHeight-smaller-formControl;
     font-size: @fontSize-smaller-formControl;
   }

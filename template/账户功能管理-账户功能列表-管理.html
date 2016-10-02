@@ -38,6 +38,7 @@
 {% block content %}
 
 <!-- 路径导航 -->
+{# 渲染路径导航UI #}
 {{
   breadcrumb.default(
     list = [
@@ -58,10 +59,36 @@
       <h1 class="panel-title">功能管理</h1>
     </div>
     <div class="panel-body">
-      <form action="">
-        {{ form.formDataDefault(label='功能名称',value='提交用户信息',fixedClass='fn-mb-10') }}
-        {{ form.formDataDefault(label='接口编码',value='1001',fixedClass='fn-mb-10') }}
-        {{ form.textareaDefault(formID='intro',label='功能简介',placeholder='50个字以内',fixedClass='fn-mb-10') }}
+      <form action="账户功能管理-账户功能列表.html">
+        <!-- 功能名称 -->
+        {# 渲染标准静态数据展示表单 #}
+        {{
+          form.formDataDefault(
+            label='功能名称',
+            value='提交用户信息',
+            fixedClass='fn-mb-10'
+          )
+        }}
+        <!-- 接口编码 -->
+        {# 渲染标准静态数据展示表单 #}
+        {{
+          form.formDataDefault(
+            label='接口编码',
+            value='1001',
+            fixedClass='fn-mb-10'
+          )
+        }}
+        <!-- 功能简介 -->
+        {# 渲染标准textarea #}
+        {{
+          form.textareaDefault(
+            formID='intro',
+            label='功能简介',
+            placeholder='50个字以内',
+            fixedClass='fn-mb-10'
+          )
+        }}
+        <!-- 输入字段 -->
         <div class="form-group fn-mb-20">
             <label class="form-control-label">
                 <span>输入字段</span>
@@ -123,6 +150,8 @@
               </div>
             </div>
         </div>
+        <!-- 按钮 -->
+        {# 渲染表单按钮 #}
         {{
           form.formBtns(
             btns = [
@@ -159,40 +188,5 @@
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
-    $(function()
-      {
-        $('#pageList').on('select.bp.pagination', function(e, page)
-        {
-          $('#pageList-text3').html('demo3-page' + page)
-        })
-        $('#pageList').pagination('reset',
-          {
-            items: 40,
-            pageStr:
-            {
-              show: true
-            }
-          })
-          // 控制跳转
-        $('#pageTurnTo').on('click', function()
-          {
-            var page = $.trim($('#pageInput').val())
-            if (page !== '')
-            {
-              $('#pageList').pagination('go', parseInt(page))
-              $('#pageInput').val('')
-            }
-          })
-          // 每页记录数
-        $('#pageQuantity').on('change', function()
-        {
-          var itemsOnPage = $(this).val()
-          $('#pageList').pagination('reset',
-          {
-            itemsOnPage: itemsOnPage
-          })
-        })
-      }
-    )
 </script>
 {% endblock %}

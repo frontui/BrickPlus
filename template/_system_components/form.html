@@ -1,35 +1,93 @@
+{# 标准typeText #}
+{% macro typeTextDefault(formID='',label='',placeholder='',value='',fixedClass='',attr='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label" for="{{ formID }}">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    <input type="text" class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" value="{{ value }}" {{ attr }}>
+  </div>
+</div>
+{% endmacro %}
+
+{# 标准select #}
+{% macro selectDefault(selectOptions,label='',fixedClass='',formID='',name='',attr='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label" for="{{ formID }}">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    {# 如需要请在 attr 或者 item.attr 里面写其他属性 #}
+    <select class="form-control" id="{{ formID }}" name="{{ name }}" {{ attr }}>
+      {% for item in selectOptions %}
+      <option {{ item.attr }}>
+        {{ item.option }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% endmacro %}
+
+{# 标准单选和多选 #}
+{% macro crDefault(crOptions,label='',fixedClass='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label">
+    <span>单选和多选</span>
+  </label>
+  <div class="form-control-wrap">
+    <div class="form-control-check"/>
+      {% for item in crOptions %}
+        {% if item.checkboxText %}
+        <label {{ item.attr }}>
+          {{ item.checkboxText }}
+          <input type="checkbox"/>
+        </label>
+        {% else %}
+        <label {{ item.attr }}>
+          {{ item.radioText }}
+          <input type="radio"/>
+        </label>
+        {# 如需要请在 item.attr 里面写其他属性 #}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
 {# 标准静态数据展示表单 #}
 {% macro formDataDefault(label='',value='',fixedClass='') %}
 <div class="form-group {{ fixedClass }}">
-    <label class="form-control-label">
-        <span>{{ label }}</span>
-    </label>
-    <div class="form-control-wrap">
-        <div class="form-control-static"/>
-              {{ value }}
-        </div>
+  <label class="form-control-label">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    <div class="form-control-static"/>
+      {{ value }}
     </div>
+  </div>
 </div>
 {% endmacro %}
 
 {# 标准textarea #}
-{% macro textareaDefault(formID='',label='',placeholder='',value='',fixedClass='',name='') %}
+{% macro textareaDefault(formID='',label='',placeholder='',value='',fixedClass='',name='',attr='') %}
 <div class="form-group {{ fixedClass }}">
     <label class="form-control-label" for="{{ formID }}">
         <span>{{ label }}</span>
     </label>
     <div class="form-control-wrap">
-        <textarea class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" name="{{ name }}" cols="30" rows="10">{{ value }}</textarea>
+        <textarea class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" name="{{ name }}" cols="30" rows="10" {{ attr }}>{{ value }}</textarea>
     </div>
 </div>
 {% endmacro %}
 
 {# 无label的标准select（是无label，不是隐藏label） #}
-{% macro selectNoLabel(selectNoLabelOptions,fixedClass='',attr='') %}
+{% macro selectNoLabel(selectNoLabelOptions,fixedClass='',name='',attr='') %}
 <div class="form-group form-no-label {{ fixedClass }}">
   <div class="form-control-wrap">
     {# 如需要请在 attr 或者 item.attr 里面写其他属性 #}
-    <select class="form-control" {{ attr }}>
+    <select class="form-control" name="{{ name }}" {{ attr }}>
       {% for item in selectNoLabelOptions %}
       <option {{ item.attr }}>
         {{ item.option }}
@@ -49,7 +107,7 @@
           {% if btn.links %}
           <a href="{{ btn.links }}" class="btn links {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</a>
           {% else %}
-          <button type="button" class="btn {{ btn.btnTheme }} {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</button>
+          <button type="submit" class="btn {{ btn.btnTheme }} {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</button>
           {# 如需要请在 btn.attr 里面写其他属性 #}
           {% endif %}
         {% endfor %}
