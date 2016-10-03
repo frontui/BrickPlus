@@ -249,7 +249,8 @@
 // ******************
 // 全选
 // ******************
-.table-checked-all {
+.table-checked-all,
+.table-checked-withtext {
     position: relative;
     display: block;
     //.inline-block();
@@ -261,6 +262,16 @@
         position: absolute;
         top: 4px;
         left: 0;
+        cursor: pointer;
+    }
+
+    &.check-disabled {
+      color: @fontColor-viceText !important;
+      cursor: not-allowed !important;
+
+      > input[type="checkbox"] {
+        cursor: not-allowed !important;
+      }
     }
 }
 

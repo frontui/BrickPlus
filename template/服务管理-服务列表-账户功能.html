@@ -2,7 +2,7 @@
 
 
 {# 填写页面 title #}
-{% block title %}E+大账户{% endblock %}
+{% block title %}OAS大账户{% endblock %}
 
 
 {# 页面专有样式表地址 #}
@@ -22,7 +22,7 @@
 
 
   {# 渲染系统顶部导航 #}
-  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='E+大账户') }}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
 
   {# 渲染系统侧导航 #}
   {{ systemNavigator.systemAside(lv1,lv1cur='3',lv2cur='1') }}
@@ -57,35 +57,277 @@
         <h1 class="panel-title">账户功能</h1>
       </div>
       <div class="panel-body">
-      <!-- 服务管理接口 -->
+        <!-- 服务管理接口 -->
         <div class="table-wrap fn-mb-20">
-        <table class="table table-bordered-type1">
-          <colgroup>
-            <col>
-            <col>
-          </colgroup>
-          <thead>
-            <tr>
-              <th colspan="2">
-                <label class="table-checked-all">
-                  <input type="checkbox" data-toggle="checkAll" data-target="#checkall-1 :checkbox">
-                  服务管理接口<span class="fontcolor-vice">（全选）</span>
-                </label>
-              </th>
-            </tr>
-          </thead>
-          <tbody id="checkall-1">
-            <tr>
-              <td>
-                <input type="checkbox">
-              </td>
-              <td>
-                E+账户
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <table class="table table-bordered-type1">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-1 :checkbox">
+                    <h4>服务管理接口</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-1">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">查询接入渠道<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">查询渠道企业信息<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">统一对外接口<br>
+                  </label>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 用户信息管理接口 -->
+        <div class="table-wrap fn-mb-20">
+          <table class="table table-bordered-type1">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-2 :checkbox">
+                    <h4>用户信息管理接口</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-2">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">开通服务<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">提交用户信息<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">删除用户信息<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">查询用户信息<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext check-disabled">
+                    <input type="checkbox" disabled>修改用户信息<br>
+                  </label>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--  核身认证接口 -->
+        <div class="table-wrap fn-mb-20">
+          <table class="table table-bordered-type1">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-3 :checkbox">
+                    <h4>核身认证接口</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-3">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">查询核身认证结果<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">执行身份认证<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">执行个人银行卡认证<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">执行绑定手机<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">执行人脸认证<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">执行企业小额付款认证（网关）<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">执行企业小额付款认证（线下）<br>
+                  </label>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--  安全信息管理接口 -->
+        <div class="table-wrap fn-mb-20">
+          <table class="table table-bordered-type1">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-4 :checkbox">
+                    <h4>安全信息管理接口</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-4">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">修改登录密码<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">校验登录密码<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">重置登录密码<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">设置/重置支付密码<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">修改支付密码<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">校验支付密码<br>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--  安全信息管理接口 -->
+        <div class="table-wrap fn-mb-20">
+          <table class="table table-bordered-type1">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-5 :checkbox">
+                    <h4>关系人管理接口</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-5">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">提交关系人信息<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">修改关系人信息<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">查询关系人信息<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">查询关联账户<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox">删除关系人<br>
+                  </label>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="panel-footer">
         <!-- 按钮 -->
