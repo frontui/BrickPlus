@@ -39,16 +39,16 @@
     <div class="form-control-check"/>
       {% for item in crOptions %}
         {% if item.checkboxText %}
-        <label {{ item.attr }}>
+        <label {{ item.labelAttr }}>
           {{ item.checkboxText }}
-          <input type="checkbox"/>
+          <input type="checkbox" {{ item.attr }}/>
         </label>
         {% else %}
-        <label {{ item.attr }}>
+        <label {{ item.labelAttr }}>
           {{ item.radioText }}
-          <input type="radio"/>
+          <input type="radio" name="{{ item.name }}" {{ item.attr }}/>
         </label>
-        {# 如需要请在 item.attr 里面写其他属性 #}
+        {# 如需要请在 item.attr 和  item.labelAttr 里面写其他属性 #}
         {% endif %}
       {% endfor %}
     </div>
