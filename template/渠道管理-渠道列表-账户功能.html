@@ -1,0 +1,138 @@
+{% extends "_system_layout/2-system-Layout.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}OAS大账户{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染系统导航 #}
+{% block SystemNav %}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='4',lv2cur='1') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+<!-- 路径导航 -->
+{# 渲染路径导航UI #}
+{{
+  breadcrumb.default(
+    list = [
+      {link: '渠道管理-渠道列表.html', text:'渠道管理'},
+      {link: '渠道管理-渠道列表.html', text:'渠道列表'},
+      {text: '账户功能'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
+
+{# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
+<div class="fn-pa-20">
+  <!-- 表单 -->
+  <form action="渠道管理-渠道列表.html">
+    <!-- 注册登录接口 -->
+    <div class="table-wrap fn-mb-20 bgcolor-primary">
+      <table class="table table-bordered-type1">
+        <colgroup>
+          <col style="width: 50%;">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="2">
+              <label class="table-checked-all">
+                <input type="checkbox" data-toggle="checkAll" data-target="#checkall-1 :checkbox" checked="checked">
+                <h4>注册登录接口</h4>
+              </label>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="checkall-1">
+          <tr>
+            <td>
+              <label class="table-checked-withtext">
+                <input type="checkbox" checked="checked">注册
+                <a href="渠道管理-渠道列表-账户功能-验证要素设置（注册）.html" class="link-standard icon-edit2" title="验证要素设置" data-toggle="tooltips"></a>
+              </label>
+            </td>
+            <td>
+              <label class="table-checked-withtext">
+                <input type="checkbox" checked="checked">登录
+                <a href="渠道管理-渠道列表-账户功能-验证要素设置（登录）.html" class="link-standard icon-edit2" title="验证要素设置" data-toggle="tooltips"></a>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="table-checked-withtext check-disabled">
+                <input type="checkbox" disabled>修改注册信息
+                <!-- <a href="渠道管理-渠道列表-账户功能-验证要素设置（修改注册信息）.html" class="link-standard text-nowrap">（验证要素设置）</a> -->
+                <span class="fontcolor-vice icon-edit2" title="验证要素设置" data-toggle="tooltips"></span>
+              </label>
+            </td>
+            <td>
+              <label class="table-checked-withtext">
+                <input type="checkbox" checked="checked">查询注册信息
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="table-checked-withtext">
+                <input type="checkbox" checked="checked">登出
+              </label>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 按钮 -->
+    <div>
+      <button type="submit" class="btn primary">保存</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

@@ -56,6 +56,23 @@
 </div>
 {% endmacro %}
 
+{# 标准日期区间（日期至日期的UI） #}
+{% macro dateTodateDefault(label='',formID='',fixedClass='',placeholder='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label">
+    <span>{{ label }}</span>
+    <em>：</em>
+  </label>
+  <div class="form-control-wrap">
+    <div class="form-control-date">
+      <span class="form-control-date-btn"><i></i></span>
+      <input id="{{ formID }}" type="text" value="" placeholder="{{ placeholder }}" readonly="readonly" data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}" class="form-control" {{ attr }}/>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+
 {# 标准静态数据展示表单 #}
 {% macro formDataDefault(label='',value='',fixedClass='') %}
 <div class="form-group {{ fixedClass }}">

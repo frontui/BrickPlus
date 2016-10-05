@@ -58,8 +58,8 @@
   {{
     step.stepDefault(
       steps = [
-        {text:'基础信息'},
-        {text:'接入方式'},
+        {text: '基础信息'},
+        {text: '接入方式'},
         {text: '集成服务'},
         {text: '编辑完成'}
       ],
@@ -69,13 +69,13 @@
     )
   }}
 
-  <!-- 基础信息 -->
+  <!-- 编辑基础信息 -->
   <div class="panel">
     <div class="panel-heading">
       <h1 class="panel-title">编辑基础信息</h1>
     </div>
     <div class="panel-body">
-      <form action="服务管理-服务列表-编辑第二步.html">
+      <form action="渠道管理-渠道列表-编辑第二步.html">
         <!-- 渠道编号 -->
         {# 渲染标准静态数据展示表单 #}
         {{
@@ -233,7 +233,112 @@
           )
         }}
         <div id="formB1" style="display:block;">
-          1
+          <!-- 营业执照注册号 -->
+          {# 渲染标准typeText输入框 #}
+          {{
+            form.typeTextDefault(
+              label='营业执照注册号',
+              value='XXXXXXXXXXXXX',
+              formID='blId',
+              fixedClass='form-required fn-mb-10'
+            )
+          }}
+          <!-- 营业执照扫描件 -->
+          <div class="form-group form-required fn-mb-20">
+            <label class="form-control-label">
+              <span>营业执照扫描件</span>
+            </label>
+            <div class="form-control-wrap">
+              <div class="plural-btns">
+                <label for="blImg" class="uploader btn default">
+                  <i class="icon-folder-upload fn-mr-10"></i>上传文件
+                  <input type="file" id="blImg">
+                </label>
+                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：blImg.png</a>
+              </div>
+              <div class="form-tips">
+                <ul class="ul-standard">
+                  <li>请上传营业执照清晰彩色扫描件或数码照</li>
+                  <li>在有效期内且年检章齐全（当年成立的企业可无年检章）</li>
+                  <li>由中国大陆工商局或市场监督管理局颁发</li>
+                  <li>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 营业执照有效期 -->
+          {# 渲染标准typeText输入框 #}
+          {{
+            form.dateTodateDefault(
+              label='营业执照有效期',
+              formID='blExpDate',
+              fixedClass='form-required fn-mb-10'
+            )
+          }}
+          <!-- 组织机构代码证 -->
+          {# 渲染标准typeText输入框 #}
+          {{
+            form.typeTextDefault(
+              label='组织机构代码证',
+              value='XXXXXXXXXXXXX',
+              formID='glId',
+              fixedClass='form-required fn-mb-10'
+            )
+          }}
+          <!-- 组织机构代码证扫描件 -->
+          <div class="form-group form-required fn-mb-20">
+            <label class="form-control-label">
+              <span>组织机构代码证扫描件</span>
+            </label>
+            <div class="form-control-wrap">
+              <div class="plural-btns">
+                <label for="glImg" class="uploader btn default">
+                  <i class="icon-folder-upload fn-mr-10"></i>上传文件
+                  <input type="file" id="glImg">
+                </label>
+                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：glImg.png</a>
+              </div>
+              <div class="form-tips">
+                <ul class="ul-standard">
+                  <li>请上传组织机构代码证清晰彩色扫描件或数码照</li>
+                  <li>组织机构代码证必须在有效期范围内</li>
+                  <li>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 税务登记证编号 -->
+          {# 渲染标准typeText输入框 #}
+          {{
+            form.typeTextDefault(
+              label='税务登记证编号',
+              value='XXXXXXXXXXXXX',
+              formID='trId',
+              fixedClass='form-required fn-mb-10'
+            )
+          }}
+          <!-- 组织机构代码证扫描件 -->
+          <div class="form-group form-required fn-mb-20">
+            <label class="form-control-label">
+              <span>组织机构代码证扫描件</span>
+            </label>
+            <div class="form-control-wrap">
+              <div class="plural-btns">
+                <label for="trImg" class="uploader btn default">
+                  <i class="icon-folder-upload fn-mr-10"></i>上传文件
+                  <input type="file" id="trImg">
+                </label>
+                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：trImg.png</a>
+              </div>
+              <div class="form-tips">
+                <ul class="ul-standard">
+                  <li>请上传税务登记证清晰彩色扫描件或数码照</li>
+                  <li>税务登记证必须在有效期范围内</li>
+                  <li>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <div id="formB2" style="display:none;">
           <!-- 社会信用证代码 -->
@@ -243,7 +348,7 @@
               label='社会信用证代码',
               value='XXXXXXXXXXXXX',
               formID='creditCerID',
-              fixedClass='fn-mb-10'
+              fixedClass='form-required fn-mb-10'
             )
           }}
           <!-- 社会信用证扫描件 -->
@@ -277,7 +382,7 @@
               label='其他证件编号',
               value='XXXXXXXXXXXXX',
               formID='otherCerID',
-              fixedClass='fn-mb-10'
+              fixedClass='form-required fn-mb-10'
             )
           }}
           <!-- 其他证件扫描件 -->
@@ -295,74 +400,12 @@
               </div>
               <div class="form-tips">
                 <ul class="ul-standard">
-                  <li>请上传社会信用证清晰彩色扫描件或数码照</li>
-                  <li>社会信用证必须在有效期范围内</li>
+                  <li>请上传证件清晰彩色扫描件或数码照</li>
+                  <li>证件必须在有效期范围内</li>
                   <li>支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M</li>
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-
-
-
-
-        <!-- 服务类型 -->
-        {# 渲染标准selectUI #}
-        {{
-          form.selectDefault(
-            selectOptions = [
-              {
-                option: '请选择'
-              },
-              {
-                option: '自有开发服务'
-              },
-              {
-                option: '第三方开发服务'
-              }
-            ],
-            label='服务类型',
-            formID='serviceType',
-            fixedClass='form-required fn-mb-10'
-          )
-        }}
-        <!-- 服务供应商 -->
-        {# 渲染标准typeText输入框 #}
-        {{
-          form.typeTextDefault(
-            label='服务供应商',
-            value='广东钱途互联商务服务有限公司',
-            formID='serviceSupplier',
-            fixedClass='form-required fn-mb-10'
-          )
-        }}
-        <!-- 服务简介 -->
-        {# 渲染标准textarea #}
-        {{
-          form.textareaDefault(
-            label='服务简介',
-            value='支付，理财，充值，提现，一级棒钱包。',
-            formID='serviceIntro',
-            fixedClass='form-required fn-mb-10'
-          )
-        }}
-        <!-- 上传文件 -->
-        <div class="form-group form-required fn-mb-20">
-          <label class="form-control-label">
-            <span>服务Logo</span>
-          </label>
-          <div class="form-control-wrap">
-            <div class="plural-btns">
-              <label for="serviceLogo" class="uploader btn default">
-                <i class="icon-folder-upload fn-mr-10"></i>上传Logo图片
-                <input type="file" id="serviceLogo">
-              </label>
-              <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：serviceLogo.png</a>
-            </div>
-            <p class="form-tips">
-              支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
-            </p>
           </div>
         </div>
         <!-- 按钮 -->
@@ -376,7 +419,7 @@
               },
               {
                 text:'取消',
-                links: '服务管理-服务列表.html'
+                links: '渠道管理-渠道列表.html'
               }
             ]
           )

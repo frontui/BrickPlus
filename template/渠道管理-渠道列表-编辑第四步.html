@@ -25,7 +25,7 @@
   {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
 
   {# 渲染系统侧导航 #}
-  {{ systemNavigator.systemAside(lv1,lv1cur='3',lv2cur='1') }}
+  {{ systemNavigator.systemAside(lv1,lv1cur='4',lv2cur='1') }}
 
   {# 渲染系统附加导航 #}
   {{ systemNavigator.systemAssistNav(assistNav) }}
@@ -42,8 +42,8 @@
 {{
   breadcrumb.default(
     list = [
-      {link: '服务管理-服务列表.html', text:'服务管理'},
-      {link: '服务管理-服务列表.html', text:'服务列表'},
+      {link: '渠道管理-渠道列表.html', text:'渠道管理'},
+      {link: '渠道管理-渠道列表.html', text:'渠道列表'},
       {text: '编辑'}
     ],
     fixedClass='fn-pa-15 default-border-b'
@@ -59,18 +59,19 @@
     step.stepDefault(
       steps = [
         {text: '基础信息'},
-        {text: '开发信息'},
+        {text: '接入方式'},
+        {text: '集成服务'},
         {text: '编辑完成'}
       ],
-      qty = 'three-steps',
-      pass = 'pass3',
+      qty = 'four-steps',
+      pass = 'pass4',
       size = 'small-steps'
     )
   }}
 
   <div class="panel">
     <div class="panel-heading">
-      <h1 class="panel-title">编辑完成</h1>
+      <h1 class="panel-title">编辑渠道完成</h1>
     </div>
     <!-- 任务流程成功与否 -->
     <div class="result-wrap result-success">
@@ -79,10 +80,10 @@
         <div class="result-content">
           <div class="result-inner">
             <h1>
-              编辑服务成功！
+              编辑渠道成功！
             </h1>
             <p class="fn-pt-10">
-              <a href="服务管理-服务列表.html" class="link-standard">返回服务列表</a>
+              <a href="渠道管理-渠道列表.html" class="link-standard">返回渠道列表</a>
             </p>
           </div>
         </div>
