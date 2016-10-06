@@ -56,10 +56,11 @@
   <!-- 基础信息 -->
   <div class="panel fn-mb-20">
     <div class="panel-heading">
-      <h1 class="panel-title">基础信息</h1>
+      <h1 class="panel-title">服务名称XXXX</h1>
     </div>
     <div class="panel-body">
-      <div class="table-wrap">
+      <!-- 基础信息 -->
+      <div class="table-wrap fn-mb-20">
         <table class="table table-bordered-type3 table-align-type2">
           <colgroup>
             <col width="150px">
@@ -67,6 +68,13 @@
             <col width="150px">
             <col>
           </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">基础信息</h4>
+              </th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <th>服务编号</th>
@@ -95,15 +103,7 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
-
-  <!-- 开发信息 -->
-  <div class="panel fn-mb-20">
-    <div class="panel-heading">
-      <h1 class="panel-title">开发信息</h1>
-    </div>
-    <div class="panel-body">
+      <!-- 接入方式 -->
       <div class="table-wrap">
         <table class="table table-bordered-type3 table-align-type2">
           <colgroup>
@@ -112,6 +112,13 @@
             <col width="150px">
             <col>
           </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">接入方式</h4>
+              </th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <th>接入方式</th>
@@ -133,13 +140,13 @@
         </table>
       </div>
     </div>
+    <div class="panel-footer">
+      <!-- 按钮 -->
+      <div>
+        <a href="服务管理-服务列表.html" class="btn primary">返回服务列表</a>
+      </div>
+    </div>
   </div>
-
-  <!-- 按钮 -->
-  <div>
-    <a href="服务管理-服务列表.html" class="btn primary">返回服务列表</a>
-  </div>
-
 </div>
 
 {% endblock %}

@@ -44,7 +44,8 @@
     list = [
       {link: '渠道管理-渠道列表.html', text:'渠道管理'},
       {link: '渠道管理-渠道列表.html', text:'渠道列表'},
-      {text: '账户功能'}
+      {link: '渠道管理-渠道列表-账户功能.html', text:'账户功能'},
+      {text: '验证要素设置'}
     ],
     fixedClass='fn-pa-15 default-border-b'
   )
@@ -53,64 +54,73 @@
 {# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
 <div class="fn-pa-20">
   <!-- 表单 -->
-  <form action="渠道管理-渠道列表.html">
-
+  <form action="渠道管理-渠道列表-账户功能.html">
     <div class="panel">
       <div class="panel-heading">
-        <h1 class="panel-title">账户功能接口</h1>
+        <h1 class="panel-title">登录验证要素设置</h1>
       </div>
       <div class="panel-body">
-        <!-- 注册登录接口 -->
         <div class="table-wrap">
           <table class="table table-bordered-type2">
             <colgroup>
-              <col style="width: 50%;">
+              <col style="width: 200px">
+              <col style="width: 70px">
+              <col style="width: 70px">
               <col>
             </colgroup>
             <thead>
               <tr>
-                <th colspan="2">
-                  <label class="table-checked-all">
-                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-1 :checkbox" checked="checked">
-                    <h4>注册登录接口</h4>
-                  </label>
-                </th>
+                <th>字段名称</th>
+                <th>显示</th>
+                <th>必填</th>
+                <th>备注</th>
               </tr>
             </thead>
-            <tbody id="checkall-1">
+            <tbody>
               <tr>
                 <td>
-                  <label class="table-checked-withtext">
-                    <input type="checkbox" checked="checked">注册
-                    <a href="渠道管理-渠道列表-账户功能-验证要素设置（注册）.html" class="link-standard icon-edit2" title="验证要素设置" data-toggle="tooltips"></a>
-                  </label>
+                  账户类型
                 </td>
                 <td>
-                  <label class="table-checked-withtext">
-                    <input type="checkbox" checked="checked">登录
-                    <a href="渠道管理-渠道列表-账户功能-验证要素设置（登录）.html" class="link-standard icon-edit2" title="验证要素设置" data-toggle="tooltips"></a>
-                  </label>
+                  <input type="checkbox" disabled="disabled" checked="checked">
                 </td>
+                <td>
+                  <input type="checkbox" disabled="disabled" checked="checked">
+                </td>
+                <td></td>
+              </tr>
+                <td>
+                  登录名
+                </td>
+                <td>
+                  <input type="checkbox" disabled="disabled" checked="checked">
+                </td>
+                <td>
+                  <input type="checkbox" disabled="disabled" checked="checked">
+                </td>
+                <td></td>
               </tr>
               <tr>
                 <td>
-                  <label class="table-checked-withtext check-disabled">
-                    <input type="checkbox" disabled>修改注册信息
-                    <!-- <a href="渠道管理-渠道列表-账户功能-验证要素设置（修改注册信息）.html" class="link-standard text-nowrap">（验证要素设置）</a> -->
-                    <span class="fontcolor-vice icon-edit2" title="验证要素设置" data-toggle="tooltips"></span>
-                  </label>
+                  登录密码
                 </td>
                 <td>
-                  <label class="table-checked-withtext">
-                    <input type="checkbox" checked="checked">查询注册信息
-                  </label>
+                  <input type="checkbox" disabled="disabled" checked="checked">
                 </td>
+                <td>
+                  <input type="checkbox" disabled="disabled" checked="checked">
+                </td>
+                <td></td>
               </tr>
               <tr>
                 <td>
-                  <label class="table-checked-withtext">
-                    <input type="checkbox" checked="checked">登出
-                  </label>
+                  随机校验码
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
                 </td>
                 <td></td>
               </tr>
@@ -119,10 +129,9 @@
         </div>
       </div>
       <div class="panel-footer">
-        <!-- 按钮 -->
         <div class="plural-btns">
           <button type="submit" class="btn primary">保存</button>
-          <a href="渠道管理-渠道列表.html" class="btn links">取消</a>
+          <a href="渠道管理-渠道列表-账户功能.html" class="btn links">取消</a>
         </div>
       </div>
     </div>

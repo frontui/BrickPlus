@@ -1,0 +1,261 @@
+{% extends "_system_layout/2-system-Layout.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}OAS大账户{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染系统导航 #}
+{% block SystemNav %}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='4',lv2cur='1') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+<!-- 路径导航 -->
+{# 渲染路径导航UI #}
+{{
+  breadcrumb.default(
+    list = [
+      {link: '渠道管理-渠道列表.html', text:'渠道管理'},
+      {link: '渠道管理-渠道列表.html', text:'渠道列表'},
+      {link: '渠道管理-渠道列表-账户功能.html', text:'账户功能'},
+      {text: '验证要素设置'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
+
+{# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
+<div class="fn-pa-20">
+  <!-- 表单 -->
+  <form action="渠道管理-渠道列表-账户功能.html">
+    <div class="panel">
+      <div class="panel-heading">
+        <h1 class="panel-title">修改注册信息验证要素设置</h1>
+      </div>
+      <div class="panel-body">
+        <div class="table-wrap">
+          <table class="table table-bordered-type2">
+            <colgroup>
+              <col style="width: 200px">
+              <col style="width: 70px">
+              <col style="width: 70px">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>字段名称</th>
+                <th>显示</th>
+                <th>必填</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody>
+                <td>
+                  登录名
+                </td>
+                <td>
+                  <input type="checkbox" disabled="disabled" checked="checked">
+                </td>
+                <td>
+                  <input type="checkbox" disabled="disabled" checked="checked">
+                </td>
+                <td>
+                  不可更改
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  昵称
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  真实姓名
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为个人
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  证件类型
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为个人
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  证件号码
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为个人
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  手机号
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为个人
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  企业名称
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为企业
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  企业证件类型
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为企业
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  企业证件号码
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为企业
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  联系手机号
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  账户类型为企业
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  邮箱
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="plural-btns">
+          <button type="submit" class="btn primary">保存</button>
+          <a href="渠道管理-渠道列表-账户功能.html" class="btn links">取消</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}
