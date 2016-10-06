@@ -25,7 +25,7 @@
   {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
 
   {# 渲染系统侧导航 #}
-  {{ systemNavigator.systemAside(lv1,lv1cur='4',lv2cur='1') }}
+  {{ systemNavigator.systemAside(lv1,lv1cur='6',lv2cur='1') }}
 
   {# 渲染系统附加导航 #}
   {{ systemNavigator.systemAssistNav(assistNav) }}
@@ -42,8 +42,8 @@
 {{
   breadcrumb.default(
     list = [
-      {link: '渠道管理-渠道列表.html', text:'渠道管理'},
-      {text: '渠道列表'}
+      {link: '系统管理-账户管理.html', text:'系统管理'},
+      {text: '账户管理'}
     ],
     fixedClass='fn-pa-15 default-border-b'
   )
@@ -55,12 +55,12 @@
   <!-- 表格 + 搜索 + 分页 -->
   <div class="panel">
     <div class="panel-heading">
-      <h1 class="panel-title">渠道列表</h1>
+      <h1 class="panel-title">系统账户列表</h1>
       <!-- 搜索项 -->
       <div class="ph-add-ons">
         <div class="pull-right fn-ml-10 fn-pl-10 default-border-l">
-          <a class="btn primary small-btn" href="渠道管理-渠道列表-创建第一步.html">
-            <i class="icon-add fn-mr-5"></i>创建渠道
+          <a class="btn primary small-btn" href="系统管理-账户管理-创建第一步.html">
+            <i class="icon-add fn-mr-5"></i>创建账户
           </a>
         </div>
         <div class="pull-right fn-pl-10 fn-ml-10 default-border-l">
@@ -68,11 +68,11 @@
             <i class="icon-loop2 fs-14"></i>
           </button>
         </div>
-        <div class="pull-right fn-ml-5 w-240">
+        <div class="pull-right fn-ml-5 w-210">
           <div class="form-group form-no-label form-small">
             <div class="form-gs-box">
               <div class="form-control-wrap">
-                <input type="text" class="form-control" placeholder="请输入渠道编号或者名称">
+                <input type="text" class="form-control" placeholder="请输入账号名或者姓名">
               </div>
               <div class="form-addon-com">
                 <button type="button" class="btn default" title="搜索" data-toggle="tooltips">
@@ -88,13 +88,7 @@
             form.selectNoLabel(
               selectNoLabelOptions = [
                 {
-                  option: '全部接入方式'
-                },
-                {
-                  option: '自有开发服务'
-                },
-                {
-                  option: '第三方开发服务'
+                  option: '全部账号角色'
                 }
               ],
               fixedClass='form-small'
@@ -112,16 +106,20 @@
           <col>
           <col>
           <col>
+          <col>
+          <col>
           <col style="width: 100px">
-          <col style="width: 170px">
+          <col style="width: 148px">
         </colgroup>
         <thead>
           <tr>
-            <th>渠道编号</th>
-            <th>渠道名称</th>
-            <th>接入方式</th>
-            <th>集成服务</th>
+            <th>账号名称</th>
+            <th>姓名</th>
+            <th>账号角色</th>
+            <th>联系电话</th>
+            <th>邮箱</th>
             <th>创建时间</th>
+            <th>备注</th>
             <th>状态</th>
             <th>操作</th>
           </tr>
@@ -129,23 +127,26 @@
         <tbody>
           <tr>
             <td>
-              D888
+              yoiuug
             </td>
-            <td>广东开星影视公司</td>
-            <td>web页面</td>
-            <td>E+账户，融票</td>            <td>
+            <td>东邪</td>
+            <td>客服</td>
+            <td>15918792355</td>
+            <td>
+              12306@qq.com
+            </td>
+            <td>
               <span class="text-nowrap">2016-08-08</span>
-              <span class="text-nowrap fontcolor-vice">12:00:00</span>
             </td>
+            <td>备注</td>
             <td>
               {# 渲染标准开关UI #}
               {{ switch.switchDefault() }}
             </td>
             <td>
               <div class="btn-group-box smaller-btn-gb">
-                <a href="渠道管理-渠道列表-查看.html" class="btn default">查看</a>
-                <a href="渠道管理-渠道列表-编辑第一步.html" class="btn default">编辑</a>
-                <a href="渠道管理-渠道列表-账户功能.html" class="btn default" data-toggle="tooltips" title="账户功能">功能</a>
+                <a href="系统管理-账户管理-编辑.html" class="btn default">编辑</a>
+                <a href="系统管理-账户管理-重置密码.html" class="btn default">重置密码</a>
               </div>
             </td>
           </tr>

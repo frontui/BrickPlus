@@ -44,7 +44,7 @@
     list = [
       {link: '渠道管理-渠道列表.html', text:'渠道管理'},
       {link: '渠道管理-渠道列表.html', text:'渠道列表'},
-      {text: '编辑'}
+      {text: '创建'}
     ],
     fixedClass='fn-pa-15 default-border-b'
   )
@@ -61,7 +61,7 @@
         {text: '基础信息'},
         {text: '接入方式'},
         {text: '集成服务'},
-        {text: '编辑完成'}
+        {text: '创建完成'}
       ],
       qty = 'four-steps',
       pass = 'pass1',
@@ -72,17 +72,17 @@
   <!-- 编辑基础信息 -->
   <div class="panel">
     <div class="panel-heading">
-      <h1 class="panel-title">编辑基础信息</h1>
+      <h1 class="panel-title">添加基础信息</h1>
     </div>
     <div class="panel-body">
-      <form action="渠道管理-渠道列表-编辑第二步.html">
+      <form action="渠道管理-渠道列表-创建第二步.html">
         <!-- 渠道编号 -->
-        {# 渲染标准静态数据展示表单 #}
+        {# 渲染标准typeText输入框 #}
         {{
-          form.formDataDefault(
+          form.typeTextDefault(
             label='渠道编号',
-            value='0123',
-            fixedClass='fn-mb-10'
+            formID='channelID',
+            fixedClass='form-required fn-mb-10'
           )
         }}
         <!-- 渠道名称 -->
@@ -90,7 +90,6 @@
         {{
           form.typeTextDefault(
             label='渠道名称',
-            value='哎呀有钱宝',
             formID='channelName',
             fixedClass='form-required fn-mb-10'
           )
@@ -100,7 +99,6 @@
         {{
           form.typeTextDefault(
             label='企业名称',
-            value='哎呀有钱股份有限公司',
             formID='coName',
             fixedClass='form-required fn-mb-10'
           )
@@ -110,7 +108,6 @@
         {{
           form.typeTextDefault(
             label='企业法人',
-            value='蔡蔓',
             formID='coPer',
             fixedClass='form-required fn-mb-10'
           )
@@ -120,7 +117,6 @@
         {{
           form.typeTextDefault(
             label='法人身份证号',
-            value='450000000000000000',
             formID='coPerID',
             fixedClass='fn-mb-10'
           )
@@ -130,7 +126,6 @@
         {{
           form.typeTextDefault(
             label='联系人',
-            value='张琳琳',
             formID='contactPer',
             fixedClass='fn-mb-10'
           )
@@ -140,7 +135,6 @@
         {{
           form.typeTextDefault(
             label='联系手机号',
-            value='13800000000',
             formID='contactTel',
             fixedClass='fn-mb-10'
           )
@@ -150,7 +144,6 @@
         {{
           form.typeTextDefault(
             label='联系邮箱',
-            value='123@gmail.com',
             formID='contactMail',
             fixedClass='fn-mb-10'
           )
@@ -254,7 +247,6 @@
                   <i class="icon-folder-upload fn-mr-10"></i>上传文件
                   <input type="file" id="blImg">
                 </label>
-                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：blImg.png</a>
               </div>
               <div class="form-tips">
                 <ul class="ul-standard">
@@ -296,7 +288,6 @@
                   <i class="icon-folder-upload fn-mr-10"></i>上传文件
                   <input type="file" id="glImg">
                 </label>
-                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：glImg.png</a>
               </div>
               <div class="form-tips">
                 <ul class="ul-standard">
@@ -328,7 +319,6 @@
                   <i class="icon-folder-upload fn-mr-10"></i>上传文件
                   <input type="file" id="trImg">
                 </label>
-                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：trImg.png</a>
               </div>
               <div class="form-tips">
                 <ul class="ul-standard">
@@ -362,7 +352,6 @@
                   <i class="icon-folder-upload fn-mr-10"></i>上传文件
                   <input type="file" id="creditCerImg">
                 </label>
-                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：creditCerImg.png</a>
               </div>
               <div class="form-tips">
                 <ul class="ul-standard">
@@ -396,7 +385,6 @@
                   <i class="icon-folder-upload fn-mr-10"></i>上传文件
                   <input type="file" id="otherCerImg">
                 </label>
-                <a href="#" class="btn links" target="_blank" title="点击查看原图" data-toggle="tooltips">已上传：otherCerImg.png</a>
               </div>
               <div class="form-tips">
                 <ul class="ul-standard">

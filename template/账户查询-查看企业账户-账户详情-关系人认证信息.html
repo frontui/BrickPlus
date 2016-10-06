@@ -1,0 +1,280 @@
+{% extends "_system_layout/2-system-Layout.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}OAS大账户{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染系统导航 #}
+{% block SystemNav %}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='5',lv2cur='2') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+<!-- 路径导航 -->
+{# 渲染路径导航UI #}
+{{
+  breadcrumb.default(
+    list = [
+      {link: '账户查询-查看企业账户.html', text:'账户查询'},
+      {link: '账户查询-查看企业账户.html', text:'查看企业账户'},
+      {link: '账户查询-查看企业账户-账户详情.html', text:'账户详情'},
+      {text: '关系人认证信息'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
+
+{# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
+<div class="fn-pa-20">
+  <div class="panel fn-mb-20">
+    <div class="panel-heading">
+      <h1 class="panel-title">关系人XXX</h1>
+    </div>
+    <div class="panel-body">
+      <!-- 实名认证 — 身份认证 -->
+      <div class="table-wrap fn-mb-20">
+        <table class="table table-bordered-type3 table-align-type2">
+          <colgroup>
+            <col width="150px">
+            <col>
+            <col width="150px">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">实名认证 — 身份认证</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>认证结果</th>
+              <td>通过</td>
+              <th>真实姓名</th>
+              <td>张力</td>
+            </tr>
+            <tr>
+              <th>身份证号</th>
+              <td>450000000000000000</td>
+              <th>认证时间</th>
+              <td>
+                <span class="text-nowrap">2016-10-01</span>
+                <span class="text-nowrap fontcolor-vice">18:00:00</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 实名认证 — 个人银行卡认证 -->
+      <div class="table-wrap fn-mb-20">
+        <table class="table table-bordered-type3 table-align-type2">
+          <colgroup>
+            <col width="150px">
+            <col>
+            <col width="150px">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">实名认证 — 个人银行卡认证</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>认证结果</th>
+              <td>通过</td>
+              <th>户名</th>
+              <td>张力</td>
+            </tr>
+            <tr>
+              <th>银行卡号</th>
+              <td>622588888888888</td>
+              <th>开户行</th>
+              <td>招商银行</td>
+            </tr>
+            <tr>
+              <th>省份</th>
+              <td>广东省</td>
+              <th>地市</th>
+              <td>广州市</td>
+            </tr>
+            <tr>
+              <th>分支行</th>
+              <td>招商银行广州花城支行</td>
+              <th>银行预留手机号</th>
+              <td>13800000000</td>
+            </tr>
+            <tr>
+              <th>认证时间</th>
+              <td colspan="3">
+                <span class="text-nowrap">2016-10-01</span>
+                <span class="text-nowrap fontcolor-vice">18:00:00</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 实名认证 — 绑定手机 -->
+      <div class="table-wrap fn-mb-20">
+        <table class="table table-bordered-type3 table-align-type2">
+          <colgroup>
+            <col width="150px">
+            <col>
+            <col width="150px">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">实名认证 — 绑定手机</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>认证结果</th>
+              <td>通过</td>
+              <th>手机号</th>
+              <td>450000000000000000</td>
+            </tr>
+            <tr>
+              <th>认证时间</th>
+              <td colspan="3">
+                <span class="text-nowrap">2016-10-01</span>
+                <span class="text-nowrap fontcolor-vice">18:00:00</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 实名认证 — 人脸认证 -->
+      <div class="table-wrap fn-mb-20">
+        <table class="table table-bordered-type3 table-align-type2">
+          <colgroup>
+            <col width="150px">
+            <col>
+            <col width="150px">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">实名认证 — 人脸认证</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>认证结果</th>
+              <td>通过</td>
+              <th>真实姓名</th>
+              <td>张力</td>
+            </tr>
+            <tr>
+              <th>身份证号</th>
+              <td>450000000000000000</td>
+              <th>认证时间</th>
+              <td>
+                <span class="text-nowrap">2016-10-01</span>
+                <span class="text-nowrap fontcolor-vice">18:00:00</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 开通服务 -->
+      <div class="table-wrap">
+        <table class="table table-bordered-type3 table-align-type2">
+          <colgroup>
+            <col width="150px">
+            <col>
+            <col width="150px">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="4">
+                <h4 class="text-align-left">开通服务</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>广东钱途互联商务服务有限公司供应</th>
+              <td colspan="3">
+                E+账户，融票，应收账融资，订单融资，车险分期融资
+              </td>
+            </tr>
+            <tr>
+              <th>号百信息服务有限公司供应</th>
+              <td colspan="3">
+                号码百事通
+              </td>
+            </tr>
+            <tr>
+              <th>号百信息服务有限公司供应</th>
+              <td colspan="3">
+                蝴蝶EIP系统
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <!-- 按钮 -->
+      <div>
+        <a href="账户查询-查看个人账户-账户详情.html" class="btn primary">返回账户详情</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

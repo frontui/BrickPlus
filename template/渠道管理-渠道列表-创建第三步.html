@@ -1,0 +1,210 @@
+{% extends "_system_layout/2-system-Layout.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}OAS大账户{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染系统导航 #}
+{% block SystemNav %}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='4',lv2cur='1') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+<!-- 路径导航 -->
+{# 渲染路径导航UI #}
+{{
+  breadcrumb.default(
+    list = [
+      {link: '渠道管理-渠道列表.html', text:'渠道管理'},
+      {link: '渠道管理-渠道列表.html', text:'渠道列表'},
+      {text: '创建'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
+
+{# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
+<div class="fn-pa-20">
+
+  <!-- 步骤 -->
+  {# 渲染步骤UI #}
+  {{
+    step.stepDefault(
+      steps = [
+        {text: '基础信息'},
+        {text: '接入方式'},
+        {text: '集成服务'},
+        {text: '创建完成'}
+      ],
+      qty = 'four-steps',
+      pass = 'pass3',
+      size = 'small-steps'
+    )
+  }}
+
+  <!-- 表单 -->
+  <form action="渠道管理-渠道列表-创建第四步.html">
+    <div class="panel">
+      <div class="panel-heading">
+        <h1 class="panel-title">添加集成服务</h1>
+      </div>
+      <div class="panel-body">
+        <!-- 服务供应商：广东钱途互联商务服务有限公司 -->
+        <div class="table-wrap fn-mb-20">
+          <table class="table table-bordered-type2">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-1 :checkbox" checked="checked">
+                    <h4>服务供应商：广东钱途互联商务服务有限公司</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-1">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox" checked="checked">E+账户<br>
+                  </label>
+                </td>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox" checked="checked">融资标准版<br>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox" checked="checked">融票<br>
+                  </label>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 服务供应商：号百信息服务有限公司 -->
+        <div class="table-wrap fn-mb-20">
+          <table class="table table-bordered-type2">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-2 :checkbox" checked="checked">
+                    <h4>服务供应商：号百信息服务有限公司</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-2">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox" checked="checked">号码百事通<br>
+                  </label>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 服务供应商：号百信息服务有限公司 -->
+        <div class="table-wrap">
+          <table class="table table-bordered-type2">
+            <colgroup>
+              <col style="width: 50%;">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="2">
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#checkall-3 :checkbox" checked="checked">
+                    <h4>服务供应商：号百信息服务有限公司</h4>
+                  </label>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="checkall-3">
+              <tr>
+                <td>
+                  <label class="table-checked-withtext">
+                    <input type="checkbox" checked="checked">蝴蝶EIP系统<br>
+                  </label>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <!-- 按钮 -->
+        <div class="plural-btns">
+          <button type="submit" class="btn primary">完成</button>
+          <a href="渠道管理-渠道列表-创建第二步.html" class="btn links">上一步</a>
+          <a href="渠道管理-渠道列表.html" class="btn links">取消</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}
