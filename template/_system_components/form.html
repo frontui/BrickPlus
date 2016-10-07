@@ -1,11 +1,11 @@
 {# 标准typeText #}
-{% macro typeTextDefault(formID='',label='',placeholder='',value='',fixedClass='',attr='') %}
+{% macro typeTextDefault(formID='',label='',placeholder='',value='',fixedClass='',attr='',type='text') %}
 <div class="form-group {{ fixedClass }}">
   <label class="form-control-label" for="{{ formID }}">
     <span>{{ label }}</span>
   </label>
   <div class="form-control-wrap">
-    <input type="text" class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" value="{{ value }}" {{ attr }}>
+    <input type="{{ type }}" class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" value="{{ value }}" {{ attr }}>
   </div>
 </div>
 {% endmacro %}

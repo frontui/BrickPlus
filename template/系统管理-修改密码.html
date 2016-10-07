@@ -1,0 +1,133 @@
+{% extends "_system_layout/2-system-Layout.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}OAS大账户{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 渲染系统导航 #}
+{% block SystemNav %}
+
+
+  {# 渲染系统顶部导航 #}
+  {{ systemNavigator.systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='rayalienkiss',productName='OAS大账户') }}
+
+  {# 渲染系统侧导航 #}
+  {{ systemNavigator.systemAside(lv1,lv1cur='6',lv2cur='3') }}
+
+  {# 渲染系统附加导航 #}
+  {{ systemNavigator.systemAssistNav(assistNav) }}
+
+
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+
+<!-- 路径导航 -->
+{# 渲染路径导航UI #}
+{{
+  breadcrumb.default(
+    list = [
+      {link: '系统管理-账户管理.html', text:'系统管理'},
+      {text: '修改密码'}
+    ],
+    fixedClass='fn-pa-15 default-border-b'
+  )
+}}
+
+{# 修正整体内容的内边距盒子，不需要定制化样式，根据设计需要随时变 #}
+<div class="fn-pa-20">
+  <!-- 修改密码 -->
+  <div class="panel">
+    <div class="panel-heading">
+      <h1 class="panel-title">修改密码</h1>
+    </div>
+    <div class="panel-body">
+      <form action="系统管理-账户管理.html">
+        <!-- 原始密码 -->
+        {# 渲染标准typeText输入框 #}
+        {{
+          form.typeTextDefault(
+            label='原始密码',
+            formID='oldPassword',
+            fixedClass='form-required fn-mb-10',
+            type='password',
+            placeholder='请输入当前登录密码'
+          )
+        }}
+        <!-- 新密码 -->
+        {# 渲染标准typeText输入框 #}
+        {{
+          form.typeTextDefault(
+            label='新密码',
+            formID='newPassword',
+            fixedClass='form-required fn-mb-10',
+            type='password',
+            placeholder='8-16位数字、字母或其组合'
+          )
+        }}
+        <!-- 再次确认新密码 -->
+        {# 渲染标准typeText输入框 #}
+        {{
+          form.typeTextDefault(
+            label='再次确认新密码',
+            formID='confirmNewPassword',
+            fixedClass='form-required fn-mb-20',
+            type='password',
+            placeholder='请再次输入新密码'
+          )
+        }}
+        <!-- 按钮 -->
+        {# 渲染表单按钮 #}
+        {{
+          form.formBtns(
+            btns = [
+              {
+                text:'完成',
+                btnTheme: 'primary'
+              },
+              {
+                text:'取消',
+                links: '系统管理-账户管理.html'
+              }
+            ]
+          )
+        }}
+      </form>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}
