@@ -1,5 +1,5 @@
 /*! 
-*  BrickPlus v1.0.6
+*  BrickPlus v1.0.7
 *  by fronui team
 *  updated on 2016-10-09
 *  created by generator-frontman
