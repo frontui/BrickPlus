@@ -20,16 +20,16 @@ const $ = require('jquery')
 const toggle = '[data-toggle="checkAll"]'
 
 
-class CheckAll{
+class CheckAll {
   // 构造函数
   // -------
   // * `element` dom元素对象
   constructor(element) {
     // dom元素
     this.$el = $(element)
-    // 响应元素集合
+      // 响应元素集合
     this.$target = $(this.$el.data('target'))
-    // 是否反选模式
+      // 是否反选模式
     this.isReverse = Boolean(this.$el.data('reverse'))
 
     // 版本号
@@ -42,13 +42,25 @@ class CheckAll{
   // 事件监听
   initEvents() {
     // 监听 `click` 点击事件
-    this.$el.on('click', $.proxy(this.toggle, this))
+    this.$el.on('click', $.proxy(this.toggle, this));
+    !this.isReverse && this.$target.on('change', $.proxy(this.targetToggle, this));
   }
 
   // 切换中枢
   // -------
-  toggle () {
+  toggle() {
     this.isReverse ? this.reverse() : this.activate()
+  }
+
+  // 单选状态改变全选状态 by Limit
+  targetToggle() {
+    let isCheckAlled = true;
+    this.$target.map(function() {
+      if (!$(this).prop('checked')) {
+        isCheckAlled = false;
+      }
+    });
+    !this.isReverse && this.$el.prop('checked', isCheckAlled);
   }
 
   // 全选功能
@@ -59,13 +71,17 @@ class CheckAll{
       isCheck,
       e
     ] = [
-      isChecked || this.$el.is(':checked'), // 当前dom元素是否勾选
-      $.Event('checked.bp.checkAll', { relatedTarget: this.$el }) // 创建选中事件
+      // button触发全选传值可能为false
+      (!isChecked && isChecked !== false) ? this.$el.is(':checked') : isChecked, // 当前dom元素是否勾选
+      $.Event('checked.bp.checkAll', {
+        relatedTarget: this.$el
+      }) // 创建选中事件
     ]
-
-    // 设置所有目标元素属性为选中
+    // button触发全选时，设置全选为选中 by limit
+    this.$el.prop('checked', isCheck)
+      // 设置所有目标元素属性为选中
     this.$target.prop('checked', isCheck)
-    // 触发反选事件api
+      // 触发反选事件api
     this.$el.trigger(e)
   }
 
@@ -73,12 +89,14 @@ class CheckAll{
   // -------
   reverse() {
     // 定义反选事件类型
-    let e = $.Event('reversed.bp.checkAll', {relatedTarget: this.$el})
-    // 遍历所有目标元素，将他们选中属性反转
-    this.$target.map(function () {
-        return $(this).prop('checked', function() {
-          return !$(this).prop('checked')
-        })
+    let e = $.Event('reversed.bp.checkAll', {
+        relatedTarget: this.$el
+      })
+      // 遍历所有目标元素，将他们选中属性反转
+    this.$target.map(function() {
+      return $(this).prop('checked', function() {
+        return !$(this).prop('checked')
+      }).trigger('change');
     });
     // 触发反选事件api
     this.$el.trigger(e);
@@ -88,7 +106,7 @@ class CheckAll{
 // 插件定义
 // -------
 let Plugin = function(option, ...args) {
-  return $(this).each(()=> {
+  return $(this).each(() => {
     let [$this, data] = [
       $(this),
       $(this).data('bp.checkAll')
@@ -111,14 +129,20 @@ $.fn.checkAll.Constructor = CheckAll;
 
 // 全局绑定插件
 // -------------
-// $(function () {
-//     $(toggle).checkAll()
-
+// $(function() {
+//   $(toggle).checkAll()
 // });
 $(function() {
-  $(document).on('click.checkAll', toggle, function() {
-    $(this).checkAll('toggle')
-  })
+
+  // 这套会导致先点击单选的时候无法触发全选交互 
+  // $(document).on('click.checkAll', toggle, function() {
+  //   $(this).checkAll('toggle')
+  // })
+
+  // 全局绑定插件 单选和全选交互 by limit
+  $(toggle).map(function() {
+    $(this).checkAll();
+  });
 })
 
 module.exports = CheckAll
