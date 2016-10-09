@@ -32,6 +32,9 @@ class CheckAll {
       // 是否反选模式
     this.isReverse = Boolean(this.$el.data('reverse'))
 
+    //  是否全选不会影响响应元素
+    this.isNoCheckAll = Boolean(this.$el.data('nocheckall'))
+
     // 版本号
     this.VERSION = '{{VERSION}}';
 
@@ -41,9 +44,10 @@ class CheckAll {
 
   // 事件监听
   initEvents() {
-    // 监听 `click` 点击事件
+    // 监听 `click` 点击事件，如果全选不影响单选状态则不监听
     this.$el.on('click', $.proxy(this.toggle, this));
-    !this.isReverse && this.$target.on('change', $.proxy(this.targetToggle, this));
+    // 对全选监听change.toggle事件用于触发单选状态改变全选状态,反选则不触发
+    !this.isReverse && this.$target.on('change.status', $.proxy(this.targetToggle, this));
   }
 
   // 切换中枢
@@ -54,13 +58,30 @@ class CheckAll {
 
   // 单选状态改变全选状态 by Limit
   targetToggle() {
+    //  反选按钮则退出
+    if (this.isReverse) {
+      return false;
+    }
     let isCheckAlled = true;
-    this.$target.map(function() {
-      if (!$(this).prop('checked')) {
-        isCheckAlled = false;
-      }
-    });
-    !this.isReverse && this.$el.prop('checked', isCheckAlled);
+    if (!this.isNoCheckAll) {
+      //  全部选上才触发对象勾选激活
+      this.$target.map(function() {
+        if (!$(this).prop('checked')) {
+          isCheckAlled = false;
+          return false;
+        }
+      });
+    } else {
+      //  非全选状态下，只要勾选一个就认为对象勾选激活
+      isCheckAlled = false;
+      this.$target.map(function() {
+        if ($(this).prop('checked')) {
+          isCheckAlled = true;
+          return false;
+        }
+      });
+    }
+    this.$el.prop('checked', isCheckAlled).trigger('change.status');
   }
 
   // 全选功能
@@ -79,9 +100,13 @@ class CheckAll {
     ]
     // button触发全选时，设置全选为选中 by limit
     this.$el.prop('checked', isCheck)
-      // 设置所有目标元素属性为选中
-    this.$target.prop('checked', isCheck)
-      // 触发反选事件api
+      // 设置所有目标元素属性
+    if (this.isNoCheckAll) {
+      !isCheck && this.$target.prop('checked', isCheck)
+    } else {
+      this.$target.prop('checked', isCheck)
+    }
+    // 触发反选事件api
     this.$el.trigger(e)
   }
 
@@ -96,7 +121,7 @@ class CheckAll {
     this.$target.map(function() {
       return $(this).prop('checked', function() {
         return !$(this).prop('checked')
-      }).trigger('change');
+      }).trigger('change.status');
     });
     // 触发反选事件api
     this.$el.trigger(e);
