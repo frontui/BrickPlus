@@ -88,7 +88,7 @@ $(function (){
         })
       }
     }
-    $tabTemplate.on('show.ui.tab', function(e) {
+    $tabTemplate.on('shown.bp.tab', function(e) {
       loadContent(e.target)
     })
     loadContent($tabTemplate.eq(0))

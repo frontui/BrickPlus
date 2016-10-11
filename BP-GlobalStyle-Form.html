@@ -11,14 +11,16 @@
     <meta name="Robots" content="all" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <title> BrickPlus </title>
+    <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
     <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
     <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <!--[if IE 8]>
 		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
-        <![endif]-->
-    <!--[if lt IE 8]>
-		    <link rel="stylesheet" href="./static/css/ie-76.css?v=1.0.0">
         <![endif]-->
     <!--[if lte IE 7]>
             <link rel="stylesheet" href="./static/iconfont-ie7/ie7.css?v=1.0.0">
@@ -699,7 +701,7 @@
     &lt;/label&gt;
     &lt;div <span class="va">class="<span class="cl">form-control-wrap</span>"</span>&gt;
         &lt;<b>div</b> <span class="va">class="<span class="cl"><b>form-control-check</b></span>"</span>/&gt;
-            &lt;<b>label</b>/&gt;
+            &lt;<b>label</b>&gt;
               <span class="tg">...</span>
               &lt;<b>input</b> <span class="va">type="<span class="cl"><b>radio / checkbox</b></span>"</span>/&gt;
             &lt;/<b>label</b>&gt;
@@ -946,7 +948,7 @@
             <div class="tabs-panel" id="tp4">
               <section class="example-wrap">
                 <ul class="example-description">
-                  <li> 针对表单组件结构的“块（block）”级辅助文本，给 <code>p</code> 元素引用 <code>.from-tips</code> 类，即可得到需要的辅助文本效果。 </li>
+                  <li> 针对表单组件结构的“块（block）”级辅助文本，给 <code>p</code> 或其他块级元素引用 <code>.from-tips</code> 类，即可得到需要的辅助文本效果。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>

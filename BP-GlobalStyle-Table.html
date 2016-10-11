@@ -11,14 +11,16 @@
     <meta name="Robots" content="all" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <title> BrickPlus </title>
+    <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
     <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
     <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <!--[if IE 8]>
 		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
-        <![endif]-->
-    <!--[if lt IE 8]>
-		    <link rel="stylesheet" href="./static/css/ie-76.css?v=1.0.0">
         <![endif]-->
     <!--[if lte IE 7]>
             <link rel="stylesheet" href="./static/iconfont-ie7/ie7.css?v=1.0.0">
@@ -146,6 +148,7 @@
               <section class="example-wrap">
                 <ul class="example-description">
                   <li> BrickPlus 提供一套标准的表格样式，简洁明快的风格能适应绝大多数的密集型数据展示； <br> 但我们并没有直接重置 <code>&lt;table&gt;</code> 标签的默认样式，因为还会有很多地方需要用到这个标签，我们只需将它用于展示数据的样式独立出来。标准表单的所有都定义在 <code>.table</code> 这个前置类之中，只需在 <code>&lt;table&gt;</code> 中引用即可。 </li>
+                  <li> 还有就是请注意表格中 “全选” 和 “单选” 带有文字的结构用法，<code>.table-checked-all</code> 和 <code>.table-checked-withtext</code> 两个工具类所支持的结构和使用的样式是一样的，及其附带的 <code>.check-disabled</code> 类用法。 </li>
                 </ul>
                 <div class="example">
                   <div class="example-tag">实例</div>
