@@ -1,0 +1,32 @@
+// ******************
+// 404
+// ******************
+.error-wrap{
+  display: table;
+  min-height: 380px;
+  min-width: 1000px;
+  //height:100%;
+  margin: 0 auto;
+  padding-top:100px;
+  .error-img ,.error-content{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .error-content{
+    //padding-top:100px;
+
+    .browser-list{
+      li{
+        display: inline-block;
+        text-align: center;
+        >a{
+          display: block;
+          .link-standard();
+          padding:20px 30px 0 0;
+          color: @fontColor-default;
+        }
+      }
+    }
+  }
+
+}

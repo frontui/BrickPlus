@@ -159,15 +159,22 @@ $.fn.checkAll.Constructor = CheckAll;
 // });
 $(function() {
 
-  // 这套会导致先点击单选的时候无法触发全选交互 
-  // $(document).on('click.checkAll', toggle, function() {
-  //   $(this).checkAll('toggle')
-  // })
-
   // 全局绑定插件 单选和全选交互 by limit
-  $(toggle).map(function() {
-    $(this).checkAll();
-  });
-})
+  $(document).on('click.checkAll', ':checkbox',function(e) {
+    $(toggle).map(function() {
+        if (!$(this).data('isCheckAllInited')) {
+          //  如果为当前点击的checkBox则调用toggle
+          e.target == this ? $(this).checkAll('toggle') : $(this).checkAll();
+          $(this).data('isCheckAllInited', true);
+        }
+      })
+      // $(this).checkAll('toggle')
+  })
+
+    // 全局绑定插件 单选和全选交互 by limit 这样会导致新渲染的checkAll控件组无法激活插件
+    // $(toggle).map(function() {
+    //   $(this).checkAll();
+    // });
+  })
 
 module.exports = CheckAll
