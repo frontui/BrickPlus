@@ -7,6 +7,7 @@
  */
 
 import $ from 'jquery'
+import ModalLayer from './ModalLayer'
 
 const toggle = '.switch,[data-toggle="switch"]'
 
@@ -14,6 +15,9 @@ export default class Switch {
     constructor(el, props) {
         this.el = $(el)
         this.props = props
+
+        //  是否点击时需要二次确认
+        this.isSecondCheck = Boolean(this.el.data('issecondcheck'));
 
         if(!props.docClick) this.el.on('click', $.proxy(this.toggle, this)) 
     }
@@ -24,6 +28,24 @@ export default class Switch {
         if(this.el.hasClass('disabled')) return;
 
         var checked = this.el.hasClass('checked')
+
+        if(this.isSecondCheck){
+            //  弹窗二次确认
+            var status = checked ? '激活' : '未激活';
+            var toStatus = checked ? '取消激活' : '激活';
+            var content = '当前状态为' + status + '，是否' + toStatus + '?';
+            $.confirmModalLayer({ 
+                title: '提醒', 
+                content: content, 
+                callback: this._toggleClass(checked)
+            });
+        }else{
+            this._toggleClass(checked);
+        }
+
+    }
+
+    _toggleClass(checked){
         this.el.toggleClass('checked', !checked).trigger('checked.bp.switch', !checked)
     }
 }
@@ -44,7 +66,7 @@ $.fn.switch = Plugin
 $.fn.switch.constructor = Switch
 
 $(function() {
-    $(document).on('click', toggle, function() {
+    $(document).on('click.swtich', toggle, function() {
         $(this).switch('toggle')
     })
 })
