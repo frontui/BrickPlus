@@ -36,20 +36,60 @@
 <div class="tabs-content">
   <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
+        <h2>验证使用nic validator</h2>
+
       <ul class="example-description">
+        <li>更多验证规则请<a target="_blank" href="https://niceue.com/validator/">参考</a></li>
         <li>
-          待续
+            使用JS验证https://niceue.com/validator/demo/custom-rule.php7
         </li>
       </ul>
+
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          jQuery.validate.js
+
+            <form class="form" data-validator-option="{timely:2}">
+                <h3>Target to a container</h3>
+
+                <!--
+                <div class="form-group has-error">
+                    <div class="form-control-wrap">
+                        <div class="form-notice"/>
+                              <i></i>
+                              <div id="msgContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <div id="msgContainer"></div>
+                <div class="form-item">
+                    <input type="text" name="name" data-rule="Name:required" data-target="#msgContainer">
+                </div>
+                <div class="form-item">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+
+
+
+
+
+
         </div>
         <div class="example-code">
           <pre>
             <code>
-
+                &lt;!-- html 结构 --&gt;
+                msgContainer 为目标点,更多需求请点击上面的参考
+                &lt;div id=&quot;msgContainer&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;form-item&quot;&gt;
+                    &lt;input type=&quot;text&quot; name=&quot;name&quot; data-rule=&quot;Name:required&quot; data-target=&quot;#msgContainer&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-item&quot;&gt;
+                    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
             </code>
           </pre>
         </div>
@@ -67,11 +107,12 @@
 
 {# 页面专有 javascript 文件地址 #}
 {% block js %}
+<script src="{{static}}/js/brickplus/validator.js"></script>
 {% endblock %}
 
 
 {# 编写页面内联 javascript 代码 #}
+
 {% block jsPage %}
-<script>
-</script>
+
 {% endblock %}
