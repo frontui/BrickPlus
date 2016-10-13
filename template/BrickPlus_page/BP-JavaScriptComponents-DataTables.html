@@ -33,29 +33,108 @@
 
 {# 加载页面内容 #}
 {% block content %}
-<div class="tabs-content">
-  <div class="tabs-panel active" id="tp1">
-    <section class="example-wrap">
-      <ul class="example-description">
-        <li>
-          待续
-        </li>
-      </ul>
-      <div class="example">
-        <div class="example-tag">实例</div>
-        <div class="example-box">
-          dataTable
-        </div>
-        <div class="example-code">
-          <pre>
-            <code>
+{# 渲染标签页 #}
+{{
+tab.prototype(
+tabs = [
+{text: '概述', url: '#tp1'},
+{text: '状态', url: '#tp2'},
+{text: '组合', url: '#tp3'}
+],
+cur='1'
+)
+}}
 
-            </code>
-          </pre>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="tabs-content">
+    <div class="tabs-panel active" id="tp1">
+        <section class="example-wrap">
+            <ul class="example-description">
+                <li>
+                    数据表格对分页组件主要获取ajax数据交互后进行渲染。
+                </li>
+                <li>
+                    <!--在<code>ul</code>元素上定义了<code>pagination</code>类就可以启动分页组件。-->
+                </li>
+            </ul>
+            <div class="example">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+
+                    <div class="form-group">
+                        <div class="form-control-label"><span>搜索电话</span> <em>：</em></div>
+                        <div class="form-control-wrap">
+                            <input id="search_1" name="phone" type="text" class="form-control" data-toggle="filter" pattern="number">
+                        </div>
+                        <br>
+                        <div class="form-control-label"><span>搜索名字</span> <em>：</em></div>
+                        <div class="form-control-wrap">
+                            <input id="search_2" name="use_name" type="text" class="form-control" data-toggle="filter" pattern="number">
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <table class="table" id="dt">
+                        <colgroup>
+                            <col style="width: 150px">
+                            <col style="width: 100px">
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col style="width: 100px">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th data-options="createTime"> 创建时间</th>
+                            <th data-options="province"> 业务类型</th>
+                            <th data-options="channelNo"> 商品名称</th>
+                            <th data-options="creator"> 订单号</th>
+                            <th data-options="corporation"> 对方账号</th>
+                            <th data-options="contactPhone"> 余额</th>
+                            <th data-options="status"> 收入</th>
+                            <th data-options="city"> 支出</th>
+                            <th data-options="op"> 操作</th>
+                        </tr>
+                        </thead>
+
+                    </table>
+                </div>
+                <div class="example-code">
+         <pre><code>&lt;!-- HTML结构 --&gt;
+             &lt;nav class="pagination-box"&gt;
+             &lt;ul class="paginations" id="j-page-deom1" data-total-pages="20"&gt;&lt;/ul&gt;
+             &lt;/nav&gt;
+             &lt;!-- js --&gt;
+             $('#j-page-deom1').on('select.bp.pagination', function(e, page) {
+             $('#j-page-text1').html('page'+ page)
+             })
+         </code></pre>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+            <h2>配置参数</h2>
+            <ul class="example-description">
+                <li>
+                </li>
+            </ul>
+            <div class="example fn-mb-20">
+                <div class="example-tag">实例</div>
+                <div class="example-box">
+                    <div class="tables-wrap">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tabs-panel" id="tp2">
+    </div>
+    <div class="tabs-panel" id="tp3">
+    </div>
 </div>
 {% endblock %}
 
@@ -67,11 +146,18 @@
 
 {# 页面专有 javascript 文件地址 #}
 {% block js %}
+<script src="{{static}}/js/brickplus/dataTable.js"></script>
 {% endblock %}
 
 
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
+    $('#dt').dataTable({
+        url: "/api/t1/getDataInfo",
+        toolBar: ['#search_1','#search_2']
+    });
+
+
 </script>
 {% endblock %}
