@@ -9,12 +9,15 @@ import './checkAll';
 class DataTable {
     constructor($el, option) {
         this.model = {
+            columns: [],
             titles: [],  //定义的所有Title
+            formatters: [], //定义所有的formatter
             url: null,
             requestData: {}, //请求数据
             method: 'get', //请求方法
             dataType: 'json', //数据类型
-            toolbars: []
+            toolbars: [],
+            queryParams: null
         };
         this.dom = {
             $tbody: null,
@@ -23,6 +26,7 @@ class DataTable {
         };
         this.pagination = null;
         this.option = option;
+        console.log('option', option);
         this._init();
     }
 
@@ -36,6 +40,8 @@ class DataTable {
     }
 
     _getData() { //获取数据并渲染
+        this.model.queryParams && $.extend(this.model.requestData, this.model.queryParams());
+        $.extend(this.model.requestData, {t: new Date().getTime().toString()}); //时间戳清除浏览器缓存
         $.ajax({
             type: this.model.method,
             url: this.model.url,
@@ -58,7 +64,6 @@ class DataTable {
         this.getPager.items = total; //记录数
         this.getPager.totalPages = total / $(this.dom.$pageNumber).val(); //共几页
         this.getPager.render();
-        
         //this.getPager.__renderPageStr();
     }
 
@@ -79,8 +84,9 @@ class DataTable {
             //生成格子
             for(var j = 0; j < this.model.titles.length; j++) {
                 var title = this.model.titles[j];
+                var formatter = this.model.formatters[j];
                 var $td = $("<td></td>");
-                $td.html(this._getContByTitle(title, row));
+                $td.html(this._getContByTitle(title, row, formatter, i));
                 $tr.append($td);
             }
         }
@@ -92,10 +98,32 @@ class DataTable {
     _init() {
         this._setTitle(this.dom.$el);
         this._build();
-      
         if(this.option.hasOwnProperty('url')) this.url = this.option.url;  //是否有url
         if(this.option.hasOwnProperty('toolBar')) this.model.toolbars = this.option.toolBar;  //是否有toolbar
+        if(this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
+        if(this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
 
+       // this._buildTableHead();
+    }
+
+    _buildTableHead() {
+        var $group = $('<colgroup></colgroup>');
+        var $thead = $("<thead></thead>");
+        var $tr = $("<tr></tr>");
+        $thead.append($tr);
+        for(var i = 0; i < this.model.columns.length; i++) {
+            var column = this.model.columns[i];
+            var $col = $('<col></col>');
+            if(column.hasOwnProperty('width')) $col.width(column.width);
+            $group.append($col);
+            var $th = $("<th></th>");
+            if(column.hasOwnProperty('width')) $th.html(column.title);
+            $tr.append($tr);
+        }
+        
+        this.dom.$el.append($group);
+        this.dom.$el.append($thead);
+        
     }
 
     _build() {
@@ -148,12 +176,8 @@ class DataTable {
                     page: page, //页数
                     number: $(that.dom.$pageNumber).val(), //数量
                 }
-                
-                // console.log(that.model.toolbars.length)
                 if(that.model.toolbars.length > 0) {
-                    
-                    that.model.requestData = $.extend({}, that.model.requestData, that._getToolbarData())
-                    // console.log(that.model.requestData)
+                    $.extend(that.model.requestData, that._getToolbarData());
                 }
                 that._getData();
             });
@@ -167,6 +191,15 @@ class DataTable {
     }
 
     /**
+     *设置参数值
+     */
+    setting(obj) {
+        for(var key in obj) {
+            this.model[key] = obj[key];
+        }
+    }
+
+    /**
      *设置uri资源
      */
     set url(u) {
@@ -174,21 +207,31 @@ class DataTable {
     }
 
     //TODO js渲染时公开
+    //记录 title 和 formatter
     _setTitle($dom) {
         var ths = $dom.find('th');
         for(var i = 0; i < ths.length; i++) {
             var obj = ths[i];
             var f = $(obj).data("options");
             this.model.titles.push(f);
+            this.model.formatters.push($(obj).data("formatter"));
         }
     }
 
-    //
-    _getContByTitle(str, row) {
+    //根据表头ID返回内容
+    _getContByTitle(str, row, formatter, index) {
         for(var obj in row) {
-            if(obj == str) {
+            if(obj === str) {
+                if(formatter) {
+                    var f = window[formatter](row[obj], row, index);
+                    return f;
+                }
                 return row[obj];
             }
+        }
+        if(formatter) {
+            var f = window[formatter](row[obj], row, index);
+            return f;
         }
         return '';
     }
@@ -208,6 +251,9 @@ class DataTable {
     set data(d) {
     }
 
+    /**
+     *获取页脚
+     */
     get getPager() {
         return $(this.pagination).data('bp.pagination');
     }
@@ -223,7 +269,7 @@ function Plugin(options, args) {
         // 创建一个新实例
         if(!data) $this.data('bp.dataTable', (data = new DataTable($this, $.extend({}, $this.data(), options))));
         if(typeof options == 'string') { // 调用接口方法,第二个参数为方法传入参数
-            data[options].apply(data, args);
+            data[options].call(data, args);
         }
     })
 }
