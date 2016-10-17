@@ -62,14 +62,30 @@
                     </div>
                 </div>
                 -->
-                <div id="msgContainer"></div>
-                <div class="form-item">
+
+
+                <div class="form-group has-error fn-mb-40">
+                    <label class="form-control-label" for="FormVerify1">
+                        <span>keyin</span>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div>
+                            <input type="text" class="form-control" name="name" data-rule="Name:required" >
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <button type="submit" class="btn default">Submit</button>
+                    </div>
+                </div>
+            <!--
+            <div class="form-item">
                     <input type="text" name="name" data-rule="Name:required" data-target="#msgContainer">
                 </div>
                 <div class="form-item">
                     <button type="submit">Submit</button>
                 </div>
             </form>
+            -->
 
 
 
@@ -81,14 +97,21 @@
         <div class="example-code">
           <pre>
             <code>
-                &lt;!-- html 结构 --&gt;
-                msgContainer 为目标点,更多需求请点击上面的参考
-                &lt;div id=&quot;msgContainer&quot;&gt;&lt;/div&gt;
-                &lt;div class=&quot;form-item&quot;&gt;
-                    &lt;input type=&quot;text&quot; name=&quot;name&quot; data-rule=&quot;Name:required&quot; data-target=&quot;#msgContainer&quot;&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;form-item&quot;&gt;
-                    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+                必须按照指定格式，才有样式，源码有小修改。
+                "has-( 成功 / 错误 / 警告 )"
+                "has-( correct / error / warning )"
+                &lt;div class=&quot;form-group has-error fn-mb-40&quot;&gt;
+                    &lt;label class=&quot;form-control-label&quot; for=&quot;FormVerify1&quot;&gt;
+                        &lt;span&gt;keyin&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;div class=&quot;form-control-wrap&quot;&gt;
+                        &lt;div&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;name&quot; data-rule=&quot;Name:required&quot; &gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;form-item&quot;&gt;
+                        &lt;button type=&quot;submit&quot; class=&quot;btn default&quot;&gt;Submit&lt;/button&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             </code>
           </pre>

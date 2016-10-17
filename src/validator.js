@@ -95,14 +95,15 @@
                     });
                 } else {
                     //html += opt.icon + '<span class="n-msg">' + opt.msg + '</span>'; 源码改动
-                    html+='<div class="form-group has-error">'+
-'                        <div class="form-control-wrap">'+
-'                            <div class="form-notice">'+
-'                                  <i></i>'+
-opt.msg +
-'                            </div>'+
-'                        </div>'+
-'                    </div>';
+//                     html+='<div class="form-group has-error">'+
+// '                        <div class="form-control-wrap">'+
+// '                            <div class="form-notice">'+
+// '                                  <i></i>'+
+// opt.msg +
+// '                            </div>'+
+// '                        </div>'+
+// '                    </div>';
+                        html+='<div class="form-notice"> <i></i>'+ opt.msg +' </div>';
                 }
                 html += '</span>';
                 return html;
