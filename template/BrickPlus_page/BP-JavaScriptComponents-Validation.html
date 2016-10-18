@@ -49,51 +49,21 @@
         <div class="example-tag">实例</div>
         <div class="example-box">
 
-            <form class="form" data-validator-option="{timely:2}">
-                <h3>Target to a container</h3>
-
-                <!--
-                <div class="form-group has-error">
-                    <div class="form-control-wrap">
-                        <div class="form-notice"/>
-                              <i></i>
-                              <div id="msgContainer"></div>
-                        </div>
-                    </div>
-                </div>
-                -->
-
-
-                <div class="form-group has-error fn-mb-40">
-                    <label class="form-control-label" for="FormVerify1">
-                        <span>keyin</span>
-                    </label>
-                    <div class="form-control-wrap">
-                        <div>
-                            <input type="text" class="form-control" name="name" data-rule="Name:required" >
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <button type="submit" class="btn default">Submit</button>
-                    </div>
-                </div>
-            <!--
-            <div class="form-item">
-                    <input type="text" name="name" data-rule="Name:required" data-target="#msgContainer">
-                </div>
-                <div class="form-item">
-                    <button type="submit">Submit</button>
-                </div>
+            <form id="demo_101" action="results.php" method="post" autocomplete="off"
+                data-validator-option="{theme:'yellow_top',stopOnError:true}"
+            >
+            <fieldset>
+                <!-- 定义了mobile规则，并且通过data-rule使用 -->
+                <input name="mobile" placeholder="手机号"
+                    data-rule="required; mobile"
+                    data-rule-mobile="[/^1[3458]\d{9}$/, '请检查手机号格式']"
+                >
+            </fieldset>
+            <button type="submit">提交</button>
             </form>
-            -->
 
 
 
-
-
-
-
-        </div>
         <div class="example-code">
           <pre>
             <code>
