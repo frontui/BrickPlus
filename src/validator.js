@@ -4,9 +4,7 @@
  */
 /*jshint evil:true*/
 
-
     "use strict";
-    var $ = require('jquery');
 
     var NS = 'validator',
         CLS_NS = '.' + NS,
@@ -94,16 +92,7 @@
                         html += '<span class="n-'+ obj.type +'">' + opt.icon + '<span class="n-msg">' + obj.msg + '</span></span>';
                     });
                 } else {
-                    //html += opt.icon + '<span class="n-msg">' + opt.msg + '</span>'; 源码改动
-//                     html+='<div class="form-group has-error">'+
-// '                        <div class="form-control-wrap">'+
-// '                            <div class="form-notice">'+
-// '                                  <i></i>'+
-// opt.msg +
-// '                            </div>'+
-// '                        </div>'+
-// '                    </div>';
-                        html+='<div class="form-notice"> <i></i>'+ opt.msg +' </div>';
+                    html += opt.icon + '<span class="n-msg">' + opt.msg + '</span>';
                 }
                 html += '</span>';
                 return html;
