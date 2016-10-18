@@ -38,6 +38,7 @@ export default class Modal {
         this.originalBodyPad = null 
         this.scrollbarWidth = 0
         this.size = this.props.size
+        this.isHideRemove = this.props.isHideRemove || false;
 
         this.setSize(this.size, true)
 
@@ -132,6 +133,7 @@ export default class Modal {
         this.resetScrollbar()
         this.$dialog.removeClass('bounceInDown')
         this.el.removeClass('in').trigger(e)
+        this.isHideRemove && this.el.remove()
     }
 
     // 调整弹层位置
@@ -277,7 +279,6 @@ Modal.render = function(option) {
 // 插件定义
 //======================
 function Plugin(option, ...args) {
-
     if (!$(this).length && option && /^#(\w*)/gi.test($(this).selector)) {  // js创建
         let data, fn;
 
@@ -308,7 +309,6 @@ function Plugin(option, ...args) {
                 opt = $.extend({}, Modal.DEFAULTS, that.data(), $.isPlainObject(option) ? option : {})
             if(!data) that.data('bp.modal', (data = new Modal(that, opt)))
 
-            
             if(typeof option === 'string') {
                 typeof data[option] === 'function' && data[option].apply(data, args)
             } else if($.isPlainObject(option)) {

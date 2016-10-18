@@ -37,6 +37,10 @@ import './switch'
 import './tab'
 import './timerPicker'
 import './tooltips'
+import './validator'
+
+//数据表格
+import './dataTable'
 
 
 // ------- 工具函数库 ----------

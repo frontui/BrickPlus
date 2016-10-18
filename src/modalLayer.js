@@ -77,24 +77,24 @@ function Plugin(option) {
             btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</button>');
         }
     }
-
+    
     function callback() {
         var el = $(this)
-        $(this).on('click', '.bp-modallayer-btns .btn', function() {
+        $(this).on('click.btnEvents', '.bp-modallayer-btns .btn', function() {
             var index = $(this).data('index'), e = true 
-
+            // console.log(btns[index]['callbackPointer']);
             if(btns.length && btns[index] && btns[index]['callback'] && typeof btns[index]['callback'] === 'function') {
-                e = btns[index]['callback'].call(null, $(this), index) === false ? false : true 
+                e = btns[index]['callback'].call(btns[index]['callbackPointer'], $(this), index) === false ? false : true 
             }
 
             e && el.modal('hide')
         })
-    }
+    };
 
     opt.content = ModalLayer.render({ status: opt.icon ? 'result-'+ opt.icon : '', title: opt.title, content: (option.content || ''), buttons: btnHtml.join('') })
     opt.callback = callback
-
-    that = $(this).modal({ title: opt.title, content: opt.content, callback: opt.callback, size: opt.size })
+    
+    that = $(this).modal({ title: opt.title, content: opt.content, callback: opt.callback, size: opt.size , isHideRemove : opt.isHideRemove})
 
 }
 
@@ -115,7 +115,8 @@ $.successModalLayer = function(config) {
                 text: '确定',
                 callback: config['callback']
             }
-        ]
+        ],
+        isHideRemove : config['isHideRemove'] || false
     })
 }
 
@@ -137,7 +138,8 @@ $.confirmModalLayer = function(config) {
                 text: '取消',
                 style: 'btn links'
             }
-        ]
+        ],
+        isHideRemove : config['isHideRemove'] || false
     })
 }
 
@@ -154,7 +156,8 @@ $.alertModalLayer = function(config) {
                 text: '确定',
                 callback: config['callback']
             }
-        ]
+        ],
+        isHideRemove : config['isHideRemove'] || false
     })
 }
 
@@ -172,6 +175,7 @@ $.errorModalLayer = function(config) {
                 style: 'btn thirdly',
                 callback: config['callback']
             }
-        ]
+        ],
+        isHideRemove : config['isHideRemove'] || false
     })
 }
