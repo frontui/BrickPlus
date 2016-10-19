@@ -1,118 +1,86 @@
-{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
-
-
-{# 填写页面 title #}
-{% block title %}BrickPlus{% endblock %}
-
-
-{# 页面专有样式表地址 #}
-{% block css %}
-{% endblock %}
-
-
-{# 编写页面内联 css 代码 #}
-{% block stylePage %}
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %} {# 填写页面 title #} {% block title %}BrickPlus{% endblock %} {# 页面专有样式表地址 #} {% block css %} {% endblock %} {# 编写页面内联 css 代码 #} {% block stylePage %}
 <style>
+
 </style>
-{% endblock %}
-
-
-{# 加载页面 body 设置，例如引用‘类’ #}
-{% block bodyClass %}
-{% endblock %}
-
-
-{# 渲染页面导航 #}
-{% block nav %}
-{# 渲染主导航 #}
-{{ navigator.theNav(mainNav,cur='4') }}
-{# 渲染侧导航 #}
-{{ asideNav.theAsideNav(mainAsideNav,cur='15') }}
-{% endblock %}
-
-
-{# 加载页面内容 #}
-{% block content %}
+{% endblock %} {# 加载页面 body 设置，例如引用‘类’ #} {% block bodyClass %} {% endblock %} {# 渲染页面导航 #} {% block nav %} {# 渲染主导航 #} {{ navigator.theNav(mainNav,cur='4') }} {# 渲染侧导航 #} {{ asideNav.theAsideNav(mainAsideNav,cur='15') }} {% endblock %} {# 加载页面内容 #} {%
+block content %}
 <div class="tabs-content">
   <div class="tabs-panel active" id="tp1">
     <section class="example-wrap">
-        <h2>验证使用nic validator</h2>
+      <h2>验证使用nic validator</h2>
 
       <ul class="example-description">
         <li>更多验证规则请<a target="_blank" href="https://niceue.com/validator/">参考</a></li>
         <li>
-            使用JS验证https://niceue.com/validator/demo/custom-rule.php7
+          使用JS验证https://niceue.com/validator/demo/custom-rule.php
         </li>
       </ul>
-
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
 
-            <form class="form" data-validator-option="{timely:2}">
-                <h3>Target to a container</h3>
+          <form id="demo_101" action="results.php" method="post" autocomplete="off" data-validator-option="{theme:'yellow_top'}">
+            <fieldset>
+              <!-- 定义了mobile规则，并且通过data-rule使用 -->
+              <div class="form-group">
 
-                <!--
-                <div class="form-group has-error">
-                    <div class="form-control-wrap">
-                        <div class="form-notice"/>
-                              <i></i>
-                              <div id="msgContainer"></div>
-                        </div>
-                    </div>
+                <label class="form-control-label" for="FormTree1">
+                  <span>标准表单案例</span>
+                </label>
+                <div class="form-control-wrap">
+                  <input name="mobile" class="form-control" placeholder="手机号" data-rule="required; mobile" data-rule-mobile="[/^1[3458]\d{9}$/, '请检查手机号格式']">
                 </div>
-                -->
-                <div id="msgContainer"></div>
-                <div class="form-item">
-                    <input type="text" name="name" data-rule="Name:required" data-target="#msgContainer">
-                </div>
-                <div class="form-item">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+                <button type="submit" class="btn default fn-mt-20">提交</button>
+              </div>
 
 
+            </fieldset>
+          </form>
 
 
-
-
-
-        </div>
-        <div class="example-code">
-          <pre>
+          <div class="example-code">
+            <pre>
             <code>
-                &lt;!-- html 结构 --&gt;
-                msgContainer 为目标点,更多需求请点击上面的参考
-                &lt;div id=&quot;msgContainer&quot;&gt;&lt;/div&gt;
-                &lt;div class=&quot;form-item&quot;&gt;
-                    &lt;input type=&quot;text&quot; name=&quot;name&quot; data-rule=&quot;Name:required&quot; data-target=&quot;#msgContainer&quot;&gt;
+                已经封装好，使用方法和nic validator一样，更多验证要求在 setTheme 配置
+                &lt;form id=&quot;demo_101&quot; action=&quot;results.php&quot; method=&quot;post&quot; autocomplete=&quot;off&quot; data-validator-option=&quot;{theme:&#x27;yellow_top&#x27;}&quot;&gt;
+            &lt;fieldset&gt;
+              &lt;!-- 定义了mobile规则，并且通过data-rule使用 --&gt;
+              &lt;div class=&quot;form-group&quot;&gt; &lt;label class=&quot;form-control-label&quot; for=&quot;FormTree1&quot;&gt;
+                  &lt;span&gt;标准表单案例&lt;/span&gt;
+                &lt;/label&gt;
+                &lt;div class=&quot;form-control-wrap&quot;&gt;
+                    &lt;input name=&quot;mobile&quot; class=&quot;form-control&quot; placeholder=&quot;手机号&quot; data-rule=&quot;required; mobile&quot; data-rule-mobile=&quot;[/^1[3458]\d{9}$/, &#x27;请检查手机号格式&#x27;]&quot;&gt;
                 &lt;/div&gt;
-                &lt;div class=&quot;form-item&quot;&gt;
-                    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
-                &lt;/div&gt;
+              &lt;/div&gt;
+
+            &lt;/fieldset&gt;
+            &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;
+          &lt;/form&gt;
             </code>
           </pre>
+          </div>
         </div>
-      </div>
     </section>
+    </div>
   </div>
-</div>
-{% endblock %}
-
-
-{# 加载弹窗内容 #}
-{% block modal %}
-{% endblock %}
-
-
-{# 页面专有 javascript 文件地址 #}
-{% block js %}
-<script src="{{static}}/js/brickplus/validator.js"></script>
-{% endblock %}
-
-
-{# 编写页面内联 javascript 代码 #}
-
-{% block jsPage %}
-
-{% endblock %}
+  {% endblock %} {# 加载弹窗内容 #} {% block modal %} {% endblock %} {# 页面专有 javascript 文件地址 #} {% block js %}
+  <script src="{{static}}/js/brickplus/validator.js"></script>
+  {% endblock %} {# 编写页面内联 javascript 代码 #} {% block jsPage %}
+  <script>
+    $('#form4').validator({
+      timely: 2,
+      stopOnError: true,
+      display: function(input) {
+        return $(input).attr('placeholder');
+      },
+      target: function(input) {
+        var $formitem = $(input).closest('.form-item'),
+          $msgbox = $formitem.find('span.msg-box');
+        if (!$msgbox.length) {
+          $msgbox = $('<span class="msg-box"></span>').appendTo($formitem);
+        }
+        return $msgbox;
+      }
+    });
+  </script>
+  {% endblock %}
