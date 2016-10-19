@@ -53,7 +53,6 @@ cur='1'
                     数据表格对分页组件主要获取ajax数据交互后进行渲染。
                 </li>
                 <li>
-                    <!--在<code>ul</code>元素上定义了<code>pagination</code>类就可以启动分页组件。-->
                 </li>
             </ul>
             <div class="example">
@@ -62,16 +61,15 @@ cur='1'
 
                     <div class="form-group">
                         <div class="form-control-label"><span>搜索电话</span> <em>：</em></div>
-                        <div class="form-control-wrap">
+                        <div class="form-control-wrap" style="width: 200px;">
                             <input id="search_1" name="phone" type="text" class="form-control" data-toggle="filter"
                                    pattern="number">
                         </div>
+                        <button id="ok" type="button" class="btn thirdly"
+                                style=" position: absolute;top: 0px; left: 395px;">搜索
+                        </button>
                         <br>
-                        <div class="form-control-label"><span>搜索名字</span> <em>：</em></div>
-                        <div class="form-control-wrap">
-                            <input id="search_2" name="use_name" type="text" class="form-control" data-toggle="filter"
-                                   pattern="number">
-                        </div>
+
                     </div>
                     <br>
 
@@ -89,29 +87,49 @@ cur='1'
                         </colgroup>
                         <thead>
                         <tr>
-                            <th data-options="createTime" data-formatter="testFn"> 创建时间</th>
+                            <th data-options="createTime" data-formatter="testFn" data-style="{'text-align':'center'}">
+                                创建时间
+                            </th>
                             <th data-options="province"> 业务类型</th>
-                            <th data-options="channelNo"> 商品名称</th>
+                            <th data-options="channelNo"  data-style="{'text-align':'center'}"> 商品名称</th>
                             <th data-options="creator" data-formatter="typeFn"> 订单号</th>
                             <th data-options="corporation"> 对方账号</th>
                             <th data-options="contactPhone"> 余额</th>
-                            <th data-options="status"> 收入</th>
+                            <th data-options="status"  data-style="{'text-align':'left'}"> 收入</th>
                             <th data-options="city"> 支出</th>
-                            <th data-options="op" data-formatter="opFn"> 操作</th>
+                            <th data-options="op" data-formatter="opFn"  data-style="{'text-align':'right'}"> 操作</th>
                         </tr>
                         </thead>
-
                     </table>
                 </div>
                 <div class="example-code">
          <pre><code>&lt;!-- HTML结构 --&gt;
-             &lt;nav class="pagination-box"&gt;
-             &lt;ul class="paginations" id="j-page-deom1" data-total-pages="20"&gt;&lt;/ul&gt;
-             &lt;/nav&gt;
-             &lt;!-- js --&gt;
-             $('#j-page-deom1').on('select.bp.pagination', function(e, page) {
-             $('#j-page-text1').html('page'+ page)
-             })
+             &lttable class="table" id="dt"&gt
+             &ltcolgroup&gt
+             &ltcol style="width: 180px"&gt
+             &ltcol style="width: 100px"&gt
+             &ltcol&gt
+             &ltcol&gt
+             &ltcol&gt
+             &ltcol&gt
+             &ltcol&gt
+             &ltcol&gt
+             &ltcol style="width: 100px"&gt
+             &lt/colgroup&gt
+             &ltthead&gt
+             &lttr&gt
+             &ltth data-options="createTime" data-formatter="testFn"&gt 创建时间&lt/th&gt
+             &ltth data-options="province"&gt 业务类型&lt/th&gt
+             &ltth data-options="channelNo"&gt 商品名称&lt/th&gt
+             &ltth data-options="creator" data-formatter="typeFn"&gt 订单号&lt/th&gt
+             &ltth data-options="corporation"&gt 对方账号&lt/th&gt
+             &ltth data-options="contactPhone"&gt 余额&lt/th&gt
+             &ltth data-options="status"&gt 收入&lt/th&gt
+             &ltth data-options="city"&gt 支出&lt/th&gt
+             &ltth data-options="op" data-formatter="opFn"&gt 操作&lt/th&gt
+             &lt/tr&gt
+             &lt/thead&gt
+             &lt/table&gt
          </code></pre>
                 </div>
             </div>
@@ -155,13 +173,15 @@ cur='1'
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
+
     $('#dt').dataTable({
         url: "/api/t1/getDataInfo",
-        toolBar: ['#search_1', '#search_2'],
+//        url: "/api/t1/getBankInfo",
+        // toolbar: ['#search_1', '#search_2'],
         queryParams: function() {
             return {
                 transferName: $('#search_1').val(),
-                beginTime: $('#search_2').val(),
+                beginTime: $('#search_1').val() + '55888999',
             }
         },
         columns: [
@@ -179,7 +199,11 @@ cur='1'
             {field: "op", title: "操作", width: 100}
         ]
     });
-    $('#dt').dataTable('setting', {method: 'get'});
+    $("#ok").click(function() {
+        $('#dt').dataTable().draw();
+    });
+    //获取页脚信息 
+    var page = $('#dt').dataTable('getPagination');
     //
     function testFn(value, row, index) {
         var text = value || '';

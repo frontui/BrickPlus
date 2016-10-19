@@ -9,11 +9,15 @@ import './checkAll';
 class DataTable {
     constructor($el, option) {
         this.model = {
+            rows: [],
             columns: [],
             titles: [],  //定义的所有Title
             formatters: [], //定义所有的formatter
             url: null,
-            requestData: {}, //请求数据
+            requestData: {
+                page: 1, //页数
+                number: 10
+            },//数量}, //请求数据
             method: 'get', //请求方法
             dataType: 'json', //数据类型
             toolbars: [],
@@ -23,10 +27,12 @@ class DataTable {
             $tbody: null,
             $el: $el,
             $pageNumber: null,
+            pageJumpButtonId: null,
+            pageJSelectId: null
         };
         this.pagination = null;
         this.option = option;
-        console.log('option', option);
+        // console.log('option', option);
         this._init();
     }
 
@@ -40,6 +46,9 @@ class DataTable {
     }
 
     _getData() { //获取数据并渲染
+        /* var formatter = this.model.formatters[0];
+         var f = window[formatter]();
+         console.log(formatter, f);*/
         this.model.queryParams && $.extend(this.model.requestData, this.model.queryParams());
         $.extend(this.model.requestData, {t: new Date().getTime().toString()}); //时间戳清除浏览器缓存
         $.ajax({
@@ -48,12 +57,14 @@ class DataTable {
             data: this.model.requestData,
             dataType: this.model.dataType,
             success: function(json) {
+                this.model.rows = json.rows;
                 this._clear();
                 this._render(json);
                 //初始化页脚信息
                 this._setPagination(json);
             }.bind(this),
             error: function() {
+                // console.log("dd");
             }
         });
     }
@@ -62,7 +73,7 @@ class DataTable {
         var total = json.total;
         this.getPager.props.pageStr.show = true;
         this.getPager.items = total; //记录数
-        this.getPager.totalPages = total / $(this.dom.$pageNumber).val(); //共几页
+        this.getPager.totalPages = Math.ceil(total / $(this.dom.$pageNumber).val()); //共几页
         this.getPager.render();
         //this.getPager.__renderPageStr();
     }
@@ -102,8 +113,7 @@ class DataTable {
         if(this.option.hasOwnProperty('toolBar')) this.model.toolbars = this.option.toolBar;  //是否有toolbar
         if(this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
         if(this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
-
-       // this._buildTableHead();
+        // this._buildTableHead();
     }
 
     _buildTableHead() {
@@ -120,17 +130,19 @@ class DataTable {
             if(column.hasOwnProperty('width')) $th.html(column.title);
             $tr.append($tr);
         }
-        
         this.dom.$el.append($group);
         this.dom.$el.append($thead);
-        
     }
 
     _build() {
+        var paginationId = "j_paginations_" + new Date().getTime().toString();
+        this.model.paginationId = paginationId;
         //建立分页
         var $nav = $("<nav class=\"pagination-box text-align-right fn-mt-30\"></nav>");
-        var $ul = $("<ul class=\"paginations\" id=\"j-page-deom1\"></ul>");
+        var $ul = $("<ul class=\"paginations\" id=\"" + paginationId + "\"></ul>");
         //跳转
+        var jumpId = "j-page-itempage-" + new Date().getTime();
+        this.dom.pageJumpButtonId = jumpId;
         var $jupmDiv = $("<div class=\"p-add-ons fn-ml-15\">" +
             "<div class=\"form-group form-gs form-no-label\">" +
             "<div class=\"form-gs-box\">" +
@@ -139,12 +151,13 @@ class DataTable {
             "</div>" +
             "<div class=\"form-addon child-right\">页</div>" +
             "<div class=\"form-addon-com\"> " +
-            "<button type=\"button\" class=\"btn default\" id=\"j-page-btnff\">GO</button>" +
+            "<button type=\"button\" class=\"btn default\" id=\"" + jumpId + "\">GO</button>" +
             "</div>" +
             "</div>" +
             "</div>");
         //每页显示条数
-        var selectId = "j-page-itempage-" + new Date().getTime();
+        var selectId = "s-page-itempage-" + new Date().getTime();
+        this.dom.pageJSelectId = selectId;
         var $pageNumber = $("<div class=\"p-add-ons fn-ml-15\">" +
             "<div class=\"form-group form-gs form-no-label\">" +
             "<div class=\"form-gs-box\">" +
@@ -168,9 +181,13 @@ class DataTable {
         this.dom.$el.after($nav);
         this.dom.$pageNumber = $pageNumber.find('select');
         this.pagination = $ul;
+        this._addPageListener();
+    }
+
+    _addPageListener() {
         var that = this;
         //切换事件
-        $($ul).on('select.bp.pagination',
+        $(this.pagination).on('select.bp.pagination',
             function(e, page) {
                 that.model.requestData = {
                     page: page, //页数
@@ -181,6 +198,22 @@ class DataTable {
                 }
                 that._getData();
             });
+        // 控制跳转
+        $('#' + this.dom.pageJumpButtonId).on('click', function() {
+            /*var page = $.trim($('#j-page-input-3').val())
+             if(page !== '') {
+             $('#j-page-demo3').pagination('go', parseInt(page))
+             $('#j-page-input-3').val('')
+             }*/
+            //判断是否超出 或者为空
+            console.log('2222222222');
+        })
+        // 每页记录数
+        $('#' + this.dom.pageJSelectId).on('change', function() {
+            var itemsOnPage = $(this).val()
+            console.log('每页' + itemsOnPage);
+            // $('#j-page-demo3').pagination('reset', {itemsOnPage: itemsOnPage})
+        })
     }
 
     /**
@@ -196,6 +229,18 @@ class DataTable {
     setting(obj) {
         for(var key in obj) {
             this.model[key] = obj[key];
+        }
+    }
+
+    /**
+     *获取页脚
+     * page
+     * number
+     */
+    getPagination() {
+        return {
+            page: this.model.requestData.page,
+            number: this.model.requestData.number
         }
     }
 
@@ -224,6 +269,7 @@ class DataTable {
             if(obj === str) {
                 if(formatter) {
                     var f = window[formatter](row[obj], row, index);
+                    // console.log(f)
                     return f;
                 }
                 return row[obj];
@@ -231,6 +277,7 @@ class DataTable {
         }
         if(formatter) {
             var f = window[formatter](row[obj], row, index);
+            //console.log(f)
             return f;
         }
         return '';
@@ -251,9 +298,6 @@ class DataTable {
     set data(d) {
     }
 
-    /**
-     *获取页脚
-     */
     get getPager() {
         return $(this.pagination).data('bp.pagination');
     }
@@ -261,7 +305,14 @@ class DataTable {
 // 插件定义
 //======================
 function Plugin(options, args) {
-    // jquery 链式
+    if(typeof options == 'string' && args == undefined) {
+        var data = $(this).data('bp.dataTable');
+        if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
+        if(typeof options == 'string') {
+            return data[options].call(data, args);
+        }
+    }
+// jquery 链式
     return $(this).each(function() {
         var $this = $(this);
         if($this.hasClass('no-js')) return;
