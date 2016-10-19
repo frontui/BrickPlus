@@ -2,7 +2,7 @@
   "name": "BrickPlus",
   "author": "frontUI",
   "description": "BrickPlus 是部分基于 Bootstarp 框架的FrontUI前端团队的项目开发框架",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "dist/js/brickPlus.js",
   "scripts": {
     "dev": "gulp",
