@@ -11,7 +11,7 @@ class DataTable {
         this.model = {
             rows: [],
             columns: [],
-            titles: [],  //定义的所有Title
+            fields: [],  //定义的所有Title
             formatters: [], //定义所有的formatter
             styles: [], //样式
             url: null,
@@ -34,18 +34,20 @@ class DataTable {
         };
         this.pagination = null;
         this.option = option;
-        // console.log('option', option);
         this._init();
     }
 
     _init() {
-        this._setTitle(this.dom.$el);
-        this._build();
         if(this.option.hasOwnProperty('url')) this.url = this.option.url;  //是否有url
         if(this.option.hasOwnProperty('toolbar')) this.model.toolbars = this.option.toolbar;  //是否有toolbar
         if(this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
         if(this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
-        // this._buildTableHead();
+        this._setTitleByDom(this.dom.$el);
+        if(this.model.columns.length > 0) { //判断是否需要重写表头
+            this._buildTableHead();
+            this._setTitleByColumns(this.model.columns);
+        }
+        this._build();
     }
 
     _getToolbarData() {
@@ -58,9 +60,6 @@ class DataTable {
     }
 
     _getData() { //获取数据并渲染
-        /* var formatter = this.model.formatters[0];
-         var f = window[formatter]();
-         console.log(formatter, f);*/
         this.model.queryParams && $.extend(this.model.requestData, this.model.queryParams());
         $.extend(this.model.requestData, {t: new Date().getTime().toString()}); //时间戳清除浏览器缓存
         $.ajax({
@@ -105,9 +104,10 @@ class DataTable {
             var $tr = $("<tr></tr>");
             $tbody.append($tr);
             //根据头部data-options 绑定的ID生成格子
-            for(var j = 0; j < this.model.titles.length; j++) {
-                var title = this.model.titles[j];
+            for(var j = 0; j < this.model.fields.length; j++) {
+                var title = this.model.fields[j];
                 var formatter = this.model.formatters[j];
+                console.log(formatter)
                 var style = this.model.styles[j];
                 var $td = $("<td></td>");
                 var obj = eval('(' + style + ')');
@@ -121,6 +121,7 @@ class DataTable {
     }
 
     _buildTableHead() {
+        this.dom.$el.empty();
         var $group = $('<colgroup></colgroup>');
         var $thead = $("<thead></thead>");
         var $tr = $("<tr></tr>");
@@ -130,9 +131,10 @@ class DataTable {
             var $col = $('<col></col>');
             if(column.hasOwnProperty('width')) $col.width(column.width);
             $group.append($col);
+            //
             var $th = $("<th></th>");
-            if(column.hasOwnProperty('width')) $th.html(column.title);
-            $tr.append($tr);
+            if(column.hasOwnProperty('title')) $th.html(column.title);
+            $tr.append($th);
         }
         this.dom.$el.append($group);
         this.dom.$el.append($thead);
@@ -228,18 +230,61 @@ class DataTable {
         })
     }
 
+    //记录 title 和 formatter
+    _setTitleByDom($dom) {
+        var ths = $dom.find('th');
+        for(var i = 0; i < ths.length; i++) {
+            var obj = ths[i];
+            this.model.fields.push($(obj).data("options"));
+            this.model.formatters.push($(obj).data("formatter"));
+            this.model.styles.push($(obj).data("style"));
+        }
+    }
+
+    _setTitleByColumns(columns) {
+        for(var i = 0; i < columns.length; i++) {
+            var obj = columns[i];
+            this.model.fields.push(obj.field || null);
+            this.model.formatters.push(obj.formatter || null);
+            this.model.styles.push(obj.style || null);
+        }
+    }
+
+    //根据表头ID返回内容
+    _getContByTitle(str, row, formatter, index) {
+        for(var obj in row) {
+            if(obj === str) {
+                if(formatter) {
+                    var a = this._getFormatter(formatter, row[obj], row, index);
+                    return a;
+                }
+                return row[obj];
+            }
+        }
+        if(formatter) {
+            var b = this._getFormatter(formatter, row[obj], row, index);
+            return b;
+        }
+        return '';
+    }
+
+    _getFormatter(formatter, value, row, index) {
+        if(typeof formatter == 'function') {
+            var f = formatter(value, row, index);
+            return f;
+        }
+        if(typeof formatter == "string") {
+            var f = window[formatter](value, row, index);
+            return f;
+        }
+        return null;
+    }
+
     /**
      * 重新渲染
      */
     draw() {
         this._getData();
-    }
-
-    /**
-     *请求类型
-     */
-    set method(type) {
-        this.model.method = type;
     }
 
     /**
@@ -264,50 +309,25 @@ class DataTable {
     }
 
     /**
+     *请求类型
+     */
+    set method(type) {
+        this.model.method = type;
+    }
+
+    /**
      *设置uri资源
      */
     set url(u) {
         this.model.url = u;
     }
 
-    //TODO js渲染时公开
-    //记录 title 和 formatter
-    _setTitle($dom) {
-        var ths = $dom.find('th');
-        for(var i = 0; i < ths.length; i++) {
-            var obj = ths[i];
-            this.model.titles.push($(obj).data("options"));
-            this.model.formatters.push($(obj).data("formatter"));
-            this.model.styles.push($(obj).data("style"));
-        }
-    }
-
-    //根据表头ID返回内容
-    _getContByTitle(str, row, formatter, index) {
-        for(var obj in row) {
-            if(obj === str) {
-                if(formatter) {
-                    var f = window[formatter](row[obj], row, index);
-                    // console.log(f)
-                    return f;
-                }
-                return row[obj];
-            }
-        }
-        if(formatter) {
-            var f = window[formatter](row[obj], row, index);
-            //console.log(f)
-            return f;
-        }
-        return '';
-    }
-
     /**
      *获取所有表头信息
      *retrun Array
      */
-    get titles() {
-        return this.model.titles;
+    get fields() {
+        return this.model.fields;
     }
 
     /**

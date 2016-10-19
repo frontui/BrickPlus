@@ -91,45 +91,106 @@ cur='1'
                                 创建时间
                             </th>
                             <th data-options="province"> 业务类型</th>
-                            <th data-options="channelNo"  data-style="{'text-align':'left'}"> 商品名称</th>
+                            <th data-options="channelNo" data-style="{'text-align':'left'}"> 商品名称</th>
                             <th data-options="creator" data-formatter="typeFn"> 订单号</th>
                             <th data-options="corporation"> 对方账号</th>
                             <th data-options="contactPhone"> 余额</th>
-                            <th data-options="status"  data-style="{'text-align':'left'}"> 收入</th>
+                            <th data-options="status" data-style="{'text-align':'left'}"> 收入</th>
                             <th data-options="city"> 支出</th>
-                            <th data-options="op" data-formatter="opFn"  data-style="{'text-align':'center'}"> 操作</th>
+                            <th data-options="op" data-formatter="opFn" data-style="{'text-align':'center'}"> 操作</th>
                         </tr>
                         </thead>
                     </table>
+                    <br>
+                    <br>
+                    <br>
+                    <table class="table" id="dt2"></table>
                 </div>
                 <div class="example-code">
-         <pre><code>&lt;!-- HTML结构 --&gt;
-             &lttable class="table" id="dt"&gt
-             &ltcolgroup&gt
-             &ltcol style="width: 180px"&gt
-             &ltcol style="width: 100px"&gt
-             &ltcol&gt
-             &ltcol&gt
-             &ltcol&gt
-             &ltcol&gt
-             &ltcol&gt
-             &ltcol&gt
-             &ltcol style="width: 100px"&gt
-             &lt/colgroup&gt
-             &ltthead&gt
-             &lttr&gt
-             &ltth data-options="createTime" data-formatter="testFn"&gt 创建时间&lt/th&gt
-             &ltth data-options="province"&gt 业务类型&lt/th&gt
-             &ltth data-options="channelNo"&gt 商品名称&lt/th&gt
-             &ltth data-options="creator" data-formatter="typeFn"&gt 订单号&lt/th&gt
-             &ltth data-options="corporation"&gt 对方账号&lt/th&gt
-             &ltth data-options="contactPhone"&gt 余额&lt/th&gt
-             &ltth data-options="status"&gt 收入&lt/th&gt
-             &ltth data-options="city"&gt 支出&lt/th&gt
-             &ltth data-options="op" data-formatter="opFn"&gt 操作&lt/th&gt
-             &lt/tr&gt
-             &lt/thead&gt
-             &lt/table&gt
+         <pre><code>
+             &lt;!--案例一  直接JS渲染--&gt;
+             
+             &lt;!-- HTML结构 --&gt;
+             &lt;table class="table" id="dt2"&gt; &lt;/table&gt;
+             &lt;!-- JS API --&gt;
+             $('#dt2').dataTable({
+                 url: "/api/t1/getDataInfo",
+                 columns: [
+                         {field: "createTime", title: "创建时间", width: 100},
+                         {field: "province", title: "业务类型", width: 100},
+                         {field: "channelNo", title: "商品名称", width: 100},
+                         {field: "creator", title: "订单号", width: 100,formatter: function(value, row, index){
+                             return "&lt;div class="btn-group-box smaller-btn-gb"&gt;" +
+                                 "&lt;button type="button" class="btn default">详情:" + index + "&lt;/button&gt;" +
+                                 "&lt;button type="button" class="btn default dropdown-menu-btn"&gt;&lt;/button&gt;" +
+                                 "&lt;/div&gt;";
+                            }},
+                         {field: "corporation", title: "对方账号", width: 100},
+                         {field: "contactPhone", title: "余额", width: 100},
+                         {field: "status", title: "收入", width: 100},
+                         {field: "city", title: "支出", width: 100},
+                         {field: "op", title: "操作", width: 100, formatter: opFn}
+                     ]
+             });
+             
+             
+             
+             
+             &lt;!--案例二 HTML渲染--&gt;
+             
+             &lt;!-- HTML结构 --&gt;
+             &lt;table class="table" id="dt"&gt;
+                 &lt;colgroup&gt;
+                     &lt;col style="width: 180px"&gt;
+                     &lt;col style="width: 100px"&gt;
+                     &lt;col&gt;
+                     &lt;col&gt;
+                     &lt;col&gt;
+                     &lt;col&gt;
+                     &lt;col&gt;
+                     &lt;col&gt;
+                     &lt;col style="width: 100px"&gt;
+                 &lt;/colgroup&gt
+                 &lt;thead&gt;
+                     &lt;tr&gt
+                         &lt;th data-options="createTime" data-formatter="testFn" data-style="{'text-align':'center'}"&gt 创建时间&lt/th&gt;
+                         &lt;th data-options="province" data-style="{'text-align':'center'}"&gt 业务类型&lt/th&gt;
+                         &lt;th data-options="channelNo"&gt 商品名称&lt/th&gt;
+                         &lt;th data-options="creator" data-formatter="typeFn"&gt 订单号&lt/th&gt;
+                         &lt;th data-options="corporation" data-style="{'text-align':'center'}"&gt 对方账号&lt/th&gt;
+                         &lt;th data-options="contactPhone"&gt 余额&lt/th&gt;
+                         &lt;th data-options="status"&gt 收入&lt/th&gt;
+                         &lt;th data-options="city"&gt 支出&lt/th&gt;
+                         &lt;th data-options="op" data-formatter="opFn"&gt 操作&lt/th&gt;
+                     &lt;/tr&gt;
+                 &lt;/thead&gt;
+             &lt;/table&gt;
+
+             注释:
+             data-options //field,
+             data-formatter // 单元格formatter(格式化器)函数，带3个参数：
+             value：字段值。
+             rowData：行记录数据。
+             rowIndex: 行索引。
+             data-style // 单元格样式
+
+             &lt;!-- JS API --&gt;
+             $('#dt').dataTable({
+                url: "/api/t1/getDataInfo", //后台数据请求地址
+                queryParams: function() { //后台数据请求时自定义请求参数
+                    return {
+                        transferName: $('#search_1').val(),
+                         beginTime: $('#search_1').val(),
+                     }
+                 }
+             });
+
+             $("#ok").click(function() {
+                    $('#dt').dataTable('draw'); //外部调用dataTable 重新请求并渲染
+             });
+
+             $('#dt').dataTable('getPagination'); //获取当前页脚信息 return{ page:1 ,number:10}
+
          </code></pre>
                 </div>
             </div>
@@ -142,10 +203,164 @@ cur='1'
                 </li>
             </ul>
             <div class="example fn-mb-20">
-                <div class="example-tag">实例</div>
+                <div class="example-tag">API</div>
                 <div class="example-box">
                     <div class="tables-wrap">
+                        <!--dataTable属性-->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>dataTable属性</th>
+                                <th>属性类型</th>
+                                <th>默认值</th>
+                                <th>描述</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>url</td>
+                                <td>string</td>
+                                <td>null</td>
+                                <td>一个URL从远程站点请求数据。</td>
+                            </tr>
+                            <tr>
+                                <td>method</td>
+                                <td>string</td>
+                                <td>get</td>
+                                <td>该方法类型请求远程数据。</td>
+                            </tr>
+                            <tr>
+                                <td>queryParams</td>
+                                <td>object</td>
+                                <td>get</td>
+                                <td>在请求远程数据的时候发送额外的参数。
+                                    
+ <pre>
+    代码示例： 
+    $('#dg').dataTable({
+        queryParams: {
+            name: 'brickPlus',
+            subject: 'dataTable'
+        }
+    });                              
+ </pre>
+                                </td>
+                            </tr>
 
+                            </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <!--列属性-->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>列属性</th>
+                                <th>属性类型</th>
+                                <th>默认值</th>
+                                <th>描述</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>title</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>列标题文本。</td>
+                            </tr>
+                            <tr>
+                                <td>field</td>
+                                <td>string</td>
+                                <td>undefined</td>
+                                <td>列字段名称。</td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>number</td>
+                                <td>undefined</td>
+                                <td>列的宽度。如果没有定义，宽度将自动扩充以适应其内容。</td>
+                            </tr>
+                            <tr>
+                                <td>formatter</td>
+                                <td>function</td>
+                                <td>undefined</td>
+                                <td>单元格formatter(格式化器)函数，带3个参数：
+                                    value：字段值。
+                                    rowData：行记录数据。
+                                    rowIndex: 行索引。
+                                    
+ <pre>
+    代码示例： 
+    $('#dg').datagrid({
+        columns:[
+           {field:'userId',title:'User', width:80, formatter: function(value,row,index){
+              if (row.user){
+                    return row.user.name;
+               } else {
+                    return value;
+               }
+            }
+         }]
+     });                        
+ </pre>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>styler</td>
+                                <td>function</td>
+                                <td>undefined</td>
+                                <td> 单元格styler(样式)函数，返回如'background:red'这样的自定义单元格样式字符串。该函数带3个参数：
+                                    value：字段值。
+                                    rowData：行记录数据。
+                                    rowIndex: 行索引。
+                                    代码示例：
+                                    
+ <pre>
+    代码示例： 
+$('#dg').datagrid({
+	columns:[[
+		{field:'listprice',title:'List Price', width:80, align:'right',
+			styler: function(value,row,index){
+				if (value < 20){
+					return 'background-color:#ffee00;color:red;';
+				}
+			}
+		}
+	]]
+});
+ </pre>
+
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <!--方法-->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>方法</th>
+                                <th>参数</th>
+                                <th>描述</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>getPagination</td>
+                                <td>none</td>
+                                <td>返回页面对象</td>
+                            </tr>
+                            <tr>
+                                <td>draw</td>
+                                <td>none</td>
+                                <td>重载。但是它将保持在当前页。</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -176,31 +391,17 @@ cur='1'
 
     $('#dt').dataTable({
         url: "/api/t1/getDataInfo",
-//        url: "/api/t1/getBankInfo",
-        // toolbar: ['#search_1', '#search_2'],
+        //url: "/api/t1/getBankInfo",
         queryParams: function() {
             return {
                 transferName: $('#search_1').val(),
                 beginTime: $('#search_1').val() + '55888999',
             }
-        },
-        columns: [
-            {field: "createTime", title: "创建时间", width: 100},
-            {field: "province", title: "业务类型", width: 100},
-            {field: "channelNo", title: "商品名称", width: 100},
-            {field: "creator", title: "订单号", width: 100},
-            {field: "corporation", title: "对方账号", width: 100},
-            {field: "creator", title: "余额", width: 100},
-            {
-                field: "status", title: "收入", width: 100, formatter: function() {
-            }
-            },
-            {field: "city", title: "支出", width: 100},
-            {field: "op", title: "操作", width: 100}
-        ]
+        }
     });
     $("#ok").click(function() {
-        $('#dt').dataTable().draw();
+        //$('#dt').dataTable().draw(); //v1.0.16
+        $('#dt').dataTable('draw');
     });
     //获取页脚信息 
     var page = $('#dt').dataTable('getPagination');
@@ -229,6 +430,21 @@ cur='1'
                 "<button type=\"button\" class=\"btn default dropdown-menu-btn\"></button>" +
                 "</div>";
     }
+    //td2 例子
+    $('#dt2').dataTable({
+        url: "/api/t1/getDataInfo",
+        columns: [
+            {field: "createTime", title: "创建时间", width: 100},
+            {field: "province", title: "业务类型", width: 100},
+            {field: "channelNo", title: "商品名称", width: 100},
+            {field: "creator", title: "订单号", width: 100,formatter: typeFn},
+            {field: "corporation", title: "对方账号", width: 100},
+            {field: "contactPhone", title: "余额", width: 100},
+            {field: "status", title: "收入", width: 100},
+            {field: "city", title: "支出", width: 100},
+            {field: "op", title: "操作", width: 100, formatter: opFn}
+        ]
+    });
 
 </script>
 {% endblock %}
