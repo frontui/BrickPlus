@@ -245,10 +245,8 @@ function Plugin(options, ...args) {
         var $this = $(this);
         if ($this.hasClass('no-js')) return;
         var data = $this.data('bp.pagination');
-
         // 创建一个新实例
         if (!data) $this.data('bp.pagination', (data = new Pagination($this, $.extend({}, $this.data(), options))));
-
         if (typeof options == 'string') { // 调用接口方法,第二个参数为方法传入参数
             data[options].apply(data, args);
         }

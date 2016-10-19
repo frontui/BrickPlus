@@ -13,6 +13,7 @@ class DataTable {
             columns: [],
             titles: [],  //定义的所有Title
             formatters: [], //定义所有的formatter
+            styles: [], //样式
             url: null,
             requestData: {
                 page: 1, //页数
@@ -28,12 +29,23 @@ class DataTable {
             $el: $el,
             $pageNumber: null,
             pageJumpButtonId: null,
-            pageJSelectId: null
+            pageJSelectId: null,
+            pageInputId: null,
         };
         this.pagination = null;
         this.option = option;
         // console.log('option', option);
         this._init();
+    }
+
+    _init() {
+        this._setTitle(this.dom.$el);
+        this._build();
+        if(this.option.hasOwnProperty('url')) this.url = this.option.url;  //是否有url
+        if(this.option.hasOwnProperty('toolbar')) this.model.toolbars = this.option.toolbar;  //是否有toolbar
+        if(this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
+        if(this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
+        // this._buildTableHead();
     }
 
     _getToolbarData() {
@@ -92,28 +104,20 @@ class DataTable {
             var row = rows[i];
             var $tr = $("<tr></tr>");
             $tbody.append($tr);
-            //生成格子
+            //根据头部data-options 绑定的ID生成格子
             for(var j = 0; j < this.model.titles.length; j++) {
                 var title = this.model.titles[j];
                 var formatter = this.model.formatters[j];
+                var style = this.model.styles[j];
                 var $td = $("<td></td>");
+                var obj = eval('(' + style + ')');
+                style && $td.css(obj);
                 $td.html(this._getContByTitle(title, row, formatter, i));
                 $tr.append($td);
             }
         }
         this.dom.$tbody = $tbody;
         this.dom.$el.append($tbody);
-    }
-
-    // 初始化
-    _init() {
-        this._setTitle(this.dom.$el);
-        this._build();
-        if(this.option.hasOwnProperty('url')) this.url = this.option.url;  //是否有url
-        if(this.option.hasOwnProperty('toolBar')) this.model.toolbars = this.option.toolBar;  //是否有toolbar
-        if(this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
-        if(this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
-        // this._buildTableHead();
     }
 
     _buildTableHead() {
@@ -142,12 +146,14 @@ class DataTable {
         var $ul = $("<ul class=\"paginations\" id=\"" + paginationId + "\"></ul>");
         //跳转
         var jumpId = "j-page-itempage-" + new Date().getTime();
+        var pageInputId = "j-page-input-" + new Date().getTime();
         this.dom.pageJumpButtonId = jumpId;
+        this.dom.pageInputId = pageInputId;
         var $jupmDiv = $("<div class=\"p-add-ons fn-ml-15\">" +
             "<div class=\"form-group form-gs form-no-label\">" +
             "<div class=\"form-gs-box\">" +
             "<div class=\"form-control-wrap\">" +
-            "<input type=\"text\" class=\"form-control\" placeholder=\"跳转\" id=\"j-page-input-ff\">" +
+            "<input type=\"text\" class=\"form-control\" placeholder=\"跳转\" id=\"" + pageInputId + "\">" +
             "</div>" +
             "<div class=\"form-addon child-right\">页</div>" +
             "<div class=\"form-addon-com\"> " +
@@ -200,20 +206,33 @@ class DataTable {
             });
         // 控制跳转
         $('#' + this.dom.pageJumpButtonId).on('click', function() {
-            /*var page = $.trim($('#j-page-input-3').val())
-             if(page !== '') {
-             $('#j-page-demo3').pagination('go', parseInt(page))
-             $('#j-page-input-3').val('')
-             }*/
-            //判断是否超出 或者为空
-            console.log('2222222222');
+            var page = $.trim($('#' + that.dom.pageInputId).val());
+            if(page !== '' && page > 0 && page <= that.getPager.totalPages) { //判断是否超出 或者为空
+                that.model.requestData = {
+                    page: page, //页数
+                    number: $(that.dom.$pageNumber).val(), //数量
+                }
+                // that._getData();
+                $('#' + that.model.paginationId).pagination('go', parseInt(page))
+                $('#' + that.dom.pageInputId).val(" ")
+            }
         })
         // 每页记录数
         $('#' + this.dom.pageJSelectId).on('change', function() {
-            var itemsOnPage = $(this).val()
-            console.log('每页' + itemsOnPage);
-            // $('#j-page-demo3').pagination('reset', {itemsOnPage: itemsOnPage})
+            that.model.requestData = {
+                // page: that.model.requestData.page, //页数
+                page: 1,
+                number: $(that.dom.$pageNumber).val(), //数量
+            }
+            $('#' + that.model.paginationId).pagination('go', 1) //跳回第1页
         })
+    }
+
+    /**
+     * 重新渲染
+     */
+    draw() {
+        this._getData();
     }
 
     /**
@@ -257,9 +276,9 @@ class DataTable {
         var ths = $dom.find('th');
         for(var i = 0; i < ths.length; i++) {
             var obj = ths[i];
-            var f = $(obj).data("options");
-            this.model.titles.push(f);
+            this.model.titles.push($(obj).data("options"));
             this.model.formatters.push($(obj).data("formatter"));
+            this.model.styles.push($(obj).data("style"));
         }
     }
 
@@ -305,7 +324,12 @@ class DataTable {
 // 插件定义
 //======================
 function Plugin(options, args) {
-    if(typeof options == 'string' && args == undefined) {
+    if(typeof options == 'undefined') {
+        var data = $(this).data('bp.dataTable');
+        if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
+        return data;
+    }
+    if(typeof options == 'string' && args == 'undefined') {
         var data = $(this).data('bp.dataTable');
         if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
         if(typeof options == 'string') {
