@@ -38,7 +38,7 @@ BrickPlus 是部分基于 Bootstarp 框架的FrontUI团队的项目UI
 
 ## 发布
 
-    npm run bundle
+    npm run build or gulp bundle
 
 
 ## 发布到 npm
