@@ -69,7 +69,6 @@ cur='1'
                                 style=" position: absolute;top: 0px; left: 395px;">搜索
                         </button>
                         <br>
-
                     </div>
                     <br>
 
@@ -104,12 +103,12 @@ cur='1'
                     <br>
                     <br>
                     <br>
-                    <table class="table" id="dt2"></table>
+                    <table class="table " id="dt2">
+                    </table>
                 </div>
                 <div class="example-code">
          <pre><code>
              &lt;!--案例一  直接JS渲染--&gt;
-             
              &lt;!-- HTML结构 --&gt;
              &lt;table class="table" id="dt2"&gt; &lt;/table&gt;
              &lt;!-- JS API --&gt;
@@ -405,6 +404,7 @@ $('#dg').datagrid({
     });
     //获取页脚信息 
     var page = $('#dt').dataTable('getPagination');
+    //console.log(page);
     //
     function testFn(value, row, index) {
         var text = value || '';

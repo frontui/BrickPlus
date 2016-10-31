@@ -27,6 +27,7 @@ class DataTable {
         this.dom = {
             $tbody: null,
             $el: $el,
+            $loading: null, //加载
             $pageNumber: null,
             pageJumpButtonId: null,
             pageJSelectId: null,
@@ -47,6 +48,7 @@ class DataTable {
             this._buildTableHead();
             this._setTitleByColumns(this.model.columns);
         }
+        this._buildLoading();
         this._build();
     }
 
@@ -60,6 +62,7 @@ class DataTable {
     }
 
     _getData() { //获取数据并渲染
+        this.dom.$el.find('.btn-spinner').css({display:'block'});
         this.model.queryParams && $.extend(this.model.requestData, this.model.queryParams());
         $.extend(this.model.requestData, {t: new Date().getTime().toString()}); //时间戳清除浏览器缓存
         $.ajax({
@@ -73,6 +76,7 @@ class DataTable {
                 this._render(json);
                 //初始化页脚信息
                 this._setPagination(json);
+                this.dom.$el.find('.btn-spinner').css({display:'none'});
             }.bind(this),
             error: function() {
                 // console.log("dd");
@@ -107,7 +111,6 @@ class DataTable {
             for(var j = 0; j < this.model.fields.length; j++) {
                 var title = this.model.fields[j];
                 var formatter = this.model.formatters[j];
-                console.log(formatter)
                 var style = this.model.styles[j];
                 var $td = $("<td></td>");
                 var obj = eval('(' + style + ')');
@@ -118,6 +121,11 @@ class DataTable {
         }
         this.dom.$tbody = $tbody;
         this.dom.$el.append($tbody);
+    }
+
+    _buildLoading() {
+        this.dom.$loading = $('<div class=\"btn btn-spinner\" disabled=\"\">Loading...</div>');
+        this.dom.$el.append(this.dom.$loading);
     }
 
     _buildTableHead() {
@@ -151,7 +159,7 @@ class DataTable {
         var pageInputId = "j-page-input-" + new Date().getTime();
         this.dom.pageJumpButtonId = jumpId;
         this.dom.pageInputId = pageInputId;
-        var $jupmDiv = $("<div class=\"p-add-ons fn-ml-15\">" +
+        var $jupmDiv = $("<div class=\"p-add-ons fn-ml-15 \">" +
             "<div class=\"form-group form-gs form-no-label\">" +
             "<div class=\"form-gs-box\">" +
             "<div class=\"form-control-wrap\">" +
@@ -349,7 +357,7 @@ function Plugin(options, args) {
         if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
         return data;
     }
-    if(typeof options == 'string' && args == 'undefined') {
+    if(typeof options == 'string' && typeof args == 'undefined') {
         var data = $(this).data('bp.dataTable');
         if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
         if(typeof options == 'string') {
