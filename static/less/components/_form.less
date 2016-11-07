@@ -584,7 +584,7 @@ select[size].form-control {
 .form-notice {
   position: absolute;
   line-height: @lineHeight-formControl;
-  padding: @paddingTB-default-fromControl @paddingLR-default-fromControl @paddingTB-default-fromControl 42px;
+  padding: @paddingTB-default-fromControl/2 @paddingLR-default-fromControl @paddingTB-default-fromControl/2 28px;
   font-size: @fontSize-formControl;
   border-width: @borderWidth-formControl;
   border-style: solid;
@@ -600,8 +600,8 @@ select[size].form-control {
   > i {
     position: absolute;
     top: 6px;
-    left: 9px;
-    font-size: @fontSize-larger;
+    left: 6px;
+    font-size: @fontSize-small;
     .icon-font-family(); //报错了，但起效
     .inline-block();
   }

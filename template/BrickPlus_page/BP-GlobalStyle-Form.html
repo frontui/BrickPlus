@@ -71,14 +71,36 @@ set tabs = [
       <div class="example">
         <div class="example-tag">实例</div>
         <div class="example-box">
-          <form action="">
+          <form action="" data-validator-option='{stopOnError:false, timely:2, theme:"yellow_right"}'>
             <div>
-              <div class="form-group">
+              <div class="form-group fn-mb-10">
                 <label class="form-control-label" for="FormTree1">
                   <span>标准表单案例</span>
                 </label>
                 <div class="form-control-wrap">
                   <input type="text" class="form-control" id="FormTree1" placeholder="表单提示语"/>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="form-group fn-mb-10">
+                <label class="form-control-label" for="FormTree1">
+                  <span>表单验证</span>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control" id="FormTree1" name="pwd" placeholder="请输入密码"
+                  data-rule="required; password"
+                  data-rule-password="[/^\d{6}$/, '请填写6位数字']"
+                  data-msg-required="请填写密码"
+                  data-tip="密码由6位数字组成"
+                  data-ok="别担心，稍后您还可以更改"
+                  data-target="#msg_holder"
+                  />
+                </div>
+              </div>
+              <div class="form-group fn-mb-10">
+                <div class="form-control-wrap">
+                  <input type="button" class="btn primary" value="submit"/>
                 </div>
               </div>
             </div>
