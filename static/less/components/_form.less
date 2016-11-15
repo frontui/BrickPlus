@@ -352,6 +352,7 @@ select[size].form-control {
   font-size: @fontSize-formControl;
   color: @fontColor-value-formControl;
   background-color: @bgColor-default-form;
+  text-align: left;
   .text-hide();
   .rounded(@borderRadius-formControl);
   .clearfix();
@@ -422,6 +423,7 @@ select[size].form-control {
     position: relative;
     .transition(all, 0.3s, ease, 0);
     .text-hide();
+    text-align: left;
 
     //禁止状态
     &.disabled {
@@ -562,6 +564,8 @@ select[size].form-control {
     position: relative;
     color: @fontColor-value-formControl;
     padding: ( @height-formControl - @lineHeight-formControl ) / 2 25px ( @height-formControl - @lineHeight-formControl ) / 2 20px;
+    text-align: left;
+    font-size: @fontSize-formControl;
 
     &.agreement-check {
       padding: ( @height-formControl - @lineHeight-formControl ) / 2 - 5px 0 ( @height-formControl - @lineHeight-formControl ) / 2 - 5px 20px;
@@ -619,6 +623,7 @@ select[size].form-control {
   color: @fontColor-value-formControl;
   background-color: @bgColor-default-form;
   .transition(all, 0.3s, ease, 0);
+  text-align: left;
 }
 
 //表单中插入表格
@@ -1549,6 +1554,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
+      font-size: @fontSize-large-formControl;
       line-height: @lineHeight-large-formControl;
       padding: ( @height-large-formControl - @lineHeight-large-formControl ) / 2 25px ( @height-large-formControl - @lineHeight-large-formControl ) / 2 20px;
       font-size: @fontSize-large-formControl;
@@ -1722,6 +1728,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
+      font-size: @fontSize-small-formControl;
       line-height: @lineHeight-small-formControl;
       padding: ( @height-small-formControl - @lineHeight-small-formControl ) / 2 25px ( @height-small-formControl - @lineHeight-small-formControl ) / 2 20px;
       font-size: @fontSize-small-formControl;
@@ -1902,6 +1909,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
+      font-size: @fontSize-smaller-formControl;
       line-height: @lineHeight-smaller-formControl;
       padding: ( @height-smaller-formControl - @lineHeight-smaller-formControl ) / 2 25px ( @height-smaller-formControl - @lineHeight-smaller-formControl ) / 2 20px;
       font-size: @fontSize-smaller-formControl;
