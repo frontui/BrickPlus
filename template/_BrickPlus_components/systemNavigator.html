@@ -75,7 +75,7 @@
     </a>
 
     <!-- 系统侧导航列表 -->
-    <ul class="aside-list-1" data-toggle="navigator">
+    <ul class="aside-list-1" data-toggle="navigator" id="leftMenu">
       {% for li1 in lv1 %}
       <li {% if loop.index == lv1cur %}class="current"{% endif %}>
         <a href="{{ li1.url }}" class="{{ li1.iconClass }}" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right">
@@ -84,7 +84,7 @@
         <ul class="aside-list-2">
           {% for li2 in li1.lv2 %}
           <li {% if loop.index == lv2cur %}class="current"{% endif %}>
-            <a href="{{ li2.url }}" data-toggle="tooltips" title="{{ li2.text }}" data-pos="right">
+            <a href="{{ li2.url }}" data-toggle="tooltips" title="{{ li2.text }}" data-pos="right" menuid="{{ li2.mid }}">
               <span class="sa">{{ li2.text }}</span>
             </a>
             <ul class="aside-list-3">
@@ -104,6 +104,26 @@
     </ul>
   </div>
 </aside>
+
+<script>
+
+  function showMenuById(id){
+    var e = document.getElementById('leftMenu');
+    var list = e.getElementsByTagName('*');
+    for(var i = 0; i < list.length; i++) {
+      if (list[i].getAttribute('menuid') === id) {
+        var a = list[i];
+        a.parentNode.className = 'current';
+        a.parentNode.parentNode.parentNode.className = 'current';
+        //console.log(cls)
+        //$(this).closest('li').addClass('current').parent().closest('li').addClass('current');
+        break;
+      }
+    }
+  }
+
+  showMenuById('001')
+</script>
 {% endmacro %}
 
 {% macro systemAssistNav(assistNav,static='/static',fixedClass='') %}

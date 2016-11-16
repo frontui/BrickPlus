@@ -86,13 +86,13 @@
     <ul class="aside-list-1" data-toggle="navigator">
       {% for li1 in lv1 %}
       <li {% if loop.index == lv1cur %}class="current"{% endif %}>
-        <a href="{{ li1.url }}" class="{{ li1.iconClass }}" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right">
+        <a href="{{ li1.url }}" class="{{ li1.iconClass }}" data-toggle="tooltips" title="{{ li1.text }}">
           <span class="sa">{{ li1.text }}</span>
         </a>
         <ul class="aside-list-2">
           {% for li2 in li1.lv2 %}
           <li {% if loop.index == lv2cur %}class="current"{% endif %}>
-            <a href="{{ li2.url }}" data-toggle="tooltips" title="{{ li2.text }}" data-pos="right">
+            <a href="{{ li2.url }}" data-toggle="tooltips" title="{{ li2.text }}" data-pos="right" data-mid="1231232">
               <span class="sa">{{ li2.text }}</span>
             </a>
             <ul class="aside-list-3">
@@ -112,6 +112,16 @@
     </ul>
   </div>
 </aside>
+
+<script>
+  function showMenuById(id){
+    $('#leftMenu ["data-mid"="'+ id +'"]').each(function(){
+      $(this).closest('li').addClass('current').parent().closest('li').addClass('current');
+    })
+  }
+
+  showMenuById('001')
+</script>
 {% endmacro %}
 
 {% macro systemAssistNav(assistNav,static='/static',fixedClass='') %}
