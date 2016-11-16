@@ -270,8 +270,6 @@ select[size].form-control {
       }
     }
   }
-
-
 }
 
 .form-control-modal {
@@ -354,6 +352,7 @@ select[size].form-control {
   font-size: @fontSize-formControl;
   color: @fontColor-value-formControl;
   background-color: @bgColor-default-form;
+  text-align: left;
   .text-hide();
   .rounded(@borderRadius-formControl);
   .clearfix();
@@ -424,6 +423,7 @@ select[size].form-control {
     position: relative;
     .transition(all, 0.3s, ease, 0);
     .text-hide();
+    text-align: left;
 
     //禁止状态
     &.disabled {
@@ -443,6 +443,83 @@ select[size].form-control {
       color: @borderColor-focus-formControl;
     }
   }
+}
+
+//
+//模拟下拉选择框的另一种 style
+//
+.form-control-dropdown-menu-type2 .form-control-dropdown-menu {
+  padding: @paddingLR-default-fromControl/2;
+  padding-top: 0;
+  padding-left: 0;
+  overflow-x: hidden;
+
+  > li {
+    float: left;
+    height: auto;
+    line-height: @line-height-base;
+    padding: @paddingLR-default-fromControl/3 @paddingLR-default-fromControl/2;
+    .rounded(@borderRadius-formControl);
+    background-color: @bgColor-formControlDropDownOps;
+    margin-top: @paddingLR-default-fromControl/2;
+    margin-left: @paddingLR-default-fromControl/2;
+
+    //禁止状态
+    &.disabled {
+      color: @fontColor-viceText;
+      cursor: not-allowed;
+      background-color: @bgColor-disabled-form;
+
+      &:hover,
+      &.hover {
+        color: @fontColor-viceText;
+        background-color: @bgColor-disabled-form;
+      }
+    }
+
+    &:hover,
+    &.hover {
+      background-color: @bgColor-hover-formControlDropDownOps;
+      color: #fff;
+    }
+  }
+}
+
+//多选下拉菜单 （模拟下拉选择框的另一种 style）
+.form-control-dropdown-menu-type2 .form-control-dropdown.multiple {
+  .form-control-dropdown-menu {
+    > li {
+      padding-right: @paddingLR-default-fromControl/2;
+
+      &:after {
+        top: 50%;
+        margin-top: -14px;
+        right: 0;
+        content: "\e281";
+        font-size: @fontSize-large;
+        .square(30px);
+        line-height: 30px;
+        text-align: center;
+        background-color: @bgColor-hover-formControlDropDownOps;
+      }
+    }
+  }
+
+  // 同.form-control-modal-value
+  // .form-control-dropdown-value {
+  //   padding-top: @paddingTB-default-fromControl;
+  //   height: auto;
+  //   min-height: @height-formControl;
+  //   line-height: @lineHeight-formControl;
+  //
+  //   .form-control-modal-ops{
+  //     cursor: default;
+  //
+  //     &:after {
+  //       cursor: pointer;
+  //     }
+  //   }
+  // }
 }
 
 .form-control-dropdown-btn,
@@ -487,6 +564,8 @@ select[size].form-control {
     position: relative;
     color: @fontColor-value-formControl;
     padding: ( @height-formControl - @lineHeight-formControl ) / 2 25px ( @height-formControl - @lineHeight-formControl ) / 2 20px;
+    text-align: left;
+    font-size: @fontSize-formControl;
 
     &.agreement-check {
       padding: ( @height-formControl - @lineHeight-formControl ) / 2 - 5px 0 ( @height-formControl - @lineHeight-formControl ) / 2 - 5px 20px;
@@ -544,6 +623,7 @@ select[size].form-control {
   color: @fontColor-value-formControl;
   background-color: @bgColor-default-form;
   .transition(all, 0.3s, ease, 0);
+  text-align: left;
 }
 
 //表单中插入表格
@@ -642,7 +722,7 @@ select[size].form-control {
   .form-notice {
     color: @fontColor-success;
     border-color: @borderColor-correct-formControl;
-    background-color: lighten(@borderColor-correct-formControl, 36%);
+    background-color: @bgColor-correct-formControl;
 
     > i:before {
       content: @content-icon-hasCorrect;
@@ -1474,6 +1554,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
+      font-size: @fontSize-large-formControl;
       line-height: @lineHeight-large-formControl;
       padding: ( @height-large-formControl - @lineHeight-large-formControl ) / 2 25px ( @height-large-formControl - @lineHeight-large-formControl ) / 2 20px;
       font-size: @fontSize-large-formControl;
@@ -1647,6 +1728,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
+      font-size: @fontSize-small-formControl;
       line-height: @lineHeight-small-formControl;
       padding: ( @height-small-formControl - @lineHeight-small-formControl ) / 2 25px ( @height-small-formControl - @lineHeight-small-formControl ) / 2 20px;
       font-size: @fontSize-small-formControl;
@@ -1827,6 +1909,7 @@ select[size].form-control {
   .form-control-check {
 
     > label {
+      font-size: @fontSize-smaller-formControl;
       line-height: @lineHeight-smaller-formControl;
       padding: ( @height-smaller-formControl - @lineHeight-smaller-formControl ) / 2 25px ( @height-smaller-formControl - @lineHeight-smaller-formControl ) / 2 20px;
       font-size: @fontSize-smaller-formControl;

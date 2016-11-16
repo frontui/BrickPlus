@@ -2198,15 +2198,24 @@
 
     /* Themes
      */
-    var TPL_ARROW = '<span class="n-arrow"><b>◆</b><i>◆</i></span>';
+    var TPL_ARROW = '<span class="n-arrow"></span>';
     $.validator.setTheme({
-        'simple_right': {
-            formClass: 'n-simple',
-            msgClass: 'n-right'
-        },
-        'simple_bottom': {
-            formClass: 'n-simple',
-            msgClass: 'n-bottom'
+        // 'simple_right': {
+        //     formClass: 'n-simple',
+        //     msgClass: 'n-right',
+        //     msgArrow: TPL_ARROW
+        // },
+        // 'simple_bottom': {
+        //     formClass: 'n-simple',
+        //     msgClass: 'n-bottom',
+        //     msgArrow: TPL_ARROW
+        // },
+        //统一主题样式调用的用法
+        //没有设置验证提示出现在表单元素左边的用法和主题
+        'yellow_bottom': {
+            formClass: 'n-yellow',
+            msgClass: 'n-bottom',
+            msgArrow: TPL_ARROW
         },
         'yellow_top': {
             formClass: 'n-yellow',
