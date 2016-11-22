@@ -25,12 +25,12 @@
             <link rel="stylesheet" href="./static/iconfont-ie7/ie7.css?v=1.0.0">
             <script src="./static/iconfont-ie7/ie7.js?v=1.0.0"></script>
         <![endif]-->
-      <!--[if lt IE 9]>
-          <script src="./static/js/html5shiv.min.js?v=1.0.0"></script>
-          <script src="./static/js/respond.min.js?v=1.0.0"></script>
-          <script src="/bower_components/es5-shim/es5-shim.min.js?v=1.0.0"></script>
-          <script src="/bower_components/es5-shim/es5-sham.min.js?v=1.0.0"></script>
-      <![endif]-->
+    <!--[if lt IE 9]>
+		    <script src="./static/js/html5shiv.min.js?v=1.0.0"></script>
+            <script src="./static/js/respond.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-shim.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-sham.min.js?v=1.0.0"></script>
+        <![endif]-->
     <style>
 
     </style>
@@ -41,7 +41,7 @@
       <div class="bricks-main-wrap">
         <nav class="bricks-header">
           <div class="bricks-user-wrap" id="buw">
-            <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="/static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
+            <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="./static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
             <div class="bricks-user-menu">
               <div class="bricks-user-name">
                 <p> 当前登入账户 </p>
@@ -230,11 +230,10 @@
                         </tr>
                       </thead>
                     </table> <br> <br> <br>
-                    <table class="table" id="dt2"></table>
+                    <table class="table " id="dt2"> </table>
                   </div>
                   <div class="example-code"> <pre><code>
              &lt;!--案例一  直接JS渲染--&gt;
-             
              &lt;!-- HTML结构 --&gt;
              &lt;table class="table" id="dt2"&gt; &lt;/table&gt;
              &lt;!-- JS API --&gt;
@@ -466,9 +465,7 @@ $('#dg').datagrid({
           </div>
         </div>
       </div>
-      <!--<footer></footer>-->
-        <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>
-    </div>
+      <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
     <script src="./static/js/jquery.min.js?v=1.0.0"></script>
     <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
     <script src="./static/js/brickplus/tab.js"></script>
@@ -494,6 +491,7 @@ $('#dg').datagrid({
       });
       //获取页脚信息 
       var page = $('#dt').dataTable('getPagination');
+      //console.log(page);
       //
       function testFn(value, row, index)
       {

@@ -98,16 +98,16 @@
           <!-- 系统侧导航开关 -->
           <a class="system-aside-switch" data-toggle="aside-switch" href="javascript:void(0);"> <span></span> </a>
           <!-- 系统侧导航列表 -->
-          <ul class="aside-list-1" data-toggle="navigator">
+          <ul class="aside-list-1" data-toggle="navigator" id="leftMenu">
             <li>
               <a href="#" class="system-setting" data-toggle="tooltips" title="Level 1" data-pos="right"> <span class="sa">Level 1</span> </a>
               <ul class="aside-list-2">
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid="001"> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
               </ul>
@@ -116,7 +116,7 @@
               <a href="#" class="operative-manage" data-toggle="tooltips" title="Level 1" data-pos="right"> <span class="sa">Level 1</span> </a>
               <ul class="aside-list-2">
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3">
                     <li>
                       <a href="#" data-toggle="tooltips" title="Level 3" data-pos="right"> <span class="sa">Level 3</span> </a>
@@ -127,7 +127,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
               </ul>
@@ -136,11 +136,11 @@
               <a href="#" class="account-manage" data-toggle="tooltips" title="Level 1" data-pos="right"> <span class="sa">Level 1</span> </a>
               <ul class="aside-list-2">
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
               </ul>
@@ -149,11 +149,11 @@
               <a href="#" class="risk-manage" data-toggle="tooltips" title="Level 1" data-pos="right"> <span class="sa">Level 1</span> </a>
               <ul class="aside-list-2">
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
               </ul>
@@ -162,11 +162,11 @@
               <a href="#" class="system-manage" data-toggle="tooltips" title="Level 1" data-pos="right"> <span class="sa">Level 1</span> </a>
               <ul class="aside-list-2">
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
                 <li>
-                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right"> <span class="sa">Level 2</span> </a>
+                  <a href="#" data-toggle="tooltips" title="Level 2" data-pos="right" menuid=""> <span class="sa">Level 2</span> </a>
                   <ul class="aside-list-3"> </ul>
                 </li>
               </ul>
@@ -174,6 +174,26 @@
           </ul>
         </div>
       </aside>
+      <script>
+        function showMenuById(id)
+        {
+          var e = document.getElementById('leftMenu');
+          var list = e.getElementsByTagName('*');
+          for (var i = 0; i < list.length; i++)
+          {
+            if (list[i].getAttribute('menuid') === id)
+            {
+              var a = list[i];
+              a.parentNode.className = 'current';
+              a.parentNode.parentNode.parentNode.className = 'current';
+              //console.log(cls)
+              //$(this).closest('li').addClass('current').parent().closest('li').addClass('current');
+              break;
+            }
+          }
+        }
+        showMenuById('001')
+      </script>
       <aside class="system-assist-nav" id="systemAssistNav" data-toggle="rightPanel" data-active="show" data-container-active="fold-for-assist-nav">
         <div class="system-assist-nav-container">
           <div class="system-assist-nav-head">

@@ -45,27 +45,19 @@
             <div class="bricks-user-menu">
               <div class="bricks-user-name">
                 <p> 当前登入账户 </p>
-                <h4>
-                        rayalienkiss@apple.com
-                    </h4> </div>
+                <h4> rayalienkiss@apple.com </h4>
+              </div>
               <div class="bricks-user-menu-options">
                 <div class="bricks-user-menu-option-group">
-                  <h5>
-                            通告
-                        </h5> <a href="javascript:;void(0)" class="bum">所有通告</a> <a href="javascript:;void(0)" class="bum">来自所在的团队</a> <a href="javascript:;void(0)" class="bum">来自关注的项目</a> <a href="javascript:;void(0)" class="bum">来自参与的项目</a> <a href="javascript:;void(0)"
+                  <h5> 通告 </h5> <a href="javascript:;void(0)" class="bum">所有通告</a> <a href="javascript:;void(0)" class="bum">来自所在的团队</a> <a href="javascript:;void(0)" class="bum">来自关注的项目</a> <a href="javascript:;void(0)" class="bum">来自参与的项目</a> <a href="javascript:;void(0)"
                     class="bum">来自我们</a> </div>
                 <div class="bricks-user-menu-option-group">
-                  <h5>
-                            关于团队
-                        </h5> <a href="javascript:;void(0)" class="bum">新团队</a> <a href="javascript:;void(0)" class="bum">我所在的团队</a> </div>
+                  <h5> 关于团队 </h5> <a href="javascript:;void(0)" class="bum">新团队</a> <a href="javascript:;void(0)" class="bum">我所在的团队</a> </div>
                 <div class="bricks-user-menu-option-group">
-                  <h5>
-                            关于项目
-                        </h5> <a href="javascript:;void(0)" class="bum">新项目</a> <a href="javascript:;void(0)" class="bum">我创建的</a> <a href="javascript:;void(0)" class="bum">我参与的</a> </div>
+                  <h5> 关于项目 </h5> <a href="javascript:;void(0)" class="bum">新项目</a> <a href="javascript:;void(0)" class="bum">我创建的</a> <a href="javascript:;void(0)" class="bum">我参与的</a> </div>
                 <div class="bricks-user-menu-option-group">
-                  <h5>
-                            这里的我
-                        </h5> <a href="javascript:;void(0)" class="bum">账户</a> <a href="javascript:;void(0)" class="bum">关注的项目</a> <a href="javascript:;void(0)" class="bum">开发</a> <a href="javascript:;void(0)" class="bum">工具墙</a> <a href="javascript:;void(0)" class="bum">帮助</a>                  </div>
+                  <h5> 这里的我 </h5> <a href="javascript:;void(0)" class="bum">账户</a> <a href="javascript:;void(0)" class="bum">关注的项目</a> <a href="javascript:;void(0)" class="bum">开发</a> <a href="javascript:;void(0)" class="bum">工具墙</a> <a href="javascript:;void(0)"
+                    class="bum">帮助</a> </div>
               </div>
               <div class="bricks-user-menu-options">
                 <div class="bricks-user-menu-option-group text-align-right"> <a href="javascript:;void(0)" class="bum nobg">设置</a> <a href="javascript:;void(0)" class="bum nobg">退出</a> </div>
@@ -272,19 +264,11 @@ $('[data-action]').on('click', function() {
                   <div class="example-code">
                   <pre>
             <code>
-
-// 指定作用域 
-   var handler = {
-     say: function() {
-       alert('成功')
-       console.log(this)
-     }
-   }
 $('[data-action]').on('click', function() {
   var action = $(this).data('action')
   switch(action) {
     case 'success':
-      return $.successModalLayer({ title: 'success', content: '成功', callback: $.proxy(handler.say, handler) })
+      return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
     case 'confirm':
       return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
     case 'alert':
@@ -358,31 +342,23 @@ $('[data-action]').on('click', function() {
           // ---------
           // 模态窗口
         $('#btn-modalLayer').on('click', function()
+        {
+          $('#my-modalLayer').modalLayer(
           {
-            $('#my-modalLayer').modalLayer(
+            title: 'modalLayer',
+            content: '<h1>modalLayer- content</h1>',
+            buttons: [
             {
-              title: 'modalLayer',
-              content: '<h1>modalLayer- content</h1>',
-              buttons: [
+              text: '哈哈',
+              callback: function()
               {
-                text: '哈哈',
-                callback: function()
-                {
-                  alert('哈哈')
-                    // return false 不关闭
-                    // return false;
-                }
-              }]
-            })
+                alert('哈哈')
+                  // return false 不关闭
+                  // return false;
+              }
+            }]
           })
-          // 指定作用域 
-        var handler = {
-          say: function()
-          {
-            alert('成功')
-            console.log(this)
-          }
-        }
+        })
         $('[data-action]').on('click', function()
         {
           var action = $(this).data('action')
@@ -393,7 +369,10 @@ $('[data-action]').on('click', function() {
               {
                 title: 'success',
                 content: '成功',
-                callback: $.proxy(handler.say, handler)
+                callback: function()
+                {
+                  alert('成功')
+                }
               })
             case 'confirm':
               return $.confirmModalLayer(
