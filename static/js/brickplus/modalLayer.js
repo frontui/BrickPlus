@@ -1,9 +1,740 @@
-/*! 
-*  BrickPlus v1.1.3
-*  by fronui team
-*  updated on 2016-11-22
-*  created by generator-frontman
-*  (c) 2014-2016 www.frontpay.cn
-*  Licensed under MIT
-*/
- !function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(require("jquery")):"function"==typeof define&&define.amd?define(["jquery"],e):"object"==typeof exports?exports.modalLayer=e(require("jquery")):t.modalLayer=e(t.jQuery)}(this,function(t){return function(t){function e(n){if(i[n])return i[n].exports;var o=i[n]={exports:{},id:n,loaded:!1};return t[n].call(o.exports,o,o.exports,e),o.loaded=!0,o.exports}var i={};return e.m=t,e.c=i,e.p="",e(0)}({0:function(t,e,i){t.exports=i(15)},1:function(t,e,i){"use strict";function n(t){return t&&t.__esModule?t:{"default":t}}function o(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function a(t){for(var e=arguments.length,i=Array(e>1?e-1:0),n=1;n<e;n++)i[n-1]=arguments[n];if(!(0,r["default"])(this).length&&t&&/^#(\w*)/gi.test((0,r["default"])(this).selector)){var o=void 0,a=void 0;"string"==typeof t&&(a=t,t={title:"标题",content:""}),t.mid=(0,r["default"])(this).selector.replace(/^#/g,"");var l=c.render(t);return l.data("bp.modal",o=new c(l,t)),"string"==typeof a&&"function"==typeof o[a]&&o[a].apply(o,i),"function"==typeof t.callback&&t.callback.call(l),o.show(),l}return(0,r["default"])(this).each(function(){var e=(0,r["default"])(this),n=e.data("bp.modal"),o=r["default"].extend({},c.DEFAULTS,e.data(),r["default"].isPlainObject(t)?t:{});n||e.data("bp.modal",n=new c(e,o)),"string"==typeof t?"function"==typeof n[t]&&n[t].apply(n,i):r["default"].isPlainObject(t)&&(t.title&&n.setTitle(t.title),t.content&&n.setContent(t.content),n.show(i))})}Object.defineProperty(e,"__esModule",{value:!0});var l=function(){function t(t,e){for(var i=0;i<e.length;i++){var n=e[i];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}return function(e,i,n){return i&&t(e.prototype,i),n&&t(e,n),e}}(),s=i(2),r=n(s);i(3);var d='[data-toggle="modal"]',c=function(){function t(e,i){o(this,t),this.el=(0,r["default"])(e),this.props=r["default"].extend({},t.DEFAULTS,i),this.$body=(0,r["default"])(document.body),this.$dialog=this.el.find(".modal-wrap"),this.$backdrop=null,this.isShown=!1,this.originalBodyPad=null,this.scrollbarWidth=0,this.size=this.props.size,this.isHideRemove=this.props.isHideRemove||!1,this.setSize(this.size,!0),this.props.remote&&this.el.find(".modal-body").load(this.props.remote,r["default"].proxy(function(){this.el.trigger("loaded.bp.modal")},this))}return l(t,[{key:"toggle",value:function(t){return this.isShown?this.hide():this.show(t)}},{key:"show",value:function(e){var i=this,n=r["default"].Event("show.pb.modal",{reletedTarget:e});if(!this.isShown&&!n.isDefaultPrevented()){this.isShown=!0,this.checkScrollbar(),this.setScrollbar(),this.$body.addClass("modal-open"),this.escape(),this.el.on("click.dismiss.pb.modal",'[data-dismiss="modal"], .modal-close',r["default"].proxy(this.hide,this));var o=r["default"].support.transition;this.el.addClass("in").scrollTop(0).attr("tabindex",-1),this.$dialog.addClass("bounceInDown"),this.adjustDialog(),o&&this.el[0].offsetWidth,this.enforceFocus(),o?this.el.attr("aria-hidden",!1).one("uiTransitionEnd",function(){return i.el.trigger("focus").trigger(n)}).emulateTransitionEnd(t.TRANSITION_DURATION):this.el.attr("aria-hidden",!0).fadeIn(t.TRANSITION_DURATION,function(){return i.el.trigger("focus").trigger(n)})}}},{key:"hide",value:function(e){var i=this;e&&e.preventDefault(),(this.el.is(":visible")||this.isShown)&&(this.isShown=!1,this.escape(),(0,r["default"])(document).off("focusin.pb.modal").off("keydown.bp.modal"),this.el.attr("aria-hidden",!0).off("click.dismiss.pb.modal").off("mouseup.dismiss.pb.modal"),this.$dialog.off("mousedown.dismiss.bp.modal"),r["default"].support.transition?this.el.one("uiTransitionEnd",r["default"].proxy(this.hideModal,this)).emulateTransitionEnd(t.TRANSITION_DURATION):this.el.fadeOut(t.TRANSITION_DURATION,function(){return i.hideModal()}))}},{key:"escape",value:function(){var t=this;this.isShown&&this.props.keyboard?this.el.on("keydown.dismiss.bp.modal",function(e){27===e.which&&t.hide()}):this.isShown||this.el.off("keydown.dismiss.bp.modal")}},{key:"hideModal",value:function(){var t=r["default"].Event("hide.bp.modal",{reletedTarget:this.el});this.$body.removeClass("modal-open"),this.resetAdjustments(),this.resetScrollbar(),this.$dialog.removeClass("bounceInDown"),this.el.removeClass("in").trigger(t),this.isHideRemove&&this.el.remove()}},{key:"handleUpdate",value:function(){this.ajustDialog()}},{key:"adjustDialog",value:function(){var t=this.el[0].scrollHeight>document.documentElement.clientHeight;this.el.css({paddingLeft:!this.bodyIsOverflowing&&t?this.scrollbarWidth:"",paddingRight:this.bodyIsOverflowing&&!t?this.scrollbarWidth:""})}},{key:"resetAdjustments",value:function(){this.el.css({paddingLeft:"",paddingRight:""})}},{key:"enforceFocus",value:function(){var t=this;(0,r["default"])(document).off("focusin.bp.modal").on("focusin.bp.modal",function(e){t.el[0]===e.target||t.el.has(e.target).length||t.$dialog.trigger("focus")})}},{key:"checkScrollbar",value:function(){var t=window.innerWidth;if(!t){var e=document.documentElement.getBoundingClientRect();t=e.right-Math.abs(e.left)}this.bodyIsOverflowing=document.body.clientWidth<t,this.scrollbarWidth=this.measureScrollbar()}},{key:"setScrollbar",value:function(){var t=parseInt(this.$body.css("padding-right")||0,10);this.originalBodyPad=document.body.style.paddingRight||"",this.bodyIsOverflowing&&this.$body.css("padding-right",t+this.scrollbarWidth)}},{key:"resetScrollbar",value:function(){this.$body.css("padding-right",this.originalBodyPad)}},{key:"measureScrollbar",value:function(){var t=document.createElement("div");t.className="modal-scrollbar-measure",this.$body[0].appendChild(t);var e=t.offsetWidth-t.clientWidth;return this.$body[0].removeChild(t),e}},{key:"setContent",value:function(t){var e=this.el.find(".modal-body");e.length&&e.html(t||"")}},{key:"setTitle",value:function(t){var e=this.el.find(".modal-title");e.length&&e.html(t||"")}},{key:"setSize",value:function(t,e){if(this.size!==t||e){for(var i=this.el.attr("class").split(" "),n=0,o=[];n<i.length;n++)i[n].indexOf("-modal")===-1&&o.push(i[n]);t&&o.push(t+"-modal"),this.el.attr("class",o.join(" "))}}}]),t}();e["default"]=c,c.TRANSITION_DURATION=150,c.DEFAULTS={backdrop:!0,keyboard:!0,show:!0,size:!1},c.TEMPLATE='\n    <div class="modal-background fade" id="{{mid}}">\n        <div class="modal-layer">\n            <div class="modal-position">\n            <div class="modal-wrap animated bounceInDown">\n                <div class="modal-head">\n                    <span class="modal-title">{{title}}</span>\n                    <i class="modal-close"></i>\n                </div>\n                <div class="modal-body">\n                {{content}}\n                </div>\n            </div>\n            </div>\n        </div>\n    </div>\n',c.render=function(t){var e=(0,r["default"])(document.body),i=void 0;return r["default"].isPlainObject(t)&&(i=c.TEMPLATE.replace(/{{(\w*)}}/gi,function(e,i){var n=t[i];return n&&"string"==typeof n?/^(\.|#)\w*/gi.test(n)?(0,r["default"])(n).html():n:n&&n instanceof r["default"]&&n.length>0?n.html():void 0}),i=(0,r["default"])(i).appendTo(e)),i},r["default"].fn.modal=a,r["default"].fn.modal.Constructor=c,r["default"].closeModal=function(t){(0,r["default"])(t).modal("hide")};var u=function(t){var e=(0,r["default"])(this),i=e.attr("href"),n=(0,r["default"])(e.attr("data-target"))||i&&i.replace(/.*(?=#[^\s]+$)/,"");a.call(n,"show",this)};(0,r["default"])(function(){(0,r["default"])(document).on("click.bp.modal",d,function(t){u.call(t.target,t)})})},2:function(e,i){e.exports=t},3:function(t,e,i){"use strict";function n(){var t=document.createElement("ui"),e={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"};for(var i in e)if(void 0!==t.style[i])return{end:e[i]};return!1}var o=i(2);o.fn.emulateTransitionEnd=function(t){var e=!1,i=this;o(this).one("uiTransitionEnd",function(){e=!0});var n=function(){e||o(i).trigger(o.support.transition.end)};return setTimeout(n,t),this},o(function(){o.support.transition=n(),o.support.transition&&(o.event.special.uiTransitionEnd={bindType:o.support.transition.end,delegateType:o.support.transition.end,handle:function(t){if(o(t.target).is(this))return t.handleObj.handler.apply(this,arguments)}})}),t.exports=n},15:function(t,e,i){"use strict";function n(t){return t&&t.__esModule?t:{"default":t}}function o(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function a(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function l(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}function s(t){function e(){var t=(0,d["default"])(this);(0,d["default"])(this).on("click.btnEvents",".bp-modallayer-btns .btn",function(){var e=(0,d["default"])(this).data("index"),i=!0;a.length&&a[e]&&a[e].callback&&"function"==typeof a[e].callback&&(i=a[e].callback.call(a[e].callbackPointer,(0,d["default"])(this),e)!==!1),i&&t.modal("hide")})}var i=void 0,n=void 0,o=[],a=t.buttons;n=d["default"].extend({},f.DEFAULTS,t);for(var l=0;l<a.length;l++)a[l].href?o.push('<a href="'+a[l].href+'" '+(a[l].target?'target="'+a[l].target+'"':"")+' class="'+(a[l].style||"btn primary")+'" data-index="'+l+'">'+a[l].text+"</a>"):o.push('<button type="button" class="'+(a[l].style||"btn primary")+'" data-index="'+l+'">'+a[l].text+"</button>");n.content=f.render({status:n.icon?"result-"+n.icon:"",title:n.title,content:t.content||"",buttons:o.join("")}),n.callback=e,i=(0,d["default"])(this).modal({title:n.title,content:n.content,callback:n.callback,size:n.size,isHideRemove:n.isHideRemove})}Object.defineProperty(e,"__esModule",{value:!0});var r=i(2),d=n(r),c=i(1),u=n(c),f=function(t){function e(t,i){return o(this,e),a(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,i))}return l(e,t),e}(u["default"]);e["default"]=f,f.DEFAULTS={icon:"info",title:"提示",content:"",close:!0,size:!1,buttons:[{text:"确定",href:!1,style:"btn primary",target:!1,callback:d["default"].noop}]},f.TEMPLATE='\n    <div class="result-wrap result-s {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{title}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n',f.render=function(t){var e=void 0;return e=f.TEMPLATE.replace(/{{(\w*)}}/gi,function(e,i){var n=t[i];return n})},d["default"].fn.modalLayer=s,d["default"].fn.modalLayer.constructor=f,d["default"].successModalLayer=function(t){if(d["default"].isPlainObject(t)){var e=t.id?t.id:"#bp-successModalLayer";return(0,d["default"])(e).modalLayer({icon:"success",size:"small",title:t.title,content:t.content,buttons:[{style:"btn secondary",text:"确定",callback:t.callback}],isHideRemove:t.isHideRemove||!1})}},d["default"].confirmModalLayer=function(t){if(d["default"].isPlainObject(t)){var e=t.id?t.id:"#bp-confirmModalLayer";return(0,d["default"])(e).modalLayer({icon:"info",size:"small",title:t.title,content:t.content,buttons:[{text:"确定",callback:t.callback},{href:"javascript:void(0);",text:"取消",style:"btn links"}],isHideRemove:t.isHideRemove||!1})}},d["default"].alertModalLayer=function(t){if(d["default"].isPlainObject(t)){var e=t.id?t.id:"#bp-alertModalLayer";return(0,d["default"])(e).modalLayer({icon:"info",size:"small",title:t.title,content:t.content,buttons:[{text:"确定",callback:t.callback}],isHideRemove:t.isHideRemove||!1})}},d["default"].errorModalLayer=function(t){if(d["default"].isPlainObject(t)){var e=t.id?t.id:"#bp-infoModalLayer";return(0,d["default"])(e).modalLayer({icon:"fail",size:"small",title:t.title,content:t.content,buttons:[{text:"确定",style:"btn thirdly",callback:t.callback}],isHideRemove:t.isHideRemove||!1})}}}})});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("jquery"));
+	else if(typeof define === 'function' && define.amd)
+		define(["jquery"], factory);
+	else if(typeof exports === 'object')
+		exports["modalLayer"] = factory(require("jquery"));
+	else
+		root["modalLayer"] = factory(root["jQuery"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(15);
+
+
+/***/ },
+
+/***/ 1:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 弹层
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * tommyshao <tomieric@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Reference bootstrap.modal.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * API:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      // 监听打开
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).on('show.bp.modal', function(e, obj){});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).on('shown.bp.modal', function(e, obj){});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      // 监听关闭
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).on('hide.bp.modal', function(){});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).on('hidden.bp.modal', function(){});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             // 绑定一个弹窗
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).modal();
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      // 自定义弹窗
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(id).modal({title: '提示', content: 'abc'});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $(id).modal('setContent', 'cdfg');
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             // loading
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+	
+	var _jquery = __webpack_require__(2);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	__webpack_require__(3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var toggle = '[data-toggle="modal"]';
+	
+	var Modal = function () {
+	    function Modal(el, props) {
+	        _classCallCheck(this, Modal);
+	
+	        this.el = (0, _jquery2.default)(el);
+	        this.props = _jquery2.default.extend({}, Modal.DEFAULTS, props);
+	        this.$body = (0, _jquery2.default)(document.body);
+	
+	        this.$dialog = this.el.find('.modal-wrap');
+	        this.$backdrop = null;
+	        this.isShown = false;
+	        this.originalBodyPad = null;
+	        this.scrollbarWidth = 0;
+	        this.size = this.props.size;
+	        this.isHideRemove = this.props.isHideRemove || false;
+	
+	        this.setSize(this.size, true);
+	
+	        if (this.props.remote) {
+	            this.el.find('.modal-body').load(this.props.remote, _jquery2.default.proxy(function () {
+	                this.el.trigger('loaded.bp.modal');
+	            }, this));
+	        }
+	    }
+	
+	    // 显示-隐藏开关
+	
+	
+	    _createClass(Modal, [{
+	        key: 'toggle',
+	        value: function toggle(target) {
+	            return this.isShown ? this.hide() : this.show(target);
+	        }
+	
+	        // 显示
+	
+	    }, {
+	        key: 'show',
+	        value: function show(target) {
+	            var _this = this;
+	
+	            var e = _jquery2.default.Event('show.pb.modal', { reletedTarget: target });
+	
+	            if (this.isShown || e.isDefaultPrevented()) return;
+	
+	            this.isShown = true;
+	            this.checkScrollbar();
+	            this.setScrollbar();
+	            this.$body.addClass('modal-open');
+	
+	            this.escape();
+	
+	            this.el.on('click.dismiss.pb.modal', '[data-dismiss="modal"], .modal-close', _jquery2.default.proxy(this.hide, this));
+	
+	            var transition = _jquery2.default.support.transition;
+	
+	            this.el.addClass('in').scrollTop(0).attr('tabindex', -1);
+	            this.$dialog.addClass('bounceInDown');
+	
+	            this.adjustDialog();
+	
+	            // 阻塞，保证动画响应
+	            // 减少重绘
+	            if (transition) this.el[0].offsetWidth;
+	
+	            this.enforceFocus();
+	
+	            if (transition) {
+	                // css3
+	                this.el.attr('aria-hidden', false).one('uiTransitionEnd', function () {
+	                    return _this.el.trigger('focus').trigger(e);
+	                }).emulateTransitionEnd(Modal.TRANSITION_DURATION);
+	            } else {
+	                this.el.attr('aria-hidden', true).fadeIn(Modal.TRANSITION_DURATION, function () {
+	                    return _this.el.trigger('focus').trigger(e);
+	                });
+	            }
+	        }
+	
+	        // 隐藏弹层
+	
+	    }, {
+	        key: 'hide',
+	        value: function hide(e) {
+	            var _this2 = this;
+	
+	            if (e) e.preventDefault();
+	
+	            if (!this.el.is(':visible') && !this.isShown) return;
+	
+	            this.isShown = false;
+	
+	            this.escape();
+	
+	            (0, _jquery2.default)(document).off('focusin.pb.modal').off('keydown.bp.modal');
+	
+	            this.el.attr('aria-hidden', true).off('click.dismiss.pb.modal').off('mouseup.dismiss.pb.modal');
+	
+	            this.$dialog.off('mousedown.dismiss.bp.modal');
+	
+	            _jquery2.default.support.transition ? this.el.one('uiTransitionEnd', _jquery2.default.proxy(this.hideModal, this)).emulateTransitionEnd(Modal.TRANSITION_DURATION) : this.el.fadeOut(Modal.TRANSITION_DURATION, function () {
+	                return _this2.hideModal();
+	            });
+	        }
+	
+	        // esc关闭
+	
+	    }, {
+	        key: 'escape',
+	        value: function escape() {
+	            var _this3 = this;
+	
+	            if (this.isShown && this.props.keyboard) {
+	                this.el.on('keydown.dismiss.bp.modal', function (e) {
+	                    e.which === 27 && _this3.hide();
+	                });
+	            } else if (!this.isShown) {
+	                this.el.off('keydown.dismiss.bp.modal');
+	            }
+	        }
+	
+	        // 隐藏弹层
+	
+	    }, {
+	        key: 'hideModal',
+	        value: function hideModal() {
+	            var e = _jquery2.default.Event('hide.bp.modal', { reletedTarget: this.el });
+	            this.$body.removeClass('modal-open');
+	            this.resetAdjustments();
+	            this.resetScrollbar();
+	            this.$dialog.removeClass('bounceInDown');
+	            this.el.removeClass('in').trigger(e);
+	            this.isHideRemove && this.el.remove();
+	        }
+	
+	        // 调整弹层位置
+	
+	    }, {
+	        key: 'handleUpdate',
+	        value: function handleUpdate() {
+	            this.ajustDialog();
+	        }
+	    }, {
+	        key: 'adjustDialog',
+	        value: function adjustDialog() {
+	            var modalIsOverflowing = this.el[0].scrollHeight > document.documentElement.clientHeight;
+	            this.el.css({
+	                paddingLeft: !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
+	                paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''
+	            });
+	        }
+	    }, {
+	        key: 'resetAdjustments',
+	        value: function resetAdjustments() {
+	            this.el.css({
+	                paddingLeft: '',
+	                paddingRight: ''
+	            });
+	        }
+	
+	        // 弹层获取焦点
+	
+	    }, {
+	        key: 'enforceFocus',
+	        value: function enforceFocus() {
+	            var _this4 = this;
+	
+	            (0, _jquery2.default)(document).off('focusin.bp.modal').on('focusin.bp.modal', function (e) {
+	                if (_this4.el[0] !== e.target && !_this4.el.has(e.target).length) _this4.$dialog.trigger('focus');
+	            });
+	        }
+	
+	        // 滚动条
+	
+	    }, {
+	        key: 'checkScrollbar',
+	        value: function checkScrollbar() {
+	            var fullWindowWidth = window.innerWidth;
+	
+	            if (!fullWindowWidth) {
+	                var documentElementRect = document.documentElement.getBoundingClientRect();
+	                fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left);
+	            }
+	
+	            this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth;
+	
+	            this.scrollbarWidth = this.measureScrollbar();
+	        }
+	
+	        // 设置滚动条
+	
+	    }, {
+	        key: 'setScrollbar',
+	        value: function setScrollbar() {
+	            var bodyPad = parseInt(this.$body.css('padding-right') || 0, 10);
+	            this.originalBodyPad = document.body.style.paddingRight || '';
+	            if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth);
+	        }
+	    }, {
+	        key: 'resetScrollbar',
+	        value: function resetScrollbar() {
+	            this.$body.css('padding-right', this.originalBodyPad);
+	        }
+	    }, {
+	        key: 'measureScrollbar',
+	        value: function measureScrollbar() {
+	            var scrollDiv = document.createElement('div');
+	            scrollDiv.className = 'modal-scrollbar-measure';
+	            this.$body[0].appendChild(scrollDiv);
+	            var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+	            this.$body[0].removeChild(scrollDiv);
+	            return scrollbarWidth;
+	        }
+	
+	        // ------
+	        // 扩展方法
+	
+	    }, {
+	        key: 'setContent',
+	        value: function setContent(content) {
+	            var $content = this.el.find('.modal-body');
+	            $content.length && $content.html(content || '');
+	        }
+	    }, {
+	        key: 'setTitle',
+	        value: function setTitle(title) {
+	            var $title = this.el.find('.modal-title');
+	            $title.length && $title.html(title || '');
+	        }
+	
+	        // 调整大小
+	
+	    }, {
+	        key: 'setSize',
+	        value: function setSize(size, inited) {
+	            if (this.size === size && !inited) return;
+	            var cls = this.el.attr('class').split(' '),
+	                i = 0,
+	                sizes = [];
+	            for (; i < cls.length; i++) {
+	                if (cls[i].indexOf('-modal') === -1) sizes.push(cls[i]);
+	            }
+	            size && sizes.push(size + '-modal');
+	            this.el.attr('class', sizes.join(' '));
+	        }
+	    }]);
+	
+	    return Modal;
+	}();
+	
+	// 动画时长
+	
+	
+	exports.default = Modal;
+	Modal.TRANSITION_DURATION = 150;
+	
+	// 默认配置
+	Modal.DEFAULTS = {
+	    backdrop: true,
+	    keyboard: true,
+	    show: true,
+	    size: false
+	};
+	
+	// 弹层 HTML 结构
+	Modal.TEMPLATE = '\n    <div class="modal-background fade" id="{{mid}}">\n        <div class="modal-layer">\n            <div class="modal-position">\n            <div class="modal-wrap animated bounceInDown">\n                <div class="modal-head">\n                    <span class="modal-title">{{title}}</span>\n                    <i class="modal-close"></i>\n                </div>\n                <div class="modal-body">\n                {{content}}\n                </div>\n            </div>\n            </div>\n        </div>\n    </div>\n';
+	
+	// 渲染
+	Modal.render = function (option) {
+	    var $body = (0, _jquery2.default)(document.body),
+	        element = void 0;
+	
+	    // 按配置参数类搭建骨架
+	    if (_jquery2.default.isPlainObject(option)) {
+	        element = Modal.TEMPLATE.replace(/{{(\w*)}}/gi, function (match, key) {
+	            var value = option[key];
+	            // 字符串字段
+	            if (value && typeof value === 'string') return (/^(\.|#)\w*/gi.test(value) ? (0, _jquery2.default)(value).html() : value
+	            );
+	            // 如果 value 为 jquery 元素
+	            if (value && value instanceof _jquery2.default && value.length > 0) return value.html();
+	        });
+	
+	        element = (0, _jquery2.default)(element).appendTo($body);
+	    }
+	
+	    return element;
+	};
+	
+	// 插件定义
+	//======================
+	function Plugin(option) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        args[_key - 1] = arguments[_key];
+	    }
+	
+	    if (!(0, _jquery2.default)(this).length && option && /^#(\w*)/gi.test((0, _jquery2.default)(this).selector)) {
+	        // js创建
+	        var data = void 0,
+	            fn = void 0;
+	
+	        if (typeof option === 'string') {
+	            fn = option;
+	            option = { title: '标题', content: '' };
+	        }
+	
+	        option.mid = (0, _jquery2.default)(this).selector.replace(/^#/g, '');
+	        var el = Modal.render(option);
+	
+	        el.data('bp.modal', data = new Modal(el, option));
+	
+	        if (typeof fn === 'string' && typeof data[fn] === 'function') {
+	            data[fn].apply(data, args);
+	        }
+	
+	        if (typeof option['callback'] === 'function') option['callback'].call(el);
+	
+	        // 首次直接显示
+	        data.show();
+	
+	        return el;
+	    } else {
+	        return (0, _jquery2.default)(this).each(function () {
+	            var that = (0, _jquery2.default)(this),
+	                data = that.data('bp.modal'),
+	                opt = _jquery2.default.extend({}, Modal.DEFAULTS, that.data(), _jquery2.default.isPlainObject(option) ? option : {});
+	            if (!data) that.data('bp.modal', data = new Modal(that, opt));
+	
+	            if (typeof option === 'string') {
+	                typeof data[option] === 'function' && data[option].apply(data, args);
+	            } else if (_jquery2.default.isPlainObject(option)) {
+	                if (option.title) data.setTitle(option.title);
+	                if (option.content) data.setContent(option.content);
+	                data.show(args);
+	            }
+	        });
+	    }
+	}
+	
+	// jQuery 插件扩展
+	_jquery2.default.fn.modal = Plugin;
+	_jquery2.default.fn.modal.Constructor = Modal;
+	_jquery2.default.closeModal = function (id) {
+	    (0, _jquery2.default)(id).modal('hide');
+	};
+	
+	var Handler = function Handler(e) {
+	    var that = (0, _jquery2.default)(this),
+	        href = that.attr('href'),
+	        $target = (0, _jquery2.default)(that.attr('data-target')) || href && href.replace(/.*(?=#[^\s]+$)/, '');
+	
+	    Plugin.call($target, 'show', this);
+	};
+	
+	(0, _jquery2.default)(function () {
+	    (0, _jquery2.default)(document).on('click.bp.modal', toggle, function (e) {
+	        Handler.call(e.target, e);
+	    });
+	});
+
+/***/ },
+
+/***/ 2:
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+
+/***/ 3:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	/**
+	 * 判断是否支持css transition
+	 * by tommyshao <jinhong.shao@frontpay.cn>
+	 * 2016-07-19
+	 *
+	 * Reference bootstrap.transition.js
+	 * http://getbootstrap.com/javascript/#transitions
+	 *
+	 * API:
+	 * ------
+	 * $.support.transition
+	 * $(element).one('uiTransitionEnd', fn).emulateTransitionEnd(duration)
+	 */
+	
+	var $ = __webpack_require__(2);
+	
+	// CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+	// --------------------------------------------
+	
+	function transitionEnd() {
+	    var el = document.createElement('ui');
+	
+	    var transEndEventNames = {
+	        WebkitTransition: 'webkitTransitionEnd',
+	        MozTransition: 'transitionend',
+	        OTransition: 'oTransitionEnd otransitionend',
+	        transition: 'transitionend'
+	    };
+	
+	    for (var name in transEndEventNames) {
+	        if (el.style[name] !== undefined) {
+	            return { end: transEndEventNames[name] };
+	        }
+	    }
+	
+	    return false; // explicit for ie8 (  ._.)
+	}
+	
+	// http://blog.alexmaccaw.com/css-transitions
+	$.fn.emulateTransitionEnd = function (duration) {
+	    var called = false;
+	    var $el = this;
+	    $(this).one('uiTransitionEnd', function () {
+	        called = true;
+	    });
+	    var callback = function callback() {
+	        if (!called) $($el).trigger($.support.transition.end);
+	    };
+	    setTimeout(callback, duration);
+	    return this;
+	};
+	
+	$(function () {
+	    $.support.transition = transitionEnd();
+	
+	    if (!$.support.transition) return;
+	
+	    $.event.special.uiTransitionEnd = {
+	        bindType: $.support.transition.end,
+	        delegateType: $.support.transition.end,
+	        handle: function handle(e) {
+	            if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments);
+	        }
+	    };
+	});
+	
+	module.exports = transitionEnd;
+
+/***/ },
+
+/***/ 15:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _jquery = __webpack_require__(2);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _Modal2 = __webpack_require__(1);
+	
+	var _Modal3 = _interopRequireDefault(_Modal2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 模态窗口
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * by tommyshao <tomieric@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 2016-09-22
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ModalLayer = function (_Modal) {
+	    _inherits(ModalLayer, _Modal);
+	
+	    function ModalLayer(el, props) {
+	        _classCallCheck(this, ModalLayer);
+	
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ModalLayer).call(this, el, props));
+	    }
+	
+	    return ModalLayer;
+	}(_Modal3.default);
+	
+	exports.default = ModalLayer;
+	
+	
+	ModalLayer.DEFAULTS = {
+	    icon: 'info',
+	    title: '提示',
+	    content: '',
+	    close: true,
+	    size: false,
+	    buttons: [{
+	        text: '确定',
+	        href: false,
+	        style: 'btn primary',
+	        target: false,
+	        callback: _jquery2.default.noop
+	    }]
+	};
+	
+	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{title}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n';
+	
+	// 渲染
+	ModalLayer.render = function (option) {
+	    var element = void 0;
+	    element = ModalLayer.TEMPLATE.replace(/{{(\w*)}}/gi, function (match, key) {
+	        var value = option[key];
+	        return value;
+	    });
+	
+	    return element;
+	};
+	
+	// --------
+	// jqurey api
+	function Plugin(option) {
+	    var that = void 0,
+	        opt = void 0,
+	        btnHtml = [],
+	        btns = option.buttons;
+	
+	    opt = _jquery2.default.extend({}, ModalLayer.DEFAULTS, option);
+	
+	    for (var i = 0; i < btns.length; i++) {
+	        if (btns[i].href) {
+	            btnHtml.push('<a href="' + btns[i].href + '" ' + (btns[i].target ? 'target="' + btns[i].target + '"' : '') + ' class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</a>');
+	        } else {
+	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</button>');
+	        }
+	    }
+	
+	    function callback() {
+	        var el = (0, _jquery2.default)(this);
+	        (0, _jquery2.default)(this).on('click.btnEvents', '.bp-modallayer-btns .btn', function () {
+	            var index = (0, _jquery2.default)(this).data('index'),
+	                e = true;
+	            // console.log(btns[index]['callbackPointer']);
+	            if (btns.length && btns[index] && btns[index]['callback'] && typeof btns[index]['callback'] === 'function') {
+	                e = btns[index]['callback'].call(btns[index]['callbackPointer'], (0, _jquery2.default)(this), index) === false ? false : true;
+	            }
+	
+	            e && el.modal('hide');
+	        });
+	    };
+	
+	    opt.content = ModalLayer.render({ status: opt.icon ? 'result-' + opt.icon : '', title: opt.title, content: option.content || '', buttons: btnHtml.join('') });
+	    opt.callback = callback;
+	
+	    that = (0, _jquery2.default)(this).modal({ title: opt.title, content: opt.content, callback: opt.callback, size: opt.size, isHideRemove: opt.isHideRemove });
+	}
+	
+	_jquery2.default.fn.modalLayer = Plugin;
+	_jquery2.default.fn.modalLayer.constructor = ModalLayer;
+	
+	_jquery2.default.successModalLayer = function (config) {
+	    if (!_jquery2.default.isPlainObject(config)) return;
+	    var id = config['id'] ? config['id'] : '#bp-successModalLayer';
+	    return (0, _jquery2.default)(id).modalLayer({
+	        icon: 'success',
+	        size: 'small',
+	        title: config['title'],
+	        content: config['content'],
+	        buttons: [{
+	            style: 'btn secondary',
+	            text: '确定',
+	            callback: config['callback']
+	        }],
+	        isHideRemove: config['isHideRemove'] || false
+	    });
+	};
+	
+	_jquery2.default.confirmModalLayer = function (config) {
+	    if (!_jquery2.default.isPlainObject(config)) return;
+	    var id = config['id'] ? config['id'] : '#bp-confirmModalLayer';
+	    return (0, _jquery2.default)(id).modalLayer({
+	        icon: 'info',
+	        size: 'small',
+	        title: config['title'],
+	        content: config['content'],
+	        buttons: [{
+	            text: '确定',
+	            callback: config['callback']
+	        }, {
+	            href: 'javascript:void(0);',
+	            text: '取消',
+	            style: 'btn links'
+	        }],
+	        isHideRemove: config['isHideRemove'] || false
+	    });
+	};
+	
+	_jquery2.default.alertModalLayer = function (config) {
+	    if (!_jquery2.default.isPlainObject(config)) return;
+	    var id = config['id'] ? config['id'] : '#bp-alertModalLayer';
+	    return (0, _jquery2.default)(id).modalLayer({
+	        icon: 'info',
+	        size: 'small',
+	        title: config['title'],
+	        content: config['content'],
+	        buttons: [{
+	            text: '确定',
+	            callback: config['callback']
+	        }],
+	        isHideRemove: config['isHideRemove'] || false
+	    });
+	};
+	
+	_jquery2.default.errorModalLayer = function (config) {
+	    if (!_jquery2.default.isPlainObject(config)) return;
+	    var id = config['id'] ? config['id'] : '#bp-infoModalLayer';
+	    return (0, _jquery2.default)(id).modalLayer({
+	        icon: 'fail',
+	        size: 'small',
+	        title: config['title'],
+	        content: config['content'],
+	        buttons: [{
+	            text: '确定',
+	            style: 'btn thirdly',
+	            callback: config['callback']
+	        }],
+	        isHideRemove: config['isHideRemove'] || false
+	    });
+	};
+
+/***/ }
+
+/******/ })
+});
+;
+//# sourceMappingURL=modalLayer.js.map

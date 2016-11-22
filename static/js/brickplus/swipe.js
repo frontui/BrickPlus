@@ -1,9 +1,181 @@
-/*! 
-*  BrickPlus v1.1.3
-*  by fronui team
-*  updated on 2016-11-22
-*  created by generator-frontman
-*  (c) 2014-2016 www.frontpay.cn
-*  Licensed under MIT
-*/
- !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("jquery")):"function"==typeof define&&define.amd?define(["jquery"],t):"object"==typeof exports?exports.swipe=t(require("jquery")):e.swipe=t(e.jQuery)}(this,function(e){return function(e){function t(s){if(i[s])return i[s].exports;var r=i[s]={exports:{},id:s,loaded:!1};return e[s].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}({0:function(e,t,i){e.exports=i(8)},2:function(t,i){t.exports=e},8:function(e,t,i){"use strict";function s(e){return e&&e.__esModule?e:{"default":e}}function r(e){var t=void 0,i=void 0,s=void 0;t=e.currentTarget.offsetWidth,i=e.currentTarget.offsetHeight,s={distX:e.distX,distY:e.distY,velocitX:e.velocitX,velocitY:e.velocitY,finger:e.finger},e.distX>e.distY?e.distX>-e.distY?(e.distX/t>l.threshold||e.velocityX*e.distX/t*l.sensitivity>1)&&(s.type="swiperight",c(e.currentTarget,s)):(-e.distY/i>l.threshold||e.velocityY*e.distY/t*l.sensitivity>1)&&(s.type="swipeup",c(e.currentTarget,s)):e.distX>-e.distY?(e.distY/i>l.threshold||e.velocityY*e.distY/t*l.sensitivity>1)&&(s.type="swipedown",c(e.currentTarget,s)):(-e.distX/t>l.threshold||e.velocityX*e.distX/t*l.sensitivity>1)&&(s.type="swipeleft",c(e.currentTarget,s))}function n(e){var t=d["default"].data(e,"event_swipe");return t||(t={count:0},d["default"].data(e,"event_swipe",t)),t}Object.defineProperty(t,"__esModule",{value:!0});var o=i(2),d=s(o),u=d["default"].event.add,f=d["default"].event.remove,c=function(e,t,i){d["default"].event.trigger(t,i,e)},l={threshold:.4,sensitivity:6};d["default"].event.special.swipe=d["default"].event.special.swipeleft=d["default"].event.special.swiperight=d["default"].event.special.swipeup=d["default"].event.special.swipedown={setup:function(e,t,i){if(e=n(this),!(e.count++>0))return u(this,"moveend",r),!0},teardown:function(){var e=n(this);if(!(--e.count>0))return f(this,"moveend",r),!0},settings:l},t["default"]=d["default"]}})});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("jquery"));
+	else if(typeof define === 'function' && define.amd)
+		define(["jquery"], factory);
+	else if(typeof exports === 'object')
+		exports["swipe"] = factory(require("jquery"));
+	else
+		root["swipe"] = factory(root["jQuery"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(8);
+
+
+/***/ },
+
+/***/ 2:
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+
+/***/ 8:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _jquery = __webpack_require__(2);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var add = _jquery2.default.event.add,
+	    remove = _jquery2.default.event.remove,
+	    trigger = function trigger(node, type, data) {
+	    _jquery2.default.event.trigger(type, data, node);
+	},
+	    settings = {
+	    threshold: 0.4,
+	    sensitivity: 6
+	}; /**
+	    * jQuery.event.swipe
+	    * 
+	    * fork https://github.com/stephband/jquery.event.swipe
+	    */
+	
+	function moveend(e) {
+	    var w = void 0,
+	        h = void 0,
+	        event = void 0;
+	
+	    w = e.currentTarget.offsetWidth;
+	    h = e.currentTarget.offsetHeight;
+	
+	    event = {
+	        distX: e.distX,
+	        distY: e.distY,
+	        velocitX: e.velocitX,
+	        velocitY: e.velocitY,
+	        finger: e.finger
+	    };
+	
+	    if (e.distX > e.distY) {
+	        if (e.distX > -e.distY) {
+	            if (e.distX / w > settings.threshold || e.velocityX * e.distX / w * settings.sensitivity > 1) {
+	                event.type = 'swiperight';
+	                trigger(e.currentTarget, event);
+	            }
+	        } else {
+	            if (-e.distY / h > settings.threshold || e.velocityY * e.distY / w * settings.sensitivity > 1) {
+	                event.type = 'swipeup';
+	                trigger(e.currentTarget, event);
+	            }
+	        }
+	    } else {
+	        if (e.distX > -e.distY) {
+	            if (e.distY / h > settings.threshold || e.velocityY * e.distY / w * settings.sensitivity > 1) {
+	                event.type = 'swipedown';
+	                trigger(e.currentTarget, event);
+	            }
+	        } else {
+	            if (-e.distX / w > settings.threshold || e.velocityX * e.distX / w * settings.sensitivity > 1) {
+	                event.type = 'swipeleft';
+	                trigger(e.currentTarget, event);
+	            }
+	        }
+	    }
+	}
+	
+	function getData(node) {
+	    var data = _jquery2.default.data(node, 'event_swipe');
+	
+	    if (!data) {
+	        data = { count: 0 };
+	        _jquery2.default.data(node, 'event_swipe', data);
+	    }
+	
+	    return data;
+	}
+	
+	_jquery2.default.event.special.swipe = _jquery2.default.event.special.swipeleft = _jquery2.default.event.special.swiperight = _jquery2.default.event.special.swipeup = _jquery2.default.event.special.swipedown = {
+	    setup: function setup(data, namespaces, eventHandle) {
+	        data = getData(this);
+	
+	        if (data.count++ > 0) return;
+	
+	        add(this, 'moveend', moveend);
+	        return true;
+	    },
+	    teardown: function teardown() {
+	        var data = getData(this);
+	
+	        if (--data.count > 0) return;
+	
+	        remove(this, 'moveend', moveend);
+	
+	        return true;
+	    },
+	    settings: settings
+	};
+	
+	exports.default = _jquery2.default;
+
+/***/ }
+
+/******/ })
+});
+;
+//# sourceMappingURL=swipe.js.map

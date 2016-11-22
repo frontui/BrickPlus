@@ -1,9 +1,407 @@
-/*! 
-*  BrickPlus v1.1.3
-*  by fronui team
-*  updated on 2016-11-22
-*  created by generator-frontman
-*  (c) 2014-2016 www.frontpay.cn
-*  Licensed under MIT
-*/
- !function(t,e){"object"==typeof exports&&"object"==typeof module?module.exports=e(require("jquery")):"function"==typeof define&&define.amd?define(["jquery"],e):"object"==typeof exports?exports.pagination=e(require("jquery")):t.pagination=e(t.jQuery)}(this,function(t){return function(t){function e(i){if(a[i])return a[i].exports;var s=a[i]={exports:{},id:i,loaded:!1};return t[i].call(s.exports,s,s.exports,e),s.loaded=!0,s.exports}var a={};return e.m=t,e.c=a,e.p="",e(0)}({0:function(t,e,a){t.exports=a(17)},2:function(e,a){e.exports=t},17:function(t,e,a){"use strict";function i(t){return t&&t.__esModule?t:{"default":t}}function s(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function n(t){for(var e=arguments.length,a=Array(e>1?e-1:0),i=1;i<e;i++)a[i-1]=arguments[i];return(0,l["default"])(this).each(function(){var e=(0,l["default"])(this);if(!e.hasClass("no-js")){var i=e.data("bp.pagination");i||e.data("bp.pagination",i=new u(e,l["default"].extend({},e.data(),t))),"string"==typeof t&&i[t].apply(i,a)}})}Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var a=0;a<e.length;a++){var i=e[a];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,a,i){return a&&t(e.prototype,a),i&&t(e,i),e}}(),o=a(2),l=i(o),p='.paginations,[data-toggle="pagination"]',h='<p class="p-add-ons fn-mr-15">{$items}&nbsp;条记录，共&nbsp;{$totalPages}&nbsp;页</p>',u=function(){function t(e,a){s(this,t),this.el=(0,l["default"])(e),this.__init(a)}return r(t,[{key:"__init",value:function(t,e){this.__setProps(t);var a=this.props,i=a.itemsOnPage,s=a.items,n=a.currentPage,r=a.totalPages,o=a.visiblePages;this.totalPages=r&&!s?r:Math.ceil(s/i)?Math.ceil(s/i):1,this.items=s?s:this.totalPages*i,this.currentPage=n-1,this.halfVisible=o/2,this.__render(),!e&&this.__initEvent(),this.go(n)}},{key:"__setProps",value:function(e){this.props=l["default"].extend({},t.DEFAULTS,e)}},{key:"__initEvent",value:function(){var t=this;this.el.on("click.bp.pagination","a[data-page]",function(e){e.preventDefault(),t.selectPage((0,l["default"])(e.target).data("page"))})}},{key:"__getInterval",value:function(){return{start:Math.ceil(this.currentPage>this.halfVisible?Math.max(Math.min(this.currentPage-this.halfVisible,this.totalPages-this.props.visiblePages),0):0),end:Math.ceil(this.currentPage>this.halfVisible?Math.min(this.currentPage+this.halfVisible,this.totalPages):Math.min(this.props.visiblePages,this.totalPages))}}},{key:"__append",value:function(t,e,a){var i=void 0,s=void 0,n=void 0;t=t<0?0:t<this.totalPages?t:this.totalPages-1,s=l["default"].extend({text:t+1},e),n=a?"":'class="active"',i=t===this.currentPage?"<li "+n+"><span>"+s.text+"</span></li>":l["default"].inArray(t+1,this.props.disabledPages)>-1?'<li class="disabled"><span>'+s.text+"</span></li>":'<li><a href="#page-'+(t+1)+'" data-page="'+(t+1)+'">'+s.text+"</a></li>",this.el.append(i)}},{key:"__render",value:function(){var t=this.props,e=this.__getInterval(),a=0;if(this.el.empty(),t.first&&this.__append(0,{text:t.first},!0),t.prev&&this.currentPage-1>=0&&this.__append(this.currentPage-1,{text:t.prev},!0),e.start>=0&&t.edges>0){for(var i=Math.min(t.edges,e.start),s=0;s<i;s++)this.__append(s);t.edges<e.start&&e.start-t.edges!=1?this.el.append("<li><span>...</span><li>"):e.start-t.edges===1&&this.__append(t.edges)}for(a=e.start;a<e.end;a++)this.__append(a);if(e.end<this.totalPages&&t.edges>0){this.totalPages-t.edges>e.end&&this.totalPages-t.edges-e.end!==1?this.el.append("<li><span>...</span></li>"):this.totalPages-t.edges-e.end===1&&this.__append(e.end++);var n=Math.max(this.totalPages-t.edges,e.end);for(a=n;a<this.totalPages;a++)this.__append(a)}t.next&&this.currentPage<this.totalPages-1&&this.__append(this.currentPage+1,{text:t.next},!0),t.last&&this.__append(this.totalPages,{text:t.last},!0),this.__renderPageStr()}},{key:"selectPage",value:function(t,e){this.currentPage=t-1,this.render(e),this.props.onSelectPage(t,this),this.el.trigger("select.bp.pagination",[t,this])}},{key:"render",value:function(t){this.totalPages=t?t:this.totalPages,this.__render()}},{key:"go",value:function(t){this.selectPage(t)}},{key:"__renderPageStr",value:function(){var t=this;if(this.props.pageStr&&this.props.pageStr.show){var e=this.el.prevAll(),a=this.props.pageStr.template||h;a=a.replace(/{\$(\w*)}/gi,function(e,a,i){return t[a]?t[a]:0}),e.length&&e.empty().remove(),this.el.before((0,l["default"])(a))}}},{key:"destory",value:function(t){return this.el.empty(),this.el.removeData("bp.pagination"),this}},{key:"reset",value:function(t){t=l["default"].extend({},this.props,t),this.destory().__init(t,!0),this.el.data("bp.pagination")||this.el.data("bp.pagination",this)}}]),t}();e["default"]=u;var d={items:0,itemsOnPage:5,totalPages:0,visiblePages:5,edges:1,currentPage:1,pageStr:{show:!1,template:""},disabledPages:[],prev:"&lsaquo;",next:"&rsaquo;",first:"&laquo;",last:"&raquo;",onSelectPage:l["default"].noop};u.DEFAULTS=d,l["default"].fn.pagination=n,l["default"].fn.pagination.Constructor=u,(0,l["default"])(function(){(0,l["default"])(p).pagination()})}})});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("jquery"));
+	else if(typeof define === 'function' && define.amd)
+		define(["jquery"], factory);
+	else if(typeof exports === 'object')
+		exports["pagination"] = factory(require("jquery"));
+	else
+		root["pagination"] = factory(root["jQuery"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(17);
+
+
+/***/ },
+
+/***/ 2:
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+
+/***/ 17:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 分页组件
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * by tommyshao <jinhong.shao@frontpay.cn>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 2016-09-19
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Reference uikit.pagination.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * API:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).pagination({ onSelectPage: function(index, instance){});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      $(element).on('bp.select.pagination', function(e, index, instance){
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 console.log(index)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              })
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $(element).pagination({ onSelectPage: function(index, instance){});
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $(element).pagination('selectPage', 2, 100);
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+	
+	var _jquery = __webpack_require__(2);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var toggle = '.paginations,[data-toggle="pagination"]';
+	var pageStr = '<p class="p-add-ons fn-mr-15">{$items}&nbsp;条记录，共&nbsp;{$totalPages}&nbsp;页</p>';
+	
+	var Pagination = function () {
+	    function Pagination(el, props) {
+	        _classCallCheck(this, Pagination);
+	
+	        this.el = (0, _jquery2.default)(el);
+	        this.__init(props);
+	    }
+	
+	    // 初始化
+	
+	
+	    _createClass(Pagination, [{
+	        key: '__init',
+	        value: function __init(props, inited) {
+	            this.__setProps(props);
+	            var _props = this.props;
+	            var itemsOnPage = _props.itemsOnPage;
+	            var items = _props.items;
+	            var currentPage = _props.currentPage;
+	            var totalPages = _props.totalPages;
+	            var visiblePages = _props.visiblePages;
+	
+	            // 总页数读取配置参数
+	            // 若未配置则 totalPages = items / itemsOnPage
+	
+	            this.totalPages = !!totalPages && !items ? totalPages : Math.ceil(items / itemsOnPage) ? Math.ceil(items / itemsOnPage) : 1;
+	
+	            this.items = !!items ? items : this.totalPages * itemsOnPage;
+	
+	            this.currentPage = currentPage - 1;
+	
+	            this.halfVisible = visiblePages / 2;
+	
+	            this.__render();
+	            !inited && this.__initEvent();
+	
+	            // 初始化时触发
+	            this.go(currentPage);
+	        }
+	
+	        // 设置配置参数
+	
+	    }, {
+	        key: '__setProps',
+	        value: function __setProps(props) {
+	            this.props = _jquery2.default.extend({}, Pagination.DEFAULTS, props);
+	        }
+	
+	        // 初始化事件
+	
+	    }, {
+	        key: '__initEvent',
+	        value: function __initEvent() {
+	            var _this = this;
+	
+	            this.el.on('click.bp.pagination', 'a[data-page]', function (e) {
+	                e.preventDefault();
+	                _this.selectPage((0, _jquery2.default)(e.target).data('page'));
+	            });
+	        }
+	
+	        // 获取显示页面区间
+	
+	    }, {
+	        key: '__getInterval',
+	        value: function __getInterval() {
+	            return {
+	                start: Math.ceil(this.currentPage > this.halfVisible ? Math.max(Math.min(this.currentPage - this.halfVisible, this.totalPages - this.props.visiblePages), 0) : 0),
+	                end: Math.ceil(this.currentPage > this.halfVisible ? Math.min(this.currentPage + this.halfVisible, this.totalPages) : Math.min(this.props.visiblePages, this.totalPages))
+	            };
+	        }
+	
+	        // 增加页面函数
+	        // pageIndex 页码
+	        // opt 页面文本配置
+	        // islb 是否功能键，不需加 active
+	
+	    }, {
+	        key: '__append',
+	        value: function __append(pageIndex, opts, islb) {
+	            var item = void 0,
+	                options = void 0,
+	                cls = void 0;
+	
+	            // 判断首页，末页，常规页
+	            pageIndex = pageIndex < 0 ? 0 : pageIndex < this.totalPages ? pageIndex : this.totalPages - 1;
+	            options = _jquery2.default.extend({ text: pageIndex + 1 }, opts);
+	
+	            // 判断当前页
+	            cls = islb ? '' : 'class="active"';
+	            item = pageIndex === this.currentPage ? '<li ' + cls + '><span>' + options.text + '</span></li>' : _jquery2.default.inArray(pageIndex + 1, this.props.disabledPages) > -1 ? '<li class="disabled"><span>' + options.text + '</span></li>' : '<li><a href="#page-' + (pageIndex + 1) + '" data-page="' + (pageIndex + 1) + '">' + options.text + '</a></li>';
+	
+	            this.el.append(item);
+	        }
+	
+	        // 渲染
+	
+	    }, {
+	        key: '__render',
+	        value: function __render() {
+	            var props = this.props;
+	            var interval = this.__getInterval();
+	            var i = 0;
+	
+	            this.el.empty();
+	            //if(this.totalPages <= 1) return;
+	
+	            // 首页
+	            if (props.first) this.__append(0, { text: props.first }, true);
+	
+	            // 上一页
+	            if (props.prev && this.currentPage - 1 >= 0) this.__append(this.currentPage - 1, { text: props.prev }, true);
+	
+	            // 左边边缘页码
+	            if (interval.start >= 0 && props.edges > 0) {
+	                var end = Math.min(props.edges, interval.start);
+	
+	                for (var _i = 0; _i < end; _i++) {
+	                    this.__append(_i);
+	                } // 显示左边边缘页码
+	                if (props.edges < interval.start && interval.start - props.edges != 1) {
+	                    this.el.append('<li><span>...</span><li>');
+	                } else if (interval.start - props.edges === 1) {
+	                    this.__append(props.edges);
+	                }
+	            }
+	
+	            for (i = interval.start; i < interval.end; i++) {
+	                this.__append(i);
+	            }if (interval.end < this.totalPages && props.edges > 0) {
+	                if (this.totalPages - props.edges > interval.end && this.totalPages - props.edges - interval.end !== 1) {
+	                    this.el.append('<li><span>...</span></li>');
+	                } else if (this.totalPages - props.edges - interval.end === 1) {
+	                    this.__append(interval.end++);
+	                }
+	                // 从右边边缘页码
+	                var begin = Math.max(this.totalPages - props.edges, interval.end);
+	                for (i = begin; i < this.totalPages; i++) {
+	                    this.__append(i);
+	                }
+	            }
+	
+	            // 下一页
+	            if (props.next && this.currentPage < this.totalPages - 1) this.__append(this.currentPage + 1, { text: props.next }, true);
+	            // 末页
+	            if (props.last) this.__append(this.totalPages, { text: props.last }, true);
+	
+	            // 显示页面字符
+	            this.__renderPageStr();
+	        }
+	
+	        // 选择切换页码
+	
+	    }, {
+	        key: 'selectPage',
+	        value: function selectPage(pageIndex, pages) {
+	            this.currentPage = pageIndex - 1;
+	
+	            // 重新渲染
+	            this.render(pages);
+	
+	            // 触发回调
+	            this.props.onSelectPage(pageIndex, this);
+	
+	            // 触发data-API
+	            this.el.trigger('select.bp.pagination', [pageIndex, this]);
+	        }
+	
+	        // 渲染接口
+	
+	    }, {
+	        key: 'render',
+	        value: function render(pages) {
+	            this.totalPages = pages ? pages : this.totalPages;
+	            this.__render();
+	        }
+	
+	        // 页面跳转
+	
+	    }, {
+	        key: 'go',
+	        value: function go(page) {
+	            this.selectPage(page);
+	        }
+	
+	        // 显示总页码信息
+	
+	    }, {
+	        key: '__renderPageStr',
+	        value: function __renderPageStr() {
+	            var _this2 = this;
+	
+	            if (this.props.pageStr && this.props.pageStr.show) {
+	                var pageStrEl = this.el.prevAll();
+	                var template = this.props.pageStr.template || pageStr;
+	
+	                template = template.replace(/{\$(\w*)}/gi, function (matches, key, index) {
+	                    return _this2[key] ? _this2[key] : 0;
+	                });
+	
+	                pageStrEl.length && pageStrEl.empty().remove();
+	
+	                this.el.before((0, _jquery2.default)(template));
+	            }
+	        }
+	
+	        // 销毁
+	
+	    }, {
+	        key: 'destory',
+	        value: function destory(force) {
+	            this.el.empty();
+	            this.el.removeData('bp.pagination');
+	            return this;
+	        }
+	
+	        // 重新设置
+	
+	    }, {
+	        key: 'reset',
+	        value: function reset(option) {
+	            option = _jquery2.default.extend({}, this.props, option);
+	            this.destory().__init(option, true);
+	
+	            if (!this.el.data('bp.pagination')) this.el.data('bp.pagination', this);
+	        }
+	    }]);
+	
+	    return Pagination;
+	}();
+	
+	// --------
+	// 默认配置
+	
+	
+	exports.default = Pagination;
+	var DEFAULTS = {
+	    // 总记录数
+	    items: 0,
+	    // 每页记录数
+	    itemsOnPage: 5,
+	    // 总页数
+	    totalPages: 0,
+	    // 显示区间长度
+	    visiblePages: 5,
+	    // 末尾页码长度
+	    edges: 1,
+	    // 当前页码
+	    currentPage: 1,
+	    // 分页总码数字符
+	    //    show - 是否显示
+	    //    template 字符模板
+	    pageStr: {
+	        show: false,
+	        template: ''
+	    },
+	    // 不可用页码
+	    disabledPages: [],
+	    prev: '&lsaquo;',
+	    next: '&rsaquo;',
+	    first: '&laquo;',
+	    last: '&raquo;',
+	    onSelectPage: _jquery2.default.noop
+	};
+	Pagination.DEFAULTS = DEFAULTS;
+	
+	// 插件定义
+	//======================
+	function Plugin(options) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        args[_key - 1] = arguments[_key];
+	    }
+	
+	    // jquery 链式
+	    return (0, _jquery2.default)(this).each(function () {
+	        var $this = (0, _jquery2.default)(this);
+	        if ($this.hasClass('no-js')) return;
+	        var data = $this.data('bp.pagination');
+	        // 创建一个新实例
+	        if (!data) $this.data('bp.pagination', data = new Pagination($this, _jquery2.default.extend({}, $this.data(), options)));
+	        if (typeof options == 'string') {
+	            // 调用接口方法,第二个参数为方法传入参数
+	            data[options].apply(data, args);
+	        }
+	    });
+	}
+	
+	// jQuery 插件扩展
+	_jquery2.default.fn.pagination = Plugin;
+	_jquery2.default.fn.pagination.Constructor = Pagination;
+	
+	// 元素插件绑定
+	// ====================
+	(0, _jquery2.default)(function () {
+	    (0, _jquery2.default)(toggle).pagination();
+	});
+
+/***/ }
+
+/******/ })
+});
+;
+//# sourceMappingURL=pagination.js.map

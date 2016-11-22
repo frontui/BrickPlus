@@ -1,9 +1,291 @@
-/*! 
-*  BrickPlus v1.1.3
-*  by fronui team
-*  updated on 2016-11-22
-*  created by generator-frontman
-*  (c) 2014-2016 www.frontpay.cn
-*  Licensed under MIT
-*/
- !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("jquery")):"function"==typeof define&&define.amd?define(["jquery"],t):"object"==typeof exports?exports.checkAll=t(require("jquery")):e.checkAll=t(e.jQuery)}(this,function(e){return function(e){function t(i){if(r[i])return r[i].exports;var n=r[i]={exports:{},id:i,loaded:!1};return e[i].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var r={};return t.m=e,t.c=r,t.p="",t(0)}({0:function(e,t,r){e.exports=r(10)},2:function(t,r){t.exports=e},10:function(e,t,r){"use strict";function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var i=t[r];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,r,i){return r&&e(t.prototype,r),i&&e(t,i),t}}(),c=r(2),o='[data-toggle="checkAll"]',s=function(){function e(t){i(this,e),this.$el=c(t),this.$target=c(this.$el.data("target")),this.isReverse=Boolean(this.$el.data("reverse")),this.isNoCheckAll=Boolean(this.$el.data("nocheckall")),this.VERSION="{{VERSION}}",this.initEvents()}return n(e,[{key:"initEvents",value:function(){this.$el.on("click",c.proxy(this.toggle,this)),!this.isReverse&&this.$target.on("change.status",c.proxy(this.targetToggle,this))}},{key:"toggle",value:function(){this.isReverse?this.reverse():this.activate()}},{key:"targetToggle",value:function(){if(this.isReverse)return!1;var e=!0;this.isNoCheckAll?(e=!1,this.$target.map(function(){if(c(this).prop("checked"))return e=!0,!1})):this.$target.map(function(){if(!c(this).prop("checked"))return e=!1,!1}),this.$el.prop("checked",e).trigger("change.status")}},{key:"activate",value:function(e){var t=[e||e===!1?e:this.$el.is(":checked"),c.Event("checked.bp.checkAll",{relatedTarget:this.$el})],r=t[0],i=t[1];this.$el.prop("checked",r),this.isNoCheckAll?!r&&this.$target.prop("checked",r):this.$target.prop("checked",r),this.$el.trigger(i)}},{key:"reverse",value:function(){var e=c.Event("reversed.bp.checkAll",{relatedTarget:this.$el});this.$target.map(function(){return c(this).prop("checked",function(){return!c(this).prop("checked")}).trigger("change.status")}),this.$el.trigger(e)}}]),e}(),l=function(e){for(var t=this,r=arguments.length,i=Array(r>1?r-1:0),n=1;n<r;n++)i[n-1]=arguments[n];return c(this).each(function(){var r,n=[c(t),c(t).data("bp.checkAll")],o=n[0],l=n[1];l||(o.data("bp.checkAll",l=new s(t)),"toggle"===e&&l.toggle()),"string"==typeof e&&"toggle"!==e&&(r=l)[e].apply(r,i)})};c.fn.checkAll=l,c.fn.checkAll.Constructor=s,c(function(){c(document).on("click.checkAll",":checkbox",function(e){c(o).map(function(){c(this).data("isCheckAllInited")||(e.target==this?c(this).checkAll("toggle"):c(this).checkAll(),c(this).data("isCheckAllInited",!0))})})}),e.exports=s}})});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("jquery"));
+	else if(typeof define === 'function' && define.amd)
+		define(["jquery"], factory);
+	else if(typeof exports === 'object')
+		exports["checkAll"] = factory(require("jquery"));
+	else
+		root["checkAll"] = factory(root["jQuery"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(10);
+
+
+/***/ },
+
+/***/ 2:
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+
+/***/ 10:
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @component   : checkAll全选
+	 * @version     : {{VERSION}}
+	 * @author      : tommyshao <jinhong.shao@frontpay.cn>
+	 * @created     : 2016-07-05
+	 * @description :
+	 * @useage      :
+	 ## 用法
+	 ```
+	  <input type="checkbox" data-toggle="checkAll" data-target="selector" />
+	  $(element).on('checked.ui.checkAll', function(e){ e.relatedTarget; });
+	  $(element).on('reversed.ui.checkAll', function(e){ e.relatedTarget; });
+	 ```
+	 */
+	
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var $ = __webpack_require__(2);
+	
+	var toggle = '[data-toggle="checkAll"]';
+	
+	var CheckAll = function () {
+	  // 构造函数
+	  // -------
+	  // * `element` dom元素对象
+	
+	  function CheckAll(element) {
+	    _classCallCheck(this, CheckAll);
+	
+	    // dom元素
+	    this.$el = $(element);
+	    // 响应元素集合
+	    this.$target = $(this.$el.data('target'));
+	    // 是否反选模式
+	    this.isReverse = Boolean(this.$el.data('reverse'));
+	
+	    //  是否全选不会影响响应元素
+	    this.isNoCheckAll = Boolean(this.$el.data('nocheckall'));
+	
+	    // 版本号
+	    this.VERSION = '{{VERSION}}';
+	
+	    // 初始化事件
+	    this.initEvents();
+	  }
+	
+	  // 事件监听
+	
+	
+	  _createClass(CheckAll, [{
+	    key: 'initEvents',
+	    value: function initEvents() {
+	      // 监听 `click` 点击事件，如果全选不影响单选状态则不监听
+	      this.$el.on('click', $.proxy(this.toggle, this));
+	      // 对全选监听change.toggle事件用于触发单选状态改变全选状态,反选则不触发
+	      !this.isReverse && this.$target.on('change.status', $.proxy(this.targetToggle, this));
+	    }
+	
+	    // 切换中枢
+	    // -------
+	
+	  }, {
+	    key: 'toggle',
+	    value: function toggle() {
+	      this.isReverse ? this.reverse() : this.activate();
+	    }
+	
+	    // 单选状态改变全选状态 by Limit
+	
+	  }, {
+	    key: 'targetToggle',
+	    value: function targetToggle() {
+	      //  反选按钮则退出
+	      if (this.isReverse) {
+	        return false;
+	      }
+	      var isCheckAlled = true;
+	      if (!this.isNoCheckAll) {
+	        //  全部选上才触发对象勾选激活
+	        this.$target.map(function () {
+	          if (!$(this).prop('checked')) {
+	            isCheckAlled = false;
+	            return false;
+	          }
+	        });
+	      } else {
+	        //  非全选状态下，只要勾选一个就认为对象勾选激活
+	        isCheckAlled = false;
+	        this.$target.map(function () {
+	          if ($(this).prop('checked')) {
+	            isCheckAlled = true;
+	            return false;
+	          }
+	        });
+	      }
+	      this.$el.prop('checked', isCheckAlled).trigger('change.status');
+	    }
+	
+	    // 全选功能
+	    // --------
+	    // Function activate
+	
+	  }, {
+	    key: 'activate',
+	    value: function activate(isChecked) {
+	      var isCheck =
+	      // button触发全选传值可能为false
+	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked;
+	      var e = // 当前dom元素是否勾选
+	      $.Event('checked.bp.checkAll', {
+	        relatedTarget: this.$el
+	      }) // 创建选中事件
+	      ;
+	      // button触发全选时，设置全选为选中 by limit
+	
+	      this.$el.prop('checked', isCheck);
+	      // 设置所有目标元素属性
+	      if (this.isNoCheckAll) {
+	        !isCheck && this.$target.prop('checked', isCheck);
+	      } else {
+	        this.$target.prop('checked', isCheck);
+	      }
+	      // 触发反选事件api
+	      this.$el.trigger(e);
+	    }
+	
+	    // 反选功能
+	    // -------
+	
+	  }, {
+	    key: 'reverse',
+	    value: function reverse() {
+	      // 定义反选事件类型
+	      var e = $.Event('reversed.bp.checkAll', {
+	        relatedTarget: this.$el
+	      });
+	      // 遍历所有目标元素，将他们选中属性反转
+	      this.$target.map(function () {
+	        return $(this).prop('checked', function () {
+	          return !$(this).prop('checked');
+	        }).trigger('change.status');
+	      });
+	      // 触发反选事件api
+	      this.$el.trigger(e);
+	    }
+	  }]);
+	
+	  return CheckAll;
+	}();
+	
+	// 插件定义
+	// -------
+	
+	
+	var Plugin = function Plugin(option) {
+	  var _this = this;
+	
+	  for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	    args[_key - 1] = arguments[_key];
+	  }
+	
+	  return $(this).each(function () {
+	    var _data;
+	
+	    var $this = $(_this);
+	    var data = $(_this).data('bp.checkAll');
+	
+	
+	    if (!data) {
+	      $this.data('bp.checkAll', data = new CheckAll(_this));
+	      if (option === 'toggle') data.toggle();
+	    }
+	
+	    if (typeof option === 'string' && option !== 'toggle') (_data = data)[option].apply(_data, args);
+	  });
+	};
+	
+	// jQuery 插件扩展
+	// -------------
+	$.fn.checkAll = Plugin;
+	$.fn.checkAll.Constructor = CheckAll;
+	
+	// 全局绑定插件
+	// -------------
+	// $(function() {
+	//   $(toggle).checkAll()
+	// });
+	$(function () {
+	
+	  // 全局绑定插件 单选和全选交互 by limit
+	  $(document).on('click.checkAll', ':checkbox', function (e) {
+	    $(toggle).map(function () {
+	      if (!$(this).data('isCheckAllInited')) {
+	        //  如果为当前点击的checkBox则调用toggle
+	        e.target == this ? $(this).checkAll('toggle') : $(this).checkAll();
+	        $(this).data('isCheckAllInited', true);
+	      }
+	    });
+	    // $(this).checkAll('toggle')
+	  });
+	
+	  // 全局绑定插件 单选和全选交互 by limit 这样会导致新渲染的checkAll控件组无法激活插件
+	  // $(toggle).map(function() {
+	  //   $(this).checkAll();
+	  // });
+	});
+	
+	module.exports = CheckAll;
+
+/***/ }
+
+/******/ })
+});
+;
+//# sourceMappingURL=checkAll.js.map
