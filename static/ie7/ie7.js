@@ -13,7 +13,6 @@
 		el.innerHTML = '<span style="font-family: \'fonticon\'">' + entity + '</span>' + html;
 	}
 	var icons = {
-		'icon-vpn_key': '&#xe0da;',
 		'icon-free_breakfast': '&#xeb44;',
 		'icon-people2': '&#xe7fb;',
 		'icon-playlist_add_check': '&#xe065;',
