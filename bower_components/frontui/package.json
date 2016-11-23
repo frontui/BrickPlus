@@ -1,0 +1,21 @@
+{
+  "name": "frontui",
+  "version": "1.3.5",
+  "description": "scaffolding fron frontpay Front-End Develop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontui/frontui.git"
+  },
+  "author": "frontpay",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/frontui/frontui/issues"
+  },
+  "homepage": "https://github.com/frontui/frontui#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}

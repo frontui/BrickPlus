@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="FrontUIteam·Project" />
+    <meta name="keywords" content="FED" />
+    <meta name="Robots" content="all" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title> BrickPlus </title>
+    <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
+    <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
+    <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
+    <!--[if IE 8]>
+		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
+        <![endif]-->
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" href="./static/iconfont-ie7/ie7.css?v=1.0.0">
+            <script src="./static/iconfont-ie7/ie7.js?v=1.0.0"></script>
+        <![endif]-->
+    <!--[if lt IE 9]>
+		    <script src="./static/js/html5shiv.min.js?v=1.0.0"></script>
+            <script src="./static/js/respond.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-shim.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-sham.min.js?v=1.0.0"></script>
+        <![endif]-->
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="bricks-main-wrap">
+        <nav class="bricks-header">
+          <div class="bricks-user-wrap" id="buw">
+            <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="./static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
+            <div class="bricks-user-menu">
+              <div class="bricks-user-name">
+                <p> 当前登入账户 </p>
+                <h4>
+                        rayalienkiss@apple.com
+                    </h4> </div>
+              <div class="bricks-user-menu-options">
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            通告
+                        </h5> <a href="javascript:;void(0)" class="bum">所有通告</a> <a href="javascript:;void(0)" class="bum">来自所在的团队</a> <a href="javascript:;void(0)" class="bum">来自关注的项目</a> <a href="javascript:;void(0)" class="bum">来自参与的项目</a> <a href="javascript:;void(0)"
+                    class="bum">来自我们</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            关于团队
+                        </h5> <a href="javascript:;void(0)" class="bum">新团队</a> <a href="javascript:;void(0)" class="bum">我所在的团队</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            关于项目
+                        </h5> <a href="javascript:;void(0)" class="bum">新项目</a> <a href="javascript:;void(0)" class="bum">我创建的</a> <a href="javascript:;void(0)" class="bum">我参与的</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            这里的我
+                        </h5> <a href="javascript:;void(0)" class="bum">账户</a> <a href="javascript:;void(0)" class="bum">关注的项目</a> <a href="javascript:;void(0)" class="bum">开发</a> <a href="javascript:;void(0)" class="bum">工具墙</a> <a href="javascript:;void(0)" class="bum">帮助</a>                  </div>
+              </div>
+              <div class="bricks-user-menu-options">
+                <div class="bricks-user-menu-option-group text-align-right"> <a href="javascript:;void(0)" class="bum nobg">设置</a> <a href="javascript:;void(0)" class="bum nobg">退出</a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="bricks-nav">
+            <ul>
+              <li> <a href="BP-Start-Download.html">
+                        起步
+                    </a> </li>
+              <li class="current"> <a href="BP-GlobalStyle-Grid.html">
+                        全局样式
+                    </a> </li>
+              <li> <a href="BP-ComponentsStyle-BreadCrumb.html">
+                        组件样式
+                    </a> </li>
+              <li> <a href="BP-JavaScriptComponents-Util.html">
+                        JavaScript 插件
+                    </a> </li>
+              <li> <a href="http://github.com/frontui/brickplus">
+                        GitHub
+                    </a> </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="bricks-header-placement"></div>
+        <aside class="bricks-aside">
+          <div class="bricks-logo" id="BrickPlusLogo"> <span>B</span> <span>r</span> <span>i</span> <span>c</span> <span>k</span>
+            <a href="BP-Start-Download.html"></a>
+          </div>
+          <div id="side-scrollbar">
+            <div class="bricks-aside-ul-wrap">
+              <ul>
+                <li>
+                  <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
+                </li>
+                <li class="current">
+                  <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Navigator.html"> <i></i> <b></b> 导航 </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <div class="bricks-content-wrap">
+          <div class="tabs-wrap prototype">
+            <ul class="tabs">
+              <li class="active"> <a href="#tp1" class="tabs-btn">
+                标题
+            </a> </li>
+              <li> <a href="#tp2" class="tabs-btn">
+                页面主体
+            </a> </li>
+              <li> <a href="#tp3" class="tabs-btn">
+                内联文本元素
+            </a> </li>
+              <li> <a href="#tp4" class="tabs-btn">
+                对齐
+            </a> </li>
+              <li> <a href="#tp5" class="tabs-btn">
+                改变大小写
+            </a> </li>
+              <li> <a href="#tp6" class="tabs-btn">
+                缩略语
+            </a> </li>
+              <li> <a href="#tp7" class="tabs-btn">
+                地址
+            </a> </li>
+              <li> <a href="#tp8" class="tabs-btn">
+                引用
+            </a> </li>
+              <li> <a href="#tp9" class="tabs-btn">
+                列表
+            </a> </li>
+              <li> <a href="#tp10" class="tabs-btn">
+                边距
+            </a> </li>
+              <li> <a href="#tp11" class="tabs-btn">
+                宽度
+            </a> </li>
+            </ul>
+          </div>
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="tp1">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> HTML 中的所有标题标签，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外，还提供了 <code>.h1</code> 到 <code>.h6</code> 类，为的是给内联（inline）属性的文本赋予标题的样式；<br> 在标题内还可以包含 <code>&lt;small&gt;</code> 标签或赋予 <code>.small</code> 类的元素，可以用来标记副标题。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="table-wrap">
+                      <table class="table table-bordered-type2">
+                        <colgroup>
+                          <col>
+                          <col style="width: 140px">
+                          <col style="width: 80px"> </colgroup>
+                        <thead>
+                          <tr>
+                            <th> 示范 </th>
+                            <th> 引用变量 </th>
+                            <th> 值 </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <h1>h1.标题内容 <small>副标题内容</small></h1> </td>
+                            <td> @fontSize-largest </td>
+                            <td> ~34px </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h2 style="padding: 0;">h2.标题内容 <small>副标题内容</small></h2> </td>
+                            <td> @fontSize-larger </td>
+                            <td> ~24px </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>h3.标题内容 <small>副标题内容</small></h3> </td>
+                            <td> @fontSize-large </td>
+                            <td> ~18px </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h4>h4.标题内容 <small>副标题内容</small></h4> </td>
+                            <td> @fontSize-small </td>
+                            <td> ~16px </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 style="padding: 0;">h5.标题内容 <small>副标题内容</small></h5> </td>
+                            <td> @fontSize-smaller </td>
+                            <td> ~14px </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h6>h6.标题内容 <small>副标题内容</small></h6> </td>
+                            <td> @fontSize-smallest </td>
+                            <td> ~12px </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>h1/2/3/4/5/6</b> (<span class="va">class="<span class="cl"><b>h1/2/3/4/5/6</b></span>"</span>)&gt;
+  <span class="tg">...</span>
+  &lt;<b>small</b> (<span class="va">class="<span class="cl"><b>small</b></span>"</span>)&gt;
+    <span class="tg">...</span>
+  &lt;/<b>small</b>&gt;
+&lt;/<b>h1/2/3/4/5/6</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp2">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#mainfont" class="btn default">主体内容</a> <a href="#fontSize" class="btn default">字体尺寸类</a> <a href="#lineHeight" class="btn default">行高类</a> </div>
+              <section class="example-wrap">
+                <h2 id="mainfont">主体内容</h2>
+                <ul class="example-description">
+                  <li> BrickPlus 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 <code>&lt;body&gt;</code> 元素和所有段落元素。另外，<code>&lt;p&gt;</code> 被重置所有外边距为 0； 通过添加 <code>.lead</code> 类可以让段落突出显示。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p class="lead">钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p> <br>
+                    <p>2014年、会社は広州天河CBDセンター区の中核に位置し、現在従業員は百人近く、深センに事務所を設立。钱途連携は国内初のフォーカスモードに基づいてインターネットを通じて、企業の取引の過程の電子登録システム（ブランド名「E +口座」）、ドッキング良質の金融資源は中小企業に付加価値を提供し、新型のサプライチェーンの融資や革新支払い決済の金融サービス産業。</p> <br>
+                    <p>現在、钱途連携業務は放射線の金融、不動産、飲食、医薬品など多くの産業として允リットル工業、山東高速、万科産、九州通など数百有名な企業と緊密な協力関係の確立によって、パートナーの実際的な需要にカスタマイズ製品、実現E +口座機能の基礎の上に協力パートナードッキング良質金融資源、安全かつ高効率に解決し、融資と決済需要増値、および産業金融分野の業務開拓やシーンを建て。钱途連携の革新的な能力と専門のサービスも数多くパートナーと業界団体の高さを認可し、2015年の国際的なトップを獲得し风投機構IDG資本投資。</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>p</b> (<span class="va">class="<span class="cl"><b>lead</b></span>"</span>)&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="fontSize">字体尺寸类</h2>
+                <ul class="example-description">
+                  <li> BrickPlus 采用递归的计算方式生成定义字体大小的工具类 <code>fs-(12~36)</code>，由最低 12 像素到最高 36 像素的字体尺寸。 </li>
+                  <li> 公式设定为每 2 像素计算出一个尺寸类，所以在 <code>fs-(12~36)</code> 中是每一次偶数为一个有效工具类，如：fs-12、fs-14、fs-16...。 </li>
+                  <li> 字符尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p>字体尺寸类：fs-(12~36)</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fs-(12~36)</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="lineHeight">行高类</h2>
+                <ul class="example-description">
+                  <li> BrickPlus 采用递归的计算方式生成定义行高尺寸的工具类 <code>lh-(12~36)</code>，由最低 12 像素到最高 36 像素的字体尺寸（是的，行高并没有使用相对单位，因为行高类和其他排版类一样是最后的设计应对手段，需要做到一致的需求）。 </li>
+                  <li> 公式设定为每 2 像素计算出一个行高类，所以在 <code>lh-(12~36)</code> 中是每一次偶数为一个有效工具类，如：lh-12、lh-14、lh-16...。 </li>
+                  <li> 行高尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p>行高尺寸类：lh-(12~36)</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>lh-(12~36)</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp3">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 在 HTML5 中可以放心使用 <code>&lt;b&gt;</code> 和 <code>&lt;i&gt;</code> 标签。<code>&lt;b&gt;</code> 用于高亮单词或短语，不带有任何着重的意味；而 <code>&lt;i&gt;</code> 标签主要用于发言、技术词汇等。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>标记文本 <code>&lt;mark&gt;</code> </h5>
+                    <p class="fn-mb-40">用标记元素 <mark>高亮</mark> 文本内容</p>
+                    <h5>删除文本 <code>&lt;del&gt;</code></h5>
+                    <p class="fn-mb-40"><del>用删除标签就能标记一段被删除的文本</del></p>
+                    <h5>无用文本 <code>&lt;s&gt;</code></h5>
+                    <p class="fn-mb-40"><s>这段文本就被标记为一段作废文本</s></p>
+                    <h5>插入文本 <code>&lt;ins&gt;</code></h5>
+                    <p class="fn-mb-40">这里有一段作为插入文本的示范内容 “ <ins>插入文本</ins> ” 已经被标记起来</p>
+                    <h5>文本下划线 <code>&lt;u&gt;</code></h5>
+                    <p class="fn-mb-40"><u>对有需要的文本使用下划线标签，但语义上和插入文本不同</u></p>
+                    <h5>小号文本 <code>&lt;small&gt;</code></h5>
+                    <p class="fn-mb-40">相对主要内容来说<small>（某些需要作为辅助内容存在的语句）</small></p>
+                    <h5>着重文本 <code>&lt;strong&gt;</code></h5>
+                    <p class="fn-mb-40">有时候在无需高亮文本的时候，<strong>强调语句也是一种选择</strong></p>
+                    <h5>斜体文本 <code>&lt;em&gt;</code></h5>
+                    <p>下面的代码片段的文本呈现为 <em>斜体文本</em>。</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp4">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 通过对齐工具类，可以简单方便的将行内元素或字符串重新对齐。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p class="text-align-left fn-mb-10">.text-align-left 左对齐</p>
+                    <p class="text-align-center fn-mb-10">.text-align-center 居中对齐</p>
+                    <p class="text-align-right fn-mb-10">.text-align-right 右对齐</p>
+                    <p class="text-align-justify fn-mb-10">.text-align-justify 两端对齐</p>
+                    <p class="text-nowrap fn-mb-10">.text-nowrap 不换行</p>
+                    <p class="word-wrap fn-mb-10">.word-wrap 强制换行</p>
+                    <p class="text-hide fn-mb-10">.text-hide 截字</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;p <span class="va">class="<span class="cl"><b>text-align-( left / center / right / justify ) / text-nowrap / word-wrap / text-hide</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/p&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp5">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 通过这几个类可以改变文本的大小写。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p class="text-lowercase fn-mb-10">Lowercased text.</p>
+                    <p class="text-uppercase fn-mb-10">Uppercased text.</p>
+                    <p class="text-capitalize">Capitalized text.</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;p <span class="va">class="<span class="cl"><b>text-lowercase / text-uppercase / text-capitalize</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/p&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp6">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 当鼠标悬停在缩写和缩写词上时就会显示完整内容，BricksPlus 实现了对 HTML 的 <code>&lt;abbr&gt;</code> 元素的增强样式。缩略语元素带有 <code>title</code> 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 <code>title</code>属性。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box"> 这里显示的是一个基本缩略语：<abbr title="attribute">attr</abbr><br> 这里显示的是一个首字母缩略语，为缩略语添加 <code>.initialism</code> 类，可以让 font-size 变得稍微小些。：<abbr title="HyperText Markup Language" class="initialism">html</abbr> </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>abbr</b> <span class="va">title="<span class="cl"><b>...</b></span>"</span> <span class="va">class="<span class="cl"><b>initialism</b></span>"</span>&gt;<span class="tg">...</span>&lt;/<b>abbr</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp7">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 让联系信息以最接近日常使用的格式呈现。在每行结尾添加 <code>&lt;br&gt;</code> 可以保留需要的样式。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box"> <address>
+            <strong>广东钱途互联商务服务有限公司 <small>（以下简称“钱途互联”）</small></strong><br><br>
+            广东省广州市天河区<br>
+            体育西路109号高盛大厦8层<br>
+            <abbr title="telephone" class="initialism">tel:</abbr> 020-61847588<br>
+          </address> </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>address</b>&gt;<span class="tg">...</span>&lt;/<b>address</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp8">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#DefaultBlockquote" class="btn default">默认样式的引用</a> <a href="#MixBlockquote" class="btn default">多种引用样式</a> </div>
+              <section class="example-wrap">
+                <h2 id="DefaultBlockquote">默认样式的引用</h2>
+                <ul class="example-description">
+                  <li> 将任何 HTML 元素包裹在 <code>&lt;blockquote&gt;</code> 中即可表现为引用样式。对于直接引用，我们建议用 <code>&lt;p&gt;</code> 标签。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <blockquote>
+                      <p>钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p>
+                    </blockquote>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>blockquote</b>&gt;<span class="tg">...</span>&lt;/<b>blockquote</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="MixBlockquote">多种引用样式</h2>
+                <ul class="example-description">
+                  <li> 对于标准样式的 <code>&lt;blockquote&gt;</code>，可以通过几个简单的变体就能改变风格和内容； 命名来源：添加 <code>&lt;footer&gt;</code> 用于标明引用来源。来源的名称可以包裹进 <code>&lt;cite&gt;</code> 标签中。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <blockquote class="fn-mb-40">
+                      <p>钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p> <br>
+                      <footer>ここはあなたの引用のコピーを表示して<cite title="の出所">の出所</cite></footer>
+                    </blockquote>
+                    <h5>另一种展示风格：通过赋予 <code>&lt;.blockquote-reverse&gt;</code> 类可以让引用呈现内容右对齐的效果。</h5>
+                    <blockquote class="blockquote-reverse">
+                      <p>钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。中国最大の投資の早期と長期のリスク投資ファンド。</p> <br>
+                      <footer>ここはあなたの引用のコピーを表示して<cite title="の出所">の出所</cite></footer>
+                    </blockquote>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>blockquote</b> (<span class="va">class="<span class="cl"><b>blockquote-reverse</b></span>"</span>)&gt;
+  &lt;p&gt;<span class="tg">...</span>&lt;/p&gt;
+  &lt;<b>footer</b>&gt;
+    <span class="tg">...</span>
+    &lt;<b>cite</b>&gt;
+      <span class="tg">...</span>
+    &lt;/<b>cite</b>&gt;
+  &lt;/<b>footer</b>&gt;
+&lt;/<b>blockquote</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp9">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#UlList" class="btn default">无序列表</a> <a href="#OlList" class="btn default">有序列表</a> <a href="#UnStyledList" class="btn default">无样式列表</a> <a href="#InlineList" class="btn default">水平列表</a> <a href="#DesList" class="btn default">描述</a>                </div>
+              <section class="example-wrap">
+                <h2 id="UlList">无序列表</h2>
+                <ul class="example-description">
+                  <li> 排列顺序无关紧要的一列元素，BrickPlus 并没有对 <code>&lt;ul&gt;</code> 标签进行样式重置，而是引用一个样式，重塑一个 BrickPlus 风格的无序列表； <br> 在 <code>&lt;ul&gt;</code> 上引用 <code>.ul-standard</code> 类就能得到一个 BrickPlus 风格的无序列表。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <ul class="ul-standard">
+                      <li> List Item One </li>
+                      <li> List Item One </li>
+                      <li> List Item Three
+                        <ul>
+                          <li> Lv2 List Item One
+                            <ul>
+                              <li> Lv3 List Item One </li>
+                              <li> Lv3 List Item Two </li>
+                              <li> Lv3 List Item Three </li>
+                            </ul>
+                          </li>
+                          <li> Lv2 List Item Two </li>
+                          <li> Lv2 List Item Three </li>
+                        </ul>
+                      </li>
+                      <li> List Item Four </li>
+                    </ul>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>ul</b> <span class="va">class="<span class="cl"><b>ul-standard</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="OlList">有序列表</h2>
+                <ul class="example-description">
+                  <li> 排列顺序至关紧要的一列元素，和无序列表同理，在 <code>&lt;ol&gt;</code> 上引用 <code>.ol-standard</code> 类就能得到一个 BrickPlus 风格的有序列表。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <ol class="ol-standard">
+                      <li> List Item One </li>
+                      <li> List Item One </li>
+                      <li> List Item Three
+                        <ol>
+                          <li> Lv2 List Item One
+                            <ol>
+                              <li> Lv3 List Item One </li>
+                              <li> Lv3 List Item Two </li>
+                              <li> Lv3 List Item Three </li>
+                            </ol>
+                          </li>
+                          <li> Lv2 List Item Two </li>
+                          <li> Lv2 List Item Three </li>
+                        </ol>
+                      </li>
+                      <li> List Item Four </li>
+                    </ol>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>ul</b> <span class="va">class="<span class="cl"><b>ol-standard</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="UnStyledList">无样式列表</h2>
+                <ul class="example-description">
+                  <li> 移除了默认的 list-style 样式和左侧外边距和内边距的一组元素（包括并只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <ul class="list-unstyled">
+                      <li> List Item One </li>
+                      <li> List Item One </li>
+                      <li> List Item Three
+                        <ol>
+                          <li> Lv2 List Item One
+                            <ul>
+                              <li> Lv3 List Item One </li>
+                              <li> Lv3 List Item Two </li>
+                              <li> Lv3 List Item Three </li>
+                            </ul>
+                          </li>
+                          <li> Lv2 List Item Two </li>
+                          <li> Lv2 List Item Three </li>
+                        </ol>
+                      </li>
+                      <li> List Item Four </li>
+                    </ul>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>ul / ol</b> <span class="va">class="<span class="cl"><b>list-unstyled</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul / ol</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="InlineList">水平列表</h2>
+                <ul class="example-description">
+                  <li> 移除了默认的 list-style 样式和左侧外边距和内边距的一组元素（包括并只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。<br> 在列表上引用 <code>.list-inline</code> 类就能得到一个 BrickPlus 风格的水平列表（没有 <code>list-style</code> 属性设置）。<br> 通过设置 display: inline-block; 并添加少量的内补（padding），将所有元素放置于同一行。
+                    </li>
+                  <li> 由于是行内元素排列，所以同样的排版类 <code>.text-align-left / center / right</code> 已经预先设置好对 <code>.list-inline</code> 模式的排版样式，引入就行，父类中添加 <code>text-align:</code> 属性则没有效果，这点需要注意。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <ul class="list-inline text-align-center">
+                      <li> List Item One </li>
+                      <li> List Item One </li>
+                      <li> List Item Three </li>
+                      <li> List Item Four </li>
+                    </ul>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>ul / ol</b> <span class="va">class="<span class="cl"><b>list-inline ( text-align-left / center / right )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>ul / ol</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="DesList">描述</h2>
+                <ul class="example-description">
+                  <li> 移除了默认的 list-style 样式和左侧外边距和内边距的一组元素（包括并只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。<br> 在列表上引用 <code>.list-inline</code> 类就能得到一个 BrickPlus 风格的水平列表（没有 <code>list-style</code> 属性设置）。<br> 通过设置 display: inline-block; 并添加少量的内补（padding），将所有元素放置于同一行；<br>                    通过给 <code>&lt;dl&gt;</code> 引用 <code>.dl-horizontal</code> 类可以让 <code>&lt;dl&gt;</code> 内的短语及其描述排在一行。开始是像 <code>&lt;dl&gt;</code> 的默认样式堆叠在一起，随着宽度逐渐展开而排列在一行。 </li>
+                  <li> 由于是行内元素排列，所以同样的排版类 <code>.text-align-left / center / right</code> 已经预先设置好对 <code>.list-inline</code> 模式的排版样式，引入就行，父类中添加 <code>text-align:</code> 属性则没有效果，这点需要注意。 </li>
+                  <li> 水平排列的描述列表在较窄的视口（viewport）内，列表将变为默认堆叠排列的布局方式。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <dl> <dt>
+              記述のリスト
+            </dt>
+                      <dd> 記述目録用語を定義することに絶好です。 </dd>
+                    </dl>
+                    <dl> <dt>
+              2015年の国際的なトップを獲得し风投機構IDG資本投資
+            </dt>
+                      <dd> 現在、钱途連携業務は放射線の金融、不動産、飲食、医薬品など多くの産業として允リットル工業、山東高速、万科産、九州通など数百有名な企業と緊密な協力関係の確立によって、パートナーの実際的な需要にカスタマイズ製品、実現E +口座機能の基礎の上に協力パートナードッキング良質金融資源、安全かつ高効率に解決し、融資と決済需要増値、および産業金融分野の業務開拓やシーンを建て。 </dd>
+                    </dl>
+                    <dl class="fn-mb-40"> <dt>
+              中国最大の投資の早期と長期のリスク投資ファンド
+            </dt>
+                      <dd> 钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。 </dd>
+                    </dl>
+                    <h5>水平排列的描述</h5>
+                    <dl class="dl-horizontal"> <dt>
+              記述のリスト
+            </dt>
+                      <dd> 記述目録用語を定義することに絶好です。 </dd>
+                    </dl>
+                    <dl class="dl-horizontal"> <dt>
+              2015年の国際的なトップを獲得し风投機構IDG資本投資
+            </dt>
+                      <dd> 現在、钱途連携業務は放射線の金融、不動産、飲食、医薬品など多くの産業として允リットル工業、山東高速、万科産、九州通など数百有名な企業と緊密な協力関係の確立によって、パートナーの実際的な需要にカスタマイズ製品、実現E +口座機能の基礎の上に協力パートナードッキング良質金融資源、安全かつ高効率に解決し、融資と決済需要増値、および産業金融分野の業務開拓やシーンを建て。 </dd>
+                    </dl>
+                    <dl class="dl-horizontal"> <dt>
+              中国最大の投資の早期と長期のリスク投資ファンド
+            </dt>
+                      <dd> 钱途連携獲得した全世界最大の情報技術の出版、研究、開発とリスクの投資会社――アメリカ国際データグループ（インターナショナルデータイーストグループ、IDG）の投資。現在IDGすでにななじゅう社以上が投票公開上場会社を買収や、約さんじゅう万人の雇用機会。 </dd>
+                    </dl>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>dl</b> (<span class="va">class="<span class="cl"><b>dl-horizontal</b></span>"</span>)&gt;
+  &lt;<b>dt</b>&gt;
+    <span class="tg">...</span>
+  &lt;/<b>dd</b>&gt;
+&lt;/<b>dl</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp10">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#padding" class="btn default">内边距</a> <a href="#margin" class="btn default">外边距</a> </div>
+              <section class="example-wrap">
+                <h2 id="padding">内边距</h2>
+                <ul class="example-description">
+                  <li> 和字符尺寸的工具类一样，BrickPlus 也采用递归的计算方式生成定义内边距大小的工具类，由最低 0 像素到最高 50 像素的边距尺寸； <br> 分为七大类：<code>.fn-pa-xx（全内边距）</code>，<code>.fn-pt-xx（上内边距）</code>，<code>.fn-pb-xx（下内边距）</code>，<code>.fn-pl-xx（左内边距）</code>，<code>.fn-pr-xx（右内边距）</code>，<code>.fn-plr-xx（左右内边距），<code>.fn-ptb-xx（上下内边距）</code></code>。
+                    </li>
+                  <li> 公式设定为每 5 像素计算出一个尺寸类，所以在内边距工具类的界限 0 ~ 50 像素中是每一次整除 5 后得出一个有效工具类，如：fn-pa-0、fn-pa-5、fn-pa-10...。 </li>
+                  <li> 内边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p class="fn-mb-10">全内边距：.fn-pa-(0~50)</p>
+                    <p class="fn-mb-10">上内边距：.fn-pt-(0~50)</p>
+                    <p class="fn-mb-10">下内边距：.fn-pb-(0~50)</p>
+                    <p class="fn-mb-10">左内边距：.fn-pl-(0~50)</p>
+                    <p class="fn-mb-10">右内边距：.fn-pr-(0~50)</p>
+                    <p class="fn-mb-10">上下内边距：.fn-ptb-(0~50)</p>
+                    <p class="fn-mb-10">左右内边距：.fn-plr-(0~50)</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fn-( pa / pt / pb / pl / pr / plr / ptb )-( 0~50 )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="margin">外边距</h2>
+                <ul class="example-description">
+                  <li> 外边距工具类也采用递归的计算方式生成定义外边距大小的工具类，由最低 0 像素到最高 50 像素的边距尺寸； <br> 分为七大类：<code>.fn-ma-xx（全外边距）</code>，<code>.fn-mt-xx（上外边距）</code>，<code>.fn-mb-xx（下外边距）</code>，<code>.fn-ml-xx（左外边距）</code>，<code>.fn-mr-xx（右外边距）</code>，<code>.fn-mlr-xx（左右外边距），<code>.fn-mtb-xx（上下外边距）</code></code>。
+                    </li>
+                  <li> 公式设定为每 5 像素计算出一个尺寸类，所以在外边距工具类的界限 0 ~ 50 像素中是每一次整除 5 后得出一个有效工具类，如：fn-ma-0、fn-ma-5、fn-ma-10...。 </li>
+                  <li> 外边距尺寸类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p class="fn-mb-10">全外边距：.fn-ma-(0~50)</p>
+                    <p class="fn-mb-10">上外边距：.fn-mt-(0~50)</p>
+                    <p class="fn-mb-10">下外边距：.fn-mb-(0~50)</p>
+                    <p class="fn-mb-10">左外边距：.fn-ml-(0~50)</p>
+                    <p class="fn-mb-10">右外边距：.fn-mr-(0~50)</p>
+                    <p class="fn-mb-10">上下外边距：.fn-mtb-(0~50)</p>
+                    <p class="fn-mb-10">左右外边距：.fn-mlr-(0~50)</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>fn-( ma / mt / mb / ml / mr / mlr / mtb )-( 0~50 )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp11">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 递归的计算方式生成定义宽度大小的工具类，由最低 50 像素到最高 400 像素的宽度尺寸； </li>
+                  <li> 公式设定为每 10 像素计算出一个宽度类，所以在宽度类的界限 50 ~ 400 像素中是每一次整除 10 后得出一个有效工具类，如：w-50、w-60、w-70...。 </li>
+                  <li> 宽度类并没有定义最高优先级，因为这种类的引用是最后且最低效的设计手段，它会让项目的维护变得不灵活。（2016/07/04以后现在又定义了最高优先级，尽情的扇我的脸吧）。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <p class="fn-mb-10">宽度：.w-(50~400)</p>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>p</b> <span class="va">class="<span class="cl"><b>w-( 50~400 )</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/<b>p</b>&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
+    <script src="./static/js/jquery.min.js?v=1.0.0"></script>
+    <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="./static/js/brickplus/brickPlus.js?v=1.0.0"></script>
+    <script src="./static/js/framework.js?v=1.0.0"></script>
+    <script>
+    </script>
+  </body>
+
+</html>

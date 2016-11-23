@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="FrontUIteam·Project" />
+    <meta name="keywords" content="FED" />
+    <meta name="Robots" content="all" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title> BrickPlus </title>
+    <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
+    <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
+    <!--[if IE 8]>
+		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
+        <![endif]-->
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" href="./static/iconfont-ie7/ie7.css?v=1.0.0">
+            <script src="./static/iconfont-ie7/ie7.js?v=1.0.0"></script>
+        <![endif]-->
+    <!--[if lt IE 9]>
+		    <script src="./static/js/html5shiv.min.js?v=1.0.0"></script>
+            <script src="./static/js/respond.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-shim.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-sham.min.js?v=1.0.0"></script>
+        <![endif]-->
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="bricks-main-wrap">
+        <nav class="bricks-header">
+          <div class="bricks-user-wrap" id="buw">
+            <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="./static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
+            <div class="bricks-user-menu">
+              <div class="bricks-user-name">
+                <p> 当前登入账户 </p>
+                <h4>
+                        rayalienkiss@apple.com
+                    </h4> </div>
+              <div class="bricks-user-menu-options">
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            通告
+                        </h5> <a href="javascript:;void(0)" class="bum">所有通告</a> <a href="javascript:;void(0)" class="bum">来自所在的团队</a> <a href="javascript:;void(0)" class="bum">来自关注的项目</a> <a href="javascript:;void(0)" class="bum">来自参与的项目</a> <a href="javascript:;void(0)"
+                    class="bum">来自我们</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            关于团队
+                        </h5> <a href="javascript:;void(0)" class="bum">新团队</a> <a href="javascript:;void(0)" class="bum">我所在的团队</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            关于项目
+                        </h5> <a href="javascript:;void(0)" class="bum">新项目</a> <a href="javascript:;void(0)" class="bum">我创建的</a> <a href="javascript:;void(0)" class="bum">我参与的</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            这里的我
+                        </h5> <a href="javascript:;void(0)" class="bum">账户</a> <a href="javascript:;void(0)" class="bum">关注的项目</a> <a href="javascript:;void(0)" class="bum">开发</a> <a href="javascript:;void(0)" class="bum">工具墙</a> <a href="javascript:;void(0)" class="bum">帮助</a>                  </div>
+              </div>
+              <div class="bricks-user-menu-options">
+                <div class="bricks-user-menu-option-group text-align-right"> <a href="javascript:;void(0)" class="bum nobg">设置</a> <a href="javascript:;void(0)" class="bum nobg">退出</a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="bricks-nav">
+            <ul>
+              <li> <a href="BP-Start-Download.html">
+                        起步
+                    </a> </li>
+              <li> <a href="BP-GlobalStyle-Grid.html">
+                        全局样式
+                    </a> </li>
+              <li class="current"> <a href="BP-ComponentsStyle-BreadCrumb.html">
+                        组件样式
+                    </a> </li>
+              <li> <a href="BP-JavaScriptComponents-Util.html">
+                        JavaScript 插件
+                    </a> </li>
+              <li> <a href="http://github.com/frontui/brickplus">
+                        GitHub
+                    </a> </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="bricks-header-placement"></div>
+        <aside class="bricks-aside">
+          <div class="bricks-logo" id="BrickPlusLogo"> <span>B</span> <span>r</span> <span>i</span> <span>c</span> <span>k</span>
+            <a href="BP-Start-Download.html"></a>
+          </div>
+          <div id="side-scrollbar">
+            <div class="bricks-aside-ul-wrap">
+              <ul>
+                <li>
+                  <a href="BP-JavaScriptComponents-Util.html"> <i></i> <b></b> 工具类 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-CheckAll.html"> <i></i> <b></b> 全选 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Alert.html"> <i></i> <b></b> 警告框 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Dropdown.html"> <i></i> <b></b> 下拉框 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Tooltip.html"> <i></i> <b></b> tooltips 提示 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Placeholder.html"> <i></i> <b></b> 占位符 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Tab.html"> <i></i> <b></b> 选项卡 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-SmoothScroll.html"> <i></i> <b></b> 平滑滚动 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Pagination.html"> <i></i> <b></b> 分页 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Modal.html"> <i></i> <b></b> 弹层 </a>
+                </li>
+                <li class="current">
+                  <a href="BP-JavaScriptComponents-Notify.html"> <i></i> <b></b> 通知 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-DateTimePicker.html"> <i></i> <b></b> 日历选择器 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Charts.html"> <i></i> <b></b> 图表 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Carousel.html"> <i></i> <b></b> 轮播 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Validation.html"> <i></i> <b></b> 表单验证 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-FileUpload.html"> <i></i> <b></b> 文件上传 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-DataTables.html"> <i></i> <b></b> 数据表格DataTables </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Cascader.html"> <i></i> <b></b> 城市级联 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-TreeSelect.html"> <i></i> <b></b> 树形选择器 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-TimePicker.html"> <i></i> <b></b> 时间选择器 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-MutilSelect.html"> <i></i> <b></b> 多项选择器 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Calendar.html"> <i></i> <b></b> 日历 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Panel.html"> <i></i> <b></b> 折叠面板 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Spiner.html"> <i></i> <b></b> 加载 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-PDFView.html"> <i></i> <b></b> PDF预览 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-switch.html"> <i></i> <b></b> 开关 </a>
+                </li>
+                <li>
+                  <a href="BP-JavaScriptComponents-Progress.html"> <i></i> <b></b> 进度条 </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <div class="bricks-content-wrap">
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="tp1">
+              <section class="example-wrap">
+                <h2>概述</h2>
+                <ul class="example-description">
+                  <li> 创建可以被拨动显示的通知，并且能自动淡出。当你将鼠标悬停在通知上面时，它不会自动消失，直到你移开鼠标。还可以通过点击关闭通知。 </li>
+                </ul>
+                <div class="example fn-mb-20">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box"> <button type="button" class="btn default small-btn" id="j-btn">click me</button> </div>
+                  <div class="example-code"> <pre>
+            <code>
+$('#j-btn').on('click', function() {
+    $.notify('&lt;h3&gt;提示&lt;/h3&gt;&lt;p&gt;您有新的消息&lt;/p&gt;')
+  })
+            </code>
+          </pre> </div>
+                </div>
+                <h2>内容图标</h2>
+                <ul class="example-description">
+                  <li> 可以在通知信息内嵌HTML，比如 <a href="http://frontui.github.io/frontui-icon/demo.html" class="link-standard">图标</a>。 </li>
+                </ul>
+                <div class="example fn-mb-20">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box"> <button type="button" class="btn default small-btn" id="j-btn-2">弹出有info图标的通知</button> <br> <br> <button type="button" class="btn default small-btn" id="j-btn-5">弹出有success图标的通知</button> <br> <br> <button type="button" class="btn default small-btn"
+                      id="j-btn-6">弹出有warning图标的通知</button> <br> <br> <button type="button" class="btn default small-btn" id="j-btn-7">弹出有error图标的通知</button> </div>
+                  <div class="example-code"> <pre>
+            <code>
+$('#j-btn-2').on('click', function() {
+  $.notify({ icon: 'info', message: '&lt;p&gt;我是有info图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;p/p&gt;'});
+})
+$('#j-btn-5').on('click', function() {
+  $.notify({ icon: 'success', message: '&lt;pp&gt;我是有success图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;'});
+})
+$('#j-btn-6').on('click', function() {
+  $.notify({ icon: 'warning', message: '&lt;p&gt;我是有warning图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;'});
+})
+$('#j-btn-7').on('click', function() {
+  $.notify({ icon: 'error', message: '&lt;pp&gt;我是有error图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;p/p&gt;'});
+})
+            </code>
+          </pre> </div>
+                </div>
+                <h2>定时/延迟</h2>
+                <ul class="example-description">
+                  <li> 我们可以设置timeout通知信息隐藏的时间。若设置为0，则不隐藏！ </li>
+                </ul>
+                <div class="example fn-mb-20">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box"> <button type="button" class="btn default small-btn" id="j-btn-3">定时隐藏</button> </div>
+                  <div class="example-code"> <pre>
+            <code>
+$('#j-btn-3').on('click', function() {
+  $.notify({ message: '&lt;div class="notify-bfc"&gt;&lt;i class="icon-done"&gt;&lt;/i&gt; &lt;div&gt;&lt;p&gt;我是有图标的!&lt;/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;', timeout: 1000});
+})
+            </code>
+          </pre> </div>
+                </div>
+                <h2>定位</h2>
+                <ul class="example-description">
+                  <li> 添加以下参数中的一个来调整通知出现的位置。 </li>
+                </ul>
+                <div class="example fn-mb-20">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="tables-wrap">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th> 属性 </th>
+                            <th> 描述 </th>
+                            <th> 示例 </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><code>'top-center'</code></td>
+                            <td><code>$.notify({message:'顶部居中', pos: 'top-center'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="top-center">顶部居中</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'top-left'</code></td>
+                            <td><code>$.notify({message: '左上角', pos: 'top-left'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="top-left">左上角</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'top-right'</code></td>
+                            <td><code>$.notify({message: '右上角', pos: 'top-right'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="top-right">右上角</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'bottom-center'</code></td>
+                            <td><code>$.notify({message: '底部居中', pos: 'bottom-center'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="bottom-center">底部居中</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'bottom-left'</code></td>
+                            <td><code>$.notify({message: '左下角', pos: 'bottom-left'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="bottom-left">左下角</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'bottom-right'</code></td>
+                            <td><code>$.notify({message: '右下角', pos: 'bottom-left'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="bottom-right">右下角</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'vcenter'</code></td>
+                            <td><code>$.notify({message: '居中', pos: 'vcenter'})</code></td>
+                            <td><button class="btn default small-btn j-pos" data-pos="vcenter">居中</button></td>
+                          </tr>
+                          <tr>
+                            <td><code>'icon'</code></td>
+                            <td><code>$.notify({message: '居中', icon: 'info'})</code></td>
+                            <td>显示图标icon</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+$('#j-btn-3').notify({ message: '<i class="icon-info"></i> 我是有图标的!', pos: 'bottom-center'});
+            </code>
+          </pre> </div>
+                </div>
+                <h2>配置</h2>
+                <div class="example fn-mb-20">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="tables-wrap">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>选项</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>描述</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>message</td>
+                            <td>String</td>
+                            <td>''</td>
+                            <td>提示内容</td>
+                          </tr>
+                          <tr>
+                            <td>status</td>
+                            <td>String</td>
+                            <td>''</td>
+                            <td>状态颜色类名</td>
+                          </tr>
+                          <tr>
+                            <td>opacity</td>
+                            <td>Float</td>
+                            <td>0.85</td>
+                            <td>透明度</td>
+                          </tr>
+                          <tr>
+                            <td>timeout</td>
+                            <td>Int</td>
+                            <td>5000</td>
+                            <td>定时延迟消失</td>
+                          </tr>
+                          <tr>
+                            <td>group</td>
+                            <td>String</td>
+                            <td>null</td>
+                            <td>是否分组</td>
+                          </tr>
+                          <tr>
+                            <td>pos</td>
+                            <td>String</td>
+                            <td>top-center</td>
+                            <td>位置</td>
+                          </tr>
+                          <tr>
+                            <td>onClose</td>
+                            <td>Function</td>
+                            <td>noop</td>
+                            <td>关闭触发事件</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
+    <script src="./static/js/jquery.min.js?v=1.0.0"></script>
+    <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="./static/js/brickplus/tab.js"></script>
+    <script src="./static/js/framework.js?v=1.0.0"></script>
+    <script src="./static/js/brickplus/Notify.js"></script>
+    <script>
+      $(function()
+      {
+        $('#j-btn').on('click', function()
+        {
+          $.notify('<h3>提示</h3><p>您有新的消息</p>')
+        })
+        $('#j-btn-2').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'info',
+            message: '<p>我是有info图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-5').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'success',
+            message: '<p>我是有success图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-6').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'warning',
+            message: '<p>我是有warning图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-7').on('click', function()
+        {
+          $.notify(
+          {
+            icon: 'error',
+            message: '<p>我是有error图标的!</p><p>朕知道了</p>'
+          });
+        })
+        $('#j-btn-3').on('click', function()
+        {
+          $.notify(
+          {
+            message: '<div class="notify-bfc"><i class="icon-done"></i> <div><p>我是有图标的!</p><p>朕知道了</p></div></div>',
+            timeout: 1000
+          });
+        })
+        var status = ['primary', 'success', 'warning', 'danger'];
+        $('.j-pos').on('click', function(e)
+        {
+          var s = Math.floor(Math.random() * status.length);
+          var pos = $(this).data('pos');
+          var message = $(this).text();
+          $.notify(
+          {
+            message: message,
+            pos: pos,
+            status: status[s]
+          })
+        })
+      })
+    </script>
+  </body>
+
+</html>

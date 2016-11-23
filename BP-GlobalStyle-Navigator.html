@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="FrontUIteam·Project" />
+    <meta name="keywords" content="FED" />
+    <meta name="Robots" content="all" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title> BrickPlus </title>
+    <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
+    <link href="./static/images/Brick_Plus.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./static/css/BrickPlus.css?v=1.0.0">
+    <link rel="stylesheet" href="./static/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
+    <!--[if IE 8]>
+		    <link rel="stylesheet" href="./static/css/ie-8.css?v=1.0.0">
+        <![endif]-->
+    <!--[if lte IE 7]>
+            <link rel="stylesheet" href="./static/iconfont-ie7/ie7.css?v=1.0.0">
+            <script src="./static/iconfont-ie7/ie7.js?v=1.0.0"></script>
+        <![endif]-->
+    <!--[if lt IE 9]>
+		    <script src="./static/js/html5shiv.min.js?v=1.0.0"></script>
+            <script src="./static/js/respond.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-shim.min.js?v=1.0.0"></script>
+            <script src="/bower_components/es5-shim/es5-sham.min.js?v=1.0.0"></script>
+        <![endif]-->
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="bricks-main-wrap">
+        <nav class="bricks-header">
+          <div class="bricks-user-wrap" id="buw">
+            <a href="javascript:;void(0)" title="rayalienkiss@apple.com" class=""> <img src="./static/images/userheadshot/Fruit-15.png?v=" alt="UserHeadShot"> </a>
+            <div class="bricks-user-menu">
+              <div class="bricks-user-name">
+                <p> 当前登入账户 </p>
+                <h4>
+                        rayalienkiss@apple.com
+                    </h4> </div>
+              <div class="bricks-user-menu-options">
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            通告
+                        </h5> <a href="javascript:;void(0)" class="bum">所有通告</a> <a href="javascript:;void(0)" class="bum">来自所在的团队</a> <a href="javascript:;void(0)" class="bum">来自关注的项目</a> <a href="javascript:;void(0)" class="bum">来自参与的项目</a> <a href="javascript:;void(0)"
+                    class="bum">来自我们</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            关于团队
+                        </h5> <a href="javascript:;void(0)" class="bum">新团队</a> <a href="javascript:;void(0)" class="bum">我所在的团队</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            关于项目
+                        </h5> <a href="javascript:;void(0)" class="bum">新项目</a> <a href="javascript:;void(0)" class="bum">我创建的</a> <a href="javascript:;void(0)" class="bum">我参与的</a> </div>
+                <div class="bricks-user-menu-option-group">
+                  <h5>
+                            这里的我
+                        </h5> <a href="javascript:;void(0)" class="bum">账户</a> <a href="javascript:;void(0)" class="bum">关注的项目</a> <a href="javascript:;void(0)" class="bum">开发</a> <a href="javascript:;void(0)" class="bum">工具墙</a> <a href="javascript:;void(0)" class="bum">帮助</a>                  </div>
+              </div>
+              <div class="bricks-user-menu-options">
+                <div class="bricks-user-menu-option-group text-align-right"> <a href="javascript:;void(0)" class="bum nobg">设置</a> <a href="javascript:;void(0)" class="bum nobg">退出</a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="bricks-nav">
+            <ul>
+              <li> <a href="BP-Start-Download.html">
+                        起步
+                    </a> </li>
+              <li class="current"> <a href="BP-GlobalStyle-Grid.html">
+                        全局样式
+                    </a> </li>
+              <li> <a href="BP-ComponentsStyle-BreadCrumb.html">
+                        组件样式
+                    </a> </li>
+              <li> <a href="BP-JavaScriptComponents-Util.html">
+                        JavaScript 插件
+                    </a> </li>
+              <li> <a href="http://github.com/frontui/brickplus">
+                        GitHub
+                    </a> </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="bricks-header-placement"></div>
+        <aside class="bricks-aside">
+          <div class="bricks-logo" id="BrickPlusLogo"> <span>B</span> <span>r</span> <span>i</span> <span>c</span> <span>k</span>
+            <a href="BP-Start-Download.html"></a>
+          </div>
+          <div id="side-scrollbar">
+            <div class="bricks-aside-ul-wrap">
+              <ul>
+                <li>
+                  <a href="BP-GlobalStyle-Grid.html"> <i></i> <b></b> 栅格系统 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-TypeSet.html"> <i></i> <b></b> 排版 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Table.html"> <i></i> <b></b> 表格 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Form.html"> <i></i> <b></b> 表单 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Button.html"> <i></i> <b></b> 按钮 </a>
+                </li>
+                <li>
+                  <a href="BP-GlobalStyle-Helper.html"> <i></i> <b></b> 辅助类 </a>
+                </li>
+                <li class="current">
+                  <a href="BP-GlobalStyle-Navigator.html"> <i></i> <b></b> 导航 </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <div class="bricks-content-wrap">
+          <!-- 
+<div class="tabs-wrap prototype">
+    <ul class="tabs">
+        
+        <li class="active">
+            <a href="#tp1" class="tabs-btn">
+                XXXXX
+            </a>
+        </li>
+        
+    </ul>
+</div>
+ -->
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="tp1">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 在广义上，任何告知用户他在哪里，他能去什么地方以及如何到达那里的方式，都可以称之为导航。而我们将中后台常见的导航方式进行提炼和封装，帮助设计者快速构建清晰和流畅的系统。当设计者使用导航或者自定义一些导航结构时。 </li>
+                  <li> 尽可能提供标示、上下文线索以及网站地图，避免用户迷路。 </li>
+                  <li> 保持导航样式和行为一致或者减少导航数量，降低用户学习成本。 </li>
+                  <li> 尽可能减少页面间的跳转（eg：一个常见任务需要多个页面跳转时，请减少至一至两次），让用户移动距离保持简短。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="sim-body-for-nav">
+                      <div class="main-for-nav"> </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;<b>a</b> <span class="va">href="<span class="cl">###</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">role="<span class="cl">button</span>"</span>&gt;<span class="tg">...</span>&lt;/<b>a</b>&gt;
+&lt;<b>button</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/<b>button</b>&gt;
+&lt;<b>input</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
+&lt;<b>input</b> <span class="va">type="<span class="cl">submit</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span> <span class="va">value="<span class="cl"><span class="tg">...</span></span>"</span>/&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp2">
+              <section class="example-wrap">
+                <ul class="example-description">
+                  <li> 使用前缀类 <code>.btn</code> 和叠加类 <code>.default / primary / secondary / thirdly / disabled / links</code> 可以快速创建一个带有预定义样式的按钮，适应用户体验场景，如 <code>class="btn primary"</code>。 </li>
+                  <li> 为按钮添加不同的颜色只是一种视觉上的信息表达方式，但是，对于使用辅助技术 -- 例如屏幕阅读器 -- 的用户来说，颜色是不可见的。建议，确保通过颜色表达的信息或者通过内容自身表达出来（按钮上的文字），或者通过其他方式； <br> BrickPlus 项目暂时候还没有作出对使用屏幕阅读器的用户的需求处理。 </li>
+                  <li> 跨浏览器兼容性，如果为 <code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性或叠加类 <code>.disabled</code>，Internet Explorer 9 及更低版本的浏览器将会把按钮中的文本绘制为灰色，并带有恶心的阴影，目前还没有解决办法； <br> <code>&lt;a&gt;</code> 元素的 <code>class="btn links"</code> 样式并不支持 <code>[disabled] / .disabled</code>。
+                    </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>
+            典型按钮样式
+          </h5>
+                    <div class="plural-btns fn-mb-40"> <button type="button" class="btn default">default</button> <button type="button" class="btn primary">primary</button> <button type="button" class="btn secondary">secondary</button> <button type="button" class="btn thirdly">thirdly</button>                      <button type="button" class="btn disabled" disabled="disabled">disabled</button> <a href="javascript:;void(0)" class="btn links">links</a> </div>
+                    <h5>
+            叠加类 <code>.current</code>，展示激活状态下的按钮（<code>class="btn links"</code> 和 <code>[disabled] / .disabled</code>
+            没有定义激活状态）
+          </h5>
+                    <div class="plural-btns"> <button type="button" class="btn default current">default</button> <button type="button" class="btn primary current">primary</button> <button type="button" class="btn secondary current">secondary</button> <button type="button" class="btn thirdly current">thirdly</button>                      </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span
+                      class="cl">btn <b>( default / primary / secondary / thirdly / disabled / links )</b></span>"</span>&gt;<span
+                      class="tg">...</span>&lt;/button&gt;
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn ( default / primary / secondary / thirdly ) <b>current</b></span>"</span>&gt;<span
+                      class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp3">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#BtnSize" class="btn default">典型尺寸类型</a> <a href="#BtnBlockSize" class="btn default">块化按钮</a> </div>
+              <section class="example-wrap">
+                <h2 id="BtnSize">
+        典型尺寸类型
+      </h2>
+                <ul class="example-description">
+                  <li> BrickPlus 提供了四种不同的按钮尺寸，以备适应不同的特殊设计，其中三种非常规尺寸需通过叠加类 <code>.large-btn / .small-btn / .smaller-btn</code> 展示。 </li>
+                </ul>
+                <div class="example fn-mb-40">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="plural-btns"> <button type="button" class="btn default large-btn">large</button> <button type="button" class="btn default">default</button> <button type="button" class="btn default small-btn">small</button> <button type="button" class="btn default smaller-btn">smaller</button>                      </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default <b>( large-btn / small-btn / smaller-btn )</b></span>"</span>&gt;<span
+                      class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnBlockSize">
+        块化按钮
+      </h2>
+                <ul class="example-description">
+                  <li> 叠加类 <code>.block-btn</code> 可以将其拉伸至父元素 100% 的宽度，而且按钮也变为了块级 <code>block</code> 元素。 </li>
+                  <li> <code>&lt;a&gt;</code> 元素构成的按钮，在使用叠加类 <code>.links</code> 之后，并不支持再套用 <code>.block-btn</code> 叠加类。 </li>
+                </ul>
+                <div class="example fn-mb-40">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div> <button type="button" class="btn default block-btn">Block Button</button> </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                    <code>
+&lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn ( default / primary / secondary / thirdly / disabled ) <b>block-btn</b></span>"</span>&gt;<span
+                      class="tg">...</span>&lt;/button&gt;
+                     </code>
+                </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp4">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#BtnInlineTypeSet" class="btn default">典型行内排版</a> <a href="#BtnInlineTypeSetSpec" class="btn default">特殊行内排版</a> </div>
+              <section class="example-wrap">
+                <h2 id="BtnInlineTypeSet">
+        典型行内排版
+      </h2>
+                <ul class="example-description">
+                  <li> 当需要作出多个按钮并行的页面排版时，需要包裹这些按钮的元素中引用 <code>.plural-btns</code> 工具类，使这些按钮有统一的间隔样式；<br> 按钮的行内排列，由工具类 <code>.text-align-( left / right / center )</code> 在其最近的父结构样式中控制。 </li>
+                  <li> 当行内排列为左对齐时，父层样式引用可以省略 <code>.text-align-left</code>。 </li>
+                  <li> BrickPlus 工具类 <code>.text-align-justify</code> 并不支持典型行内排列的组合。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>左对齐</h5>
+                    <div class="plural-btns text-align-left fn-mb-40"> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button> <a href="javascript:;void(0)" class="btn links">Links</a>                      </div>
+                    <h5 class="fn-pb-10 text-align-center">居中</h5>
+                    <div class="plural-btns text-align-center fn-mb-40"> <a href="javascript:;void(0)" class="btn links">Links</a> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button>                      <a href="javascript:;void(0)" class="btn links">Links</a> </div>
+                    <h5 class="fn-pb-10 text-align-right">右对齐</h5>
+                    <div class="plural-btns text-align-right fn-mb-40"> <a href="javascript:;void(0)" class="btn links">Links</a> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button>                      </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                    <code>
+&lt;div <span class="va">class="<span class="cl"><b>text-align-( left / center / right ) plural-btns</b></span>"</span>&gt;<span
+                      class="tg">...</span>&lt;/div&gt;
+                     </code>
+                </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnInlineTypeSetSpec">
+        特殊行内排版
+      </h2>
+                <ul class="example-description">
+                  <li> 当一个或者多个按钮或按钮组需要在父结构中居中，然后再附加一个超链接，但超链接并不占用父结构宽度，则需要在父亲结构中加入 <code>.btn-with-viceLink</code> 样式； <br> 父结构中用作附加超链接的 <code>&lt;a&gt;</code> 元素加入 <code>.btn-vicelink</code> 样式。 </li>
+                  <li> 典型的按钮样式 <code>class="btn links"</code> 和这里展示的类 <code>class="btn-vicelink"</code> 两者完全不一样，别搞错。 </li>
+                  <li> 特殊排版对 Dom 树的结构和样式引用都有一定的要求，详细请参考代码演示。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="text-align-center">
+                      <div class="btn-with-viceLink plural-btns text-align-center"> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Button</button> <a href="###" class="btn-vicelink">Links</a> </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                    <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>text-align-center</b></span>"</span>&gt;
+    &lt;<b>div</b> <span class="va">class="<span
+                      class="cl"><b>btn-with-viceLink text-align-center ( plural-btns )</b></span>"</span>&gt;
+        <span class="tg">...</span>
+        &lt;a <span class="va">href="<span class="cl">...</span>"</span> <span class="va">class="<span class="cl"><b>btn-vicelink</b></span>"</span>&gt;<span
+                      class="tg">...</span>&lt;/a&gt;
+    &lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+                     </code>
+                </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp5">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#BtnGroupBase" class="btn default">典型按钮组</a> <a href="#BtnGroupSize" class="btn default">按钮组的尺寸</a> <a href="#BtnGroupTypeSet" class="btn default">按钮组的排版</a> </div>
+              <section class="example-wrap">
+                <h2 id="BtnGroupBase">
+        典型按钮组
+      </h2>
+                <ul class="example-description">
+                  <li> 将多个 <code>.btn</code> 系列的元素放在 <code>.btn-group-box</code> 中，得到一个样式意义上的按钮组。 </li>
+                  <li> 多个 <code>.btn-group-box</code> 和 <code>.btn</code> 的行内排版方法是一样的，因此可以很方便的组合按钮组和按钮，做成有用的组件。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>
+            单独的按钮组
+          </h5>
+                    <div class="fn-mb-40">
+                      <div class="btn-group-box"> <button type="button" class="btn default">1</button> <button type="button" class="btn default">2</button> <button type="button" class="btn default">3</button> </div>
+                    </div>
+                    <h5>
+            按钮组和按钮的组合
+          </h5>
+                    <div class="plural-btns">
+                      <div class="btn-group-box"> <button type="button" class="btn default">1</button> <button type="button" class="btn default">2</button> </div> <button type="button" class="btn default">3</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default">5</button> </div> <button type="button" class="btn default">6</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default">8</button> <button type="button" class="btn default">9</button> </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                        <code>
+&lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
+    &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span
+                          class="tg">...</span>&lt;/button&gt;
+    <span class="tg">...</span>
+&lt;/div&gt;
+<br>
+&lt;div <span class="va">class="<span class="cl"><b>plural-btns text-align-( left / center / right)</b></span>"</span>&gt;
+    &lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
+        &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span
+                          class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+        <span class="tg">...</span>
+    &lt;/div&gt;
+    &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span
+                          class="cl"><b>btn default</b></span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnGroupSize">
+        按钮组的尺寸
+      </h2>
+                <ul class="example-description">
+                  <li> 按钮组的尺寸类通过继承按钮的尺寸样式得到和同样的四种尺寸， <br> 其中三种非常规尺寸需要通过工具类 <code>( large / small / smaller )-btn-gb</code> 展示。 </li>
+                  <li> 这里需要注意的是，按钮组和按钮的尺寸类不同点在于，按钮组的尺寸类作为工具类存在，即使放在按钮组元素的父层也能起效，并且影响父层内的所有按钮组和按钮系列， <br> 而按钮的尺寸类则作为单独按钮样式的叠加样式使用，并不能影响其他同类。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>
+            按钮组的四种尺寸
+          </h5>
+                    <div class="fn-mb-10">
+                      <div class="btn-group-box large-btn-gb"> <button type="button" class="btn default">Large</button> <button type="button" class="btn default">Button Group Box</button> </div>
+                    </div>
+                    <div class="fn-mb-10">
+                      <div class="btn-group-box"> <button type="button" class="btn default">Default</button> <button type="button" class="btn default">Button Group Box</button> </div>
+                    </div>
+                    <div class="fn-mb-10">
+                      <div class="btn-group-box small-btn-gb"> <button type="button" class="btn default">Small</button> <button type="button" class="btn default">Button Group Box</button> </div>
+                    </div>
+                    <div class="fn-mb-40">
+                      <div class="btn-group-box smaller-btn-gb"> <button type="button" class="btn default">Smaller</button> <button type="button" class="btn default">Button Group Box</button> </div>
+                    </div>
+                    <h5>
+            尺寸工具应用在按钮组和按钮的组合
+          </h5>
+                    <div class="plural-btns large-btn-gb fn-mb-10">
+                      <div class="btn-group-box"> <button type="button" class="btn default">1</button> <button type="button" class="btn default">2</button> </div> <button type="button" class="btn default">3</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default">5</button> </div> <button type="button" class="btn default">6</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default">8</button> <button type="button" class="btn default">9</button> </div>
+                    </div>
+                    <div class="plural-btns fn-mb-10">
+                      <div class="btn-group-box"> <button type="button" class="btn default">1</button> <button type="button" class="btn default">2</button> </div> <button type="button" class="btn default">3</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default">5</button> </div> <button type="button" class="btn default">6</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default">8</button> <button type="button" class="btn default">9</button> </div>
+                    </div>
+                    <div class="plural-btns small-btn-gb fn-mb-10">
+                      <div class="btn-group-box"> <button type="button" class="btn default">1</button> <button type="button" class="btn default">2</button> </div> <button type="button" class="btn default">3</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default">5</button> </div> <button type="button" class="btn default">6</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default">8</button> <button type="button" class="btn default">9</button> </div>
+                    </div>
+                    <div class="plural-btns smaller-btn-gb">
+                      <div class="btn-group-box"> <button type="button" class="btn default">1</button> <button type="button" class="btn default">2</button> </div> <button type="button" class="btn default">3</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default">5</button> </div> <button type="button" class="btn default">6</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default">8</button> <button type="button" class="btn default">9</button> </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+                        <code>
+&lt;div <span class="va">class="<span class="cl">btn-group-box <b>( large / small / smaller )-btn-gb</b></span>"</span>&gt;
+    &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span
+                          class="tg">...</span>&lt;/button&gt;
+    <span class="tg">...</span>
+&lt;/div&gt;
+<br>
+&lt;div <span class="va">class="<span class="cl">plural-btns text-align-( left / center / right) <b>( large / small / smaller )-btn-gb</b></span>"</span>&gt;
+    &lt;div <span class="va">class="<span class="cl">btn-group-box</span>"</span>&gt;
+        &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span
+                          class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+        <span class="tg">...</span>
+    &lt;/div&gt;
+    &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span
+                          class="tg">...</span>&lt;/button&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnGroupTypeSet">
+        按钮组的排版
+      </h2>
+                <ul class="example-description">
+                  <li> BrickPlus 按钮组的排版分为三种：水平排列（典型的按钮组），垂直排列（<code>.vertical-btn-gb</code>），两端对齐排列（<code>.justified-btn-gb</code>）。 </li>
+                  <li> 和按钮组的尺寸类不同，排版类是叠加类，只能应用于一个按钮组。 </li>
+                  <li> 为了将 <code>&lt;button&gt;</code> 元素用于两端对齐的按钮组中，必须将每个 <code>.btn</code> 系列的 <code>&lt;button&gt;</code> 包裹进一个 <code>.btn-group-box</code> 中。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>
+            垂直排列的按钮组
+          </h5>
+                    <div class="fn-mb-40">
+                      <div class="btn-group-box vertical-btn-gb"> <button type="button" class="btn default">Vertical</button> <button type="button" class="btn default">Button</button> <button type="button" class="btn default">Group Box</button> </div>
+                    </div>
+                    <h5>
+            两端对齐的按钮组
+          </h5>
+                    <div class="btn-group-box justified-btn-gb fn-mb-10"> <a href="javascript:;void(0)" class="btn default">Justified</a> <a href="javascript:;void(0)" class="btn default">Button</a> <a href="javascript:;void(0)" class="btn default">Group Box</a> </div>
+                    <div>
+                      <div class="btn-group-box justified-btn-gb">
+                        <div class="btn-group-box"> <button type="button" class="btn default">Justified</button> </div>
+                        <div class="btn-group-box"> <button type="button" class="btn default">Button Group Box</button> </div>
+                        <div class="btn-group-box"> <button type="button" class="btn default">With <code>&lt;button&gt;</code></button> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">btn-group-box <b>vertical-btn-gb</b></span>"</span>&gt;
+    &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+    <span class="tg">...</span>
+&lt;/div&gt;
+<br>
+&lt;div <span class="va">class="<span class="cl">btn-group-box <b>justified-btn-gb</b></span>"</span>&gt;
+    &lt;a <span class="va">role="<span class="cl">button</span>"</span> <span class="va">href="<span class="cl"><span class="tg">...</span></span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/a&gt;
+    <span class="tg">...</span>
+&lt;/div&gt;
+<br>
+&lt;div <span class="va">class="<span class="cl">btn-group-box <b>justified-btn-gb</b></span>"</span>&gt;
+    &lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
+        &lt;<b>button</b> <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/<b>button</b>&gt;
+    &lt;/div&gt;
+    <span class="tg">...</span>
+&lt;/div&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+            <div class="tabs-panel" id="tp6">
+              <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav"> <a href="#BtnDropdownsSingle" class="btn default">单按钮下拉菜单</a> <a href="#BtnDropdownsSplit" class="btn default">分裂式按钮下拉菜单</a> <a href="#BtnDropdownsDropup" class="btn default">向上弹出式菜单</a> <a href="#BtnDropdownsInGroup" class="btn default">在按钮组中嵌套</a>                </div>
+              <section class="example-wrap">
+                <h2 id="BtnDropdownsSingle">
+        单按钮下拉菜单
+      </h2>
+                <ul class="example-description">
+                  <li> 把任意一个叠加有 <code>.dropdown-menu-btn</code>类的 <code>.btn</code> 放入 <code>.btn-group-box</code> 中，然后加入 BrickPlus 的 <code>.dropdown-menu</code> 下拉菜单结构，就可以让按钮作为菜单的触发器了。 </li>
+                  <li> 同样是基于 <code>.btn</code> 的组件样式，所以任何作用于的按钮样式系列的工具类，对按钮式下拉菜单同样起效。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div>
+                      <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">单按钮下拉菜单</button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
+  &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default <b>dropdown-menu-btn</b></span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>dropdown-menu</b></span>"</span>&gt;
+    &lt;<b>li</b>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">#</span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;<b>/a</b>&gt;
+    &lt;<b>/li</b>&gt;
+    <span class="tg">...</span>
+  &lt;<b>/ul</b>&gt;
+&lt;/div&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnDropdownsSplit">
+        分裂式按钮下拉菜单
+      </h2>
+                <ul class="example-description">
+                  <li> 分裂式下拉菜单按钮很简单，在 <code>.btn-group-box</code> 中包裹两个 <code>.btn</code>，在你需要作为下拉菜单开关的按钮上叠加 <code>.dropdown-menu-btn</code>。 </li>
+                  <li> 在同一层 <code>.btn-group-box</code> 下，BrickPlus 并不支持并列多个 <code>.dropdown-menu-btn</code>。 </li>
+                  <li> 分裂式下拉菜单按钮中的 <code>.dropdown-menu-btn</code> 不建议出现文本内容，BrickPlus 没有预先定义出现文本时候的按钮内补距离，请自行用内补工具类重置，例如 <code>.fn-p*-**</code>；<br> 或将分裂式下拉菜单按钮拆分为两个单按钮下拉菜单，当然别忘了给他们的父层引用 <code>.plural-btns</code>，告诉浏览器这里面有多个 <code>.btn-group-box</code>。 </li>
+                  <li> 当你需要用到分裂式下拉菜单按钮的时候，<code>.dropdown-menu-btn</code> 请不要引用到 第一个 <code>.btn</code> 当中，这样的情况 BrickPlus 并没有作出处理。 </li>
+                  <li> 同样是基于 <code>.btn</code> 的组件样式，所以任何作用于的按钮样式系列的工具类，对按钮式下拉菜单同样起效。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div>
+                      <div class="btn-group-box"> <button type="button" class="btn default">分裂式按钮下拉菜单</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
+  &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default</span>"</span>&gt;<span class="tg">...</span>&lt;/button&gt;
+  &lt;button <span class="va">type="<span class="cl">button</span>"</span> <span class="va">class="<span class="cl">btn default <b>dropdown-menu-btn</b></span>"</span>&gt;&lt;/button&gt;
+  &lt;<b>ul</b> <span class="va">class="<span class="cl"><b>dropdown-menu</b></span>"</span>&gt;
+    &lt;<b>li</b>&gt;
+      &lt;<b>a</b> <span class="va">href="<span class="cl">#</span>"</span>&gt;
+        <span class="tg">...</span>
+      &lt;<b>/a</b>&gt;
+    &lt;<b>/li</b>&gt;
+    <span class="tg">...</span>
+  &lt;<b>/ul</b>&gt;
+&lt;/div&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnDropdownsDropup">
+        向上弹出式菜单
+      </h2>
+                <ul class="example-description">
+                  <li> 在 <code>.dropdown-menu-btn</code> 外的一层 <code>.btn-group-box</code> 中引用 <code>.dropup</code> 类，能使触发的下拉菜单朝上方打开。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <div class="plural-btns">
+                      <div class="btn-group-box dropup"> <button type="button" class="btn default">分裂式按钮下拉菜单</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                      <div class="btn-group-box dropup"> <button type="button" class="btn default dropdown-menu-btn">单按钮下拉菜单</button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">btn-group-box <b>dropup</b></span>"</span>&gt;
+  <span class="tg">...</span>
+&lt;/div&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+              <section class="example-wrap">
+                <h2 id="BtnDropdownsInGroup">
+        在按钮组中嵌套
+      </h2>
+                <ul class="example-description">
+                  <li> 把包裹 <code>.dropdown-menu-btn</code> 的那组 <code>.btn-group-box</code> 结构正题看作一个 <code>.btn</code>，然后在上一层再包裹 <code>.btn-group-box</code>。 </li>
+                  <li> 通过 <code>.plural-btns</code> 能和多个按钮的排版一样，对多个 <code>.btn-group-box</code> 进行有条理的排版，从而得到更好的用户体验。 </li>
+                  <li> 分裂式按钮下拉菜单组合不能嵌套在 <code>.vertical-btn-gb</code> 和 <code>.justified-btn-gb</code> 之中。 </li>
+                </ul>
+                <div class="example">
+                  <div class="example-tag">实例</div>
+                  <div class="example-box">
+                    <h5>不建议的嵌套方法，从用户体验的角度上看，是混乱的排版</h5>
+                    <div class="fn-mb-40">
+                      <div class="btn-group-box">
+                        <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">1</button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">菜单选项</a></li>
+                          </ul>
+                        </div> <button type="button" class="btn default">2</button>
+                        <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">3</button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">菜单选项</a></li>
+                          </ul>
+                        </div>
+                        <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">4</button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">菜单选项</a></li>
+                          </ul>
+                        </div> <button type="button" class="btn default">5</button> <button type="button" class="btn default">6</button>
+                        <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">菜单选项</a></li>
+                          </ul>
+                        </div>
+                        <div class="btn-group-box"> <button type="button" class="btn default">8</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li><a href="#">菜单选项</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">菜单选项</a></li>
+                          </ul>
+                        </div> <button type="button" class="btn default">9</button> </div>
+                    </div>
+                    <h5>建议的嵌套方法</h5>
+                    <div class="plural-btns">
+                      <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">1</button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div> <button type="button" class="btn default">2</button>
+                      <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">3</button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                      <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">4</button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                      <div class="btn-group-box"> <button type="button" class="btn default">5</button> <button type="button" class="btn default">6</button> </div>
+                      <div class="btn-group-box"> <button type="button" class="btn default">7</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div>
+                      <div class="btn-group-box"> <button type="button" class="btn default">8</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li><a href="#">菜单选项</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">菜单选项</a></li>
+                        </ul>
+                      </div> <button type="button" class="btn default">9</button> </div>
+                  </div>
+                  <div class="example-code"> <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl"><b>plural-btns</b></span>"</span>&gt;
+  &lt;div <span class="va">class="<span class="cl"><b>btn-group-box</b></span>"</span>&gt;
+  &lt;/div&gt;
+  <span class="tg">...</span>
+&lt;/div&gt;
+            </code>
+          </pre> </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<footer></footer>--><a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a> </div>
+    <script src="./static/js/jquery.min.js?v=1.0.0"></script>
+    <script src="./static/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="./static/js/brickplus/brickPlus.js?v=1.0.0"></script>
+    <script src="./static/js/framework.js?v=1.0.0"></script>
+    <script>
+    </script>
+  </body>
+
+</html>

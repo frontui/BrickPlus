@@ -1,0 +1,35 @@
+{
+  "name": "frontui",
+  "version": "1.3.5",
+  "homepage": "https://github.com/frontui/frontui",
+  "authors": [
+    "frontpay"
+  ],
+  "main": [
+    "js/ui.js",
+    "less/_share.less"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~1.11.1",
+    "requirejs": "~2.1.22",
+    "html5shiv": "~3.7.3",
+    "respond": "~1.4.2"
+  },
+  "_release": "1.3.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.3.5",
+    "commit": "8955a0fb6b00a86189cdaacfc9bb57b180a2650d"
+  },
+  "_source": "https://github.com/frontui/frontui.git",
+  "_target": "^1.0.0",
+  "_originalSource": "frontui"
+}
