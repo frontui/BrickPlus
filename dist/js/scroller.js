@@ -1,7 +1,7 @@
 /*! 
-*  BrickPlus v1.1.4.1
+*  BrickPlus v1.1.5
 *  by fronui team
-*  updated on 2016-11-22
+*  updated on 2016-11-23
 *  created by generator-frontman
 *  (c) 2014-2016 www.frontpay.cn
 *  Licensed under MIT

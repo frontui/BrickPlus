@@ -483,6 +483,9 @@ th {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-vpn_key:before {
+  content: "\e0da";
+}
 .icon-free_breakfast:before {
   content: "\eb44";
 }

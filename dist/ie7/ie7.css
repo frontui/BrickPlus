@@ -1,3 +1,6 @@
+.icon-vpn_key {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe0da;');
+}
 .icon-free_breakfast {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb44;');
 }
