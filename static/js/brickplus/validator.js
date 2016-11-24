@@ -196,14 +196,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        focusInvalid  {Boolean}     true            Whether to focus the field that is invalid
 	        ignoreBlank   {Boolean}     false           When the field has no value, whether to ignore validation
 	        ignore        {jqSelector}    ''            Ignored fields (Using jQuery selector)
-	         beforeSubmit  {Function}                    Do something before submit form
+	          beforeSubmit  {Function}                    Do something before submit form
 	        dataFilter    {Function}                    Convert ajax results
 	        valid         {Function}                    Triggered when the form is valid
 	        invalid       {Function}                    Triggered when the form is invalid
 	        validClass    {String}      'n-valid'       Add this class name to a valid field
 	        invalidClass  {String}      'n-invalid'     Add this class name to a invalid field
 	        bindClassTo   {jqSelector}  ':input'        Which element should the className binding to
-	         display       {Function}                    Callback function to get dynamic display
+	          display       {Function}                    Callback function to get dynamic display
 	        target        {Function}                    Callback function to get dynamic target
 	        msgShow       {Function}                    Trigger this callback when show message
 	        msgHide       {Function}                    Trigger this callback when hide message
@@ -214,12 +214,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        msgStyle      {String}                      Custom message css style
 	        msgClass      {String}                      Additional added to the message class names
 	        formClass     {String}                      Additional added to the form class names
-	         messages      {Object}                      Custom messages for the current instance
+	          messages      {Object}                      Custom messages for the current instance
 	        rules         {Object}                      Custom rules for the current instance
 	        fields        {Object}                      Field set to be verified
 	        {String}        key    name|#id
 	        {String|Object} value                       Rule string, or an object is passed more arguments
-	         fields[key][rule]       {String}            Rule string
+	          fields[key][rule]       {String}            Rule string
 	        fields[key][display]    {String|Function}
 	        fields[key][tip]        {String}            Custom friendly message when focus the input
 	        fields[key][ok]         {String}            Custom success message
@@ -2219,15 +2219,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    /* Themes
 	     */
-	    var TPL_ARROW = '<span class="n-arrow"><b>◆</b><i>◆</i></span>';
+	    var TPL_ARROW = '<span class="n-arrow"></span>';
 	    $.validator.setTheme({
-	        'simple_right': {
-	            formClass: 'n-simple',
-	            msgClass: 'n-right'
-	        },
-	        'simple_bottom': {
-	            formClass: 'n-simple',
-	            msgClass: 'n-bottom'
+	        // 'simple_right': {
+	        //     formClass: 'n-simple',
+	        //     msgClass: 'n-right',
+	        //     msgArrow: TPL_ARROW
+	        // },
+	        // 'simple_bottom': {
+	        //     formClass: 'n-simple',
+	        //     msgClass: 'n-bottom',
+	        //     msgArrow: TPL_ARROW
+	        // },
+	        //统一主题样式调用的用法
+	        //没有设置验证提示出现在表单元素左边的用法和主题
+	        'yellow_bottom': {
+	            formClass: 'n-yellow',
+	            msgClass: 'n-bottom',
+	            msgArrow: TPL_ARROW
 	        },
 	        'yellow_top': {
 	            formClass: 'n-yellow',

@@ -1,9 +1,210 @@
-/*! 
-*  BrickPlus v1.0.10
-*  by fronui team
-*  updated on 2016-10-12
-*  created by generator-frontman
-*  (c) 2014-2016 www.frontpay.cn
-*  Licensed under MIT
-*/
- !function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.cookie=t():e.cookie=t()}(this,function(){return function(e){function t(o){if(n[o])return n[o].exports;var r=n[o]={exports:{},id:o,loaded:!1};return e[o].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}({0:function(e,t,n){e.exports=n(37)},37:function(e,t){"use strict";function n(e,t,n){n=n||{};var o=i(e)+"="+i(t);null==t&&(n.maxage=-1),n.maxage&&(n.expires=new Date(+new Date+n.maxage)),n.path&&(o+="; path="+n.path),n.domain&&(o+="; domain="+n.domain),n.expires&&(o+="; expires="+n.expires.toUTCString()),n.secure&&(o+="; secure"),document.cookie=o}function o(){var e;try{e=document.cookie}catch(t){return"undefined"!=typeof console&&"function"==typeof console.error&&console.error(t.stack||t),{}}return c(e)}function r(e){return o()[e]}function c(e){var t,n={},o=e.split(/ *; */);if(""==o[0])return n;for(var r=0;r<o.length;++r)t=o[r].split("="),n[u(t[0])]=u(t[1]);return n}function i(e){try{return encodeURIComponent(e)}catch(t){}}function u(e){try{return decodeURIComponent(e)}catch(t){}}e.exports=function(e,t,c){switch(arguments.length){case 3:case 2:return n(e,t,c);case 1:return r(e);default:return o()}}}})});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["cookie"] = factory();
+	else
+		root["cookie"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(40);
+
+
+/***/ },
+
+/***/ 40:
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	 * component cookie
+	 * 
+	 * https://github.com/component/cookie
+	 */
+	
+	/**
+	 * Module dependencies.
+	 */
+	
+	//var debug = require('debug')('cookie');
+	
+	/**
+	 * Set or get cookie `name` with `value` and `options` object.
+	 *
+	 * @param {String} name
+	 * @param {String} value
+	 * @param {Object} options
+	 * @return {Mixed}
+	 * @api public
+	 */
+	
+	module.exports = function (name, value, options) {
+	  switch (arguments.length) {
+	    case 3:
+	    case 2:
+	      return set(name, value, options);
+	    case 1:
+	      return get(name);
+	    default:
+	      return all();
+	  }
+	};
+	
+	/**
+	 * Set cookie `name` to `value`.
+	 *
+	 * @param {String} name
+	 * @param {String} value
+	 * @param {Object} options
+	 * @api private
+	 */
+	
+	function set(name, value, options) {
+	  options = options || {};
+	  var str = encode(name) + '=' + encode(value);
+	
+	  if (null == value) options.maxage = -1;
+	
+	  if (options.maxage) {
+	    options.expires = new Date(+new Date() + options.maxage);
+	  }
+	
+	  if (options.path) str += '; path=' + options.path;
+	  if (options.domain) str += '; domain=' + options.domain;
+	  if (options.expires) str += '; expires=' + options.expires.toUTCString();
+	  if (options.secure) str += '; secure';
+	
+	  document.cookie = str;
+	}
+	
+	/**
+	 * Return all cookies.
+	 *
+	 * @return {Object}
+	 * @api private
+	 */
+	
+	function all() {
+	  var str;
+	  try {
+	    str = document.cookie;
+	  } catch (err) {
+	    if (typeof console !== 'undefined' && typeof console.error === 'function') {
+	      console.error(err.stack || err);
+	    }
+	    return {};
+	  }
+	  return parse(str);
+	}
+	
+	/**
+	 * Get cookie `name`.
+	 *
+	 * @param {String} name
+	 * @return {String}
+	 * @api private
+	 */
+	
+	function get(name) {
+	  return all()[name];
+	}
+	
+	/**
+	 * Parse cookie `str`.
+	 *
+	 * @param {String} str
+	 * @return {Object}
+	 * @api private
+	 */
+	
+	function parse(str) {
+	  var obj = {};
+	  var pairs = str.split(/ *; */);
+	  var pair;
+	  if ('' == pairs[0]) return obj;
+	  for (var i = 0; i < pairs.length; ++i) {
+	    pair = pairs[i].split('=');
+	    obj[decode(pair[0])] = decode(pair[1]);
+	  }
+	  return obj;
+	}
+	
+	/**
+	 * Encode.
+	 */
+	
+	function encode(value) {
+	  try {
+	    return encodeURIComponent(value);
+	  } catch (e) {
+	    // debug('error `encode(%o)` - %o', value, e)
+	  }
+	}
+	
+	/**
+	 * Decode.
+	 */
+	
+	function decode(value) {
+	  try {
+	    return decodeURIComponent(value);
+	  } catch (e) {
+	    // debug('error `decode(%o)` - %o', value, e)
+	  }
+	}
+
+/***/ }
+
+/******/ })
+});
+;
+//# sourceMappingURL=cookie.js.map
