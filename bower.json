@@ -1,6 +1,6 @@
 {
   "name": "brickplus",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "homepage": "https://github.com/frontui/BrickPlus",
   "authors": [
     "frontpay"
@@ -40,7 +40,7 @@
     "html5shiv": "~3.7.3",
     "es5-shim": "^4.5.8",
     "respond": "~1.4.2",
-    "brickplus": "^1.1.4"
+    "brickplus": "^1.1.5"
   },
   "devDependencies": {
     "frontui": "^1.0.0",
