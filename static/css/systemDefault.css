@@ -6270,8 +6270,8 @@ select[size].form-control {
   text-align: left;
   color: #666;
   padding: 8px;
-  word-break: break-all;
-  white-space: normal;
+  word-break: normal;
+  word-wrap: break-word;
 }
 .table > tbody > tr > td > input[type="checkbox"],
 .table > tfoot > tr > td > input[type="checkbox"] {
