@@ -422,11 +422,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var RE = {};
 	
 	// ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"]
-	var ARR_CHINESE_NUMBER = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+	var ARR_CHINESE_NUMBER = ['\u96F6', '\u58F9', '\u8D30', '\u53C1', '\u8086', '\u4F0D', '\u9646', '\u67D2', '\u634C', '\u7396'];
 	//["元", "拾", "佰", "仟", "万", "拾", "佰","仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟"];
-	var ARR_CHINESE_UNIT = ['元', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿', '拾', '佰', '仟', '万', '拾', '佰', '仟'];
+	var ARR_CHINESE_UNIT = ['\u5143', '\u62FE', '\u4F70', '\u4EDF', '\u4E07', '\u62FE', '\u4F70', '\u4EDF', '\u4EBF', '\u62FE', '\u4F70', '\u4EDF', '\u4E07', '\u62FE', '\u4F70', '\u4EDF'];
 	//["角", "分", "厘" ,"毫","丝","忽"];
-	var ARR_CHINESE_DEC = ['角', '分', '厘', '毫', '丝', '忽'];
+	var ARR_CHINESE_DEC = ['\u89D2', '\u5206', '\u5398', '\u6BEB', '\u4E1D', '\u5FFD'];
 	
 	// 最大的处理位数，级别:千万亿
 	var NUM_MAX_INTEGERS = 16;
@@ -576,9 +576,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (i === NUM_MAX_DEC || i === this.decimalsSize) {
 	        break;
 	      }
-	      chineseDecimal.push(decimals[i] == 0 ? '零' : ARR_CHINESE_NUMBER[decimals[i]] + ARR_CHINESE_DEC[i]);
+	      chineseDecimal.push(decimals[i] == 0 ? '\u96F6' : ARR_CHINESE_NUMBER[decimals[i]] + ARR_CHINESE_DEC[i]);
 	    }
-	    return chineseDecimal.join('').replace(/\u96F6{2,}/g, '零').replace(/\u96F6{1,}$/, '');
+	    return chineseDecimal.join('').replace(/\u96F6{2,}/g, '\u96F6').replace(/\u96F6{1,}$/, '');
 	  },
 	  /**
 	   * 5-8位没有数字，就不需要万了
@@ -621,11 +621,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	ConvertTradition.DEFAULTS = {
 	  target: null,
 	  // 前缀文字人民币
-	  prefix: '人民币',
+	  prefix: '\u4EBA\u6C11\u5E01',
 	  // 小数点位数
 	  dec: 2,
 	  // 后缀文字整
-	  unit: '整'
+	  unit: '\u6574'
 	};
 	
 	ConvertTradition.prototype = {
@@ -641,13 +641,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  update: function update(str) {
 	    // 零元
-	    str = str ? str : '零元';
+	    str = str ? str : '\u96F6\u5143';
 	    //var thisVal = parseFloat(this.$el.val());
 	    // 1 === 1.00
 	    //str = (thisVal === parseInt(thisVal)) ? this.option.prefix+str+this.option.unit : this.option.prefix+str;
 	    var dec = str.substr(-1, 1);
 	    //console.log(dec === '元')
-	    str = dec === '元' ? this.option.prefix + str + this.option.unit : this.option.prefix + str;
+	    str = dec === '\u5143' ? this.option.prefix + str + this.option.unit : this.option.prefix + str;
 	    this.$target.html(str);
 	  }
 	};
@@ -805,6 +805,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  //
 	  //        return false;
 	  //    }
+	
 	
 	  /**
 	   * 检测 external 是否包含该字段
@@ -977,6 +978,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        // console.log(minus(120000, 1000))
 	        // console.log(minus2(120000, 1000))
+	
 	
 	        if (diff <= 0) {
 	          typeof callback === 'function' && callback(-1);

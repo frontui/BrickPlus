@@ -1,0 +1,236 @@
+// ******************
+// 结果页面提示信息
+// ******************
+.result-box {
+  position: relative;
+  .inline-block();
+
+  > .result-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .square(@iconWrapSize-resultNotice);
+    text-align: center;
+    .inline-block();
+    .rounded(50%);
+    border: 1px solid @borderColor-default;
+    display: none;
+
+    &:before {
+      font-size: @iconSize-resultNotice;
+      .icon-font-family();
+      line-height: @iconWrapSize-resultNotice;
+      .inline-block();
+    }
+  }
+
+  > .result-content {
+    min-height: @iconWrapSize-resultNotice;
+    display: table;
+    text-align: left;
+
+    > .result-inner {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+
+.result-wrap {
+  text-align: center;
+  padding: 100px 50px;
+
+  &.result-success,
+  &.result-wait,
+  &.result-fail,
+  &.result-info {
+
+    .result-box {
+      padding-left: @iconWrapSize-resultNotice;
+
+      > .result-content {
+        padding-left: 20px;
+      }
+
+      > .result-icon {
+        display: block;
+      }
+    }
+  }
+
+  //成功
+  &.result-success {
+
+    .result-box > .result-icon:before {
+      content: @icon-success-resultNotice;
+      color: @iconColor-success-resultNotice;
+    }
+
+    .result-box > .result-content > .result-inner > h1 {
+      color: @iconColor-success-resultNotice;
+    }
+  }
+
+  //等待
+  &.result-wait {
+
+    .result-box > .result-icon:before {
+      content: @icon-wait-resultNotice;
+      color: @iconColor-wait-resultNotice;
+    }
+
+    .result-box > .result-content > .result-inner > h1 {
+      color: @iconColor-wait-resultNotice;
+    }
+  }
+
+  //失败
+  &.result-fail {
+
+    .result-box > .result-icon:before {
+      content: @icon-fail-resultNotice;
+      color: @iconColor-fail-resultNotice;
+    }
+
+    .result-box > .result-content > .result-inner > h1 {
+      color: @iconColor-fail-resultNotice;
+    }
+  }
+
+  //信息
+  &.result-info {
+
+    .result-box > .result-icon:before {
+      content: @icon-info-resultNotice;
+      color: @iconColor-info-resultNotice;
+    }
+
+    .result-box > .result-content > .result-inner > h1 {
+      color: @iconColor-info-resultNotice;
+    }
+  }
+
+  //小码
+  &.result-s {
+
+    &,
+    &.result-success,
+    &.result-wait,
+    &.result-fail,
+    &.result-info {
+
+      .result-box {
+        padding-left: @iconWrapSize-sizeS-resultNotice;
+
+        > .result-icon {
+          .square(@iconWrapSize-sizeS-resultNotice);
+
+          &:before {
+            font-size: @iconSize-sizeS-resultNotice;
+            line-height: @iconWrapSize-sizeS-resultNotice;
+          }
+        }
+
+        > .result-content {
+          padding-left: 20px;
+          min-height: @iconWrapSize-sizeS-resultNotice;
+
+          > .result-inner > h1 {
+            font-size: @fontSize-topic-sizeS-resultNotice;
+          }
+        }
+      }
+    }
+
+    .result-box {
+      padding-left: 0;
+
+      > .result-content {
+        padding-left: 0;
+      }
+    }
+  }
+
+  //响应式（屏幕分辨率1024）
+  @media (max-width: 1024px) {
+
+    padding: 100px 50px;
+
+    &,
+    &.result-success,
+    &.result-wait,
+    &.result-fail,
+    &.result-info {
+
+      .result-box {
+        padding-left: @iconWrapSize-screen1024-resultNotice;
+
+        > .result-icon {
+          .square(@iconWrapSize-screen1024-resultNotice);
+
+          &:before {
+            font-size: @iconSize-screen1024-resultNotice;
+            line-height: @iconWrapSize-screen1024-resultNotice;
+          }
+        }
+
+        > .result-content {
+          padding-left: 20px;
+          min-height: @iconWrapSize-screen1024-resultNotice;
+
+          > .result-inner > h1 {
+            font-size: @fontSize-topic-screen1024-resultNotice;
+          }
+        }
+      }
+    }
+
+    .result-box {
+      padding-left: 0;
+
+      > .result-content {
+        padding-left: 0;
+      }
+    }
+  }
+
+  //垂直排版
+  &.result-vertical {
+
+    .result-box {
+      padding-left: 0;
+
+      > .result-icon {
+        position: static;
+        margin: 0 auto;
+      }
+
+      > .result-content {
+        padding-left: 0;
+        min-height: 0;
+
+        > .result-inner {
+          padding-top: 20px;
+          vertical-align: top;
+
+          > h1 {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//------------
+// modal
+.modal-body {
+  > .result-wrap {
+    padding: 10px 50px;
+    .result-box {
+      min-width: 60%;
+    }
+
+  }
+}

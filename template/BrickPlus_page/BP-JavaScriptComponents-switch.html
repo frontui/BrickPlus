@@ -1,0 +1,151 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='26') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          待续
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <span class="switch" data-isSecondCheck="true">
+              <span class="switch-inner"></span> 
+          </span>
+          <span>关</span>
+          <br>
+          <br>
+          <span class="switch">
+              <span class="switch-inner"></span> 
+          </span>
+          <input type="radio" />
+          <br>
+          <br>
+          <span class="switch with-icon">
+              <span class="switch-inner"></span> 
+          </span>
+          <span>关</span>
+          <br>
+          <br>
+          <span class="switch with-text">
+              <span class="switch-inner"></span> 
+          </span>
+          <span>关</span>
+          <br>
+          <br>
+          <span class="switch disabled">
+              <span class="switch-inner"></span> 
+          </span>
+          <span>关</span>
+
+        </div>
+        <div class="example-code">
+          <pre><code>
+const toggle = '.switch,[data-toggle="switch"]';
+    $(document).on('click.switch', toggle, function() {
+        $(this).switch({
+          type : 'toggle',
+          docClick : true,
+          isSecondCheck : true,
+          secondCheckOption : {   //  isSecondCheck为true时必传
+            title : '传参提示',   //  弹窗标题
+            getContent : function(isChecked){   //  弹窗提示语，需要return一个字符串，isChecked为当前是否激活状态(布尔值)
+              var content = '当前状态为' + (isChecked ? '激活' : '未激活');
+              return content;
+            },
+            secondCheckCallBack : function(el,isChecked){ 
+              // 回调，点击确定后跑逻辑
+              console.log(el,isChecked);  // 随便打印
+            }
+          }
+        })
+    })
+$('.switch').on('checked.bp.switch', function(e, checked) {
+  $(this).next('span').html(checked ? '开' : '关')
+  $(this).next(':radio').prop('checked', checked)
+})            
+</code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/switch.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+  $(function() {
+    const toggle = '.switch,[data-toggle="switch"]';
+    $(document).on('click.switch', toggle, function() {
+        $(this).switch({
+          type : 'toggle',
+          docClick : true,
+          isSecondCheck : true,
+          secondCheckOption : {   //  isSecondCheck为true时必传
+            title : '传参提示',   //  弹窗标题
+            getContent : function(isChecked){   //  弹窗提示语，需要return一个字符串，isChecked为当前是否激活状态(布尔值)
+              var content = '当前状态为' + (isChecked ? '激活' : '未激活');
+              return content;
+            },
+            secondCheckCallBack : function(el,isChecked){ 
+              // 回调，点击确定后跑逻辑
+              console.log(el,isChecked);  // 随便打印
+            }
+          }
+        })
+    })
+    $('.switch').on('checked.bp.switch', function(e, checked) {
+      $(this).next('span').html(checked ? '开' : '关')
+      $(this).next(':radio').prop('checked', checked)
+    })
+  })
+</script>
+{% endblock %}

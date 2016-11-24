@@ -1,0 +1,308 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='3') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='11') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <h2>概述</h2>
+      <ul class="example-description">
+        <li>
+          创建可以被拨动显示的通知，并且能自动淡出。当你将鼠标悬停在通知上面时，它不会自动消失，直到你移开鼠标。还可以通过点击关闭通知。
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default small-btn" id="j-btn">click me</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+$('#j-btn').on('click', function() {
+    $.notify('&lt;h3&gt;提示&lt;/h3&gt;&lt;p&gt;您有新的消息&lt;/p&gt;')
+  })
+            </code>
+          </pre>
+        </div>
+      </div>
+      <h2>内容图标</h2>
+      <ul class="example-description">
+        <li>
+          可以在通知信息内嵌HTML，比如 <a href="http://frontui.github.io/frontui-icon/demo.html" class="link-standard">图标</a>。
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default small-btn" id="j-btn-2">弹出有info图标的通知</button>
+          <br>
+          <br>
+          <button type="button" class="btn default small-btn" id="j-btn-5">弹出有success图标的通知</button>
+          <br>
+          <br>
+          <button type="button" class="btn default small-btn" id="j-btn-6">弹出有warning图标的通知</button>
+          <br>
+          <br>
+          <button type="button" class="btn default small-btn" id="j-btn-7">弹出有error图标的通知</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+$('#j-btn-2').on('click', function() {
+  $.notify({ icon: 'info', message: '&lt;p&gt;我是有info图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;p/p&gt;'});
+})
+$('#j-btn-5').on('click', function() {
+  $.notify({ icon: 'success', message: '&lt;pp&gt;我是有success图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;'});
+})
+$('#j-btn-6').on('click', function() {
+  $.notify({ icon: 'warning', message: '&lt;p&gt;我是有warning图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;'});
+})
+$('#j-btn-7').on('click', function() {
+  $.notify({ icon: 'error', message: '&lt;pp&gt;我是有error图标的!&lt;p/p&gt;&lt;p&gt;朕知道了&lt;p/p&gt;'});
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+      <h2>定时/延迟</h2>
+      <ul class="example-description">
+        <li>
+          我们可以设置timeout通知信息隐藏的时间。若设置为0，则不隐藏！
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default small-btn" id="j-btn-3">定时隐藏</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+$('#j-btn-3').on('click', function() {
+  $.notify({ message: '&lt;div class="notify-bfc"&gt;&lt;i class="icon-done"&gt;&lt;/i&gt; &lt;div&gt;&lt;p&gt;我是有图标的!&lt;/p&gt;&lt;p&gt;朕知道了&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;', timeout: 1000});
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+      <h2>定位</h2>
+      <ul class="example-description">
+        <li>
+          添加以下参数中的一个来调整通知出现的位置。
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="tables-wrap">
+            <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            属性
+                        </th>
+                        <th>
+                            描述
+                        </th>
+                        <th>
+                            示例
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>'top-center'</code></td>
+                        <td><code>$.notify({message:'顶部居中', pos: 'top-center'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="top-center">顶部居中</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'top-left'</code></td>
+                        <td><code>$.notify({message: '左上角', pos: 'top-left'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="top-left">左上角</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'top-right'</code></td>
+                        <td><code>$.notify({message: '右上角', pos: 'top-right'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="top-right">右上角</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'bottom-center'</code></td>
+                        <td><code>$.notify({message: '底部居中', pos: 'bottom-center'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="bottom-center">底部居中</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'bottom-left'</code></td>
+                        <td><code>$.notify({message: '左下角', pos: 'bottom-left'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="bottom-left">左下角</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'bottom-right'</code></td>
+                        <td><code>$.notify({message: '右下角', pos: 'bottom-left'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="bottom-right">右下角</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'vcenter'</code></td>
+                        <td><code>$.notify({message: '居中', pos: 'vcenter'})</code></td>
+                        <td><button class="btn default small-btn j-pos" data-pos="vcenter">居中</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>'icon'</code></td>
+                        <td><code>$.notify({message: '居中', icon: 'info'})</code></td>
+                        <td>显示图标icon</td>
+                    </tr>
+                    </tbody>
+                </table>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+$('#j-btn-3').notify({ message: '<i class="icon-info"></i> 我是有图标的!', pos: 'bottom-center'});
+            </code>
+          </pre>
+        </div>
+      </div>
+      <h2>配置</h2>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="tables-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>选项</th>
+                  <th>类型</th>
+                  <th>默认值</th>
+                  <th>描述</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>message</td>
+                  <td>String</td>
+                  <td>''</td>
+                  <td>提示内容</td>
+                </tr>
+                <tr>
+                  <td>status</td>
+                  <td>String</td>
+                  <td>''</td>
+                  <td>状态颜色类名</td>
+                </tr>
+                <tr>
+                  <td>opacity</td>
+                  <td>Float</td>
+                  <td>0.85</td>
+                  <td>透明度</td>
+                </tr>
+                <tr>
+                  <td>timeout</td>
+                  <td>Int</td>
+                  <td>5000</td>
+                  <td>定时延迟消失</td>
+                </tr>
+                <tr>
+                  <td>group</td>
+                  <td>String</td>
+                  <td>null</td>
+                  <td>是否分组</td>
+                </tr>
+                <tr>
+                  <td>pos</td>
+                  <td>String</td>
+                  <td>top-center</td>
+                  <td>位置</td>
+                </tr>
+                <tr>
+                  <td>onClose</td>
+                  <td>Function</td>
+                  <td>noop</td>
+                  <td>关闭触发事件</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/Notify.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+$(function() {
+  $('#j-btn').on('click', function() {
+    $.notify('<h3>提示</h3><p>您有新的消息</p>')
+  })
+  $('#j-btn-2').on('click', function() {
+    $.notify({ icon: 'info', message: '<p>我是有info图标的!</p><p>朕知道了</p>'});
+  })
+  $('#j-btn-5').on('click', function() {
+    $.notify({ icon: 'success', message: '<p>我是有success图标的!</p><p>朕知道了</p>'});
+  })
+  $('#j-btn-6').on('click', function() {
+    $.notify({ icon: 'warning', message: '<p>我是有warning图标的!</p><p>朕知道了</p>'});
+  })
+  $('#j-btn-7').on('click', function() {
+    $.notify({ icon: 'error', message: '<p>我是有error图标的!</p><p>朕知道了</p>'});
+  })
+  $('#j-btn-3').on('click', function() {
+    $.notify({ message: '<div class="notify-bfc"><i class="icon-done"></i> <div><p>我是有图标的!</p><p>朕知道了</p></div></div>', timeout: 1000});
+  })
+
+  var status = ['primary', 'success', 'warning', 'danger'];
+  $('.j-pos').on('click', function(e) {
+      var s = Math.floor(Math.random() * status.length);
+      var pos = $(this).data('pos');
+      var message = $(this).text();
+      $.notify({message: message, pos: pos, status: status[s]})
+  })
+})
+</script>
+{% endblock %}

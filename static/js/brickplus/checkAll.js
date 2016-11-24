@@ -99,7 +99,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // 构造函数
 	  // -------
 	  // * `element` dom元素对象
-	
 	  function CheckAll(element) {
 	    _classCallCheck(this, CheckAll);
 	
@@ -179,14 +178,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'activate',
 	    value: function activate(isChecked) {
-	      var isCheck =
+	      var _ref = [
 	      // button触发全选传值可能为false
-	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked;
-	      var e = // 当前dom元素是否勾选
+	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked, // 当前dom元素是否勾选
 	      $.Event('checked.bp.checkAll', {
 	        relatedTarget: this.$el
 	      }) // 创建选中事件
-	      ;
+	      ],
+	          isCheck = _ref[0],
+	          e = _ref[1];
 	      // button触发全选时，设置全选为选中 by limit
 	
 	      this.$el.prop('checked', isCheck);
@@ -238,8 +238,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return $(this).each(function () {
 	    var _data;
 	
-	    var $this = $(_this);
-	    var data = $(_this).data('bp.checkAll');
+	    var _ref2 = [$(_this), $(_this).data('bp.checkAll')],
+	        $this = _ref2[0],
+	        data = _ref2[1];
 	
 	
 	    if (!data) {

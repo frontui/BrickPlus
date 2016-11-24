@@ -1,0 +1,527 @@
+﻿@charset "utf-8";
+
+.btn-disabled() {
+  background-color: @bgColor-disabled-btn;
+  border-color: @bgColor-disabled-btn;
+  color: lighten(@fontColor-viceText, 20%);
+  cursor: not-allowed;
+
+  &:hover,
+  &:active,
+  &.current {
+    background-color: @bgColor-disabled-btn;
+    border-color: darken(@bgColor-disabled-btn, 4%);
+    box-shadow: none;
+  }
+}
+
+// ******************
+// 多个按钮并行
+// ******************
+.plural-btns {
+  font-size: 0;
+  line-height: 0;
+  .clearfix();
+
+  > .btn {
+    margin-right: 10px;
+  }
+
+  > .btn-group-box {
+    margin-right: 10px;
+  }
+}
+
+// ******************
+// 按钮
+// ******************
+.btn {
+  .inline-block();
+  .rounded(@borderRadius-btn);
+  padding: @padding-default-btn;
+  margin: 0;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  text-align: center;
+  font-size: @fontSize-smaller;
+  .link-custom(#fff, #fff, none);
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: @line-height-base;
+  .transition(all, 0.3s, ease, 0);
+  white-space: nowrap;
+  overflow: visible;
+  height: @height-default-btn;
+
+  &.default {
+    background-color: @bgColor-default-btn;
+    border-color: darken(@bgColor-default-btn, 25%);
+    color: @fontColor-default;
+
+    &:hover,
+    &:active,
+    //&:focus,
+    &.current {
+      border-color: darken(@bgColor-default-btn, 50%);
+    }
+
+    &:active,
+    //&:focus,
+    &.current {
+      .inner-shadow(2px, 2px, 3px, 0.15);
+      background-color: darken(@bgColor-default-btn, 5%);
+    }
+  }
+
+  &.primary {
+    background-color: @bgColor-primary-btn;
+    border-color: darken(@bgColor-primary-btn, 10%);
+
+    &:hover,
+    &:active,
+    //&:focus,
+    &.current {
+      background-color: darken(@bgColor-primary-btn, 12%);
+      border-color: darken(@bgColor-primary-btn, 20%);
+    }
+
+    &:active,
+    //&:focus,
+    &.current {
+      .inner-shadow(2px, 2px, 3px, 0.15);
+    }
+  }
+
+  &.secondary {
+    background-color: @bgColor-secondary-btn;
+    border-color: darken(@bgColor-secondary-btn, 10%);
+
+    &:hover,
+    &:active,
+    //&:focus,
+    &.current {
+      background-color: darken(@bgColor-secondary-btn, 12%);
+      border-color: darken(@bgColor-secondary-btn, 20%);
+    }
+
+    &:active,
+    //&:focus,
+    &.current {
+      .inner-shadow(2px, 2px, 3px, 0.15);
+    }
+  }
+
+  &.thirdly {
+    background-color: @bgColor-thirdly-btn;
+    border-color: darken(@bgColor-thirdly-btn, 10%);
+
+    &:hover,
+    &:active,
+    //&:focus,
+    &.current {
+      background-color: darken(@bgColor-thirdly-btn, 7%);
+      border-color: darken(@bgColor-thirdly-btn, 20%);
+    }
+
+    &:active,
+    //&:focus,
+    &.current {
+      .inner-shadow(2px, 2px, 3px, 0.15);
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    .btn-disabled();
+  }
+
+  &.links {
+    padding: 0 10px;
+    .link-standard();
+    border: none;
+    height: auto;
+
+    &.small-btn {
+      border-color: transparent;
+      padding: 0;
+    }
+
+    &.disabled {
+      background-color: transparent;
+      border-color: none;
+      color: lighten(@fontColor-viceText, 20%);
+
+      &:hover,
+      &:active,
+      &.current {
+        background-color: transparent;
+        border-color: none;
+      }
+    }
+  }
+
+  &.dropdown-menu-btn {
+    position: relative;
+    //padding-right: 30px;
+
+    &:after {
+      .caret-down();
+      //position: absolute;
+      //top: 50%;
+      //margin-top: -@sizeX-default-caret/2;
+      //right: 10px;
+      content: '';
+      .inline-block();
+      margin-left: 8px;
+    }
+  }
+
+  > [class^="icon-"], [class*=" icon-"] {
+    float: left;
+    font-size: @fontSize-large;
+  }
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+// ******************
+// 按钮尺寸
+// ******************
+.large-btn {
+  padding: @padding-large-btn;
+  height: @height-large-btn;
+}
+
+.small-btn {
+  padding: @padding-small-btn;
+  height: @height-small-btn;
+
+  > [class^="icon-"], [class*=" icon-"] {
+    margin-top: 2px;
+    font-size: @fontSize-small;
+  }
+}
+
+.smaller-btn {
+  padding: @padding-smaller-btn;
+  height: @height-smaller-btn;
+
+  > [class^="icon-"], [class*=" icon-"] {
+    margin-top: 2px;
+    font-size: @fontSize-small;
+  }
+}
+
+// ******************
+// 块化按钮
+// ******************
+.block-btn {
+  display: block;
+  width: 100%;
+}
+
+// ******************
+// 按钮组
+// ******************
+.btn-group-box {
+  .inline-block();
+  vertical-align: middle;
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+
+  > .btn {
+    float: left;
+
+    & + .btn,
+    & + .btn-group-box {
+      .rounded(0);
+      border-left-width: 0;
+
+      &:first-child {
+        .border-radius(@borderRadius-btn, 0, 0, @borderRadius-btn);
+        border-left-width: 1px;
+      }
+
+      &:last-child {
+        .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+      }
+    }
+
+    & + .btn-group-box {
+
+      > .btn {
+        border-left-width: 0;
+      }
+    }
+
+    & + .dropdown-menu-btn {
+      padding-right: @padding-dropDownMenu-btn;
+      padding-left: 0;
+    }
+
+    &:first-child {
+
+      &:not(:last-child):not(.dropdown-menu-btn) {
+        .border-radius(@borderRadius-btn, 0, 0, @borderRadius-btn);
+      }
+    }
+
+    &:last-child:not(:first-child) {
+      .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+    }
+
+    &:not(:first-child):not(:last-child):not(.dropdown-menu-btn) {
+      .rounded(0);
+    }
+  }
+
+  > .btn-group-box {
+    float: left;
+
+    & + .btn,
+    & + .btn-group-box {
+      .rounded(0);
+      border-left-width: 0;
+
+      &:first-child {
+        .border-radius(@borderRadius-btn, 0, 0, @borderRadius-btn);
+        border-left-width: 1px;
+      }
+
+      &:last-child {
+        .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+      }
+    }
+
+    &:not(:first-child):not(:last-child) {
+
+      > .btn {
+        .rounded(0);
+        border-left-width: 0; //新加的，解决按钮组嵌套的按钮式下拉菜单的时候出现的多余的边框
+      }
+    }
+
+    &:first-child:not(:last-child) {
+
+      > .btn:last-child,
+      > .dropdown-menu-btn {
+        .border-radius(@borderRadius-btn, 0, 0, @borderRadius-btn);
+      }
+
+      > .btn + .dropdown-menu-btn {
+        .rounded(0);
+      }
+    }
+
+    &:last-child:not(:first-child) {
+
+      > .btn {
+        .rounded(0);
+
+        &:last-child {
+          .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+        }
+      }
+
+      > .dropdown-menu-btn {
+        .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+      }
+    }
+  }
+
+  > .dropdown-menu-btn {
+
+    &:not(:first-child) {
+      .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+    }
+  }
+}
+
+// ******************
+// 按钮组实行垂直排列 （不支持分裂式下拉菜单按钮）
+// ******************
+.btn-group-box.vertical-btn-gb {
+
+  > .btn,
+  > .btn-group-box,
+  > .btn-group-box > .btn {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    border-top-width: 0;
+  }
+
+  > .btn {
+    border-left-width: 1px;
+
+    &:not(:first-child):not(:last-child) {
+      .rounded(0);
+    }
+
+    &:first-child:not(:last-child) {
+      .border-radius(@borderRadius-btn, @borderRadius-btn, 0, 0);
+      border-top-width: 1px;
+    }
+
+    &:last-child:not(:first-child) {
+      .border-radius(0, 0, @borderRadius-btn, @borderRadius-btn);
+    }
+
+    & + .btn,
+    & + .btn-group-box {
+
+      > .btn {
+        border-left-width: 1px;
+      }
+    }
+  }
+
+  > .btn-group-box {
+    &:extend(.clearfix all);
+
+    &:not(:first-child):not(:last-child) {
+
+      > .btn {
+        .rounded(0);
+      }
+    }
+
+    &:first-child:not(:last-child) {
+
+      > .btn:last-child,
+      > .dropdown-menu-btn {
+        .border-radius(@borderRadius-btn, @borderRadius-btn, 0, 0);
+        border-top-width: 1px;
+      }
+    }
+
+    &:last-child:not(:first-child) {
+
+      > .btn:first-child {
+        .border-radius(0, 0, @borderRadius-btn, @borderRadius-btn);
+      }
+    }
+
+    > .btn {
+      float: none;
+    }
+  }
+}
+
+// ******************
+// 按钮组实行两端对齐 （不支持分裂式下拉菜单按钮）
+// ******************
+.btn-group-box.justified-btn-gb {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+
+  > .btn {
+    display: table-cell;
+    float: none;
+    width: 1%;
+  }
+
+  > .btn-group-box {
+    display: table-cell;
+    float: none;
+    width: 1%;
+
+    .btn {
+      width: 100%;
+      float: none;
+      border-left-width: 0;
+
+      &:first-child {
+        .border-radius(@borderRadius-btn, 0, 0, @borderRadius-btn);
+        border-left-width: 1px;
+      }
+
+      &:last-child {
+        .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+      }
+    }
+
+    .dropdown-menu {
+      left: -1px;
+    }
+
+    &:not(:first-child):not(:last-child) {
+
+      > .btn {
+        .rounded(0);
+        border-left-width: 0;
+      }
+    }
+
+    &:first-child:not(:last-child) {
+
+      > .btn,
+      > .dropdown-menu-btn {
+        .border-radius(@borderRadius-btn, 0, 0, @borderRadius-btn);
+      }
+    }
+
+    &:last-child:not(:first-child) {
+
+      > .btn {
+        .border-radius(0, @borderRadius-btn, @borderRadius-btn, 0);
+        border-left-width: 0;
+      }
+    }
+  }
+}
+
+// ******************
+// 附着式超链接
+// ******************
+.btn-with-viceLink {
+  position: relative;
+  .inline-block();
+
+  > .btn-vicelink {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    .link-standard();
+    width: 0;
+    text-align: left;
+    white-space: nowrap;
+    font-size: @fontSize-smaller;
+    line-height: 24px;
+    margin-top: -12px;
+  }
+}
+
+// ******************
+// 按钮组尺寸
+// ******************
+.smaller-btn-gb {
+
+  .btn {
+    &:extend(.smaller-btn);
+  }
+}
+
+.small-btn-gb {
+
+  .btn {
+    &:extend(.small-btn);
+  }
+}
+
+.large-btn-gb {
+
+  .btn {
+    &:extend(.large-btn);
+  }
+}
+

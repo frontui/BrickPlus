@@ -110,7 +110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 	
-	    // 一般 loading 层
+	    // 一般 loading 层 
 	
 	
 	    _createClass(Spin, [{
@@ -127,7 +127,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_bindBtn',
 	        value: function _bindBtn() {
 	            if (this.el.length < 0) {
-	                this.parentEl.append('<button class="btn default">查看更多<button>');
+	                this.parentEl.append('<button class="btn default">\u67E5\u770B\u66F4\u591A<button>');
 	            }
 	            this.el.data('originText', this.el.html());
 	            this.el.on('click', _jquery2.default.proxy(this.spinning, this));

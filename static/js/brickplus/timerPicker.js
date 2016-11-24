@@ -109,7 +109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function TimerPicker(el, props) {
 	        _classCallCheck(this, TimerPicker);
 	
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TimerPicker).call(this, el, toggle, props));
+	        var _this = _possibleConstructorReturn(this, (TimerPicker.__proto__ || Object.getPrototypeOf(TimerPicker)).call(this, el, toggle, props));
 	
 	        _this.props = _jquery2.default.extend({}, TimerPicker.DEFAULTS, _this.props);
 	
@@ -283,7 +283,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'show',
 	        value: function show() {
 	            var liEl = this.navEl.children('li');
-	            _get(Object.getPrototypeOf(TimerPicker.prototype), 'show', this).call(this);
+	            _get(TimerPicker.prototype.__proto__ || Object.getPrototypeOf(TimerPicker.prototype), 'show', this).call(this);
 	            liEl.eq(0).trigger('click');
 	        }
 	    }]);
@@ -365,7 +365,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param {string} toggleEl 匹配标识
 	     * @param {object} props 配置参数 必须包含{ toggle: ''} 参数 
 	     */
-	
 	    function Drop(el, toggleEl, props) {
 	        _classCallCheck(this, Drop);
 	
@@ -460,8 +459,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '__setPosition',
 	        value: function __setPosition() {
-	            var offset = this.el.offset();
-	            var elHeight = this.el.outerHeight(true);
+	            var _ref = [this.el.offset(), this.el.outerHeight(true)],
+	                offset = _ref[0],
+	                elHeight = _ref[1];
 	
 	
 	            this.dropEl.css({ top: offset.top + elHeight + 'px', left: offset.left + 'px' });

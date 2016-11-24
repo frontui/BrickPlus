@@ -1,0 +1,199 @@
+// ******************
+// 开关
+// ******************
+
+//disabled swicth mixin
+.disabled-switch() {
+  background-color: @bgColor-disabled-switch;
+  cursor: not-allowed;
+
+  .switch-inner {
+    box-shadow: none;
+    color: @fontColor-disabled-switch;
+
+    &:before {
+      .icon-font-family();
+      content: @icon-disabled-switch;
+      font-size: @iconSize-disabled-switch;
+      line-height: (@height-default-switch - @gapSize-default-switch);
+      text-align: center;
+      color: @iconColor-disabled-switch;
+      box-shadow: none;
+      text-shadow: 1px 1px 0 rgba(255,255,255,1);
+      background-color: transparent;
+    }
+  }
+}
+
+//switch size mixin
+.switch-size(@size:@height-default-switch,@gapSize:@gapSize-default-switch,@isd:@iconSize-disabled-switch,@counts:2,@fs:@fontSize-switch) {
+  height: @size;
+  width: @size*2;
+  .rounded(@size);
+
+  .switch-inner {
+    top: @gapSize;
+    left: @gapSize;
+    right: @gapSize;
+    bottom: @gapSize;
+    .rounded(@size - @gapSize);
+    line-height: @size - @gapSize - 1px;
+    padding-right: @gapSize*@counts;
+    font-size: @fs;
+
+    &:before {
+      .square(@size - @gapSize);
+      margin-top: -(@size - @gapSize)/2;
+    }
+  }
+
+  //开关图标
+  &.with-icon {
+
+    .switch-inner {
+      line-height: @size;
+    }
+  }
+
+  &.checked {
+
+    .switch-inner {
+      padding-left: @gapSize*@counts;
+
+      &:before {
+        left: @size - @gapSize;
+      }
+    }
+  }
+
+  //不可用状态
+  &.disabled {
+    .disabled-switch();
+
+    .switch-inner:before {
+      font-size: @isd;
+      line-height: (@size - @gapSize);
+    }
+  }
+}
+
+.switch {
+  .inline-block();
+  vertical-align: middle;
+  position: relative;
+  height: @height-default-switch;
+  width: @height-default-switch*2;
+  .rounded(@height-default-switch);
+  background-color: @bgColor-off-switch;
+  cursor: pointer;
+  .inner-shadow-custom(0,0,3px,0,rgba(0,0,0,0.075));
+  .transition(all,0.3s,ease,0);
+
+  &-inner {
+    position: absolute;
+    top: @gapSize-default-switch;
+    left: @gapSize-default-switch;
+    right: @gapSize-default-switch;
+    bottom: @gapSize-default-switch;
+    .rounded(@height-default-switch - @gapSize-default-switch);
+    text-align: right;
+    line-height: @height-default-switch - @gapSize-default-switch - 1px;
+    padding-right: @gapSize-default-switch*2;
+    font-size: @fontSize-switch;
+    color: @fontColor-off-switch;
+
+
+    &:before {
+      content: '';
+      .rounded(50%);
+      .square(@height-default-switch - @gapSize-default-switch);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -(@height-default-switch - @gapSize-default-switch)/2;
+      background-color: @bgColor-btn-switch;
+      .outer-shadow-custom(0,2px,4px,0,rgba(0,0,0,0.15));
+      .transition(all,0.3s,ease,0);
+    }
+  }
+
+  //不可用状态
+  &.disabled {
+    .disabled-switch();
+  }
+
+  //开关文字
+  &.with-text {
+
+    .switch-inner:after {
+      content: '关';
+    }
+  }
+
+  //开关图标
+  &.with-icon {
+
+    .switch-inner {
+      line-height: @height-default-switch;
+
+      &:after {
+        .icon-font-family();
+        content: @icon-off-switch;
+      }
+    }
+  }
+
+  //打开开关
+  &.checked {
+    background-color: @bgColor-on-switch;
+
+    .switch-inner {
+      .outer-shadow-custom(0,0,6px,3px,rgba(93,211,150,0.6));
+      text-align: left;
+      padding-left: @gapSize-default-switch*2;
+      color: lighten(@bgColor-on-switch,100%);
+
+      &:before {
+        left: @height-default-switch - @gapSize-default-switch;
+        .outer-shadow-custom(0,2px,3px,1px);
+      }
+    }
+
+    //在已经开启开关的情况下，开关处于disabled状态
+    &.disabled {
+      .disabled-switch();
+    }
+  }
+
+  //打开开关后文字改变
+  &.checked.with-text {
+
+    .switch-inner:after {
+      content: '开';
+    }
+  }
+
+  //打开开关后图标改变
+  &.checked.with-icon {
+
+    .switch-inner:after {
+      content: @icon-on-switch;
+    }
+  }
+
+  //small size
+  &.size-s {
+    .switch-size(@height-small-switch,@gapSize-small-switch,@iconSize-disabled-small-switch);
+  }
+
+  //large size
+  &.size-l {
+    .switch-size(@height-large-switch,@gapSize-large-switch,@iconSize-disabled-large-switch,4);
+  }
+
+  //xlarge size
+  &.size-xl {
+    .switch-size(@height-xlarge-switch,@gapSize-xlarge-switch,@iconSize-disabled-xlarge-switch,6,@fontSize-xlarge-switch);
+  }
+}
+

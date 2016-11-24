@@ -1,0 +1,137 @@
+﻿@charset "utf-8";
+
+
+// ******************
+// 模态窗口背景淡出淡入
+// ******************
+.fade {
+    opacity: 0;
+    .transition(opacity,.15s,linear,0);
+
+    &.in {
+        opacity: 1;
+    }
+}
+
+// ******************
+// 模态窗口
+// ******************
+.modal-background {
+    //background-image: url("@{images-url}black70.png"); //在IE8.less及IE76.less再作兼容处理
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: @zIndex-backGround-modal;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 40px 0;
+
+    &.fade{
+        visibility: hidden;
+
+        .modal-wrap{
+            //transform: scale(0.8);
+            transition: transform .15s;
+        }
+
+        &.in{
+            visibility: visible;
+            .modal-wrap {
+                //transform: scale(1);
+            }
+        }
+    }
+}
+
+.modal-layer {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-position {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-wrap {
+    width: @width-wrap-modal;
+    min-width: @minWidth-wrap-modal;
+    margin: 0 auto;
+    .outer-shadow(0,0,30px,0.5);
+
+}
+
+.modal-head {
+    //line-height: @lineHeight-head-modal;
+    font-size: @fontSize-large;
+    background-color: @bgColor-head-modal;
+    padding: @paddingTB-head-modal @paddingLR-head-modal @paddingTB-head-modal @paddingLR-head-modal;
+    .border-radius(@borderRadius-wrap-modal,@borderRadius-wrap-modal,0,0);
+    .clearfix();
+
+    > .modal-close {
+        font-size: @fontSize-larger;
+        color: @fontColor-viceText;
+        //line-height: @btnSize-close-modal;
+        float: right;
+        cursor: pointer;
+        .icon-font-family();
+        .inline-block();
+        margin-right: -5px;
+
+        &:before {
+            content: @content-icon-close-modal;
+        }
+
+        &:hover {
+            color: @fontColor-danger;
+            .animation-s( close-btn,0.4s,linear,0,1,normal,running,forwards );
+        }
+    }
+}
+
+.modal-body {
+    padding: 0 @paddingLR-body-modal @paddingTB-body-modal @paddingLR-body-modal;
+    background-color: @bgColor-body-modal;
+    .border-radius(0,0,@borderRadius-wrap-modal,@borderRadius-wrap-modal);
+}
+
+.modal-open {
+    overflow: hidden;
+
+    > .main {
+      filter: blur(14px) contrast(0.4) brightness(1.4);
+      outline: none;
+      border: none;
+    }
+}
+
+// ******************
+// 模态窗口背景淡出淡入
+// ******************
+.large-modal {
+
+  .modal-wrap {
+    width: @width-wrap-modal + 30%;
+  }
+}
+
+.small-modal {
+
+  .modal-wrap {
+    width: @minWidth-wrap-small-modal;
+    min-width: @minWidth-wrap-small-modal;
+  }
+}
+
+.smaller-modal {
+
+  .modal-wrap {
+    width: @minWidth-wrap-smaller-modal;
+    min-width: @minWidth-wrap-smaller-modal;
+  }
+}

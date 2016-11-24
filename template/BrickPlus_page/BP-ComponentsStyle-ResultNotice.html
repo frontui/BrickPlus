@@ -1,0 +1,298 @@
+{% extends "_BrickPlus_layout/5-BP-ComponentsStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='3') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='5') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+{# 渲染标签页 #}
+{{
+  tab.prototype(
+    tabs = [
+      {text: '结构和样式', url: '#tp1'},
+      {text: '尺寸', url: '#tp2'},
+      {text: '排版', url: '#tp3'}
+    ],
+    cur='1'
+  )
+}}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          任务结果提示和警告框一样，拥有基类和四个有特殊意思的情景应用类，适应不用的用户场景，在 <code>.result-wrap</code> 这一层（基类）叠加 <code>.result-success</code>，<code>.result-wait</code>，<code>.result-fail</code>，<code>.result-info</code> 中的一种，得到相应的特殊场景内容。
+          这个组件多数是作为一个完整的页面内容呈现的，所以它必须有固定的 html 结构，详情请参考代码示例。
+        </li>
+        <li>
+          基类没用吗？未必，看你怎么用。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    我只引用了任务结果提示组件的基类！内容很简单是不是？但结构不是！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-success">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-success，我代表积极，正确，鼓励性质的行为结果！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-wait">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-wait，看到我，就是说你需要等待，给我点时间！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-fail">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-fail，你失败了，You are a loser of life！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-info">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    .result-info，看我，有些事情你是需要知道的！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-wrap ( result-success / result-info / result-wait / alert-fail )</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-box</b></span>"</span>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-icon</b></span>"</span>&gt;&lt;/<b>div</b>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-content</b></span>"</span>&gt;
+      &lt;<b>div</b> <span class="va">class="<span class="cl"><b>result-inner</b></span>"</span>&gt;
+        &lt;<b>h1</b>&gt;
+          <span class="tg">...</span>
+        &lt;/<b>h1</b>&gt;
+        <span class="tg">...</span>
+      &lt;/<b>div</b>&gt;
+    &lt;/<b>div</b>&gt;
+  &lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          组件在1024分辨率屏幕下，会缩小图标和标题的尺寸。另外还提供 <code>.result-s</code> 的尺寸类（暂时仅提供一种），适应不同的结构容器宽度。
+        </li>
+        <li>
+          <code>.result-s</code> 的尺寸类和1024分辨率下的组件尺寸，调整参数是一样的，即，一样（除了内补边距,内补边距的缩小只会在1024分辨率下会触发）。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap result-success result-s">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    おめでとう！君には人生の大賞が！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">result-wrap <b>result-s</b></span>"</span>&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#resultVertical" class="btn default">垂直排列</a>
+      <a href="#resultExample" class="btn default">组合案例</a>
+    </div>
+    <section class="example-wrap">
+      <h2 id="resultVertical">垂直排列</h2>
+      <ul class="example-description">
+        <li>
+          在 <code>.result-wrap</code> 这一层引用 <code>.result-vertical</code>，就能得到一个垂直排版的 result notice。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap result-success result-vertical">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    おめでとう！君には人生の大賞が！
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;div <span class="va">class="<span class="cl">result-wrap <b>result-vertical</b></span>"</span>&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <section class="example-wrap">
+      <h2 id="resultExample">组合案例</h2>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="result-wrap result-success">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    おめでとう！君には人生の大賞が！
+                  </h1>
+                  <p class="fn-pt-15 fn-pb-10">
+                    あなたの選択：
+                  </p>
+                  <ul class="ul-standard">
+                    <li>
+                      寝て、本当に呼び覚まして呼び覚まして、本当に起こされて、本当に呼び覚まして。
+                    </li>
+                    <li>
+                      起きて、良い服を着て現場に行く。
+                    </li>
+                  </ul>
+                  <div class="text-align-left plural-btns fn-pt-15 small-btn-gb">
+                    <button type="button" class="btn secondary">寝続ける</button>
+                    <div class="btn-group-box">
+                      <button type="button" class="btn default">呼ばれ</button>
+                      <button type="button" class="btn default">起きて</button>
+                    </div>
+                    <a href="javascript:void(0);" class="btn links">助けを求める</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-wrap result-fail result-vertical">
+            <div class="result-box">
+              <div class="result-icon"></div>
+              <div class="result-content">
+                <div class="result-inner">
+                  <h1>
+                    世界が終わって！
+                  </h1>
+                  <p class="fn-ptb-15 text-align-center">
+                    舞いあがるは終焉の地，あなたの号泣のは演奏鎮魂の楽章。
+                  </p>
+                  <div class="text-align-center plural-btns">
+                    <a href="javascript:void(0);" class="btn links">用虎の巻復活</a>
+                    <a href="javascript:void(0);" class="btn links">電源を切る</a>
+                    <a href="javascript:void(0);" class="btn links">助けを求める</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

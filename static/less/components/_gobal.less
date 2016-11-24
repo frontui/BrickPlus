@@ -1,0 +1,169 @@
+﻿@charset "utf-8";
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    .font-hei();
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-size: @fontSize-smaller;
+    color: @fontColor-default;
+    background-color: @bgColor-primary;
+    line-height: @line-height-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga","kern";
+
+    * {
+        .border-box();
+    }
+
+    // 系统布局结构
+    &.system {
+      background: @bgStyle-body-system;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+    }
+
+    &.system > .main {
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // bottom: 0;
+      // right: 0;
+      // background: @bgStyle-body-system;
+      // background-size: 100% 100%;
+      // overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+}
+
+// ******************
+// 取消移动端浏览器下渲染以下元素点击区域的默认有色遮罩
+// ******************
+a,button,input,textarea,label {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+.system-part-action-set() {
+  .transition(all,0.3s,ease-out,0);
+}
+
+// ******************
+// 系统框架容器
+// ******************
+.system-container {
+  // position: absolute;
+  // top: @height-systemTopNav;
+  // left: @width-systemAside;
+  // bottom: 0;
+  // right: 0;
+  // .system-part-action-set();
+  // .clearfix();
+  // z-index: @zIndex-systemContainer;
+
+  // padding-top: @height-systemTopNav;
+  // margin-left: @width-systemAside;
+  // margin-right: @gapSize-systemAssistNav*3;
+  // .system-part-action-set();
+  // background-color: #fff;
+
+  height: 100%;
+  padding-top: @height-systemTopNav;
+  margin-left: @width-systemAside;
+  margin-right: @gapSize-systemAssistNav*3;
+  .system-part-action-set();
+
+  .system-content-wrap {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+    .system-part-action-set();
+    padding-bottom: @gapSize-systemAssistNav*3;
+  }
+
+  .system-content {
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
+    // overflow: auto;
+    // z-index: @zIndex-systemContent;
+    // .system-part-action-set();
+    // background-color: #fff;
+
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    background-color: @bgColor-content-system;
+    .outer-shadow-custom(0,0,4px,1px);
+    .rounded(@borderRadius-public);
+  }
+
+  &.fold-for-aside {
+    margin-left: @width-fold-systemAside;
+  }
+
+  &.fold-for-assist-nav {
+
+    .system-content-wrap {
+      margin-left: -(@width-systemAssistNav - @gapSize-systemAssistNav*3);
+    }
+
+    .system-assist-nav-switch {
+      right: @width-systemAssistNav;
+
+      &::before {
+        content: '\e602';
+      }
+    }
+  }
+}
+
+
+// ******************
+// 返回页顶
+// ******************
+.actgotop {
+  display: none;
+  position: fixed;
+  _position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: @bgColor-actgotop;
+  font-size: @fontSize-smaller;
+  text-align: center;
+  line-height: @size-actgotop;
+  .square(@size-actgotop);
+  .rounded(@borderRadius-actgotop);
+  .link-custom(lighten(@bgColor-actgotop,80%),#fff,none);
+  .transition(all,0.3s,ease,0);
+
+  > i {
+    .icon-font-family();
+
+    &:before {
+      content: "\e603";
+    }
+  }
+
+  &:hover {
+    background-color: @bgColor-hover-actgotop;
+  }
+}
+
+// ------
+// 侧边栏滚动条
+#side-scrollbar {
+  height: 100%;
+  overflow: hidden;
+}

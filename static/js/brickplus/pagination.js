@@ -117,12 +117,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '__init',
 	        value: function __init(props, inited) {
 	            this.__setProps(props);
-	            var _props = this.props;
-	            var itemsOnPage = _props.itemsOnPage;
-	            var items = _props.items;
-	            var currentPage = _props.currentPage;
-	            var totalPages = _props.totalPages;
-	            var visiblePages = _props.visiblePages;
+	            var _props = this.props,
+	                itemsOnPage = _props.itemsOnPage,
+	                items = _props.items,
+	                currentPage = _props.currentPage,
+	                totalPages = _props.totalPages,
+	                visiblePages = _props.visiblePages;
 	
 	            // 总页数读取配置参数
 	            // 若未配置则 totalPages = items / itemsOnPage

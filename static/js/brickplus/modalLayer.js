@@ -407,7 +407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        if (typeof option === 'string') {
 	            fn = option;
-	            option = { title: '标题', content: '' };
+	            option = { title: '\u6807\u9898', content: '' };
 	        }
 	
 	        option.mid = (0, _jquery2.default)(this).selector.replace(/^#/g, '');
@@ -584,7 +584,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function ModalLayer(el, props) {
 	        _classCallCheck(this, ModalLayer);
 	
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ModalLayer).call(this, el, props));
+	        return _possibleConstructorReturn(this, (ModalLayer.__proto__ || Object.getPrototypeOf(ModalLayer)).call(this, el, props));
 	    }
 	
 	    return ModalLayer;

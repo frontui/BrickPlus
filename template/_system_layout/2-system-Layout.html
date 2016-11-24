@@ -1,0 +1,296 @@
+{% extends "_system_layout/1-system-Base.html" %}
+
+
+{# 引用公共样式表 #}
+{% block globalCss %}
+<link rel="stylesheet" href="{{ static }}/css/systemDefault.css?v={{ version }}" id="bp-theme">
+<link rel="stylesheet" href="{{ static }}/js/perfect-scrollbar/css/perfect-scrollbar.min.css">
+{% endblock %}
+
+
+{# 加载标签页 #}
+{% import "_system_components/tab.html" as tab %}
+
+
+{# 加载路径导航 #}
+{% import "_system_components/breadcrumb.html" as breadcrumb %}
+
+
+{# 加载开关组件 #}
+{% import "_system_components/switch.html" as switch %}
+
+
+{# 加载系统导航 #}
+{% import "_system_components/systemNavigator.html" as systemNavigator %}
+
+
+{# 加载翻页组件 #}
+{% import "_system_components/pagination.html" as pagination %}
+
+
+{# 加载表单组件 #}
+{% import "_system_components/form.html" as form %}
+
+
+{# 加载按钮组件 #}
+{% import "_system_components/button.html" as button %}
+
+
+{# 加载步骤组件 #}
+{% import "_system_components/step.html" as step %}
+
+
+{# 设置顶部导航产品列表 #}
+{%
+  set pl = [
+    {
+      product: 'OAS大账户'
+    }
+  ]
+%}
+
+
+{# 设置顶部导航典型按钮 #}
+{%
+  set stnBtns = [
+    {
+      btn: '后台设置'
+    },
+    {
+      btn: '管理系统'
+    }
+  ]
+%}
+
+
+{# 设置顶部导航主题列表 #}
+{%
+  set topNavThemesList = [
+    {
+      bgColor: '#3dc9ca'
+    },
+    {
+      bgColor: '#ff8363'
+    },
+    {
+      bgColor: '#e1e6ef'
+    },
+    {
+      bgColor: '#b897f3'
+    },
+    {
+      bgColor: '#89bf64'
+    },
+    {
+      bgColor: '#3d89ca'
+    }
+  ]
+%}
+
+
+{# 设置顶部导航用户菜单 #}
+{%
+  set userMenu = [
+    {
+      option: '修改密码',
+      url: '系统管理-修改密码.html'
+    },
+    {
+      option: '退出'
+    }
+  ]
+%}
+
+
+{# 设置侧导航 #}
+{%
+  set lv1 = [
+    {
+      text: '首页',
+      url: 'index.html',
+      iconClass: 'system-home'
+    },
+    {
+      text: '账户功能管理',
+      url: 'javascript:void(0);',
+      iconClass: 'account-function',
+      lv2: [
+        {
+          text: '账户功能列表',
+          url: '账户功能管理-账户功能列表.html'
+        }
+      ]
+    },
+    {
+      text: '服务管理',
+      url: 'javascript:void(0);',
+      iconClass: 'service-manage',
+      lv2: [
+        {
+          text: '服务列表',
+          url: '服务管理-服务列表.html'
+        }
+      ]
+    },
+    {
+      text: '渠道管理',
+      url: 'javascript:void(0);',
+      iconClass: 'channel-manage',
+      lv2: [
+        {
+          text: '渠道列表',
+          url: '渠道管理-渠道列表.html'
+        }
+      ]
+    },
+    {
+      text: '账户查询',
+      url: 'javascript:void(0);',
+      iconClass: 'account-query',
+      lv2: [
+        {
+          text: '查看个人账户',
+          url: '账户查询-查看个人账户.html'
+        },
+        {
+          text: '查看企业账户',
+          url: '账户查询-查看企业账户.html'
+        }
+      ]
+    },
+    {
+      text: '系统管理',
+      url: 'javascript:void(0);',
+      iconClass: 'system-manage',
+      lv2: [
+        {
+          text: '账户管理',
+          url: '系统管理-账户管理.html'
+        },
+        {
+          text: '角色管理',
+          url: '系统管理-角色管理.html'
+        },
+        {
+          text: '修改密码',
+          url: '系统管理-修改密码.html'
+        }
+      ]
+    }
+  ]
+%}
+
+
+{# 设置辅助导航 #}
+{%
+  set assistNav = [
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    },
+    {
+      text: '辅助导航',
+      url: 'javascript:void(0);'
+    }
+  ]
+%}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+class="system"
+{% endblock %}
+
+
+{# 公共Dom树 #}
+{% block body %}
+<div class="main">
+
+  {# 渲染页面导航 #}
+  {% block SystemNav %}
+  {% endblock %}
+
+
+  {# 渲染页面主要内容 #}
+  <div class="system-container" id="systemContainer" data-toggle="container">
+    <div class="system-content-wrap">
+      <!-- 系统辅助导航开关 -->
+      <a href="javascript:void(0);" class="system-assist-nav-switch" data-toggle="assist-switch"></a>
+      <!-- 系统页面内容盒子 -->
+      <div class="system-content">
+        {# 加载页面内容 #}
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+  {# 返回页面顶部按钮 #}
+  <a href="javascript:;void(0)" title="To Top" class="actgotop"><i></i></a>
+</div>
+{% endblock %}
+
+
+{# 引用公共 javascript 文件 #}
+{% block globalJs %}
+<script src="{{ bower_components }}/jquery/dist/jquery.min.js?v={{ version }}"></script>
+<script src="{{ static }}/js/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="{{ bower_components }}/brickplus/dist/js/brickPlus.js?v={{ version }}"></script>
+<script src="{{ static }}/js/brickplus/systemPage.js"></script>
+<script src="{{ static }}/js/framework.js?v={{ version }}"></script>
+{% endblock %}

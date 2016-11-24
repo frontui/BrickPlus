@@ -1,0 +1,268 @@
+// ******************
+// 警示
+// ******************
+.alert {
+  position: relative;
+  border: @borderWidth-default-alert solid @borderColor-default-alert;
+  padding: @paddingAround-default-alert;
+  line-height: @line-height-base;
+  font-size: @fontSize-smaller;
+  color: @fontColor-default-alert;
+  background-color: @bgColor-default-alert;
+  .word-wrap();
+  .transition(all, 0.3s, ease, 0);
+  .rounded(@borderRadius-default-alert);
+
+  // 关闭动画
+  &.out {
+    // visibility: hidden;
+    opacity: 0;
+    // transform: scale(0);
+    transform: translateY(-100%);
+  }
+
+  &:before,
+  > em {
+    position: absolute;
+    .icon-font-family();
+    font-size: @fontSize-larger;
+    .transition(all, 0.3s, ease, 0);
+  }
+
+  &:before {
+    top: 9px;
+    left: 10px;
+    border: @borderWidth-default-alert*4 solid transparent;
+  }
+
+  > em {
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    border-color: darken(@borderColor-default-alert,10%);
+  }
+
+  //警告
+  &.alert-warning {
+    border-color: @borderColor-warning-alert;
+    background-color: @bgColor-warning-alert;
+    color: @fontColor-warning-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-warning-alert;
+      color: @fontColor-warning-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-warning-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-warning-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-warning-alert,20%);
+      }
+    }
+  }
+
+  //成功
+  &.alert-success {
+    border-color: @borderColor-success-alert;
+    background-color: @bgColor-success-alert;
+    color: @fontColor-success-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-success-alert;
+      color: @fontColor-success-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-success-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-success-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-success-alert,20%);
+      }
+    }
+  }
+
+  //信息
+  &.alert-info {
+    border-color: @borderColor-info-alert;
+    background-color: @bgColor-info-alert;
+    color: @fontColor-info-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-info-alert;
+      color: @fontColor-info-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-info-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-info-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-info-alert,20%);
+      }
+    }
+  }
+
+  //危险
+  &.alert-danger {
+    border-color: @borderColor-danger-alert;
+    background-color: @bgColor-danger-alert;
+    color: @fontColor-danger-alert;
+    padding-left: 55px;
+
+    &:before {
+      content: @icon-danger-alert;
+      color: @fontColor-danger-alert;
+      .rounded(50%);
+    }
+
+    &:hover {
+      border-color: darken(@borderColor-danger-alert,10%);
+
+      &:before {
+        border-color: darken(@bgColor-danger-alert,10%);
+        background-color: @bgColor-default-alert;
+        color: lighten(@fontColor-danger-alert,20%);
+      }
+    }
+  }
+
+  //带关闭按钮
+  &.alert-dismissible {
+    padding-right: 50px;
+
+    > em {
+      font-size: @fontSize-large;
+
+      &:after {
+        content: @icon-close-alert;
+      }
+    }
+  }
+
+  &.alert-dismissible-text {
+    padding-right: 100px;
+
+    > em {
+      font-size: @fontSize-smallest;
+      .link-standard();
+      line-height: @line-height-base;
+      font-family: "Microsoft YaHei",sans-serif !important;
+    }
+  }
+
+  & + & {
+    margin-top: 10px;
+  }
+
+
+  // 多条消息滚动
+  // by tommyshao
+  &-body {
+    height: @line-height-base * @fontSize-smaller;
+    overflow: hidden;
+
+    > ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &.scroller {
+        position: relative;
+        height: 100%;
+
+        > li {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        // 反向滚动
+        &.reverse {
+          > li {
+            &.ready {
+              transform: translateY(-100%);
+            }
+
+            &.leave {
+              transform: translateY(100%);
+            }
+
+            // 向上滚动显示
+            &.enter {
+              opacity: 1;
+              transform: translateY(0%);
+            }
+          }
+        }
+
+      }
+
+
+      > li {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        .transition(all, 0.5s, ease, 0);
+
+        // 就绪队列
+        &.ready {
+          opacity: 0;
+          transform: translateY(100%);
+        }
+
+        // 向上滚消失
+        &.leave {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+
+        // 向上滚动显示
+        &.enter {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+
+      }
+    }
+  }
+}
+
+//固定在页面指定位置的警告框
+.alert-fixed-wrap {
+  position: fixed;
+  width: 316px;
+  top: 30px;
+  right: 30px;
+  z-index: @zIndex-alertFixedWrap;
+
+  > .alert {
+    .outer-shadow-custom(3px,3px,5px,0,rgba(0,0,0,0.2));
+  }
+
+  @media (max-width: 768px) {
+
+    & {
+      width: auto;
+      left: 30px;
+    }
+
+  }
+}

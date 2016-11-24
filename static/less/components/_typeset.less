@@ -1,0 +1,354 @@
+﻿@charset "utf-8";
+
+// ******************
+// 引入边距，字体和行高工具类（递归方法生成）
+// ******************
+@import "_recursion_tools";
+
+// ******************
+// 标题
+// ******************
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 500;
+  margin: 0;
+  line-height: @line-height-base;
+  color: @fontColor-heading;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: @fontColor-viceText;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+h1, .h1 {
+  font-size: @fontSize-largest;
+}
+
+h2, .h2 {
+  font-size: @fontSize-larger;
+}
+
+h3, .h3 {
+  font-size: @fontSize-large;
+}
+
+h4, .h4 {
+  font-size: @fontSize-small;
+}
+
+h5, .h5 {
+  font-size: @fontSize-smaller;
+}
+
+h6, .h6 {
+  font-size: @fontSize-smallest;
+}
+
+p {
+  margin: 0;
+  line-height: @line-height-base;
+  font-weight: 500;
+}
+
+.lead {
+  font-size: floor((@fontSize-small * 1.15));
+  font-weight: 500;
+  line-height: @line-height-base;
+  color: @fontColor-heading;
+}
+
+small,
+.small {
+  font-size: floor((100% * @fontSize-smallest / @fontSize-base));
+  color: @fontColor-viceText;
+}
+
+mark,
+.mark {
+  background-color: @bgColor-warning;
+  color: @fontColor-warning;
+}
+
+del,
+.del {
+  color: @fontColor-danger;
+  background-color: @bgColor-danger;
+}
+
+s,
+.s {
+  color: @fontColor-viceText;
+}
+
+
+// ******************
+// 排版工具类，尽量能在元素样式里面申明就不要用到这种附加类，否则会增加兼容性样式编写的难度，此类工具多用在对版面布局没影响的元素中
+// ******************
+.text-align-right {
+  text-align: right !important;
+
+  &.plural-btns > .btn {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+  &.plural-btns > .btn-group-box {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+  &.list-inline > li {
+    padding-left: 10px;
+  }
+}
+
+.text-align-left {
+  text-align: left !important;
+
+  &.plural-btns > .btn {
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
+  &.plural-btns > .btn-group-box {
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
+  &.list-inline > li {
+    padding-right: 10px;
+  }
+}
+
+.text-align-center {
+  text-align: center !important;
+
+  &.plural-btns > .btn {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  &.plural-btns > .btn-group-box {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  &.list-inline > li {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+.text-align-justify {
+  text-align: justify !important;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-hide {
+  .text-hide();
+}
+
+.word-wrap {
+  .word-wrap();
+}
+
+.inline-block {
+  .inline-block();  //没写在UI规范上面
+}
+
+.link-standard {
+  .link-standard(); //标准文字链接样式，没写在UI规范上面
+}
+
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted darken(@borderColor-default,10%);
+}
+
+.initialism {
+  font-size: 90%;
+  .text-uppercase();
+}
+
+address {
+  font-style: normal;
+  line-height: @line-height-base*1.15;
+}
+
+
+// ******************
+// 引用
+// ******************
+blockquote {
+  padding-left: 20px;
+  font-size: @fontSize-smaller;
+  border-left: 5px solid @borderColor-default;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  footer,
+  small,
+  .small {
+    display: block;
+    font-size: 80%;
+    line-height: @line-height-base;
+    color: @fontColor-viceText;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 20px;
+  padding-left: 0;
+  border-right: 5px solid @borderColor-default;
+  border-left: 0;
+  text-align: right;
+
+  // Account for citation
+  footer,
+  small,
+  .small {
+    &:before { content: ''; }
+    &:after {
+      content: '\00A0 \2014'; // nbsp, em dash
+    }
+  }
+}
+
+
+// ******************
+// 列表
+// ******************
+.ul-standard,
+.ol-standard {
+  padding: 0 0 0 16px;
+  margin: 0;
+
+  li > ul,
+  li > ol {
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+
+  li + li {
+    padding-top: 8px;
+  }
+}
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list-inline {
+  .list-unstyled();
+  font-size: 0;
+  line-height: 0;
+
+  > li {
+    .inline-block();
+    font-size: @fontSize-smaller;
+    line-height: @line-height-base;
+    padding-right: 10px;
+  }
+}
+
+dl {
+  margin: 0;
+
+  + dl {
+    padding-top: 15px;
+  }
+}
+
+dt,
+dd {
+  line-height: @line-height-base;
+}
+
+dt {
+  font-weight: bold;
+  color: @fontColor-heading;
+  padding-bottom: 5px;
+}
+
+dd {
+  margin: 0;
+}
+
+.dl-horizontal {
+
+  dt {
+    float: left;
+    text-align: right;
+    width: @width-horizontal-dt;
+  }
+
+  dd {
+    margin-left: @width-horizontal-dt + 10px;
+    &:extend(.clearfix all);
+  }
+
+  @media (max-width: 768px) {
+
+    dt {
+      float: none;
+      text-align: left;
+      width:  auto;
+    }
+
+    dd {
+      margin-left: 0;
+    }
+  }
+}

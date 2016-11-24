@@ -1,0 +1,752 @@
+// ******************
+// 步骤
+// ******************
+
+//步骤组件mixin
+//步骤
+.step-wrap-normal(@sizeStep:@size-stepIconLv1-Step,@titlePostiton:125%,@titleWidth:@width-stepTitle) {
+  min-height: @line-height-stepTitle*3 + @sizeStep;
+
+  //步骤图标容器的外框
+  .step-box {
+    position: relative;
+    height: @sizeStep;
+    margin: 0 (@sizeStep/2);
+
+    //步骤进度条
+    .step-bar {
+      .step-progress-bar();
+    }
+
+    //步骤图标容器
+    .the-step {
+      position: absolute;
+      top: 0;
+      .square(@sizeStep);
+
+      //步骤图标题目
+      > p {
+        position: absolute;
+        top: @titlePostiton;
+        width: @titleWidth;
+        .word-wrap();
+      }
+
+      //步骤图标
+      .step {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .rounded(50%);
+        text-align: center;
+        //border: @borderWidth-stepIcon-Step solid @borderColor-stepIcon-Step;
+        border-style: solid;
+        border-width: @borderWidth-stepIcon-Step;
+        background-color: @bgColor-stepIcon-step;
+
+        &:after {
+          .border-box();
+          .square(@sizeStep + 14px);
+          .rounded(50%);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -((@sizeStep + 14px)/2);
+          margin-left: -((@sizeStep + 14px)/2);
+          content: '';
+          line-height: @sizeStep + 14px - 2*@borderWidth-stepIcon-Step;
+          font-size: (@sizeStep + 14px)*0.4;
+        }
+
+        &:before {
+          .border-box();
+          .square(@sizeStep + 14px);
+          .rounded(50%);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -((@sizeStep + 14px)/2);
+          margin-left: -((@sizeStep + 14px)/2);
+          content: '';
+        }
+
+        &:hover {
+          .step-icon-anim-lv1();
+
+          &:after {
+            .step-icon-anim-lv2();
+          }
+
+          &:before {
+            .step-icon-anim-lv3();
+          }
+        }
+      }
+    }
+  }
+}
+
+//步骤进度条
+.step-progress-bar() {
+  height: @height-bar-step;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: -(@height-bar-step/2);
+  background-color: @borderColor-stepIcon-Step;
+
+  &:before {
+    height: @bodyHeight-bar-step;
+    background-color: lighten(@shadowColor-stepIcon-Step,0%);
+    position: absolute;
+    top: 50%;
+    margin-top: -@bodyHeight-bar-step/2;
+    left: 0;
+    .rounded(@bodyHeight-bar-step);
+    content: '';
+  }
+}
+
+//所有第一步和第一步之后的步骤的排版
+.first-and-follow-step(@stepSize:@size-stepIconLv1-Step,@widthTitle:@width-stepTitle) {
+
+  //第一个.the-step
+  left: -(@stepSize/2);
+
+  > p {
+    left: 0;
+  }
+
+  .step:after {
+    content: '1';
+  }
+
+  //后续的.the-step
+  & + .the-step {
+    margin-left: -(@stepSize/2);
+
+    > p {
+      left: 50%;
+      margin-left: -@widthTitle/2;
+      text-align: center;
+    }
+
+    .step:after {
+      content: '2';
+    }
+  }
+}
+
+//所有最后一步的样式
+.last-step-style() {
+  .step-bar:before {
+    width: 100%;
+  }
+
+  .the-step .step {
+    .step-icon-current();
+  }
+}
+
+//所有最后一步的排版
+.last-step(@stepSize:@size-stepIconLv1-Step) {
+  right: -(@stepSize/2);
+  left: auto;
+
+  > p {
+    right: 0;
+    left: auto;
+    text-align: right;
+  }
+}
+
+//步骤 current 和 not-current 效果
+.step-icon-current() {
+  .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 25%));
+  color: darken(@shadowColor-stepIcon-Step,20%);
+  border-color: @shadowColor-stepIcon-Step;
+
+  &:after {
+    .outer-shadow-custom(0, 0, 0, 8px, lighten(@shadowColor-stepIcon-Step, 35%));
+  }
+}
+
+.step-icon-not-current() {
+  box-shadow: none;
+  border-color: @borderColor-stepIcon-Step;
+  color: @fontColor-default;
+
+  &:after {
+    box-shadow: none;
+  }
+}
+
+//步骤鼠标动画动作流程
+.step-icon-anim-lv1() {
+  .animation-s(stepIconhoverlv1,0.3s,linear,0,1,normal,running,both);
+}
+
+.step-icon-anim-lv2() {
+  .animation-s(stepIconhoverlv2,0.3s,linear,0.3s,1,normal,running,both);
+}
+
+.step-icon-anim-lv3() {
+  .animation-s(stepIconhoverlv3,0.35s,ease-out,0.1s,1,normal,running,both);
+}
+
+//步骤鼠标动画
+& {
+  .keyframes( stepIconhoverlv1 );
+
+  .-frames(@-...) {
+    0% {
+      @{-}box-shadow: 0 0 0 0 lighten(@shadowColor-stepIcon-Step,45%);
+    }
+    60% {
+      @{-}box-shadow: 0 0 0 15px lighten(@shadowColor-stepIcon-Step,35%);
+    }
+    100% {
+      @{-}box-shadow: 0 0 0 8px lighten(@shadowColor-stepIcon-Step,25%);
+    }
+  }
+}
+
+& {
+  .keyframes( stepIconhoverlv2 );
+
+  .-frames(@-...) {
+    0% {
+      @{-}box-shadow: 0 0 0 0 lighten(@shadowColor-stepIcon-Step,45%);
+    }
+    60% {
+      @{-}box-shadow: 0 0 0 15px lighten(@shadowColor-stepIcon-Step,35%);
+    }
+    100% {
+      @{-}box-shadow: 0 0 0 8px lighten(@shadowColor-stepIcon-Step,35%);
+    }
+  }
+}
+
+& {
+  .keyframes( stepIconhoverlv3 );
+
+  .-frames(@-...) {
+    0% {
+      @{-}box-shadow: 0 0 0 0 lighten(@shadowColor-stepIcon-Step,25%);
+    }
+    100% {
+      @{-}box-shadow: 0 0 0px 25px lighten(@shadowColor-stepIcon-Step,45%);
+    @{-}opacity: 0;
+    display: none;
+    }
+  }
+}
+
+.step-wrap {
+  .step-wrap-normal();
+}
+
+//定义全步骤的统一排版
+.step-wrap.three-steps .step-box,
+.step-wrap.four-steps .step-box,
+.step-wrap.five-steps .step-box,
+.step-wrap.six-steps .step-box,
+.step-wrap.seven-steps .step-box {
+
+  .the-step {
+    .first-and-follow-step();
+
+    //第三个.the-step
+    & + .the-step + .the-step .step:after {
+      content: '3';
+    }
+
+    //第四个.the-step
+    & + .the-step + .the-step + .the-step .step:after {
+      content: '4';
+    }
+
+    //第五个.the-step
+    & + .the-step + .the-step + .the-step + .the-step .step:after {
+      content: '5';
+    }
+
+    //第六个.the-step
+    & + .the-step + .the-step + .the-step + .the-step + .the-step .step:after {
+      content: '6';
+    }
+
+    //第七个.the-step
+    & + .the-step + .the-step + .the-step + .the-step + .the-step + .the-step .step:after {
+      content: '7';
+    }
+  }
+}
+
+//定义全数步骤的流程样式
+.step-wrap .step-box .the-step .step {
+  .step-icon-current();
+}
+
+//定义全数步骤的最后一步流程样式
+.step-wrap.three-steps.pass3 .step-box,
+.step-wrap.four-steps.pass4 .step-box,
+.step-wrap.five-steps.pass5 .step-box,
+.step-wrap.six-steps.pass6 .step-box,
+.step-wrap.seven-steps.pass7 .step-box {
+  .last-step-style()
+}
+
+//三步
+//定义三步的排版
+.step-wrap.three-steps .step-box .the-step {
+
+  //第二个.the-step
+  & + .the-step {
+    left: 50%;
+  }
+
+  //最后一个.the-step
+  & + .the-step + .the-step {
+    .last-step();
+  }
+}
+
+//在引用.small-steps之后的三步的最后一个.the-step排版
+.step-wrap.three-steps.small-steps .step-box .the-step {
+
+  //最后一个.the-step
+  & + .the-step + .the-step {
+    .last-step(@size-small-stepIconLv1-Step);
+  }
+}
+
+
+//定义三步的流程样式
+.step-wrap.three-steps.pass1 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/4;
+    }
+
+    .the-step + .the-step .step { //第二个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.three-steps.pass2 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/4*3;
+    }
+
+    .the-step + .the-step + .the-step .step { //第三个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+//四步
+//定义四步的排版
+.step-wrap.four-steps .step-box .the-step {
+
+  //第二个.step
+  & + .the-step {
+    left: 33.33%;
+  }
+
+  //第三个.step
+  & + .the-step + .the-step {
+    left: 66.66%;
+  }
+
+  //最后一个.step
+  & + .the-step + .the-step + .the-step {
+    .last-step();
+  }
+}
+
+//在引用.small-steps之后的四步的最后一个.the-step排版
+.step-wrap.four-steps.small-steps .step-box .the-step {
+
+  //最后一个.the-step
+  & + .the-step + .the-step + .the-step {
+    .last-step(@size-small-stepIconLv1-Step);
+  }
+}
+
+//定义四步的流程样式
+.step-wrap.four-steps.pass1 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/3/2;
+    }
+
+    .the-step + .the-step .step { //第二个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.four-steps.pass2 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 50%;
+    }
+
+    .the-step + .the-step + .the-step .step { //第三个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.four-steps.pass3 {
+
+   .step-box {
+
+     .step-bar:before {
+       width: 100%/3+50%;
+     }
+
+     .the-step + .the-step + .the-step + .the-step .step { //第四个 .the-step 开始
+       .step-icon-not-current();
+     }
+   }
+ }
+
+//重定义五，六，七步和small的.step-wrap
+.step-wrap.small-steps,
+.step-wrap.five-steps,
+.step-wrap.six-steps,
+.step-wrap.seven-steps {
+  .step-wrap-normal(@size-small-stepIconLv1-Step,135%,@width-small-stepTitle);
+}
+
+//定义五，六，七步的统一排版
+.step-wrap.small-steps .step-box,
+.step-wrap.five-steps .step-box,
+.step-wrap.six-steps .step-box,
+.step-wrap.seven-steps .step-box {
+
+  .the-step {
+    .first-and-follow-step(@size-small-stepIconLv1-Step,@width-small-stepTitle);
+  }
+}
+
+//五步
+//定义五步的排版
+.step-wrap.five-steps .step-box .the-step {
+
+  //第二个step
+  & + .the-step {
+    left: 25%;
+  }
+
+  //第三个step
+  & + .the-step + .the-step {
+    left: 50%;
+  }
+
+  //第四个step
+  & + .the-step + .the-step + .the-step {
+    left: 75%;
+  }
+
+  //最后一个step
+  & + .the-step + .the-step + .the-step + .the-step {
+    .last-step(@size-small-stepIconLv1-Step);
+  }
+}
+
+//定义五步的流程样式
+.step-wrap.five-steps.pass1 {
+
+   .step-box {
+
+     .step-bar:before {
+       width: 25%/2;
+     }
+
+     .the-step + .the-step .step { //第二个 .the-step 开始
+       .step-icon-not-current();
+     }
+   }
+ }
+
+.step-wrap.five-steps.pass2 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/4+100%/4/2;
+    }
+
+    .the-step + .the-step + .the-step .step { //第三个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.five-steps.pass3 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/2+100%/4/2;;
+    }
+
+    .the-step + .the-step + .the-step + .the-step .step { //第四个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.five-steps.pass4 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 75%+25%/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step + .the-step .step { //第五个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+//六步
+//定义六步的排版
+.step-wrap.six-steps .step-box .the-step {
+
+  //第二个.the-step
+  & + .the-step {
+    left: 20%;
+  }
+
+  //第三个.the-step
+  & + .the-step + .the-step {
+    left: 40%;
+  }
+
+  //第四个.the-step
+  & + .the-step + .the-step + .the-step {
+    left: 60%;
+  }
+
+  //第五个.the-step
+  & + .the-step + .the-step + .the-step + .the-step {
+    left: 80%;
+  }
+
+  //最后一个.the-step
+  & + .the-step + .the-step + .the-step + .the-step + .the-step {
+    .last-step(@size-small-stepIconLv1-Step);
+  }
+}
+
+//定义六步的流程样式
+.step-wrap.six-steps.pass1 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 20%/2;
+    }
+
+    .the-step + .the-step .step { //第二个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.six-steps.pass2 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 20%+20%/2;
+    }
+
+    .the-step + .the-step + .the-step .step { //第三个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.six-steps.pass3 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 40%+20%/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step .step { //第四个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.six-steps.pass4 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 60%+20%/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step + .the-step .step { //第五个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.six-steps.pass5 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 80%+20%/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step + .the-step + .the-step .step { //第六个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+//七步
+//定义七步的排版
+.step-wrap.seven-steps .step-box .the-step {
+
+  //第二个.the-step
+  & + .the-step {
+    left: 100%/6;
+  }
+
+  //第三个.the-step
+  & + .the-step + .the-step {
+    left: 100%/6*2;
+  }
+
+  //第四个.the-step
+  & + .the-step + .the-step + .the-step {
+    left: (100%/6)*3;
+  }
+
+  //第五个.the-step
+  & + .the-step + .the-step + .the-step + .the-step {
+    left: (100%/6)*4;
+  }
+
+  //第六个.the-step
+  & + .the-step + .the-step + .the-step + .the-step + .the-step {
+    left: (100%/6)*5;
+  }
+
+  //最后一个.the-step
+  & + .the-step + .the-step + .the-step + .the-step + .the-step + .the-step {
+    .last-step(@size-small-stepIconLv1-Step);
+  }
+}
+
+//定义七步的流程样式
+.step-wrap.seven-steps.pass1 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/6/2;
+    }
+
+    .the-step + .the-step .step { //第二个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.seven-steps.pass2 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/6*3/2;
+    }
+
+    .the-step + .the-step + .the-step .step { //第三个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.seven-steps.pass3 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/6*5/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step .step { //第四个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.seven-steps.pass4 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/6*7/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step + .the-step .step { //第五个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.seven-steps.pass5 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/6*9/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step + .the-step + .the-step .step { //第六个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+.step-wrap.seven-steps.pass6 {
+
+  .step-box {
+
+    .step-bar:before {
+      width: 100%/6*11/2;
+    }
+
+    .the-step + .the-step + .the-step + .the-step + .the-step + .the-step + .the-step .step { //第七个 .the-step 开始
+      .step-icon-not-current();
+    }
+  }
+}
+
+
+

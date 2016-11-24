@@ -1,0 +1,79 @@
+// ******************
+// 轮播
+// ******************
+.carousel {
+    position: relative;
+
+    &.csstransition {
+        > ul {
+            transition: all .3s ease-in;
+        }
+    }
+
+    > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        left: 0;
+        .clearfix;
+
+        > li {
+            float: left;
+            display: inline;
+        }
+    }
+
+    // 左右箭头
+    .arrows {
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            margin-top: -(@fontSize-largest / 2);
+            font-size: @fontSize-largest;
+            line-height: 1;
+            font-family: simsun;
+            cursor: pointer;
+            color: @fontColor-base;
+
+            &:hover {
+                color: @domColor1;
+            }
+        }
+
+        .prev {
+            left: 5px;
+        }
+
+        .next {
+            right: 5px;
+        }
+    }
+
+    // 索引
+    .dots {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        font-size: 0;
+        text-align: center;
+
+        > li {
+            display: inline-block;
+            margin: 0 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: @fontColor-base;
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+                background: @domColor1;
+            }
+        }
+    }
+}

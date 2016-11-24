@@ -1,0 +1,547 @@
+{% extends "_BrickPlus_layout/5-BP-ComponentsStyle.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='3') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='9') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+{# 渲染标签页 #}
+{{
+  tab.prototype(
+    tabs = [
+      {text: '结构和样式', url: '#tp1'},
+      {text: '状态', url: '#tp2'},
+      {text: '组合案例', url: '#tp3'}
+    ],
+    cur='1'
+  )
+}}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+  <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+    <a href="#BasePanel" class="btn default">基础</a>
+    <a href="#FullPanel" class="btn default">完整的面板</a>
+  </div>
+  <section class="example-wrap">
+    <h2 id="BasePanel">基础</h2>
+    <ul class="example-description">
+      <li>
+        一个可以整齐的收纳起你的页面组件的 “盒子”，默认的 <code>.panel</code> 组件所做的只是设置基本的边框（border）和内补（padding）来包含内容。
+      </li>
+    </ul>
+    <div class="example">
+      <div class="example-tag">实例</div>
+      <div class="example-box">
+        <div class="panel">
+          <div class="panel-body">
+            基本面板
+          </div>
+        </div>
+      </div>
+      <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-body</b></span>"</span>&gt;
+    <span class="tg">...</span>
+  &lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+      </div>
+    </div>
+  </section>
+  <section class="example-wrap">
+    <h2 id="FullPanel">完整的面板</h2>
+    <ul class="example-description">
+      <li>
+        通过 <code>.panel-heading</code> 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 <code>.panel-title</code> 类的 <code>&lt;h1~6&gt;</code> 标签，添加一个预定义样式的标题。<br>
+        通过 <code>.ph-add-ons</code> 容器则可以为标题再添加一些组件，满足UE或UI的设计需要。<br>
+        把按钮或次要的文本放入 <code>.panel-footer</code> 容器内。注意面版的脚注不会从情境效果中继承颜色，因为他们并不是主要内容。
+      </li>
+    </ul>
+    <div class="example">
+      <div class="example-tag">实例</div>
+      <div class="example-box">
+        <div class="panel">
+          <div class="panel-heading">
+            <h1 class="panel-title">面板标题</h1>
+            <div class="ph-add-ons">
+              <span class="fontcolor-tips">组件位置</span>
+            </div>
+          </div>
+          <div class="panel-body">
+            基本面板
+          </div>
+          <div class="panel-footer">
+            面板脚注
+          </div>
+        </div>
+      </div>
+      <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel</b></span>"</span>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-heading</b></span>"</span>&gt;
+    &lt;<b>h1</b> <span class="va">class="<span class="cl"><b>panel-title</b></span>"</span>&gt;<span class="tg">...</span>&lt;/<b>h1</b>&gt;
+    &lt;<b>div</b> <span class="va">class="<span class="cl"><b>ph-add-ons</b></span>"</span>&gt;<span class="tg">...</span>&lt;/<b>div</b>&gt;
+  &lt;/<b>div</b>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-body</b></span>"</span>&gt;
+    <span class="tg">...</span>
+  &lt;/<b>div</b>&gt;
+  &lt;<b>div</b> <span class="va">class="<span class="cl"><b>panel-footer</b></span>"</span>&gt;
+    <span class="tg">...</span>
+  &lt;/<b>div</b>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+      </div>
+    </div>
+  </section>
+</div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          像其他组件一样，可以简单地通过加入有情境效果的状态类，给特定的内容使用更针对特定情境的面版。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <h5>.info-panel</h5>
+          <div class="panel info-panel fn-mb-40">
+            <div class="panel-heading">
+              <h1 class="panel-title">面板标题</h1>
+            </div>
+            <div class="panel-body">
+              基本面板
+            </div>
+            <div class="panel-footer">
+              面板脚注
+            </div>
+          </div>
+          <h5>.success-panel</h5>
+          <div class="panel success-panel fn-mb-40">
+            <div class="panel-heading">
+              <h1 class="panel-title">面板标题</h1>
+            </div>
+            <div class="panel-body">
+              基本面板
+            </div>
+            <div class="panel-footer">
+              面板脚注
+            </div>
+          </div>
+          <h5>.tips-panel</h5>
+          <div class="panel tips-panel fn-mb-40">
+            <div class="panel-heading">
+              <h1 class="panel-title">面板标题</h1>
+            </div>
+            <div class="panel-body">
+              基本面板
+            </div>
+            <div class="panel-footer">
+              面板脚注
+            </div>
+          </div>
+          <h5>.warning-panel</h5>
+          <div class="panel warning-panel fn-mb-40">
+            <div class="panel-heading">
+              <h1 class="panel-title">面板标题</h1>
+            </div>
+            <div class="panel-body">
+              基本面板
+            </div>
+            <div class="panel-footer">
+              面板脚注
+            </div>
+          </div>
+          <h5>.danger-panel</h5>
+          <div class="panel danger-panel">
+            <div class="panel-heading">
+              <h1 class="panel-title">面板标题</h1>
+            </div>
+            <div class="panel-body">
+              基本面板
+            </div>
+            <div class="panel-footer">
+              面板脚注
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+&lt;<b>div</b> <span class="va">class="<span class="cl">panel <b>( info / success / tips / warning / danger )-panel</b></span>"</span>&gt;
+&lt;/<b>div</b>&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          其他组件和面板组件的组合类型有很多（面板组件除了 <code>.panel</code> 这一层，其他的部件都是可有可无的，只是为了页面的规范化，而将这些部件进行一定量的定制化）。<br>
+          以下是一个完整的页面：
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="panel fn-mb-20">
+            <div class="panel-heading">
+              <h1 class="panel-title">Form Panel Example</h1>
+            </div>
+            <div class="panel-body">
+              <form action="">
+                <div class="form-in-center">
+                  <h4 class="form-title fn-mb-20">
+                    表单居中
+                    <small class="fn-ml-10">表单居中的展现需要结合栅格工具</small>
+                  </h4>
+                  <div class="col-lg-6 col-md-10 form-center-box">
+                    <div class="form-group fn-mb-10">
+                      <label class="form-control-label" for="fp1">
+                        <span>周期计算</span>
+                      </label>
+                      <div class="form-gs-box">
+                        <span class="form-addon">T+</span>
+                        <div class="form-control-wrap">
+                          <input type="text" class="form-control" id="fp1" placeholder="填数字">
+                        </div>
+                        <span class="form-addon">天</span>
+                      </div>
+                    </div>
+                    <div class="form-group fn-mb-10">
+                      <label class="form-control-label" for="fp2">
+                        <span>融资协议承诺书</span>
+                      </label>
+                      <div class="form-gs-box">
+                        <div class="form-control-wrap">
+                          <input type="text" class="form-control" id="fp2" placeholder="" value="http://localhost:8599/OutPut/BrickPlus_page/BP-GlobalStyle-Form.pdf" readonly>
+                        </div>
+                        <span class="form-addon-com">
+                          <label for="FormUpload1" class="uploader btn primary">
+                            重新上传
+                            <input type="file" id="FormUpload1">
+                          </label>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group fn-mb-10">
+                      <label class="form-control-label">
+                        <span>开户行省市</span>
+                      </label>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-control-wrap">
+                            <select class="form-control">
+                              <option>
+                                省
+                              </option>
+                              <option>
+                                option 2
+                              </option>
+                              <option>
+                                option 3
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-control-wrap">
+                            <select class="form-control">
+                              <option>
+                                市
+                              </option>
+                              <option>
+                                option 2
+                              </option>
+                              <option>
+                                option 3
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group fn-mb-10">
+                      <label class="form-control-label">
+                        <span>设置密码</span>
+                      </label>
+                      <div class="form-control-wrap">
+                        <input type="password" class="form-control" placeholder="8-20个英文字幕/数字或符号的组合">
+                        <div class="progress size-s fn-mt-5">
+                          <div class="progress-bar bar-warning" style="width: 50%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-control-wrap text-align-left plural-btns">
+                        <button class="btn primary">确认提交</button>
+                        <a href="#" class="btn links">返回</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading">
+              <h1 class="panel-title">Table Panel Example<small>（此处应有副标题）</small></h1>
+              <div class="ph-add-ons">
+                <div class="pull-right fn-ml-10 w-250">
+                  <div class="form-group form-no-label form-small">
+                    <div class="form-gs-box">
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" placeholder="关键字">
+                      </div>
+                      <div class="form-addon-com">
+                        <button type="button" class="btn primary"><i class="icon-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="plural-btns text-align-right small-btn-gb">
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default">打印表格</button>
+                    <button type="button" class="btn default dropdown-menu-btn"></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">导出数据</a></li>
+                      <li><a href="#">导入数据</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">重置表格</a></li>
+                    </ul>
+                  </div>
+                  <div class="btn-group-box">
+                    <button type="button" class="btn default"><i class="icon-add"></i>&nbsp;新建记录</button>
+                    <button type="button" class="btn default"><i class="icon-trash fs-14 lh-18"></i>&nbsp;&nbsp;&nbsp;批量删除</button>
+                  </div>
+                  <button type="button" class="btn default" title="刷新表格" data-toggle="tooltips"><i class="icon-loop2 fs-14"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="table-wrap table-responsive">
+              <table class="table">
+                <colgroup>
+                  <col style="width: 70px">
+                  <col>
+                  <col style="width: 100px">
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col style="width: 100px"> </colgroup>
+                <thead>
+                <tr>
+                  <th> <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox">
+                    全选
+                  </label> </th>
+                  <th> 创建时间 </th>
+                  <th> 业务类型 </th>
+                  <th> 商品名称 </th>
+                  <th> 订单号 </th>
+                  <th> 对方账号 </th>
+                  <th> 余额 </th>
+                  <th> 收入 </th>
+                  <th> 支出 </th>
+                  <th> 操作 </th>
+                </tr>
+                </thead>
+                <tbody id="j-checkall-demo1">
+                <tr>
+                  <td> <input type="checkbox"> </td>
+                  <td> <span class="text-nowrap">
+                      2015-05-25
+                    </span> <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span> </td>
+                  <td> 交易 </td>
+                  <td> Item ZERO </td>
+                  <td> TJZT201505200025 </td>
+                  <td> liang1126 </td>
+                  <td> <span class="amount">158,026.00</span> </td>
+                  <td> <span class="amount add">3,252.00</span> </td>
+                  <td> <span class="amount take">288.00</span> </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default" title="查看" data-toggle="tooltips"><i class="icon-find_in_page"></i></button>
+                      <button type="button" class="btn default" title="编辑" data-toggle="tooltips"><i class="icon-pencil"></i></button>
+                      <button type="button" class="btn default" title="删除" data-toggle="tooltips"><i class="icon-trash fs-14 fontcolor-error"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td> <input type="checkbox"> </td>
+                  <td> <span class="text-nowrap">
+                      2015-05-25
+                    </span> <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span> </td>
+                  <td> 交易 </td>
+                  <td> Item TWO </td>
+                  <td> TJZT201505200025 </td>
+                  <td> jingdong </td>
+                  <td> <span class="amount">158,026.00</span> </td>
+                  <td> <span class="amount add">3,252.00</span> </td>
+                  <td> <span class="amount take">288.00</span> </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default" title="查看" data-toggle="tooltips"><i class="icon-find_in_page"></i></button>
+                      <button type="button" class="btn default" title="编辑" data-toggle="tooltips"><i class="icon-pencil"></i></button>
+                      <button type="button" class="btn default" title="删除" data-toggle="tooltips"><i class="icon-trash fs-14 fontcolor-error"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td> <input type="checkbox"> </td>
+                  <td> <span class="text-nowrap">
+                      2015-05-25
+                    </span> <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span> </td>
+                  <td> 交易 </td>
+                  <td> Item ONE </td>
+                  <td> TJZT201501548025 </td>
+                  <td> liang1126 </td>
+                  <td> <span class="amount">158,026.00</span> </td>
+                  <td> <span class="amount add">3,252.00</span> </td>
+                  <td> <span class="amount take">288.00</span> </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default" title="查看" data-toggle="tooltips"><i class="icon-find_in_page"></i></button>
+                      <button type="button" class="btn default" title="编辑" data-toggle="tooltips"><i class="icon-pencil"></i></button>
+                      <button type="button" class="btn default" title="删除" data-toggle="tooltips"><i class="icon-trash fs-14 fontcolor-error"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <nav class="pagination-box small-pagination text-align-right">
+                <p class="p-add-ons fn-mr-15">查找到&nbsp;100&nbsp;条记录，共&nbsp;5&nbsp;页</p>
+                <ul class="paginations">
+                  <li title="第一页">
+                    <a href="#">
+                    <span>
+                      «
+                    </span> </a>
+                  </li>
+                  <li title="上一页">
+                    <a href="#">
+                    <span>
+                      ‹
+                    </span>
+                    </a>
+                  </li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li title="下一页">
+                    <a href="#">
+                    <span>
+                      ›
+                    </span>
+                    </a>
+                  </li>
+                  <li title="最后一页">
+                    <a href="#">
+                    <span>
+                      »
+                    </span>
+                    </a>
+                  </li>
+                </ul>
+                <div class="p-add-ons fn-ml-15">
+                  <div class="form-group form-gs form-no-label form-small">
+                    <div class="form-gs-box">
+                      <div class="form-control-wrap">
+                        <input type="text" class="form-control" placeholder="跳转">
+                      </div>
+                      <div class="form-addon child-right">页</div>
+                      <div class="form-addon-com">
+                        <button type="button" class="btn default">GO</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-add-ons fn-ml-15">
+                  <div class="form-group form-gs form-no-label form-small">
+                    <div class="form-gs-box">
+                      <div class="form-addon">每页</div>
+                      <div class="form-control-wrap">
+                        <select class="form-control">
+                          <option>20</option>
+                          <option>60</option>
+                          <option>100</option>
+                        </select>
+                      </div>
+                      <div class="form-addon">条</div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

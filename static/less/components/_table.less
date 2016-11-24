@@ -1,0 +1,352 @@
+﻿@charset "utf-8";
+
+// ******************
+// 表格基础样式
+// ******************
+.table-wrap {
+    position: relative;
+    background-color: transparent;
+}
+
+/*.tables-title {
+  position: relative;
+  height: 46px;
+  line-height: 44px;
+  font-size: @fontSize-small;
+  padding: 0 50% 0 12px;
+  background-color: darken(@bgColor-tr-active-table,4%);
+  border-bottom: 2px solid @borderColor-primary;
+
+  > .table-title-btns {
+    position: absolute;
+    top: 16px;
+    right: 6px;
+    .clearfix();
+
+    > a {
+      .link-standard();
+
+      .float-item( left,inline );
+      padding: 0 6px;
+      border-left: 1px solid  darken(@borderColor-default,12%);
+      font-size: @fontSize-smallest;
+      line-height: @fontSize-smallest;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}*/
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    font-size: @fontSize-smaller;
+    table-layout: fixed;
+
+    tr {
+        cursor: default;
+        .transition(all,0.3s,ease,0);
+    }
+  /*与日期控件中的年月下来显示冲突
+  caption {
+      display: none;
+  }*/
+
+  .t-active {
+      background-color: @bgColor-tr-active-table;
+
+      &:hover {
+          background-color: darken(@bgColor-tr-active-table,3%);
+      }
+  }
+
+  .t-success {
+      background-color: @bgColor-tr-success-table;
+
+      &:hover {
+          background-color: darken(@bgColor-tr-success-table,2.5%);
+      }
+  }
+
+  .t-info {
+      background-color: @bgColor-tr-info-table;
+
+      &:hover {
+          background-color: darken(@bgColor-tr-info-table,2.5%);
+      }
+  }
+
+  .t-warning {
+      background-color: @bgColor-tr-warning-table;
+
+      &:hover {
+          background-color: darken(@bgColor-tr-warning-table,2.5%);
+      }
+  }
+
+  .t-danger {
+      background-color: @bgColor-tr-danger-table;
+
+      &:hover {
+          background-color: darken(@bgColor-tr-danger-table,2.2%);
+      }
+  }
+
+  > tbody > tr,
+  > tfoot > tr {
+      border-bottom: @borderWidth-1-table solid @borderColor-2-table;
+
+      &:hover {
+          background-color: @bgColor-trHover-table;
+      }
+
+      > td {
+          text-align: left;
+          color: @fontColor-default;
+          padding: @paddingSize-default-td-table;
+          .word-wrap();
+
+          > input[type="checkbox"] {
+              vertical-align: middle;
+              cursor: pointer;
+          }
+      }
+  }
+
+  > thead > tr,
+  > tbody > tr {
+
+      > th {
+          text-align: left;
+          padding: @paddingSize-default-th-table;
+          color: @fontColor-heading;
+          border-bottom: @borderWidth-1-table * 2 solid @borderColor-1-table;
+          background-color: @bgColor-primary;
+          font-weight: 500;
+
+          > input[type="checkbox"] {
+              vertical-align: middle;
+              cursor: pointer;
+          }
+      }
+  }
+
+  &.table-inverse {
+
+      > tbody > tr:nth-of-type(even) {
+          background-color: @bgColor-trInverse-table;
+
+          &:hover {
+              background-color: @bgColor-trHover-table;
+          }
+      }
+  }
+
+  &.table-bordered-type1 {
+      border: @borderWidth-1-table solid @borderColor-2-table;
+
+      > tbody,
+      > tfoot {
+
+          > tr {
+
+              > td {
+                  border: @borderWidth-1-table solid @borderColor-2-table;
+              }
+          }
+      }
+  }
+
+  &.table-bordered-type2 {
+      border: @borderWidth-1-table solid @borderColor-2-table;
+
+
+      tr {
+
+          > th {
+              background-color: @bgColor-1-th-table;
+          }
+      }
+
+      > thead {
+
+          > tr > th {
+              border: @borderWidth-1-table solid @borderColor-2-table;
+          }
+      }
+
+      > tbody > tr,
+      > tfoot > tr {
+
+          > th {
+              text-align: right;
+              border-bottom-width: @borderWidth-1-table;
+              border-bottom-color: @borderColor-2-table;
+          }
+
+          > td {
+              border: @borderWidth-1-table solid @borderColor-2-table;
+          }
+      }
+  }
+
+  &.table-bordered-type3 {
+      border: @borderWidth-1-table solid @borderColor-2-table;
+
+      > thead,
+      > tbody,
+      > tfoot {
+
+          > tr {
+
+              > th {
+                color: @fontColor-viceText;
+              }
+
+              > th,
+              > td {
+                  border: @borderWidth-1-table solid @borderColor-2-table;
+              }
+          }
+      }
+  }
+&.table-align-type1{
+  >thead,
+  >tbody,
+  >tfoot{
+    >tr{
+      &:hover{
+        background: none;
+      }
+      >th,
+      >td{
+        .text-align-center();
+      }
+    }
+  }
+}
+&.table-align-type2{
+  >thead,
+  >tbody,
+  >tfoot{
+    >tr{
+      &:hover{
+        background: none;
+      }
+      >th{
+        .text-align-right();
+      }
+      >td{
+        .text-align-left();
+      }
+    }
+  }
+}
+}
+
+// ******************
+// 全选
+// ******************
+.table-checked-all,
+.table-checked-withtext {
+  position: relative;
+  display: block;
+  //.inline-block();
+  padding-left: 20px;
+  text-align: left;
+  cursor: pointer;
+  line-height: @line-height-base;
+
+  > input[type="checkbox"] {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      cursor: pointer;
+  }
+
+  &.check-disabled {
+    color: @fontColor-viceText !important;
+    cursor: not-allowed !important;
+
+    > input[type="checkbox"] {
+      cursor: not-allowed !important;
+    }
+  }
+}
+
+/*.table-ctrls {
+  position: relative;
+  color: @fontColor-link;
+  cursor: pointer;
+
+  .caret-down {
+      border-top-color: @fontColor-link;
+      margin-left: 5px;
+  }
+
+  > .ctrls {
+      display: none;
+      position: absolute;
+      top: -5px;
+      left: -13px;
+      background-color: #fff;
+      border: 1px solid @borderColor-default;
+      width: 100%;
+
+      > a {
+          display: block;
+          height: 24px;
+          line-height: 24px;
+          .link-custom( @fontColor-link,#fff,none );
+          text-align: center;
+
+          &:hover {
+              background-color: @bgColor-primary;
+          }
+      }
+  }
+
+  &:hover > .ctrls {
+      display: block;
+  }
+}*/
+
+// ******************
+// 处理ff浏览器下 fieldset 拥有宽度在 table-responsive 类下的异常表现
+// ******************
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+// ******************
+// 响应式表格
+// ******************
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 0.01%;
+  width: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  > .table {
+    table-layout: auto;
+
+    > tbody > tr > td,
+    > tbody > tr > th,
+    > tfoot > tr > td,
+    > tfoot > tr > th,
+    > thead > tr > td,
+    > thead > tr > th {
+      .text-nowrap();
+
+      > .btn-group-box {
+
+        > .btn {
+          float: none;
+        }
+      }
+    }
+  }
+}

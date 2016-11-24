@@ -1,0 +1,230 @@
+// Name:            Notify
+// Description:     Defines styles for toggleable notifications
+//
+// Component:       `uk-notify`
+//
+// Sub-objects:     `uk-notify-message`
+//
+// Modifiers:       `uk-notify-top-center`
+//                  `uk-notify-top-right`
+//                  `uk-notify-bottom-left`
+//                  `uk-notify-bottom-center`
+//                  `uk-notify-bottom-right`
+//                  `uk-notify-message-primary`
+//                  `uk-notify-message-success`
+//                  `uk-notify-message-warning`
+//                  `uk-notify-message-danger`
+//
+// Uses:            Close: `uk-close`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@notify-position:                               10px;
+@notify-z-index:                                1040;
+@notify-width:                                  350px;
+
+@notify-message-margin-bottom:                  10px;
+@notify-message-padding:                        15px;
+@notify-message-background:                     #fff;
+@notify-message-color:                          #999;
+@notify-message-border:                         #d9d9d9;
+@notify-message-font-size:                      16px;
+@notify-message-line-height:                    22px;
+
+@notify-message-primary-background:             @domColor1;//#ebf7fd;
+@notify-message-primary-color:                  #ffffff;
+
+@notify-message-success-background:             @domColor2;
+@notify-message-success-color:                  #ffffff;
+
+@notify-message-warning-background:             @domColor5;
+@notify-message-warning-color:                  #ffffff;
+
+@notify-message-danger-background:              @domColor3;
+@notify-message-danger-color:                   #ffffff;
+
+
+/* ========================================================================
+   Component: Notify
+ ========================================================================== */
+
+/*
+ * Message container for positioning
+ */
+
+.notify {
+    position: fixed;
+    top: @notify-position;
+    left: @notify-position;
+    z-index: @notify-z-index;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: @notify-width;
+    .hook-notify;
+}
+
+
+/* Position modifiers
+========================================================================== */
+
+.notify-top-right,
+.notify-bottom-right  {
+    left: auto;
+    right: @notify-position;
+}
+
+.notify-top-center,
+.notify-bottom-center {
+    left: 50%;
+    margin-left: (@notify-width / -2);
+}
+
+.notify-bottom-left,
+.notify-bottom-right,
+.notify-bottom-center {
+    top: auto;
+    bottom: @notify-position;
+}
+
+.notify-vcenter {
+  top: 35%;
+  left: 50%;
+  margin-left: -(@notify-width / 2);
+}
+
+
+/* Sub-object: `uk-notify-message`
+========================================================================== */
+
+.notify-message {
+    position: relative;
+    margin-bottom: @notify-message-margin-bottom;
+    padding: @notify-message-padding;
+    background: @notify-message-background;
+    color: @notify-message-color;
+    font-size: @notify-message-font-size;
+    line-height: @notify-message-line-height;
+    cursor: pointer;
+    border: 1px solid @notify-message-border;
+    border-radius: 4px;
+    box-shadow: 0 1px 8px hsla(0,0%,39%,.2);
+    .opacity(.85);
+    .hook-notify-message;
+}
+
+
+/* Close in notify
+ ========================================================================== */
+
+.notify-message > .notify-close {
+    visibility: hidden;
+    float: right;
+}
+
+.notify-message:hover > .notify-close { visibility: visible; }
+
+.notify-message-success,
+.notify-message-primary,
+.notify-message-danger,
+.notify-message-warning {
+  .notify-bfc {
+    > i {
+      color: #fff;
+    }
+  }
+}
+/* Modifier: `uk-alert-info`
+ ========================================================================== */
+
+.notify-message-primary {
+    background: @notify-message-primary-background;
+    color: @notify-message-primary-color;
+    border-color: darken(@notify-message-primary-background, 2%);
+    .hook-notify-message-primary;
+}
+
+
+/* Modifier: `uk-alert-success`
+ ========================================================================== */
+
+.notify-message-success {
+    background: @notify-message-success-background;
+    color: @notify-message-success-color;
+    border-color: darken(@notify-message-success-background, 2%);
+    .hook-notify-message-success;
+}
+
+
+/* Modifier: `uk-notify-message-warning`
+ ========================================================================== */
+
+.notify-message-warning {
+    background: @notify-message-warning-background;
+    color: @notify-message-warning-color;
+    border-color: darken(@notify-message-warning-background, 2%);
+    .hook-notify-message-warning;
+}
+
+
+/* Modifier: `uk-notify-message-danger`
+ ========================================================================== */
+
+.notify-message-danger {
+    background: @notify-message-danger-background;
+    color: @notify-message-danger-color;
+    border-color: darken(@notify-message-danger-background, 2%);
+    .hook-notify-message-danger;
+}
+
+
+// Hooks
+// ========================================================================
+
+.hook-notify-misc;
+
+.hook-notify() {}
+.hook-notify-message() {}
+.hook-notify-message-primary() {}
+.hook-notify-message-success() {}
+.hook-notify-message-warning() {}
+.hook-notify-message-danger() {}
+.hook-notify-misc() {}
+
+// 左右带图标布局
+// ======================
+.notify {
+  &-bfc {
+
+    > i {
+      font-size: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 15px;
+
+      &.icon-info-outline {
+        color: @notify-message-primary-background;
+      }
+
+      &.icon-done {
+        color: @notify-message-success-background;
+      }
+
+      &.icon-highlight_remove {
+        color: @notify-message-danger-background;
+      }
+
+      &.icon-error_outline {
+        color: @notify-message-warning-background;
+      }
+    }
+
+    > div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

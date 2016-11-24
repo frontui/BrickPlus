@@ -1,0 +1,129 @@
+// ******************
+// 面板
+// ******************
+.panel-variant (
+  @fontColor-heading:@fontColor-default-heading-panel,
+  @bgColor-heading:@bgColor-default-heading-panel,
+  @borderColor-heading:@borderColor-default-heading-panel,
+  @borderColor:@borderColor-default-panel
+  ) {
+  border-color: @borderColor;
+
+  & > .panel-heading {
+    color: @fontColor-heading;
+    background-color: @bgColor-heading;
+    border-color: @borderColor-heading;
+
+    /*+ .panel-collapse > .panel-body {
+      border-top-color: @borderColor;
+    }*/
+
+    /*.badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }*/
+  }
+
+  /*& > .panel-footer {
+    + .panel-collapse > .panel-body {
+      border-bottom-color: @border;
+    }
+  }*/
+}
+
+.panel {
+  background-color: @bgColor-default-panel;
+  border: @borderWidth-panel solid @borderColor-default-panel;
+  border-radius: @borderRadius-panel;
+
+  &-body {
+    padding: @paddingSize-body-panel;
+    .clearfix();
+  }
+
+  &-heading {
+    .border-radius(@borderRadius-panel - 1px,@borderRadius-panel - 1px,0,0);
+    padding: @paddingSize-heading-panel/2 @paddingSize-heading-panel;
+    border-bottom: @borderWidth-heading-panel solid @borderColor-default-heading-panel;
+    background-color: @bgColor-default-heading-panel;
+    font-size: @fontSize-heading-panel;
+    line-height: @line-height-base;
+    color: @fontColor-default-heading-panel;
+    .clearfix();
+    display: table;
+    width: 100%;
+
+    /*> .dropdown .dropdown-toggle {
+      color: inherit;
+    }*/
+
+    .ph-add-ons {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 0;
+      line-height: 0;
+      .clearfix();
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: @fontSize-heading-panel;
+    line-height: @line-height-base;
+    color: inherit;
+    display: table-cell;
+    vertical-align: middle;
+
+    > a,
+    > small,
+    > .small,
+    > small > a,
+    > .small > a {
+      color: @fontColor-viceText;
+    }
+  }
+
+  &-footer {
+    .border-radius(0,0,@borderRadius-panel - 1px,@borderRadius-panel - 1px);
+    padding: @paddingSize-footer-panel/2 @paddingSize-footer-panel;
+    background-color: @bgColor-default-footer-panel;
+    font-size: @fontSize-footer-panel;
+    line-height: @line-height-base;
+    border-top: @borderWidth-footer-panel solid @borderColor-default-footer-panel;
+    color: @fontColor-default-footer-panel;
+  }
+}
+
+.panel-body + .table-wrap .table > thead > tr {
+  border-top: @borderWidth-1-table solid @borderColor-2-table;
+}
+
+.table-wrap + .panel-footer {
+  border-top: none;
+}
+
+.table-wrap:last-child .table tr:last-child {
+  border-bottom: none;
+}
+
+//主题
+.panel.info-panel {
+  .panel-variant(@fontColor-info-heading-panel,@bgColor-info-heading-panel,@borderColor-info-heading-panel,@borderColor-info-panel);
+}
+
+.panel.success-panel {
+  .panel-variant(@fontColor-success-heading-panel,@bgColor-success-heading-panel,@borderColor-success-heading-panel,@borderColor-success-panel);
+}
+
+.panel.tips-panel {
+  .panel-variant(@fontColor-tips-heading-panel,@bgColor-tips-heading-panel,@borderColor-tips-heading-panel,@borderColor-tips-panel);
+}
+
+.panel.warning-panel {
+  .panel-variant(@fontColor-warning-heading-panel,@bgColor-warning-heading-panel,@borderColor-warning-heading-panel,@borderColor-warning-panel);
+}
+
+.panel.danger-panel {
+  .panel-variant(@fontColor-danger-heading-panel,@bgColor-danger-heading-panel,@borderColor-danger-heading-panel,@borderColor-danger-panel);
+}

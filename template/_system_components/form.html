@@ -1,0 +1,134 @@
+{# 标准typeText #}
+{% macro typeTextDefault(formID='',label='',placeholder='',value='',fixedClass='',attr='',type='text') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label" for="{{ formID }}">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    <input type="{{ type }}" class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" value="{{ value }}" {{ attr }}>
+  </div>
+</div>
+{% endmacro %}
+
+{# 标准select #}
+{% macro selectDefault(selectOptions,label='',fixedClass='',formID='',name='',attr='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label" for="{{ formID }}">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    {# 如需要请在 attr 或者 item.attr 里面写其他属性 #}
+    <select class="form-control" id="{{ formID }}" name="{{ name }}" {{ attr }}>
+      {% for item in selectOptions %}
+      <option {{ item.attr }}>
+        {{ item.option }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% endmacro %}
+
+{# 标准单选和多选 #}
+{% macro crDefault(crOptions,label='',fixedClass='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    <div class="form-control-check"/>
+      {% for item in crOptions %}
+        {% if item.checkboxText %}
+        <label {{ item.labelAttr }}>
+          {{ item.checkboxText }}
+          <input type="checkbox" {{ item.attr }}/>
+        </label>
+        {% else %}
+        <label {{ item.labelAttr }}>
+          {{ item.radioText }}
+          <input type="radio" name="{{ item.name }}" {{ item.attr }}/>
+        </label>
+        {# 如需要请在 item.attr 和  item.labelAttr 里面写其他属性 #}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{# 标准日期区间（日期至日期的UI） #}
+{% macro dateTodateDefault(label='',formID='',fixedClass='',placeholder='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label">
+    <span>{{ label }}</span>
+    <em>：</em>
+  </label>
+  <div class="form-control-wrap">
+    <div class="form-control-date">
+      <span class="form-control-date-btn"><i></i></span>
+      <input id="{{ formID }}" type="text" value="" placeholder="{{ placeholder }}" readonly="readonly" data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}" class="form-control" {{ attr }}/>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+
+{# 标准静态数据展示表单 #}
+{% macro formDataDefault(label='',value='',fixedClass='') %}
+<div class="form-group {{ fixedClass }}">
+  <label class="form-control-label">
+    <span>{{ label }}</span>
+  </label>
+  <div class="form-control-wrap">
+    <div class="form-control-static"/>
+      {{ value }}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{# 标准textarea #}
+{% macro textareaDefault(formID='',label='',placeholder='',value='',fixedClass='',name='',attr='') %}
+<div class="form-group {{ fixedClass }}">
+    <label class="form-control-label" for="{{ formID }}">
+        <span>{{ label }}</span>
+    </label>
+    <div class="form-control-wrap">
+        <textarea class="form-control" placeholder="{{ placeholder }}" id="{{ formID }}" name="{{ name }}" cols="30" rows="10" {{ attr }}>{{ value }}</textarea>
+    </div>
+</div>
+{% endmacro %}
+
+{# 无label的标准select（是无label，不是隐藏label） #}
+{% macro selectNoLabel(selectNoLabelOptions,fixedClass='',name='',attr='') %}
+<div class="form-group form-no-label {{ fixedClass }}">
+  <div class="form-control-wrap">
+    {# 如需要请在 attr 或者 item.attr 里面写其他属性 #}
+    <select class="form-control" name="{{ name }}" {{ attr }}>
+      {% for item in selectNoLabelOptions %}
+      <option {{ item.attr }}>
+        {{ item.option }}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% endmacro %}
+
+{# 表单按钮 #}
+{% macro formBtns(btns,fixedClass='',btnsWrapfixedClass='') %}
+<div class="form-group form-hide-label {{ fixedClass }}">
+    <div class="form-control-wrap">
+      <div class="plural-btns {{ btnsWrapfixedClass }}">
+        {% for btn in btns %}
+          {% if btn.links %}
+          <a href="{{ btn.links }}" class="btn links {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</a>
+          {% else %}
+          <button type="submit" class="btn {{ btn.btnTheme }} {{ btn.fixedClass }}" {{ btn.attr }}>{{ btn.text }}</button>
+          {# 如需要请在 btn.attr 里面写其他属性 #}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endmacro %}

@@ -1,0 +1,274 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='20') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          时间选择器提供快捷的选择时，分，秒的下拉框组件。
+        </li>
+        <li>
+          通过<code>data-toggle="timer-picker"</code>绑定输入框，输入框最好设置为只读<code>readonly</code>
+        </li>
+      </ul>
+      <div class="example  fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group">
+            <label for="" class="form-control-label">
+              <span>维护时间(24H)</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="9:35:05" readonly>
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="" class="form-control-label">
+              <span>维护时间(12H)</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="8:24:05" data-h="12" readonly>
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="" class="form-control-label"> 
+              <span>维护时间(分秒单位)</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="5:09:15" data-h="12" data-unit="5" readonly>
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="" class="form-control-label">
+              <span>维护时间(时分)</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="05:05" data-second="false" readonly>
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="" class="form-control-label">
+              <span>维护时间（分秒）</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="09:05" data-hours="false" readonly>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="example-code">
+         <pre><code>&lt;!-- normal --&gt;
+&lt;div class="form-group"&gt;
+    &lt;label for="" class="form-control-label"&gt;
+      &lt;span&gt;维护时间(24H)&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      &lt;input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="9:35:05" readonly&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br /&gt;
+&lt;!-- 配置12H --&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="" class="form-control-label"&gt;
+      &lt;span&gt;维护时间(12H)&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      &lt;input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="8:24:05" data-h="12" readonly&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br /&gt;
+ &lt;!-- 设置分秒单位为5进制 --&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="" class="form-control-label"&gt; 
+      &lt;span&gt;维护时间(分秒单位)&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      &lt;input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="5:09:15" data-h="12" data-unit="5" readonly&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br /&gt;
+  &lt;!-- 隐藏不显示秒数 --&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="" class="form-control-label"&gt;
+      &lt;span&gt;维护时间(时分)&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      &lt;input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="05:05" data-second="false" readonly&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br /&gt;
+  &lt;!-- 隐藏不显示时钟 --&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="" class="form-control-label"&gt;
+      &lt;span&gt;维护时间（分秒）&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      &lt;input type="text" class="form-control" placeholder="请选择时间" data-toggle="timer-picker" value="09:05" data-hours="false" readonly&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+        </div>
+      </div>
+
+      <h2>配置参数</h2>
+      <ul class="example-description">
+        <li>
+          <code>timer-picker</code>插件可以通过<code>jQuery</code>的<code>$(selector).timerPicker(option)</code>绑定
+        </li>
+        <li>
+          通过<code>data-toggle="timer-picker"</code>绑定全局插件，可以配置<code>data-*</code>配置项参数。
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="tables-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>属性</th>
+                  <th>默认值</th>
+                  <th>描述</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    char
+                  </td>
+                  <td>
+                    :
+                  </td>
+                  <td>
+                    时分秒格式化连接字符
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    hours
+                  </td>
+                  <td>
+                    true
+                  </td>
+                  <td>
+                    控制是否显示时钟
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    minutes
+                  </td>
+                  <td>
+                    true
+                  </td>
+                  <td>
+                    控制是否显示分钟，一般不建议设置此项。
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    second
+                  </td>
+                  <td>
+                    true
+                  </td>
+                  <td>
+                    控制是否显示秒钟
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    in18
+                  </td>
+                  <td>
+                    ['时', '分', '秒']
+                  </td>
+                  <td>
+                    语言配置,按照固定3个字符
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    zero
+                  </td>
+                  <td>
+                    true
+                  </td>
+                  <td>
+                    格式化是否小于10时补零
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/timerPicker.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+</script>
+{% endblock %}

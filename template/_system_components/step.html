@@ -1,0 +1,15 @@
+{% macro stepDefault(steps,qty='',pass='',size='',fixedClass='',attr='') %}
+<div class="step-wrap {{ qty }} {{ pass }} {{ size }} {{ fixedClass }}" {{ attr }}>
+  <div class="step-box">
+    <!--进度条-->
+    <div class="step-bar"></div>
+    <!--步骤标记-->
+    {% for item in steps %}
+    <div class="the-step">
+      <div class="step"></div>
+      <p>{{ item.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}

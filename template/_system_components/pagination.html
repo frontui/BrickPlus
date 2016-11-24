@@ -1,0 +1,94 @@
+{% macro default(fixedClass='',pageList='pageList',size='small-pagination',totalPages='10') %}
+<nav class="pagination-box {{ size }} {{ fixedClass }}">
+  <ul class="paginations" data-total-pages="{{ totalPages }}" id="{{ pageList }}">
+  </ul>
+</nav>
+{% endmacro %}
+
+{% macro smallFullSet
+  (
+    fixedClass='',
+    pageList='pageList',
+    pageInput='pageInput',
+    pageTurnTo='pageTurnTo',
+    pageQuantity='pageQuantity',
+    totalPages='10'
+  )
+%}
+<nav class="pagination-box small-pagination {{ fixedClass }}">
+  <ul class="paginations" data-total-pages="{{ totalPages }}" id="{{ pageList }}">
+  </ul>
+  <div class="p-add-ons fn-ml-15">
+    <div class="form-group form-gs form-no-label form-small">
+      <div class="form-gs-box">
+        <div class="form-control-wrap">
+          <input type="text" class="form-control" placeholder="跳转" id="{{ pageInput }}">
+        </div>
+        <div class="form-addon child-right">页</div>
+        <div class="form-addon-com">
+          <button type="button" class="btn default" id="{{ pageTurnTo }}">GO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-add-ons fn-ml-15 w-130">
+    <div class="form-group form-gs form-no-label form-small">
+      <div class="form-gs-box">
+        <div class="form-addon">每页</div>
+        <div class="form-control-wrap">
+          <select class="form-control" id="{{ pageQuantity }}">
+            <option>20</option>
+            <option>60</option>
+            <option>100</option>
+          </select>
+        </div>
+        <div class="form-addon">条</div>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endmacro %}
+
+{% macro defaultFullSet
+  (
+    fixedClass='',
+    pageList='pageList',
+    pageInput='pageInput',
+    pageTurnTo='pageTurnTo',
+    pageQuantity='pageQuantity',
+    totalPages='10'
+  )
+%}
+<nav class="pagination-box {{ fixedClass }}">
+  <ul class="paginations" data-total-pages="{{ totalPages }}" id="{{ pageList }}">
+  </ul>
+  <div class="p-add-ons fn-ml-15">
+    <div class="form-group form-gs form-no-label">
+      <div class="form-gs-box">
+        <div class="form-control-wrap">
+          <input type="text" class="form-control" placeholder="跳转" id="{{ pageInput }}">
+        </div>
+        <div class="form-addon child-right">页</div>
+        <div class="form-addon-com">
+          <button type="button" class="btn default" id="{{ pageTurnTo }}">GO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-add-ons fn-ml-15 w-130">
+    <div class="form-group form-gs form-no-label">
+      <div class="form-gs-box">
+        <div class="form-addon">每页</div>
+        <div class="form-control-wrap">
+          <select class="form-control" id="{{ pageQuantity }}">
+            <option>20</option>
+            <option>60</option>
+            <option>100</option>
+          </select>
+        </div>
+        <div class="form-addon">条</div>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endmacro %}

@@ -398,7 +398,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	// 面板展开
-	
 	var Panel = function () {
 	    function Panel(el, container, props) {
 	        _classCallCheck(this, Panel);

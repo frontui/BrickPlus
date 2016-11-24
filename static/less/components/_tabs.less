@@ -1,0 +1,94 @@
+// ******************
+// 标签页
+// ******************
+.tabs-wrap {
+
+  .tabs > li .tabs-btn {
+    //在不使用 prototype 样式的时候，.tabs-btn 仍能作为启用标签页插件的一个空类使用，所以骨架类结构里面没有样式
+  }
+
+  //典型标签页样式
+  &.prototype {
+    .clearfix();
+    position: relative;
+
+    .tabs {
+      .reset-list(none, 0, 0);
+      text-align: center;
+      padding: @padding-body-Prototype;
+      border-bottom: 1px solid @borderColor1-Prototype;
+      .clearfix();
+
+      > li {
+        float: left;
+
+        > .tabs-btn {
+          display: block;
+          .link-standard(@fontColor-link);
+          height: @height-Prototype;
+          line-height: @height-Prototype;
+          padding: @padding-btn-Prototype;
+          font-size: @fontSize-smaller;
+          margin-right: @gapSize-btn-Prototype;
+          margin-bottom: -1px;
+          .border-radius(@borderRadius-btn, @borderRadius-btn, 0, 0);
+          border: 1px solid transparent;
+          .transition(all, 0.3s, ease, 0);
+          background-color: transparent;
+        }
+
+        &:hover {
+
+          > .tabs-btn {
+            background-color: darken(@bgColor1-tab-Prototype,3%);
+            border-bottom: 1px solid @borderColor1-Prototype;
+          }
+        }
+
+        &.active {
+
+          > .tabs-btn {
+            color: @fontColor-default;
+            background-color: @bgColor1-tab-Prototype;
+            border: 1px solid @borderColor1-Prototype;
+            border-bottom-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tabs-content {
+  display: block;
+}
+
+.tabs-panel {
+  display: none;
+
+  &.active {
+    display: block;
+    .animated();
+    .fadeIn();
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .tabs-wrap {
+
+    &.prototype {
+
+      .tabs {
+
+        > li {
+
+          > .tabs-btn {
+            padding: @padding-btn-screen1024-Prototype;
+          }
+        }
+      }
+    }
+  }
+
+}

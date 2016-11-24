@@ -1,5 +1,5 @@
 node_modules/
-dist/
+#dist/
 html/
 output/
 
@@ -12,10 +12,6 @@ build/node_modules/
 output/
 www
 www/
-tmp
-tmp/
-temp
-temp/
 
 
 tags
@@ -29,9 +25,13 @@ _thirdPart/
 _thirdPart
 static/css
 static/css/
+static/js/brickplus
+static/js/brickplus/
+.publish
+.publish/
 
 *.exe
-#svn.json
+svn.json
 
 .c9*
 .settings
@@ -56,7 +56,9 @@ $RECYCLE.BIN/
 *.swp
 
 .vscode
-.vscode/
-npm-debug.log
-*.zip
-svn.json
+
+# gh-pages
+document/
+
+# BrickPlus-Mixin
+BrickPlus-Mixin/

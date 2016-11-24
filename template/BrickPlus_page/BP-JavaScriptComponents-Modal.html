@@ -1,0 +1,293 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='10') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          待续
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default" data-toggle="modal" data-target="#j-modal1">modal</button>
+          <br>
+          <br>
+          <button type="button" class="btn default" id="btn-small-modal">smaller-modal</button>
+           <br>
+          <br>
+          <button type="button" class="btn default" id="btn-default-modal">default-modal</button>
+           <br>
+          <br>
+          <button type="button" id="btn-remote-modal" class="btn primary">remote</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+// -------------
+// large - 更大
+// small - 小的
+// smaller - 更小的
+// '' | false - 默认尺寸
+// 设置窗口大小
+$('#btn-small-modal').on('click', function() {
+  $('#j-modal1').modal('setSize', 'smaller')
+                .modal('show')
+})
+// 默认窗口大小
+$('#btn-default-modal').on('click', function() {
+  $('#j-modal1').modal('setSize', '')
+                .modal('show')
+})
+
+$('#btn-remote-modal').on('click', function() {
+  $('#my-remote').modal({ title: 'dropdown', remote: './pages/dropdown-start.html'})
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <h2>自定义弹层</h2>
+      <ul class="example-description">
+        <li>
+          待续
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default" id="btn-call-js">modal</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+// ----------
+// 自定义弹层
+$('#btn-call-js').on('click', function() {
+  $('#call-js').modal({ title: 'xxxx', content: '自定义弹层' })
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <h2>模态窗口</h2>
+      <ul class="example-description">
+        <li>
+          待续
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default" id="btn-modalLayer">modal</button>
+          <br>
+          <br>
+          <button type="button" class="btn secondary" data-action="success">successModalLayer</button>
+          <button type="button" class="btn primary" data-action="confirm">confirmModalLayer</button>
+          <button type="button" class="btn thirdly" data-action="alert">alertModalLayer</button>
+          <button type="button" class="btn thirdly" data-action="error">errorModalLayer</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+$('[data-action]').on('click', function() {
+  var action = $(this).data('action')
+  switch(action) {
+    case 'success':
+      return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+    case 'confirm':
+      return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
+    case 'alert':
+      return $.alertModalLayer({ title: '提示', content: '汗', callback: function() { alert('确定') } })
+    case 'error':
+      return $.errorModalLayer({ title: '提示', content: '错误', callback: function() { alert('错误') } })
+  }
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <h2>iframe窗口</h2>
+      <ul class="example-description">
+        <li>
+          待续
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <button type="button" class="btn default" data-toggle="iframeModal" data-url="./BP-ComponentsStyle-Modal.html">modal</button>
+          <button type="button" class="btn default" id="btn-iframe-modal">iframe modal</button>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+$('[data-action]').on('click', function() {
+  var action = $(this).data('action')
+  switch(action) {
+    case 'success':
+      return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+    case 'confirm':
+      return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
+    case 'alert':
+      return $.alertModalLayer({ title: '提示', content: '汗', callback: function() { alert('确定') } })
+    case 'error':
+      return $.errorModalLayer({ title: '提示', content: '错误', callback: function() { alert('错误') } })
+  }
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+<!-- 内部弹层 -->
+<div class="modal-background fade" id="j-modal1">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap animated">
+        <div class="modal-head">
+          模态窗口标题
+          <i class="modal-close"></i>
+        </div>
+        <div class="modal-body">
+          模态窗口主体高度不限
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/modalLayer.js"></script>
+<script src="{{static}}/js/brickplus/iframeModal.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+  $(function() {
+    // -------------
+    // large - 更大
+    // small - 小的
+    // smaller - 更小的
+    // '' | false - 默认尺寸
+    // 设置窗口大小
+    $('#btn-small-modal').on('click', function() {
+      $('#j-modal1').modal('setSize', 'smaller')
+                    .modal('show')
+    })
+    // 默认窗口大小
+    $('#btn-default-modal').on('click', function() {
+      $('#j-modal1').modal('setSize', '')
+                    .modal('show')
+    })
+
+    $('#btn-remote-modal').on('click', function() {
+      $('#my-remote').modal({ title: 'dropdown', remote: './pages/dropdown-start.html'})
+    })
+
+
+    // ----------
+    // 自定义弹层
+    $('#btn-call-js').on('click', function() {
+      $('#call-js').modal({ title: 'xxxx', content: '自定义弹层' })
+    })
+
+    // ---------
+    // 模态窗口
+    $('#btn-modalLayer').on('click', function() {
+      $('#my-modalLayer').modalLayer({ 
+        title: 'modalLayer', 
+        content: '<h1>modalLayer- content</h1>',
+        buttons: [
+          {
+            text: '哈哈',
+            callback: function() {
+              alert('哈哈')
+              // return false 不关闭
+              // return false;
+            }
+          }
+        ]  
+      })
+    })
+
+    $('[data-action]').on('click', function() {
+      var action = $(this).data('action')
+      switch(action) {
+        case 'success':
+          return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+        case 'confirm':
+          return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
+        case 'alert':
+          return $.alertModalLayer({ title: '提示', content: '汗', callback: function() { alert('确定') } })
+        case 'error':
+          return $.errorModalLayer({ title: '提示', content: '错误', callback: function() { alert('错误') } })
+      }
+    })
+
+    $('#btn-iframe-modal').on('click', function() {
+      $('#my-iframe-modal').iframeModal({
+        title: 'iframeModal',
+        url: './BP-ComponentsStyle-Modal.html',
+        cache: false,
+        size: 'large'
+      })
+    })
+  })
+</script>
+{% endblock %}

@@ -1,0 +1,43 @@
+﻿@charset "utf-8";
+
+// ******************
+// 路径导航基础样式
+// ******************
+.breadcrumb {
+  .reset-list(left, @fontSize-default-breadcrumb, @line-height-base);
+  .clearfix();
+  display: block;
+
+  > li {
+    color: @fontColor-default-breadcrumb;
+    position: relative;
+    padding-left: 28px;
+
+    > a {
+      .link-standard();
+      display: block;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5em;
+      .icon-font-family();
+    }
+
+    &:first-child:not(:last-child)::after {
+      left: 0;
+      font-size: floor(@fontSize-default-breadcrumb*1.4);
+      color: lighten(@fontColor-icon-breadcrumb,20%);
+      content: @content-icon-home-default-breadcrumb;
+    }
+
+    & + li::before {
+      content: @content-icon-default-breadcrumb;
+      color: @fontColor-icon-breadcrumb;
+      font-size: @fontSize-icon-default-breadcrumb;
+      left: 8px;
+    }
+  }
+}

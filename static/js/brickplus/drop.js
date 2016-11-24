@@ -96,7 +96,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param {string} toggleEl 匹配标识
 	     * @param {object} props 配置参数 必须包含{ toggle: ''} 参数 
 	     */
-	
 	    function Drop(el, toggleEl, props) {
 	        _classCallCheck(this, Drop);
 	
@@ -191,8 +190,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '__setPosition',
 	        value: function __setPosition() {
-	            var offset = this.el.offset();
-	            var elHeight = this.el.outerHeight(true);
+	            var _ref = [this.el.offset(), this.el.outerHeight(true)],
+	                offset = _ref[0],
+	                elHeight = _ref[1];
 	
 	
 	            this.dropEl.css({ top: offset.top + elHeight + 'px', left: offset.left + 'px' });

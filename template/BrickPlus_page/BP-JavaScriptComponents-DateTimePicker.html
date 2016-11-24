@@ -1,0 +1,648 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='3') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='12') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+{# 设置标签页 #}
+{%
+set tabs = [
+  {text: '概述', url: '#tp1'},
+  {text: '配置项', url: '#tp2'},
+  {text: '限制日期', url: '#tp3'},
+  {text: '日期区间', url: '#tp4'},
+  {text: '事件监听', url: '#tp5'}
+]
+%}
+{# 渲染标签页 #}
+{{ tab.prototype(tabs,cur='1') }}
+<div class="tabs-content">
+  <div class="tabs-panel active" id="tp1">
+    <section class="example-wrap fn-mb-20">
+      <ul class="example-description">
+        <li>
+          日历控件提供了两种模式：单选日期和区间日期。大多数日历选择框需将文本框设置为<code>readonly</code>属性，不提供用户自行修改日期，保证输入框日期格式正确完整。
+        </li>
+        <li>
+          单选日期类似之前的日历控件，用户点击某日期则选择该日期。
+        </li>
+        <li>
+          区间日期则需要选择开始日期和结束日期，返回的一个时间段<code>xxxx-xx-xx 至 oooo-oo-oo</code>。还提供了最近<code>7天</code>、<code>14天</code>和<code>30天</code>快捷按钮。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>默认双日期</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker"  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>单个日期</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{calendars: 1}" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">
+              <span>日期区间</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&lt;div class="form-group fn-mb-20"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;默认双日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12" readonly data-toggle="datetimepicker"  class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group fn-mb-20"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;单个日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{calendars: 1}" class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;对比日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap fn-mb-20">
+      <ul class="example-description">
+        <li>
+          日历控件当然也提供相应的配置项，方便用户配置不同的交互效果。比如我们在实际的开发中需要去限定日历控件的最大和最小可选择日期等。
+        </li>
+        <li>
+          第一种是在使用<code>jQuery</code>插件初始化时使用<code>$(selector).datetimepicker(options)</code>
+        </li>
+        <li>
+          第二种是通过默认的<code>data-option="{xxx:000}"</code>方式，很方便我们队当前选择框进行定制日历控件，注意的是<code>data-option</code>的优先级比 jquery 插件绑定和设置方法的优先级低。
+        </li>
+        <li>
+          第三种是使用插件对象的<code>$(selector).datetimepicker('setOption', {}, [true|false])</code>进行重新配置，优先级也为最高。
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group">
+            <label class="form-control-label">
+              <span>开始日期</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{min: '2015-01-15', max: '2016-12-15'}" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&lt;div class="form-group"&gt;
+  &lt;label class="form-control-label"&gt;
+    &lt;span&gt;开始日期&lt;/span&gt;
+    &lt;em&gt;：&lt;/em&gt;
+  &lt;/label&gt;
+  &lt;div class="form-control-wrap"&gt;
+    &lt;div class="form-control-date"&gt;
+      &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+      &lt;input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" <b>data-option="{min: '2015-01-15', max: '2016-12-15'}"</b> class="form-control"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+      </div>
+
+      <h2 id="TableInverse">option参数配置</h2>
+      <ul class="example-description">
+        <li>
+          参数配置可以定义在<code>data-option</code>上或者在 jquery 插件函数调用上使用。
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>属性</th>
+                  <th>说明</th>
+                  <th>类型</th>
+                  <th>默认参数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>period</td>
+                  <td>设置为区间日期</td>
+                  <td>Boolean</td>
+                  <td>false</td>
+                </tr>
+                <tr>
+                  <td>names</td>
+                  <td>设置为区间日期的开始时间和结束时间的name属性，当period为true时必须配置此属性。其中数组第一项为开始时间的 name，第二项为结束时间的 name 属性，其他忽略</td>
+                  <td>Array</td>
+                  <td>[]</td>
+                </tr>
+                <tr>
+                  <td>dayRangeMax</td>
+                  <td>设置日期区间最大的跨度天数，超出此数会提示并设置日期为今天。</td>
+                  <td>Number</td>
+                  <td>366</td>
+                </tr>
+                <tr>
+                  <td>defaultText</td>
+                  <td><code> 至 </code></td>
+                  <td>String</td>
+                  <td>区间日期拼接文字</td>
+                </tr>
+                <tr>
+                  <td>calendars</td>
+                  <td>显示几个月日历</td>
+                  <td>Number</td>
+                  <td>默认是显示2个月，最好最大2个月</td>
+                </tr>
+                <tr>
+                  <td>isTodayValid</td>
+                  <td>今天是否可選</td>
+                  <td>Boolean</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>min</td>
+                  <td>最小可用时间</td>
+                  <td>String</td>
+                  <td><code>1970-01-01</code></td>
+                </tr>
+                <tr>
+                  <td>max</td>
+                  <td>最大可用时间</td>
+                  <td>String</td>
+                  <td><code>''</code></td>
+                </tr>
+                <tr>
+                  <td>stopToday</td>
+                  <td>今天之后的日期是否不可选</td>
+                  <td>Boolean</td>
+                  <td>false</td>
+                </tr>
+                <tr>
+                  <td>weekendDis</td>
+                  <td>灰掉周末不可选</td>
+                  <td>Boolean</td>
+                  <td>false</td>
+                </tr>
+                <tr>
+                  <td>disCertainDay</td>
+                  <td>不可用的周日期设置数组，如：[1,3]是要周一， 周三 两天不可选，每个周的周一，周三都不可选择。</td>
+                  <td>Boolean</td>
+                  <td>[]</td>
+                </tr>
+                <tr>
+                  <td>disCertainDate</td>
+                  <td>不可用的日期设置数组，如:[1,3]是要1号，3号
+
+            // 两天不可选，特别的，[true,1,3]则反之，只有1，3可选，其余不可选。</td>
+                  <td>Boolean</td>
+                  <td>[]</td>
+                </tr>
+                <tr>
+                  <td>success(date)</td>
+                  <td>成功回调</td>
+                  <td>Function</td>
+                  <td>$.noop</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+<code>
+$(selector).datetimepicker('setOption', { min: '2016-08-09', max: '2019-01-02'});
+</code>
+                  <br>
+                </pre>
+        </div>
+      </div>
+
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form">
+            <div class="form-layer1">
+              <div class="form-layer2">
+                <div class="form-group fn-mb-20">
+                  <div class="form-control-label">
+                    <span>今天不可选</span>
+                    <em>：</em>
+                  </div>
+                  <div class="form-control-wrap">
+                    <div class="form-control-date">
+                      <span class="form-control-date-btn">
+                        <i></i>
+                      </span>
+                      <input data-toggle="datetimepicker" readonly type="text" class="form-control" value="2016-07-14" data-option="{ isTodayValid: false }">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group fn-mb-20">
+                  <div class="form-control-label">
+                    <span>未来日期不可用</span>
+                    <em>：</em>
+                  </div>
+                  <div class="form-control-wrap">
+                    <div class="form-control-date">
+                      <span class="form-control-date-btn">
+                        <i></i>
+                      </span>
+                      <input data-toggle="datetimepicker" readonly type="text" class="form-control" value="2016-07-14" data-option="{ stopToday: true }">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group fn-mb-20">
+                  <div class="form-control-label">
+                    <span>周末不可用</span>
+                    <em>：</em>
+                  </div>
+                  <div class="form-control-wrap">
+                    <div class="form-control-date">
+                      <span class="form-control-date-btn">
+                        <i></i>
+                      </span>
+                      <input data-toggle="datetimepicker" readonly type="text" class="form-control" value="2016-07-14" data-option="{ weekendDis: true }">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group fn-mb-20">
+                  <div class="form-control-label">
+                    <span>周3周5不可用</span>
+                    <em>：</em>
+                  </div>
+                  <div class="form-control-wrap">
+                    <div class="form-control-date">
+                      <span class="form-control-date-btn">
+                        <i></i>
+                      </span>
+                      <input data-toggle="datetimepicker" readonly type="text" class="form-control" value="2016-07-14" data-option="{ disCertainDay: [3,5] }">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group fn-mb-20">
+                  <div class="form-control-label">
+                    <span>5号10号15号不可用</span>
+                    <em>：</em>
+                  </div>
+                  <div class="form-control-wrap">
+                    <div class="form-control-date">
+                      <span class="form-control-date-btn">
+                        <i></i>
+                      </span>
+                      <input data-toggle="datetimepicker" readonly type="text" class="form-control" value="2016-07-14" data-option="{ disCertainDate: [5,10,15] }">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group fn-mb-20">
+                  <div class="form-control-label">
+                    <span>只有每月15号可用</span>
+                    <em>：</em>
+                  </div>
+                  <div class="form-control-wrap">
+                    <div class="form-control-date">
+                      <span class="form-control-date-btn">
+                        <i></i>
+                      </span>
+                      <input data-toggle="datetimepicker" readonly type="text" class="form-control" value="2016-07-14" data-option="{ disCertainDate: [true,15] }">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <ul class="example-description">
+        <li>
+          当我们需要动态去设置每个日历选择框的最大最小日期时，需要调用<code>$(selector).datetimepicker()</code>相应的接口。
+        </li>
+        <li>
+          <code>$(selector).datetimepicker('setMaxDate', dateStr)</code>方法是用于设置最大的可选择日期
+        </li>
+        <li>
+          <code>$(selector).datetimepicker('setMinDate', dateStr)</code>方法是用于设置最小的可选择日期
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>开始日期</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" id="j-datetimepicker-3" data-option="{min: '2015-01-15', max: '2016-12-15'}" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-control-wrap">
+              <button type="button" class="btn primary" data-toggle="setMaxDate" data-date="2017-02-01">设置最大日期为2017-02-01</button>
+              <button type="button" class="btn default" data-toggle="setMinDate" data-date="2016-05-18">设置最小日期为2016-05-18</button>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+// demo 3
+// 设置最大日期
+// 设置最小日期
+var $demoInput3 = $('#j-datetimepicker-3');
+$('[data-toggle="setMaxDate"]').on('click', function() {
+  var date = $(this).data('date');
+  <b>$demoInput3.datetimepicker('setMaxDate', date);</b>
+})
+$('[data-toggle="setMinDate"]').on('click', function() {
+  var date = $(this).data('date');
+  <b>$demoInput3.datetimepicker('setMinDate', date);</b>
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+      <ul class="example-description">
+        <li>
+          除了以上两种方法外，我们需要更方便的同时设定最小最大日期，可以使用<code>$(selector).datetimepiker('setOption', {min: 'xxxx-xx-xx', max: 'oooo-oo-oo'})</code>进行配置
+        </li>
+      </ul>
+      <div class="example fn-mb-20">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>开始日期</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" id="j-datetimepicker-4" data-option="{min: '2015-01-15', max: '2016-12-15'}" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-control-wrap">
+              <button type="button" class="btn primary" data-toggle="setOption" data-max="2017-02-01" data-min="2016-05-18">设置最小日期为2016-05-18和最大日期为2017-02-01</button>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre>
+            <code>
+// demo4
+// 设置最大最小日期
+$('[data-toggle="setOption"]').on('click', function() {
+  $('#j-datetimepicker-4').datetimepicker('setOption', {max: '2017-02-01', min: '2016-05-18'});
+})
+            </code>
+          </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="tabs-panel" id="tp4">
+    <ul class="example-description">
+        <li>
+          日期区间是为了方便我们快速的选择一段时间，比如2天内，一星期内，两星期内抑或30天内。
+        </li>
+        <li>
+          启用日期区间模式必须设置<code>{period: true, names: ['start_time', 'end_time']}</code>两个属性。
+        </li>
+        <li>
+          日期区间提供快速选择范围的快捷按钮。
+        </li>
+        <li>
+          自主选择区间，如果不点击确定按钮在开始和结束日期不一样（一段时间范围区间）时则重新开始选择日期。
+        </li>
+        <li>
+          日期选择文本框可以赋值，支持<code>'yyyy-mm-dd'</code>,<code>'yyyy-mm-dd 至 yyyy-mm-dd'</code>之类样式，无法识别则使用当天日期
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>日期区间</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time'], calendars: 1}"  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group fn-mb-20">
+            <label class="form-control-label">
+              <span>日期区间</span>
+              <em>：</em>
+            </label>
+            <div class="form-control-wrap">
+              <div class="form-control-date">
+                <span class="form-control-date-btn"><i></i></span>
+                <input type="text" value="2016-07-12" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>
+    &lt;div class="form-group"&gt;
+    &lt;label class="form-control-label"&gt;
+      &lt;span&gt;对比日期&lt;/span&gt;
+      &lt;em&gt;：&lt;/em&gt;
+    &lt;/label&gt;
+    &lt;div class="form-control-wrap"&gt;
+      <b>&lt;div class="form-control-date"&gt;
+        &lt;span class="form-control-date-btn"&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;input type="text" value="2016-07-12 至 2016-07-30" readonly data-toggle="datetimepicker" data-option="{period: true, names: ['start_time', 'end_time']}"  class="form-control"&gt;
+      &lt;/div&gt;</b>
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+      </div>
+  </div>
+  <div class="tabs-panel" id="tp5">
+    <ul class="example-description">
+        <li>
+          日历选择器提供了相应的 jQuery 显示<code>show.bp.datetimepicker</code>，隐藏<code>hide.bp.datetimepicker</code>，选择<code>choose.bp.datetimepicker</code>事件。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-code">
+          <pre><code>
+// 带返回参数
+// date 为开始日期，单选日期为选择日期
+// end 日期区间模式时，返回结束日期
+$('[data-toggle]').on('choose.bp.datetimepicker', function(e, date, end) {
+  console.log(date, end)
+  console.log($(this).val())
+})
+
+$('[data-toggle]').on('show.bp.datetimepicker', function(e, date) {
+  console.log('show')
+})
+
+$('[data-toggle]').on('hide.bp.datetimepicker', function(e, date) {
+  console.log('hide')
+})
+</code></pre>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/datetimepicker.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+$(function() {
+  $('[data-toggle]').on('choose.bp.datetimepicker', function(e, date, end) {
+    console.log(date, end)
+    console.log($(this).val())
+  })
+
+  $('[data-toggle]').on('show.bp.datetimepicker', function(e, date) {
+    console.log('show')
+  })
+
+  $('[data-toggle]').on('hide.bp.datetimepicker', function(e, date) {
+    console.log('hide')
+  })
+
+  // demo 3
+  // 设置最大日期
+  // 设置最小日期
+  var $demoInput3 = $('#j-datetimepicker-3');
+  $('[data-toggle="setMaxDate"]').on('click', function() {
+    var date = $(this).data('date');
+    $demoInput3.datetimepicker('setMaxDate', date);
+  })
+  $('[data-toggle="setMinDate"]').on('click', function() {
+    var date = $(this).data('date');
+    $demoInput3.datetimepicker('setMinDate', date);
+  })
+
+  // demo4
+  // 设置最大最小日期
+  var $demoInput4 = $('#j-datetimepicker-4');
+  $('[data-toggle="setOption"]').on('click', function() {
+    var max = $(this).data('max'),
+        min = $(this).data('min')
+
+    $demoInput4.datetimepicker('setOption', {max: max, min: min});
+  })
+})
+</script>
+{% endblock %}

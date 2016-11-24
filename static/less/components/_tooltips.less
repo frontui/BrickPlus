@@ -1,0 +1,220 @@
+//tooltips-icon
+.tooltips(@bg, @bdc, @color: @fontColor-default-toolTips) {
+  background-color: @bg;
+  border: 1px solid @bdc;
+  color: @color;
+  line-height: @line-height-base;
+  padding: 6px 10px;
+  position: absolute;
+  top: -46px;
+  left: -20px;
+  display: none;
+  text-align: justify;
+  max-width: @width-default-toolTips;
+  .word-wrap();
+  .rounded(@borderRadius-default-toolTips);
+  .outer-shadow();
+
+  .tips-arrow {
+    .arrow-up-or-down(border-top, @arrowSize-default-toolTips, @arrowSize-default-toolTips, @bg);
+    position: absolute;
+    bottom: -@arrowSize-default-toolTips;
+    left: 18px;
+    margin: 0;
+  }
+
+  .tips-arrow-border {
+    .arrow-up-or-down(border-top, @arrowSize-default-toolTips+1px, @arrowSize-default-toolTips+1px, @bdc);
+    position: absolute;
+    bottom: -(@arrowSize-default-toolTips+1px);
+    left: 17px;
+    margin: 0;
+  }
+}
+
+.tooltips {
+  .tooltips(@bgColor-default-toolTips, @borderColor-default-toolTips);
+
+  .tips-arrow {
+    left: 50%;
+    margin-left: -8px;
+  }
+
+  .tips-arrow-border {
+    left: 50%;
+    margin-left: -9px;
+  }
+
+  // 方位
+  // ================
+
+  // 右对齐
+  &-top-left {
+    .tips-arrow {
+      left: 17px;
+    }
+    .tips-arrow-border {
+      left: 17px;
+    }
+  }
+
+  // 右对齐
+  &-top-right {
+    .tips-arrow {
+      left: auto;
+      right: 18px;
+    }
+    .tips-arrow-border {
+      left: auto;
+      right: 17px;
+    }
+  }
+
+  // 底部
+  &-bottom {
+    .tips-arrow {
+      top: -@arrowSize-default-toolTips;
+      bottom: auto;
+      border-top: none;
+      .arrow-up-or-down(border-bottom,@arrowSize-default-toolTips,@arrowSize-default-toolTips,@bgColor-default-toolTips);
+    }
+    .tips-arrow-border {
+      top: -(@arrowSize-default-toolTips+1px);
+      bottom: 0;
+      border-top: none;
+      .arrow-up-or-down(border-bottom,@arrowSize-default-toolTips+1px, @arrowSize-default-toolTips+1px,@borderColor-default-toolTips);
+    }
+  }
+
+  // 底部左对齐
+  &-bottom-left {
+    .tips-arrow {
+      top: -@arrowSize-default-toolTips;
+      bottom: auto;
+      border-top: none;
+      left: 18px;
+      .arrow-up-or-down(border-bottom,@arrowSize-default-toolTips,@arrowSize-default-toolTips,@bgColor-default-toolTips);
+    }
+    .tips-arrow-border {
+      top: -(@arrowSize-default-toolTips+1px);
+      bottom: 0;
+      left: 18px;
+      border-top: none;
+      .arrow-up-or-down(border-bottom,@arrowSize-default-toolTips+1px, @arrowSize-default-toolTips+1px,@borderColor-default-toolTips);
+    }
+  }
+
+  // 底部右对齐
+  &-bottom-right {
+    .tips-arrow {
+      top: -@arrowSize-default-toolTips;
+      left: auto;
+      bottom: auto;
+      right: 18px;
+      border-top: none;
+      .arrow-up-or-down(border-bottom,@arrowSize-default-toolTips,@arrowSize-default-toolTips,@bgColor-default-toolTips);
+    }
+    .tips-arrow-border {
+      top: -(@arrowSize-default-toolTips+1px);
+      bottom: 0;
+      left: auto;
+      right: 17px;
+      border-top: none;
+      .arrow-up-or-down(border-bottom,@arrowSize-default-toolTips+1px, @arrowSize-default-toolTips+1px,@borderColor-default-toolTips);
+    }
+  }
+
+  // 在左边
+  &-left {
+
+    .tips-arrow {
+      top: 50%;
+      left: auto;
+      right: -@arrowSize-default-toolTips;
+      bottom: auto;
+      margin: -@arrowSize-default-toolTips 0 0 0;
+      border-right: none;
+      .arrow-left-or-right(border-left, @arrowSize-default-toolTips,@arrowSize-default-toolTips, @bgColor-default-toolTips);
+    }
+
+    .tips-arrow-border {
+      top: 50%;
+      left: auto;
+      right: -(@arrowSize-default-toolTips+1px);
+      bottom: auto;
+      margin: -(@arrowSize-default-toolTips+1px) 0 0 0;
+      border-right: none;
+      .arrow-left-or-right(border-left,@arrowSize-default-toolTips+1px, @arrowSize-default-toolTips+1px,@borderColor-default-toolTips);
+    }
+  }
+
+  // 在右边
+  &-right {
+
+    .tips-arrow {
+      top: 50%;
+      right: auto;
+      left: -@arrowSize-default-toolTips;
+      bottom: auto;
+      margin: -@arrowSize-default-toolTips 0 0 0;
+      border-left: none;
+      .arrow-left-or-right(border-right, @arrowSize-default-toolTips,@arrowSize-default-toolTips, @bgColor-default-toolTips);
+    }
+
+    .tips-arrow-border {
+      top: 50%;
+      right: auto;
+      left: -(@arrowSize-default-toolTips+1px);
+      bottom: auto;
+      margin: -(@arrowSize-default-toolTips+1px) 0 0 0;
+      border-left: none;
+      .arrow-left-or-right(border-right,@arrowSize-default-toolTips+1px, @arrowSize-default-toolTips+1px,@borderColor-default-toolTips);
+    }
+  }
+
+  // 主题
+  // ================
+
+  // 黑色
+  &-black {
+    .tooltips(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5), #ffffff);
+    border: none;
+
+    .tips-arrow {
+      left: 50%;
+      margin-left: -@arrowSize-default-toolTips;
+    }
+
+    .tips-arrow-border {
+      display: none;
+    }
+  }
+}
+
+/*.tooltips-icon {
+  position: relative;
+  text-align: center;
+  color: @fontColor-heading;
+  font-size: @fontSize-smaller;
+  .square(16px);
+  line-height: 16px;
+  background-color: @bgColor-primary;
+  .rounded(4px);
+  border: 1px solid #adc3d6;
+  .inline-block();
+  margin: 0 5px;
+  cursor: default;
+  vertical-align: text-top;
+  padding: 0 5px;
+
+  > .tooltips {
+    .tooltips(@bgColor-default-toolTips, @borderColor-default-toolTips);
+  }
+
+  &:hover {
+
+    > .tooltips {
+      display: block;
+    }
+  }
+}*/

@@ -1,0 +1,158 @@
+{% macro systemTopNav(pl,stnBtns,topNavThemesList,userMenu,username='',productName='',fixedClass='',static='/static') %}
+<nav class="system-top-nav">
+  <a href="###" class="system-logo">
+    <img src="{{ static }}/images/systemLogo/eplus.png" alt="">
+  </a>
+  <div class="stn-dropdown-wrap pull-left">
+    <a class="stn-btn">
+      {{ productName }}
+    </a>
+    <div class="stn-dropdown-menu stn-product-menu">
+      <div class="stn-pm-box">
+        <ul class="pl">
+          {% for item in pl %}
+          <li>
+            <a href="###" title="{{ item.product }}">{{ item.product }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% for item in stnBtns %}
+  <a href="javascript:void(0);" class="stn-btn pull-left">
+    {{ item.btn }}
+  </a>
+  {% endfor %}
+  <a href="javascript:void(0);" class="stn-function-icon">
+    <span class="fr">23</span>
+    <span class="fi">
+      <i class="icon-notifications_none"></i>
+    </span>
+  </a>
+  <a href="javascript:void(0);" class="stn-function-icon">
+    <span class="fi">
+      <i class="icon-timer"></i>
+    </span>
+  </a>
+  <a href="javascript:void(0);" class="stn-function-icon stn-dropdown-wrap themes">
+    <span class="fi">
+      <i></i>
+    </span>
+    <div class="stn-dropdown-menu">
+      <ul class="stn-themes-menu" data-toggle="skin" data-target="#bp-theme">
+        {% for item in topNavThemesList %}
+        <li style="background-color: {{ item.bgColor }};" data-theme="{{ item.theme }}"></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </a>
+  <div class="stn-dropdown-wrap pull-right user">
+    <a class="stn-btn">
+      <img src="{{ static }}/images/userheadshot/scenery-7.png" alt="">
+      Hello! {{ username }}
+    </a>
+    <div class="stn-dropdown-menu">
+      <ul class="stn-user-menu">
+        {% for item in userMenu %}
+        <li>
+          <a href="#">{{ item.option }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endmacro %}
+
+{% macro systemAside(lv1,lv1cur='0',lv2cur='0',lv3cur='0',static='/static',fixedClass='') %}
+<aside class="system-aside" id="systemAside" data-toggle="leftPanel" data-active="fold" data-container-active="fold-for-aside">
+  <div class="system-aside-container">
+
+    <!-- 系统侧导航开关 -->
+    <a class="system-aside-switch" data-toggle="aside-switch" href="javascript:void(0);">
+      <span></span>
+    </a>
+
+    <!-- 系统侧导航列表 -->
+    <ul class="aside-list-1" data-toggle="navigator" id="leftMenu">
+      {% for li1 in lv1 %}
+      <li {% if loop.index == lv1cur %}class="current"{% endif %}>
+        <a href="{{ li1.url }}" class="{{ li1.iconClass }}" data-toggle="tooltips" title="{{ li1.text }}" data-pos="right">
+          <span class="sa">{{ li1.text }}</span>
+        </a>
+        <ul class="aside-list-2">
+          {% for li2 in li1.lv2 %}
+          <li {% if loop.index == lv2cur %}class="current"{% endif %}>
+            <a href="{{ li2.url }}" data-toggle="tooltips" title="{{ li2.text }}" data-pos="right" menuid="{{ li2.mid }}">
+              <span class="sa">{{ li2.text }}</span>
+            </a>
+            <ul class="aside-list-3">
+              {% for li3 in li2.lv3 %}
+              <li {% if loop.index == lv3cur %}class="current"{% endif %}>
+                <a href="{{ li3.url }}" data-toggle="tooltips" title="{{ li3.text }}" data-pos="right">
+                  <span class="sa">{{ li3.text }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>
+
+<script>
+
+  function showMenuById(id){
+    var e = document.getElementById('leftMenu');
+    var list = e.getElementsByTagName('*');
+    for(var i = 0; i < list.length; i++) {
+      if (list[i].getAttribute('menuid') === id) {
+        var a = list[i];
+        a.parentNode.className = 'current';
+        a.parentNode.parentNode.parentNode.className = 'current';
+        //console.log(cls)
+        //$(this).closest('li').addClass('current').parent().closest('li').addClass('current');
+        break;
+      }
+    }
+  }
+
+  showMenuById('001')
+</script>
+{% endmacro %}
+
+{% macro systemAssistNav(assistNav,static='/static',fixedClass='') %}
+<aside class="system-assist-nav" id="systemAssistNav" data-toggle="rightPanel" data-active="show" data-container-active="fold-for-assist-nav">
+  <div class="system-assist-nav-container">
+    <div class="system-assist-nav-head">
+      <div class="sanh-icon">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      常用版块
+    </div>
+    <ul class="system-assist-nav-list" id="systemAssistNavList">
+      {% for item in assistNav %}
+      <li>
+        <a href="{{ item.url }}">
+          {{ item.text }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a class="system-assist-nav-ctrl" href="javascript:void(0);" data-toggle="expand" data-text="收起" id="assistListMore" data-target="#systemAssistNavList" data-active="hide-list" data-target-active="more-assist">
+      更多
+    </a>
+    <a class="system-assist-nav-ctrl add" href="javascript:void(0);">
+      自定义模块
+    </a>
+  </div>
+</aside>
+{% endmacro %}

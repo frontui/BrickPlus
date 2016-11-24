@@ -1,0 +1,964 @@
+{% extends "_BrickPlus_layout/6-BP-ComponentsJavaScript.html" %}
+
+
+{# 填写页面 title #}
+{% block title %}BrickPlus{% endblock %}
+
+
+{# 页面专有样式表地址 #}
+{% block css %}
+{% endblock %}
+
+
+{# 编写页面内联 css 代码 #}
+{% block stylePage %}
+<style>
+</style>
+{% endblock %}
+
+
+{# 加载页面 body 设置，例如引用‘类’ #}
+{% block bodyClass %}
+{% endblock %}
+
+
+{# 当前页面没内容时候 #}
+{% block blankpage %}
+<div class="blank-face"></div>
+{% endblock %}
+
+
+{# 渲染页面导航 #}
+{% block nav %}
+{# 渲染主导航 #}
+{{ navigator.theNav(mainNav,cur='4') }}
+{# 渲染侧导航 #}
+{{ asideNav.theAsideNav(mainAsideNav,cur='2') }}
+{% endblock %}
+
+
+{# 加载页面内容 #}
+{% block content %}
+{# 设置标签页 #}
+{%
+set tabs = [
+{text: '概述', url: '#tp1'},
+{text: '反选模式', url: '#tp2'},
+{text: '事件监听', url: '#tp3'},
+{text: '配置项', url: '#tp4'}
+]
+%}
+{# 渲染标签页 #}
+{{ tab.prototype(tabs,cur='1') }}
+
+<div class="tabs-content">
+
+
+<div class="tabs-panel active" id="tp1">
+
+    <!-- <div class="btn-group-box small-btn-gb vertical-btn-gb example-nav">
+      <a href="#TableInverse" class="btn default">斑马条纹表格</a>
+      <a href="#TableBorder" class="btn default">表格边框</a>
+      <a href="#TableAlign" class="btn default">表格对齐</a>
+    </div> -->
+    <section class="example-wrap">
+      <h2 id="TableInverse">全选组件</h2>
+      <ul class="example-description">
+        <li>
+          为任意 <code>&lt;input type="check"&gt;</code> 添加 <code>data-toggle="checkall"</code> 类为其绑定全选插件。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox">
+                    全选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo1">
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ZERO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td>
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item TWO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    jingdong
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ONE
+                  </td>
+                  <td>
+                    TJZT201501548025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+<code>
+&lt;!--
+  data-toggle="checkAll" 全局绑定checkAll全选插件
+  data-target="#j-checkall-demo1 :checkbox" 目标操作的多选项选择器
+--&gt;
+&lt;input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo1 :checkbox"&gt;
+</code>
+                  <br>
+                </pre>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  {# 反选模式 #}
+  <div class="tabs-panel" id="tp2">
+    <section class="example-wrap">
+      <h2 id="TableInverse">反选模式</h2>
+      <ul class="example-description">
+        <li>
+          有时候我们为了方便做一个相反的操作，于是做一个按钮能一键选取相反的项。
+        </li>
+        <li>
+          为任意 <code>&lt;input type="check"&gt;</code> 添加 <code>data-toggle="checkall" data-reverse="true"</code> 设置反选功能。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo2 :checkbox">
+                    全选
+                  </label>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-reverse="true" data-target="#j-checkall-demo2 :checkbox">
+                    反选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo2">
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ZERO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td>
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item TWO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    jingdong
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ONE
+                  </td>
+                  <td>
+                    TJZT201501548025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+                    <code>
+&lt;input type="checkbox" data-toggle="checkAll" data-reverse="true" data-target="#j-checkall-demo2 :checkbox"&gt; 反选
+                     </code>
+                </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  {# 事件监听 #}
+  <div class="tabs-panel" id="tp3">
+    <section class="example-wrap">
+      <h2 id="TableInverse">事件监听</h2>
+      <ul class="example-description">
+        <li>
+          为<code>&lt;input type="check"&gt;</code>&nbsp;元素添加&nbsp;<code>checked.bp.checkAll"</code>&nbsp;<code>reversed.bp.checkAll"</code>&nbsp;监听全选及反选事件。
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-target="#j-checkall-demo3 :checkbox" id="j-event-1">
+                    全选
+                  </label>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-toggle="checkAll" data-reverse="true" data-target="#j-checkall-demo3 :checkbox" id="j-event-2">
+                    反选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo3">
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ZERO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td>
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item TWO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    jingdong
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ONE
+                  </td>
+                  <td>
+                    TJZT201501548025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre><code>
+// checked.bp.checkAll 已全选触发事件
+$('#j-event-1').on('checked.bp.checkAll', function(){
+  alert($(this).prop('checked') ? '全选' : '取消全选')
+})
+                            </code></pre>
+                            <pre><code>
+// 已反选触发事件
+$('#j-event-2').on('reversed.bp.checkAll', function(){
+  alert('反选')
+})
+                            </code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  {# 参数配置 #}
+  <div class="tabs-panel" id="tp4">
+    <section class="example-wrap">
+      <h2 id="TableInverse"> jQuery 插件参数配置 </h2>
+      <ul class="example-description">
+        <li>
+          我们使用<code>$(element).checkAll(options)</code>来绑定一个全选功能。
+        </li>
+        <li>
+          通过增加<code>data-target="#id"</code>或<code>data-reverse="true"</code>进行配置
+        </li>
+      </ul>
+      <div class="example">
+        <div class="example-tag">实例</div>
+        <div class="example-box">
+          <div class="table-wrap">
+
+            <table class="table">
+              <colgroup>
+                <col style="width: 70px">
+                <col>
+                <col style="width: 100px">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col style="width: 100px">
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-target="#j-checkall-demo4 :checkbox" id="j-event-3">
+                    全选
+                  </label>
+                  <label class="table-checked-all">
+                    <input type="checkbox" data-reverse="true" data-target="#j-checkall-demo4 :checkbox" id="j-event-4">
+                    反选
+                  </label>
+                </th>
+                <th>
+                  创建时间
+                </th>
+                <th>
+                  业务类型
+                </th>
+                <th>
+                  商品名称
+                </th>
+                <th>
+                  订单号
+                </th>
+                <th>
+                  对方账号
+                </th>
+                <th>
+                  余额
+                </th>
+                <th>
+                  收入
+                </th>
+                <th>
+                  支出
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody id="j-checkall-demo4">
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ZERO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td>
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item TWO
+                  </td>
+                  <td>
+                    TJZT201505200025
+                  </td>
+                  <td>
+                    jingdong
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                    <span class="text-nowrap">
+                      2015-05-25
+                    </span>
+                    <span class="text-nowrap fontcolor-vice">
+                      10:25:36
+                    </span>
+                  </td>
+                  <td>
+                    交易
+                  </td>
+                  <td>
+                    Item ONE
+                  </td>
+                  <td>
+                    TJZT201501548025
+                  </td>
+                  <td>
+                    liang1126
+                  </td>
+                  <td>
+                    <span class="amount">158,026.00</span>
+                  </td>
+                  <td>
+                    <span class="amount add">3,252.00</span>
+                  </td>
+                  <td>
+                    <span class="amount take">288.00</span>
+                  </td>
+                  <td class="text-align-left">
+                    <div class="btn-group-box smaller-btn-gb">
+                      <button type="button" class="btn default">详情</button>
+                      <button type="button" class="btn default dropdown-menu-btn"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tfoot>
+                  <tr>
+                    <td colspan="10">
+                      <button class="btn default small-btn" type="button" id="j-trigger-btn">button触发全选</button>
+                      <button class="btn primary small-btn" type="button" id="j-trigger-btn-2">button触发反选</button>
+                    </td>
+                  </tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="example-code">
+                <pre>
+ <code>
+//---------
+// 参数配置
+$('#j-event-3').checkAll();
+$('#j-event-4').checkAll();
+
+//------
+// button触发
+var defaultChecked = false;
+$('#j-trigger-btn').on('click', function() {
+  defaultChecked = !defaultChecked;
+  $('#j-event-3').checkAll('activate', defaultChecked)
+})
+// 触发反选
+$('#j-trigger-btn-2').on('click', function() {
+  $('#j-event-4').checkAll('reverse')
+})
+</code>
+                </pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{# 加载弹窗内容 #}
+{% block modal %}
+{% endblock %}
+
+
+{# 页面专有 javascript 文件地址 #}
+{% block js %}
+<script src="{{static}}/js/brickplus/checkAll.js"></script>
+{% endblock %}
+
+
+{# 编写页面内联 javascript 代码 #}
+{% block jsPage %}
+<script>
+  // demo
+  $(function() {
+    //------
+    // 事件监听
+    $('#j-event-1').on('checked.bp.checkAll', function() {
+      alert($(this).prop('checked') ? '全选' : '取消全选')
+    })
+    $('#j-event-2').on('reversed.bp.checkAll', function() {
+      alert('反选')
+    })
+
+    //---------
+    // 参数配置
+    $('#j-event-3').checkAll();
+    $('#j-event-4').checkAll();
+
+    //------
+    // button触发
+    var defaultChecked = false;
+    $('#j-trigger-btn').on('click', function() {
+      defaultChecked = !defaultChecked;
+      $('#j-event-3').checkAll('activate', defaultChecked)
+    })
+    // 触发反选
+    $('#j-trigger-btn-2').on('click', function() {
+      $('#j-event-4').checkAll('reverse')
+    })
+  })
+</script>
+{% endblock %}

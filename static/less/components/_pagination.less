@@ -1,0 +1,161 @@
+// ******************
+// 分页
+// ******************
+
+//分页尺寸mixin
+.pagination-size(@size:@size-default-pagination,@fontSize:@fontSize-default-pagination,@iconFontSize:@iconFontSize-default-pagination) {
+
+  > li {
+
+    > a,
+    > span {
+      .square(@size);
+      line-height: @size - 2*@borderWidth-default-pagination;
+      font-size: @fontSize;
+
+      > span {
+        font-size: @iconFontSize;
+      }
+    }
+  }
+}
+
+.pagination-box {
+  font-size: 0;
+  line-height: 0;
+
+  > .p-add-ons {
+    .inline-block();
+    width: 160px;
+    vertical-align: middle;
+  }
+
+  > p.p-add-ons {
+    font-size: @fontSize-smaller;
+    color: @fontColor-viceText;
+    line-height: @line-height-base;
+    width: auto;
+  }
+}
+
+.paginations,
+.pagination {
+  .reset-list(left,0,0);
+  .clearfix();
+  .inline-block();
+  vertical-align: middle;
+
+  > li {
+
+    > a,
+    > span {
+      position: relative;
+      margin-left: -@borderWidth-default-pagination;
+      display: block;
+      .square(@size-default-pagination);
+      border: @borderWidth-default-pagination solid @borderColor-default-pagination;
+      line-height: @size-default-pagination - 2*@borderWidth-default-pagination;
+      font-size: @fontSize-default-pagination;
+      text-align: center;
+      white-space: nowrap;
+      overflow: visible;
+      .link-custom(@fontColor-default-pagination,@fontColorHover-default-pagination,none);
+      background-color: @bgColor-default-pagination;
+
+      > span {
+        font-size: @iconFontSize-default-pagination;
+      }
+    }
+
+    &:first-child {
+
+      > a,
+      > span {
+        margin-left: 0;
+        .border-radius(@borderRadius-default-pagination,0,0,@borderRadius-default-pagination);
+      }
+    }
+
+    &:last-child {
+
+      > a,
+      > span {
+        .border-radius(0,@borderRadius-default-pagination,@borderRadius-default-pagination,0);
+      }
+    }
+  }
+
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus {
+      z-index: 3;
+      border-color: @borderColorHover-default-pagination;
+      background-color: @bgColorHover-default-pagination;
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+
+    &,
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: @fontColorActive-default-pagination;
+      background-color: @bgColorActive-default-pagination;
+      border-color: @borderColorActive-default-pagination;
+      cursor: default;
+    }
+  }
+
+  > .disabled {
+
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: @fontColorDisabled-default-pagination;
+      border-color: @borderColor-default-pagination;
+      background-color: @bgColorDisabled-default-pagination;
+      cursor: not-allowed;
+    }
+  }
+}
+
+//分页尺寸
+.pagination-box.large-pagination {
+
+  .paginations,
+  .pagination {
+    .pagination-size(@size-large-pagination,@fontSize-large-pagination,@iconFontSize-large-pagination);
+
+    > li > a,
+    > li > span {
+
+      > span {
+        line-height: @size-large-pagination - 2*@borderWidth-default-pagination - 4px;
+      }
+    }
+  }
+}
+
+.pagination-box.small-pagination {
+
+  .paginations,
+  .pagination {
+    .pagination-size(@size-small-pagination,@fontSize-small-pagination,@iconFontSize-small-pagination);
+  }
+}
+
+.pagination-box.smaller-pagination {
+
+  .paginations,
+  .pagination {
+    .pagination-size(@size-smaller-pagination,@fontSize-smaller-pagination,@iconFontSize-smaller-pagination);
+  }
+}
+
+

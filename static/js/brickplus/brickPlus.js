@@ -405,7 +405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        if (typeof option === 'string') {
 	            fn = option;
-	            option = { title: '标题', content: '' };
+	            option = { title: '\u6807\u9898', content: '' };
 	        }
 	
 	        option.mid = (0, _jquery2.default)(this).selector.replace(/^#/g, '');
@@ -1329,7 +1329,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // 是否键盘控制
 	            this.props.keys && (0, _jquery2.default)(document).keydown(_jquery2.default.proxy(this.keys, this));
 	
-	            // 是否显示索引
+	            // 是否显示索引 
 	            this.props.dots && this.dots();
 	
 	            // 是否相适应宽度
@@ -1552,7 +1552,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // 构造函数
 	  // -------
 	  // * `element` dom元素对象
-	
 	  function CheckAll(element) {
 	    _classCallCheck(this, CheckAll);
 	
@@ -1632,14 +1631,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'activate',
 	    value: function activate(isChecked) {
-	      var isCheck =
+	      var _ref = [
 	      // button触发全选传值可能为false
-	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked;
-	      var e = // 当前dom元素是否勾选
+	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked, // 当前dom元素是否勾选
 	      $.Event('checked.bp.checkAll', {
 	        relatedTarget: this.$el
 	      }) // 创建选中事件
-	      ;
+	      ],
+	          isCheck = _ref[0],
+	          e = _ref[1];
 	      // button触发全选时，设置全选为选中 by limit
 	
 	      this.$el.prop('checked', isCheck);
@@ -1691,8 +1691,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return $(this).each(function () {
 	    var _data;
 	
-	    var $this = $(_this);
-	    var data = $(_this).data('bp.checkAll');
+	    var _ref2 = [$(_this), $(_this).data('bp.checkAll')],
+	        $this = _ref2[0],
+	        data = _ref2[1];
 	
 	
 	    if (!data) {
@@ -1742,7 +1743,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/**
 	 * 日期选择插件
@@ -2678,7 +2679,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/**
 	 * 模拟下拉框
@@ -3164,7 +3165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      style = { top: '0' },
 	      placement = false; // 方向，向上为 true
 	
-	  // 朝上   
+	  // 朝上    
 	  if (offset.top - scrollTop + elHeight + listHeight > viewHeight) {
 	    style.top = -listHeight + 'px';
 	    placement = true;
@@ -3369,7 +3370,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function ModalLayer(el, props) {
 	        _classCallCheck(this, ModalLayer);
 	
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ModalLayer).call(this, el, props));
+	        return _possibleConstructorReturn(this, (ModalLayer.__proto__ || Object.getPrototypeOf(ModalLayer)).call(this, el, props));
 	    }
 	
 	    return ModalLayer;
@@ -3813,12 +3814,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '__init',
 	        value: function __init(props, inited) {
 	            this.__setProps(props);
-	            var _props = this.props;
-	            var itemsOnPage = _props.itemsOnPage;
-	            var items = _props.items;
-	            var currentPage = _props.currentPage;
-	            var totalPages = _props.totalPages;
-	            var visiblePages = _props.visiblePages;
+	            var _props = this.props,
+	                itemsOnPage = _props.itemsOnPage,
+	                items = _props.items,
+	                currentPage = _props.currentPage,
+	                totalPages = _props.totalPages,
+	                visiblePages = _props.visiblePages;
 	
 	            // 总页数读取配置参数
 	            // 若未配置则 totalPages = items / itemsOnPage
@@ -4482,7 +4483,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 	
-	    // 一般 loading 层
+	    // 一般 loading 层 
 	
 	
 	    _createClass(Spin, [{
@@ -4499,7 +4500,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_bindBtn',
 	        value: function _bindBtn() {
 	            if (this.el.length < 0) {
-	                this.parentEl.append('<button class="btn default">查看更多<button>');
+	                this.parentEl.append('<button class="btn default">\u67E5\u770B\u66F4\u591A<button>');
 	            }
 	            this.el.data('originText', this.el.html());
 	            this.el.on('click', _jquery2.default.proxy(this.spinning, this));
@@ -4634,7 +4635,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        //       var content = '当前状态为' + (isChecked ? '激活' : '未激活');
 	        //       return content;
 	        //     },
-	        //     secondCheckCallBack : function(el,isChecked){
+	        //     secondCheckCallBack : function(el,isChecked){ 
 	        //       // 回调，点击确定后跑逻辑
 	        //       console.log(el,isChecked);  // 随便打印
 	        //     }
@@ -4757,7 +4758,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function ModalLayer(el, props) {
 	        _classCallCheck(this, ModalLayer);
 	
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ModalLayer).call(this, el, props));
+	        return _possibleConstructorReturn(this, (ModalLayer.__proto__ || Object.getPrototypeOf(ModalLayer)).call(this, el, props));
 	    }
 	
 	    return ModalLayer;
@@ -4935,98 +4936,99 @@ return /******/ (function(modules) { // webpackBootstrap
 	var toggle = '[data-toggle="tab"],.tabs-btn';
 	
 	var Tab = function () {
-	    function Tab(element) {
-	        _classCallCheck(this, Tab);
+	  function Tab(element) {
+	    _classCallCheck(this, Tab);
 	
-	        this.$el = $(element);
+	    this.$el = $(element);
 	
-	        this.VERSION = '{{VERSION}}';
+	    this.VERSION = '{{VERSION}}';
 	
-	        // 动画过渡时间
-	        this.TRANSITION_DURATION = 150;
+	    // 动画过渡时间
+	    this.TRANSITION_DURATION = 150;
+	  }
+	
+	  // 切换显示
+	  // ---------
+	
+	
+	  _createClass(Tab, [{
+	    key: 'show',
+	    value: function show() {
+	      var $this = this.$el;
+	
+	      // $ul 导航项元素
+	      // selector 对应项元素选择器
+	      var _ref = [$this.closest('.tabs,[data-tab="item"]'), $this.data('target')],
+	          $ul = _ref[0],
+	          selector = _ref[1];
+	
+	      // 当对应项选择器不存在时，如果为a标签则获取href对应的 hash(锚点)值
+	
+	      if (!selector) {
+	        selector = $this.attr('href');
+	        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
+	      }
+	
+	      // $previous 上一个高亮激活导航项
+	      // hideEvent 隐藏事件,发生在切换之前，由当前高亮激活导航项元素触发
+	      // showEvent 显示事件，发生在切换之前，由下一个高亮激活导航项元素触发
+	      // $target 对应项dom 元素
+	      //
+	      var $previous = $ul.find('.active a'),
+	          _ref2 = [$.Event('hide.bp.tab', { relatedTarget: $this[0] }), $.Event('show.bp.tab', { relatedTarget: $previous[0] }), $(selector)],
+	          hideEvent = _ref2[0],
+	          showEvent = _ref2[1],
+	          $target = _ref2[2];
+	
+	      // 上一个显示tab 项触发隐藏事件
+	      $previous.trigger(hideEvent);
+	      // 当前tab项触发显示事件
+	      $this.trigger(showEvent);
+	
+	      // 阻止默认，则不切换
+	      if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
+	
+	      // tab 导航切换
+	      this.activate($this.closest('li,[data-tab="nav"]'), $ul);
+	      // tab 内容切换
+	      this.activate($target, $target.parent(), function () {
+	        // 切换后上一个选项导航触发`已隐藏`事件
+	        $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0] });
+	        // 整个 tab导航项触发已显示事件
+	        $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0] });
+	      });
 	    }
 	
-	    // 切换显示
-	    // ---------
+	    // 切换内容
+	    // -------
 	
+	  }, {
+	    key: 'activate',
+	    value: function activate(element, container, callback) {
+	      var $active = container.find('> .active'),
+	          transition = callback && $.support.transition && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length),
+	          next = function next() {
+	        $active.removeClass('active').find(toggle).attr('aria-expanded', false);
 	
-	    _createClass(Tab, [{
-	        key: 'show',
-	        value: function show() {
-	            var $this = this.$el;
+	        element.addClass('active').find(toggle).attr('aria-expanded', true);
 	
-	            // $ul 导航项元素
-	            // selector 对应项元素选择器
-	            var $ul = $this.closest('.tabs,[data-tab="item"]');
-	            var selector = $this.data('target');
-	
-	            // 当对应项选择器不存在时，如果为a标签则获取href对应的 hash(锚点)值
-	
-	            if (!selector) {
-	                selector = $this.attr('href');
-	                selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
-	            }
-	
-	            // $previous 上一个高亮激活导航项
-	            // hideEvent 隐藏事件,发生在切换之前，由当前高亮激活导航项元素触发
-	            // showEvent 显示事件，发生在切换之前，由下一个高亮激活导航项元素触发
-	            // $target 对应项dom 元素
-	            //
-	            var $previous = $ul.find('.active a');
-	            var hideEvent = $.Event('hide.bp.tab', { relatedTarget: $this[0] });
-	            var showEvent = $.Event('show.bp.tab', { relatedTarget: $previous[0] });
-	            var $target = $(selector);
-	
-	            // 上一个显示tab 项触发隐藏事件
-	
-	            $previous.trigger(hideEvent);
-	            // 当前tab项触发显示事件
-	            $this.trigger(showEvent);
-	
-	            // 阻止默认，则不切换
-	            if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
-	
-	            // tab 导航切换
-	            this.activate($this.closest('li,[data-tab="nav"]'), $ul);
-	            // tab 内容切换
-	            this.activate($target, $target.parent(), function () {
-	                // 切换后上一个选项导航触发`已隐藏`事件
-	                $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0] });
-	                // 整个 tab导航项触发已显示事件
-	                $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0] });
-	            });
+	        if (transition) {
+	          // ie hack
+	          element[0].offsetWidth;
+	          element.addClass('in');
+	        } else {
+	          element.removeClass('fade');
 	        }
 	
-	        // 切换内容
-	        // -------
+	        callback && callback();
+	      };
 	
-	    }, {
-	        key: 'activate',
-	        value: function activate(element, container, callback) {
-	            var $active = container.find('> .active'),
-	                transition = callback && $.support.transition && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length),
-	                next = function next() {
-	                $active.removeClass('active').find(toggle).attr('aria-expanded', false);
+	      $active.length && transition ? $active.one('uiTransitionEnd', next).emulateTransitionEnd(Tab.TRANSITION_DURATION) : next();
+	      $active.removeClass('in');
+	    }
+	  }]);
 	
-	                element.addClass('active').find(toggle).attr('aria-expanded', true);
-	
-	                if (transition) {
-	                    // ie hack
-	                    element[0].offsetWidth;
-	                    element.addClass('in');
-	                } else {
-	                    element.removeClass('fade');
-	                }
-	
-	                callback && callback();
-	            };
-	
-	            $active.length && transition ? $active.one('uiTransitionEnd', next).emulateTransitionEnd(Tab.TRANSITION_DURATION) : next();
-	            $active.removeClass('in');
-	        }
-	    }]);
-	
-	    return Tab;
+	  return Tab;
 	}();
 	
 	// 插件定义
@@ -5034,12 +5036,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	function Plugin(option) {
-	    return $(this).each(function () {
-	        var $this = $(this);
-	        var data = $this.data('bp.tab');
-	        if (!data) $this.data('bp.tab', data = new Tab(this));
-	        if (typeof option == 'string') data[option] && data[option]();
-	    });
+	  return $(this).each(function () {
+	    var $this = $(this);
+	    var data = $this.data('bp.tab');
+	    if (!data) $this.data('bp.tab', data = new Tab(this));
+	    if (typeof option == 'string') data[option] && data[option]();
+	  });
 	}
 	
 	// jQuery 插件扩展
@@ -5049,14 +5051,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	// 元素插件绑定
 	// -------------
 	var clickHandler = function clickHandler(e) {
-	    if (!$(e.target).hasClass('tab-disabled')) {
-	        e.preventDefault();
-	        Plugin.call($(this), 'show');
-	    }
+	  if (!$(e.target).hasClass('tab-disabled')) {
+	    e.preventDefault();
+	    Plugin.call($(this), 'show');
+	  }
 	};
 	
 	$(function () {
-	    $(document).on('click.bp.tab', toggle, clickHandler);
+	  $(document).on('click.bp.tab', toggle, clickHandler);
 	});
 	
 	module.exports = Tab;
@@ -5104,7 +5106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function TimerPicker(el, props) {
 	        _classCallCheck(this, TimerPicker);
 	
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TimerPicker).call(this, el, toggle, props));
+	        var _this = _possibleConstructorReturn(this, (TimerPicker.__proto__ || Object.getPrototypeOf(TimerPicker)).call(this, el, toggle, props));
 	
 	        _this.props = _jquery2.default.extend({}, TimerPicker.DEFAULTS, _this.props);
 	
@@ -5278,7 +5280,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'show',
 	        value: function show() {
 	            var liEl = this.navEl.children('li');
-	            _get(Object.getPrototypeOf(TimerPicker.prototype), 'show', this).call(this);
+	            _get(TimerPicker.prototype.__proto__ || Object.getPrototypeOf(TimerPicker.prototype), 'show', this).call(this);
 	            liEl.eq(0).trigger('click');
 	        }
 	    }]);
@@ -5359,7 +5361,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param {string} toggleEl 匹配标识
 	     * @param {object} props 配置参数 必须包含{ toggle: ''} 参数 
 	     */
-	
 	    function Drop(el, toggleEl, props) {
 	        _classCallCheck(this, Drop);
 	
@@ -5454,8 +5455,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '__setPosition',
 	        value: function __setPosition() {
-	            var offset = this.el.offset();
-	            var elHeight = this.el.outerHeight(true);
+	            var _ref = [this.el.offset(), this.el.outerHeight(true)],
+	                offset = _ref[0],
+	                elHeight = _ref[1];
 	
 	
 	            this.dropEl.css({ top: offset.top + elHeight + 'px', left: offset.left + 'px' });
@@ -5923,14 +5925,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        focusInvalid  {Boolean}     true            Whether to focus the field that is invalid
 	        ignoreBlank   {Boolean}     false           When the field has no value, whether to ignore validation
 	        ignore        {jqSelector}    ''            Ignored fields (Using jQuery selector)
-	          beforeSubmit  {Function}                    Do something before submit form
+	         beforeSubmit  {Function}                    Do something before submit form
 	        dataFilter    {Function}                    Convert ajax results
 	        valid         {Function}                    Triggered when the form is valid
 	        invalid       {Function}                    Triggered when the form is invalid
 	        validClass    {String}      'n-valid'       Add this class name to a valid field
 	        invalidClass  {String}      'n-invalid'     Add this class name to a invalid field
 	        bindClassTo   {jqSelector}  ':input'        Which element should the className binding to
-	          display       {Function}                    Callback function to get dynamic display
+	         display       {Function}                    Callback function to get dynamic display
 	        target        {Function}                    Callback function to get dynamic target
 	        msgShow       {Function}                    Trigger this callback when show message
 	        msgHide       {Function}                    Trigger this callback when hide message
@@ -5941,12 +5943,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        msgStyle      {String}                      Custom message css style
 	        msgClass      {String}                      Additional added to the message class names
 	        formClass     {String}                      Additional added to the form class names
-	          messages      {Object}                      Custom messages for the current instance
+	         messages      {Object}                      Custom messages for the current instance
 	        rules         {Object}                      Custom rules for the current instance
 	        fields        {Object}                      Field set to be verified
 	        {String}        key    name|#id
 	        {String|Object} value                       Rule string, or an object is passed more arguments
-	          fields[key][rule]       {String}            Rule string
+	         fields[key][rule]       {String}            Rule string
 	        fields[key][display]    {String|Function}
 	        fields[key][tip]        {String}            Custom friendly message when focus the input
 	        fields[key][ok]         {String}            Custom success message
@@ -8652,11 +8654,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var RE = {};
 	
 	// ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"]
-	var ARR_CHINESE_NUMBER = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+	var ARR_CHINESE_NUMBER = ['\u96F6', '\u58F9', '\u8D30', '\u53C1', '\u8086', '\u4F0D', '\u9646', '\u67D2', '\u634C', '\u7396'];
 	//["元", "拾", "佰", "仟", "万", "拾", "佰","仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟"];
-	var ARR_CHINESE_UNIT = ['元', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿', '拾', '佰', '仟', '万', '拾', '佰', '仟'];
+	var ARR_CHINESE_UNIT = ['\u5143', '\u62FE', '\u4F70', '\u4EDF', '\u4E07', '\u62FE', '\u4F70', '\u4EDF', '\u4EBF', '\u62FE', '\u4F70', '\u4EDF', '\u4E07', '\u62FE', '\u4F70', '\u4EDF'];
 	//["角", "分", "厘" ,"毫","丝","忽"];
-	var ARR_CHINESE_DEC = ['角', '分', '厘', '毫', '丝', '忽'];
+	var ARR_CHINESE_DEC = ['\u89D2', '\u5206', '\u5398', '\u6BEB', '\u4E1D', '\u5FFD'];
 	
 	// 最大的处理位数，级别:千万亿
 	var NUM_MAX_INTEGERS = 16;
@@ -8806,9 +8808,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (i === NUM_MAX_DEC || i === this.decimalsSize) {
 	        break;
 	      }
-	      chineseDecimal.push(decimals[i] == 0 ? '零' : ARR_CHINESE_NUMBER[decimals[i]] + ARR_CHINESE_DEC[i]);
+	      chineseDecimal.push(decimals[i] == 0 ? '\u96F6' : ARR_CHINESE_NUMBER[decimals[i]] + ARR_CHINESE_DEC[i]);
 	    }
-	    return chineseDecimal.join('').replace(/\u96F6{2,}/g, '零').replace(/\u96F6{1,}$/, '');
+	    return chineseDecimal.join('').replace(/\u96F6{2,}/g, '\u96F6').replace(/\u96F6{1,}$/, '');
 	  },
 	  /**
 	   * 5-8位没有数字，就不需要万了
@@ -8851,11 +8853,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	ConvertTradition.DEFAULTS = {
 	  target: null,
 	  // 前缀文字人民币
-	  prefix: '人民币',
+	  prefix: '\u4EBA\u6C11\u5E01',
 	  // 小数点位数
 	  dec: 2,
 	  // 后缀文字整
-	  unit: '整'
+	  unit: '\u6574'
 	};
 	
 	ConvertTradition.prototype = {
@@ -8871,13 +8873,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  update: function update(str) {
 	    // 零元
-	    str = str ? str : '零元';
+	    str = str ? str : '\u96F6\u5143';
 	    //var thisVal = parseFloat(this.$el.val());
 	    // 1 === 1.00
 	    //str = (thisVal === parseInt(thisVal)) ? this.option.prefix+str+this.option.unit : this.option.prefix+str;
 	    var dec = str.substr(-1, 1);
 	    //console.log(dec === '元')
-	    str = dec === '元' ? this.option.prefix + str + this.option.unit : this.option.prefix + str;
+	    str = dec === '\u5143' ? this.option.prefix + str + this.option.unit : this.option.prefix + str;
 	    this.$target.html(str);
 	  }
 	};
@@ -9035,6 +9037,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  //
 	  //        return false;
 	  //    }
+	
 	
 	  /**
 	   * 检测 external 是否包含该字段
@@ -9207,6 +9210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        // console.log(minus(120000, 1000))
 	        // console.log(minus2(120000, 1000))
+	
 	
 	        if (diff <= 0) {
 	          typeof callback === 'function' && callback(-1);

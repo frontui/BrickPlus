@@ -192,10 +192,27 @@
                     <form id="demo_101" action="results.php" method="post" autocomplete="off" data-validator-option="{theme:'yellow_top'}">
                       <fieldset>
                         <!-- 定义了mobile规则，并且通过data-rule使用 -->
-                        <div class="form-group"> <label class="form-control-label" for="FormTree1">
+                        <div class="form-group fn-pb-10"> <label class="form-control-label" for="FormTree1">
                   <span>标准表单案例</span>
                 </label>
-                          <div class="form-control-wrap"> <input name="mobile" class="form-control" placeholder="手机号" data-rule="required; mobile" data-rule-mobile="[/^1[3458]\d{9}$/, '请检查手机号格式']"> </div> <button type="submit" class="btn default fn-mt-20">提交</button> </div>
+                          <div class="form-control-wrap"> <input name="mobile" class="form-control" placeholder="手机号" data-rule="required; mobile" data-rule-mobile="[/^1[3458]\d{9}$/, '请检查手机号格式']"> </div>
+                        </div>
+                        <div class="form-group"> <label class="form-control-label">
+                  <span>标准表单案例</span>
+                </label>
+                          <div class="form-control-wrap">
+                            <div class="form-control-check"> <label>
+                      多选项
+                      <input type="checkbox" name="select" data-rule="checked; select">
+                    </label> <label>
+                      多选项
+                      <input type="checkbox" name="select">
+                    </label> </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-control-wrap"> <button type="submit" class="btn default fn-mt-20">提交</button> </div>
+                        </div>
                       </fieldset>
                     </form>
                     <div class="example-code"> <pre>

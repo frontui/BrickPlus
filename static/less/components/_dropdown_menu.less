@@ -1,0 +1,192 @@
+﻿@charset "utf-8";
+
+// ******************
+// 按钮式下拉菜单
+// ******************
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: @zIndex-dropDown-Menu;
+  display: none;
+  //display: block;
+  float: left;
+  min-width: @minWidth-dorpDown-menu;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: @fontSize-smaller;
+  text-align: left;
+  background-color: @bgColor-primary;
+  border: 1px solid @borderColor-dorpDown-menu;
+  .rounded(@borderRadius-dorpDown-menu);
+  .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+  background-clip: padding-box;
+
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  .divider {
+    .divider(@borderColor-primary);
+  }
+
+  > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @line-height-base;
+    .word-wrap();
+    .link-custom(@fontColor-default, @fontColor-link, none);
+    .transition(all, 0.3s, ease, 0);
+
+    &:hover {
+      background-color: @bgColorHover-btn-dorpDown-menu;
+    }
+  }
+}
+
+.dropup,
+.dropdown {
+  position: relative;
+}
+
+.dropup,
+.dropdown {
+
+  .caret {
+    border-top: 0;
+    border-bottom: @sizeX-default-caret dashed;
+    border-bottom: @sizeX-default-caret solid ~"\9"; //兼容IE8
+    content: "";
+  }
+
+  .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 2px;
+  }
+}
+
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+
+.open {
+
+  > .dropdown-menu {
+    display: block;
+  }
+
+  > a {
+    outline: 0;
+  }
+}
+
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: @fontSize-smaller;
+  line-height: @line-height-base;
+  color: @fontColor-viceText;
+  .word-wrap();
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: (@zIndex-dropDown-Menu - 10);
+}
+
+
+// ------------
+// drop 通用类
+.bp-drop {
+  .dropdown-menu;
+  margin: 0;
+  padding: 0;
+  z-index: @zIndex-dropDown-Menu;
+
+  // display: block;
+
+  &.show {
+    display: block;
+  }
+
+  // ------------
+  // tab
+  &-nav {
+    margin: 0;
+    padding: 0;
+    min-width: 300px;
+    list-style: none;
+    border-top: 2px solid @domColor1;
+    background: #fcfcfc;
+    border-bottom: 1px solid @borderColor-default;
+    font-size: @fontSize-small;
+    .clearfix;
+
+    > li {
+      float: left;
+      margin-bottom: -1px;
+      padding: 8px 25px;
+      border-left: 1px solid @borderColor-default;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        &.active {
+          border-right: 1px solid @borderColor-default;
+        }
+      }
+
+      // 选中状态
+      &.active {
+        color: @domColor1;
+        background: #fff;
+        border-bottom-color: #fff; 
+      }
+    }
+  }
+
+  &-list {
+    display: none;
+    padding: 20px;
+    margin: 0;
+    width: 340px;
+    list-style: none;
+    
+    &.active {
+      display: block;
+    }
+  
+    > li {
+      display: inline-block;
+      padding: 5px 10px;
+      width: 50px;
+      text-align: center;
+
+      &:hover, &.active {
+        cursor: pointer;
+        color: @domColor1;
+        background: @bgColorHover-btn-dorpDown-menu;
+        border-radius: @borderRadius-public;
+      }
+    }
+  }
+}

@@ -407,7 +407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        if (typeof option === 'string') {
 	            fn = option;
-	            option = { title: '标题', content: '' };
+	            option = { title: '\u6807\u9898', content: '' };
 	        }
 	
 	        option.mid = (0, _jquery2.default)(this).selector.replace(/^#/g, '');

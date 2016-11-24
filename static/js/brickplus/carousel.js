@@ -369,7 +369,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // 是否键盘控制
 	            this.props.keys && (0, _jquery2.default)(document).keydown(_jquery2.default.proxy(this.keys, this));
 	
-	            // 是否显示索引
+	            // 是否显示索引 
 	            this.props.dots && this.dots();
 	
 	            // 是否相适应宽度

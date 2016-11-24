@@ -1,0 +1,102 @@
+// ******************
+// 进度条
+// ******************
+.progress {
+  overflow: hidden;
+  height: @height-default-progressBar;
+  background-color: @bgColor-warp-default-progressBar;
+  .rounded(@height-default-progressBar);
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.08));
+  .clearfix();
+}
+
+.progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: @fontSize-smaller;
+  line-height: @line-height-base;
+  color: #fff;
+  text-align: center;
+  background: @bgColor-body-default-progressBar;
+  .box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
+  .transition(all,.6s,ease,1);
+  .rounded(@height-default-progressBar);
+
+  & + & {
+    .rounded(0);
+  }
+
+  &:first-child {
+    .border-radius(@height-default-progressBar,0,0,@height-default-progressBar);
+  }
+
+  &:last-child {
+    .border-radius(0,@height-default-progressBar,@height-default-progressBar,0);
+  }
+}
+
+// 主题
+.bar-success {
+  background: @bgColor-body-success-progressBar;
+}
+
+.bar-warning {
+  background: @bgColor-body-warning-progressBar;
+}
+
+.bar-danger {
+  background: @bgColor-body-danger-progressBar;
+}
+
+.bar-disabled {
+  background: @bgColor-body-disabled-progressBar;
+}
+
+// 斑马条纹
+.bar-striped {
+  #gradient > .striped(); //引用梯度工具
+  background-size: @stripedSize-default-progressBar @stripedSize-default-progressBar;
+  background-color: lighten(@domColor1,15%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
+  .animation-s(bar-stripes,2s,linear,0,infinite,normal,running,both);
+
+  &.bar-success {
+    background-color: lighten(@domColor2,10%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
+  }
+
+  &.bar-warning {
+    background-color: lighten(@domColor5,25%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
+  }
+
+  &.bar-danger {
+    background-color: lighten(@domColor3,10%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
+  }
+
+  &.bar-disabled {
+    background-color: darken(#fff,17%) !important; //将 .progress-bar 的渐变背景变回纯色，让条纹样式的渐变样式生效
+  }
+}
+
+// 条纹进度条动作
+& {
+  .keyframes( bar-stripes );
+
+  .-frames(@-...) {
+    0% {
+      @{-}background-position: 40px 0;
+    }
+    100% {
+      @{-}background-position: 0 0;
+    }
+  }
+}
+
+// 尺寸
+.progress.size-l {
+  height: @height-sizeL-progressBar;
+}
+
+.progress.size-s {
+  height: @height-sizeS-progressBar;
+}
+

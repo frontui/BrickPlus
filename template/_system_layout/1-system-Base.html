@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="e+大账户" />
+
+        <title>
+            {# 加载页面title项 #}
+            {% block title %}{% endblock %}
+        </title>
+
+        <!--[if lte IE 7]>
+        <script >
+          window.onload = function(){ location.href='upgrade.html'; }
+        </script>
+        <![endif]-->
+
+        {# 加载favicon #}
+        <link href="{{ static }}/images/systemDefault.ico" rel="icon" type="image/x-icon" />
+
+        {# 加载公共样式表 #}
+        {% block globalCss %}{% endblock %}
+
+        {# 加载页面专有样式表 #}
+        {% block css %}{% endblock %}
+
+        {# 样式兼容IE8 #}
+        <!--[if IE 8]>
+		    <link rel="stylesheet" href="{{ static }}/css/ie-8.css?v={{ version }}">
+        <![endif]-->
+
+        {# H5 dom 兼容解决方案 #}
+        <!--[if lt IE 9]>
+		    <script src="{{ bower_components }}/html5shiv/dist/html5shiv.min.js?v={{ version }}"></script>
+            <script src="{{ bower_components }}/respond/dest/respond.min.js?v={{ version }}"></script>
+            <script src="{{ bower_components }}/es5-shim/es5-shim.min.js?v={{ version }}"></script>
+            <script src="{{ bower_components }}/es5-shim/es5-sham.min.js?v={{ version }}"></script>
+        <![endif]-->
+
+        {# 加载页面内联 css 代码 #}
+        {% block stylePage %}{% endblock %}
+
+    </head>
+
+    {# 加载页面 body 类 #}
+    <body {% block bodyClass %}{% endblock %}>
+
+        {# 加载页面内容 #}
+        {% block body %}{% endblock %}
+
+        {# 加载弹窗内容 #}
+        {% block modal %}{% endblock %}
+
+        {# 加载公共 javascript 文件 #}
+        {% block globalJs %}{% endblock %}
+
+        {# 加载页面专有 javascript 文件 #}
+        {% block js %}{% endblock %}
+
+        {# 加载页面内联 javascript 代码 #}
+        {% block jsPage %}{% endblock %}
+
+    </body>
+</html>

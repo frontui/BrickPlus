@@ -1,0 +1,114 @@
+﻿@charset "utf-8";
+
+// ******************
+// 递归生成 margin 族类
+// ******************
+.init-margin(@min: 0, @max: 50, @space: 5, @pre: fn) {
+  .build-margin(@count) when (@count >= @min) {
+    .build-margin((@count - @space));
+
+    .@{pre}-mt-@{count} {
+      margin-top: @count * 1px !important;
+    }
+    .@{pre}-mb-@{count} {
+      margin-bottom: @count * 1px !important;
+    }
+    .@{pre}-mtb-@{count} {
+      margin-top: @count * 1px !important;
+      margin-bottom: @count * 1px !important;
+    }
+
+    .@{pre}-ml-@{count} {
+      margin-left: @count * 1px !important;
+    }
+    .@{pre}-mr-@{count} {
+      margin-right: @count * 1px !important;
+    }
+    .@{pre}-mlr-@{count} {
+      margin-left: @count * 1px !important;
+      margin-right: @count * 1px !important;
+    }
+
+    .@{pre}-ma-@{count} {
+      margin: @count * 1px !important;
+    }
+  }
+
+  .build-margin(@max);
+}
+.init-margin;
+
+
+// ******************
+// 递归生成 padding 族类
+// ******************
+.init-padding(@min: 0, @max: 50, @space: 5, @pre: fn) {
+  .build-padding(@count) when (@count >= @min) {
+    .build-padding((@count - @space));
+
+    .@{pre}-pt-@{count} {
+      padding-top: @count * 1px !important;
+    }
+    .@{pre}-pb-@{count} {
+      padding-bottom: @count * 1px !important;
+    }
+    .@{pre}-ptb-@{count} {
+      padding-top: @count * 1px !important;
+      padding-bottom: @count * 1px !important;
+    }
+
+    .@{pre}-pl-@{count} {
+      padding-left: @count * 1px !important;
+    }
+    .@{pre}-pr-@{count} {
+      padding-right: @count * 1px !important;
+    }
+    .@{pre}-plr-@{count} {
+      padding-left: @count * 1px !important;
+      padding-right: @count * 1px !important;
+    }
+
+    .@{pre}-pa-@{count} {
+      padding: @count * 1px !important;
+    }
+  }
+
+  .build-padding(@max);
+}
+.init-padding;
+
+
+// ******************
+// 递归生成 fontsize 和 lineheight 族类
+// ******************
+.init-fontSize(@min: 12, @max: 36, @space: 2, @pre: fs) {
+  .build-fontSize(@count) when (@count >= @min) {
+    .build-fontSize((@count - @space));
+
+    .@{pre}-@{count} {
+      font-size: @count * 1px !important;
+    }
+    .lh-@{count} {
+      line-height: @count * 1px !important;
+    }
+  }
+
+  .build-fontSize(@max);
+}
+.init-fontSize;
+
+// ******************
+// 递归生成 width 族类
+// ******************
+.init-width(@min: 50, @max: 400, @space: 10, @pre: w) {
+  .build-width(@count) when (@count >= @min) {
+    .build-width((@count - @space));
+
+    .@{pre}-@{count} {
+      width: @count * 1px !important;
+    }
+  }
+
+  .build-width(@max);
+}
+.init-width;
