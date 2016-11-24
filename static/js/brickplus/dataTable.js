@@ -99,7 +99,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // 构造函数
 	  // -------
 	  // * `element` dom元素对象
-	
 	  function CheckAll(element) {
 	    _classCallCheck(this, CheckAll);
 	
@@ -179,14 +178,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'activate',
 	    value: function activate(isChecked) {
-	      var isCheck =
+	      var _ref = [
 	      // button触发全选传值可能为false
-	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked;
-	      var e = // 当前dom元素是否勾选
+	      !isChecked && isChecked !== false ? this.$el.is(':checked') : isChecked, // 当前dom元素是否勾选
 	      $.Event('checked.bp.checkAll', {
 	        relatedTarget: this.$el
 	      }) // 创建选中事件
-	      ;
+	      ];
+	      var isCheck = _ref[0];
+	      var e = _ref[1];
 	      // button触发全选时，设置全选为选中 by limit
 	
 	      this.$el.prop('checked', isCheck);
@@ -238,8 +238,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return $(this).each(function () {
 	    var _data;
 	
-	    var $this = $(_this);
-	    var data = $(_this).data('bp.checkAll');
+	    var _ref2 = [$(_this), $(_this).data('bp.checkAll')];
+	    var $this = _ref2[0];
+	    var data = _ref2[1];
 	
 	
 	    if (!data) {
@@ -668,7 +669,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.dom = {
 	            $tbody: null,
 	            $el: $el,
-	            $loading: null, //加载
 	            $pageNumber: null,
 	            pageJumpButtonId: null,
 	            pageJSelectId: null,
@@ -692,7 +692,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this._buildTableHead();
 	                this._setTitleByColumns(this.model.columns);
 	            }
-	            this._buildLoading();
 	            this._build();
 	        }
 	    }, {
@@ -709,7 +708,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_getData',
 	        value: function _getData() {
 	            //获取数据并渲染
-	            this.dom.$el.find('.btn-spinner').css({ display: 'block' });
 	            this.model.queryParams && _jquery2.default.extend(this.model.requestData, this.model.queryParams());
 	            _jquery2.default.extend(this.model.requestData, { t: new Date().getTime().toString() }); //时间戳清除浏览器缓存
 	            _jquery2.default.ajax({
@@ -723,7 +721,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    this._render(json);
 	                    //初始化页脚信息
 	                    this._setPagination(json);
-	                    this.dom.$el.find('.btn-spinner').css({ display: 'none' });
 	                }.bind(this),
 	                error: function error() {
 	                    // console.log("dd");
@@ -765,6 +762,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                for (var j = 0; j < this.model.fields.length; j++) {
 	                    var title = this.model.fields[j];
 	                    var formatter = this.model.formatters[j];
+	                    console.log(formatter);
 	                    var style = this.model.styles[j];
 	                    var $td = (0, _jquery2.default)("<td></td>");
 	                    var obj = eval('(' + style + ')');
@@ -775,12 +773,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            this.dom.$tbody = $tbody;
 	            this.dom.$el.append($tbody);
-	        }
-	    }, {
-	        key: '_buildLoading',
-	        value: function _buildLoading() {
-	            this.dom.$loading = (0, _jquery2.default)('<div class=\"btn btn-spinner\" disabled=\"\">Loading...</div>');
-	            this.dom.$el.append(this.dom.$loading);
 	        }
 	    }, {
 	        key: '_buildTableHead',
@@ -816,7 +808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var pageInputId = "j-page-input-" + new Date().getTime();
 	            this.dom.pageJumpButtonId = jumpId;
 	            this.dom.pageInputId = pageInputId;
-	            var $jupmDiv = (0, _jquery2.default)("<div class=\"p-add-ons fn-ml-15 \">" + "<div class=\"form-group form-gs form-no-label\">" + "<div class=\"form-gs-box\">" + "<div class=\"form-control-wrap\">" + "<input type=\"text\" class=\"form-control\" placeholder=\"跳转\" id=\"" + pageInputId + "\">" + "</div>" + "<div class=\"form-addon child-right\">页</div>" + "<div class=\"form-addon-com\"> " + "<button type=\"button\" class=\"btn default\" id=\"" + jumpId + "\">GO</button>" + "</div>" + "</div>" + "</div>");
+	            var $jupmDiv = (0, _jquery2.default)("<div class=\"p-add-ons fn-ml-15\">" + "<div class=\"form-group form-gs form-no-label\">" + "<div class=\"form-gs-box\">" + "<div class=\"form-control-wrap\">" + "<input type=\"text\" class=\"form-control\" placeholder=\"跳转\" id=\"" + pageInputId + "\">" + "</div>" + "<div class=\"form-addon child-right\">页</div>" + "<div class=\"form-addon-com\"> " + "<button type=\"button\" class=\"btn default\" id=\"" + jumpId + "\">GO</button>" + "</div>" + "</div>" + "</div>");
 	            //每页显示条数
 	            var selectId = "s-page-itempage-" + new Date().getTime();
 	            this.dom.pageJSelectId = selectId;
@@ -885,8 +877,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            for (var i = 0; i < columns.length; i++) {
 	                var obj = columns[i];
 	                this.model.fields.push(obj.field || null);
-	                this.model.formatters.push(obj.formatter || null);
-	                this.model.styles.push(obj.style || null);
+	                this.model.formatters.push(obj.formatter);
+	                this.model.styles.push(obj.style);
 	            }
 	        }
 	
@@ -1019,7 +1011,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!data) (0, _jquery2.default)(this).data('bp.dataTable', data = new DataTable((0, _jquery2.default)(this), _jquery2.default.extend({}, (0, _jquery2.default)(this).data(), options)));
 	        return data;
 	    }
-	    if (typeof options == 'string' && typeof args == 'undefined') {
+	    if (typeof options == 'string' && args == 'undefined') {
 	        var data = (0, _jquery2.default)(this).data('bp.dataTable');
 	        if (!data) (0, _jquery2.default)(this).data('bp.dataTable', data = new DataTable((0, _jquery2.default)(this), _jquery2.default.extend({}, (0, _jquery2.default)(this).data(), options)));
 	        if (typeof options == 'string') {
