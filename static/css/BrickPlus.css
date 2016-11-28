@@ -483,9 +483,6 @@ th {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-vpn_key:before {
-  content: "\e0da";
-}
 .icon-free_breakfast:before {
   content: "\eb44";
 }
@@ -4210,6 +4207,8 @@ select[size].form-control {
 .form-control-modal,
 .form-control-date {
   position: relative;
+  font-size: 0;
+  line-height: 0;
 }
 .form-control-wrap > label,
 .form-control-dropdown > label,

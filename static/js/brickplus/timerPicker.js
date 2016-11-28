@@ -137,16 +137,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(TimerPicker, [{
 	        key: '__renderHH',
 	        value: function __renderHH() {
-	            var hours = 23,
+	            var hours = 24,
 	                _html = [],
 	                h = this.timer[0],
 	                cls = '';
-	            if (this.props.h == 12) {
-	                hours = 12;var i = 1;
-	            } else {
-	                var i = 0;
-	            }
-	            for (; i <= hours; i++) {
+	            if (this.props.h == 12) hours = 12;
+	            for (var i = 1; i <= hours; i++) {
 	                cls = parseInt(h) === i ? ' class="active"' : '';
 	                _html.push('<li data-value="' + i + '"' + cls + '>' + i + '</li>');
 	            }
