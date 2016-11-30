@@ -35,12 +35,13 @@ export default class TimerPicker extends Drop {
     // 渲染小时
     // 根据配置参数h来决定24或者12
     __renderHH() {
-        let hours = 24,
+        let hours = 23,
             _html = [],
             h = this.timer[0],
-            cls = ''
-        if(this.props.h == 12) hours = 12;
-        for(let i = 1; i <= hours; i++) {
+            cls = '',
+            i = 0
+        if(this.props.h == 12) {hours = 12;i = 1};
+        for(; i <= hours; i++) {
             cls = parseInt(h) === i ?  ' class="active"' : '';
             _html.push(`<li data-value="${i}"${cls}>${i}</li>`)
         }

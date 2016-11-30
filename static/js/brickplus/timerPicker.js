@@ -142,7 +142,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                h = this.timer[0],
 	                cls = '',
 	                i = 0;
-	            if (this.props.h == 12) {hours = 12;i = 0};
+	            if (this.props.h == 12) {
+	                hours = 12;i = 1;
+	            };
 	            for (; i <= hours; i++) {
 	                cls = parseInt(h) === i ? ' class="active"' : '';
 	                _html.push('<li data-value="' + i + '"' + cls + '>' + i + '</li>');
