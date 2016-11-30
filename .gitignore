@@ -1,7 +1,7 @@
 node_modules/
 #dist/
 html/
-OutPut/
+output/
 
 node_modules
 
@@ -62,4 +62,3 @@ document/
 
 # BrickPlus-Mixin
 BrickPlus-Mixin/
-npm-debug.log

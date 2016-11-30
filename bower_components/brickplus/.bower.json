@@ -1,6 +1,6 @@
 {
   "name": "brickplus",
-  "version": "1.1.4",
+  "version": "1.0.13",
   "homepage": "https://github.com/frontui/BrickPlus",
   "authors": [
     "frontpay"
@@ -40,19 +40,19 @@
     "html5shiv": "~3.7.3",
     "es5-shim": "^4.5.8",
     "respond": "~1.4.2",
-    "brickplus": "^1.1.4"
+    "brickplus": "^1.0.6"
   },
   "devDependencies": {
     "frontui": "^1.0.0",
     "requirejs": "^2.2.0"
   },
-  "_release": "1.1.4",
+  "_release": "1.0.13",
   "_resolution": {
     "type": "version",
-    "tag": "v1.1.4",
-    "commit": "c3b11fdcacfd6430aa5bc0879dfe2eb4648edd7d"
+    "tag": "v1.0.13",
+    "commit": "0e1290501dc08fa17e4143411e494e4b338f7216"
   },
   "_source": "https://github.com/frontui/BrickPlus.git",
-  "_target": "^1.1.4",
+  "_target": "^1.0.6",
   "_originalSource": "brickplus"
 }

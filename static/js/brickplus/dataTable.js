@@ -650,6 +650,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function DataTable($el, option) {
 	        _classCallCheck(this, DataTable);
 	
+	        this.event = {
+	            onLoadSuccess: null, //在数据加载成功的时候触发。
+	            onBeforeLoad: null, //在载入请求数据数据之前触发，如果返回false可终止载入数据操作。
+	            onLoadError: null, //在载入远程数据产生错误的时候触发。
+	            onBeforeDraw: null };
 	        this.model = {
 	            rows: [],
 	            columns: [],
@@ -687,6 +692,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (this.option.hasOwnProperty('toolbar')) this.model.toolbars = this.option.toolbar; //是否有toolbar
 	            if (this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams; //是否有queryParams
 	            if (this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns; //columns
+	            //event
+	            if (this.option.hasOwnProperty('onBeforeLoad')) this.event.onBeforeLoad = this.option.onBeforeLoad;
+	            if (this.option.hasOwnProperty('onLoadSuccess')) this.event.onLoadSuccess = this.option.onLoadSuccess;
+	            if (this.option.hasOwnProperty('onLoadError')) this.event.onLoadError = this.option.onLoadError;
+	            if (this.option.hasOwnProperty('onBeforeDraw')) this.event.onBeforeDraw = this.option.onBeforeDraw;
 	            this._setTitleByDom(this.dom.$el);
 	            if (this.model.columns.length > 0) {
 	                //判断是否需要重写表头
@@ -713,12 +723,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.dom.$el.find('.btn-spinner').css({ display: 'block' });
 	            this.model.queryParams && _jquery2.default.extend(this.model.requestData, this.model.queryParams());
 	            _jquery2.default.extend(this.model.requestData, { t: new Date().getTime().toString() }); //时间戳清除浏览器缓存
+	            if (this.event.onBeforeLoad) {
+	                var drawAble = this.event.onBeforeLoad();
+	                if (!drawAble) {
+	                    return null;
+	                }
+	            }
 	            _jquery2.default.ajax({
 	                type: this.model.method,
 	                url: this.model.url,
 	                data: this.model.requestData,
 	                dataType: this.model.dataType,
 	                success: function (json) {
+	                    this.event.onLoadSuccess && this.event.onLoadSuccess(json);
 	                    this.model.rows = json.rows;
 	                    this._clear();
 	                    this._render(json);
@@ -726,8 +743,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    this._setPagination(json);
 	                    this.dom.$el.find('.btn-spinner').css({ display: 'none' });
 	                }.bind(this),
-	                error: function error() {
+	                error: function error(e) {
 	                    // console.log("dd");
+	                    this.event.onLoadError && this.event.onLoadError(e);
 	                }
 	            });
 	        }
@@ -755,6 +773,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_render',
 	        value: function _render(json) {
+	
+	            if (this.event.onBeforeDraw) {
+	                var drawAble = this.event.onBeforeDraw();
+	                if (!drawAble) {
+	                    return null;
+	                }
+	            }
 	            var $tbody = (0, _jquery2.default)("<tbody></tbody>");
 	            var rows = json.rows;
 	            for (var i = 0; i < rows.length; i++) {
@@ -932,6 +957,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'draw',
 	        value: function draw() {
+	            var resetPage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+	
+	            if (resetPage) this.model.requestData.page = 1; //重新渲染时回到第1页
 	            this._getData();
 	        }
 	
