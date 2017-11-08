@@ -3566,8 +3566,9 @@ fieldset[disabled] a.btn {
 }
 .large-btn,
 .large-btn-gb .btn {
-  padding: 12px 20px;
+  padding: 10px 20px;
   height: 46px;
+  font-size: 18px;
 }
 .small-btn,
 .small-btn-gb .btn {
@@ -5393,7 +5394,7 @@ select[size].form-control {
   line-height: 20px;
 }
 .form-large .btn {
-  padding: 12px 20px;
+  padding: 10px 20px;
   height: 46px;
 }
 .form-large .form-grid-addon {
@@ -5734,6 +5735,9 @@ select[size].form-control {
     display: block;
     text-align: left;
     width: auto;
+  }
+  .form-group.form-no-label .form-control-label {
+    display: none;
   }
 }
 .form-required .form-control-label > span:before,
@@ -6918,6 +6922,20 @@ select[size].form-control {
 .result-wrap.result-s.result-fail .result-box > .result-content > .result-inner > h1,
 .result-wrap.result-s.result-info .result-box > .result-content > .result-inner > h1 {
   font-size: 27px;
+}
+.result-wrap.result-s.result-vertical .result-box,
+.result-wrap.result-s.result-success.result-vertical .result-box,
+.result-wrap.result-s.result-wait.result-vertical .result-box,
+.result-wrap.result-s.result-fail.result-vertical .result-box,
+.result-wrap.result-s.result-info.result-vertical .result-box {
+  padding-left: 0;
+}
+.result-wrap.result-s.result-vertical .result-box > .result-content,
+.result-wrap.result-s.result-success.result-vertical .result-box > .result-content,
+.result-wrap.result-s.result-wait.result-vertical .result-box > .result-content,
+.result-wrap.result-s.result-fail.result-vertical .result-box > .result-content,
+.result-wrap.result-s.result-info.result-vertical .result-box > .result-content {
+  padding-left: 0;
 }
 .result-wrap.result-s .result-box {
   padding-left: 0;
