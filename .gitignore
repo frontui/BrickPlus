@@ -62,3 +62,8 @@ document/
 
 # BrickPlus-Mixin
 BrickPlus-Mixin/
+
+# history
+.history
+.history/
+.history/*
