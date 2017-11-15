@@ -9,7 +9,6 @@ bower_components
 bower_components/
 
 build/node_modules/
-output/
 www
 www/
 
@@ -55,15 +54,20 @@ $RECYCLE.BIN/
 *.swo
 *.swp
 
-.vscode
-
 # gh-pages
 document/
 
 # BrickPlus-Mixin
 BrickPlus-Mixin/
 
-# history
+OutPut
+OutPut/
+OutPut/*
+
 .history
 .history/
 .history/*
+
+.vscode
+.vscode/
+.vscode/*

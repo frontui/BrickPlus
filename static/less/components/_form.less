@@ -1992,7 +1992,7 @@ select[size].form-control {
 }
 
 @media (max-width: 1024px) {
-  .form-group{
+  .form-group {
     padding-left: 0 !important;
 
     .form-control-label {
@@ -2000,6 +2000,13 @@ select[size].form-control {
       display: block;
       text-align: left;
       width: auto;
+    }
+
+    &.form-no-label {
+
+      .form-control-label {
+        display: none;
+      }
     }
   }
 }
