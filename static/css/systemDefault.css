@@ -11996,7 +11996,7 @@ body > .page-spinner {
 .notify-message {
   position: relative;
   margin-bottom: 10px;
-  padding: 15px;
+  padding: 15px 20px 15px 15px;
   background: #fff;
   color: #999;
   font-size: 16px;
@@ -12012,7 +12012,9 @@ body > .page-spinner {
  ========================================================================== */
 .notify-message > .notify-close {
   visibility: hidden;
-  float: right;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 .notify-message:hover > .notify-close {
   visibility: visible;
@@ -12075,16 +12077,16 @@ body > .page-spinner {
 }
 .notify-bfc {
   position: relative;
-  padding-left: 50px;
+  padding-left: 44px;
 }
 .notify-bfc > i {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -8px;
+  left: -4px;
 }
 .notify-bfc > div {
-  display: block;
-  vertical-align: top;
+  display: inline-block;
+  vertical-align: middle;
 }
 body {
   overflow-x: hidden;

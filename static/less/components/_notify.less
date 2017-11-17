@@ -28,7 +28,7 @@
 @notify-width:                                  350px;
 
 @notify-message-margin-bottom:                  10px;
-@notify-message-padding:                        15px;
+@notify-message-padding:                        15px 20px 15px 15px;
 @notify-message-background:                     #fff;
 @notify-message-color:                          #999;
 @notify-message-border:                         #d9d9d9;
@@ -122,7 +122,10 @@
 
 .notify-message > .notify-close {
     visibility: hidden;
-    float: right;
+    // float: right;
+    position: absolute;
+    top: 8px;
+    right: 8px;
 }
 
 .notify-message:hover > .notify-close { visibility: visible; }
@@ -231,16 +234,16 @@
 
 .notify-bfc {
   position: relative;
-  padding-left: 40px + 10px;
+  padding-left: 40px + 4px;
 
   > i {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -8px;
+    left: -4px;
   }
 
   > div {
-    display: block;
-    vertical-align: top;
+    display: inline-block;
+    vertical-align: middle;
   }
 }
