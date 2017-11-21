@@ -432,14 +432,10 @@ th {
 }
 .fade {
   opacity: 0;
-  -webkit-transition-property: opacity;
-          transition-property: opacity;
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
-  -webkit-transition-timing-function: linear;
-          transition-timing-function: linear;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: opacity;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0;
 }
 .fade.in {
   opacity: 1;
@@ -1267,28 +1263,20 @@ label {
   padding-top: 50px;
   margin-left: 250px;
   margin-right: 30px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0;
 }
 .system-container .system-content-wrap {
   position: relative;
   display: table;
   width: 100%;
   height: 100%;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0;
   padding-bottom: 30px;
 }
 .system-container .system-content {
@@ -1296,7 +1284,7 @@ label {
   height: 100%;
   width: 100%;
   vertical-align: top;
-  background-color: #ffffff;
+  background-color: #f3f4f6;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
@@ -1329,14 +1317,10 @@ label {
   list-style: none;
   cursor: pointer;
   color: rgba(252, 252, 253, 0.55);
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .actgotop:hover,
 .actgotop:active {
@@ -3329,14 +3313,10 @@ dd {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border: 1px solid transparent;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   background-color: transparent;
 }
 .tabs-wrap.prototype .tabs > li > .tabs-btn:hover,
@@ -3420,14 +3400,10 @@ dd {
   cursor: pointer;
   vertical-align: middle;
   line-height: 1.428;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   white-space: nowrap;
   overflow: visible;
   height: 38px;
@@ -3587,7 +3563,7 @@ fieldset[disabled] a.btn {
 }
 .large-btn,
 .large-btn-gb .btn {
-  padding: 10px 20px;
+  padding: 12px 20px;
   height: 46px;
   font-size: 18px;
 }
@@ -4029,14 +4005,10 @@ input:-ms-input-placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   border-radius: 3px;
 }
 .form-control-inline {
@@ -4151,8 +4123,7 @@ select[size].form-control {
   visibility: hidden;
   -webkit-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .form-control-dropdown.multiple .form-control-dropdown-menu > li.hover:after {
   visibility: visible;
@@ -4301,14 +4272,10 @@ select[size].form-control {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   content: '\e070';
   line-height: 18px;
 }
@@ -4343,14 +4310,10 @@ select[size].form-control {
   background-color: #ffffff;
   padding: 0 15px;
   position: relative;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4430,14 +4393,10 @@ select[size].form-control {
   font-size: 16px;
   overflow: hidden;
   z-index: 1;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .form-control-dropdown-btn > i,
 .form-control-modal-btn > i,
@@ -4525,14 +4484,10 @@ select[size].form-control {
   color: #666;
   font-size: 16px;
   white-space: nowrap;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .form-control-static {
   padding: 10px 16px 10px 0;
@@ -4540,14 +4495,10 @@ select[size].form-control {
   font-size: 14px;
   color: #666;
   background-color: #ffffff;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   text-align: left;
 }
 /*.form-table-wrap {
@@ -5440,7 +5391,7 @@ select[size].form-control {
   line-height: 20px;
 }
 .form-large .btn {
-  padding: 10px 20px;
+  padding: 12px 20px;
   height: 46px;
 }
 .form-large .form-grid-addon {
@@ -5792,14 +5743,10 @@ select[size].form-control {
 }
 .fade {
   opacity: 0;
-  -webkit-transition-property: opacity;
-          transition-property: opacity;
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
-  -webkit-transition-timing-function: linear;
-          transition-timing-function: linear;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: opacity;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0;
 }
 .fade.in {
   opacity: 1;
@@ -5820,8 +5767,8 @@ select[size].form-control {
   visibility: hidden;
 }
 .modal-background.fade .modal-wrap {
-  -webkit-transition: -webkit-transform .15s;
-          transition: transform .15s;
+  transition: -webkit-transform .15s;
+  transition: transform .15s;
 }
 .modal-background.fade.in {
   visibility: visible;
@@ -5975,14 +5922,10 @@ select[size].form-control {
   list-style: none;
   cursor: pointer;
   color: #666;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:active {
@@ -6086,14 +6029,10 @@ select[size].form-control {
   list-style: none;
   cursor: pointer;
   color: #666;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bp-drop > li > a:hover,
 .bp-drop > li > a:active {
@@ -6217,14 +6156,10 @@ select[size].form-control {
 }
 .table tr {
   cursor: default;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .table .t-active {
   background-color: #fafafa;
@@ -6608,14 +6543,10 @@ select[size].form-control {
   background-color: #fff;
   word-break: break-all;
   white-space: normal;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   border-radius: 3px;
 }
 .alert.out {
@@ -6637,14 +6568,10 @@ select[size].form-control {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 24px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .alert:before {
   top: 9px;
@@ -6812,14 +6739,10 @@ select[size].form-control {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .alert-body > ul > li.ready {
   opacity: 0;
@@ -7116,17 +7039,12 @@ select[size].form-control {
   line-height: 1.428;
   color: #fff;
   text-align: center;
-  background: -webkit-linear-gradient(top, #82b6e2, #599ed9);
   background: linear-gradient(to bottom, #82b6e2, #599ed9);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.6s;
-          transition-duration: 0.6s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 1;
-          transition-delay: 1;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+  transition-delay: 1;
   border-radius: 10px;
 }
 .progress-bar + .progress-bar {
@@ -7145,23 +7063,18 @@ select[size].form-control {
   border-bottom-left-radius: 0;
 }
 .bar-success {
-  background: -webkit-linear-gradient(top, #85deb0, #5dd396);
   background: linear-gradient(to bottom, #85deb0, #5dd396);
 }
 .bar-warning {
-  background: -webkit-linear-gradient(top, #feb37d, #fe964a);
   background: linear-gradient(to bottom, #feb37d, #fe964a);
 }
 .bar-danger {
-  background: -webkit-linear-gradient(top, #f5a59a, #f17c6b);
   background: linear-gradient(to bottom, #f5a59a, #f17c6b);
 }
 .bar-disabled {
-  background: -webkit-linear-gradient(top, #d4d4d4, #c7c7c7);
   background: linear-gradient(to bottom, #d4d4d4, #c7c7c7);
 }
 .bar-striped {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 20px 20px;
   background-color: #82b6e2 !important;
@@ -8929,8 +8842,7 @@ body > .page-spinner {
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: opacity, visibility .1s;
-          transition: opacity, visibility .1s;
+  transition: opacity, visibility .1s;
 }
 .page-spinner.active {
   visibility: visible;
@@ -9030,14 +8942,10 @@ body > .page-spinner {
   background-color: #e8e8e8;
   cursor: pointer;
   box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.075);
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .switch-inner {
   position: absolute;
@@ -9063,14 +8971,10 @@ body > .page-spinner {
   margin-top: -10px;
   background-color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .switch.disabled {
   background-color: #f5f5f5;
@@ -9671,8 +9575,7 @@ body > .page-spinner {
   line-height: 20px;
   color: #333;
   text-align: center;
-  -webkit-transition: all .3s;
-          transition: all .3s;
+  transition: all .3s;
 }
 .datetimepicker-body > table td.disabled {
   color: #bbb;
@@ -9737,8 +9640,7 @@ body > .page-spinner {
   width: 90px;
   height: 28px;
   border-color: #bfbfbf!important;
-  -webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-          transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }
 .datetimepicker-btns {
   float: right;
@@ -10542,14 +10444,10 @@ body > .page-spinner {
   line-height: 50px;
   padding: 0 25px;
   font-size: 14px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   text-decoration: none;
   list-style: none;
   cursor: pointer;
@@ -10695,14 +10593,10 @@ body > .page-spinner {
   border-radius: 3px;
   background-color: #8596b4;
   text-align: center;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   margin-top: 11.5px;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -10719,14 +10613,10 @@ body > .page-spinner {
   display: block;
   width: 25px;
   height: 25px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   background: url("../images/stnFithemes.png") transparent center center no-repeat;
 }
 .stn-function-icon.themes .fi:hover > i {
@@ -10800,14 +10690,10 @@ body > .page-spinner {
   cursor: pointer;
   color: #666;
   padding: 5px 20px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: linear;
-          transition-timing-function: linear;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  transition-delay: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -10860,14 +10746,10 @@ body > .page-spinner {
   /* Fix for IE7 */
   margin: 5px;
   border: 1px solid transparent;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   cursor: pointer;
 }
 .stn-themes-menu > li:hover {
@@ -10892,14 +10774,10 @@ body > .page-spinner {
   list-style: none;
   cursor: pointer;
   color: #ffffff;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .stn-user-menu > li > a:hover,
 .stn-user-menu > li > a:active {
@@ -10974,14 +10852,10 @@ body > .page-spinner {
   list-style: none;
   cursor: pointer;
   color: #ffffff;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0;
 }
 .system-aside-switch:hover,
 .system-aside-switch:active {
@@ -10999,16 +10873,11 @@ body > .page-spinner {
   height: 2px;
   margin-top: -1px;
   margin-left: -1px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.6s;
-          transition-duration: 0.6s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+  transition-delay: 0;
+  transition-delay: 0.2s;
   background-color: #ffffff;
 }
 .system-aside-switch > span::before,
@@ -11020,22 +10889,17 @@ body > .page-spinner {
   height: 2px;
   left: 0;
   background-color: #ffffff;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.6s;
-          transition-duration: 0.6s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .system-aside-switch > span::before {
   top: -200%;
 }
 .system-aside-switch > span::after {
   bottom: -200%;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 .aside-list-1 {
   width: 250px;
@@ -11044,14 +10908,10 @@ body > .page-spinner {
   list-style: none;
   font-size: 14px;
   line-height: 1.428;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0;
 }
 .aside-list-1 > li {
   float: none;
@@ -11074,14 +10934,10 @@ body > .page-spinner {
   background-color: rgba(38, 47, 59, 0.35);
   border: 1px solid transparent;
   border-radius: 3px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   text-decoration: none;
   list-style: none;
   cursor: pointer;
@@ -11181,14 +11037,10 @@ body > .page-spinner {
   background-color: rgba(255, 255, 255, 0.075);
   border: 1px solid transparent;
   border-radius: 3px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   text-decoration: none;
   list-style: none;
   cursor: pointer;
@@ -11234,14 +11086,10 @@ body > .page-spinner {
   list-style: none;
   cursor: pointer;
   color: #bfbfbf;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .aside-list-1 > li > .aside-list-2 > li > .aside-list-3 > li > a:hover,
 .aside-list-1 > li > .aside-list-2 > li > .aside-list-3 > li > a:active {
@@ -11319,14 +11167,10 @@ body > .page-spinner {
   list-style: none;
   cursor: pointer;
   color: #ffffff;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0;
 }
 .system-assist-nav-switch:hover,
 .system-assist-nav-switch:active {
@@ -11470,14 +11314,10 @@ body > .page-spinner {
   list-style: none;
   cursor: pointer;
   color: #ffffff;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   border-radius: 3px;
   border: 1px solid transparent;
   position: relative;
@@ -11547,14 +11387,10 @@ body > .page-spinner {
   list-style: none;
   cursor: pointer;
   color: #bfbfbf;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   background-color: rgba(38, 47, 59, 0.35);
   padding: 6px 24px 6px 10px;
 }
@@ -11597,8 +11433,7 @@ body > .page-spinner {
   position: relative;
 }
 .carousel.csstransition > ul {
-  -webkit-transition: all 0.3s ease-in;
-          transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 .carousel > ul {
   margin: 0;
@@ -12378,14 +12213,10 @@ body {
   list-style: none;
   cursor: pointer;
   color: #262f3b;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-nav > ul > li > a:hover,
 .bricks-nav > ul > li > a:active {
@@ -12507,14 +12338,10 @@ body {
   margin-top: -23.5px;
   margin-left: -23.5px;
   z-index: 3;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-user-wrap > a > img {
   display: block;
@@ -12536,25 +12363,17 @@ body {
   box-sizing: border-box;
   opacity: 0;
   filter: alpha(opacity=0);
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-user-wrap > a:after {
   border-width: 5px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-user-wrap > a.animation {
   margin-top: 50.5px;
@@ -12649,14 +12468,10 @@ body {
   list-style: none;
   cursor: pointer;
   color: #4492d4;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
-  -webkit-transition-timing-function: linear;
-          transition-timing-function: linear;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0;
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.428;
@@ -12758,14 +12573,10 @@ body {
   list-style: none;
   cursor: pointer;
   color: #8093ad;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-aside-ul-wrap > ul > li > a:hover,
 .bricks-aside-ul-wrap > ul > li > a:active {
@@ -12789,14 +12600,10 @@ body {
   position: absolute;
   right: -15px;
   top: 11px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   opacity: 0;
   filter: alpha(opacity=0);
 }
@@ -12828,39 +12635,27 @@ body {
   box-sizing: border-box;
   opacity: 0;
   filter: alpha(opacity=0);
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-aside-ul-wrap > ul > li > a > b:after {
   border-width: 10px;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 .bricks-aside-ul-wrap > ul > li:after,
 .bricks-aside-ul-wrap > ul > li:before,
 .bricks-aside-ul-wrap > ul > li > a:after,
 .bricks-aside-ul-wrap > ul > li > a:before {
   position: absolute;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0;
   z-index: 2;
 }
 .bricks-aside-ul-wrap > ul > li:before {
@@ -12868,7 +12663,6 @@ body {
   right: 0;
   top: 0;
   height: 1px;
-  background: -webkit-linear-gradient(left, #262f3b 0%, #4492d4 33.33%, #5dd396 66.66%, #262f3b 100%);
   background: linear-gradient(to right, #262f3b 0%, #4492d4 33.33%, #5dd396 66.66%, #262f3b 100%);
 }
 .bricks-aside-ul-wrap > ul > li:hover {
