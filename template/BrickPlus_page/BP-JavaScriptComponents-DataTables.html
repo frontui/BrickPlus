@@ -426,9 +426,6 @@ $('#dg').datagrid({
     }); */
 
     $(document).ready(function(){ 
-        
-         console.log("tableList");
-
          $('#tableList').dataTable({
             url: "/trade/tradelist",
          });
@@ -444,14 +441,14 @@ $('#dg').datagrid({
             }
         }
     }); */
-    $("#ok").click(function() {
+   /*  $("#ok").click(function() {
         //$('#dt').dataTable().draw(); //v1.0.16
         $('#dt').dataTable().model.requestData.page = 1;
         $('#' + $('#dt').dataTable().model.paginationId).pagination('go', 1) //跳回第1页
         $('#dt').dataTable('draw');
-    });
+    }); */
     //获取页脚信息 
-    var page = $('#dt').dataTable('getPagination');
+   // var page = $('#dt').dataTable('getPagination');
     //console.log(page);
     //
     function testFn(value, row, index) {

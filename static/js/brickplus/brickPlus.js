@@ -8140,14 +8140,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.getPager.items = total; //记录数
 	                this.getPager.totalPages = Math.ceil(total / (0, _jquery2.default)(this.dom.$pageNumber).val()); //共几页
 	                this.getPager.render();
-	            } else {}
-	
-	            //  $(this.pagination).pagination();
-	            // $(this.pagination).props.pageStr.show = true;
-	            //  $(this.pagination).items = total; //记录数
-	            //  $(this.pagination).totalPages = Math.ceil(total / $(this.dom.$pageNumber).val()); //共几页
-	            // $(this.pagination).render();
-	
+	            }
 	            //this.getPager.__renderPageStr();
 	        }
 	
