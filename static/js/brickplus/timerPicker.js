@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(25);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 25:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -307,11 +307,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    second: true, // 是否显示秒
 	    in18: ['时', '分', '秒'], // 语言配置
 	    zero: true // 是否格式化补零
-	};
 	
-	// 插件定义
-	// ----------
-	function Plugin(option) {
+	
+	    // 插件定义
+	    // ----------
+	};function Plugin(option) {
 	    return (0, _jquery2.default)(this).each(function () {
 	        var $this = (0, _jquery2.default)(this);
 	        var data = $this.data('bp.tab');
@@ -337,10 +337,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // })
 	});
 
-/***/ },
+/***/ }),
 
 /***/ 26:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -541,7 +541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = Drop;
 
-/***/ }
+/***/ })
 
 /******/ })
 });

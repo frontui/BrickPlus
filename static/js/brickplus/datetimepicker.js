@@ -52,19 +52,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(11);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 /* 3 */,
 /* 4 */,
 /* 5 */,
@@ -74,7 +74,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 9 */,
 /* 10 */,
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -990,9 +990,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = DateTimePikcer;
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -1008,7 +1008,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = zeroPad;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

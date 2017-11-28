@@ -8,6 +8,8 @@ import Pagination from './pagination';
 import './checkAll';
 class DataTable {
     constructor($el, option) {
+
+
         this.event = {
             onLoadSuccess: null, //在数据加载成功的时候触发。
             onBeforeLoad: null, //在载入请求数据数据之前触发，如果返回false可终止载入数据操作。
@@ -45,17 +47,17 @@ class DataTable {
     }
 
     _init() {
-        if(this.option.hasOwnProperty('url')) this.url = this.option.url;  //是否有url
-        if(this.option.hasOwnProperty('toolbar')) this.model.toolbars = this.option.toolbar;  //是否有toolbar
-        if(this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
-        if(this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
+        if (this.option.hasOwnProperty('url')) this.url = this.option.url;  //是否有url
+        if (this.option.hasOwnProperty('toolbar')) this.model.toolbars = this.option.toolbar;  //是否有toolbar
+        if (this.option.hasOwnProperty('queryParams')) this.model.queryParams = this.option.queryParams;  //是否有queryParams
+        if (this.option.hasOwnProperty('columns')) this.model.columns = this.option.columns;  //columns
         //event
-        if(this.option.hasOwnProperty('onBeforeLoad')) this.event.onBeforeLoad = this.option.onBeforeLoad;
-        if(this.option.hasOwnProperty('onLoadSuccess')) this.event.onLoadSuccess = this.option.onLoadSuccess;
-        if(this.option.hasOwnProperty('onLoadError')) this.event.onLoadError = this.option.onLoadError;
-        if(this.option.hasOwnProperty('onBeforeDraw')) this.event.onBeforeDraw = this.option.onBeforeDraw;
+        if (this.option.hasOwnProperty('onBeforeLoad')) this.event.onBeforeLoad = this.option.onBeforeLoad;
+        if (this.option.hasOwnProperty('onLoadSuccess')) this.event.onLoadSuccess = this.option.onLoadSuccess;
+        if (this.option.hasOwnProperty('onLoadError')) this.event.onLoadError = this.option.onLoadError;
+        if (this.option.hasOwnProperty('onBeforeDraw')) this.event.onBeforeDraw = this.option.onBeforeDraw;
         this._setTitleByDom(this.dom.$el);
-        if(this.model.columns.length > 0) { //判断是否需要重写表头
+        if (this.model.columns.length > 0) { //判断是否需要重写表头
             this._buildTableHead();
             this._setTitleByColumns(this.model.columns);
         }
@@ -65,7 +67,7 @@ class DataTable {
 
     _getToolbarData() {
         var obj = {};
-        for(var i = 0; i < this.model.toolbars.length; i++) {
+        for (var i = 0; i < this.model.toolbars.length; i++) {
             var id = this.model.toolbars[i];
             obj[$(id).attr('name')] = $(id).val();
         }
@@ -73,42 +75,52 @@ class DataTable {
     }
 
     _getData() { //获取数据并渲染
-        this.dom.$el.find('.btn-spinner').css({display: 'block'});
+        this.dom.$el.find('.btn-spinner').css({ display: 'block' });
         this.model.queryParams && $.extend(this.model.requestData, this.model.queryParams());
-        $.extend(this.model.requestData, {t: new Date().getTime().toString()}); //时间戳清除浏览器缓存
-        if(this.event.onBeforeLoad) {
+        $.extend(this.model.requestData, { t: new Date().getTime().toString() }); //时间戳清除浏览器缓存
+        if (this.event.onBeforeLoad) {
             var drawAble = this.event.onBeforeLoad();
-            if(!drawAble) {
+            if (!drawAble) {
                 return null;
             }
         }
+
         $.ajax({
             type: this.model.method,
             url: this.model.url,
             data: this.model.requestData,
             dataType: this.model.dataType,
-            success: function(json) {
+            success: function (json) {
+
                 this.event.onLoadSuccess && this.event.onLoadSuccess(json);
                 this.model.rows = json.rows;
                 this._clear();
                 this._render(json);
                 //初始化页脚信息
                 this._setPagination(json);
-                this.dom.$el.find('.btn-spinner').css({display: 'none'});
+                this.dom.$el.find('.btn-spinner').css({ display: 'none' });
             }.bind(this),
-            error: function(e) {
-                // console.log("dd");
-                this.event.onLoadError && this.event.onLoadError(e);
+            error: function (e) {
+                this.event && this.event.onLoadError && this.event.onLoadError(e);
             }
         });
     }
 
     _setPagination(json) {
         var total = json.total;
-        this.getPager.props.pageStr.show = true;
-        this.getPager.items = total; //记录数
-        this.getPager.totalPages = Math.ceil(total / $(this.dom.$pageNumber).val()); //共几页
-        this.getPager.render();
+        if (this.getPager) {
+            this.getPager.props.pageStr.show = true;
+            this.getPager.items = total; //记录数
+            this.getPager.totalPages = Math.ceil(total / $(this.dom.$pageNumber).val()); //共几页
+            this.getPager.render();
+        } else {
+
+            //  $(this.pagination).pagination();
+            // $(this.pagination).props.pageStr.show = true;
+            //  $(this.pagination).items = total; //记录数
+            //  $(this.pagination).totalPages = Math.ceil(total / $(this.dom.$pageNumber).val()); //共几页
+            // $(this.pagination).render();
+        }
         //this.getPager.__renderPageStr();
     }
 
@@ -119,22 +131,22 @@ class DataTable {
 
     //渲染表格
     _render(json) {
-        
-        if(this.event.onBeforeDraw) {
+
+        if (this.event.onBeforeDraw) {
             var drawAble = this.event.onBeforeDraw();
-            if(!drawAble) {
+            if (!drawAble) {
                 return null;
             }
         }
         var $tbody = $("<tbody></tbody>");
         var rows = json.rows;
-        for(var i = 0; i < rows.length; i++) {
+        for (var i = 0; i < rows.length; i++) {
             //生成行
             var row = rows[i];
             var $tr = $("<tr></tr>");
             $tbody.append($tr);
             //根据头部data-options 绑定的ID生成格子
-            for(var j = 0; j < this.model.fields.length; j++) {
+            for (var j = 0; j < this.model.fields.length; j++) {
                 var title = this.model.fields[j];
                 var formatter = this.model.formatters[j];
                 var style = this.model.styles[j];
@@ -160,14 +172,14 @@ class DataTable {
         var $thead = $("<thead></thead>");
         var $tr = $("<tr></tr>");
         $thead.append($tr);
-        for(var i = 0; i < this.model.columns.length; i++) {
+        for (var i = 0; i < this.model.columns.length; i++) {
             var column = this.model.columns[i];
             var $col = $('<col></col>');
-            if(column.hasOwnProperty('width')) $col.width(column.width);
+            if (column.hasOwnProperty('width')) $col.width(column.width);
             $group.append($col);
             //
             var $th = $("<th></th>");
-            if(column.hasOwnProperty('title')) $th.html(column.title);
+            if (column.hasOwnProperty('title')) $th.html(column.title);
             $tr.append($th);
         }
         this.dom.$el.append($group);
@@ -223,38 +235,45 @@ class DataTable {
         this.dom.$el.after($nav);
         this.dom.$pageNumber = $pageNumber.find('select');
         this.pagination = $ul;
+
         this._addPageListener();
     }
 
     _addPageListener() {
         var that = this;
+        if (!this.getPager) {
+            $(this.pagination).pagination();
+        }
         //切换事件
-        $(this.pagination).on('select.bp.pagination',
-            function(e, page) {
+        $('#' + this.model.paginationId).on('select.bp.pagination',
+            function (e, page) {
+                console.log("this.model.url", that.model.url)
                 that.model.requestData = {
                     page: page, //页数
                     number: $(that.dom.$pageNumber).val(), //数量
                 }
-                if(that.model.toolbars.length > 0) {
+                if (that.model.toolbars.length > 0) {
                     $.extend(that.model.requestData, that._getToolbarData());
                 }
                 that._getData();
             });
+
         // 控制跳转
-        $('#' + this.dom.pageJumpButtonId).on('click', function() {
+        $('#' + this.dom.pageJumpButtonId).on('click', function () {
             var page = $.trim($('#' + that.dom.pageInputId).val());
-            if(page !== '' && page > 0 && page <= that.getPager.totalPages) { //判断是否超出 或者为空
+            if (page !== '' && page > 0 && page <= that.getPager.totalPages) { //判断是否超出 或者为空
                 that.model.requestData = {
                     page: page, //页数
                     number: $(that.dom.$pageNumber).val(), //数量
                 }
-                // that._getData();
                 $('#' + that.model.paginationId).pagination('go', parseInt(page))
                 $('#' + that.dom.pageInputId).val(" ")
             }
         })
+
         // 每页记录数
-        $('#' + this.dom.pageJSelectId).on('change', function() {
+        $('#' + this.dom.pageJSelectId).on('change', function () {
+
             that.model.requestData = {
                 // page: that.model.requestData.page, //页数
                 page: 1,
@@ -262,12 +281,16 @@ class DataTable {
             }
             $('#' + that.model.paginationId).pagination('go', 1) //跳回第1页
         })
+
+        //获取数据
+
+        that._getData();
     }
 
     //记录 title 和 formatter
     _setTitleByDom($dom) {
         var ths = $dom.find('th');
-        for(var i = 0; i < ths.length; i++) {
+        for (var i = 0; i < ths.length; i++) {
             var obj = ths[i];
             this.model.fields.push($(obj).data("options"));
             this.model.formatters.push($(obj).data("formatter"));
@@ -276,7 +299,7 @@ class DataTable {
     }
 
     _setTitleByColumns(columns) {
-        for(var i = 0; i < columns.length; i++) {
+        for (var i = 0; i < columns.length; i++) {
             var obj = columns[i];
             this.model.fields.push(obj.field || null);
             this.model.formatters.push(obj.formatter || null);
@@ -286,16 +309,16 @@ class DataTable {
 
     //根据表头ID返回内容
     _getContByTitle(str, row, formatter, index) {
-        for(var obj in row) {
-            if(obj === str) {
-                if(formatter) {
+        for (var obj in row) {
+            if (obj === str) {
+                if (formatter) {
                     var a = this._getFormatter(formatter, row[obj], row, index);
                     return a;
                 }
                 return row[obj];
             }
         }
-        if(formatter) {
+        if (formatter) {
             var b = this._getFormatter(formatter, row[obj], row, index);
             return b;
         }
@@ -303,11 +326,11 @@ class DataTable {
     }
 
     _getFormatter(formatter, value, row, index) {
-        if(typeof formatter == 'function') {
+        if (typeof formatter == 'function') {
             var f = formatter(value, row, index);
             return f;
         }
-        if(typeof formatter == "string") {
+        if (typeof formatter == "string") {
             var f = window[formatter](value, row, index);
             return f;
         }
@@ -318,7 +341,7 @@ class DataTable {
      * 重新渲染
      */
     draw(resetPage = true) {
-        if(resetPage) this.model.requestData.page = 1; //重新渲染时回到第1页
+        if (resetPage) this.model.requestData.page = 1; //重新渲染时回到第1页
         this._getData();
     }
 
@@ -326,7 +349,7 @@ class DataTable {
      *设置参数值
      */
     setting(obj) {
-        for(var key in obj) {
+        for (var key in obj) {
             this.model[key] = obj[key];
         }
     }
@@ -379,26 +402,32 @@ class DataTable {
 // 插件定义
 //======================
 function Plugin(options, args) {
-    if(typeof options == 'undefined') {
+    if (typeof options == 'undefined') {
         var data = $(this).data('bp.dataTable');
-        if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
+        if (!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
         return data;
     }
-    if(typeof options == 'string' && typeof args == 'undefined') {
+
+    if (typeof options == 'string' && typeof args == 'undefined') {
         var data = $(this).data('bp.dataTable');
-        if(!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
-        if(typeof options == 'string') {
+        if (!data) $(this).data('bp.dataTable', (data = new DataTable($(this), $.extend({}, $(this).data(), options))));
+        if (typeof options == 'string') {
             return data[options].call(data, args);
         }
     }
-// jquery 链式
-    return $(this).each(function() {
+    // jquery 链式
+    return $(this).each(function () {
+
         var $this = $(this);
-        if($this.hasClass('no-js')) return;
+        if ($this.hasClass('no-js')) return;
+
+
         var data = $this.data('bp.dataTable');
+
         // 创建一个新实例
-        if(!data) $this.data('bp.dataTable', (data = new DataTable($this, $.extend({}, $this.data(), options))));
-        if(typeof options == 'string') { // 调用接口方法,第二个参数为方法传入参数
+        if (!data) $this.data('bp.dataTable', (data = new DataTable($this, $.extend({}, $this.data(), options))));
+
+        if (typeof options == 'string') { // 调用接口方法,第二个参数为方法传入参数
             data[options].call(data, args);
         }
     })

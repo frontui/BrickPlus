@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(29);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 10:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * @component   : checkAll全选
@@ -284,10 +284,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = CheckAll;
 
-/***/ },
+/***/ }),
 
 /***/ 17:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -618,10 +618,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _jquery2.default)(toggle).pagination();
 	});
 
-/***/ },
+/***/ }),
 
 /***/ 29:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -654,7 +654,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            onLoadSuccess: null, //在数据加载成功的时候触发。
 	            onBeforeLoad: null, //在载入请求数据数据之前触发，如果返回false可终止载入数据操作。
 	            onLoadError: null, //在载入远程数据产生错误的时候触发。
-	            onBeforeDraw: null };
+	            onBeforeDraw: null //在载渲染之前触发，如果返回false可终止渲染操作。
+	        };
 	        this.model = {
 	            rows: [],
 	            columns: [],
@@ -729,12 +730,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return null;
 	                }
 	            }
+	
 	            _jquery2.default.ajax({
 	                type: this.model.method,
 	                url: this.model.url,
 	                data: this.model.requestData,
 	                dataType: this.model.dataType,
 	                success: function (json) {
+	
 	                    this.event.onLoadSuccess && this.event.onLoadSuccess(json);
 	                    this.model.rows = json.rows;
 	                    this._clear();
@@ -744,8 +747,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    this.dom.$el.find('.btn-spinner').css({ display: 'none' });
 	                }.bind(this),
 	                error: function error(e) {
-	                    // console.log("dd");
-	                    this.event.onLoadError && this.event.onLoadError(e);
+	                    this.event && this.event.onLoadError && this.event.onLoadError(e);
 	                }
 	            });
 	        }
@@ -753,10 +755,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_setPagination',
 	        value: function _setPagination(json) {
 	            var total = json.total;
-	            this.getPager.props.pageStr.show = true;
-	            this.getPager.items = total; //记录数
-	            this.getPager.totalPages = Math.ceil(total / (0, _jquery2.default)(this.dom.$pageNumber).val()); //共几页
-	            this.getPager.render();
+	            if (this.getPager) {
+	                this.getPager.props.pageStr.show = true;
+	                this.getPager.items = total; //记录数
+	                this.getPager.totalPages = Math.ceil(total / (0, _jquery2.default)(this.dom.$pageNumber).val()); //共几页
+	                this.getPager.render();
+	            } else {}
+	
+	            //  $(this.pagination).pagination();
+	            // $(this.pagination).props.pageStr.show = true;
+	            //  $(this.pagination).items = total; //记录数
+	            //  $(this.pagination).totalPages = Math.ceil(total / $(this.dom.$pageNumber).val()); //共几页
+	            // $(this.pagination).render();
+	
 	            //this.getPager.__renderPageStr();
 	        }
 	
@@ -853,22 +864,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.dom.$el.after($nav);
 	            this.dom.$pageNumber = $pageNumber.find('select');
 	            this.pagination = $ul;
+	
 	            this._addPageListener();
 	        }
 	    }, {
 	        key: '_addPageListener',
 	        value: function _addPageListener() {
 	            var that = this;
+	            if (!this.getPager) {
+	                (0, _jquery2.default)(this.pagination).pagination();
+	            }
 	            //切换事件
-	            (0, _jquery2.default)(this.pagination).on('select.bp.pagination', function (e, page) {
+	            (0, _jquery2.default)('#' + this.model.paginationId).on('select.bp.pagination', function (e, page) {
+	                console.log("this.model.url", that.model.url);
 	                that.model.requestData = {
 	                    page: page, //页数
-	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() };
+	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() //数量
+	                };
 	                if (that.model.toolbars.length > 0) {
 	                    _jquery2.default.extend(that.model.requestData, that._getToolbarData());
 	                }
 	                that._getData();
 	            });
+	
 	            // 控制跳转
 	            (0, _jquery2.default)('#' + this.dom.pageJumpButtonId).on('click', function () {
 	                var page = _jquery2.default.trim((0, _jquery2.default)('#' + that.dom.pageInputId).val());
@@ -876,20 +894,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    //判断是否超出 或者为空
 	                    that.model.requestData = {
 	                        page: page, //页数
-	                        number: (0, _jquery2.default)(that.dom.$pageNumber).val() };
-	                    // that._getData();
+	                        number: (0, _jquery2.default)(that.dom.$pageNumber).val() //数量
+	                    };
 	                    (0, _jquery2.default)('#' + that.model.paginationId).pagination('go', parseInt(page));
 	                    (0, _jquery2.default)('#' + that.dom.pageInputId).val(" ");
 	                }
 	            });
+	
 	            // 每页记录数
 	            (0, _jquery2.default)('#' + this.dom.pageJSelectId).on('change', function () {
+	
 	                that.model.requestData = {
 	                    // page: that.model.requestData.page, //页数
 	                    page: 1,
-	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() };
+	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() //数量
+	                };
 	                (0, _jquery2.default)('#' + that.model.paginationId).pagination('go', 1); //跳回第1页
 	            });
+	
+	            //获取数据
+	
+	            that._getData();
 	        }
 	
 	        //记录 title 和 formatter
@@ -1048,6 +1073,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!data) (0, _jquery2.default)(this).data('bp.dataTable', data = new DataTable((0, _jquery2.default)(this), _jquery2.default.extend({}, (0, _jquery2.default)(this).data(), options)));
 	        return data;
 	    }
+	
 	    if (typeof options == 'string' && typeof args == 'undefined') {
 	        var data = (0, _jquery2.default)(this).data('bp.dataTable');
 	        if (!data) (0, _jquery2.default)(this).data('bp.dataTable', data = new DataTable((0, _jquery2.default)(this), _jquery2.default.extend({}, (0, _jquery2.default)(this).data(), options)));
@@ -1057,11 +1083,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    // jquery 链式
 	    return (0, _jquery2.default)(this).each(function () {
+	
 	        var $this = (0, _jquery2.default)(this);
 	        if ($this.hasClass('no-js')) return;
+	
 	        var data = $this.data('bp.dataTable');
+	
 	        // 创建一个新实例
 	        if (!data) $this.data('bp.dataTable', data = new DataTable($this, _jquery2.default.extend({}, $this.data(), options)));
+	
 	        if (typeof options == 'string') {
 	            // 调用接口方法,第二个参数为方法传入参数
 	            data[options].call(data, args);
@@ -1072,7 +1102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	_jquery2.default.fn.dataTable = Plugin;
 	_jquery2.default.fn.dataTable.Constructor = DataTable;
 
-/***/ }
+/***/ })
 
 /******/ })
 });

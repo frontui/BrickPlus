@@ -52,21 +52,21 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(9);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -138,13 +138,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = transitionEnd;
 
-/***/ },
+/***/ }),
 /* 4 */,
 /* 5 */,
 /* 6 */,
 /* 7 */,
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -249,9 +249,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = _jquery2.default;
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -524,11 +524,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    arrows: true, // 是否显示箭头图标
 	    prevText: '&lt;', // 上一张按钮文字
 	    nextText: '&gt;' // 下一张按钮文字
-	};
 	
-	// 插件定义
-	//======================
-	function Plugin(o, s) {
+	
+	    // 插件定义
+	    //======================
+	};function Plugin(o, s) {
 	    var len = this.length;
 	
 	    //  Enable multiple-slider support
@@ -559,7 +559,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _jquery2.default)(toggle).carousel();
 	});
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

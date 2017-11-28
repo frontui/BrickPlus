@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(8);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 8:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -173,7 +173,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = _jquery2.default;
 
-/***/ }
+/***/ })
 
 /******/ })
 });

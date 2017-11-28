@@ -125,7 +125,7 @@ module.exports = function defaultTask(serverRoot) {
             root: serverRoot,
             port: config.port,
             livereload: true,
-            middleware: function(connect, opt) {
+           /*  middleware: function(connect, opt) {
                 return [ (function() {
                     var url = require('url');
                     var proxy = require('proxy-middleware');
@@ -133,9 +133,16 @@ module.exports = function defaultTask(serverRoot) {
                     options.route = '/api';
                     return proxy(options);
                 })() ];
-                
-                
-            }
+            } */
+            middleware: function(connect, opt) {
+                return [ (function() {
+                    var url = require('url');
+                    var proxy = require('proxy-middleware');
+                    var options = url.parse('http://rap.monster/mockjsdata/2');
+                    options.route = '/trade';
+                    return proxy(options);
+                })() ];
+            } 
         });
         console.log('server start at: http://localhost:' + config.port + '/' + config.destPath)
         Lib.openURL('http://localhost:' + config.port + '/' + config.destPath)

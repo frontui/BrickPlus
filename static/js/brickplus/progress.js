@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(19);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 3:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -140,10 +140,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = transitionEnd;
 
-/***/ },
+/***/ }),
 
 /***/ 19:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -240,11 +240,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    bar: '',
 	    striped: true,
 	    txt: false
-	};
 	
-	// ----------
-	// jQuery api
-	function Plugin(option) {
+	    // ----------
+	    // jQuery api
+	};function Plugin(option) {
 	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
 	        args[_key - 1] = arguments[_key];
 	    }
@@ -267,7 +266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _jquery2.default)(toggle).progress();
 	});
 
-/***/ }
+/***/ })
 
 /******/ })
 });
