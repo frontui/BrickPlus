@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(43);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 3:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -140,10 +140,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = transitionEnd;
 
-/***/ },
+/***/ }),
 
 /***/ 40:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -284,10 +284,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-/***/ },
+/***/ }),
 
 /***/ 41:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -368,10 +368,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    callback: _jquery2.default.noop
 	};
 
-/***/ },
+/***/ }),
 
 /***/ 42:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -486,15 +486,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    btn: '',
 	    callback: _jquery2.default.noop,
 	    polyfill: null
-	};
 	
-	// 动画时间
-	Panel.TRANSITION_DURATION = 150;
+	    // 动画时间
+	};Panel.TRANSITION_DURATION = 150;
 
-/***/ },
+/***/ }),
 
 /***/ 43:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -642,7 +641,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// export api
 	exports.default = systemPage;
 
-/***/ }
+/***/ })
 
 /******/ })
 });

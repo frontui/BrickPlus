@@ -52,19 +52,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(30);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 /* 3 */,
 /* 4 */,
 /* 5 */,
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 10 */,
 /* 11 */,
 /* 12 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -91,10 +91,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = zeroPad;
 
-/***/ },
+/***/ }),
 /* 13 */,
 /* 14 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -179,7 +179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  debounce: Util.debounce
 	};
 
-/***/ },
+/***/ }),
 /* 15 */,
 /* 16 */,
 /* 17 */,
@@ -196,7 +196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 28 */,
 /* 29 */,
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * brickPlus主文件
@@ -251,9 +251,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// API
 	module.exports = Util;
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -332,14 +332,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  date: /\d{4}-\d{1,2}-\d{1,2}/, // 日期
 	  chinese: /^[\u4e00-\u9fa5]+$/, // 纯中文
 	  nickName: /^[\u4e00-\u9fa50-9a-zA-Z_\-]+$/ // 中文昵称
-	};
 	
-	/**
-	 * 获取正则对象
-	 * @param  {Object} el 输入框
-	 * @return RegExp 正则表达式
-	 */
-	function getPattern(el) {
+	
+	  /**
+	   * 获取正则对象
+	   * @param  {Object} el 输入框
+	   * @return RegExp 正则表达式
+	   */
+	};function getPattern(el) {
 	  var pattern = el.getAttribute('pattern');
 	
 	  if (!pattern) return null;
@@ -400,9 +400,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  keyAfter: handleKeyAfterEvent
 	};
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -672,9 +672,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = ConvertTradition;
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -920,9 +920,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = detectBrowser;
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -1011,9 +1011,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = clockTick;
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1071,9 +1071,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = dbc2sbc;
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -1111,9 +1111,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = insertTextAtCaret;
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1152,9 +1152,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = dayDiff;
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1185,9 +1185,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = dateDiff;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -1224,7 +1224,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = currency;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

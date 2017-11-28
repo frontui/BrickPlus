@@ -52,14 +52,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(7);
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -364,10 +364,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    keyboard: true,
 	    show: true,
 	    size: false
-	};
 	
-	// 弹层 HTML 结构
-	Modal.TEMPLATE = '\n    <div class="modal-background fade" id="{{mid}}">\n        <div class="modal-layer">\n            <div class="modal-position">\n            <div class="modal-wrap animated bounceInDown">\n                <div class="modal-head">\n                    <span class="modal-title">{{title}}</span>\n                    <i class="modal-close"></i>\n                </div>\n                <div class="modal-body">\n                {{content}}\n                </div>\n            </div>\n            </div>\n        </div>\n    </div>\n';
+	    // 弹层 HTML 结构
+	};Modal.TEMPLATE = '\n    <div class="modal-background fade" id="{{mid}}">\n        <div class="modal-layer">\n            <div class="modal-position">\n            <div class="modal-wrap animated bounceInDown">\n                <div class="modal-head">\n                    <span class="modal-title">{{title}}</span>\n                    <i class="modal-close"></i>\n                </div>\n                <div class="modal-body">\n                {{content}}\n                </div>\n            </div>\n            </div>\n        </div>\n    </div>\n';
 	
 	// 渲染
 	Modal.render = function (option) {
@@ -462,15 +461,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	});
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -542,9 +541,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = transitionEnd;
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -770,9 +769,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	$.fn.notify = Plugin;
 	$.fn.notify.Constructor = Notify;
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -907,9 +906,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = Alert;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -995,12 +994,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  item: 'li', // 每一条信息的 dom 元素，默认是ul布局
 	  interval: 3000, // 自动滚动时间间隔
 	  dir: 1 // 滚动的方向 1 - 为向上滚动，0 - 为向下滚动
-	};
 	
-	// ----------
-	// jquery API
 	
-	function Plugin(option) {
+	  // ----------
+	  // jquery API
+	
+	};function Plugin(option) {
 	  return $(this).each(function () {
 	    var that = $(this),
 	        data = that.data('bp.scroller');
@@ -1014,9 +1013,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = Scroller;
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * brickPlus主文件
@@ -1102,9 +1101,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// API
 	module.exports = BrickPlus;
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1209,9 +1208,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = _jquery2.default;
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -1484,11 +1483,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    arrows: true, // 是否显示箭头图标
 	    prevText: '&lt;', // 上一张按钮文字
 	    nextText: '&gt;' // 下一张按钮文字
-	};
 	
-	// 插件定义
-	//======================
-	function Plugin(o, s) {
+	
+	    // 插件定义
+	    //======================
+	};function Plugin(o, s) {
 	    var len = this.length;
 	
 	    //  Enable multiple-slider support
@@ -1519,9 +1518,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _jquery2.default)(toggle).carousel();
 	});
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * @component   : checkAll全选
@@ -1737,9 +1736,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = CheckAll;
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2655,9 +2654,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = DateTimePikcer;
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -2673,9 +2672,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = zeroPad;
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -2738,14 +2737,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  hide: function hide() {
 	    this.$label.hide();
 	  }
-	};
 	
-	/**
-	 * 模拟 select
-	 * @param {[type]} el     [description]
-	 * @param {[type]} option [description]
-	 */
-	var Dropdown = function Dropdown(el, option) {
+	  /**
+	   * 模拟 select
+	   * @param {[type]} el     [description]
+	   * @param {[type]} option [description]
+	   */
+	};var Dropdown = function Dropdown(el, option) {
 	
 	  this.$el = $(el);
 	  this.options = $.extend({}, Dropdown.DEFAULTS, option);
@@ -2800,13 +2798,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  callback: $.noop,
 	  // 是否异步返回列表
 	  ajax: false
-	};
 	
-	/**
-	 * 初始化事件
-	 * @return
-	 */
-	Dropdown.prototype.init = function () {
+	  /**
+	   * 初始化事件
+	   * @return
+	   */
+	};Dropdown.prototype.init = function () {
 	
 	  // toggle 显示或隐藏
 	  this.$el.on('click.bp.dropdown, focus.bp.dropdown', $.proxy(this.toggle, this));
@@ -3246,9 +3243,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  $(document).on('click.hide.bp.dropdown', hideAllDropdown);
 	});
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -3333,9 +3330,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  debounce: Util.debounce
 	};
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3518,9 +3515,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -3763,9 +3760,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	});
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4096,9 +4093,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _jquery2.default)(toggle).pagination();
 	});
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4175,9 +4172,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = Placeholder;
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4274,11 +4271,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    bar: '',
 	    striped: true,
 	    txt: false
-	};
 	
-	// ----------
-	// jQuery api
-	function Plugin(option) {
+	    // ----------
+	    // jQuery api
+	};function Plugin(option) {
 	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
 	        args[_key - 1] = arguments[_key];
 	    }
@@ -4301,9 +4297,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _jquery2.default)(toggle).progress();
 	});
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4439,9 +4435,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = SmoothScroll;
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4557,11 +4553,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    btn: false,
 	    text: 'Loading...',
 	    parent: null
-	};
 	
-	// ----------
-	// jQuery API
-	function Plugin(option) {
+	    // ----------
+	    // jQuery API
+	};function Plugin(option) {
 	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
 	        args[_key - 1] = arguments[_key];
 	    }
@@ -4589,9 +4584,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	});
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4721,9 +4716,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     })
 	// })
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -4906,9 +4901,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * @component   : tab 选项卡切换
@@ -4936,99 +4931,99 @@ return /******/ (function(modules) { // webpackBootstrap
 	var toggle = '[data-toggle="tab"],.tabs-btn';
 	
 	var Tab = function () {
-	  function Tab(element) {
-	    _classCallCheck(this, Tab);
+	    function Tab(element) {
+	        _classCallCheck(this, Tab);
 	
-	    this.$el = $(element);
+	        this.$el = $(element);
 	
-	    this.VERSION = '{{VERSION}}';
+	        this.VERSION = '{{VERSION}}';
 	
-	    // 动画过渡时间
-	    this.TRANSITION_DURATION = 150;
-	  }
-	
-	  // 切换显示
-	  // ---------
-	
-	
-	  _createClass(Tab, [{
-	    key: 'show',
-	    value: function show() {
-	      var $this = this.$el;
-	
-	      // $ul 导航项元素
-	      // selector 对应项元素选择器
-	      var _ref = [$this.closest('.tabs,[data-tab="item"]'), $this.data('target')],
-	          $ul = _ref[0],
-	          selector = _ref[1];
-	
-	      // 当对应项选择器不存在时，如果为a标签则获取href对应的 hash(锚点)值
-	
-	      if (!selector) {
-	        selector = $this.attr('href');
-	        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
-	      }
-	
-	      // $previous 上一个高亮激活导航项
-	      // hideEvent 隐藏事件,发生在切换之前，由当前高亮激活导航项元素触发
-	      // showEvent 显示事件，发生在切换之前，由下一个高亮激活导航项元素触发
-	      // $target 对应项dom 元素
-	      //
-	      var $previous = $ul.find('.active a'),
-	          _ref2 = [$.Event('hide.bp.tab', { relatedTarget: $this[0] }), $.Event('show.bp.tab', { relatedTarget: $previous[0] }), $(selector)],
-	          hideEvent = _ref2[0],
-	          showEvent = _ref2[1],
-	          $target = _ref2[2];
-	
-	      // 上一个显示tab 项触发隐藏事件
-	      $previous.trigger(hideEvent);
-	      // 当前tab项触发显示事件
-	      $this.trigger(showEvent);
-	
-	      // 阻止默认，则不切换
-	      if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
-	
-	      // tab 导航切换
-	      this.activate($this.closest('li,[data-tab="nav"]'), $ul);
-	      // tab 内容切换
-	      this.activate($target, $target.parent(), function () {
-	        // 切换后上一个选项导航触发`已隐藏`事件
-	        $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0] });
-	        // 整个 tab导航项触发已显示事件
-	        $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0] });
-	      });
+	        // 动画过渡时间
+	        this.TRANSITION_DURATION = 150;
 	    }
 	
-	    // 切换内容
-	    // -------
+	    // 切换显示
+	    // ---------
 	
-	  }, {
-	    key: 'activate',
-	    value: function activate(element, container, callback) {
-	      var $active = container.find('> .active'),
-	          transition = callback && $.support.transition && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length),
-	          next = function next() {
-	        $active.removeClass('active').find(toggle).attr('aria-expanded', false);
 	
-	        element.addClass('active').find(toggle).attr('aria-expanded', true);
+	    _createClass(Tab, [{
+	        key: 'show',
+	        value: function show() {
+	            var $this = this.$el;
 	
-	        if (transition) {
-	          // ie hack
-	          element[0].offsetWidth;
-	          element.addClass('in');
-	        } else {
-	          element.removeClass('fade');
+	            // $ul 导航项元素
+	            // selector 对应项元素选择器
+	            var _ref = [$this.closest('.tabs,[data-tab="item"]'), $this.data('target')],
+	                $ul = _ref[0],
+	                selector = _ref[1];
+	
+	            // 当对应项选择器不存在时，如果为a标签则获取href对应的 hash(锚点)值
+	
+	            if (!selector) {
+	                selector = $this.attr('href');
+	                selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
+	            }
+	
+	            // $previous 上一个高亮激活导航项
+	            // hideEvent 隐藏事件,发生在切换之前，由当前高亮激活导航项元素触发
+	            // showEvent 显示事件，发生在切换之前，由下一个高亮激活导航项元素触发
+	            // $target 对应项dom 元素
+	            //
+	            var $previous = $ul.find('.active a'),
+	                _ref2 = [$.Event('hide.bp.tab', { relatedTarget: $this[0] }), $.Event('show.bp.tab', { relatedTarget: $previous[0] }), $(selector)],
+	                hideEvent = _ref2[0],
+	                showEvent = _ref2[1],
+	                $target = _ref2[2];
+	
+	            // 上一个显示tab 项触发隐藏事件
+	            $previous.trigger(hideEvent);
+	            // 当前tab项触发显示事件
+	            $this.trigger(showEvent);
+	
+	            // 阻止默认，则不切换
+	            if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
+	
+	            // tab 导航切换
+	            this.activate($this.closest('li,[data-tab="nav"]'), $ul);
+	            // tab 内容切换
+	            this.activate($target, $target.parent(), function () {
+	                // 切换后上一个选项导航触发`已隐藏`事件
+	                $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0] });
+	                // 整个 tab导航项触发已显示事件
+	                $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0] });
+	            });
 	        }
 	
-	        callback && callback();
-	      };
+	        // 切换内容
+	        // -------
 	
-	      $active.length && transition ? $active.one('uiTransitionEnd', next).emulateTransitionEnd(Tab.TRANSITION_DURATION) : next();
-	      $active.removeClass('in');
-	    }
-	  }]);
+	    }, {
+	        key: 'activate',
+	        value: function activate(element, container, callback) {
+	            var $active = container.find('> .active'),
+	                transition = callback && $.support.transition && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length),
+	                next = function next() {
+	                $active.removeClass('active').find(toggle).attr('aria-expanded', false);
 	
-	  return Tab;
+	                element.addClass('active').find(toggle).attr('aria-expanded', true);
+	
+	                if (transition) {
+	                    // ie hack
+	                    element[0].offsetWidth;
+	                    element.addClass('in');
+	                } else {
+	                    element.removeClass('fade');
+	                }
+	
+	                callback && callback();
+	            };
+	
+	            $active.length && transition ? $active.one('uiTransitionEnd', next).emulateTransitionEnd(Tab.TRANSITION_DURATION) : next();
+	            $active.removeClass('in');
+	        }
+	    }]);
+	
+	    return Tab;
 	}();
 	
 	// 插件定义
@@ -5036,12 +5031,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	function Plugin(option) {
-	  return $(this).each(function () {
-	    var $this = $(this);
-	    var data = $this.data('bp.tab');
-	    if (!data) $this.data('bp.tab', data = new Tab(this));
-	    if (typeof option == 'string') data[option] && data[option]();
-	  });
+	    return $(this).each(function () {
+	        var $this = $(this);
+	        var data = $this.data('bp.tab');
+	        if (!data) $this.data('bp.tab', data = new Tab(this));
+	        if (typeof option == 'string') data[option] && data[option]();
+	    });
 	}
 	
 	// jQuery 插件扩展
@@ -5051,21 +5046,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	// 元素插件绑定
 	// -------------
 	var clickHandler = function clickHandler(e) {
-	  if (!$(e.target).hasClass('tab-disabled')) {
-	    e.preventDefault();
-	    Plugin.call($(this), 'show');
-	  }
+	    if (!$(e.target).hasClass('tab-disabled')) {
+	        e.preventDefault();
+	        Plugin.call($(this), 'show');
+	    }
 	};
 	
 	$(function () {
-	  $(document).on('click.bp.tab', toggle, clickHandler);
+	    $(document).on('click.bp.tab', toggle, clickHandler);
 	});
 	
 	module.exports = Tab;
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -5304,11 +5299,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    second: true, // 是否显示秒
 	    in18: ['时', '分', '秒'], // 语言配置
 	    zero: true // 是否格式化补零
-	};
 	
-	// 插件定义
-	// ----------
-	function Plugin(option) {
+	
+	    // 插件定义
+	    // ----------
+	};function Plugin(option) {
 	    return (0, _jquery2.default)(this).each(function () {
 	        var $this = (0, _jquery2.default)(this);
 	        var data = $this.data('bp.tab');
@@ -5334,9 +5329,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // })
 	});
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -5537,9 +5532,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = Drop;
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -5798,9 +5793,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = Tooltips;
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*! nice-validator 0.10.11
 	 * (c) 2012-2016 Jony Zhang <niceue@live.com>, MIT Licensed
@@ -5928,14 +5923,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        focusInvalid  {Boolean}     true            Whether to focus the field that is invalid
 	        ignoreBlank   {Boolean}     false           When the field has no value, whether to ignore validation
 	        ignore        {jqSelector}    ''            Ignored fields (Using jQuery selector)
-	         beforeSubmit  {Function}                    Do something before submit form
+	          beforeSubmit  {Function}                    Do something before submit form
 	        dataFilter    {Function}                    Convert ajax results
 	        valid         {Function}                    Triggered when the form is valid
 	        invalid       {Function}                    Triggered when the form is invalid
 	        validClass    {String}      'n-valid'       Add this class name to a valid field
 	        invalidClass  {String}      'n-invalid'     Add this class name to a invalid field
 	        bindClassTo   {jqSelector}  ':input'        Which element should the className binding to
-	         display       {Function}                    Callback function to get dynamic display
+	          display       {Function}                    Callback function to get dynamic display
 	        target        {Function}                    Callback function to get dynamic target
 	        msgShow       {Function}                    Trigger this callback when show message
 	        msgHide       {Function}                    Trigger this callback when hide message
@@ -5946,12 +5941,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        msgStyle      {String}                      Custom message css style
 	        msgClass      {String}                      Additional added to the message class names
 	        formClass     {String}                      Additional added to the form class names
-	         messages      {Object}                      Custom messages for the current instance
+	          messages      {Object}                      Custom messages for the current instance
 	        rules         {Object}                      Custom rules for the current instance
 	        fields        {Object}                      Field set to be verified
 	        {String}        key    name|#id
 	        {String|Object} value                       Rule string, or an object is passed more arguments
-	         fields[key][rule]       {String}            Rule string
+	          fields[key][rule]       {String}            Rule string
 	        fields[key][display]    {String|Function}
 	        fields[key][tip]        {String}            Custom friendly message when focus the input
 	        fields[key][ok]         {String}            Custom success message
@@ -8004,9 +7999,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /*配置文件 end*/
 	})(jQuery);
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -8039,7 +8034,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            onLoadSuccess: null, //在数据加载成功的时候触发。
 	            onBeforeLoad: null, //在载入请求数据数据之前触发，如果返回false可终止载入数据操作。
 	            onLoadError: null, //在载入远程数据产生错误的时候触发。
-	            onBeforeDraw: null };
+	            onBeforeDraw: null //在载渲染之前触发，如果返回false可终止渲染操作。
+	        };
 	        this.model = {
 	            rows: [],
 	            columns: [],
@@ -8114,12 +8110,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return null;
 	                }
 	            }
+	
 	            _jquery2.default.ajax({
 	                type: this.model.method,
 	                url: this.model.url,
 	                data: this.model.requestData,
 	                dataType: this.model.dataType,
 	                success: function (json) {
+	
 	                    this.event.onLoadSuccess && this.event.onLoadSuccess(json);
 	                    this.model.rows = json.rows;
 	                    this._clear();
@@ -8129,8 +8127,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    this.dom.$el.find('.btn-spinner').css({ display: 'none' });
 	                }.bind(this),
 	                error: function error(e) {
-	                    // console.log("dd");
-	                    this.event.onLoadError && this.event.onLoadError(e);
+	                    this.event && this.event.onLoadError && this.event.onLoadError(e);
 	                }
 	            });
 	        }
@@ -8138,10 +8135,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_setPagination',
 	        value: function _setPagination(json) {
 	            var total = json.total;
-	            this.getPager.props.pageStr.show = true;
-	            this.getPager.items = total; //记录数
-	            this.getPager.totalPages = Math.ceil(total / (0, _jquery2.default)(this.dom.$pageNumber).val()); //共几页
-	            this.getPager.render();
+	            if (this.getPager) {
+	                this.getPager.props.pageStr.show = true;
+	                this.getPager.items = total; //记录数
+	                this.getPager.totalPages = Math.ceil(total / (0, _jquery2.default)(this.dom.$pageNumber).val()); //共几页
+	                this.getPager.render();
+	            }
 	            //this.getPager.__renderPageStr();
 	        }
 	
@@ -8238,22 +8237,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.dom.$el.after($nav);
 	            this.dom.$pageNumber = $pageNumber.find('select');
 	            this.pagination = $ul;
+	
 	            this._addPageListener();
 	        }
 	    }, {
 	        key: '_addPageListener',
 	        value: function _addPageListener() {
 	            var that = this;
+	            if (!this.getPager) {
+	                (0, _jquery2.default)(this.pagination).pagination();
+	            }
 	            //切换事件
-	            (0, _jquery2.default)(this.pagination).on('select.bp.pagination', function (e, page) {
+	            (0, _jquery2.default)('#' + this.model.paginationId).on('select.bp.pagination', function (e, page) {
+	                console.log("this.model.url", that.model.url);
 	                that.model.requestData = {
 	                    page: page, //页数
-	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() };
+	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() //数量
+	                };
 	                if (that.model.toolbars.length > 0) {
 	                    _jquery2.default.extend(that.model.requestData, that._getToolbarData());
 	                }
 	                that._getData();
 	            });
+	
 	            // 控制跳转
 	            (0, _jquery2.default)('#' + this.dom.pageJumpButtonId).on('click', function () {
 	                var page = _jquery2.default.trim((0, _jquery2.default)('#' + that.dom.pageInputId).val());
@@ -8261,20 +8267,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    //判断是否超出 或者为空
 	                    that.model.requestData = {
 	                        page: page, //页数
-	                        number: (0, _jquery2.default)(that.dom.$pageNumber).val() };
-	                    // that._getData();
+	                        number: (0, _jquery2.default)(that.dom.$pageNumber).val() //数量
+	                    };
 	                    (0, _jquery2.default)('#' + that.model.paginationId).pagination('go', parseInt(page));
 	                    (0, _jquery2.default)('#' + that.dom.pageInputId).val(" ");
 	                }
 	            });
+	
 	            // 每页记录数
 	            (0, _jquery2.default)('#' + this.dom.pageJSelectId).on('change', function () {
+	
 	                that.model.requestData = {
 	                    // page: that.model.requestData.page, //页数
 	                    page: 1,
-	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() };
+	                    number: (0, _jquery2.default)(that.dom.$pageNumber).val() //数量
+	                };
 	                (0, _jquery2.default)('#' + that.model.paginationId).pagination('go', 1); //跳回第1页
 	            });
+	
+	            //获取数据
+	
+	            that._getData();
 	        }
 	
 	        //记录 title 和 formatter
@@ -8433,6 +8446,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!data) (0, _jquery2.default)(this).data('bp.dataTable', data = new DataTable((0, _jquery2.default)(this), _jquery2.default.extend({}, (0, _jquery2.default)(this).data(), options)));
 	        return data;
 	    }
+	
 	    if (typeof options == 'string' && typeof args == 'undefined') {
 	        var data = (0, _jquery2.default)(this).data('bp.dataTable');
 	        if (!data) (0, _jquery2.default)(this).data('bp.dataTable', data = new DataTable((0, _jquery2.default)(this), _jquery2.default.extend({}, (0, _jquery2.default)(this).data(), options)));
@@ -8442,11 +8456,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    // jquery 链式
 	    return (0, _jquery2.default)(this).each(function () {
+	
 	        var $this = (0, _jquery2.default)(this);
 	        if ($this.hasClass('no-js')) return;
+	
 	        var data = $this.data('bp.dataTable');
+	
 	        // 创建一个新实例
 	        if (!data) $this.data('bp.dataTable', data = new DataTable($this, _jquery2.default.extend({}, $this.data(), options)));
+	
 	        if (typeof options == 'string') {
 	            // 调用接口方法,第二个参数为方法传入参数
 	            data[options].call(data, args);
@@ -8457,9 +8475,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	_jquery2.default.fn.dataTable = Plugin;
 	_jquery2.default.fn.dataTable.Constructor = DataTable;
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * brickPlus主文件
@@ -8514,9 +8532,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// API
 	module.exports = Util;
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -8595,14 +8613,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  date: /\d{4}-\d{1,2}-\d{1,2}/, // 日期
 	  chinese: /^[\u4e00-\u9fa5]+$/, // 纯中文
 	  nickName: /^[\u4e00-\u9fa50-9a-zA-Z_\-]+$/ // 中文昵称
-	};
 	
-	/**
-	 * 获取正则对象
-	 * @param  {Object} el 输入框
-	 * @return RegExp 正则表达式
-	 */
-	function getPattern(el) {
+	
+	  /**
+	   * 获取正则对象
+	   * @param  {Object} el 输入框
+	   * @return RegExp 正则表达式
+	   */
+	};function getPattern(el) {
 	  var pattern = el.getAttribute('pattern');
 	
 	  if (!pattern) return null;
@@ -8663,9 +8681,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  keyAfter: handleKeyAfterEvent
 	};
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -8935,9 +8953,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = ConvertTradition;
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -9183,9 +9201,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = detectBrowser;
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -9274,9 +9292,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = clockTick;
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9334,9 +9352,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = dbc2sbc;
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -9374,9 +9392,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = insertTextAtCaret;
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9415,9 +9433,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = dayDiff;
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -9448,9 +9466,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = dateDiff;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -9487,7 +9505,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = currency;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

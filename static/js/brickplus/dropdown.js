@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(13);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 13:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -131,14 +131,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  hide: function hide() {
 	    this.$label.hide();
 	  }
-	};
 	
-	/**
-	 * 模拟 select
-	 * @param {[type]} el     [description]
-	 * @param {[type]} option [description]
-	 */
-	var Dropdown = function Dropdown(el, option) {
+	  /**
+	   * 模拟 select
+	   * @param {[type]} el     [description]
+	   * @param {[type]} option [description]
+	   */
+	};var Dropdown = function Dropdown(el, option) {
 	
 	  this.$el = $(el);
 	  this.options = $.extend({}, Dropdown.DEFAULTS, option);
@@ -193,13 +192,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  callback: $.noop,
 	  // 是否异步返回列表
 	  ajax: false
-	};
 	
-	/**
-	 * 初始化事件
-	 * @return
-	 */
-	Dropdown.prototype.init = function () {
+	  /**
+	   * 初始化事件
+	   * @return
+	   */
+	};Dropdown.prototype.init = function () {
 	
 	  // toggle 显示或隐藏
 	  this.$el.on('click.bp.dropdown, focus.bp.dropdown', $.proxy(this.toggle, this));
@@ -639,10 +637,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  $(document).on('click.hide.bp.dropdown', hideAllDropdown);
 	});
 
-/***/ },
+/***/ }),
 
 /***/ 14:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -727,7 +725,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  debounce: Util.debounce
 	};
 
-/***/ }
+/***/ })
 
 /******/ })
 });

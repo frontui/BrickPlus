@@ -105,6 +105,42 @@ cur='1'
                     <br>
                     <table class="table " id="dt2">
                     </table>
+                    <br>
+                    <br>
+                    <br>
+                    <table class="table " id="tableList">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col style="width: 80px;">
+                            <col style="width: 120px;">
+                            <col style="width: 80px;">
+                            <col style="width: 60px;">
+                        </colgroup>
+                        <thead class="">
+                            <tr>
+                                <th data-options="paymentNo" >交易号</th>
+                                <th data-options="orderNo" >订单号</th>
+                                <th data-options="orderCreateTime"   class="" width="">交易时间</th>
+                                <th data-options="shopName" class="" width="">门店名称</th>
+                                <th data-options="receiptAmount" class="" width="">订单金额</th>
+                                <th data-options="mchReceiptAmount"  class="" width="">实收金额</th>
+                                <th data-options="couponAmount"  class="" width="">优惠金额</th>
+                                <th data-options="payState"   class="" width="">状态</th>
+                                <th data-options="channelNo"    class="" width="">支付方式</th>
+                                <th data-options="payType"   class="" width="">交易类型</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+
+
+
                 </div>
                 <div class="example-code">
          <pre><code>
@@ -385,25 +421,34 @@ $('#dg').datagrid({
 {# 编写页面内联 javascript 代码 #}
 {% block jsPage %}
 <script>
+/*  $('#tableList').dataTable({
+        url: "/trade/tradelist",
+    }); */
 
-    $('#dt').dataTable({
-        url: "/api/t1/getDataInfo",
-        //url: "/api/t1/getBankInfo",
+    $(document).ready(function(){ 
+         $('#tableList').dataTable({
+            url: "/trade/tradelist",
+         });
+     }) 
+
+
+   /*  $('#dt').dataTable({
+        url: "/api/t1/getBankInfo",
         queryParams: function() {
             return {
                 transferName: $('#search_1').val(),
                 beginTime: $('#search_1').val() + '55888999',
             }
         }
-    });
-    $("#ok").click(function() {
+    }); */
+   /*  $("#ok").click(function() {
         //$('#dt').dataTable().draw(); //v1.0.16
         $('#dt').dataTable().model.requestData.page = 1;
         $('#' + $('#dt').dataTable().model.paginationId).pagination('go', 1) //跳回第1页
         $('#dt').dataTable('draw');
-    });
+    }); */
     //获取页脚信息 
-    var page = $('#dt').dataTable('getPagination');
+   // var page = $('#dt').dataTable('getPagination');
     //console.log(page);
     //
     function testFn(value, row, index) {
@@ -431,7 +476,7 @@ $('#dg').datagrid({
                 "</div>";
     }
     //td2 例子
-    $('#dt2').dataTable({
+    /* $('#dt2').dataTable({
         url: "/api/t1/getDataInfo",
         columns: [
             {field: "createTime", title: "创建时间", width: 100},
@@ -458,7 +503,7 @@ $('#dg').datagrid({
             console.log('在载渲染之前触发，如果返回false可终止渲染操作。');
             return true;
         }
-    });
+    }); */
 
 </script>
 {% endblock %}

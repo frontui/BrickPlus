@@ -52,24 +52,24 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(6);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 /* 3 */,
 /* 4 */,
 /* 5 */,
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -155,12 +155,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  item: 'li', // 每一条信息的 dom 元素，默认是ul布局
 	  interval: 3000, // 自动滚动时间间隔
 	  dir: 1 // 滚动的方向 1 - 为向上滚动，0 - 为向下滚动
-	};
 	
-	// ----------
-	// jquery API
 	
-	function Plugin(option) {
+	  // ----------
+	  // jquery API
+	
+	};function Plugin(option) {
 	  return $(this).each(function () {
 	    var that = $(this),
 	        data = that.data('bp.scroller');
@@ -174,7 +174,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = Scroller;
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

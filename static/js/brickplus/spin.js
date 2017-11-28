@@ -53,22 +53,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ({
 
 /***/ 0:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(21);
 
 
-/***/ },
+/***/ }),
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-/***/ },
+/***/ }),
 
 /***/ 21:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -184,11 +184,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    btn: false,
 	    text: 'Loading...',
 	    parent: null
-	};
 	
-	// ----------
-	// jQuery API
-	function Plugin(option) {
+	    // ----------
+	    // jQuery API
+	};function Plugin(option) {
 	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
 	        args[_key - 1] = arguments[_key];
 	    }
@@ -216,7 +215,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	});
 
-/***/ }
+/***/ })
 
 /******/ })
 });
