@@ -134,7 +134,7 @@ $('[data-action]').on('click', function() {
   var action = $(this).data('action')
   switch(action) {
     case 'success':
-      return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+      return $.successModalLayer({title: 'success', contentTitle: 'success...', content: '成功', okText:'ok', buttonClassName:'fn-ml-50',  callback: function() { alert('成功') } })
     case 'confirm':
       return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
     case 'alert':
@@ -169,7 +169,7 @@ $('[data-action]').on('click', function() {
   var action = $(this).data('action')
   switch(action) {
     case 'success':
-      return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+      return $.successModalLayer({ title: 'success', contentTitle: 'success...', content: '成功', okText:'ok', buttonClassName:'fn-ml-50',  callback: function() { alert('成功') } })
     case 'confirm':
       return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
     case 'alert':
@@ -270,7 +270,7 @@ $('[data-action]').on('click', function() {
       var action = $(this).data('action')
       switch(action) {
         case 'success':
-          return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+          return $.successModalLayer({ title: 'success', contentTitle: 'success...', content: '成功', okText:'ok', buttonClassName:'fn-ml-50',  callback: function() { alert('成功') } })
         case 'confirm':
           return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
         case 'alert':

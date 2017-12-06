@@ -728,6 +728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	ModalLayer.DEFAULTS = {
 	    icon: 'info',
 	    title: '提示',
+	    contentTitle: '',
 	    content: '',
 	    close: true,
 	    size: false,
@@ -740,7 +741,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]
 	};
 	
-	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{title}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n';
+	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{contentTitle}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n';
 	
 	// 渲染
 	ModalLayer.render = function (option) {
@@ -785,7 +786,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 	
-	    opt.content = ModalLayer.render({ status: opt.icon ? 'result-' + opt.icon : '', title: opt.title, content: option.content || '', buttons: btnHtml.join('') });
+	    opt.content = ModalLayer.render({ status: opt.icon ? 'result-' + opt.icon : '', title: opt.title, contentTitle: option.contentTitle || '', content: option.content || '', buttons: btnHtml.join('') });
 	    opt.callback = callback;
 	
 	    that = (0, _jquery2.default)(this).modal({ title: opt.title, content: opt.content, callback: opt.callback, size: opt.size, isHideRemove: opt.isHideRemove });
@@ -801,10 +802,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        icon: 'success',
 	        size: 'small',
 	        title: config['title'],
+	        contentTitle: config['contentTitle'], //2017-12-6 new custom contentTitle
 	        content: config['content'],
 	        buttons: [{
-	            style: 'btn secondary',
-	            text: '确定',
+	            style: 'btn secondary ' + config['buttonClassName'], //2017-12-6 custom style
+	            text: config['okText'], //2017-12-6 custom lable
 	            callback: config['callback']
 	        }],
 	        isHideRemove: config['isHideRemove'] || false
@@ -818,7 +820,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        icon: 'info',
 	        size: 'small',
 	        title: config['title'],
-	        content: config['content'],
+	        content: config['content'] || '',
 	        buttons: [{
 	            text: '确定',
 	            callback: config['callback']
