@@ -572,7 +572,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 模态窗口
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * by tommyshao <tomieric@gmail.com>
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 2016-09-22
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
@@ -608,7 +608,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]
 	};
 	
-	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{contentTitle}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n';
+	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n      <div class="result-box">\n        <div class="result-icon"></div>\n        <div class="result-content">\n          <div class="result-inner">\n            <h1>\n              {{contentTitle}}\n            </h1>\n            <p class="bp-modallayer-content text-align-center fn-pt-5">\n              {{content}}\n            </p>\n            <div class="bp-modallayer-btns text-align-center fn-pb-40 fn-pt-20">\n              {{buttons}}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n';
 	
 	// 渲染
 	ModalLayer.render = function (option) {
@@ -635,7 +635,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (btns[i].href) {
 	            btnHtml.push('<a href="' + btns[i].href + '" ' + (btns[i].target ? 'target="' + btns[i].target + '"' : '') + ' class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</a>');
 	        } else {
-	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</button>');
+	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary w-150') + '" data-index="' + i + '">' + btns[i].text + '</button>');
 	        }
 	    }
 	
@@ -667,12 +667,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-successModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'success',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
 	        contentTitle: config['contentTitle'], //2017-12-6 new custom contentTitle
 	        content: config['content'],
 	        buttons: [{
-	            style: 'btn secondary ' + config['buttonClassName'], //2017-12-6 custom style
+	            style: 'btn secondary w-150 ' + config['buttonClassName'], //2017-12-6 custom style
 	            text: config['okText'], //2017-12-6 custom lable
 	            callback: config['callback']
 	        }],
@@ -685,16 +685,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-confirmModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'info',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'] || '',
 	        buttons: [{
 	            text: '确定',
 	            callback: config['callback']
-	        }, {
-	            href: 'javascript:void(0);',
-	            text: '取消',
-	            style: 'btn links'
+	            // ,
+	            // {
+	            //   href: 'javascript:void(0);',
+	            //   text: '取消',
+	            //   style: 'btn links block-btn w-100'
+	            // }
 	        }],
 	        isHideRemove: config['isHideRemove'] || false
 	    });
@@ -705,8 +708,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-alertModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'info',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'],
 	        buttons: [{
 	            text: '确定',
@@ -721,12 +725,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-infoModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'fail',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'],
 	        buttons: [{
 	            text: '确定',
-	            style: 'btn thirdly',
+	            style: 'btn thirdly w-150',
 	            callback: config['callback']
 	        }],
 	        isHideRemove: config['isHideRemove'] || false

@@ -237,15 +237,20 @@
   }
 }
 
-
-//------------
-// modal
+// 用在弹层中的情况
 .modal-body {
-  > .result-wrap {
-    padding: 10px 50px;
-    .result-box {
-      min-width: 60%;
-    }
 
+  > .result-wrap {
+    padding: 10px 0 0 0;
+    text-align: left;
+
+    .result-box {
+      // min-width: 60%;
+      display: block;
+
+      > .result-content {
+        width: 100%;
+      }
+    }
   }
 }

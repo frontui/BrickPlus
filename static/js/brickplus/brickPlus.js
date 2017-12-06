@@ -3356,7 +3356,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 模态窗口
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * by tommyshao <tomieric@gmail.com>
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 2016-09-22
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
@@ -3392,7 +3392,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]
 	};
 	
-	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{contentTitle}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n';
+	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n      <div class="result-box">\n        <div class="result-icon"></div>\n        <div class="result-content">\n          <div class="result-inner">\n            <h1>\n              {{contentTitle}}\n            </h1>\n            <p class="bp-modallayer-content text-align-center fn-pt-5">\n              {{content}}\n            </p>\n            <div class="bp-modallayer-btns text-align-center fn-pb-40 fn-pt-20">\n              {{buttons}}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n';
 	
 	// 渲染
 	ModalLayer.render = function (option) {
@@ -3419,7 +3419,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (btns[i].href) {
 	            btnHtml.push('<a href="' + btns[i].href + '" ' + (btns[i].target ? 'target="' + btns[i].target + '"' : '') + ' class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</a>');
 	        } else {
-	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</button>');
+	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary w-150') + '" data-index="' + i + '">' + btns[i].text + '</button>');
 	        }
 	    }
 	
@@ -3451,12 +3451,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-successModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'success',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
 	        contentTitle: config['contentTitle'], //2017-12-6 new custom contentTitle
 	        content: config['content'],
 	        buttons: [{
-	            style: 'btn secondary ' + config['buttonClassName'], //2017-12-6 custom style
+	            style: 'btn secondary w-150 ' + config['buttonClassName'], //2017-12-6 custom style
 	            text: config['okText'], //2017-12-6 custom lable
 	            callback: config['callback']
 	        }],
@@ -3469,16 +3469,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-confirmModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'info',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'] || '',
 	        buttons: [{
 	            text: '确定',
 	            callback: config['callback']
-	        }, {
-	            href: 'javascript:void(0);',
-	            text: '取消',
-	            style: 'btn links'
+	            // ,
+	            // {
+	            //   href: 'javascript:void(0);',
+	            //   text: '取消',
+	            //   style: 'btn links block-btn w-100'
+	            // }
 	        }],
 	        isHideRemove: config['isHideRemove'] || false
 	    });
@@ -3489,8 +3492,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-alertModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'info',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'],
 	        buttons: [{
 	            text: '确定',
@@ -3505,12 +3509,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-infoModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'fail',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'],
 	        buttons: [{
 	            text: '确定',
-	            style: 'btn thirdly',
+	            style: 'btn thirdly w-150',
 	            callback: config['callback']
 	        }],
 	        isHideRemove: config['isHideRemove'] || false
@@ -4744,7 +4749,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 模态窗口
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * by tommyshao <tomieric@gmail.com>
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 2016-09-22
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
@@ -4780,7 +4785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]
 	};
 	
-	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n        <div class="result-box">\n            <div class="result-icon"></div>\n            <div class="result-content">\n                <div class="result-inner">\n                    <h1>\n                        {{contentTitle}}\n                    </h1>\n                    <div class="bp-modallayer-content fn-pt-15">\n                        {{content}}\n                    </div>\n                    <div class="bp-modallayer-btns plural-btns fn-pt-15 small-btn-gb">\n                        {{buttons}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n';
+	ModalLayer.TEMPLATE = '\n    <div class="result-wrap result-s result-vertical {{status}}">\n      <div class="result-box">\n        <div class="result-icon"></div>\n        <div class="result-content">\n          <div class="result-inner">\n            <h1>\n              {{contentTitle}}\n            </h1>\n            <p class="bp-modallayer-content text-align-center fn-pt-5">\n              {{content}}\n            </p>\n            <div class="bp-modallayer-btns text-align-center fn-pb-40 fn-pt-20">\n              {{buttons}}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n';
 	
 	// 渲染
 	ModalLayer.render = function (option) {
@@ -4807,7 +4812,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (btns[i].href) {
 	            btnHtml.push('<a href="' + btns[i].href + '" ' + (btns[i].target ? 'target="' + btns[i].target + '"' : '') + ' class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</a>');
 	        } else {
-	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary') + '" data-index="' + i + '">' + btns[i].text + '</button>');
+	            btnHtml.push('<button type="button" class="' + (btns[i].style || 'btn primary w-150') + '" data-index="' + i + '">' + btns[i].text + '</button>');
 	        }
 	    }
 	
@@ -4839,12 +4844,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-successModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'success',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
 	        contentTitle: config['contentTitle'], //2017-12-6 new custom contentTitle
 	        content: config['content'],
 	        buttons: [{
-	            style: 'btn secondary ' + config['buttonClassName'], //2017-12-6 custom style
+	            style: 'btn secondary w-150 ' + config['buttonClassName'], //2017-12-6 custom style
 	            text: config['okText'], //2017-12-6 custom lable
 	            callback: config['callback']
 	        }],
@@ -4857,16 +4862,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-confirmModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'info',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'] || '',
 	        buttons: [{
 	            text: '确定',
 	            callback: config['callback']
-	        }, {
-	            href: 'javascript:void(0);',
-	            text: '取消',
-	            style: 'btn links'
+	            // ,
+	            // {
+	            //   href: 'javascript:void(0);',
+	            //   text: '取消',
+	            //   style: 'btn links block-btn w-100'
+	            // }
 	        }],
 	        isHideRemove: config['isHideRemove'] || false
 	    });
@@ -4877,8 +4885,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-alertModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'info',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'],
 	        buttons: [{
 	            text: '确定',
@@ -4893,12 +4902,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var id = config['id'] ? config['id'] : '#bp-infoModalLayer';
 	    return (0, _jquery2.default)(id).modalLayer({
 	        icon: 'fail',
-	        size: 'small',
+	        size: config['size'],
 	        title: config['title'],
+	        contentTitle: config['contentTitle'],
 	        content: config['content'],
 	        buttons: [{
 	            text: '确定',
-	            style: 'btn thirdly',
+	            style: 'btn thirdly w-150',
 	            callback: config['callback']
 	        }],
 	        isHideRemove: config['isHideRemove'] || false
@@ -4935,99 +4945,99 @@ return /******/ (function(modules) { // webpackBootstrap
 	var toggle = '[data-toggle="tab"],.tabs-btn';
 	
 	var Tab = function () {
-	    function Tab(element) {
-	        _classCallCheck(this, Tab);
+	  function Tab(element) {
+	    _classCallCheck(this, Tab);
 	
-	        this.$el = $(element);
+	    this.$el = $(element);
 	
-	        this.VERSION = '{{VERSION}}';
+	    this.VERSION = '{{VERSION}}';
 	
-	        // 动画过渡时间
-	        this.TRANSITION_DURATION = 150;
+	    // 动画过渡时间
+	    this.TRANSITION_DURATION = 150;
+	  }
+	
+	  // 切换显示
+	  // ---------
+	
+	
+	  _createClass(Tab, [{
+	    key: 'show',
+	    value: function show() {
+	      var $this = this.$el;
+	
+	      // $ul 导航项元素
+	      // selector 对应项元素选择器
+	      var _ref = [$this.closest('.tabs,[data-tab="item"]'), $this.data('target')],
+	          $ul = _ref[0],
+	          selector = _ref[1];
+	
+	      // 当对应项选择器不存在时，如果为a标签则获取href对应的 hash(锚点)值
+	
+	      if (!selector) {
+	        selector = $this.attr('href');
+	        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
+	      }
+	
+	      // $previous 上一个高亮激活导航项
+	      // hideEvent 隐藏事件,发生在切换之前，由当前高亮激活导航项元素触发
+	      // showEvent 显示事件，发生在切换之前，由下一个高亮激活导航项元素触发
+	      // $target 对应项dom 元素
+	      //
+	      var $previous = $ul.find('.active a'),
+	          _ref2 = [$.Event('hide.bp.tab', { relatedTarget: $this[0] }), $.Event('show.bp.tab', { relatedTarget: $previous[0] }), $(selector)],
+	          hideEvent = _ref2[0],
+	          showEvent = _ref2[1],
+	          $target = _ref2[2];
+	
+	      // 上一个显示tab 项触发隐藏事件
+	      $previous.trigger(hideEvent);
+	      // 当前tab项触发显示事件
+	      $this.trigger(showEvent);
+	
+	      // 阻止默认，则不切换
+	      if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
+	
+	      // tab 导航切换
+	      this.activate($this.closest('li,[data-tab="nav"]'), $ul);
+	      // tab 内容切换
+	      this.activate($target, $target.parent(), function () {
+	        // 切换后上一个选项导航触发`已隐藏`事件
+	        $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0] });
+	        // 整个 tab导航项触发已显示事件
+	        $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0] });
+	      });
 	    }
 	
-	    // 切换显示
-	    // ---------
+	    // 切换内容
+	    // -------
 	
+	  }, {
+	    key: 'activate',
+	    value: function activate(element, container, callback) {
+	      var $active = container.find('> .active'),
+	          transition = callback && $.support.transition && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length),
+	          next = function next() {
+	        $active.removeClass('active').find(toggle).attr('aria-expanded', false);
 	
-	    _createClass(Tab, [{
-	        key: 'show',
-	        value: function show() {
-	            var $this = this.$el;
+	        element.addClass('active').find(toggle).attr('aria-expanded', true);
 	
-	            // $ul 导航项元素
-	            // selector 对应项元素选择器
-	            var _ref = [$this.closest('.tabs,[data-tab="item"]'), $this.data('target')],
-	                $ul = _ref[0],
-	                selector = _ref[1];
-	
-	            // 当对应项选择器不存在时，如果为a标签则获取href对应的 hash(锚点)值
-	
-	            if (!selector) {
-	                selector = $this.attr('href');
-	                selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
-	            }
-	
-	            // $previous 上一个高亮激活导航项
-	            // hideEvent 隐藏事件,发生在切换之前，由当前高亮激活导航项元素触发
-	            // showEvent 显示事件，发生在切换之前，由下一个高亮激活导航项元素触发
-	            // $target 对应项dom 元素
-	            //
-	            var $previous = $ul.find('.active a'),
-	                _ref2 = [$.Event('hide.bp.tab', { relatedTarget: $this[0] }), $.Event('show.bp.tab', { relatedTarget: $previous[0] }), $(selector)],
-	                hideEvent = _ref2[0],
-	                showEvent = _ref2[1],
-	                $target = _ref2[2];
-	
-	            // 上一个显示tab 项触发隐藏事件
-	            $previous.trigger(hideEvent);
-	            // 当前tab项触发显示事件
-	            $this.trigger(showEvent);
-	
-	            // 阻止默认，则不切换
-	            if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return;
-	
-	            // tab 导航切换
-	            this.activate($this.closest('li,[data-tab="nav"]'), $ul);
-	            // tab 内容切换
-	            this.activate($target, $target.parent(), function () {
-	                // 切换后上一个选项导航触发`已隐藏`事件
-	                $previous.trigger({ type: 'hidden.bp.tab', relatedTarget: $this[0] });
-	                // 整个 tab导航项触发已显示事件
-	                $this.trigger({ type: 'shown.bp.tab', relatedTarget: $previous[0] });
-	            });
+	        if (transition) {
+	          // ie hack
+	          element[0].offsetWidth;
+	          element.addClass('in');
+	        } else {
+	          element.removeClass('fade');
 	        }
 	
-	        // 切换内容
-	        // -------
+	        callback && callback();
+	      };
 	
-	    }, {
-	        key: 'activate',
-	        value: function activate(element, container, callback) {
-	            var $active = container.find('> .active'),
-	                transition = callback && $.support.transition && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length),
-	                next = function next() {
-	                $active.removeClass('active').find(toggle).attr('aria-expanded', false);
+	      $active.length && transition ? $active.one('uiTransitionEnd', next).emulateTransitionEnd(Tab.TRANSITION_DURATION) : next();
+	      $active.removeClass('in');
+	    }
+	  }]);
 	
-	                element.addClass('active').find(toggle).attr('aria-expanded', true);
-	
-	                if (transition) {
-	                    // ie hack
-	                    element[0].offsetWidth;
-	                    element.addClass('in');
-	                } else {
-	                    element.removeClass('fade');
-	                }
-	
-	                callback && callback();
-	            };
-	
-	            $active.length && transition ? $active.one('uiTransitionEnd', next).emulateTransitionEnd(Tab.TRANSITION_DURATION) : next();
-	            $active.removeClass('in');
-	        }
-	    }]);
-	
-	    return Tab;
+	  return Tab;
 	}();
 	
 	// 插件定义
@@ -5035,12 +5045,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	function Plugin(option) {
-	    return $(this).each(function () {
-	        var $this = $(this);
-	        var data = $this.data('bp.tab');
-	        if (!data) $this.data('bp.tab', data = new Tab(this));
-	        if (typeof option == 'string') data[option] && data[option]();
-	    });
+	  return $(this).each(function () {
+	    var $this = $(this);
+	    var data = $this.data('bp.tab');
+	    if (!data) $this.data('bp.tab', data = new Tab(this));
+	    if (typeof option == 'string') data[option] && data[option]();
+	  });
 	}
 	
 	// jQuery 插件扩展
@@ -5050,14 +5060,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	// 元素插件绑定
 	// -------------
 	var clickHandler = function clickHandler(e) {
-	    if (!$(e.target).hasClass('tab-disabled')) {
-	        e.preventDefault();
-	        Plugin.call($(this), 'show');
-	    }
+	  if (!$(e.target).hasClass('tab-disabled')) {
+	    e.preventDefault();
+	    Plugin.call($(this), 'show');
+	  }
 	};
 	
 	$(function () {
-	    $(document).on('click.bp.tab', toggle, clickHandler);
+	  $(document).on('click.bp.tab', toggle, clickHandler);
 	});
 	
 	module.exports = Tab;
@@ -5927,14 +5937,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        focusInvalid  {Boolean}     true            Whether to focus the field that is invalid
 	        ignoreBlank   {Boolean}     false           When the field has no value, whether to ignore validation
 	        ignore        {jqSelector}    ''            Ignored fields (Using jQuery selector)
-	          beforeSubmit  {Function}                    Do something before submit form
+	         beforeSubmit  {Function}                    Do something before submit form
 	        dataFilter    {Function}                    Convert ajax results
 	        valid         {Function}                    Triggered when the form is valid
 	        invalid       {Function}                    Triggered when the form is invalid
 	        validClass    {String}      'n-valid'       Add this class name to a valid field
 	        invalidClass  {String}      'n-invalid'     Add this class name to a invalid field
 	        bindClassTo   {jqSelector}  ':input'        Which element should the className binding to
-	          display       {Function}                    Callback function to get dynamic display
+	         display       {Function}                    Callback function to get dynamic display
 	        target        {Function}                    Callback function to get dynamic target
 	        msgShow       {Function}                    Trigger this callback when show message
 	        msgHide       {Function}                    Trigger this callback when hide message
@@ -5945,12 +5955,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        msgStyle      {String}                      Custom message css style
 	        msgClass      {String}                      Additional added to the message class names
 	        formClass     {String}                      Additional added to the form class names
-	          messages      {Object}                      Custom messages for the current instance
+	         messages      {Object}                      Custom messages for the current instance
 	        rules         {Object}                      Custom rules for the current instance
 	        fields        {Object}                      Field set to be verified
 	        {String}        key    name|#id
 	        {String|Object} value                       Rule string, or an object is passed more arguments
-	          fields[key][rule]       {String}            Rule string
+	         fields[key][rule]       {String}            Rule string
 	        fields[key][display]    {String|Function}
 	        fields[key][tip]        {String}            Custom friendly message when focus the input
 	        fields[key][ok]         {String}            Custom success message

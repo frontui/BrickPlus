@@ -5736,6 +5736,9 @@ select[size].form-control {
   .form-group.form-no-label .form-control-label {
     display: none;
   }
+  .form-in-center .form-center-box {
+    margin-left: 0;
+  }
 }
 .form-required .form-control-label > span:before,
 .form-required.form-control-label > span:before {
@@ -7009,10 +7012,14 @@ select[size].form-control {
   text-align: center;
 }
 .modal-body > .result-wrap {
-  padding: 10px 50px;
+  padding: 10px 0 0 0;
+  text-align: left;
 }
 .modal-body > .result-wrap .result-box {
-  min-width: 60%;
+  display: block;
+}
+.modal-body > .result-wrap .result-box > .result-content {
+  width: 100%;
 }
 .progress {
   overflow: hidden;
