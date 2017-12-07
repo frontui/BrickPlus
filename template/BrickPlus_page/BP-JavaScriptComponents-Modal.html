@@ -266,17 +266,59 @@ $('[data-action]').on('click', function() {
       })
     })
 
-    $('[data-action]').on('click', function() {
+    $('[data-action]').on('click', function () {
       var action = $(this).data('action')
-      switch(action) {
+      switch (action) {
         case 'success':
-          return $.successModalLayer({ size: 'smaller', title: '提示', contentTitle: '修改成功', content: '请按照提示进行操作', okText:'确定', buttonClassName:'',  callback: function() { alert('成功') } })
+          return $.successModalLayer(
+            {
+              size: 'smaller',
+              title: '提示',
+              contentTitle: '修改成功',
+              content: '请按照提示进行操作',
+              okText: '确定',
+              buttonClassName: '',
+              callback: function () {
+                alert('成功')
+                }
+            }
+          )
         case 'confirm':
-          return $.confirmModalLayer({ size: 'smaller', title: '提醒', contentTitle: '是否确认取消', content: '请按照提示进行操作', callback: function() { alert(' ok') } })
+          return $.confirmModalLayer(
+            {
+              size: 'smaller',
+              title: '提醒',
+              contentTitle: '是否确认取消',
+              content: '请按照提示进行操作',
+              callback: function () {
+                alert(' ok')
+                }
+            }
+          )
         case 'alert':
-          return $.alertModalLayer({ size: 'smaller', title: '提示', contentTitle: '你已经被踢出局', content: '请按照提示进行操作', callback: function() { alert('确定') } })
+          return $.alertModalLayer(
+            {
+              size: 'smaller',
+              title: '提示',
+              contentTitle: '你已经被踢出局',
+              content: '请按照提示进行操作',
+              callback: function () {
+                alert('确定')
+              }
+            }
+          )
         case 'error':
-          return $.errorModalLayer({ size: 'smaller', title: '提示', contentTitle: '修改失败', content: '请按照提示进行操作', callback: function() { alert('错误') } })
+          return $.errorModalLayer(
+            {
+              size: 'smaller',
+              title: '提示',
+              contentTitle: '修改失败',
+              content: '请按照提示进行操作',
+              callback: function () {
+                alert('错误')
+              }
+            }
+          )
       }
     })
 
