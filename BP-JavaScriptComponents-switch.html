@@ -201,6 +201,25 @@
               <span class="switch-inner"></span> </span> <span>关</span> <br> <br> <span class="switch disabled">
               <span class="switch-inner"></span> </span> <span>关</span> </div>
                   <div class="example-code"> <pre><code>
+const toggle = '.switch,[data-toggle="switch"]';
+    $(document).on('click.switch', toggle, function() {
+        $(this).switch({
+          type : 'toggle',
+          docClick : true,
+          isSecondCheck : true,
+          secondCheckOption : {   //  isSecondCheck为true时必传
+            title : '传参提示',   //  弹窗标题
+            getContent : function(isChecked){   //  弹窗提示语，需要return一个字符串，isChecked为当前是否激活状态(布尔值)
+              var content = '当前状态为' + (isChecked ? '激活' : '未激活');
+              return content;
+            },
+            secondCheckCallBack : function(el,isChecked){ 
+              // 回调，点击确定后跑逻辑
+              console.log(el,isChecked);  // 随便打印
+            }
+          }
+        })
+    })
 $('.switch').on('checked.bp.switch', function(e, checked) {
   $(this).next('span').html(checked ? '开' : '关')
   $(this).next(':radio').prop('checked', checked)
@@ -221,6 +240,30 @@ $('.switch').on('checked.bp.switch', function(e, checked) {
     <script>
       $(function()
       {
+        const toggle = '.switch,[data-toggle="switch"]';
+        $(document).on('click.switch', toggle, function()
+        {
+          $(this).switch(
+          {
+            type: 'toggle',
+            docClick: true,
+            isSecondCheck: true,
+            secondCheckOption:
+            { //  isSecondCheck为true时必传
+              title: '传参提示', //  弹窗标题
+              getContent: function(isChecked)
+              { //  弹窗提示语，需要return一个字符串，isChecked为当前是否激活状态(布尔值)
+                var content = '当前状态为' + (isChecked ? '激活' : '未激活');
+                return content;
+              },
+              secondCheckCallBack: function(el, isChecked)
+              {
+                // 回调，点击确定后跑逻辑
+                console.log(el, isChecked); // 随便打印
+              }
+            }
+          })
+        })
         $('.switch').on('checked.bp.switch', function(e, checked)
         {
           $(this).next('span').html(checked ? '开' : '关')

@@ -173,9 +173,9 @@
                 <div class="example">
                   <div class="example-tag">实例</div>
                   <div class="example-box">
-                    <form action="">
+                    <form action="" data-validator-option='{stopOnError:false, timely:2, theme:"yellow_right"}'>
                       <div>
-                        <div class="form-group"> <label class="form-control-label" for="FormTree1">
+                        <div class="form-group fn-mb-10"> <label class="form-control-label" for="FormTree1">
                   <span>标准表单案例</span>
                 </label>
                           <div class="form-control-wrap"> <input type="text" class="form-control" id="FormTree1" placeholder="表单提示语" /> </div>
@@ -477,7 +477,7 @@
                           </div>
                         </div>
                       </div>
-                      <div>
+                      <div class="fn-mb-10">
                         <div class="form-group" style="*z-index: 2;"> <label class="form-control-label" for="FormSelectKeyIn1">
                   <span>模糊匹配 + Select</span>
                 </label>
@@ -494,6 +494,44 @@
                                 <li title="option three">option three </li>
                                 <li title="option four">option four </li>
                                 <li title="option five">option five </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group form-control-dropdown-menu-type2" style="*z-index: 2;"> <label class="form-control-label" for="FormSelectKeyInA">
+                  <span>模糊匹配 + Select</span>
+                </label>
+                          <div class="form-control-wrap">
+                            <div class="form-control-dropdown"> <span class="form-control-dropdown-btn">
+                      <i></i>
+                    </span> <input type="text" data-toggle="dropdown" class="form-control" id="FormSelectKeyInA" placeholder="请输入文字" value="" />
+                              <ul class="form-control-dropdown-menu">
+                                <li title="深圳宏澳装饰工程有限公司分公司" class="disabled">深圳宏澳装饰工程有限公司分公司 </li>
+                                <li title="广东东田投资股份有限公司">广东东田投资股份有限公司 </li>
+                                <li title="市远大融资担保有限公司">市远大融资担保有限公司 </li>
+                                <li title="万豪五金货架有限公司">万豪五金货架有限公司 </li>
+                                <li title="广东天恒地产集团有限公司">广东天恒地产集团有限公司 </li>
+                                <li title="中国平安人寿保险股份中心支公司">中国平安人寿保险股份中心支公司 </li>
+                                <li title="广东华南顺通大宗商品交易中心">广东华南顺通大宗商品交易中心 </li>
+                                <li title="东莞市浩瀚商贸有限公司">东莞市浩瀚商贸有限公司 </li>
+                                <li title="高普（香港）有限公司东莞代表处">高普（香港）有限公司东莞代表处 </li>
+                                <li title="香港葛天那中国有限公司">香港葛天那中国有限公司 </li>
+                                <li title="市晶和实业集团有限公司">市晶和实业集团有限公司 </li>
+                                <li title="南方报业传媒集团办事处">南方报业传媒集团办事处 </li>
+                                <li title="深圳宏澳装饰工程有限公司分公司">深圳宏澳装饰工程有限公司分公司 </li>
+                                <li title="广东东田投资股份有限公司">广东东田投资股份有限公司 </li>
+                                <li title="市远大融资担保有限公司">市远大融资担保有限公司 </li>
+                                <li title="万豪五金货架有限公司">万豪五金货架有限公司 </li>
+                                <li title="广东天恒地产集团有限公司">广东天恒地产集团有限公司 </li>
+                                <li title="中国平安人寿保险股份中心支公司">中国平安人寿保险股份中心支公司 </li>
+                                <li title="广东华南顺通大宗商品交易中心">广东华南顺通大宗商品交易中心 </li>
+                                <li title="东莞市浩瀚商贸有限公司">东莞市浩瀚商贸有限公司 </li>
+                                <li title="高普（香港）有限公司东莞代表处">高普（香港）有限公司东莞代表处 </li>
+                                <li title="香港葛天那中国有限公司">香港葛天那中国有限公司 </li>
+                                <li title="市晶和实业集团有限公司">市晶和实业集团有限公司 </li>
+                                <li title="南方报业传媒集团办事处">南方报业传媒集团办事处 </li>
                               </ul>
                             </div>
                           </div>
@@ -1641,6 +1679,366 @@
                     <span>范例</span>
                   </label>
                             <div class="form-control-wrap"> <input type="text" class="form-control" id="FormPosition1" placeholder="表单提示语" /> </div>
+                          </div>
+                          <!-- test -->
+                          <div class="form-group fn-pb-10"> <label class="form-control-label" for="FormKeyIn1">
+                    <span>Keyin</span>
+                  </label>
+                            <div class="form-control-wrap"> <input type="text" class="form-control" id="FormKeyIn1" placeholder="表单提示语"> </div>
+                          </div>
+                          <div class="form-group fn-pb-10"> <label class="form-control-label" for="FormKeyIn2">
+                    <span>文本输入框</span>
+                  </label>
+                            <div class="form-control-wrap"> <textarea name="" id="FormKeyIn2" cols="30" rows="10" placeholder="表单提示语" class="form-control"></textarea> </div>
+                          </div>
+                          <div class="fn-pb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>select</span>
+                    </label>
+                              <div class="form-control-wrap"> <select class="form-control">
+                        <option>
+                          option 1
+                        </option>
+                        <option>
+                          option 2
+                        </option>
+                        <option>
+                          option 3
+                        </option>
+                      </select> </div>
+                            </div>
+                          </div>
+                          <div class="fn-pb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>select ( group )</span>
+                    </label>
+                              <div class="form-control-wrap"> <select class="form-control">
+                        <optgroup label="group1">
+                          <option>
+                            group1 option 1
+                          </option>
+                          <option>
+                            group1 option 2
+                          </option>
+                          <option>
+                            group1 option 3
+                          </option>
+                        </optgroup>
+                      </select> </div>
+                            </div>
+                          </div>
+                          <div class="fn-pb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>select ( multiple )</span>
+                    </label>
+                              <div class="form-control-wrap"> <select class="form-control" multiple>
+                        <option>
+                          multiple option 1
+                        </option>
+                        <option>
+                          multiple option 2
+                        </option>
+                        <option>
+                          multiple option 3
+                        </option>
+                        <option>
+                          multiple option 4
+                        </option>
+                        <option>
+                          multiple option 5
+                        </option>
+                        <option>
+                          multiple option 6
+                        </option>
+                      </select> </div>
+                            </div>
+                          </div>
+                          <div class="fn-pb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>select ( size )</span>
+                    </label>
+                              <div class="form-control-wrap"> <select class="form-control" size="3">
+                        <option>
+                          multiple option 1
+                        </option>
+                        <option>
+                          multiple option 2
+                        </option>
+                        <option>
+                          multiple option 3
+                        </option>
+                        <option>
+                          multiple option 4
+                        </option>
+                        <option>
+                          multiple option 5
+                        </option>
+                        <option>
+                          multiple option 6
+                        </option>
+                      </select> </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group" style="*z-index: 1;"> <label class="form-control-label">
+                      <span>模拟 Select</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-dropdown"> <span class="form-control-dropdown-btn">
+                                                <i></i>
+                                            </span>
+                                  <div class="form-control-dropdown-value" title="请选择一个选项">请选择一个选项</div>
+                                  <ul class="form-control-dropdown-menu">
+                                    <li title="option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                                    option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                      </li>
+                                    <li title="option one"> option one </li>
+                                    <li title="option two"> option two </li>
+                                    <li title="option three"> option three </li>
+                                    <li title="option four"> option four </li>
+                                    <li title="option five"> option five </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group" style="*z-index: 1;"> <label class="form-control-label">
+                      <span>银行类型 Select</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-dropdown"> <span class="form-control-dropdown-btn">
+                          <i></i>
+                        </span>
+                                  <div class="form-control-dropdown-value" aria-expanded="false"> <span class="bank-icon icon-cmb" title="招商银行"></span> <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </div>
+                                  <ul class="form-control-dropdown-menu">
+                                    <li title="option"> <span class="bank-icon icon-cmb" title="招商银行"></span> <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-icbc" title="工商银行"></span> <span class="form-control-bank-card">工商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-ccb" title="建设银行"></span> <span class="form-control-bank-card">建设银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-abc" title="农业银行"></span> <span class="form-control-bank-card">农业银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-boc" title="中国银行"></span> <span class="form-control-bank-card">中国银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-comm" title="交通银行"></span> <span class="form-control-bank-card">交通银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-pingan" title="平安银行"></span> <span class="form-control-bank-card">平安银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-psbc" title="邮政银行"></span> <span class="form-control-bank-card">邮政银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-shbc" title="上海银行"></span> <span class="form-control-bank-card">上海银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-wzbc" title="温州银行"></span> <span class="form-control-bank-card">温州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-spdb" title="浦发银行"></span> <span class="form-control-bank-card">浦发银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-ecitic" title="中信银行"></span> <span class="form-control-bank-card">中信银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-cgbchina" title="广发银行"></span> <span class="form-control-bank-card">广发银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-cmbc" title="民生银行"></span> <span class="form-control-bank-card">民生银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-cib" title="兴业银行"></span> <span class="form-control-bank-card">兴业银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-cebbank" title="光大银行"></span> <span class="form-control-bank-card">光大银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-srcb" title="上海农商银行"></span> <span class="form-control-bank-card">上海农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-bankofbeijing" title="北京银行"></span> <span class="form-control-bank-card">北京银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-bjrcb" title="北京农商银行"></span> <span class="form-control-bank-card">北京农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-szfz" title="深圳发展银行"></span> <span class="form-control-bank-card">深圳发展银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-nbcb" title="宁波银行"></span> <span class="form-control-bank-card">宁波银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-hzbank" title="杭州银行"></span> <span class="form-control-bank-card">杭州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-dongguanbank" title="东莞银行"></span> <span class="form-control-bank-card">东莞银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-hsbc" title="汇丰银行"></span> <span class="form-control-bank-card">汇丰银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-hkbea" title="东亚银行"></span> <span class="form-control-bank-card">东亚银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-961111" title="广州农商银行"></span> <span class="form-control-bank-card">广州农商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-hxb" title="华夏银行"></span> <span class="form-control-bank-card">华夏银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-crbank" title="华润银行"></span> <span class="form-control-bank-card">华润银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-lanzhou" title="兰州银行"></span> <span class="form-control-bank-card">兰州银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-hebbank" title="河北银行"></span> <span class="form-control-bank-card">河北银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-hsbank" title="微商银行"></span> <span class="form-control-bank-card">微商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-qdccb" title="青岛银行"></span> <span class="form-control-bank-card">青岛银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-ydnsh" title="尧都农商"></span> <span class="form-control-bank-card">尧都农商&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-zheshang" title="浙商银行"></span> <span class="form-control-bank-card">浙商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-nccbank" title="南昌银行"></span> <span class="form-control-bank-card">南昌银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-cbhb" title="渤海银行"></span> <span class="form-control-bank-card">渤海银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-egbank" title="恒丰银行"></span> <span class="form-control-bank-card">恒丰银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                    <li title="option"> <span class="bank-icon icon-tianjinbank" title="天津银行"></span> <span class="form-control-bank-card">天津银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span> </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group" style="*z-index: 2;"> <label class="form-control-label" for="FormSelectKeyIn1">
+                      <span>模糊匹配 + Select</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-dropdown"> <span class="form-control-dropdown-btn">
+                                                <i></i>
+                                            </span> <input type="text" data-toggle="dropdown" class="form-control" id="FormSelectKeyIn1" placeholder="请输入文字" value="" />
+                                  <ul class="form-control-dropdown-menu">
+                                    <li title="option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                                    option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                      </li>
+                                    <li title="option one">option one </li>
+                                    <li title="option two">option two </li>
+                                    <li title="option three">option three </li>
+                                    <li title="option four">option four </li>
+                                    <li title="option five">option five </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group form-control-dropdown-menu-type2" style="*z-index: 2;"> <label class="form-control-label" for="FormSelectKeyInA">
+                      <span>模糊匹配 + Select</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-dropdown"> <span class="form-control-dropdown-btn">
+                          <i></i>
+                        </span> <input type="text" data-toggle="dropdown" class="form-control" id="FormSelectKeyInA" placeholder="请输入文字" value="" />
+                                  <ul class="form-control-dropdown-menu">
+                                    <li title="深圳宏澳装饰工程有限公司分公司" class="disabled">深圳宏澳装饰工程有限公司分公司 </li>
+                                    <li title="广东东田投资股份有限公司">广东东田投资股份有限公司 </li>
+                                    <li title="市远大融资担保有限公司">市远大融资担保有限公司 </li>
+                                    <li title="万豪五金货架有限公司">万豪五金货架有限公司 </li>
+                                    <li title="广东天恒地产集团有限公司">广东天恒地产集团有限公司 </li>
+                                    <li title="中国平安人寿保险股份中心支公司">中国平安人寿保险股份中心支公司 </li>
+                                    <li title="广东华南顺通大宗商品交易中心">广东华南顺通大宗商品交易中心 </li>
+                                    <li title="东莞市浩瀚商贸有限公司">东莞市浩瀚商贸有限公司 </li>
+                                    <li title="高普（香港）有限公司东莞代表处">高普（香港）有限公司东莞代表处 </li>
+                                    <li title="香港葛天那中国有限公司">香港葛天那中国有限公司 </li>
+                                    <li title="市晶和实业集团有限公司">市晶和实业集团有限公司 </li>
+                                    <li title="南方报业传媒集团办事处">南方报业传媒集团办事处 </li>
+                                    <li title="深圳宏澳装饰工程有限公司分公司">深圳宏澳装饰工程有限公司分公司 </li>
+                                    <li title="广东东田投资股份有限公司">广东东田投资股份有限公司 </li>
+                                    <li title="市远大融资担保有限公司">市远大融资担保有限公司 </li>
+                                    <li title="万豪五金货架有限公司">万豪五金货架有限公司 </li>
+                                    <li title="广东天恒地产集团有限公司">广东天恒地产集团有限公司 </li>
+                                    <li title="中国平安人寿保险股份中心支公司">中国平安人寿保险股份中心支公司 </li>
+                                    <li title="广东华南顺通大宗商品交易中心">广东华南顺通大宗商品交易中心 </li>
+                                    <li title="东莞市浩瀚商贸有限公司">东莞市浩瀚商贸有限公司 </li>
+                                    <li title="高普（香港）有限公司东莞代表处">高普（香港）有限公司东莞代表处 </li>
+                                    <li title="香港葛天那中国有限公司">香港葛天那中国有限公司 </li>
+                                    <li title="市晶和实业集团有限公司">市晶和实业集团有限公司 </li>
+                                    <li title="南方报业传媒集团办事处">南方报业传媒集团办事处 </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group"> <label class="form-control-label" for="FormSelectKeyIn1">
+                      <span>日期选择</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-date"> <span class="form-control-date-btn">
+                          <i></i>
+                        </span> <input class="form-control" value="yyyy-mm-dd" type="text" data-toggle="datetimepicker" readonly="readonly"> </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>模态窗表单</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-modal"> <span class="form-control-modal-btn">
+                          <i></i>
+                        </span> <input class="form-control" value="点击我会弹出一个窗口" type="text" data-toggle="modal" data-target="#myModal" readonly="readonly"> </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>单选和多选</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-check"> <label>
+                          单选项
+                          <input type="radio" name=""/>
+                        </label> <label>
+                          多选项
+                          <input type="checkbox" name=""/>
+                        </label> </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fn-mb-10">
+                            <div class="form-group"> <label class="form-control-label">
+                      <span>静态数据展示</span>
+                    </label>
+                              <div class="form-control-wrap">
+                                <div class="form-control-static"> 展示静态表单数据 </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group fn-mb-10"> <label class="form-control-label" for="FormHelpText1">
+                    <span>辅助文本</span>
+                  </label>
+                            <div class="form-control-wrap"> <textarea name="" id="FormHelpText1" cols="30" rows="10" placeholder="表单提示语" class="form-control"></textarea>
+                              <p class="form-tips"> 辅助文本 </p>
+                            </div>
+                          </div>
+                          <div class="form-group fn-mb-10"> <label class="form-control-label" for="FormGsMix1">
+                    <span>范例</span>
+                  </label>
+                            <div class="form-gs-box">
+                              <div class="form-addon"> A </div>
+                              <div class="form-addon-com child-left"> <button type="button" class="btn default">1</button> </div>
+                              <div class="form-addon child-left"> B </div>
+                              <div class="form-addon-com child-left">
+                                <div class="btn-group-box"> <button type="button" class="btn default">2</button> <button type="button" class="btn default">3</button> </div>
+                              </div>
+                              <div class="form-addon-com child-left">
+                                <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="form-addon-com child-left">
+                                <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">5</button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="form-addon child-left"> C </div>
+                              <div class="form-control-wrap"> <input type="text" class="form-control" id="FormGsMix1" placeholder="范例" /> </div>
+                            </div>
+                          </div>
+                          <div class="form-group"> <label class="form-control-label" for="FormGsMix2">
+                    <span>范例</span>
+                  </label>
+                            <div class="form-gs-box">
+                              <div class="form-control-wrap"> <input type="text" class="form-control" id="FormGsMix2" placeholder="范例" /> </div>
+                              <div class="form-addon child-right"> C </div>
+                              <div class="form-addon-com child-right"> <button type="button" class="btn default">1</button> </div>
+                              <div class="form-addon child-right"> B </div>
+                              <div class="form-addon-com child-right">
+                                <div class="btn-group-box"> <button type="button" class="btn default">2</button> <button type="button" class="btn default">3</button> </div>
+                              </div>
+                              <div class="form-addon-com child-right">
+                                <div class="btn-group-box"> <button type="button" class="btn default">4</button> <button type="button" class="btn default dropdown-menu-btn"></button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="form-addon-com child-right">
+                                <div class="btn-group-box"> <button type="button" class="btn default dropdown-menu-btn">5</button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">菜单选项</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="form-addon"> A </div>
+                            </div>
                           </div>
                         </form>
                       </div>

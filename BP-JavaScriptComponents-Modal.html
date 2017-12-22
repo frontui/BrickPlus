@@ -250,7 +250,7 @@ $('[data-action]').on('click', function() {
   var action = $(this).data('action')
   switch(action) {
     case 'success':
-      return $.successModalLayer({ title: 'success', content: '成功', callback: function() { alert('成功') } })
+      return $.successModalLayer({title: 'success', contentTitle: 'success...', content: '成功', okText:'ok', buttonClassName:'fn-ml-50',  callback: function() { alert('成功') } })
     case 'confirm':
       return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
     case 'alert':
@@ -272,19 +272,11 @@ $('[data-action]').on('click', function() {
                   <div class="example-code">
                   <pre>
             <code>
-
-// 指定作用域 
-   var handler = {
-     say: function() {
-       alert('成功')
-       console.log(this)
-     }
-   }
 $('[data-action]').on('click', function() {
   var action = $(this).data('action')
   switch(action) {
     case 'success':
-      return $.successModalLayer({ title: 'success', content: '成功', callback: $.proxy(handler.say, handler) })
+      return $.successModalLayer({ title: 'success', contentTitle: 'success...', content: '成功', okText:'ok', buttonClassName:'fn-ml-50',  callback: function() { alert('成功') } })
     case 'confirm':
       return $.confirmModalLayer({ title: '提醒', content: '确认取消？', callback: function() { alert(' ok') } })
     case 'alert':
@@ -358,31 +350,23 @@ $('[data-action]').on('click', function() {
           // ---------
           // 模态窗口
         $('#btn-modalLayer').on('click', function()
+        {
+          $('#my-modalLayer').modalLayer(
           {
-            $('#my-modalLayer').modalLayer(
+            title: 'modalLayer',
+            content: '<h1>modalLayer- content</h1>',
+            buttons: [
             {
-              title: 'modalLayer',
-              content: '<h1>modalLayer- content</h1>',
-              buttons: [
+              text: '哈哈',
+              callback: function()
               {
-                text: '哈哈',
-                callback: function()
-                {
-                  alert('哈哈')
-                    // return false 不关闭
-                    // return false;
-                }
-              }]
-            })
+                alert('哈哈')
+                  // return false 不关闭
+                  // return false;
+              }
+            }]
           })
-          // 指定作用域 
-        var handler = {
-          say: function()
-          {
-            alert('成功')
-            console.log(this)
-          }
-        }
+        })
         $('[data-action]').on('click', function()
         {
           var action = $(this).data('action')
@@ -391,15 +375,24 @@ $('[data-action]').on('click', function() {
             case 'success':
               return $.successModalLayer(
               {
-                title: 'success',
-                content: '成功',
-                callback: $.proxy(handler.say, handler)
+                size: 'smaller',
+                title: '提示',
+                contentTitle: '修改成功',
+                content: '请按照提示进行操作',
+                okText: '确定',
+                buttonClassName: '',
+                callback: function()
+                {
+                  alert('成功')
+                }
               })
             case 'confirm':
               return $.confirmModalLayer(
               {
+                size: 'smaller',
                 title: '提醒',
-                content: '确认取消？',
+                contentTitle: '是否确认取消',
+                content: '请按照提示进行操作',
                 callback: function()
                 {
                   alert(' ok')
@@ -408,8 +401,10 @@ $('[data-action]').on('click', function() {
             case 'alert':
               return $.alertModalLayer(
               {
+                size: 'smaller',
                 title: '提示',
-                content: '汗',
+                contentTitle: '你已经被踢出局',
+                content: '请按照提示进行操作',
                 callback: function()
                 {
                   alert('确定')
@@ -418,8 +413,10 @@ $('[data-action]').on('click', function() {
             case 'error':
               return $.errorModalLayer(
               {
+                size: 'smaller',
                 title: '提示',
-                content: '错误',
+                contentTitle: '修改失败',
+                content: '请按照提示进行操作',
                 callback: function()
                 {
                   alert('错误')
