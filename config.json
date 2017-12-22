@@ -6,7 +6,7 @@
 	"template": "./template/",
 	"destPath" : "OutPut",
 	"bower_components": "/bower_components",
-	"version": "1.0.0",
+	"version": "1.2.2",
 	"sprite_padding": 20,
 	"bower_source": [
     "./bower_components/jquery/dist/jquery.min.js",
