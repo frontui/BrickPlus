@@ -132,16 +132,11 @@ $.confirmModalLayer = function (config) {
         contentTitle: config['contentTitle'],
         content: config['content'] || '',
         buttons: [
-          {
-              text: '确定',
-              callback: config['callback']
-          }
-          // ,
-          // {
-          //   href: 'javascript:void(0);',
-          //   text: '取消',
-          //   style: 'btn links block-btn w-100'
-          // }
+            {
+                style: 'btn secondary w-150 ' + config['buttonClassName'], //2018-5-11
+                text: config['okText'] ,   //2018-5-11
+                callback: config['callback']
+            }
         ],
         isHideRemove: config['isHideRemove'] || false
     })
@@ -158,7 +153,8 @@ $.alertModalLayer = function (config) {
         content: config['content'],
         buttons: [
             {
-                text: '确定',
+                style: 'btn secondary w-150 ' + config['buttonClassName'], //2018-5-11
+                text: config['okText'] ,   //2018-5-11
                 callback: config['callback']
             }
         ],
@@ -177,8 +173,8 @@ $.errorModalLayer = function (config) {
         content: config['content'],
         buttons: [
             {
-                text: '确定',
-                style: 'btn thirdly w-150',
+                style: 'btn thirdly w-150 ' + config['buttonClassName'], //2018-5-11
+                text: config['okText'] ,   //2018-5-11
                 callback: config['callback']
             }
         ],
